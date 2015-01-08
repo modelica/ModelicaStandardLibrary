@@ -4736,14 +4736,15 @@ This package contains test examples of electric machines.
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
-              *fsNominal)) "Stator main field inductance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+              *fsNominal)) "Stator main field inductance per phase" annotation
+          (Dialog(tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/IMC.png"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
               0.0667))/(2*pi*fsNominal))
-          "Rotor stray inductance (equivalent three phase winding)"
+          "Rotor stray inductance per phase (equivalent three phase winding)"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Resistance Rr(start=0.04)
-          "Rotor resistance (equivalent three phase winding) at TRef"
+          "Rotor resistance per phase (equivalent three phase winding) at TRef"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Temperature TrRef(start=293.15)
           "Reference temperature of rotor resistance"
@@ -4938,11 +4939,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               extent={{-10,-10},{10,10}},
               rotation=270)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
-              *fsNominal)) "Stator main field inductance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+              *fsNominal)) "Stator main field inductance per phase" annotation
+          (Dialog(tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/IMS.png"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
               0.0667))/(2*pi*fsNominal))
-          "Rotor stray inductance w.r.t. rotor side"
+          "Rotor stray inductance per phase w.r.t. rotor side"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
           "Rotor zero sequence inductance w.r.t. rotor side"
@@ -4976,7 +4978,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           PRef=0,
           VRef(start=1) = 1,
           wRef(start=1) = 1)
-          "Rotor core losses; all parameters refer to rotor side"
+          "Rotor core loss parameter record; all parameters refer to rotor side"
           annotation (Dialog(tab="Losses"));
         output Modelica.SIunits.Current i_0_r(stateSelect=StateSelect.prefer)
            = spacePhasorR.zero.i "Rotor zero-sequence current";
@@ -5327,10 +5329,11 @@ These models use package SpacePhasors.
         parameter Modelica.SIunits.Voltage VsOpenCircuit(start=112.3)
           "Open circuit RMS voltage per phase @ fsNominal";
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "Stator main field inductance in d-axis"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Stator main field inductance per phase in d-axis" annotation (Dialog(
+              tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/SMPM.png"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
-          "Stator main field inductance in q-axis"
+          "Stator main field inductance per phase in q-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
@@ -5371,7 +5374,7 @@ These models use package SpacePhasors.
             enable=useDamperCage));
         parameter Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
-                fsNominal/p)) "Permanent magnet loss losses"
+                fsNominal/p)) "Permanent magnet loss parameter record"
           annotation (Dialog(tab="Losses"));
         Components.PermanentMagnetWithLosses permanentMagnet(
           final Ie=Ie,
@@ -5658,10 +5661,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             Dialog(group="Operational temperatures", enable=not useThermalPort
                  and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "Stator main field inductance in d-axis"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Stator main field inductance per phase in d-axis" annotation (Dialog(
+              tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/SMEE.png"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
-          "Stator main field inductance in q-axis"
+          "Stator main field inductance per phase in q-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
@@ -5723,7 +5727,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Operational excitation temperature" annotation (Dialog(group=
                 "Operational temperatures", enable=not useThermalPort));
         parameter Machines.Losses.BrushParameters brushParameters
-          "Brush losses" annotation (Dialog(tab="Losses"));
+          "Brush loss parameter record" annotation (Dialog(tab="Losses"));
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
@@ -5843,18 +5847,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         annotation (
           defaultComponentName="smee",
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
-              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
-                    255}),
-              Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
-                    1},{-110,-4}}, color={0,0,255}),
-              Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
-                    {-90,-4}}, color={0,0,255}),
-              Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
-                    -4}}, color={0,0,255}),
-              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
-                    0,255})}),
+                  100,100}}), graphics={Ellipse(extent={{-134,34},{-66,-34}},
+                lineColor={0,0,255}),Line(points={{-100,50},{-100,20},{-130,20},
+                {-130,-4}}, color={0,0,255}),Line(points={{-130,-4},{-129,1},{-125,
+                5},{-120,6},{-115,5},{-111,1},{-110,-4}}, color={0,0,255}),Line(
+                points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},{-90,
+                -4}}, color={0,0,255}),Line(points={{-90,-4},{-89,1},{-85,5},{-80,
+                6},{-75,5},{-71,1},{-70,-4}}, color={0,0,255}),Line(points={{-100,
+                -50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
           Documentation(info="<HTML>
 <p><b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
@@ -6064,6 +6064,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             powerBalance(final lossPowerRotorWinding=damperCageLossPower,
               final lossPowerRotorCore=0),
           statorCore(final w=statorCoreParameters.wRef));
+
         Modelica.Blocks.Interfaces.RealOutput ir[2](
           start=zeros(2),
           each final quantity="ElectricCurrent",
@@ -6087,10 +6088,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             Dialog(group="Operational temperatures", enable=not useThermalPort
                  and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "Stator main field inductance in d-axis"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Stator main field inductance per phase in d-axis" annotation (Dialog(
+              tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/SMR.png"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
-          "Stator main field inductance in q-axis"
+          "Stator main field inductance per phase in q-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useDamperCage(start=true)
           "Enable / disable damper cage" annotation (Evaluate=true, Dialog(tab=
@@ -9826,32 +9828,28 @@ The induction machine models use package SpacePhasors.
        conditional ThermalPort for all machines</li>
   </ul>
 </HTML>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
-          Rectangle(
-            origin={2.835,10},
-            fillColor={0,128,255},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{-60,-60},{60,60}}),
-          Rectangle(
-            origin={2.835,10},
-            fillColor={128,128,128},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{-80,-60},{-60,60}}),
-          Rectangle(
-            origin={2.835,10},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.HorizontalCylinder,
-            extent={{60,-10},{80,10}}),
-          Rectangle(
-            origin={2.835,10},
-            lineColor={95,95,95},
-            fillColor={95,95,95},
-            fillPattern=FillPattern.Solid,
-            extent={{-60,50},{20,70}}),
-          Polygon(
-            origin={2.835,10},
-            fillPattern=FillPattern.Solid,
-            points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{
-                60,-100},{-70,-100},{-70,-90}})}));
+            Rectangle(
+              origin={2.835,10},
+              fillColor={0,128,255},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-60,-60},{60,60}}),Rectangle(
+              origin={2.835,10},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{-80,-60},{-60,60}}),Rectangle(
+              origin={2.835,10},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.HorizontalCylinder,
+              extent={{60,-10},{80,10}}),Rectangle(
+              origin={2.835,10},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid,
+              extent={{-60,50},{20,70}}),Polygon(
+              origin={2.835,10},
+              fillPattern=FillPattern.Solid,
+              points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},
+              {60,-100},{-70,-100},{-70,-90}})}));
   end BasicMachines;
 
   package Sensors "Sensors for machine modelling"
@@ -9911,14 +9909,12 @@ The induction machine models use package SpacePhasors.
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,127}),
-            Text(
-              lineColor={0,0,255},
-              extent={{-40,-60},{40,-20}},
-              textString="V RMS")}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
+              color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
+              Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
+                  lineColor={0,0,255},
+                  extent={{-40,-60},{40,-20}},
+                  textString="V RMS")}), Documentation(info="<HTML>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
 </HTML>"));
@@ -9978,14 +9974,12 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Line(points={{-90,0},{-70,0}}, color={0,0,255}),
-            Line(points={{70,0},{90,0}}, color={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,127}),
-            Text(
-              lineColor={0,0,255},
-              extent={{-40,-60},{40,-20}},
-              textString="A RMS")}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={Line(points={{-90,0},{-70,0}},
+              color={0,0,255}),Line(points={{70,0},{90,0}}, color={0,0,255}),
+              Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
+                  lineColor={0,0,255},
+                  extent={{-40,-60},{40,-20}},
+                  textString="A RMS")}), Documentation(info="<HTML>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
 </HTML>"));
@@ -12633,10 +12627,10 @@ Additionally, all losses = heat flows are recorded.
 </HTML>"));
     end ThermalAmbientTransformer;
     annotation (Icon(graphics={Ellipse(
-            extent={{-65,-63},{65,63}},
-            lineColor={191,0,0},
-            fillColor={191,0,0},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+              extent={{-65,-63},{65,63}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
 <h4>Thermal concept</h4>
 <p>
 Each machine model is equipped with a machine-specific conditional <code>thermalPort</code>.
@@ -12834,7 +12828,7 @@ Connector for Space Phasors:
         "Enable / disable (=fixed temperatures) thermal port"
         annotation (Evaluate=true);
       parameter Machines.Losses.FrictionParameters frictionParameters
-        "Friction losses" annotation (Dialog(tab="Losses"));
+        "Friction loss parameter record" annotation (Dialog(tab="Losses"));
       output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
         internalSupport.phi "Mechanical angle of rotor against stator";
       output Modelica.SIunits.AngularVelocity wMechanical(
@@ -12896,41 +12890,34 @@ Connector for Space Phasors:
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Text(
-              extent={{-150,-120},{150,-180}},
-              lineColor={0,0,255},
-              textString="%name"),
-            Rectangle(
-              extent={{80,-80},{120,-120}},
-              lineColor={192,192,192},
-              fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),
-            Line(
-              visible=not useSupport,
-              points={{80,-100},{120,-100}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{90,-100},{80,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{100,-100},{90,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{110,-100},{100,-120}},
-              color={0,0,0},
-              smooth=Smooth.None),
-            Line(
-              visible=not useSupport,
-              points={{120,-100},{110,-120}},
-              color={0,0,0},
-              smooth=Smooth.None)}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={Text(
+                  extent={{-150,-120},{150,-180}},
+                  lineColor={0,0,255},
+                  textString="%name"),Rectangle(
+                  extent={{80,-80},{120,-120}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),Line(
+                  visible=not useSupport,
+                  points={{80,-100},{120,-100}},
+                  color={0,0,0},
+                  smooth=Smooth.None),Line(
+                  visible=not useSupport,
+                  points={{90,-100},{80,-120}},
+                  color={0,0,0},
+                  smooth=Smooth.None),Line(
+                  visible=not useSupport,
+                  points={{100,-100},{90,-120}},
+                  color={0,0,0},
+                  smooth=Smooth.None),Line(
+                  visible=not useSupport,
+                  points={{110,-100},{100,-120}},
+                  color={0,0,0},
+                  smooth=Smooth.None),Line(
+                  visible=not useSupport,
+                  points={{120,-100},{110,-120}},
+                  color={0,0,0},
+                  smooth=Smooth.None)}), Documentation(info="<HTML>
 Base partial model DC machines:
 <ul>
 <li>main parts of the icon</li>
@@ -12966,7 +12953,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator zero sequence inductance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance Lssigma(start=3*(1 - sqrt(1 -
-            0.0667))/(2*pi*fsNominal)) "Stator stray inductance"
+            0.0667))/(2*pi*fsNominal)) "Stator stray inductance per phase"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       extends PartialBasicMachine(
         Jr(start=0.29),
@@ -12976,11 +12963,11 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final m=3,
         VRef(start=100),
         wRef=2*pi*fsNominal)
-        "Stator core losses; all parameters refer to stator side"
+        "Stator core loss parameter record; all parameters refer to stator side"
         annotation (Dialog(tab="Losses"));
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(IRef(
-            start=100), wRef=2*pi*fsNominal/p) "Stray load losses"
-        annotation (Dialog(tab="Losses"));
+            start=100), wRef=2*pi*fsNominal/p)
+        "Stray load loss parameter record" annotation (Dialog(tab="Losses"));
       replaceable output
         Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines
         powerBalance(
@@ -13137,9 +13124,9 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       annotation (Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
-                color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
-                color={0,0,255})}));
+                {100,100}}),graphics={Line(points={{-50,100},{-20,100},{-20,70}},
+              color={0,0,255}),Line(points={{50,100},{20,100},{20,70}}, color={
+              0,0,255})}));
     end PartialBasicInductionMachine;
 
     package InductionMachines
@@ -13316,7 +13303,7 @@ Partial thermal port for induction machines
                       fillColor={191,0,0},
                       fillPattern=FillPattern.Solid,
                       origin={0,68},
-                      rotation=90)}),Documentation(info="<HTML>
+                      rotation=90)}), Documentation(info="<HTML>
 Partial thermal ambient for induction machines
 </HTML>"));
       end PartialThermalAmbientInductionMachines;
@@ -13531,12 +13518,14 @@ Interfaces and partial models for induction machines
       parameter Machines.Losses.CoreParameters coreParameters(
         final m=1,
         VRef=ViNominal,
-        wRef=wNominal) "Armature core losses" annotation (Dialog(tab="Losses"));
+        wRef=wNominal) "Armature core loss parameter record"
+        annotation (Dialog(tab="Losses"));
       parameter Machines.Losses.StrayLoadParameters strayLoadParameters(IRef=
-            IaNominal, wRef=wNominal) "Stray load losses"
+            IaNominal, wRef=wNominal) "Stray load loss parameter record"
         annotation (Dialog(tab="Losses"));
       parameter Machines.Losses.BrushParameters brushParameters(ILinear=0.01*
-            IaNominal) "Brush losses" annotation (Dialog(tab="Losses"));
+            IaNominal) "Brush loss parameter record"
+        annotation (Dialog(tab="Losses"));
       replaceable output
         Machines.Interfaces.DCMachines.PartialPowerBalanceDCMachines
         powerBalance(
@@ -13829,7 +13818,7 @@ Partial thermal port for DC machines
                       fillColor={191,0,0},
                       fillPattern=FillPattern.Solid,
                       origin={0,68},
-                      rotation=90)}),Documentation(info="<HTML>
+                      rotation=90)}), Documentation(info="<HTML>
 Partial thermal ambient for induction machines
 </HTML>"));
       end PartialThermalAmbientDCMachines;
@@ -14310,33 +14299,28 @@ This package contains the space phasor connector and partial models for machine 
   package Icons "Icons for electrical machines"
     extends Modelica.Icons.IconsPackage;
     partial model TransientMachine
-      annotation (Icon(graphics={
-            Rectangle(
-              extent={{-40,60},{80,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,128,255}),
-            Rectangle(
-              extent={{-40,60},{-60,-60}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={128,128,128}),
-            Rectangle(
-              extent={{80,10},{100,-10}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={95,95,95}),
-            Rectangle(
-              extent={{-40,70},{40,50}},
-              lineColor={95,95,95},
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid),
-            Polygon(
-              points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
-                  {80,-100},{-50,-100},{-50,-90}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+      annotation (Icon(graphics={Rectangle(
+                  extent={{-40,60},{80,-60}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={0,128,255}),Rectangle(
+                  extent={{-40,60},{-60,-60}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={128,128,128}),Rectangle(
+                  extent={{80,10},{100,-10}},
+                  lineColor={0,0,0},
+                  fillPattern=FillPattern.HorizontalCylinder,
+                  fillColor={95,95,95}),Rectangle(
+                  extent={{-40,70},{40,50}},
+                  lineColor={95,95,95},
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid),Polygon(
+                  points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
+                {80,-100},{-50,-100},{-50,-90}},
+                  lineColor={0,0,0},
+                  fillColor={0,0,0},
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This icon is designed for a <b>transient machine</b> model.
 </p>
@@ -14373,28 +14357,33 @@ This icon is designed for a <b>quasistationary machine</b> model.
     end QuasiStationaryMachine;
 
     partial model FundamentalWaveMachine
-      annotation (Icon(graphics={Rectangle(
-                  extent={{-40,60},{80,-60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={255,128,0}),Rectangle(
-                  extent={{-40,60},{-60,-60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={128,128,128}),Rectangle(
-                  extent={{80,10},{100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={95,95,95}),Rectangle(
-                  extent={{-40,70},{40,50}},
-                  lineColor={95,95,95},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
-                {80,-100},{-50,-100},{-50,-90}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-40,60},{80,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={255,128,0}),
+            Rectangle(
+              extent={{-40,60},{-60,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={128,128,128}),
+            Rectangle(
+              extent={{80,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={95,95,95}),
+            Rectangle(
+              extent={{-40,70},{40,50}},
+              lineColor={95,95,95},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-50,-90},{-40,-90},{-10,-20},{40,-20},{70,-90},{80,-90},
+                  {80,-100},{-50,-100},{-50,-90}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This icon is designed for a <b>FundamentalWave machine</b> model.
 </p>
@@ -14459,6 +14448,7 @@ This icon is designed for a <b>FundamentalWave machine</b> model.
 This icon is designed for a <b>transient transformer</b> model.
 </p>
 </html>"));
+
     end TransientTransformer;
 
     partial model QuasiStationaryTransformer
@@ -15415,14 +15405,14 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
         annotation (Line(points={{-80,-80},{-90,-80}}, color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
-              points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-80,-80}},
-              lineColor={95,95,95},
-              fillColor={135,135,135},
-              fillPattern=FillPattern.Solid), Text(
-              extent={{-40,-90},{40,-130}},
-              lineColor={0,0,0},
-              textString="%terminalConnection")}), Documentation(info="<html>
+                  points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{
+                80,-110},{80,-84},{76,-80},{-80,-80}},
+                  lineColor={95,95,95},
+                  fillColor={135,135,135},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-40,-90},{40,-130}},
+                  lineColor={0,0,0},
+                  textString="%terminalConnection")}), Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
 </html>"));
@@ -15676,7 +15666,7 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
       final parameter Real xrq=xmq^2/(xq - xqSubtransient)
         "Damper reactance per phase, d-axis [pu]";
       final parameter Real rs=2/(1/xdSubtransient + 1/xqSubtransient)/(omega*Ta)
-        "Stator resistance per phase at specifaction temperature [pu]";
+        "Stator resistance per phase at specification temperature [pu]";
       final parameter Real rrd=(xrd - xmd^2/xe)/(omega*Td0Subtransient)
         "Damper resistance per phase at specification temperature, d-axis [pu]";
       final parameter Real rrq=xrq/(omega*Tq0Subtransient)
@@ -15694,10 +15684,10 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
         "Stator stray inductance per phase"
         annotation (Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Inductance Lmd=xmd*ZReference/omega
-        "Main field inductance in d-axis"
+        "Main field inductance per phase in d-axis"
         annotation (Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Inductance Lmq=xmq*ZReference/omega
-        "Main field inductance in q-axis"
+        "Main field inductance per phase in q-axis"
         annotation (Dialog(tab="Result", enable=false));
       parameter Modelica.SIunits.Inductance Lrsigmad=(xrd - xmd)*ZReference/
           omega "Damper stray inductance in d-axis"
@@ -15980,31 +15970,26 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
 </li>
   </ul>
 </HTML>"),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
-        Rectangle(
+    Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={Rectangle(
           origin={2.835,10},
           fillColor={0,128,255},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{-60,-60},{60,60}}),
-        Rectangle(
+          extent={{-60,-60},{60,60}}),Rectangle(
           origin={2.835,10},
           fillColor={128,128,128},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{-80,-60},{-60,60}}),
-        Rectangle(
+          extent={{-80,-60},{-60,60}}),Rectangle(
           origin={2.835,10},
           fillColor={95,95,95},
           fillPattern=FillPattern.HorizontalCylinder,
-          extent={{60,-10},{80,10}}),
-        Rectangle(
+          extent={{60,-10},{80,10}}),Rectangle(
           origin={2.835,10},
           lineColor={95,95,95},
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid,
-          extent={{-60,50},{20,70}}),
-        Polygon(
+          extent={{-60,50},{20,70}}),Polygon(
           origin={2.835,10},
           fillPattern=FillPattern.Solid,
           points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,
-              -100},{-70,-100},{-70,-90}})}));
+            -100},{-70,-100},{-70,-90}})}));
 end Machines;
