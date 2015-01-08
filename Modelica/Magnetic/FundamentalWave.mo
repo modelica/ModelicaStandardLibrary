@@ -3940,13 +3940,15 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{-40,30},{40,30}}, color={255,128,0}),Line(points={{-20,
               10},{20,10}}, color={255,128,0})}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={Line(points={{0,100},{0,50}}, color={255,
-              128,0}),Line(points={{-60,50},{60,50}}, color={255,128,0}),Line(
-              points={{-40,30},{40,30}}, color={255,128,0}),Line(points={{-20,
-              10},{20,10}}, color={255,128,0}),Text(
-                  extent={{-144,-9},{156,-49}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
+                100,100}}), graphics={
+            Line(points={{0,100},{0,50}}, color={255,128,0}),
+            Line(points={{-60,50},{60,50}}, color={255,128,0}),
+            Line(points={{-40,30},{40,30}}, color={255,128,0}),
+            Line(points={{-20,10},{20,10}}, color={255,128,0}),
+            Text(
+              extent={{-144,-9},{156,-49}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Documentation(info="<html>
 
 <p>
@@ -4557,8 +4559,9 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             powerBalance(final lossPowerRotorWinding=sum(rotorCage.resistor.resistor.LossPower),
               final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
-              *fsNominal)) "Stator main field inductance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+              *fsNominal)) "Stator main field inductance" annotation (Dialog(
+              tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/IMC.png"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
               0.0667))/(2*pi*fsNominal))
           "Rotor leakage inductance of equivalent m phase winding w.r.t. stator side"
@@ -4664,8 +4667,9 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
               mr) "Positive plug of rotor" annotation (Placement(transformation(
                 extent={{-110,70},{-90,50}}, rotation=0)));
         parameter Modelica.SIunits.Inductance Lm(start=3*sqrt(1 - 0.0667)/(2*pi
-              *fsNominal)) "Stator main field inductance"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+              *fsNominal)) "Stator main field inductance" annotation (Dialog(
+              tab="Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/IMS.png"));
         parameter Modelica.SIunits.Inductance Lrsigma(start=3*(1 - sqrt(1 -
               0.0667))/(2*pi*fsNominal))
           "Rotor leakage inductance w.r.t. rotor side"
@@ -4705,7 +4709,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           PRef=0,
           VRef(start=1) = 1,
           wRef(start=1) = 1)
-          "Rotor core losses, all quantities refer to rotor side"
+          "Rotor core loss parameter record, all quantities refer to rotor side"
           annotation (Dialog(tab="Losses"));
         output Modelica.SIunits.Voltage vr[mr]=plug_rp.pin.v - plug_rn.pin.v
           "Rotor instantaneous voltages";
@@ -4750,6 +4754,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
                 -90}},
             color={191,0,0},
             smooth=Smooth.None));
+
         connect(rotor.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
             points={{10,-44},{20,-44},{20,-80},{-40,-80},{-40,-90}},
@@ -4770,8 +4775,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         annotation (
           defaultComponentName="aims",
           Icon(graphics={Line(points={{-100,50},{-100,20},{-60,20}}, color={0,0,
-                255}),Line(points={{-100,-50},{-100,-20},{-60,-20}}, color={0,0,
-                255})}),
+                    255}), Line(points={{-100,-50},{-100,-20},{-60,-20}}, color
+                  ={0,0,255})}),
           Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine always refer to either stator or rotor. The symmetry of the stator and rotor is assumed. The number of stator and rotor phases may be different. The machine models take the following loss effects into account:
@@ -4834,8 +4839,9 @@ Resistances and stray inductances of the machine always refer to either stator o
             final lossPowerRotorCore=0,
             final lossPowerPermanentMagnet=permanentMagnet.lossPower));
         parameter Modelica.SIunits.Inductance Lmd(start=0.3/(2*pi*fsNominal))
-          "Stator main field inductance, d-axis"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Stator main field inductance, d-axis" annotation (Dialog(tab=
+                "Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/SMPM.png"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.3/(2*pi*fsNominal))
           "Stator main field inductance, q-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -4892,7 +4898,7 @@ Resistances and stray inductances of the machine always refer to either stator o
         parameter
           Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters
           permanentMagnetLossParameters(IRef(start=100), wRef(start=2*pi*
-                fsNominal/p)) "Permanent magnet loss losses"
+                fsNominal/p)) "Permanent magnet loss parameter record"
           annotation (Dialog(tab="Losses"));
         Modelica.Blocks.Interfaces.RealOutput ir[2](
           start=zeros(2),
@@ -4988,16 +4994,18 @@ Resistances and stray inductances of the machine always refer to either stator o
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smpm",
-          Icon(graphics={Rectangle(
-                      extent={{-130,10},{-100,-10}},
-                      lineColor={0,0,0},
-                      fillColor={0,255,0},
-                      fillPattern=FillPattern.Solid),Rectangle(
-                      extent={{-100,10},{-70,-10}},
-                      lineColor={0,0,0},
-                      fillColor={255,0,0},
-                      fillPattern=FillPattern.Solid),Ellipse(extent={{-134,34},
-                {-66,-34}}, lineColor={0,0,255})}),
+          Icon(graphics={
+              Rectangle(
+                extent={{-130,10},{-100,-10}},
+                lineColor={0,0,0},
+                fillColor={0,255,0},
+                fillPattern=FillPattern.Solid),
+              Rectangle(
+                extent={{-100,10},{-70,-10}},
+                lineColor={0,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid),
+              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -5052,8 +5060,9 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             final lossPowerBrush=brush.lossPower,
             final lossPowerRotorCore=0));
         parameter Modelica.SIunits.Inductance Lmd(start=1.5/(2*pi*fsNominal))
-          "Stator main field inductance, d-axis"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Stator main field inductance, d-axis" annotation (Dialog(tab=
+                "Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/SMEE.png"));
         parameter Modelica.SIunits.Inductance Lmq(start=1.5/(2*pi*fsNominal))
           "Stator main field inductance, q-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -5127,7 +5136,8 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
           start=0.025) "Stray fraction of total excitation inductance"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.Electrical.Machines.Losses.BrushParameters
-          brushParameters "Brush losses" annotation (Dialog(tab="Losses"));
+          brushParameters "Brush loss parameter record"
+          annotation (Dialog(tab="Losses"));
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Excitation voltage";
         output Modelica.SIunits.Current ie=pin_ep.i "Excitation current";
@@ -5240,14 +5250,18 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smee",
-          Icon(graphics={Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,
-                255}),Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}},
-                color={0,0,255}),Line(points={{-130,-4},{-129,1},{-125,5},{-120,
-                6},{-115,5},{-111,1},{-110,-4}}, color={0,0,255}),Line(points={
-                {-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},{-90,-4}},
-                color={0,0,255}),Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},
-                {-75,5},{-71,1},{-70,-4}}, color={0,0,255}),Line(points={{-100,
-                -50},{-100,-20},{-70,-20},{-70,-2}}, color={0,0,255})}),
+          Icon(graphics={
+              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
+              Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
+                    255}),
+              Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
+                    1},{-110,-4}}, color={0,0,255}),
+              Line(points={{-110,-4},{-109,1},{-105,5},{-100,6},{-95,5},{-91,1},
+                    {-90,-4}}, color={0,0,255}),
+              Line(points={{-90,-4},{-89,1},{-85,5},{-80,6},{-75,5},{-71,1},{-70,
+                    -4}}, color={0,0,255}),
+              Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
+                    0,255})}),
           Documentation(info="<html>
 <p>
 The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -5295,13 +5309,15 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             Modelica.Electrical.Machines.Interfaces.InductionMachines.PowerBalanceSMR
             powerBalance(final lossPowerRotorWinding=damperCageLossPower,
               final lossPowerRotorCore=0));
+
         parameter Modelica.SIunits.Temperature TrOperational(start=293.15)
           "Operational temperature of (optional) damper cage" annotation (
             Dialog(group="Operational temperatures", enable=not useThermalPort
                  and useDamperCage));
         parameter Modelica.SIunits.Inductance Lmd(start=2.9/(2*pi*fsNominal))
-          "Stator main field inductance, d-axis"
-          annotation (Dialog(tab="Nominal resistances and inductances"));
+          "Stator main field inductance, d-axis" annotation (Dialog(tab=
+                "Nominal resistances and inductances", groupImage=
+                "modelica://Modelica/Resources/Images/Electrical/Machines/SMR.png"));
         parameter Modelica.SIunits.Inductance Lmq(start=0.9/(2*pi*fsNominal))
           "Stator main field inductance, q-axis"
           annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -5411,9 +5427,10 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
             smooth=Smooth.None));
         annotation (
           defaultComponentName="smr",
-          Icon(graphics={Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,
-                0,0}),Rectangle(extent={{-100,10},{-70,-10}}, lineColor={0,0,0}),
-                Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
+          Icon(graphics={
+              Rectangle(extent={{-130,10},{-100,-10}}, lineColor={0,0,0}),
+              Rectangle(extent={{-100,10},{-70,-10}}, lineColor={0,0,0}),
+              Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<html>
 <p>
 The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
@@ -5744,24 +5761,27 @@ The single phase winding consists of a
             color={255,128,0},
             smooth=Smooth.None));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics={Rectangle(
-                      extent={{-100,60},{100,-60}},
-                      lineColor={0,0,255},
-                      pattern=LinePattern.None,
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{100,-100},{
-                94,-100},{84,-98},{76,-94},{64,-86},{50,-72},{42,-58},{36,-40},
-                {30,-18},{30,0},{30,18},{34,36},{46,66},{62,84},{78,96},{90,100},
-                {100,100}}, color={255,128,0}),Line(points={{40,60},{-100,60},{
-                -100,100}}, color={0,0,255}),Line(points={{40,-60},{-100,-60},{
-                -100,-98}}, color={0,0,255}),Line(points={{40,60},{100,20},{40,
-                -20},{0,-20},{-40,0},{0,20},{40,20},{100,-20},{40,-60}}, color=
-                {0,0,255}),Text(
-                      extent={{0,160},{0,120}},
-                      lineColor={0,0,255},
-                      fillColor={255,128,0},
-                      fillPattern=FillPattern.Solid,
-                      textString="%name")}), Documentation(info="<html>
+                  -100},{100,100}}), graphics={
+              Rectangle(
+                extent={{-100,60},{100,-60}},
+                lineColor={0,0,255},
+                pattern=LinePattern.None,
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{100,-100},{94,-100},{84,-98},{76,-94},{64,-86},{50,
+                    -72},{42,-58},{36,-40},{30,-18},{30,0},{30,18},{34,36},{46,
+                    66},{62,84},{78,96},{90,100},{100,100}}, color={255,128,0}),
+
+              Line(points={{40,60},{-100,60},{-100,100}}, color={0,0,255}),
+              Line(points={{40,-60},{-100,-60},{-100,-98}}, color={0,0,255}),
+              Line(points={{40,60},{100,20},{40,-20},{0,-20},{-40,0},{0,20},{40,
+                    20},{100,-20},{40,-60}}, color={0,0,255}),
+              Text(
+                extent={{0,160},{0,120}},
+                lineColor={0,0,255},
+                fillColor={255,128,0},
+                fillPattern=FillPattern.Solid,
+                textString="%name")}), Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Resistor\">resistor</a>, a
@@ -5882,20 +5902,24 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         gamma = p*(flange_a.phi - support.phi);
         rotator = Modelica.ComplexMath.exp(Complex(0, gamma));
         annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics={Ellipse(
-                      extent={{-100,100},{100,-100}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{-100,90},{-100,
-                60},{-80,60}}, color={255,128,0}),Line(points={{-100,-90},{-100,
-                -60},{-80,-60}}, color={255,128,0}),Line(points={{40,60},{100,
-                60},{100,90}}, color={255,128,0}),Line(points={{40,-60},{100,-60},
-                {100,-90}}, color={255,128,0}),Ellipse(
-                      extent={{-60,80},{60,-80}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{0,80},{0,90}},
-                color={0,0,0})}), Documentation(info="<html>
+                  -100},{100,100}}), graphics={
+              Ellipse(
+                extent={{-100,100},{100,-100}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-100,90},{-100,60},{-80,60}}, color={255,128,0}),
+              Line(points={{-100,-90},{-100,-60},{-80,-60}}, color={255,128,0}),
+
+              Line(points={{40,60},{100,60},{100,90}}, color={255,128,0}),
+              Line(points={{40,-60},{100,-60},{100,-90}}, color={255,128,0}),
+              Ellipse(
+                extent={{-60,80},{60,-80}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{0,80},{0,90}}, color={0,0,0})}), Documentation(info
+              ="<html>
 <p>
 This salient air gap model can be used for machines with uniform airgaps and for machines with rotor saliencies. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
 </p>
@@ -6049,40 +6073,48 @@ according to the following figure.
             smooth=Smooth.None));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics={Ellipse(
-                      extent={{-80,80},{80,-80}},
-                      lineColor={0,0,0},
-                      fillColor={175,175,175},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-20,76},{20,36}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{28,46},{68,6}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{28,-8},{68,-48}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-20,-36},{20,-76}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-68,-6},{-28,-46}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Ellipse(
-                      extent={{-66,50},{-26,10}},
-                      lineColor={0,0,0},
-                      fillColor={255,255,255},
-                      fillPattern=FillPattern.Solid),Line(points={{-80,0},{-100,
-                0}}, color={255,128,0}),Line(points={{100,0},{80,0}}, color={
-                255,128,0}),Text(
-                      extent={{0,100},{0,140}},
-                      lineColor={0,0,255},
-                      textString="%name")}),
+                  {100,100}}), graphics={
+              Ellipse(
+                extent={{-80,80},{80,-80}},
+                lineColor={0,0,0},
+                fillColor={175,175,175},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-20,76},{20,36}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{28,46},{68,6}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{28,-8},{68,-48}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-20,-36},{20,-76}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-68,-6},{-28,-46}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-66,50},{-26,10}},
+                lineColor={0,0,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(points={{-80,0},{-100,0}}, color={255,128,0}),
+              Line(points={{100,0},{80,0}}, color={255,128,0}),
+              Text(
+                extent={{0,100},{0,140}},
+                lineColor={0,0,255},
+                textString="%name")}),
           Documentation(info="<html>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png\">
@@ -7167,18 +7199,18 @@ This model is mainly used to extend from in order build more complex - equation 
             start=1), q(start=1)) "Salient inductance of an unchorded coil"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.Electrical.Machines.Losses.FrictionParameters
-        frictionParameters(wRef=2*pi*fsNominal/p) "Friction losses"
-        annotation (Dialog(tab="Losses"));
+        frictionParameters(wRef=2*pi*fsNominal/p)
+        "Friction loss parameter record" annotation (Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.CoreParameters
         statorCoreParameters(
         final m=3,
         wRef=2*pi*fsNominal/p,
         VRef(start=100))
-        "Stator core losses; all parameters refer to stator side"
+        "Stator core loss parameter record; all parameters refer to stator side"
         annotation (Dialog(tab="Losses"));
       parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters
         strayLoadParameters(IRef(start=100), wRef=2*pi*fsNominal/p)
-        "Stray load losses" annotation (Dialog(tab="Losses"));
+        "Stray load loss parameter record" annotation (Dialog(tab="Losses"));
       // Mechanical quantities
       output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
         internalSupport.phi "Mechanical angle of rotor against stator";
@@ -7305,6 +7337,7 @@ This model is mainly used to extend from in order build more complex - equation 
     initial algorithm
       assert(not Modelica.Math.isPowerOf2(m), String(m) +
         " phases are currently not supported in this version of FundametalWave");
+
     equation
       connect(stator.plug_n, plug_sn) annotation (Line(
           points={{-10,50},{-10,70},{-60,70},{-60,100}},
@@ -7473,22 +7506,19 @@ rotates space phasors and sets stateSelect modifiers in order to choose states w
 i.e., with small derivatives.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics={
-            Ellipse(
-              extent={{-60,60},{60,-60}},
-              lineColor={170,213,255},
-              fillColor={170,213,255},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{-60,60},{60,-60}},
-              textString="S",
-              lineColor={0,0,255},
-              fillColor={255,170,85},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{0,-60},{0,-100}},
-              lineColor={0,0,255},
-              textString="%name")}));
+                {100,100}}), graphics={Ellipse(
+                  extent={{-60,60},{60,-60}},
+                  lineColor={170,213,255},
+                  fillColor={170,213,255},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{-60,60},{60,-60}},
+                  textString="S",
+                  lineColor={0,0,255},
+                  fillColor={255,170,85},
+                  fillPattern=FillPattern.Solid),Text(
+                  extent={{0,-60},{0,-100}},
+                  lineColor={0,0,255},
+                  textString="%name")}));
     end StateSelector;
 
     model PositivePortInterface "Postive port interface to FluxTubes"
@@ -7512,23 +7542,19 @@ i.e., with small derivatives.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(
-              points={{-100,0},{0,0},{100,100}},
-              color={255,128,0},
-              smooth=Smooth.None),
-            Line(
-              points={{0,0},{100,-100}},
-              color={255,128,0},
-              smooth=Smooth.None),
-            Text(
-              extent={{80,80},{120,40}},
-              lineColor={255,128,0},
-              textString="re"),
-            Text(
-              extent={{80,-40},{120,-80}},
-              lineColor={255,128,0},
-              textString="im")}),
+                100,100}}), graphics={Line(
+                  points={{-100,0},{0,0},{100,100}},
+                  color={255,128,0},
+                  smooth=Smooth.None),Line(
+                  points={{0,0},{100,-100}},
+                  color={255,128,0},
+                  smooth=Smooth.None),Text(
+                  extent={{80,80},{120,40}},
+                  lineColor={255,128,0},
+                  textString="re"),Text(
+                  extent={{80,-40},{120,-80}},
+                  lineColor={255,128,0},
+                  textString="im")}),
         Documentation(info="<html>
 <p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
 </html>"));
@@ -7556,23 +7582,19 @@ i.e., with small derivatives.
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(
-              points={{-100,0},{0,0},{100,100}},
-              color={255,128,0},
-              smooth=Smooth.None),
-            Line(
-              points={{0,0},{100,-100}},
-              color={255,128,0},
-              smooth=Smooth.None),
-            Text(
-              extent={{80,80},{120,40}},
-              lineColor={255,128,0},
-              textString="re"),
-            Text(
-              extent={{80,-40},{120,-80}},
-              lineColor={255,128,0},
-              textString="im")}),
+                100,100}}), graphics={Line(
+                  points={{-100,0},{0,0},{100,100}},
+                  color={255,128,0},
+                  smooth=Smooth.None),Line(
+                  points={{0,0},{100,-100}},
+                  color={255,128,0},
+                  smooth=Smooth.None),Text(
+                  extent={{80,80},{120,40}},
+                  lineColor={255,128,0},
+                  textString="re"),Text(
+                  extent={{80,-40},{120,-80}},
+                  lineColor={255,128,0},
+                  textString="im")}),
         Documentation(info="<html>
 <p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
 </html>"));
