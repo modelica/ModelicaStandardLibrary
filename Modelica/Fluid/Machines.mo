@@ -414,6 +414,9 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase
         "Optional pump monitoring"
         annotation(Dialog(tab="Advanced", group="Diagnostics"), choicesAllMatching=true);
+    final parameter Boolean show_NPSHa = false
+        "obsolete -- remove modifier and specify Monitoring for NPSH instead"
+      annotation(Dialog(tab="Advanced", group="Obsolete"));
     Monitoring monitoring(
             redeclare final package Medium = Medium,
             final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
@@ -550,6 +553,9 @@ provided a two-phase medium model is used (see Advanced tab).
 </HTML>",
         revisions="<html>
 <ul>
+<li><i>8 Jan 2013</i>
+    by R&uuml;diger Franke:<br>
+    moved NPSH diagnostics from PartialPump to replaceable sub-model PumpMonitoring.PumpMonitoringNPSH (see ticket #646)</li>
 <li><i>Dec 2008</i>
     by R&uuml;diger Franke:<br>
     <ul>

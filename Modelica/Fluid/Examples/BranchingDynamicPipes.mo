@@ -99,27 +99,27 @@ equation
       color={0,0,127},
       thickness=0.5));
   connect(boundary1.ports[1],pipe1. port_a) annotation (Line(
-      points={{6.66134e-016,-70},{0,-70},{0,-60},{-6.12323e-016,-60}},
+      points={{0,-70},{0,-70},{0,-60},{0,-60}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe1.port_b,pipe2. port_a) annotation (Line(
-      points={{6.12323e-016,-40},{0,-40},{0,-30},{-20,-30},{-20,-20}},
+      points={{0,-40},{0,-40},{0,-30},{-20,-30},{-20,-20}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe1.port_b,pipe3. port_a) annotation (Line(
-      points={{6.12323e-016,-40},{0,-40},{0,-30},{20,-30},{20,-20}},
+      points={{0,-40},{0,-40},{0,-30},{20,-30},{20,-20}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe2.port_b,pipe4. port_a) annotation (Line(
-      points={{-20,0},{-20,0},{-20,10},{0,10},{0,16},{0,20},{-6.12323e-016,20}},
+      points={{-20,0},{-20,0},{-20,10},{0,10},{0,16},{0,20},{0,20}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe3.port_b,pipe4. port_a) annotation (Line(
-      points={{20,0},{20,0},{20,10},{0,10},{0,16},{0,20},{-6.12323e-016,20}},
+      points={{20,0},{20,0},{20,10},{0,10},{0,16},{0,20},{0,20}},
       color={0,127,255},
       thickness=0.5));
   connect(pipe4.port_b, boundary4.ports[1]) annotation (Line(
-      points={{6.12323e-016,40},{6.12323e-016,50},{-8.88178e-016,50}},
+      points={{0,40},{0,50},{0,50}},
       color={0,127,255},
       thickness=0.5));
   connect(heat2.port,pipe2. heatPorts)

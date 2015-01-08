@@ -180,7 +180,7 @@ The thermodynamic pressure is an <i>effort</i> variable, which means that the co
 of two or more ports states that the port pressures are the same.
 </p>
 <p>
-The mass flow rate is a <i>flow </i>variable, which means that the connection of two or
+The mass flow rate is a <i>flow</i> variable, which means that the connection of two or
 more ports states that the sum of all flow rates is zero.
 </p>
 <p>
@@ -1755,7 +1755,7 @@ The following parts are useful, when newly starting with this library:
 </ul>
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 2002-2013, ABB, DLR, Dassault Syst&egrave;mes AB, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
+Copyright &copy; 2002-2015, ABB, DLR, Dassault Syst&egrave;mes AB, Modelon, TU Braunschweig, TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

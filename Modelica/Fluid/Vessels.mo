@@ -413,7 +413,7 @@ of the modeller. Increase nPorts to add an additional port.
         end for;
 
         connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-            points={{-100,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+            points={{-100,0},{-87,0},{-87,0},{-74,0}},
             color={191,0,0},
             smooth=Smooth.None));
        annotation (

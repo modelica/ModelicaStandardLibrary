@@ -6,6 +6,7 @@ ControlledTankSystem
 AST_BatchPlant
 IncompressibleFluidNetwork
 BranchingDynamicPipes
+NonCircularPipes
 HeatExchanger
 TraceSubstances
 InverseParameterization

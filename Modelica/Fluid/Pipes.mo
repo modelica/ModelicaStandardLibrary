@@ -1071,7 +1071,7 @@ This also allows for taking into account friction losses with respect to the act
                 mus,
                 dimensions) if show_Res "Reynolds numbers";
             Medium.MassFlowRate[n-1] m_flows_turbulent=
-                {nParallel*(Modelica.Constants.pi/4)*0.5*(dimensions[i] + dimensions[i+1])*mus_act[i]*Re_turbulent for i in 1:n-1} if
+                {nParallel*(crossAreas[i] + crossAreas[i+1])/(dimensions[i] + dimensions[i+1])*mus_act[i]*Re_turbulent for i in 1:n-1} if
                    show_Res "Start of turbulent flow";
       protected
             parameter Boolean use_rho_nominal = false
@@ -1157,7 +1157,7 @@ e.g., with numerical smoothing or by raising events as appropriate.
           end PartialStaggeredFlowModel;
 
       model NominalLaminarFlow
-        "NominalLaminarFlow: Linear pressure loss for nominal values"
+        "NominalLaminarFlow: Linear laminar flow for given nominal values"
         extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel(
            use_mu_nominal=not show_Res);
@@ -1172,7 +1172,8 @@ e.g., with numerical smoothing or by raising events as appropriate.
         //   m_flow = dp*pi*diameter^4*d/(128*length*mu);
         SI.Length[n-1] pathLengths_nominal=
           {(dp_nominal/(n-1)-g*dheights[i])*Modelica.Constants.pi*((dimensions[i]+dimensions[i+1])/2)^4*rhos_act[i]/(128*mus_act[i])/
-           (m_flow_nominal/nParallel) for i in 1:n-1} if show_Res;
+           (m_flow_nominal/nParallel) for i in 1:n-1} if show_Res
+          "Lengths resulting from given nominal values for circular tubes";
 
       equation
         // linear pressure loss
@@ -1251,6 +1252,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mu_nominal,
                              pathLengths_internal,
                              diameters,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal))
@@ -1281,6 +1283,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mus_act,
                              pathLengths_internal,
                              diameters,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
@@ -1295,6 +1298,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mus_act,
                              pathLengths_internal,
                              diameters,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal) + {g*dheights[i]*rhos_act[i] for i in 1:n-1},
@@ -1312,6 +1316,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mus[2:n],
                              pathLengths_internal,
                              diameters,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              g*dheights,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
@@ -1327,6 +1332,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mus[2:n],
                              pathLengths_internal,
                              diameters,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              g*dheights,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
@@ -1391,7 +1397,7 @@ simulation and/or might give a more robust simulation.
           end PartialGenericPipeFlow;
 
           model NominalTurbulentPipeFlow
-        "NominalTurbulentPipeFlow: Quadratic turbulent pressure loss for nominal values"
+        "NominalTurbulentPipeFlow: Quadratic turbulent flow in circular tubes for given nominal values"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
@@ -1418,7 +1424,13 @@ simulation and/or might give a more robust simulation.
             // Reynolds Number
             Medium.AbsolutePressure[n-1] dps_fg_turbulent=
                 {(mus_act[i]*diameters[i]*pi/4)^2*Re_turbulent^2/(ks_inv[i]*rhos_act[i]) for i in 1:n-1} if
-                   show_Res "Start of turbulent flow";
+                   show_Res "Start of turbulent flow in circular tubes";
+
+          initial equation
+            for i in 1:n loop
+              assert(abs(crossAreas[i] - pi/4*dimensions[i]^2) < 1e-10*crossAreas[i],
+                     "NominalTurbulentPipeFlow model requires circular tubes");
+            end for;
 
           equation
             // Inverse parameterization for WallFriction.QuadraticTurbulent
@@ -1477,7 +1489,7 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
           end NominalTurbulentPipeFlow;
 
           model TurbulentPipeFlow
-        "TurbulentPipeFlow: Pipe wall friction in the quadratic turbulent regime (using mu to regularize laminar region)"
+        "TurbulentPipeFlow: Quadratic turbulent flow in circular tubes (using mu to regularize laminar region)"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
@@ -1488,11 +1500,17 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
           m_flow_nominal=if system.use_eps_Re then system.m_flow_nominal else 1e2*m_flow_small,
           Res_turbulent_internal = if use_Re then Re_turbulent*ones(n-1) else zeros(n-1));
 
+            import Modelica.Constants.pi;
+
             parameter Boolean use_Re = system.use_eps_Re
           "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
               annotation(Evaluate=true);
 
           initial equation
+            for i in 1:n loop
+              assert(abs(crossAreas[i] - pi/4*dimensions[i]^2) < 1e-10*crossAreas[i],
+                     "NominalTurbulentPipeFlow model requires circular tubes");
+            end for;
             // initialize dp_nominal from flow model
             if system.use_eps_Re then
               dp_nominal = dp_fric_nominal + g*sum(dheights)*rho_nominal;
@@ -1511,7 +1529,7 @@ The turbulent pressure loss correlation might be useful to optimize models that 
           end TurbulentPipeFlow;
 
           model DetailedPipeFlow
-        "DetailedPipeFlow: Pipe wall friction in the laminar and turbulent regime (detailed characteristic)"
+        "DetailedPipeFlow: Detailed characteristic for laminar and turbulent flow"
             extends
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialGenericPipeFlow(
           redeclare package WallFriction =
@@ -1849,6 +1867,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+          input SI.Area crossArea "Inner cross section area";
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small = 1
@@ -1875,6 +1894,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+          input SI.Area crossArea "Inner cross section area";
           input Real g_times_height_ab
             "Gravity times (Height(port_b) - Height(port_a))";
           input SI.Length roughness(min=0) = 2.5e-5
@@ -1903,6 +1923,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+          input SI.Area crossArea "Inner cross section area";
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
@@ -1930,6 +1951,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+          input SI.Area crossArea "Inner cross section area";
           input Real g_times_height_ab
             "Gravity times (Height(port_b) - Height(port_a))";
           input SI.Length roughness(min=0) = 2.5e-5
@@ -2023,7 +2045,7 @@ to zero, i.e., it allows to switch off pipe wall friction.
       end NoFriction;
 
       package Laminar
-        "Pipe wall friction in the laminar regime (linear correlation)"
+        "Pipe wall friction for laminar flow in circular tubes (linear correlation)"
 
         extends PartialWallFriction(
                   final use_mu = true,
@@ -2036,6 +2058,7 @@ to zero, i.e., it allows to switch off pipe wall friction.
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
 
         algorithm
+          // WARNING: The following equation is only correct for circular tubes!
           m_flow :=dp*Modelica.Constants.pi*diameter^4*(rho_a + rho_b)/(128*length*(mu_a + mu_b));
           annotation (Documentation(info="<html>
 
@@ -2046,6 +2069,7 @@ to zero, i.e., it allows to switch off pipe wall friction.
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction"
 
         algorithm
+          // WARNING: The following equation is only correct for circular tubes!
           dp := m_flow*128*length*(mu_a + mu_b)/(Modelica.Constants.pi*diameter^4*(rho_a + rho_b));
           annotation (Documentation(info="<html>
 
@@ -2055,6 +2079,7 @@ to zero, i.e., it allows to switch off pipe wall friction.
         redeclare function extends massFlowRate_dp_staticHead
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head"
 
+          // WARNING: The following equation is only correct for circular tubes!
         protected
           Real k0inv = Modelica.Constants.pi*diameter^4/(128*length)
             "Constant factor";
@@ -2126,6 +2151,7 @@ to zero, i.e., it allows to switch off pipe wall friction.
         redeclare function extends pressureLoss_m_flow_staticHead
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head"
 
+          // WARNING: The following equation is only correct for circular tubes!
         protected
           Real k0 = 128*length/(Modelica.Constants.pi*diameter^4)
             "Constant factor";
@@ -2208,7 +2234,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
       end Laminar;
 
       package QuadraticTurbulent
-        "Pipe wall friction in the quadratic turbulent regime (simple characteristic, mu not used)"
+        "Pipe wall friction for turbulent flow in circular tubes (simple characteristic, mu not used)"
 
         extends PartialWallFriction(
                   final use_mu = false,
@@ -2237,6 +2263,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
           assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta  := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
+          // WARNING: The following equation is only correct for circular tubes!
           k_inv := (pi*diameter*diameter)^2/(8*zeta);
           m_flow := Modelica.Fluid.Utilities.regRoot2(dp, dp_small, rho_a*k_inv, rho_b*k_inv);
           annotation (smoothOrder=1, Documentation(info="<html>
@@ -2265,6 +2292,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
           assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
           zeta := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
+          // WARNING: The following equation is only correct for circular tubes!
           k    := 8*zeta/(pi*diameter*diameter)^2;
           dp   := Modelica.Fluid.Utilities.regSquare2(m_flow, m_flow_small, k/rho_a, k/rho_b);
           annotation (smoothOrder=1, Documentation(info="<html>
@@ -2278,6 +2306,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
         protected
           constant Real pi = Modelica.Constants.pi;
           Real zeta = (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
+          // WARNING: The following equation is only correct for circular tubes!
           Real k_inv = (pi*diameter*diameter)^2/(8*zeta);
 
           SI.Pressure dp_grav_a = g_times_height_ab*rho_a
@@ -2356,6 +2385,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
         protected
           constant Real pi = Modelica.Constants.pi;
           Real zeta = (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
+          // WARNING: The following equation is only correct for circular tubes!
           Real k = 8*zeta/(pi*diameter*diameter)^2;
 
           SI.Pressure dp_grav_a = g_times_height_ab*rho_a
@@ -2444,7 +2474,7 @@ Reynolds numbers, i.e., the values at the right ordinate where
       end QuadraticTurbulent;
 
       package LaminarAndQuadraticTurbulent
-        "Pipe wall friction in the laminar and quadratic turbulent regime (simple characteristic)"
+        "Pipe wall friction for laminar and turbulent flow in circular tubes (simple characteristic)"
 
         extends PartialWallFriction(
                   final use_mu = true,
@@ -2471,6 +2501,7 @@ Reynolds numbers, i.e., the values at the right ordinate where
         algorithm
         /*
 Turbulent region:
+   // WARNING: The following equations are only correct for circular tubes!
    Re = m_flow*(4/pi)/(D_Re*mu)
    dp = 0.5*zeta*rho*v*|v|
       = 0.5*zeta*rho*1/(rho*A)^2 * m_flow * |m_flow|
@@ -2488,6 +2519,7 @@ Turbulent region:
    In order to simplify the approach, only one delta is used.
 
 Laminar region:
+   // WARNING: The following equation is only correct for circular tubes!
    dp = 0.5*zeta/(A^2*d) * m_flow * |m_flow|
       = 0.5 * c0/(|m_flow|*(4/pi)/(D_Re*mu)) / ((pi*(D_Re/2)^2)^2*d) * m_flow*|m_flow|
       = 0.5 * c0*(pi/4)*(D_Re*mu) * 16/(pi^2*D_Re^4*d) * m_flow*|m_flow|
@@ -2504,6 +2536,7 @@ Laminar region:
 */
           assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
+          // WARNING: The following equations are only correct for circular tubes!
           zeta   := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k0     := 128*length/(pi*diameter^4);
           k_inv  := (pi*diameter*diameter)^2/(8*zeta);
@@ -2562,6 +2595,7 @@ Laminar region:
 */
           assert(roughness > 1e-10,
                  "roughness > 0 required for quadratic turbulent wall friction characteristic");
+          // WARNING: The following equations are only correct for circular tubes!
           zeta := (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           k0   := 128*length/(pi*diameter^4);
           k    := 8*zeta/(pi*diameter*diameter)^2;
@@ -2618,14 +2652,14 @@ Laminar region:
 
           if dp>=dp_a then
             // Positive flow outside regularization
-            m_flow := Internal.m_flow_of_dp_fric(dp - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            m_flow := Internal.m_flow_of_dp_fric(dp - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
           elseif dp<=dp_b then
             // Negative flow outside regularization
-            m_flow := Internal.m_flow_of_dp_fric(dp-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            m_flow := Internal.m_flow_of_dp_fric(dp-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
           else
             // Regularization parameters
-            (m_flow_a, dm_flow_ddp_fric_a) := Internal.m_flow_of_dp_fric(dp_a-dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
-            (m_flow_b, dm_flow_ddp_fric_b) := Internal.m_flow_of_dp_fric(dp_b-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            (m_flow_a, dm_flow_ddp_fric_a) := Internal.m_flow_of_dp_fric(dp_a-dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
+            (m_flow_b, dm_flow_ddp_fric_b) := Internal.m_flow_of_dp_fric(dp_b-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
             // Include a properly defined zero mass flow point
             // Obtain a suitable slope from the linear section slope c (value of m_flow is overwritten later)
             (m_flow, dm_flow_ddp_fric_zero) := Utilities.regFun3(dp_zero, dp_b, dp_a, m_flow_b, m_flow_a, dm_flow_ddp_fric_b, dm_flow_ddp_fric_a);
@@ -2680,23 +2714,23 @@ Laminar region:
             "roughness > 0 required for quadratic turbulent wall friction characteristic");
 
           m_flow_a := if dp_grav_a<dp_grav_b then
-            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta)+m_flow_small else
+            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta)+m_flow_small else
             m_flow_small;
           m_flow_b := if dp_grav_a<dp_grav_b then
-            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta)-m_flow_small else
+            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta)-m_flow_small else
             -m_flow_small;
 
           if m_flow>=m_flow_a then
             // Positive flow outside regularization
-            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta) + dp_grav_a;
+            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta) + dp_grav_a;
           elseif m_flow<=m_flow_b then
             // Negative flow outside regularization
-            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta) + dp_grav_b;
+            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta) + dp_grav_b;
           else
             // Regularization parameters
-            (dp_a, ddp_dm_flow_a) := Internal.dp_fric_of_m_flow(m_flow_a, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta);
+            (dp_a, ddp_dm_flow_a) := Internal.dp_fric_of_m_flow(m_flow_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
             dp_a := dp_a + dp_grav_a "Adding dp_grav to dp_fric to get dp";
-            (dp_b, ddp_dm_flow_b) := Internal.dp_fric_of_m_flow(m_flow_b, rho_a, rho_b, mu_a, mu_b, length, diameter,  Re1, Re2, Delta);
+            (dp_b, ddp_dm_flow_b) := Internal.dp_fric_of_m_flow(m_flow_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
             dp_b := dp_b + dp_grav_b "Adding dp_grav to dp_fric to get dp";
             // Include a properly defined zero mass flow point
             // Obtain a suitable slope from the linear section slope c (value of dp is overwritten later)
@@ -2730,6 +2764,7 @@ Laminar region:
               "Dynamic viscosity at port_b (dummy if use_mu = false)";
             input SI.Length length "Length of pipe";
             input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+            input SI.Area crossArea "Inner cross section area";
             input SI.ReynoldsNumber Re1
               "Boundary between laminar regime and transition";
             input SI.ReynoldsNumber Re2
@@ -2782,6 +2817,7 @@ Laminar region:
               mu  := mu_b;
             end if;
             // Quadratic turbulent
+            // WARNING: The following equations are only correct for circular tubes!
             zeta := (length/diameter)/(2*log10(3.7/(Delta)))^2;
             k_inv := (pi*diameter*diameter)^2/(8*zeta);
             dp_fric_turbulent := sign(dp_fric)*(mu*diameter*pi/4)^2*Re2^2/(k_inv*rho);
@@ -2820,6 +2856,7 @@ Laminar region:
               "Dynamic viscosity at port_b (dummy if use_mu = false)";
             input SI.Length length "Length of pipe";
             input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+            input SI.Area crossArea "Inner cross section area";
             input SI.ReynoldsNumber Re1
               "Boundary between laminar regime and transition";
             input SI.ReynoldsNumber Re2
@@ -2872,6 +2909,7 @@ Laminar region:
             end if;
 
             // Turbulent
+            // WARNING: The following equations are only correct for circular tubes!
             zeta := (length/diameter)/(2*log10(3.7/(Delta)))^2;
             k := 8*zeta/(pi*diameter*diameter)^2;
             m_flow_turbulent := sign(m_flow)*(pi/4)*diameter*mu*Re2;
@@ -2911,7 +2949,7 @@ identical to laminar wall friction.
       end LaminarAndQuadraticTurbulent;
 
       package Detailed
-        "Pipe wall friction in the whole regime (detailed characteristic)"
+        "Pipe wall friction for laminar and turbulent flow (detailed characteristic)"
 
         extends PartialWallFriction(
                   final use_mu = true,
@@ -2923,13 +2961,11 @@ identical to laminar wall friction.
         import ln = Modelica.Math.log "Logarithm, base e";
         import Modelica.Math.log10 "Logarithm, base 10";
         import Modelica.Math.exp "Exponential function";
-        import Modelica.Constants.pi;
 
         redeclare function extends massFlowRate_dp
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
           import Modelica.Math;
         protected
-          constant Real pi = Modelica.Constants.pi;
           Real Delta = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min((745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta))^0.97, Re_turbulent)
             "Re leaving laminar curve";
@@ -2994,7 +3030,7 @@ identical to laminar wall friction.
           end if;
 
           // Determine mass flow rate
-          m_flow := (pi*diameter/4)*mu*(if dp >= 0 then Re else -Re);
+          m_flow := crossArea/diameter*mu*(if dp >= 0 then Re else -Re);
                   annotation (smoothOrder=1, Documentation(info="<html>
 
 </html>"));
@@ -3054,7 +3090,7 @@ identical to laminar wall friction.
           mu      :=if m_flow >= 0 then mu_a else mu_b;
 
           // Determine Re, lambda2 and pressure drop
-          Re :=(4/pi)*abs(m_flow)/(diameter*mu);
+          Re := diameter*abs(m_flow)/(crossArea*mu);
           lambda2 := if Re <= Re1 then 64*Re else
                     (if Re >= Re2 then 0.25*(Re/Math.log10(Delta/3.7 + 5.74/Re^0.9))^2 else
                      interpolateInRegion2(Re, Re1, Re2, Delta));
@@ -3105,14 +3141,14 @@ identical to laminar wall friction.
 
           if dp>=dp_a then
             // Positive flow outside regularization
-            m_flow := Internal.m_flow_of_dp_fric(dp-dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            m_flow := Internal.m_flow_of_dp_fric(dp-dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
           elseif dp<=dp_b then
             // Negative flow outside regularization
-            m_flow := Internal.m_flow_of_dp_fric(dp-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            m_flow := Internal.m_flow_of_dp_fric(dp-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
           else
             // Regularization parameters
-            (m_flow_a, dm_flow_ddp_fric_a) := Internal.m_flow_of_dp_fric(dp_a-dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
-            (m_flow_b, dm_flow_ddp_fric_b) := Internal.m_flow_of_dp_fric(dp_b-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            (m_flow_a, dm_flow_ddp_fric_a) := Internal.m_flow_of_dp_fric(dp_a-dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
+            (m_flow_b, dm_flow_ddp_fric_b) := Internal.m_flow_of_dp_fric(dp_b-dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
             // Include a properly defined zero mass flow point
             // Obtain a suitable slope from the linear section slope c (value of m_flow is overwritten later)
             (m_flow, dm_flow_ddp_fric_zero) := Utilities.regFun3(dp_zero, dp_b, dp_a, m_flow_b, m_flow_a, dm_flow_ddp_fric_b, dm_flow_ddp_fric_a);
@@ -3161,23 +3197,23 @@ identical to laminar wall friction.
 
         algorithm
           m_flow_a := if dp_grav_a<dp_grav_b then
-            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta)+m_flow_small else
+            Internal.m_flow_of_dp_fric(dp_grav_b - dp_grav_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta)+m_flow_small else
             m_flow_small;
           m_flow_b := if dp_grav_a<dp_grav_b then
-            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta)-m_flow_small else
+            Internal.m_flow_of_dp_fric(dp_grav_a - dp_grav_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta)-m_flow_small else
             -m_flow_small;
 
           if m_flow>=m_flow_a then
             // Positive flow outside regularization
-            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta) + dp_grav_a;
+            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta) + dp_grav_a;
           elseif m_flow<=m_flow_b then
             // Negative flow outside regularization
-            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta) + dp_grav_b;
+            dp := Internal.dp_fric_of_m_flow(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta) + dp_grav_b;
           else
             // Regularization parameters
-            (dp_a, ddp_dm_flow_a) := Internal.dp_fric_of_m_flow(m_flow_a, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            (dp_a, ddp_dm_flow_a) := Internal.dp_fric_of_m_flow(m_flow_a, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
             dp_a := dp_a + dp_grav_a "Adding dp_grav to dp_fric to get dp";
-            (dp_b, ddp_dm_flow_b) := Internal.dp_fric_of_m_flow(m_flow_b, rho_a, rho_b, mu_a, mu_b, length, diameter, Re1, Re2, Delta);
+            (dp_b, ddp_dm_flow_b) := Internal.dp_fric_of_m_flow(m_flow_b, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea, Re1, Re2, Delta);
             dp_b := dp_b + dp_grav_b "Adding dp_grav to dp_fric to get dp";
             // Include a properly defined zero mass flow point
             // Obtain a suitable slope from the linear section slope c (value of dp is overwritten later)
@@ -3209,6 +3245,7 @@ identical to laminar wall friction.
               "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+          input SI.Area crossArea "Inner cross section area";
           input SI.ReynoldsNumber Re1
               "Boundary between laminar regime and transition";
           input SI.ReynoldsNumber Re2
@@ -3304,9 +3341,9 @@ identical to laminar wall friction.
           end if;
 
           // Determine mass flow rate
-          m_flow := (pi*diameter/4)*mu*(if dp_fric >= 0 then Re else -Re);
+          m_flow := crossArea/diameter*mu*(if dp_fric >= 0 then Re else -Re);
           // Determine derivative of mass flow rate with dp_fric
-          dm_flow_ddp_fric := (pi*diameter*mu)/4*dRe_ddp;
+          dm_flow_ddp_fric := crossArea/diameter*mu*dRe_ddp;
           annotation(smoothOrder=1);
         end m_flow_of_dp_fric;
 
@@ -3323,6 +3360,7 @@ identical to laminar wall friction.
               "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+          input SI.Area crossArea "Inner cross section area";
           input SI.ReynoldsNumber Re1
               "Boundary between laminar regime and transition";
           input SI.ReynoldsNumber Re2
@@ -3395,9 +3433,9 @@ identical to laminar wall friction.
           end if;
 
           // Determine Reynolds number
-          Re :=(4/pi)*abs(m_flow)/(diameter*mu);
+          Re := abs(m_flow)*diameter/(crossArea*mu);
 
-          aux1 := 4/(pi*diameter*mu);
+          aux1 := diameter/(crossArea*mu);
 
           // Use correlation for lambda2 depending on actual conditions
           if Re <= Re1 then
@@ -3477,6 +3515,8 @@ b has the same sign of the change of density.</p>
 
         parameter SI.Length length "Length of pipe";
         parameter SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+        parameter SI.Area crossArea=Modelica.Constants.pi*diameter*diameter/4
+          "Inner cross section area";
         parameter SI.Length height_ab = 0.0 "Height(port_b) - Height(port_a)"
                                                                            annotation(Evaluate=true);
         parameter SI.Length roughness(min=0) = 2.5e-5
@@ -3515,6 +3555,7 @@ b has the same sign of the change of density.</p>
                          mu_nominal,
                          length,
                          diameter,
+                         crossArea,
                          roughness,
                          m_flow_small)
           "Nominal pressure loss (excluding static head)";
@@ -3550,10 +3591,10 @@ b has the same sign of the change of density.</p>
 
       equation
         if from_dp and not WallFriction.dp_is_zero then
-          m_flow = WallFriction.massFlowRate_dp_staticHead(dp, rho_a, rho_b, mu_a, mu_b, length, diameter,
+          m_flow = WallFriction.massFlowRate_dp_staticHead(dp, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea,
             g_times_height_ab, roughness, if use_x_small_staticHead then dp_small_staticHead else dp_small);
         else
-          dp = WallFriction.pressureLoss_m_flow_staticHead(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter,
+          dp = WallFriction.pressureLoss_m_flow_staticHead(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea,
             g_times_height_ab, roughness, if use_x_small_staticHead then m_flow_small_staticHead else m_flow_small);
         end if;
 

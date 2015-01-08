@@ -479,8 +479,8 @@ package AST_BatchPlant
             {-150,-240}},     color={0,0,127}));
     connect(P2_on.y, P2.N_in) annotation (Line(points={{121,-220},{130,-220},{
             130,-240}},      color={0,0,127}));
-    connect(B4.ports[1], V12.port_b) annotation (Line(points={{-90,29},{-90,
-            21},{-90,21},{-90,12}},
+    connect(B4.ports[1], V12.port_b) annotation (Line(points={{-90,29},{-90,21},
+            {-90,12}},
           color={0,127,255}));
     connect(CoolingB7.port, B7.heatPort) annotation (Line(points={{-130,-120},{
             -110,-120}}, color={191,0,0}));
@@ -986,7 +986,7 @@ package AST_BatchPlant
 
     equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-200,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+          points={{-200,0},{-87,0},{-87,0},{-74,0}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (
@@ -1801,7 +1801,7 @@ end for;
 
   equation
       connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
-          points={{-100,0},{-87,0},{-87,8.88178e-016},{-74,8.88178e-016}},
+          points={{-100,0},{-87,0},{-87,0},{-74,0}},
           color={191,0,0},
           smooth=Smooth.None));
       annotation (defaultComponentName="tank",
@@ -1911,6 +1911,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         nTopPorts=1,
         nPorts=1,
         level_start=0.8,
+        stiffCharacteristicForEmptyPort=false,
         hysteresisFactor=0.01)
         annotation (Placement(transformation(extent={{0,0},{40,40}},   rotation=0)));
 
@@ -1960,7 +1961,9 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{-39,70},{-24,70},{-24,60},{-12,60}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=100));
+      annotation (experiment(StopTime=100), Diagram(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics));
     end OneTank;
 
     model TwoTanks
@@ -2367,7 +2370,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               70,45},{70,49}},
                     color={0,127,255}));
       connect(pipe2.port_a, tank3.ports[2]) annotation (Line(points={{
-              -6.12323e-016,-32},{-6.12323e-016,-48},{0,-60},{-58,-60},{-58,-51}},
+              0,-32},{0,-48},{0,-60},{-58,-60},{-58,-51}},
                           color={0,127,255}));
       connect(pipe3.port_a, tank3.topPorts[1])
                                               annotation (Line(points={{-60,0},
