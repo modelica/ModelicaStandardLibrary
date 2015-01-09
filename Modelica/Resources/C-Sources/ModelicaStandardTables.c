@@ -3770,9 +3770,9 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         /* Expected file header format: "#1" */
         if (0 != strncmp(buf, "#1", 2)) {
             size_t len = strlen(buf);
+            fclose(fp);
             if (len == 0) {
                 free(buf);
-                fclose(fp);
                 ModelicaFormatError(
                     "Error reading format and version information in first "
                     "line of file \"%s\": \"#1\" expected.\n", fileName);
@@ -3780,7 +3780,6 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             else if (len == 1) {
                 char c0 = buf[0];
                 free(buf);
-                fclose(fp);
                 ModelicaFormatError(
                     "Error reading format and version information in first "
                     "line of file \"%s\": \"#1\" expected, but \"%c\" found.\n",
@@ -3790,7 +3789,6 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 char c0 = buf[0];
                 char c1 = buf[1];
                 free(buf);
-                fclose(fp);
                 ModelicaFormatError(
                     "Error reading format and version information in first "
                     "line of file \"%s\": \"#1\" expected, but \"%c%c\" "
@@ -3899,11 +3897,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         continue;
                     }
                     token = strtok(&buf[k], DELIM_TABLE_NUMBER);
-                    while (i < nRow && j < nCol) {
-                        if (!token) {
-                            break;
-                        }
-                        else if (token[0] == '#') {
+                    while (token && i < nRow && j < nCol && token) {
+                        if (token[0] == '#') {
                             /* Skip trailing comment line */
                             break;
                         }
@@ -4070,11 +4065,6 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
         return EOF;
     }
 
-    if ((p = strchr(*buf, '\n')) != NULL) {
-        *p = '\0';
-        return 0;
-    }
-
     do {
         char* tmp;
 
@@ -4087,6 +4077,8 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
         *bufLen *= 2;
         tmp = STATIC_CAST(char*, realloc(*buf, (size_t)*bufLen));
         if (!tmp) {
+            fclose(fp);
+            free(*buf);
             ModelicaError("Memory allocation error\n");
             return 1;
         }
