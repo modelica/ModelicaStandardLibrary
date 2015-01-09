@@ -9022,12 +9022,12 @@ Mat_PrintNumber(enum matio_types type, void *data)
             break;
 #ifdef HAVE_MAT_INT64_T
         case MAT_T_INT64:
-            printf("%lld",*(mat_int64_t*)data);
+            printf("%lld",(long long)(*(mat_int64_t*)data));
             break;
 #endif
 #ifdef HAVE_MAT_UINT64_T
         case MAT_T_UINT64:
-            printf("%llu",*(mat_uint64_t*)data);
+            printf("%llu",(unsigned long long)(*(mat_uint64_t*)data));
             break;
 #endif
         case MAT_T_INT32:
