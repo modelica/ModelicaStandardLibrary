@@ -6687,7 +6687,7 @@ quantities are assumed to be constant.
       "Return specific internal energy"
       extends Modelica.Icons.Function;
     algorithm
-      u := cp_const*(T - T0) - R*T;
+      u := cp_const*(state.T - T0) - R_gas*state.T;
     end specificInternalEnergy;
 
     redeclare function extends specificEntropy "Return specific entropy"
