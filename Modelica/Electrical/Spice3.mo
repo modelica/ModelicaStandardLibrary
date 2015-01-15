@@ -2113,7 +2113,7 @@ RC 3 4 1K<br/>
                                 Q4(icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 RC(v(start=0)))),
-                         X2(X1( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
+                         X2(X1( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=false)),
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(Binternal(start=0), icapbc(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
