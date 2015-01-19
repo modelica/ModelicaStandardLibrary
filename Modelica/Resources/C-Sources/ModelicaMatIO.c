@@ -76,10 +76,18 @@
 /* Have asprintf */
 #undef HAVE_ASPRINTF
 
-/* Have long long / long double on Win32 */
+/* Have long long / long double */
 #if defined (_WIN32)
 #if defined(__WATCOMC__) || (defined(_MSC_VER) && _MSC_VER >= 1300)
 #define HAVE_LONG_LONG 1
+#define HAVE_LONG_DOUBLE 1
+#endif
+#endif
+#if defined(__GNUC__)
+#if !defined(HAVE_LONG_LONG)
+#define HAVE_LONG_LONG 1
+#endif
+#if !defined(HAVE_LONG_DOUBLE)
 #define HAVE_LONG_DOUBLE 1
 #endif
 #endif
@@ -9022,12 +9030,20 @@ Mat_PrintNumber(enum matio_types type, void *data)
             break;
 #ifdef HAVE_MAT_INT64_T
         case MAT_T_INT64:
+#ifdef HAVE_LONG_LONG
             printf("%lld",(long long)(*(mat_int64_t*)data));
+#else
+            printf("%lld",*(mat_int64_t*)data);
+#endif
             break;
 #endif
 #ifdef HAVE_MAT_UINT64_T
         case MAT_T_UINT64:
+#ifdef HAVE_LONG_LONG
             printf("%llu",(unsigned long long)(*(mat_uint64_t*)data));
+#else
+            printf("%llu",*(mat_uint64_t*)data);
+#endif
             break;
 #endif
         case MAT_T_INT32:
