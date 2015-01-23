@@ -38,7 +38,9 @@ model PumpingSystem "Model of a pumping system for drinking water"
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     V(displayUnit="l") = 0.05,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-    redeclare package Medium = Medium)
+    redeclare package Medium = Medium,
+    p_b_start=600000,
+    T_start=system.T_start)
     annotation (Placement(transformation(extent={{-68,-80},{-48,-60}}, rotation=
            0)));
 
