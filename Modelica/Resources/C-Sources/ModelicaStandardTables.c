@@ -3899,7 +3899,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         continue;
                     }
                     token = strtok(&buf[k], DELIM_TABLE_NUMBER);
-                    while (token && i < nRow && j < nCol && token) {
+                    while (token && i < nRow && j < nCol) {
                         if (token[0] == '#') {
                             /* Skip trailing comment line */
                             break;
