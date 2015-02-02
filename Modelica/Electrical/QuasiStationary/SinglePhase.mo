@@ -1711,6 +1711,10 @@ This sensor can be used to measure the frequency of the reference system.
       extends Interfaces.AbsoluteSensor;
       ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
+      Modelica.SIunits.Voltage abs_y = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex potential";
+      Modelica.SIunits.Angle arg_y = Modelica.ComplexMath.arg(y)
+        "Argument of complex potential";
     equation
       y = pin.v;
       annotation (Icon(graphics={Text(
@@ -1735,6 +1739,10 @@ This sensor can be used to measure the complex potential.
 
     model VoltageSensor "Voltage sensor"
       extends Interfaces.RelativeSensor;
+      Modelica.SIunits.Voltage abs_y = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_y = Modelica.ComplexMath.arg(y)
+        "Argument of complex voltage";
     equation
       i = Complex(0);
       y = v;
@@ -1759,6 +1767,10 @@ This sensor can be used to measure the complex voltage.
 
     model CurrentSensor "Current sensor"
       extends Interfaces.RelativeSensor;
+      Modelica.SIunits.Current abs_y = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_y = Modelica.ComplexMath.arg(y)
+        "Argument of complex current";
     equation
       v = Complex(0);
       y = i;
@@ -1799,6 +1811,11 @@ This sensor can be used to measure the complex current.
             origin={-80,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
+      Modelica.SIunits.ApparentPower abs_y = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex apparent power";
+      Modelica.SIunits.Angle arg_y = Modelica.ComplexMath.arg(y)
+        "Argument of complex apparent power";
+
     equation
       Connections.branch(currentP.reference, currentN.reference);
       currentP.reference.gamma = currentN.reference.gamma;

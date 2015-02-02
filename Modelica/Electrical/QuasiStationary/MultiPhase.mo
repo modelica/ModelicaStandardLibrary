@@ -2166,8 +2166,12 @@ This sensor can be used to measure the frequency of the reference system, using 
             transformation(extent={{-80,-10},{-60,10}}, rotation=0)));
       ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    equation
+      Modelica.SIunits.Voltage abs_y[m] = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex potential";
+      Modelica.SIunits.Angle arg_y[m] = Modelica.ComplexMath.arg(y)
+        "Argument of complex potential";
 
+    equation
       connect(potentialSensor.y, y) annotation (Line(points={{11,0},{35.75,0},{
               35.75,0},{60.5,0},{60.5,0},{110,0}}, color={85,170,255}));
       connect(plug_p, plugToPins_p.plug_p) annotation (Line(
@@ -2205,6 +2209,11 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
       QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
+      Modelica.SIunits.Voltage abs_y[m] = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_y[m] = Modelica.ComplexMath.arg(y)
+        "Argument of complex voltage";
+
     equation
       connect(plugToPins_p.pin_p, voltageSensor.pin_p) annotation (Line(points=
               {{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color={85,
@@ -2240,6 +2249,10 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
       QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
+      Modelica.SIunits.Current abs_y[m] = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_y[m] = Modelica.ComplexMath.arg(y)
+        "Argument of complex current";
     equation
       connect(plugToPins_p.pin_p, currentSensor.pin_p) annotation (Line(points=
               {{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color={85,
@@ -2309,6 +2322,12 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
             origin={-80,-70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
+
+      Modelica.SIunits.ApparentPower abs_y = Modelica.ComplexMath.'abs'(y)
+        "Magnitude of complex apparent power";
+      Modelica.SIunits.Angle arg_y = Modelica.ComplexMath.arg(y)
+        "Argument of complex apparent power";
+
     equation
       connect(plugToPinsCurrentP.plug_p, currentP) annotation (Line(points={{-72,
               0},{-79,0},{-86,0},{-100,0}}, color={85,170,255}));
