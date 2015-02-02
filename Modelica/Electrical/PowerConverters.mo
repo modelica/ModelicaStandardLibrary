@@ -21,12 +21,12 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
 <h4>Topology classificaton</h4>
 
 <p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC\">AC/DC converters</a>.</p>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
 
 <h4>Control</h4>
 
 <p>For each of the provided rectifiers a 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control\">control model</a> is availanble. 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is availanble. 
 These control models have electrical connectors to be connected with the AC suppy. 
 The firing angle of thyristor rectifiers can either be set by a parameter or a signal input. 
 </p>
@@ -34,7 +34,7 @@ The firing angle of thyristor rectifiers can either be set by a parameter or a s
 <h4>Examples</h4>
 
 <p>A variety of examples is provided at
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC\">Examples.ACDC</a>. 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC\">Examples.ACDC</a>. 
 These examples include different kinds of DC loads. Even the control characeteristics 
 of the rectifiers can be obtained experimentally; the names of these models 
 contain <code>_Characteristic</code>.
@@ -52,14 +52,14 @@ contain <code>_Characteristic</code>.
 
 <p>There are currently no space phasor pulse width modulation (PWM) models provided. However, for operating the single 
 and multi phase inverter the PWM 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.DCDC.Control.SignalPWM\">controller</a> 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">controller</a> 
 can be used. 
 </p>
 
 <h4>Examples</h4>
 
 <p>Some examples are provided at
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.DCAC\">Examples.DCAC</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC\">Examples.DCAC</a>.
 </p>
 </html>"));
     end DCACConcept;
@@ -80,14 +80,14 @@ can be used.
 <h4>Control</h4>
 
 <p>A pulse width modulation (PWM) 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.DCDC.Control\">controller</a> 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control\">controller</a> 
 is provided. 
 </p>
 
 <h4>Examples</h4>
 
 <p>Some examples are provided at
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.DCDC\">Examples.DCDC</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCDC\">Examples.DCDC</a>.
 </p>
 </html>"));
     end DCDCConcept;
@@ -117,6 +117,11 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
+
+<h5>Version 3.2.2, 2015-02-02</h5>
+<ul>
+<li>Fixed broken hyper links</li>
+</ul>
 
 <h5>Version 1.2.0, 2014-04-06</h5>
 <ul>
@@ -212,10 +217,10 @@ General types of AC/AC converters are currently not provided in this library.
 
 <p>
 General background knowledge on power converters and power electronics can be found in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.References\">[Skvarenina01]</a> and 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.References\">[Luo05]</a>. 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Skvarenina01]</a> and 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Luo05]</a>. 
 A freely available book is available in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.References\">[Williams2006]</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Williams2006]</a>.
 </p>
 </html>"));
   end UsersGuide;
@@ -947,6 +952,7 @@ A freely available book is available in
                 origin={-80,60})));
         initial equation
           lMains.i = 0;
+
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
               points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
@@ -2353,6 +2359,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 transformation(extent={{-30,-60},{-10,-40}})));
         initial equation
           lMains.i[1:m - 1] = zeros(m - 1);
+
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
               points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
@@ -3876,6 +3883,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 origin={40,-90})));
         initial equation
           inductor.i[1:m - 1] = zeros(m - 1);
+
         equation
           connect(constantVoltage_p.n, constantVoltage_n.p) annotation (Line(
               points={{-70,40},{-70,20}},
@@ -4719,7 +4727,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
 
 <p>
 General information about controllers is summarized in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control\">Control</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 </html>"));
       end Signal2mPulse;
@@ -4830,7 +4838,7 @@ General information about controllers is summarized in
 
 <p>
 General information about controllers is summarized in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control\">Control</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 
 <p>
@@ -4956,7 +4964,7 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
 
 <p>
 General information about controllers is summarized in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control\">Control</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 
 <p>
@@ -5080,7 +5088,7 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
 
 <p>
 General information about controllers is summarized in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control\">Control</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 </html>"));
       end VoltageCenterTap2mPulse;
@@ -5160,7 +5168,7 @@ General information about controllers is summarized in
       annotation (Documentation(info="<html>
 <p>
 A generic controller with signal input and <code>2*m</code> firing signals is provided in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
 where <code>m</code> is the arbitrary number of phases</code>. 
 Additinal topology specific controllers with electrical connectors are also included.
 </p>
@@ -5169,7 +5177,7 @@ Additinal topology specific controllers with electrical connectors are also incl
 
 <p>
 Each controller is equipped with an optional 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.ACDC.Control.Filter\">filter</a> 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Filter\">filter</a> 
 to filter the input voltages. By default the filter is enabled.  
 </p>
 
@@ -5334,12 +5342,12 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a two pulse Graetz diode rectifier bridge. The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2Pulse\">Examples.ACDC.ThyristorCenterTap2Pulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
     end DiodeBridge2Pulse;
@@ -5526,7 +5534,7 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
@@ -5534,7 +5542,7 @@ This is a two pulse Graetz thyristor rectifier bridge. The firing signal <code>f
 with thyristor <code>thyristor_p1</code> and <code>thyristor_n2</code>. 
 The firing signal <code>fire_n</code> are connected
 with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See example 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2Pulse\">Examples.ACDC.ThyristorCenterTap2Pulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
     end ThyristorBridge2Pulse;
@@ -5727,7 +5735,7 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
@@ -5736,7 +5744,7 @@ with thyristor <code>thyristor_p1</code>.
 The firing signal <code>fire_n</code> is connected
 with thyristor <code>thyristor_p2</code>. 
 The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2Pulse\">Examples.ACDC.ThyristorCenterTap2Pulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
     end HalfControlledBridge2Pulse;
@@ -5848,12 +5856,12 @@ The circuit topology is the same as in
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a two pulse diode rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2Pulse\">Examples.ACDC.ThyristorCenterTap2Pulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
     end DiodeCenterTap2Pulse;
@@ -5987,11 +5995,11 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>This a two pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2Pulse\">Examples.ACDC.ThyristorCenterTap2Pulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
     end ThyristorCenterTap2Pulse;
@@ -6091,14 +6099,14 @@ General information about AC/DC converters can be found at the
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>.
 </p>
 
 <p>
 This is a m pulse diode rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>. 
 The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTapmPulse\">Examples.ACDC.ThyristorCenterTapmPulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">Examples.ACDC.RectifierCenterTapmPulse</a>.
 </p>
 </html>"));
     end DiodeCenterTapmPulse;
@@ -6212,14 +6220,14 @@ The circuit topology is the same as in
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a m pulse thyristor rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>. 
 See example
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTapmPulse\">Examples.ACDC.ThyristorCenterTapmPulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">Examples.ACDC.RectifierCenterTapmPulse</a>.
 </p>
 </html>"));
     end ThyristorCenterTapmPulse;
@@ -6346,12 +6354,12 @@ See example
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorBridge2mPulse\">Examples.ACDC.ThyristorBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the 
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources. 
 </p>
 </html>"));
@@ -6500,14 +6508,14 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for multi phase circuits with phase even phase numbers greater than three the 
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources. 
 See example
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorBridge2mPulse\">Examples.ACDC.ThyristorBridge2mPulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>.
 </p>
 </html>"));
     end ThyristorBridge2mPulse;
@@ -6671,13 +6679,13 @@ See example
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 
 <p>
 This is a 2*m pulse half controlled rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorBridge2mPulse\">Examples.ACDC.ThyristorBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the 
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources. 
 </p>
 </html>"));
@@ -6805,12 +6813,12 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a 2*m pulse diode rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2mPulse\">Examples.ACDC.ThyristorCenterTap2mPulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">Examples.ACDC.RectifierCenterTap2mPulse</a>.
 </p>
 </html>"));
     end DiodeCenterTap2mPulse;
@@ -6959,19 +6967,19 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
 <p>
 This is a 2*m pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. See example 
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.ACDC.ThyristorCenterTap2mPulse\">Examples.ACDC.ThyristorCenterTap2mPulse</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">Examples.ACDC.RectifierCenterTap2mPulse</a>.
 </p>
 </html>"));
     end ThyristorCenterTap2mPulse;
     annotation (Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 </html>"));
   end ACDC;
@@ -7161,7 +7169,7 @@ This is a single phase two level inverter. The boolean signals <code>fire_p</cod
 
 <p>
 An example of a single phase inverter with PWM voltage control is included in
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.DCAC.SinglePhaseTwoLevel\">Examples.DCAC.SinglePhaseTwoLevel</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCAC.SinglePhaseTwoLevel\">Examples.DCAC.SinglePhaseTwoLevel</a>.
 </p>
 </html>"));
     end SinglePhase2Level;
@@ -7380,7 +7388,7 @@ This is a multi phase two level inverter. The boolean signals <code>fire_p[k]</c
     annotation (Documentation(info="<html>
 <p>
 General information about DC/AC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.DCACConcept\">DC/AC converter concept</a> 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept\">DC/AC converter concept</a> 
 </p>
 </html>"));
   end DCAC;
@@ -7515,16 +7523,16 @@ to the switching period. The output firing signal is strictly determined by the 
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Firing (<code>fire</code>) and inverse firing (<code>notFire</code>) signal of PWM control; <code>d</code> = duty cycle; <code>f</code> = switching period </caption>
+  <caption align=\"bottom\"><b>Fig. 1:</b> Firing (<code>fire</code>) and inverse firing (<code>notFire</code>) signal of PWM control; <code>d</code> = duty cycle; <code>f</code> = switching frequency </caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica_Electrical_PowerConverters/Resources/Images/dutyCycle.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/dutyCycle.png\">
     </td>
   </tr>
 </table>
 
 <p>
-The firing signal is generated by comparing the sampled duty cycle input with a periodic saw tooth signal [<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.References\">Williams2006</a>]. 
+The firing signal is generated by comparing the sampled duty cycle input with a periodic saw tooth signal [<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">Williams2006</a>]. 
 </p>
 </html>"));
       end SignalPWM;
@@ -7831,20 +7839,20 @@ The H bridge is a four quadrant DC/DC converter. It consists of two single phase
   <caption align=\"bottom\"><b>Fig. 1:</b> H bridge</caption>
   <tr>
     <td>
-      <img src=\"modelica://Modelica_Electrical_PowerConverters/Resources/Images/Hbridge.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Electrical/PowerConverters/Hbridge.png\">
     </td>
   </tr>
 </table>
 
 <p>If the firing inputs <code>fire_p</code> and <code>fire_n</code> are inverse, the two legs are controlled symmetrically so that full positive or negative output voltage can be generated. See examples
-<a href=\"modelica://Modelica_Electrical_PowerConverters.Examples.DCDC.HBridge\">DCDC.HBridge</a>.
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.DCDC.HBridge\">DCDC.HBridge</a>.
 </p>
 </html>"));
     end HBridge;
     annotation (Documentation(info="<html>
 <p>
 General information about DC/DC converters can be found at the
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.DCDCConcept\">DC/DC converter concept</a>
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.DCDCConcept\">DC/DC converter concept</a>
 </p>
 </html>"));
   end DCDC;
@@ -7917,6 +7925,7 @@ For <code>useConstantEnable = false</code> the internal signal
               textString="enable")}));
     end EnableLogic;
   end Enable;
+
   package Interfaces "Interfaces"
     import Modelica;
     extends Modelica.Icons.InterfacesPackage;
@@ -7943,7 +7952,7 @@ For <code>useConstantEnable = false</code> the internal signal
 
       end ACplug;
 
-      partial model ACtwoPlug
+      partial model ACtwoPlug "Two AC multi phase plugs"
         parameter Integer m(final min=3) = 3 "Number of phases";
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac_p(final m=m)
           "Positive potential AC input"
@@ -8003,7 +8012,6 @@ For <code>useConstantEnable = false</code> the internal signal
 
       end ACpin;
 
-
       partial model ACplug "AC multi phase plug"
         parameter Integer m(final min=3) = 3 "Number of phases";
         Modelica.Electrical.MultiPhase.Interfaces.PositivePlug ac(final m=m)
@@ -8041,7 +8049,6 @@ For <code>useConstantEnable = false</code> the internal signal
 
       end DCtwoPin2;
 
-
     end DCDC;
 
     package Enable "Enabling interfaces"
@@ -8076,10 +8083,10 @@ For <code>useConstantEnable = false</code> the internal signal
 This partial model provides paramters and the conditional input signal for the enabling models:</p>
 <p>
 <ul>
-<li><a href=\"modelica://Modelica_Electrical_PowerConverters.Interfaces.Enable1\">Enable1</a></li>
-<li><a href=\"modelica://Modelica_Electrical_PowerConverters.Interfaces.Enable2\">Enable2</a></li>
-<li><a href=\"modelica://Modelica_Electrical_PowerConverters.Interfaces.Enable1m\">Enable1m</a></li>
-<li><a href=\"modelica://Modelica_Electrical_PowerConverters.Interfaces.Enable2m\">Enable2m</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable1\">Enable1</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable2\">Enable2</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable1m\">Enable1m</a></li>
+<li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable2m\">Enable2m</a></li>
 </ul>
 </p>
 </html>"));
@@ -8239,6 +8246,7 @@ This partial model provides paramters and the conditional input signal for the e
   package Icons "Icons"
     extends Modelica.Icons.Package;
     partial model ExampleTemplate "Example template"
+
       annotation (Icon(graphics={Ellipse(
                   extent={{-100,100},{100,-100}},
                   lineColor={175,175,175},
@@ -8256,6 +8264,7 @@ This partial model provides paramters and the conditional input signal for the e
     end ExampleTemplate;
 
     partial model Converter "Converter icon"
+
       annotation (Icon(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -8273,6 +8282,7 @@ This partial model provides paramters and the conditional input signal for the e
     end Converter;
 
     partial block Control "Control icon"
+
       annotation (Icon(graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
                   lineColor={0,0,127},
@@ -8297,8 +8307,8 @@ This partial model provides paramters and the conditional input signal for the e
     preferredView="info",
     Documentation(info="<html>
 <p>
-Copyright &copy; 2013-2014, <a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
-<a href=\"modelica://Modelica_Electrical_PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
+Copyright &copy; 2013-2015, <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Christian Kral</a> and
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
