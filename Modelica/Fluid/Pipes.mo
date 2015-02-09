@@ -1838,6 +1838,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
       partial package PartialWallFriction
         "Partial wall friction characteristic (base package of all wall friction characteristics)"
         extends Modelica.Icons.Package;
+	import Modelica.Constants.pi;
 
       // Constants to be set in subpackages
         constant Boolean use_mu = true
@@ -1867,7 +1868,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-          input SI.Area crossArea "Inner cross section area";
+          input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small = 1
@@ -1923,7 +1924,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-          input SI.Area crossArea "Inner cross section area";
+          input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
