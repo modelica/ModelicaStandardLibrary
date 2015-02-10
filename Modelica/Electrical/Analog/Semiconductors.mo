@@ -1877,9 +1877,9 @@ public
       i = id + v*Gp;
       LossPower=i*v;
 
-      assert(Bv>0, "Bv must be grater then zero", AssertionLevel.error);
-      assert(Vf>0, "Vf musst be greater then zero", AssertionLevel.error);
-      assert(Vt>0, "Vt must be greater then zero", AssertionLevel.error);
+      assert(Bv>0, "Bv must be greater than zero", AssertionLevel.error);
+      assert(Vf>0, "Vf must be greater than zero", AssertionLevel.error);
+      assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
     annotation (
       Documentation(info="<html>
 <p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter.The model is devided into three parts:</p>

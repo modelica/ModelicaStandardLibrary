@@ -15544,7 +15544,7 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
       annotation (Documentation(info="<html>
 <p>
 The multi phase input values <code>u[m]</code> are transformed to the corresponding space phasor which is rotated to the rotor fixed reference system,
-using the provided mechanical rotor angle phi. The ouput are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
+using the provided mechanical rotor angle phi. The output are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
 </p>
 
 <h4>See also></h4>

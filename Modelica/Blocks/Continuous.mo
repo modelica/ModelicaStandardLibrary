@@ -1232,7 +1232,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
       "Initial or guess values of states"
       annotation (Dialog(group="Initialization"));
     parameter Real y_start=0
-      "Initial value of output (derivatives of y are zero upto nx-1-th derivative)"
+      "Initial value of output (derivatives of y are zero up to nx-1-th derivative)"
       annotation(Dialog(enable=initType == Init.InitialOutput, group=
             "Initialization"));
     output Real x[size(a, 1) - 1](start=x_start)

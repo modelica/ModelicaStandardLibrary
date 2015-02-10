@@ -290,7 +290,7 @@ extern int usertab(char* tableName, int nipo, int dim[], int* colWise,
                  = 1: table stored column-wise (column_1, column_2, ...)
      <- table: Pointer to vector containing a matrix with dimensions "dim"
      <- RETURN: = 0: No error
-                = 1: An error occured. An error message is printed from usertab.
+                = 1: An error occurred. An error message is printed from usertab.
   */
 
 static int isNearlyEqual(double x, double y);

@@ -611,7 +611,7 @@ This function is defined as:
 where \"delta\" is the size of the small region around zero where the
 sqrt() function is approximated by another function. The plot of the
 function above is practically identical to the one of the original function.
-However, it has a finite derivative at x=0 and is differentiable upto
+However, it has a finite derivative at x=0 and is differentiable up to
 any order. With the default value of delta=0.01, the difference between
 the function above and regRoot(x) is 16% around x=0.01, 0.25% around x=0.1
 and 0.0025% around x=1.

@@ -78,7 +78,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                        <p>This is an inverting amplifier. Resistance R1 can be choosen, R2 is defined by the desired amplfication k.</p>
+                        <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
                         </html>"),
       experiment(
         StartTime=0,
@@ -169,7 +169,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                         <p>This is a non inverting amplifier. Resistance R1 can be choosen, R2 is defined by the desired amplfication k.</p>
+                         <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -340,7 +340,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                        <p>This is a (inverting) differentiating amplifier. Resistance R can be choosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+                        <p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
                         </html>"),
       experiment(
         StartTime=0,
@@ -426,7 +426,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                        <p>This is an (inverting) integrating amplifier. Resistance R can be choosen, capacitance C is defined by the desired time constant resp. frequency.</p>
+                        <p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
                         </html>"),
       experiment(
         StartTime=0,
@@ -523,7 +523,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                         <p>This is a (inverting) low pass filter. Resistance R1 can be choosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+                         <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -616,7 +616,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                         <p>This is a (inverting) high pass filter. Resistance R1 can be choosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
+                         <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -703,7 +703,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                        <p>This is a comparator. Resistance R1 can be choosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &LT; Vref and Vp for input voltage &GT; Vref.</p>
+                        <p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &LT; Vref and Vp for input voltage &GT; Vref.</p>
                         </html>"),
       experiment(
         StartTime=0,
@@ -794,7 +794,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                        <p>This is a (inverting) Schmitt trigger. Resistance R1 can be choosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &GT; 0 + vHys and Vp for input voltage &LT; vHys*Vns/Vps.</p>
+                        <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &GT; 0 + vHys and Vp for input voltage &LT; vHys*Vns/Vps.</p>
                         </html>"),
       experiment(
         StartTime=0,
@@ -885,7 +885,7 @@ package OpAmps
               100,100}}), graphics),
       __Dymola_experimentSetupOutput,
       Documentation(info="<html>
-                        <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be choosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &GT; vHys and Vn for input voltage &LT; vHys*Vns/Vps.</p>
+                        <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &GT; vHys and Vn for input voltage &LT; vHys*Vns/Vps.</p>
                         </html>"),
       experiment(
         StartTime=0,

@@ -2666,9 +2666,9 @@ points, e.g., when an isentropic reference state is computed.
       import Medium = Modelica.Media.Air.ReferenceAir.Air_pT "Medium model";
 
       parameter Modelica.SIunits.Temperature T_min=300
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter Modelica.SIunits.Temperature T_max=500
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter Modelica.SIunits.Pressure p=1.0e5 "Fixed pressure in model";
       final parameter Modelica.SIunits.SpecificEnthalpy h_min=
           Medium.specificEnthalpy(Medium.setState_pT(p, T_min))
@@ -2732,9 +2732,9 @@ points, e.g., when an isentropic reference state is computed.
       import Medium = Modelica.Media.Air.ReferenceMoistAir "Medium model";
 
       parameter Modelica.SIunits.Temperature T_min=300
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter Modelica.SIunits.Temperature T_max=500
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter Modelica.SIunits.Pressure p=1.0e5 "Fixed pressure in model";
       parameter Modelica.SIunits.MassFraction[:] X=Modelica.Media.Air.ReferenceMoistAir.reference_X
         "Mass fraction vector";
@@ -3911,9 +3911,9 @@ output window.
         annotation (choicesAllMatching=true);
 
       parameter SI.Temperature T_min=300
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter SI.Temperature T_max=500
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter SI.Pressure p=1.0e5 "Fixed pressure in model";
       final parameter SI.SpecificEnthalpy h_min=Medium.specificEnthalpy(
           Medium.setState_pT(p, T_min)) "Specific enthalpy at T_min";
@@ -3970,9 +3970,9 @@ output window.
         annotation (choicesAllMatching=true);
 
       parameter SI.Temperature T_min=Medium.T_min
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter SI.Temperature T_max=Medium.T_max
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter SI.Pressure p=1.0e5 "Fixed pressure in model";
       final parameter SI.SpecificEnthalpy h_min=Medium.h_T(Medium.T_min)
         "Specific enthalpy at T_min";
@@ -4032,9 +4032,9 @@ output window.
         "Medium model" annotation (choicesAllMatching=true);
 
       parameter SI.Temperature T_min=300
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter SI.Temperature T_max=500
-        "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
+        "Vary temperature linearly from T_min (time=0) up to T_max (time=1)";
       parameter SI.Pressure p=1.0e5 "Fixed pressure in model";
       final parameter SI.SpecificEnthalpy h_min=Medium.h_TX(T_min, X)
         "Specific enthalpy at T_min";

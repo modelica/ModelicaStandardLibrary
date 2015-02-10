@@ -2865,7 +2865,7 @@ singular configuration.
    Inserting these equations in w_rel_ia1 results in:
       e3_a*der(eRod_a) = e3_a*der(rRod_a)/rodLength       // e3_a*eRod_a = 0
       e2_a*der(eRod_a) = e2_a*der(rRod_a)/rodLength       // e2_a*eRod_a = 0
-      e3_a*der(e2_a)   = e3_a*der(n2_a)/lenght_n2_a       // e3_a*e2_a = 0
+      e3_a*der(e2_a)   = e3_a*der(n2_a)/length_n2_a       // e3_a*e2_a = 0
                        = e3_a*cross(n1_a, der(eRod_a))/length_n2_a
                        = e3_a*cross(n1_a, der(rRod_a) - eRod_a*(eRod_a*der(rRod_a)))/(length_n2_a*rodLength)
                        = e3_a*cross(n1_a, der(rRod_a))/(length_n2_a*rodLength)
@@ -4162,7 +4162,7 @@ origin of frame_b. You may try to use another \"n1_a\" vector.
    Inserting these equations in w_rel_ia1 results in:
       e3_a*der(eAxis_a) = e3_a*der(rAxis_a)/axisLength       // e3_a*eAxis_a = 0
       e2_a*der(eAxis_a) = e2_a*der(rAxis_a)/axisLength       // e2_a*eAxis_a = 0
-      e3_a*der(e2_a)    = e3_a*der(n2_a)/lenght_n2_a       // e3_a*e2_a = 0
+      e3_a*der(e2_a)    = e3_a*der(n2_a)/length_n2_a       // e3_a*e2_a = 0
                         = e3_a*cross(n1_a, der(eAxis_a))/length_n2_a
                         = e3_a*cross(n1_a, der(rAxis_a) - eAxis_a*(eAxis_a*der(rAxis_a)))/(length_n2_a*axisLength)
                         = e3_a*cross(n1_a, der(rAxis_a))/(length_n2_a*axisLength)
@@ -8296,7 +8296,7 @@ Instead, when using this model in version 3.0 and later versions,
 the force in the length constraint component (Joints.SphericalSpherical or
 Joints.UniversalSpherical) must be calculated such that the driving torque
 in direction of the rotation
-axis is (RC shall be the name of the instance of RevoluteWithLenghtConstraint):
+axis is (RC shall be the name of the instance of RevoluteWithLengthConstraint):
 </p>
 <pre>
     0 = RC.axis.tau + RC.e*RC.frame_b.t;
@@ -8668,7 +8668,7 @@ Instead, when using this model in version 3.0 and later versions,
 the force in the length constraint component (Joints.SphericalSpherical or
 Joints.UniversalSpherical) must be calculated such that the driving force
 in direction of the translation
-axis is (RC shall be the name of the instance of PrismaticWithLenghtConstraint):
+axis is (RC shall be the name of the instance of PrismaticWithLengthConstraint):
 </p>
 <pre>
     0 = RC.axis.f + RC.e*RC.frame_b.f;

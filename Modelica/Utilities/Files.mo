@@ -144,7 +144,7 @@ function copy "Generate a copy of a file or of a directory"
   function copyDirectory "Copy a directory"
      extends Modelica.Icons.Function;
      input String oldName
-        "Old directory name without trailing '/'; existance is guaranteed";
+        "Old directory name without trailing '/'; existence is guaranteed";
      input String newName
         "New directory name without trailing '/'; directory was already created";
      input Boolean replace "= true, if an existing newName may be replaced";

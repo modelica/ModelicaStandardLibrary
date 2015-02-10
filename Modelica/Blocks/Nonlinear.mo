@@ -588,7 +588,7 @@ a transfer function
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
-are identical upto order n+m.
+are identical up to order n+m.
 </p>
 <p>
 The main advantage of this approach is that the delay is
@@ -607,7 +607,7 @@ also the default setting of this block. The setting
 It is strongly recommended to always set parameter <b>balance</b> = true, 
 in order to arrive at a much better reliable numerical computation.
 This is not the default, in order to be backwards compatible, so you have
-to explicitely set it. Besides better numerics, also all states are initialized
+to explicitly set it. Besides better numerics, also all states are initialized
 with <b>balance</b> = true (in steady-state, so der(x)=0). Longer explanation:
 </p>
 

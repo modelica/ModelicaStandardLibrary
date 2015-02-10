@@ -7521,7 +7521,7 @@ i.e., with small derivatives.
                   textString="%name")}));
     end StateSelector;
 
-    model PositivePortInterface "Postive port interface to FluxTubes"
+    model PositivePortInterface "Positive port interface to FluxTubes"
 
       Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort port
         "FundamentalWave port"

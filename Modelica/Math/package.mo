@@ -965,7 +965,7 @@ This library provides functions operating on vectors:
        symbolic manipulations)</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
-     - returns vector in direction of v with lenght = 1 and prevents
+     - returns vector in direction of v with length = 1 and prevents
        zero-division for zero vector.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)

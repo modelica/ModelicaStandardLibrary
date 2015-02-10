@@ -7714,7 +7714,7 @@ This is a conventional step down chopper model. It consists of a transistor and 
         "Negative DC output"
         annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
       Modelica.Electrical.Analog.Interfaces.PositivePin dc_p2
-        "Postive DC output"
+        "Positive DC output"
         annotation (Placement(transformation(extent={{90,50},{110,70}})));
       DCAC.SinglePhase2Level inverter_p(
         final RonTransistor=RonTransistor,
@@ -7969,7 +7969,7 @@ For <code>useConstantEnable = false</code> the internal signal
       partial model DCtwoPin "Positive and negative DC pins"
 
         Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
-          "Postive DC output"
+          "Positive DC output"
           annotation (Placement(transformation(extent={{90,50},{110,70}})));
         Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
           "Negative DC output"
@@ -8039,7 +8039,7 @@ For <code>useConstantEnable = false</code> the internal signal
       partial model DCtwoPin2 "Positive and negative pins of side 2"
 
         Modelica.Electrical.Analog.Interfaces.PositivePin dc_p2
-          "Postive DC output"
+          "Positive DC output"
           annotation (Placement(transformation(extent={{90,50},{110,70}})));
         Modelica.Electrical.Analog.Interfaces.NegativePin dc_n2
           "Negative DC output"
@@ -8080,7 +8080,7 @@ For <code>useConstantEnable = false</code> the internal signal
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                   -100,-100},{100,100}}), graphics), Documentation(info="<html>
 <p>
-This partial model provides paramters and the conditional input signal for the enabling models:</p>
+This partial model provides parameters and the conditional input signal for the enabling models:</p>
 <p>
 <ul>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable1\">Enable1</a></li>

@@ -1116,7 +1116,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     Modelica.SIunits.Voltage vps "Positive supply voltage";
     Modelica.SIunits.Voltage vns "Negative supply voltage";
     Modelica.SIunits.Voltage v_in=in_p.v - in_n.v "Input voltage difference";
-    Modelica.SIunits.Voltage v_out=out.v "Ouput voltage to ground";
+    Modelica.SIunits.Voltage v_out=out.v "Output voltage to ground";
     Modelica.SIunits.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
     Modelica.SIunits.Power p_out=out.v*out.i "Output power";
     Modelica.SIunits.Power p_s=-(p_in + p_out) "Supply power";

@@ -8,7 +8,7 @@ package FundamentalWave "Quasi static fundamental wave electric machines"
       annotation (Documentation(info="<html>
 <h5>Reference frames</h5>
 
-<p>Quasi static  magnetic ports contain the complex magnetic flux (flow variable) and the comlplex magnetic potential difference (potential variable) and a reference ange. The relationship between the different complex phasors with respect to different refrences will be explained by means of the complex magnetic flux. The same transformation relationships the also apply to the complex magnetic potential difference. However, the discussed relationsships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc. </p>
+<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the comlplex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationsships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc. </p>
 
 <p>
 Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The anlge relationship between these ports is
@@ -6548,7 +6548,7 @@ This package provides sensors for the magnetic potential difference and the magn
 <p>
 The positive port is based on 
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the 
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the 
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
 
@@ -6585,7 +6585,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 
 <p>
 The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
 </p>
 
 <h4>See also</h4>

@@ -3721,7 +3721,7 @@ and the approximation must fulfill the following requirements:
      must be <b>unique</b> with respect to all values of the flow and stream
      variables in the connection set, and must have a continuous dependency on them.<br>&nbsp;</li>
 <li> Every solution of the implicit equation system above must fulfill the equation
-     system identically [<i>upto the usual numerical accuracy</i>],
+     system identically [<i>up to the usual numerical accuracy</i>],
      provided the absolute value of every flow variable in the connection set is
      greater than a small value (|m<sub>1</sub>.c.m_flow| &gt; eps and |m<sub>2</sub>.c.m_flow| &gt; eps
      and ... and |c<sub>M</sub>.m_flow| &gt; eps).</li>
@@ -3914,7 +3914,7 @@ as a matrix. <b>size</b>(A,i) = 1 is required for
 </p>
 <p>
 Function <b>promote</b>(A,n) fills dimensions of size 1
-from the right to array A upto dimension n, where
+from the right to array A up to dimension n, where
 \"n &gt; <b>ndims</b>(A)\" is required. Let
 C = <b>promote</b>(A,n), with nA = <b>ndims</b>(A),
 then

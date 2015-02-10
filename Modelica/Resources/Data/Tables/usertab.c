@@ -60,7 +60,7 @@ int usertab(char *tableName, int nipo, int dim[], int *colWise,
                     : = 1: table stored column-wise (column_1, column_2, ...).
       <- table      : Pointer to value vector.
       <- RETURN: = 0: No error.
-                 = 1: An error occured. An error message is printed
+                 = 1: An error occurred. An error message is printed
                       from "usertab" with function "ModelicaFormatError".
    */
 

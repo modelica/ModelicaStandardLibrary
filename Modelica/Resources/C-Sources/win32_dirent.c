@@ -15,7 +15,7 @@
  *   - If no more file found, _findnext sets errno.
  *     Since this is not an error, errno is reset to zero.
  *     (otherwise the calling routine cannot check, whether an error
- *     occured within this function)
+ *     occurred within this function)
  *   - Initializing the search with findfirst is moved from "readdir"
  *     to "opendir", in order that in the calling function the
  *     current directory can be changed after "opendir".

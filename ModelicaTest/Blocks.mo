@@ -1043,7 +1043,7 @@ a transfer function
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
-are identical upto order n+m.
+are identical up to order n+m.
 </p>
 <p>
 The main advantage of this approach is that the delay is

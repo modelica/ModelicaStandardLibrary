@@ -908,7 +908,7 @@ where
 </p>
 <ul>
 <li> D is the inner pipe diameter</li>
-<li> L is the lenght of the pipe</li>
+<li> L is the length of the pipe</li>
 <li> &Delta; = &delta;/D is the relative roughness where &delta; is
      the absolute \"roughness\", i.e., the averaged height of asperities in the pipe.
      (&delta; may change over time due to growth of surface asperities during

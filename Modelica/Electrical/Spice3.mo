@@ -5752,7 +5752,7 @@ on the model behaviour.
       parameter SI.Resistance R= -1e40
         "Resistance, if specified, geometrical information is overwritten";
       parameter SI.Temp_C TEMP = -1e40 "Temperature of resistor";
-      parameter SI.Length L = -1e40 "Lenght of the resistor";
+      parameter SI.Length L = -1e40 "Length of the resistor";
       parameter SI.Length W = -1e40
         "Width of the resistor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA= false
@@ -5838,7 +5838,7 @@ on the model behaviour.
       parameter SI.Capacitance C = -1e40
         "Capacitance, if specified, geometrical information is overwritten";
       parameter SI.Temp_C TEMP = 27 "Temperature of capacitor";
-      parameter SI.Length  L(start = 0) "Lenght of the capacitor";
+      parameter SI.Length  L(start = 0) "Length of the capacitor";
       parameter SI.Length  W = -1e40
         "Width of the capacitor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA = false
@@ -5877,7 +5877,7 @@ on the model behaviour.
 
     algorithm
       if (cp.m_dCapIsGiven < 0.5) then
-        assert( L > 0, "Length of capacitor must be greater then zero");
+        assert( L > 0, "Length of capacitor must be greater than zero");
       end if;
 
       vp := Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorInitEquations(
