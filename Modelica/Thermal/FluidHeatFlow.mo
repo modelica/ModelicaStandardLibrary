@@ -42,7 +42,7 @@ Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral a
 
   <h5>3.2.2, 2010-06-25</h5>
   <ul>
-  <li> Added users guide package including contact and relase notes</li>
+  <li> Added users guide package including contact and release notes</li>
   </ul>
 
   <h5>1.6.7, 2010-06-25 (Christian Kral)</h5>
@@ -1147,7 +1147,7 @@ then started again (using a ramp of 0.2 s).
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       parameter Modelica.SIunits.Temperature TMass(displayUnit="degC")=313.15
-        "Inital temperature of mass";
+        "Initial temperature of mass";
       output Modelica.SIunits.TemperatureDifference dTMass=
         heatCapacitor.port.T-TAmb "Mass over Ambient";
       output Modelica.SIunits.TemperatureDifference dTtoPipe=heatCapacitor.port.T-pipe.heatPort.T
@@ -1219,7 +1219,7 @@ then started again (using a ramp of 0.2 s).
 7th test example: OneMass
 </p>
 A thermal capacity is coupled with a coolant flow.
-Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
+Different initial temperatures of thermal capacity and pipe's coolant get ambient's temperature,
 the time behaviour depending on coolant flow.
 </HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end OneMass;
@@ -1232,9 +1232,9 @@ the time behaviour depending on coolant flow.
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       parameter Modelica.SIunits.Temperature TMass1(displayUnit="degC")=313.15
-        "Inital temperature of mass1";
+        "Initial temperature of mass1";
       parameter Modelica.SIunits.Temperature TMass2(displayUnit="degC")=333.15
-        "Inital temperature of mass2";
+        "Initial temperature of mass2";
       output Modelica.SIunits.TemperatureDifference dTMass1=
         heatCapacitor1.port.T-TAmb "Mass1 over Ambient";
       output Modelica.SIunits.TemperatureDifference dTtoPipe1=heatCapacitor1.port.T-pipe1.heatPort.T
@@ -1363,7 +1363,7 @@ the time behaviour depending on coolant flow.
 8th test example: TwoMass
 </p>
 Two thermal capacities are coupled with two parallel coolant flow.
-Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
+Different initial temperatures of thermal capacities and pipe's coolants get ambient's temperature,
 the time behaviour depending on coolant flow.
 </HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;

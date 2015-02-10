@@ -1000,7 +1000,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.s := s;
@@ -1099,7 +1099,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
         Integer error "Error flag for inverse iterations";
       algorithm
         aux.p := p;
@@ -1455,14 +1455,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end ddhp;
 
       function airBaseProp_pT
-        "Intermediate property record for air (p and T prefered states)"
+        "Intermediate property record for air (p and T preferred states)"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
       algorithm
         aux.p := p;
         aux.T := T;
@@ -1748,14 +1748,14 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
       end isentropicExponent_pT;
 
       function airBaseProp_dT
-        "Intermediate property record for air (d and T prefered states)"
+        "Intermediate property record for air (d and T preferred states)"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Density d "Density";
         input Modelica.SIunits.Temperature T "Temperature";
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
       algorithm
         aux.rho := d;
         aux.T := T;
@@ -2046,7 +2046,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
             pro "Property record for dynamic simulation";
         protected
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
           Modelica.SIunits.Temperature T "Temperature";
           Modelica.SIunits.Density d "Density";
         algorithm
@@ -2069,7 +2069,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.SIunits.Pressure p "Pressure";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
         algorithm
           f := Air_Utilities.Basic.Helmholtz(d, T);
           pro := Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT(f);
@@ -2086,7 +2086,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
         protected
           Modelica.SIunits.Density d "Density";
           Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz funcion and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
         algorithm
           d := Modelica.Media.Air.ReferenceAir.Air_Utilities.Inverses.dofpT(
                     p=p,

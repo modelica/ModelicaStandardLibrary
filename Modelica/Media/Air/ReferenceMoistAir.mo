@@ -1721,7 +1721,7 @@ package ReferenceMoistAir
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature (K)";
         output Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "Dimensionless Gibbs function and dervatives w.r.t. pi and tau";
       protected
         Real tau2 "Dimensionless temperature";
         Real[55] o "Vector of auxiliary variables";
@@ -2172,7 +2172,7 @@ package ReferenceMoistAir
         Real ddelpi "Auxiliary variable";
         Real d2 "Auxiliary variable";
         Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs funcion and dervatives w.r.t. pi and tau";
+          "Dimensionless Gibbs function and dervatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs f
           "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
         Real Tc=T - 273.15 "Celsius temperature for region check";
@@ -2805,13 +2805,13 @@ package ReferenceMoistAir
       end Basic;
 
       function ice09BaseProp_pT
-        "Intermediate property record for water (p and T prefered states)"
+        "Intermediate property record for water (p and T preferred states)"
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Pressure p "Pressure";
         input Modelica.SIunits.Temperature T "Temperature";
         output Common.AuxiliaryProperties aux "Auxiliary record";
       protected
-        Common.GibbsDerivs2 g "Gibbs funcion and dervatives w.r.t. p and T";
+        Common.GibbsDerivs2 g "Gibbs function and dervatives w.r.t. p and T";
       algorithm
         aux.p := p;
         aux.T := T;

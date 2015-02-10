@@ -6314,7 +6314,7 @@ Simple model of a permanent magnet, containing:
 <li><a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">loss model</a></li>
 </ul>
 <p>
-The permanent magnet is modeled by a magnetic potential difference. The internal reluctance of the permanent magnet is not taken into accout. The internal reluctance needs to be modeled outside the permanent magnet model, e.g., by the total machine reluctance considered in the air gap model.
+The permanent magnet is modeled by a magnetic potential difference. The internal reluctance of the permanent magnet is not taken into account. The internal reluctance needs to be modeled outside the permanent magnet model, e.g., by the total machine reluctance considered in the air gap model.
 </p>
 </html>"));
       end PermanentMagnet;

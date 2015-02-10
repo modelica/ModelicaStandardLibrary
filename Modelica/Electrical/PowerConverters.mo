@@ -208,7 +208,7 @@ General types of AC/AC converters are currently not provided in this library.
       so all temepratures of all semiconductors are equal and the heat flow of the converter heat port 
       is determined by the sum of all semiconductor heat flows</li> 
   <li>Each converter containg boolean firing inputs provides variables <code>offStart...</code>     
-      to specify the inital conditions of the off state of each semiconductor</li>
+      to specify the initial conditions of the off state of each semiconductor</li>
   <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code><li>
   <li>The number of phases of multi phase converters is not restricted to three</li>
 </ul>

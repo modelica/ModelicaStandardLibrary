@@ -967,7 +967,7 @@ following form:
    &lt;message&gt;
 </pre>
 <p>
-where the strings withing &lt;..&gt; are the actual values of the
+where the strings within &lt;..&gt; are the actual values of the
 input arguments of the function.
 </p>
 <p>
