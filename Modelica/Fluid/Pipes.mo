@@ -1316,8 +1316,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mus[2:n],
                              pathLengths_internal,
                              diameters,
-                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              g*dheights,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              dp_small/(n-1),
                              Res_turbulent_internal)*nParallel,
@@ -1332,8 +1332,8 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                              mus[2:n],
                              pathLengths_internal,
                              diameters,
-                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              g*dheights,
+                             (crossAreas[1:n-1]+crossAreas[2:n])/2,
                              (roughnesses[1:n-1]+roughnesses[2:n])/2,
                              m_flow_small/nParallel,
                              Res_turbulent_internal),
@@ -1838,7 +1838,7 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
       partial package PartialWallFriction
         "Partial wall friction characteristic (base package of all wall friction characteristics)"
         extends Modelica.Icons.Package;
-	import Modelica.Constants.pi;
+        import Modelica.Constants.pi;
 
       // Constants to be set in subpackages
         constant Boolean use_mu = true
@@ -1895,9 +1895,9 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-          input SI.Area crossArea "Inner cross section area";
           input Real g_times_height_ab
             "Gravity times (Height(port_b) - Height(port_a))";
+          input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.AbsolutePressure dp_small=1
@@ -1952,9 +1952,9 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
             "Dynamic viscosity at port_b (dummy if use_mu = false)";
           input SI.Length length "Length of pipe";
           input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-          input SI.Area crossArea "Inner cross section area";
           input Real g_times_height_ab
             "Gravity times (Height(port_b) - Height(port_a))";
+          input SI.Area crossArea = pi*diameter^2/4 "Inner cross section area";
           input SI.Length roughness(min=0) = 2.5e-5
             "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
           input SI.MassFlowRate m_flow_small = 0.01
@@ -3592,11 +3592,11 @@ b has the same sign of the change of density.</p>
 
       equation
         if from_dp and not WallFriction.dp_is_zero then
-          m_flow = WallFriction.massFlowRate_dp_staticHead(dp, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea,
-            g_times_height_ab, roughness, if use_x_small_staticHead then dp_small_staticHead else dp_small);
+          m_flow = WallFriction.massFlowRate_dp_staticHead(dp, rho_a, rho_b, mu_a, mu_b, length, diameter,
+            g_times_height_ab, crossArea, roughness, if use_x_small_staticHead then dp_small_staticHead else dp_small);
         else
-          dp = WallFriction.pressureLoss_m_flow_staticHead(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter, crossArea,
-            g_times_height_ab, roughness, if use_x_small_staticHead then m_flow_small_staticHead else m_flow_small);
+          dp = WallFriction.pressureLoss_m_flow_staticHead(m_flow, rho_a, rho_b, mu_a, mu_b, length, diameter,
+            g_times_height_ab, crossArea, roughness, if use_x_small_staticHead then m_flow_small_staticHead else m_flow_small);
         end if;
 
         // Energy balance, considering change of potential energy
