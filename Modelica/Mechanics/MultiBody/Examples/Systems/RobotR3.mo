@@ -1938,7 +1938,7 @@ a path by start and end angle of every axis. A path is planned such
 that all axes are moving as fast as possible under the given
 restrictions of maximum joint speeds and maximum joint accelerations.
 The actual r3 robot from Manutec had a different path planning strategy.
-Todays path planning algorithms from robot companies are much
+Today's path planning algorithms from robot companies are much
 more involved.
 </p>
 <p>

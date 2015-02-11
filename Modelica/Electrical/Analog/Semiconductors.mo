@@ -1882,7 +1882,7 @@ public
       assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
     annotation (
       Documentation(info="<html>
-<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter.The model is devided into three parts:</p>
+<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter. The model is divided into three parts:</p>
 <ul>
 <li>lower half of reversed bias region including breakdown: -Ids * (exp(-(Vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
 <li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(Vd/(N*Vt)) - 1</li>

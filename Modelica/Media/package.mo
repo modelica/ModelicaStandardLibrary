@@ -7126,7 +7126,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Boolean hasAccurateConductivityData=false
           "True if accurate data for thermal conductivity is available";
         Boolean hasVapourPressureCurve=false
-          "True if vapour pressure data, e.g., Antoine coefficents are known";
+          "True if vapour pressure data, e.g., Antoine coefficients are known";
         Boolean hasAcentricFactor=false
           "True if Pitzer accentric factor is known";
         SpecificEnthalpy HCRIT0=0.0
@@ -7170,7 +7170,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         Boolean hasAccurateConductivityData=false
           "True if accurate data for thermal conductivity is available";
         Boolean hasVapourPressureCurve=false
-          "True if vapour pressure data, e.g., Antoine coefficents are known";
+          "True if vapour pressure data, e.g., Antoine coefficients are known";
         Boolean hasAcentricFactor=false
           "True if Pitzer accentric factor is known";
         SpecificEnthalpy HCRIT0=0.0

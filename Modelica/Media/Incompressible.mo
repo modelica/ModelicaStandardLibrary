@@ -741,7 +741,7 @@ returned as a vector p[n+1] that has the following definition:
       end evaluateWithRange_der;
 
       function integralValue_der
-        "Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibnitz rule)"
+        "Time derivative of integral of polynomial p(u) from u_low to u_high, assuming only u_high as time-dependent (Leibniz rule)"
         extends Modelica.Icons.Function;
         input Real p[:] "Polynomial coefficients";
         input Real u_high "High integrand value";

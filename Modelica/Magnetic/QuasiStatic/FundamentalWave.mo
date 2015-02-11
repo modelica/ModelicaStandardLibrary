@@ -1570,7 +1570,7 @@ Simulate for 1.5 seconds and plot (versus time):
           extends Modelica.Icons.Example;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Frequency f=50 "Supply frequency";
-          parameter Modelica.SIunits.Voltage V=112.3 "Suppy voltage";
+          parameter Modelica.SIunits.Voltage V=112.3 "Supply voltage";
           parameter Modelica.SIunits.Torque T_Load=181.4 "Nominal load torque";
           parameter Modelica.SIunits.Time tStep=0.5 "Time of load torque step";
           parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
@@ -3475,7 +3475,7 @@ relationship of the voltage and current space phasor.
         1]]), Modelica.ComplexMath.imag(vSymmetricalComponent[indexPos[1]])) =
         Modelica.ComplexMath.conj(N)*j*omega*Phi;
       // Potential roots are not used; instead the reference angle is handled
-      // by means of Connections.branch beteen eletric plug_p and magnetic port_p
+      // by means of Connections.branch between eletric plug_p and magnetic port_p
       // It has to be checked whether this Modelica compliant
       //   Connections.potentialRoot(plug_p.reference);
       //   Connections.potentialRoot(port_p.reference);
@@ -3893,7 +3893,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
           defaultComponentName="imc",
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator, rotor and suppy are assumed. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator, rotor and supply are assumed. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -4075,7 +4075,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
                   color={85,170,255})}),
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine always refer to either stator or rotor. The symmetry of the stator, rotor and suppy are assumed. The number of stator and rotor phases may be different. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine always refer to either stator or rotor. The symmetry of the stator, rotor and supply are assumed. The number of stator and rotor phases may be different. The machine models take the following loss effects into account:
 </p>
 
 <ul>
@@ -4410,7 +4410,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
         parameter Modelica.SIunits.Resistance Re(start=2.5)
           "Warm excitation resistance" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
-          "Reference temperture of excitation resistance"
+          "Reference temperature of excitation resistance"
           annotation (Dialog(tab="Excitation"));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
@@ -5125,7 +5125,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
             Modelica.ComplexMath.fromPolar(1, gammar)
           "Complex magnetic flux of stator w.r.t. rotor fixed reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_r
-          "Complex magnetic flux of rotor w.r.t. rotor refernce frame";
+          "Complex magnetic flux of rotor w.r.t. rotor reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_rr=Phi_r*
             Modelica.ComplexMath.fromPolar(1, gammar)
           "Complex magnetic flux of rotor w.r.t. rotor fixed reference frame";
@@ -6620,7 +6620,7 @@ The partial two port model consists of a positive and a negative magnetic port. 
     end PartialTwoPort;
 
     partial model PartialTwoPortExtended
-      "Partial two port for graphical programming with additonal variables"
+      "Partial two port for graphical programming with additional variables"
       extends
         Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort;
 

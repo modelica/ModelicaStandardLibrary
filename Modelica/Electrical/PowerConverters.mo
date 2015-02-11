@@ -11,7 +11,7 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
 
 <h4>Component classification</h4>
 
-<p>Convential AC/DC converters contain diodes and thyristors. If thyristors are used, the output voltage of the rectifier can be controlled. If only diodes are used, the output voltages is solely dependent on the input voltage and the characteristic of applied diodes.</p>
+<p>Conventional AC/DC converters contain diodes and thyristors. If thyristors are used, the output voltage of the rectifier can be controlled. If only diodes are used, the output voltages is solely dependent on the input voltage and the characteristic of applied diodes.</p>
 <ul>
   <li>Diode rectifiers</li>
   <li>Thyristor rectifiers</li>
@@ -27,7 +27,7 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
 
 <p>For each of the provided rectifiers a 
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is availanble. 
-These control models have electrical connectors to be connected with the AC suppy. 
+These control models have electrical connectors to be connected with the AC supply. 
 The firing angle of thyristor rectifiers can either be set by a parameter or a signal input. 
 </p>
 
@@ -4511,7 +4511,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics), Documentation(
                 info="<html>
-<p>H bridge example template including suppy and sensors; load is not yet included</p>
+<p>H bridge example template including supply and sensors; load is not yet included</p>
 </html>"));
         end HBridge;
       end ExampleTemplates;
@@ -5136,7 +5136,7 @@ General information about controllers is summarized in
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics),
           Documentation(info="<html>
-<p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order allpass filters tuned on suppy frequency <code>f</code>.</p>
+<p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order allpass filters tuned on supply frequency <code>f</code>.</p>
 </html>"),Icon(graphics={Polygon(
                       visible=true,
                       lineColor={192,192,192},

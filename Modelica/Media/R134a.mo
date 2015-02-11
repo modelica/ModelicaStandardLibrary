@@ -157,7 +157,7 @@ package R134a "R134a: Medium model for R134a"
     end FindInterval;
 
     function helmholtzToBoundaryProps
-      "Calulate phase boundary property record from dimensionless Helmholtz function"
+      "Calculate phase boundary property record from dimensionless Helmholtz function"
 
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;

@@ -5124,7 +5124,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
         parameter Modelica.SIunits.Resistance Re(start=2.5)
           "Warm excitation resistance" annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
-          "Reference temperture of excitation resistance"
+          "Reference temperature of excitation resistance"
           annotation (Dialog(tab="Excitation"));
         parameter
           Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
@@ -7091,7 +7091,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
     end PartialTwoPort;
 
     partial model PartialTwoPortExtended
-      "Two magnetic ports for graphical modeling with additonal variables"
+      "Two magnetic ports for graphical modeling with additional variables"
       extends Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m=port_p.V_m -
           port_n.V_m "Complex magnetic potential difference";

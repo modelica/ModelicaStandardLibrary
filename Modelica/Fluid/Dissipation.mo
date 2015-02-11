@@ -9940,7 +9940,7 @@ documentation available in this package.
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
-            //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
+            //SOURCE_3: p.52, eq. 4.6: heterogeneous effects on momentum pressure loss considered through corrected mass flow rate
             input Boolean massFlowRateCorrection=false
               "Consider heterogeneous mass flow rate correction"
               annotation (Dialog(group="Choices"));
@@ -10039,7 +10039,7 @@ documentation available in this package.
             SI.Velocity deltaVelSta=meanVelSta*(SR - 1)/(xflowSta*(SR - 1) + 1)
               "Velocity difference of two phases at start of length";
 
-            //SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogenous approach
+            //SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogeneous approach
             SI.MassFlowRate mdotCorEnd=xflowEnd*(1 - xflowEnd)*rho_end*deltaVelEnd*Across
               "Correction mass flow rate at end of length";
             SI.MassFlowRate mdotCorSta=xflowSta*(1 - xflowSta)*rho_sta*deltaVelSta*Across
@@ -10265,7 +10265,7 @@ documentation available in this package.
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
-            //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
+            //SOURCE_3: p.52, eq. 4.6: heterogeneous effects on momentum pressure loss considered through corrected mass flow rate
             input Boolean massFlowRateCorrection=false
               "Consider heterogeneous mass flow rate correction"
               annotation (Dialog(group="Choices"));
@@ -13162,7 +13162,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "true == A_cross_total = 2*A_cross_branch | false == A_cross_total > 2*A_cross_branch"
             annotation (Dialog(group="T-junction"));
           Boolean velocity_reference_branches=true
-            "true == pressure loss coefficents w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
+            "true == pressure loss coefficients w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
             annotation (Dialog(group="T-junction"));
 
           Integer alpha=90 "Angle of branching" annotation (Dialog(group="T-junction"));
