@@ -1331,7 +1331,7 @@ i.e., by Gaussian elimination with partial pivoting.
     Real xx[max(size(A, 1), size(A, 2))];
   algorithm
     if min(size(A)) > 0 then
-      (xx,info,rank) := LAPACK.dgelsx_vec(
+      (xx,info,rank) := LAPACK.dgelsy_vec(
             A,
             b,
             rcond);
@@ -1414,7 +1414,7 @@ minimum norm |x| is selected. This gives a unique solution that minimizes both
 </ul>
 
 <p>
-Note, the solution is computed with the LAPACK function \"dgelsx\",
+Note, the solution is computed with the LAPACK function \"dgelsy\",
 i.e., QR or LQ factorization of A with column pivoting.
 </p>
 
@@ -1485,7 +1485,7 @@ where Q1 consists of the first \"rank\" columns of Q.
     Integer info;
     Real XX[max(size(A, 1), size(A, 2)), size(B, 2)];
   algorithm
-    (XX,info,rank) := LAPACK.dgelsx(
+    (XX,info,rank) := LAPACK.dgelsy(
           A,
           B,
           rcond);
@@ -1564,7 +1564,7 @@ minimum norm |X| is selected. This gives a unique solution that minimizes both
 </ul>
 
 <p>
-Note, the solution is computed with the LAPACK function \"dgelsx\",
+Note, the solution is computed with the LAPACK function \"dgelsy\",
 i.e., QR or LQ factorization of A with column pivoting.
 </p>
 
@@ -5682,7 +5682,6 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
       Integer nrhs=size(B, 2);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + nrhs);
       Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
         size(A, 2)) + size(B, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
@@ -5699,7 +5698,6 @@ Lapack documentation
               rcond,
               rank,
               work,
-              lwork,
               info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation
     Purpose
@@ -5814,12 +5812,291 @@ Lapack documentation
       Integer nrow=size(A, 1);
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + 1);
       Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
         size(A, 2)) + 1)];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
     external"FORTRAN 77" dgelsx(
+              nrow,
+              ncol,
+              1,
+              Awork,
+              nrow,
+              x,
+              nx,
+              jpvt,
+              rcond,
+              rank,
+              work,
+              info) annotation (Library="lapack");
+      annotation (Documentation(info="Lapack documentation
+    Purpose
+    =======
+
+    This routine is deprecated and has been replaced by routine DGELSY.
+
+    DGELSX computes the minimum-norm solution to a real linear least
+    squares problem:
+        minimize || A * X - B ||
+    using a complete orthogonal factorization of A.  A is an M-by-N
+    matrix which may be rank-deficient.
+
+    Several right hand side vectors b and solution vectors x can be
+    handled in a single call; they are stored as the columns of the
+    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+    matrix X.
+
+    The routine first computes a QR factorization with column pivoting:
+        A * P = Q * [ R11 R12 ]
+                    [  0  R22 ]
+    with R11 defined as the largest leading submatrix whose estimated
+    condition number is less than 1/RCOND.  The order of R11, RANK,
+    is the effective rank of A.
+
+    Then, R22 is considered to be negligible, and R12 is annihilated
+    by orthogonal transformations from the right, arriving at the
+    complete orthogonal factorization:
+       A * P = Q * [ T11 0 ] * Z
+                   [  0  0 ]
+    The minimum-norm solution is then
+       X = P * Z' [ inv(T11)*Q1'*B ]
+                  [        0       ]
+    where Q1 consists of the first RANK columns of Q.
+
+    Arguments
+    =========
+
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A.  N >= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of
+            columns of matrices B and X. NRHS >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit, A has been overwritten by details of its
+            complete orthogonal factorization.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,M).
+
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the M-by-NRHS right hand side matrix B.
+            On exit, the N-by-NRHS solution matrix X.
+            If m >= n and RANK = n, the residual sum-of-squares for
+            the solution in the i-th column is given by the sum of
+            squares of elements N+1:M in that column.
+
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB >= max(1,M,N).
+
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is an
+            initial column, otherwise it is a free column.  Before
+            the QR factorization of A, all initial columns are
+            permuted to the leading positions; only the remaining
+            free columns are moved as a result of column pivoting
+            during the factorization.
+            On exit, if JPVT(i) = k, then the i-th column of A*P
+            was the k-th column of A.
+
+    RCOND   (input) DOUBLE PRECISION
+            RCOND is used to determine the effective rank of A, which
+            is defined as the order of the largest leading triangular
+            submatrix R11 in the QR factorization with pivoting of A,
+            whose estimated condition number < 1/RCOND.
+
+    RANK    (output) INTEGER
+            The effective rank of A, i.e., the order of the submatrix
+            R11.  This is the same as the order of the submatrix T11
+            in the complete orthogonal factorization of A.
+
+    WORK    (workspace) DOUBLE PRECISION array, dimension
+                        (max( min(M,N)+3*N, 2*min(M,N)+NRHS )),
+
+    INFO    (output) INTEGER
+            = 0:  successful exit
+            < 0:  if INFO = -i, the i-th argument had an illegal value
+"));
+    end dgelsx_vec;
+
+    function dgelsy
+      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
+
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      input Real B[size(A, 1), :];
+      input Real rcond=0.0 "Reciprocal condition number to estimate rank";
+      output Real X[max(size(A, 1), size(A, 2)), size(B, 2)]=cat(
+                1,
+                B,
+                zeros(max(nrow, ncol) - nrow, nrhs))
+        "Solution is in first size(A,2) rows";
+      output Integer info;
+      output Integer rank "Effective rank of A";
+    protected
+      Integer nrow=size(A, 1);
+      Integer ncol=size(A, 2);
+      Integer nx=max(nrow, ncol);
+      Integer nrhs=size(B, 2);
+      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + nrhs);
+      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
+        size(A, 2)) + size(B, 2))];
+      Real Awork[size(A, 1), size(A, 2)]=A;
+      Integer jpvt[size(A, 2)]=zeros(ncol);
+    external"FORTRAN 77" dgelsy(
+              nrow,
+              ncol,
+              nrhs,
+              Awork,
+              nrow,
+              X,
+              nx,
+              jpvt,
+              rcond,
+              rank,
+              work,
+              lwork,
+              info) annotation (Library="lapack");
+      annotation (Documentation(info="Lapack documentation
+    Purpose
+    =======
+
+    DGELSY computes the minimum-norm solution to a real linear least
+    squares problem:
+        minimize || A * X - B ||
+    using a complete orthogonal factorization of A.  A is an M-by-N
+    matrix which may be rank-deficient.
+
+    Several right hand side vectors b and solution vectors x can be
+    handled in a single call; they are stored as the columns of the
+    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+    matrix X.
+
+    The routine first computes a QR factorization with column pivoting:
+        A * P = Q * [ R11 R12 ]
+                    [  0  R22 ]
+    with R11 defined as the largest leading submatrix whose estimated
+    condition number is less than 1/RCOND.  The order of R11, RANK,
+    is the effective rank of A.
+
+    Then, R22 is considered to be negligible, and R12 is annihilated
+    by orthogonal transformations from the right, arriving at the
+    complete orthogonal factorization:
+       A * P = Q * [ T11 0 ] * Z
+                   [  0  0 ]
+    The minimum-norm solution is then
+       X = P * Z' [ inv(T11)*Q1'*B ]
+                  [        0       ]
+    where Q1 consists of the first RANK columns of Q.
+
+    This routine is basically identical to the original xGELSX except
+    three differences:
+      o The call to the subroutine xGEQPF has been substituted by the
+        the call to the subroutine xGEQP3. This subroutine is a Blas-3
+        version of the QR factorization with column pivoting.
+      o Matrix B (the right hand side) is updated with Blas-3.
+      o The permutation of matrix B (the right hand side) is faster and
+        more simple.
+
+    Arguments
+    =========
+
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M >= 0.
+
+    N       (input) INTEGER
+            The number of columns of the matrix A.  N >= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of
+            columns of matrices B and X. NRHS >= 0.
+
+    A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
+            On entry, the M-by-N matrix A.
+            On exit, A has been overwritten by details of its
+            complete orthogonal factorization.
+
+    LDA     (input) INTEGER
+            The leading dimension of the array A.  LDA >= max(1,M).
+
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the M-by-NRHS right hand side matrix B.
+            On exit, the N-by-NRHS solution matrix X.
+
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB >= max(1,M,N).
+
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+            to the front of AP, otherwise column i is a free column.
+            On exit, if JPVT(i) = k, then the i-th column of AP
+            was the k-th column of A.
+
+    RCOND   (input) DOUBLE PRECISION
+            RCOND is used to determine the effective rank of A, which
+            is defined as the order of the largest leading triangular
+            submatrix R11 in the QR factorization with pivoting of A,
+            whose estimated condition number < 1/RCOND.
+
+    RANK    (output) INTEGER
+            The effective rank of A, i.e., the order of the submatrix
+            R11.  This is the same as the order of the submatrix T11
+            in the complete orthogonal factorization of A.
+
+    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
+            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
+
+    LWORK   (input) INTEGER
+            The dimension of the array WORK.
+            The unblocked strategy requires that:
+               LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
+            where MN = min( M, N ).
+            The block algorithm requires that:
+               LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+            where NB is an upper bound on the blocksize returned
+            by ILAENV for the routines DGEQP3, DTZRZF, STZRQF, DORMQR,
+            and DORMRZ.
+
+            If LWORK = -1, then a workspace query is assumed; the routine
+            only calculates the optimal size of the WORK array, returns
+            this value as the first entry of the WORK array, and no error
+            message related to LWORK is issued by XERBLA.
+
+    INFO    (output) INTEGER
+            = 0: successful exit
+            < 0: If INFO = -i, the i-th argument had an illegal value.
+"));
+    end dgelsy;
+
+    function dgelsy_vec
+      "Computes the minimum-norm solution to a real linear least squares problem with rank deficient A"
+
+      extends Modelica.Icons.Function;
+      input Real A[:, :];
+      input Real b[size(A, 1)];
+      input Real rcond=0.0 "Reciprocal condition number to estimate rank";
+      output Real x[max(size(A, 1), size(A, 2))]=cat(
+                1,
+                b,
+                zeros(max(nrow, ncol) - nrow))
+        "solution is in first size(A,2) rows";
+      output Integer info;
+      output Integer rank "Effective rank of A";
+    protected
+      Integer nrow=size(A, 1);
+      Integer ncol=size(A, 2);
+      Integer nx=max(nrow, ncol);
+      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + 1);
+      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
+        size(A, 2)) + 1)];
+      Real Awork[size(A, 1), size(A, 2)]=A;
+      Integer jpvt[size(A, 2)]=zeros(ncol);
+    external"FORTRAN 77" dgelsy(
               nrow,
               ncol,
               1,
@@ -5837,85 +6114,101 @@ Lapack documentation
     Purpose
     =======
 
-    DGEEV computes for an N-by-N real nonsymmetric matrix A, the
-    eigenvalues and, optionally, the left and/or right eigenvectors.
+    DGELSY computes the minimum-norm solution to a real linear least
+    squares problem:
+        minimize || A * X - B ||
+    using a complete orthogonal factorization of A.  A is an M-by-N
+    matrix which may be rank-deficient.
 
-    The right eigenvector v(j) of A satisfies
-                     A * v(j) = lambda(j) * v(j)
-    where lambda(j) is its eigenvalue.
-    The left eigenvector u(j) of A satisfies
-                  u(j)**H * A = lambda(j) * u(j)**H
-    where u(j)**H denotes the conjugate transpose of u(j).
+    Several right hand side vectors b and solution vectors x can be
+    handled in a single call; they are stored as the columns of the
+    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+    matrix X.
 
-    The computed eigenvectors are normalized to have Euclidean norm
-    equal to 1 and largest component real.
+    The routine first computes a QR factorization with column pivoting:
+        A * P = Q * [ R11 R12 ]
+                    [  0  R22 ]
+    with R11 defined as the largest leading submatrix whose estimated
+    condition number is less than 1/RCOND.  The order of R11, RANK,
+    is the effective rank of A.
+
+    Then, R22 is considered to be negligible, and R12 is annihilated
+    by orthogonal transformations from the right, arriving at the
+    complete orthogonal factorization:
+       A * P = Q * [ T11 0 ] * Z
+                   [  0  0 ]
+    The minimum-norm solution is then
+       X = P * Z' [ inv(T11)*Q1'*B ]
+                  [        0       ]
+    where Q1 consists of the first RANK columns of Q.
+
+    This routine is basically identical to the original xGELSX except
+    three differences:
+      o The call to the subroutine xGEQPF has been substituted by the
+        the call to the subroutine xGEQP3. This subroutine is a Blas-3
+        version of the QR factorization with column pivoting.
+      o Matrix B (the right hand side) is updated with Blas-3.
+      o The permutation of matrix B (the right hand side) is faster and
+        more simple.
 
     Arguments
     =========
 
-    JOBVL   (input) CHARACTER*1
-            = 'N': left eigenvectors of A are not computed;
-            = 'V': left eigenvectors of A are computed.
-
-    JOBVR   (input) CHARACTER*1
-            = 'N': right eigenvectors of A are not computed;
-            = 'V': right eigenvectors of A are computed.
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M >= 0.
 
     N       (input) INTEGER
-            The order of the matrix A. N >= 0.
+            The number of columns of the matrix A.  N >= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of
+            columns of matrices B and X. NRHS >= 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the N-by-N matrix A.
-            On exit, A has been overwritten.
+            On entry, the M-by-N matrix A.
+            On exit, A has been overwritten by details of its
+            complete orthogonal factorization.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA >= max(1,M).
 
-    WR      (output) DOUBLE PRECISION array, dimension (N)
-    WI      (output) DOUBLE PRECISION array, dimension (N)
-            WR and WI contain the real and imaginary parts,
-            respectively, of the computed eigenvalues.  Complex
-            conjugate pairs of eigenvalues appear consecutively
-            with the eigenvalue having the positive imaginary part
-            first.
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the M-by-NRHS right hand side matrix B.
+            On exit, the N-by-NRHS solution matrix X.
 
-    VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)
-            If JOBVL = 'V', the left eigenvectors u(j) are stored one
-            after another in the columns of VL, in the same order
-            as their eigenvalues.
-            If JOBVL = 'N', VL is not referenced.
-            If the j-th eigenvalue is real, then u(j) = VL(:,j),
-            the j-th column of VL.
-            If the j-th and (j+1)-st eigenvalues form a complex
-            conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and
-            u(j+1) = VL(:,j) - i*VL(:,j+1).
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB >= max(1,M,N).
 
-    LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL >= 1; if
-            JOBVL = 'V', LDVL >= N.
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is permuted
+            to the front of AP, otherwise column i is a free column.
+            On exit, if JPVT(i) = k, then the i-th column of AP
+            was the k-th column of A.
 
-    VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
-            If JOBVR = 'V', the right eigenvectors v(j) are stored one
-            after another in the columns of VR, in the same order
-            as their eigenvalues.
-            If JOBVR = 'N', VR is not referenced.
-            If the j-th eigenvalue is real, then v(j) = VR(:,j),
-            the j-th column of VR.
-            If the j-th and (j+1)-st eigenvalues form a complex
-            conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and
-            v(j+1) = VR(:,j) - i*VR(:,j+1).
+    RCOND   (input) DOUBLE PRECISION
+            RCOND is used to determine the effective rank of A, which
+            is defined as the order of the largest leading triangular
+            submatrix R11 in the QR factorization with pivoting of A,
+            whose estimated condition number < 1/RCOND.
 
-    LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR >= 1; if
-            JOBVR = 'V', LDVR >= N.
+    RANK    (output) INTEGER
+            The effective rank of A, i.e., the order of the submatrix
+            R11.  This is the same as the order of the submatrix T11
+            in the complete orthogonal factorization of A.
 
     WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
             On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
 
     LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,3*N), and
-            if JOBVL = 'V' or JOBVR = 'V', LWORK >= 4*N.  For good
-            performance, LWORK must generally be larger.
+            The dimension of the array WORK.
+            The unblocked strategy requires that:
+               LWORK >= MAX( MN+3*N+1, 2*MN+NRHS ),
+            where MN = min( M, N ).
+            The block algorithm requires that:
+               LWORK >= MAX( MN+2*N+NB*(N+1), 2*MN+NB*NRHS ),
+            where NB is an upper bound on the blocksize returned
+            by ILAENV for the routines DGEQP3, DTZRZF, STZRQF, DORMQR,
+            and DORMRZ.
 
             If LWORK = -1, then a workspace query is assumed; the routine
             only calculates the optimal size of the WORK array, returns
@@ -5923,14 +6216,10 @@ Lapack documentation
             message related to LWORK is issued by XERBLA.
 
     INFO    (output) INTEGER
-            = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if INFO = i, the QR algorithm failed to compute all the
-                  eigenvalues, and no eigenvectors have been computed;
-                  elements i+1:N of WR and WI contain eigenvalues which
-                  have converged.
+            = 0: successful exit
+            < 0: If INFO = -i, the i-th argument had an illegal value.
 "));
-    end dgelsx_vec;
+    end dgelsy_vec;
 
     function dgels_vec
       "Solves overdetermined or underdetermined real linear equations A*x=b with a b vector"
