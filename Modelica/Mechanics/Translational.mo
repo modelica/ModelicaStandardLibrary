@@ -4,6 +4,442 @@ package Translational
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
+  package UsersGuide "User's Guide of Translational Library"
+    extends Modelica.Icons.Information;
+
+    class Overview "Overview"
+      extends Modelica.Icons.Information;
+
+      annotation (DocumentationClass=true, Documentation(info="<HTML>
+
+<p>
+This package contains components to model <b>1-dimensional translational
+mechanical</b> systems, including different types of masses, 
+external forces, spring/damper elements,
+frictional elements, elastogaps, elements to measure position, velocity,
+acceleration and the cut-force of a flange. In sublibrary
+<b>Examples</b> several examples are present to demonstrate the usage of
+the elements. Just open the corresponding example model and simulate
+the model according to the provided description.
+</p>
+<p>
+A unique feature of this library is the <b>component-oriented</b>
+modeling of <b>Coulomb friction</b> elements, such as support friction.
+Even (dynamically) coupled friction elements can be handled
+<b>without</b> introducing stiffness which leads to fast simulations.
+The underlying theory is new and is based on the solution of mixed
+continuous/discrete systems of equations, i.e., equations where the
+<b>unknowns</b> are of type <b>Real</b>, <b>Integer</b> or <b>Boolean</b>.
+Provided appropriate numerical algorithms for the solution of such types of
+systems are available in the simulation tool, the simulation of
+(dynamically) coupled friction elements of this library is
+<b>efficient</b> and <b>reliable</b>.
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive1.png\" ALT=\"drive1\">
+</p>
+
+<p>
+A simple example of the usage of this library is given in the
+figure above. This drive consists of a shaft with mass m1=1 which
+is connected via a spring to a second shaft with mass m2=5. 
+The left shaft is driven via an external, sinusoidal force.
+The <b>filled</b> and <b>non-filled green squares</b> at the left and
+right side of a component represent <b>mechanical flanges</b>.
+Drawing a line between such squares means that the corresponding
+flanges are <b>rigidly attached</b> to each other.
+By convention in this library, the connector characterized as a
+<b>filled</b> green square is called <b>flange_a</b> and placed at the
+left side of the component in the \"design view\" and the connector
+characterized as a <b>non-filled</b> green square is called <b>flange_b</b>
+and placed at the right side of the component in the \"design view\".
+The two connectors are completely <b>identical</b>, with the only
+exception that the graphical layout is a little bit different in order
+to distinguish them for easier access of the connector variables.
+For example, <code>m1.flange_a.f</code> is the cut-force in the connector
+<code>flange_a</code> of component <code>m1</code>.
+</p>
+<p>
+The components of this
+library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
+possible to connect two springs or two shafts with mass directly
+together, see figure below.
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections1.png\" ALT=\"driveConnections1\"><br>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections2.png\" ALT=\"driveConnections2\"><br>
+</p>
+
+</HTML>"));
+
+    end Overview;
+
+    class FlangeConnectors "Flange Connectors"
+      extends Modelica.Icons.Information;
+
+      annotation (DocumentationClass=true, Documentation(info="<HTML>
+<p>
+A flange is described by the connector class
+Interfaces.<b>Flange_a</b>
+or Interfaces.<b>Flange_b</b>. As already noted, the two connector
+classes are completely identical. There is only a difference in the icons,
+in order to easier identify a flange variable in a diagram.
+Both connector classes contain the following variables:
+</p>
+<pre>
+   Modelica.SIunits.Position   s \"Absolute position of flange\";
+   <b>flow</b> Modelica.SIunits.Force f \"Cut-force in the flange\";
+</pre>
+<p>
+If needed, the velocity <code>v</code> and the
+acceleration <code>a</code> of a flange connector can be
+determined by differentiation of the flange position <code>s</code>:
+</p>
+<pre>
+     v = <b>der</b>(s);    a = <b>der</b>(v);
+</pre>
+</HTML>"));
+
+    end FlangeConnectors;
+
+    class SupportForces "Support Forces"
+      extends Modelica.Icons.Information;
+
+      annotation (DocumentationClass=true, Documentation(info="<HTML>
+
+<p>The following figure shows examples of components equipped with
+a support flange (framed flange in the lower center), which can be used
+to fix components on the ground or on other moving elements or to combine
+them with force elements. Via Boolean parameter <b>useSupport</b>, the
+support flange is enabled or disabled. If it is enabled, it must be connected.
+If it is disabled, it must not be connected.
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing.png\" ALT=\"bearing\">
+</p>
+
+<p>
+Depending on the setting of <b>useSupport</b>, the icon of the corresponding
+component is changing, to either show the support flange or a ground mounting.
+For example, the two implementations in the following figure give
+identical results.
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" ALT=\"bearing2\">
+</p>
+
+</HTML>"));
+
+    end SupportForces;
+
+    class SignConventions "Sign Conventions"
+      extends Modelica.Icons.Information;
+
+      annotation (DocumentationClass=true, Documentation(info="<HTML>
+
+<p>
+The variables of a component of this library can be accessed in the
+usual way. However, since most of these variables are basically elements
+of <b>vectors</b>, i.e., have a direction, the question arises how the
+signs of variables shall be interpreted. The basic idea is explained
+at hand of the following figure:
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive2.png\" ALT=\"drive2\">
+</p>
+
+<p>
+First, one has to define
+a <b>positive</b> direction of this line, called <b>axis of movement</b>.
+In the top part of the figure this is characterized by an arrow
+defined as <code>axis of movement</code>. The simple rule is now:
+If a variable of a component is positive and can be interpreted as
+the element of a vector (e.g., force or velocity vector), the
+corresponding vector is directed into the positive direction
+of the axis of movement. In the following figure, the right-most
+mass of the figure above is displayed with the positive
+vector direction displayed according to this rule:
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" ALT=\"drive3\">
+</p>
+<p>
+The cut-force <code>m2.flange_a.f</code> 
+of the right mass is directed into the
+direction of movement if the values are positive. Similarly,
+the velocitiy <code>m2.v</code> of the right mass
+is also directed into the
+direction of movement if the values are positive
+</p>
+</HTML>"));
+
+    end SignConventions;
+
+    class UserDefinedComponents "User Defined Components"
+      extends Modelica.Icons.Information;
+      extends Modelica.Icons.UnderConstruction;
+      annotation (DocumentationClass=true, Documentation(info="<HTML>
+<p>
+In this section some hints are given to define your own
+1-dimensional rotational components which are compatible with the
+elements of this package.
+It is convenient to define a new
+component by inheritance from one of the following base classes,
+which are defined in sublibrary Interfaces:
+</p>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<tr><th>Name</th><th>Description</th></tr>
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+  </td>
+  <td valign=\"top\">Compliant connection of two rotational 1-dim. flanges
+                   (used for force laws such as a spring or a damper).</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+  </td>
+  <td valign=\"top\"> Same as \"PartialCompliant\", but relative angle and relative speed are
+                    defined as preferred states. Use this partial model if the force law
+                    needs anyway the relative speed. The advantage is that it is usually better
+                    to use relative angles between drive train components
+                    as states, especially, if the angle is not limited (e.g., as for drive trains
+                    in vehicles).
+</td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+</td>
+  <td valign=\"top\"> Partial model for a 1-dim. rotational gear consisting of the flange of
+                    an input shaft, the flange of an output shaft and the support.
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+</td>
+  <td valign=\"top\"> Partial model of a torque acting at the flange (accelerates the flange).
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+</td>
+  <td valign=\"top\">General connection of two rotational 1-dim. flanges.
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+</td>
+  <td valign=\"top\">Measure absolute flange variables.
+  </td>
+</tr>
+
+<tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+</td>
+  <td valign=\"top\">Measure relative flange variables.
+  </td>
+</tr>
+</table>
+
+<p>
+The difference between these base classes are the auxiliary
+variables defined in the model and the relations between
+the flange variables already defined in the base class.
+For example, in model <b>PartialCompliant</b> there is no
+support flange, whereas in model
+<b>PartialElementaryTwoFlangesAndSupport2</b>
+there is a support flange.
+</p>
+<p>
+The equations of a mechanical component are vector equations, i.e.,
+they need to be expressed in a common coordinate system.
+Therefore, for a component a <b>local axis of rotation</b> has to be
+defined. All vector quantities, such as cut-torques or angular
+velocities have to be expressed according to this definition.
+Examples for such a definition are given in the following figure
+for an inertia component and a planetary gearbox:
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" ALT=\"driveAxis\">
+</p>
+
+<p>
+As can be seen, all vectors are directed into the direction
+of the rotation axis. The angles in the flanges are defined
+correspondingly. For example, the angle <code>sun.phi</code> in the
+flange of the sun wheel of the planetary gearbox is positive,
+if rotated in mathematical positive direction (= counter clock
+wise) along the axis of rotation.
+</p>
+<p>
+On first view, one may assume that the selected local
+coordinate system has an influence on the usage of the
+component. But this is not the case, as shown in the next figure:
+</p>
+
+<p>
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" ALT=\"inertias\">
+</p>
+
+<p>
+In the figure the <b>local</b> axes of rotation of the components
+are shown. The connection of two inertias in the left and in the
+right part of the figure are completely equivalent, i.e., the right
+part is just a different drawing of the left part. This is due to the
+fact, that by a connection, the two local coordinate systems are
+made identical and the (automatically) generated connection equations
+(= angles are identical, cut-torques sum-up to zero) are also
+expressed in this common coordinate system. Therefore, even if in
+the left figure it seems to be that the angular velocity vector of
+<code>J2</code> goes from right to left, in reality it goes from
+left to right as shown in the right part of the figure, where the
+local coordinate systems are drawn such that they are aligned.
+Note, that the simple rule stated in section 4 (Sign conventions)
+also determines that
+the angular velocity of <code>J2</code> in the left part of the
+figure is directed from left to right.
+</p>
+<p>
+To summarize, the local coordinate system selected for a component
+is just necessary, in order that the equations of this component
+are expressed correctly. The selection of the coordinate system
+is arbitrary and has no influence on the usage of the component.
+Especially, the actual direction of, e.g., a cut-torque is most
+easily determined by the rule of section 4. A more strict determination
+by aligning coordinate systems and then using the vector direction
+of the local coordinate systems, often requires a re-drawing of the
+diagram and is therefore less convenient to use.
+</p>
+</HTML>"));
+
+    end UserDefinedComponents;
+
+    class StateSelection "State Selection"
+      extends Modelica.Icons.Information;
+
+      annotation (Documentation(info="<html>
+<p>
+Only a few components of the Translational library use the der(..) operator
+and are therefore candidates to have states. Most important, component <a href=\"modelica://Modelica.Mechanics.Translational.Components.Mass\">Mass</a>
+defines the absolute position and the absolute velocity of this
+component as candidate for states. In the \"Advanced\" menu the built-in StateSelect
+enumeration can be set to define the priority to use these variables as states.
+Without further action, in most cases a tool will select these variables as states.
+</p>
+
+<p>
+For positioning drive trains where the goal is to position a load, the absolute positions of the components are bounded,
+and the issue discussed below is not present.
+</p>
+
+<p>
+For drive trains where the goal is to control the velocity of a load,
+the absolute positions of the components are quickly increasing
+during operation. This is critical, because then the step size control of time
+integrators might then no longer work appropriately:
+</p>
+
+<p>
+Integrators with step size control adjust their time step size automatically
+to meet user defined error bounds (\"tolerances\").
+Typically the local error estimate EST_i is compared with a mixed bound for absolute and relative errors.
+</p>
+
+<pre>
+   EST_i &le; abstol_i + reltol_i*|x_i|
+</pre>
+
+<p>
+Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively. This mixed error bound is used since it is more robust than a pure relative error based error bound if the nominal value x_i  is (very) close to 0.
+In a Modelica simulation model, typically the same relative tolerance reltol is used for all
+states and the absolute tolerances are computed using the relative tolerance and the
+nominal values of the states:
+</p>
+
+<pre>
+   reltol_i = reltol
+   abstol_i = reltol*x_i(nominal)*0.01
+</pre>
+
+<p>
+This error control fails if the state variable x_i grows without bounds (such as for a
+drive train), since then the allowed error
+also grows without bounds. The effect is that the error control on this variable is practically
+switched off. The correct way to handle this would be to set reltol_i = 0 on such a state
+variable and only use an absolute tolerance for the step size control.
+</p>
+
+<p>
+Currently, in Modelica there is no possibility to provide this information.
+In order to reduce this effect, it is advisable to not use absolute angles, but
+relative angles as states. A user can define relative variables as states
+explicitly with component
+<a href=\"modelica://Modelica.Mechanics.Translational.Components.RelativeStates\">RelativeStates</a>.
+Furthermore, all compliant components, such as
+<a href=\"modelica://Modelica.Mechanics.Translational.Components.SpringDamper\">SpringDamper</a> are
+defining the relative position and the relative velocity as preferred states.
+Therefore, a tool will select in most cases relative positions as states.
+</p>
+
+<p>
+The relative positions of compliant components are usually small. 
+Without further action, the error control would not work properly on variables
+that are so small (so often switching the error control off). The remedy is to define
+explicitly a nominal value on the relative angle. This definition is provided in the
+\"Advanced\" menu of the compliant components with parameter \"s_nominal\".
+The default value is 1e-4 m, to be in the order of a compliant deformation of a
+drive.
+</p>
+</html>"));
+    end StateSelection;
+
+    class Contact "Contact"
+      extends Modelica.Icons.Contact;
+
+      annotation (Documentation(info="<html>
+<dl>
+<dt><b>Library Officer</b>
+<dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
+    Abteilung Systemdynamik und Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br>
+</dl>
+
+<p>
+<b>Contributors to this library:</b>
+</p>
+
+<ul>
+<li> <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> (DLR-RM)</li>
+<li> Christian Schweiger (DLR-RM, until 2006).</li>
+<li> <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
+     Technical Consulting &amp; Electrical Engineering<br>
+     A-3423 St.Andrae-Woerdern, Austria<br>
+     email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
+</ul>
+</html>"));
+    end Contact;
+
+    annotation (DocumentationClass=true, Documentation(info="<html>
+<p>Library <b>Translational</b> is a <b>free</b> Modelica package providing 1-dimensional, translational mechanical components to model in a convenient way translational mechanical systems. </p>
+</html>"));
+  end UsersGuide;
+
   package Examples "Demonstration examples of the components of this package"
 
     extends Modelica.Icons.ExamplesPackage;
@@ -313,13 +749,11 @@ combination). In this case the system is not at rest.
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
               textString=" 0.5 m 
- (1 m) "),
-            Text(
+ (1 m) "),  Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
               textString=" 1 m  
- (1 m) "),
-            Text(
+ (1 m) "),  Text(
               extent={{-20,-84},{0,-94}},
               lineColor={0,0,0},
               textString="  1 m  "),
@@ -728,8 +1162,7 @@ to see the difference.
 
     model Friction "Use of model Stop"
       extends Modelica.Icons.Example;
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
-        (
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1(
         L=1,
         s(fixed=true),
         v(fixed=true),
@@ -746,8 +1179,7 @@ to see the difference.
       Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25)
         annotation (Placement(transformation(extent={{-60,60},{-40,80}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
-        (
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2(
         L=1,
         smax=0.9,
         smin=-0.9,
@@ -2450,8 +2882,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},
                   {-100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation
-          (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+           Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
         flange.s = s_start;
       equation
@@ -2466,8 +2898,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           "Start velocity" annotation (HideResult=true, Placement(
               transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation
-          (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+           Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
         der(flange.s) = v_start;
       equation
@@ -2496,8 +2928,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       encapsulated model Set_flange_f "Set flange_f to zero"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation
-          (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+           Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       equation
         flange.f = 0;
       end Set_flange_f;
@@ -2864,8 +3296,8 @@ between the stops.</i> </li>
                   extent={{-30,30},{35,-35}},
                   lineColor={0,0,0},
                   fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color
-              ={0,127,0}),Rectangle(
+                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color=
+               {0,127,0}),Rectangle(
                   extent={{-70,-45},{74,-60}},
                   lineColor={0,0,0},
                   fillColor={192,192,192},
@@ -2881,8 +3313,8 @@ between the stops.</i> </li>
               color={0,127,0}),Text(
                   extent={{-150,80},{150,40}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{-50,-90},{-30,-70}}, color
-              ={0,0,0}),Line(points={{-30,-70},{30,-70}}, color={0,0,0}),Line(
+                  lineColor={0,0,255}),Line(points={{-50,-90},{-30,-70}}, color=
+               {0,0,0}),Line(points={{-30,-70},{30,-70}}, color={0,0,0}),Line(
               points={{-30,-90},{-10,-70}}, color={0,0,0}),Line(points={{-10,-90},
               {10,-70}}, color={0,0,0}),Line(points={{10,-90},{30,-70}}, color=
               {0,0,0}),Text(
@@ -2904,8 +3336,8 @@ between the stops.</i> </li>
                   extent={{-30,26},{35,-9}},
                   lineColor={0,0,0},
                   fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color
-              ={0,127,0}),Line(points={{35,0},{90,0}}, color={0,127,0}),
+                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color=
+               {0,127,0}),Line(points={{35,0},{90,0}}, color={0,127,0}),
               Rectangle(
                   extent={{-68,-14},{76,-29}},
                   lineColor={0,0,0},
@@ -3378,8 +3810,8 @@ ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>p
           Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
           Line(points={{4,-61},{4,-81}}, color={0,0,0}),
           Line(points={{24,-61},{24,-81}}, color={0,0,0}),
-          Line(points={{44,-61},{44,-81}}, color={0,0,0})}), Documentation(info
-          ="<html>
+          Line(points={{44,-61},{44,-81}}, color={0,0,0})}), Documentation(info=
+           "<html>
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
