@@ -29,12 +29,13 @@ model ShowSaturatingInductor
     Lzer=Lzer,
     Lnom=Lnom,
     Inom=Inom,
-    Linf=Linf,i(start=0))
+    Linf=Linf,
+    i(fixed=true))
     annotation (Placement(transformation(
         origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Inductor Inductance1(L=Lnom, i(start=0, fixed=true)) annotation (Placement(transformation(
+  Basic.Inductor Inductance1(L=Lnom, i(fixed=true))          annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,0})));

@@ -353,7 +353,7 @@ package Basic "Basic electrical components"
   end Inductor;
 
   model SaturatingInductor "Simple model of an inductor with saturation"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Interfaces.OnePort(i(start=0));
     parameter Modelica.SIunits.Current Inom(start=1) "Nominal current";
     parameter Modelica.SIunits.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
@@ -362,7 +362,7 @@ package Basic "Basic electrical components"
     parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
     Modelica.SIunits.Inductance Lact(start=Lzer) "Present inductance";
-    Modelica.SIunits.MagneticFlux Psi(start=0, fixed=true) "Present flux";
+    Modelica.SIunits.MagneticFlux Psi "Present flux";
   protected
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
   initial equation
