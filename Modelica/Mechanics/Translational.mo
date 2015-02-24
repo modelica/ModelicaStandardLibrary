@@ -183,11 +183,11 @@ direction of movement if the values are positive
 
     class UserDefinedComponents "User Defined Components"
       extends Modelica.Icons.Information;
-      extends Modelica.Icons.UnderConstruction;
+
       annotation (DocumentationClass=true, Documentation(info="<HTML>
 <p>
 In this section some hints are given to define your own
-1-dimensional rotational components which are compatible with the
+1-dimensional translational components which are compatible with the
 elements of this package.
 It is convenient to define a new
 component by inheritance from one of the following base classes,
@@ -196,55 +196,54 @@ which are defined in sublibrary Interfaces:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliant\">PartialCompliant</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliant\">PartialCompliant</a>
   </td>
-  <td valign=\"top\">Compliant connection of two rotational 1-dim. flanges
+  <td valign=\"top\">Compliant connection of two translational 1-dim. flanges
                    (used for force laws such as a spring or a damper).</td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates\">PartialCompliantWithRelativeStates</a>
   </td>
-  <td valign=\"top\"> Same as \"PartialCompliant\", but relative angle and relative speed are
+  <td valign=\"top\"> Same as \"PartialCompliant\", but relative position and relative speed are
                     defined as preferred states. Use this partial model if the force law
                     needs anyway the relative speed. The advantage is that it is usually better
-                    to use relative angles between drive train components
-                    as states, especially, if the angle is not limited (e.g., as for drive trains
-                    in vehicles).
+                    to use relative positions between drive train components
+                    as states, especially, if the position is not limited.
 </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
-  <td valign=\"top\"> Partial model for a 1-dim. rotational gear consisting of the flange of
+  <td valign=\"top\"> Partial model for a 1-dim. translational component consisting of the flange of
                     an input shaft, the flange of an output shaft and the support.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTorque\">PartialTorque</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialForce\">PartialForce</a>
 </td>
-  <td valign=\"top\"> Partial model of a torque acting at the flange (accelerates the flange).
+  <td valign=\"top\"> Partial model of a force acting at the flange (accelerates the flange).
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges\">PartialTwoFlanges</a>
 </td>
-  <td valign=\"top\">General connection of two rotational 1-dim. flanges.
+  <td valign=\"top\">General connection of two translational 1-dim. flanges.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor\">PartialAbsoluteSensor</a>
 </td>
   <td valign=\"top\">Measure absolute flange variables.
   </td>
 </tr>
 
 <tr>
-  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor\">PartialRelativeSensor</a>
 </td>
   <td valign=\"top\">Measure relative flange variables.
   </td>
@@ -263,24 +262,21 @@ there is a support flange.
 <p>
 The equations of a mechanical component are vector equations, i.e.,
 they need to be expressed in a common coordinate system.
-Therefore, for a component a <b>local axis of rotation</b> has to be
-defined. All vector quantities, such as cut-torques or angular
+Therefore, for a component a <b>local axis of movement</b> has to be
+defined. All vector quantities, such as cut-forces or 
 velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
-for an inertia component and a planetary gearbox:
+for a mass component:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" ALT=\"driveAxis\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveAxis.png\" ALT=\"driveAxis\">
 </p>
 
 <p>
 As can be seen, all vectors are directed into the direction
-of the rotation axis. The angles in the flanges are defined
-correspondingly. For example, the angle <code>sun.phi</code> in the
-flange of the sun wheel of the planetary gearbox is positive,
-if rotated in mathematical positive direction (= counter clock
-wise) along the axis of rotation.
+of the movement axis. The positions in the flanges are defined
+correspondingly. 
 </p>
 <p>
 On first view, one may assume that the selected local
@@ -289,25 +285,25 @@ component. But this is not the case, as shown in the next figure:
 </p>
 
 <p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" ALT=\"inertias\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/masses.png\" ALT=\"masses\">
 </p>
 
 <p>
 In the figure the <b>local</b> axes of rotation of the components
-are shown. The connection of two inertias in the left and in the
+are shown. The connection of two masses in the left and in the
 right part of the figure are completely equivalent, i.e., the right
 part is just a different drawing of the left part. This is due to the
 fact, that by a connection, the two local coordinate systems are
 made identical and the (automatically) generated connection equations
-(= angles are identical, cut-torques sum-up to zero) are also
+(= positions are identical, cut-forces sum-up to zero) are also
 expressed in this common coordinate system. Therefore, even if in
-the left figure it seems to be that the angular velocity vector of
-<code>J2</code> goes from right to left, in reality it goes from
+the left figure it seems to be that the velocity vector of
+<code>m2</code> goes from right to left, in reality it goes from
 left to right as shown in the right part of the figure, where the
 local coordinate systems are drawn such that they are aligned.
 Note, that the simple rule stated in section 4 (Sign conventions)
 also determines that
-the angular velocity of <code>J2</code> in the left part of the
+the velocity of <code>m2</code> in the left part of the
 figure is directed from left to right.
 </p>
 <p>
@@ -315,7 +311,7 @@ To summarize, the local coordinate system selected for a component
 is just necessary, in order that the equations of this component
 are expressed correctly. The selection of the coordinate system
 is arbitrary and has no influence on the usage of the component.
-Especially, the actual direction of, e.g., a cut-torque is most
+Especially, the actual direction of, e.g., a cut-force is most
 easily determined by the rule of section 4. A more strict determination
 by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
