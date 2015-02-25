@@ -948,17 +948,247 @@ package Blocks "Test models for Modelica.Blocks"
   model Mean
     extends Modelica.Icons.Example;
     Modelica.Blocks.Math.Mean mean(f=2)
+      annotation (Placement(transformation(extent={{-20,80},{0,100}})));
+    Modelica.Blocks.Sources.Cosine cosine(
+      offset=0.5,
+      freqHz=2,
+      amplitude=1,
+      phase=Modelica.Constants.pi/4)
+      annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
+    Modelica.Blocks.Math.RectifiedMean rectifiedMean(f=2)
       annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-    Modelica.Blocks.Sources.Sine sine(offset=0.5, freqHz=2)
-      annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+    Modelica.Blocks.Math.RootMeanSquare rootMeanSquare(f=2)
+      annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+    Modelica.Blocks.Math.Harmonic harmonic(f=2, k=1)
+      annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+    Modelica.Blocks.Math.PolarToRectangular polarToRectangular
+      annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+    Modelica.Blocks.Math.RectangularToPolar rectangularToPolar
+      annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
+    output Real yMean=mean.y;
+    output Real yRectifiedMean=rectifiedMean.y;
+    output Real yRootMeanSquare=rootMeanSquare.y;
+    output Real yHarmonicCos=polarToRectangular.y_re;
+    output Real yHarmonicSin=polarToRectangular.y_im;
+    output Real yHarmonicAbs=rectangularToPolar.y_abs;
+    output Real yHarmonicArg=rectangularToPolar.y_arg;
   equation
-    connect(sine.y, mean.u) annotation (Line(
-        points={{-39,50},{-22,50}},
+    connect(cosine.y, mean.u) annotation (Line(
+        points={{-59,90},{-22,90}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, rectifiedMean.u) annotation (Line(
+        points={{-59,90},{-40,90},{-40,50},{-22,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, rootMeanSquare.u) annotation (Line(
+        points={{-59,90},{-40,90},{-40,10},{-22,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, harmonic.u) annotation (Line(
+        points={{-59,90},{-40,90},{-40,-30},{-22,-30}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(harmonic.y_rms, polarToRectangular.u_abs) annotation (Line(
+        points={{1,-24},{18,-24}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(harmonic.y_arg, polarToRectangular.u_arg) annotation (Line(
+        points={{1,-36},{18,-36}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(polarToRectangular.y_re, rectangularToPolar.u_re) annotation (Line(
+        points={{41,-24},{58,-24}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(polarToRectangular.y_im, rectangularToPolar.u_im) annotation (Line(
+        points={{41,-36},{58,-36}},
         color={0,0,127},
         smooth=Smooth.None));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
+            preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
   end Mean;
+
+  model ConversionBlocks
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.Cosine cosine(
+      freqHz=2,
+      amplitude=10,
+      offset=10)
+      annotation (Placement(transformation(extent={{-80,100},{-60,120}})));
+    Modelica.Blocks.Math.UnitConversions.To_degC to_degC
+      annotation (Placement(transformation(extent={{-40,100},{-20,120}})));
+    Modelica.Blocks.Math.UnitConversions.From_degC from_degC
+      annotation (Placement(transformation(extent={{-10,100},{10,120}})));
+    Modelica.Blocks.Math.UnitConversions.To_degF to_degF
+      annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+    Modelica.Blocks.Math.UnitConversions.From_degF from_degF
+      annotation (Placement(transformation(extent={{-10,70},{10,90}})));
+    Modelica.Blocks.Math.UnitConversions.To_degRk to_degRk
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Blocks.Math.UnitConversions.From_degRk from_degRk
+      annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+    Modelica.Blocks.Math.UnitConversions.To_deg to_deg
+      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+    Modelica.Blocks.Math.UnitConversions.From_deg from_deg
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
+    Modelica.Blocks.Math.UnitConversions.To_rpm to_rpm
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+    Modelica.Blocks.Math.UnitConversions.From_rpm from_rpm
+      annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+    Modelica.Blocks.Math.UnitConversions.To_kmh to_kmh
+      annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+    Modelica.Blocks.Math.UnitConversions.From_kmh from_kmh
+      annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+    Modelica.Blocks.Math.UnitConversions.To_day to_day
+      annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+    Modelica.Blocks.Math.UnitConversions.From_day from_day
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
+    Modelica.Blocks.Math.UnitConversions.To_hour to_hour
+      annotation (Placement(transformation(extent={{-40,-110},{-20,-90}})));
+    Modelica.Blocks.Math.UnitConversions.From_hour from_hour
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
+    Modelica.Blocks.Math.UnitConversions.To_minute to_minute
+      annotation (Placement(transformation(extent={{-40,-140},{-20,-120}})));
+    Modelica.Blocks.Math.UnitConversions.From_minute from_minute
+      annotation (Placement(transformation(extent={{-10,-140},{10,-120}})));
+    Modelica.Blocks.Math.UnitConversions.To_litre to_litre
+      annotation (Placement(transformation(extent={{40,100},{60,120}})));
+    Modelica.Blocks.Math.UnitConversions.From_litre from_litre
+      annotation (Placement(transformation(extent={{70,100},{90,120}})));
+    Modelica.Blocks.Math.UnitConversions.To_kWh to_kWh
+      annotation (Placement(transformation(extent={{40,70},{60,90}})));
+    Modelica.Blocks.Math.UnitConversions.From_kWh from_kWh
+      annotation (Placement(transformation(extent={{72,70},{92,90}})));
+    Modelica.Blocks.Math.UnitConversions.To_bar to_bar
+      annotation (Placement(transformation(extent={{40,40},{60,60}})));
+    Modelica.Blocks.Math.UnitConversions.From_bar from_bar
+      annotation (Placement(transformation(extent={{72,40},{92,60}})));
+    Modelica.Blocks.Math.UnitConversions.To_gps to_gps
+      annotation (Placement(transformation(extent={{40,10},{60,30}})));
+    Modelica.Blocks.Math.UnitConversions.From_gps from_gps
+      annotation (Placement(transformation(extent={{72,10},{92,30}})));
+    output Real ydegC=from_degC.y;
+    output Real ydegF=from_degF.y;
+    output Real ydegRk=from_degRk.y;
+    output Real ydeg=from_deg.y;
+    output Real yrpm=from_rpm.y;
+    output Real ykmh=from_kmh.y;
+    output Real yday=from_day.y;
+    output Real yhour=from_hour.y;
+    output Real yminute=from_minute.y;
+    output Real ylitre=from_litre.y;
+    output Real ykWh=from_kWh.y;
+    output Real ybar=from_bar.y;
+    output Real ygps=from_gps.y;
+  equation
+    connect(cosine.y, to_degC.u) annotation (Line(
+        points={{-59,110},{-42,110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_degF.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,80},{-42,80}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_degRk.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,50},{-42,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_deg.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,20},{-46,20},{-46,20},{-42,20}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_rpm.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,-10},{-42,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_degC.y, from_degC.u) annotation (Line(
+        points={{-19,110},{-16,110},{-16,110},{-12,110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_degF.y, from_degF.u) annotation (Line(
+        points={{-19,80},{-12,80}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_degRk.y, from_degRk.u) annotation (Line(
+        points={{-19,50},{-12,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_deg.y, from_deg.u) annotation (Line(
+        points={{-19,20},{-14,20},{-14,20},{-12,20}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_rpm.y, from_rpm.u) annotation (Line(
+        points={{-19,-10},{-12,-10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_kmh.y, from_kmh.u) annotation (Line(
+        points={{-19,-40},{-12,-40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_day.y, from_day.u) annotation (Line(
+        points={{-19,-70},{-12,-70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_hour.y, from_hour.u) annotation (Line(
+        points={{-19,-100},{-12,-100}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_minute.y, from_minute.u) annotation (Line(
+        points={{-19,-130},{-12,-130}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_kmh.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,-40},{-42,-40}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_day.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,-70},{-42,-70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_hour.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,-100},{-42,-100}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_minute.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,-130},{-42,-130}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_litre.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,128},{28,128},{28,110},{38,110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_kWh.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,128},{28,128},{28,80},{38,80}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_litre.y, from_litre.u) annotation (Line(
+        points={{61,110},{68,110}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_kWh.y, from_kWh.u) annotation (Line(
+        points={{61,80},{70,80}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_bar.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,128},{28,128},{28,50},{38,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(cosine.y, to_gps.u) annotation (Line(
+        points={{-59,110},{-50,110},{-50,128},{28,128},{28,20},{38,20}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_bar.y, from_bar.u) annotation (Line(
+        points={{61,50},{70,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(to_gps.y, from_gps.u) annotation (Line(
+        points={{61,20},{70,20}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
+            preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
+  end ConversionBlocks;
 
   model PadeDelay1
     "Check that new implementation gives the same result as the old implementation for the default balance = false"
