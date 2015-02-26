@@ -34,22 +34,37 @@ fi
 
 AM_CONDITIONAL([INCLUDEZLIB], [test "$ZLIB" = "Yes, from sources" -o "$STATIC_ZLIB" = "Yes"])
 
-if test "$ZLIB" = "No"; then
+if test "$ZLIB" = "No" -o "$HDF5" = "No"; then
   HDF5="No"
 else
 AC_CHECK_PROG(MPICC,mpicc,[yes])
 AC_MSG_CHECKING([hdf5.h])
-AC_PREPROC_IFELSE([AC_LANG_PROGRAM([[#include <hdf5.h>]],[])],AC_MSG_RESULT([OK]),[
-  if ! test -z "$MPICC"; then
-    CPPFLAGS_BAK=$CPPFLAGS
-    MPI_CPPFLAGS=`OMPI_CC=$CC mpicc -showme:compile`
-    CPPFLAGS="$CPPFLAGS $MPI_CPPFLAGS"
-    AC_PREPROC_IFELSE([AC_LANG_PROGRAM([[#include <hdf5.h>]],[])],AC_MSG_RESULT([[OK, needs mpi.h]]),[CPPFLAGS=$CPPFLAGS_BAK; HDF5="No";AC_MSG_RESULT([failed])])
-  else
-    HDF5="No";
-    AC_MSG_RESULT([failed])
-  fi
-])
+for HDF_FIRST in Yes No; do
+  AC_PREPROC_IFELSE([AC_LANG_PROGRAM([[#include <hdf5.h>]],[])],AC_MSG_RESULT([OK]),[
+    if ! test -z "$MPICC"; then
+      CPPFLAGS_BAK=$CPPFLAGS
+      MPI_CPPFLAGS=`OMPI_CC=$CC mpicc -showme:compile`
+      CPPFLAGS="$CPPFLAGS $MPI_CPPFLAGS"
+      AC_PREPROC_IFELSE([AC_LANG_PROGRAM([[#include <hdf5.h>]],[])],AC_MSG_RESULT([[OK, needs mpi.h]]),[CPPFLAGS=$CPPFLAGS_BAK; HDF5="No"])
+    fi
+    if test "No" = "$HDF5"; then
+      HDF5="Yes"
+      if test "$HDF_FIRST" = "Yes" && apt-cache show libhdf5-dev > /dev/null 2>&1; then
+        HDF5_INSTALL_CMD="apt-get install libhdf5-dev"
+        if gksudo --description "HDF5 is an optional dependency of ModelicaTables used to read Matlab 7.3 files. $HDF5_INSTALL_CMD" $HDF5_INSTALL_CMD; then
+          continue
+        else
+          HDF5="No";
+          AC_MSG_RESULT([failed])
+        fi
+      else
+        HDF5="No";
+        AC_MSG_RESULT([failed])
+      fi
+    fi
+  ])
+  break
+done
 fi
 
 # Ok, so we have hdf5.h. Now for the fun stuff:
