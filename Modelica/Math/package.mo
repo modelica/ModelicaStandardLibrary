@@ -5943,8 +5943,8 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
       Integer nrhs=size(B, 2);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + nrhs);
-      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
+      Integer lwork=max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + nrhs);
+      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
         size(A, 2)) + size(B, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
@@ -6091,8 +6091,8 @@ Lapack documentation
       Integer nrow=size(A, 1);
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + 1);
-      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
+      Integer lwork=max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + 1);
+      Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
         size(A, 2)) + 1)];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
