@@ -1005,15 +1005,15 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Measured current";
         output Modelica.SIunits.AngularVelocity w_sim(displayUnit="1/min") =
           aimc.wMechanical "Simulated speed";
-        output Modelica.SIunits.Current w_meas=combiTable1Ds.y[2]
+        output Modelica.SIunits.AngularVelocity w_meas=combiTable1Ds.y[2]
           "Measured speed";
         output Real pf_sim=if noEvent(Sel > Modelica.Constants.small) then Pel/
             Sel else 0 "Simulated power factor";
-        output Modelica.SIunits.Current pf_meas=combiTable1Ds.y[3]
+        output Real pf_meas=combiTable1Ds.y[3]
           "Measured power factor";
         output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small)
              then Pmech/Pel else 0 "Simulated efficiency";
-        output Modelica.SIunits.Current eff_meas=combiTable1Ds.y[4]
+        output Real eff_meas=combiTable1Ds.y[4]
           "Measured efficiency";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimc(
