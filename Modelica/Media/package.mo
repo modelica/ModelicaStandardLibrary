@@ -3491,7 +3491,7 @@ no mass or energy is stored in the pipe.
         // extends Modelica.Icons.ObsoleteModel;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (__Dymola_choicesAllMatching=true);
+          "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start=Medium.p_default
           "Initial value of pressure";
         parameter SI.Temperature T_start=Medium.T_default
@@ -3552,7 +3552,7 @@ no mass or energy is stored in the pipe.
         import SI = Modelica.SIunits;
         // extends Modelica.Icons.ObsoleteModel;
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (__Dymola_choicesAllMatching=true);
+          "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start=1.0e5 "Initial value of pressure";
         parameter SI.Temperature T_start=300 "Initial value of temperature";
         parameter SI.SpecificEnthalpy h_start=1
