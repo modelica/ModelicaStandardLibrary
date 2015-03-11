@@ -1794,7 +1794,7 @@ is present in variable convection.fluid.
           points={{60,-70},{52,-70}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation ( Documentation(info="<html>
+      annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
 FMU - <a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>) from various Rotational components.
