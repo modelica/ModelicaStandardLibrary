@@ -3710,7 +3710,9 @@ static double* readMatTable(const char* tableName, const char* fileName,
         {
             int start[2] = {0, 0};
             int stride[2] = {1, 1};
-            int edge[2] = {(int)nRow, (int)nCol};
+            int edge[2];
+            edge[0] = (int)nRow;
+            edge[1] = (int)nCol;
             tableReadError = Mat_VarReadData(mat, matvar, table, start, stride, edge);
         }
 
