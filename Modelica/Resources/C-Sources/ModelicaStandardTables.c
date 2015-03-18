@@ -21,7 +21,7 @@
 
 
    Release Notes:
-      Mar. 17, 2015: by Thomas Beutlich, ITI GmbH.
+      Mar. 18, 2015: by Thomas Beutlich, ITI GmbH.
                      Fixed poor performance of readMatTable for MATLAB MAT-files with
                      compressed array streams and large (> 1e5) number of rows
                      (ticket #1682)
@@ -128,7 +128,8 @@ enum PointInterval {
 enum TableSource {
     TABLESOURCE_MODEL,
     TABLESOURCE_FILE,
-    TABLESOURCE_FUNCTION
+    TABLESOURCE_FUNCTION,
+    TABLESOURCE_FUNCTION_TRANSPOSE
 };
 
 /* ----- Internal table memory ----- */
@@ -482,14 +483,30 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 0 /* Time-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    if (colWise) {
-                        tableID->nRow = (size_t)dim[1];
-                        tableID->nCol = (size_t)dim[0];
-                        transpose(tableID->table, tableID->nRow, tableID->nCol);
-                    }
-                    else {
+                    if (colWise == 0) {
                         tableID->nRow = (size_t)dim[0];
                         tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
+                        /* Need to transpose */
+                        double* tableT = malloc(dim[0]*dim[1]*sizeof(double));
+                        if (tableT) {
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
+                            tableID->table = tableT;
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
+                            tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
+                        }
+                        else {
+                            if (nCols > 0) {
+                                free(tableID->cols);
+                            }
+                            free(tableID);
+                            tableID = NULL;
+                            ModelicaError("Memory allocation error\n");
+                            break;
+                        }
                     }
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
                         tableID->nRow == 2) {
@@ -506,6 +523,10 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 }
                 break;
             }
+
+            case TABLESOURCE_FUNCTION_TRANSPOSE:
+                /* Should not be possible to get here */
+                break;
 
             default:
                 ModelicaError("Table source error\n");
@@ -556,12 +577,14 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
 #endif
             tableID->table = NULL;
         }
+        else if (tableID->table && (
 #ifndef NO_TABLE_COPY
-        else if (tableID->table && tableID->source == TABLESOURCE_MODEL) {
+            tableID->source == TABLESOURCE_MODEL ||
+#endif
+            tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE)) {
             free(tableID->table);
             tableID->table = NULL;
         }
-#endif
         if (tableID->nCols > 0 && tableID->cols) {
             free(tableID->cols);
             tableID->cols = NULL;
@@ -1420,14 +1443,30 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 1 /* 1D-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    if (colWise) {
-                        tableID->nRow = (size_t)dim[1];
-                        tableID->nCol = (size_t)dim[0];
-                        transpose(tableID->table, tableID->nRow, tableID->nCol);
-                    }
-                    else {
+                    if (colWise == 0) {
                         tableID->nRow = (size_t)dim[0];
                         tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
+                        /* Need to transpose */
+                        double* tableT = malloc(dim[0]*dim[1]*sizeof(double));
+                        if (tableT) {
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
+                            tableID->table = tableT;
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
+                            tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
+                        }
+                        else {
+                            if (nCols > 0) {
+                                free(tableID->cols);
+                            }
+                            free(tableID);
+                            tableID = NULL;
+                            ModelicaError("Memory allocation error\n");
+                            break;
+                        }
                     }
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
                         tableID->nRow == 2) {
@@ -1444,6 +1483,10 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 }
                 break;
             }
+
+            case TABLESOURCE_FUNCTION_TRANSPOSE:
+                /* Should not be possible to get here */
+                break;
 
             default:
                 ModelicaError("Table source error\n");
@@ -1494,12 +1537,14 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
 #endif
             tableID->table = NULL;
         }
+        else if (tableID->table && (
 #ifndef NO_TABLE_COPY
-        else if (tableID->table && tableID->source == TABLESOURCE_MODEL) {
+            tableID->source == TABLESOURCE_MODEL ||
+#endif
+            tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE)) {
             free(tableID->table);
             tableID->table = NULL;
         }
-#endif
         if (tableID->nCols > 0 && tableID->cols) {
             free(tableID->cols);
             tableID->cols = NULL;
@@ -1779,14 +1824,27 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 2 /* 2D-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    if (colWise) {
-                        tableID->nRow = (size_t)dim[1];
-                        tableID->nCol = (size_t)dim[0];
-                        transpose(tableID->table, tableID->nRow, tableID->nCol);
-                    }
-                    else {
+                    if (colWise == 0) {
                         tableID->nRow = (size_t)dim[0];
                         tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
+                        /* Need to transpose */
+                        double* tableT = malloc(dim[0]*dim[1]*sizeof(double));
+                        if (tableT) {
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
+                            tableID->table = tableT;
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
+                            tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
+                        }
+                        else {
+                            free(tableID);
+                            tableID = NULL;
+                            ModelicaError("Memory allocation error\n");
+                            break;
+                        }
                     }
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
                         tableID->nRow == 3 && tableID->nCol == 3) {
@@ -1802,6 +1860,10 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 }
                 break;
             }
+
+            case TABLESOURCE_FUNCTION_TRANSPOSE:
+                /* Should not be possible to get here */
+                break;
 
             default:
                 ModelicaError("Table source error\n");
@@ -1852,12 +1914,14 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
 #endif
             tableID->table = NULL;
         }
+        else if (tableID->table && (
 #ifndef NO_TABLE_COPY
-        else if (tableID->table && tableID->source == TABLESOURCE_MODEL) {
+            tableID->source == TABLESOURCE_MODEL ||
+#endif
+            tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE)) {
             free(tableID->table);
             tableID->table = NULL;
         }
-#endif
         if (tableID->tableName) {
             free(tableID->tableName);
             tableID->tableName = NULL;
