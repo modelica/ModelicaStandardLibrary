@@ -2563,8 +2563,8 @@ The table matrix can be defined in the following ways:
       <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.</li>
+      fileName = \"NoName\" or has only blanks. Row-wise storage of the table matrix
+      is preferred.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the

@@ -180,8 +180,8 @@ The table matrix can be defined in the following ways:
       <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.
+      fileName = \"NoName\" or has only blanks. Row-wise storage of the table matrix
+      is preferred.
       See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
       documentation for more details.</li>
 </ol>
@@ -482,8 +482,8 @@ The table matrix can be defined in the following ways:
       <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.
+      fileName = \"NoName\" or has only blanks. Row-wise storage of the table matrix
+      is preferred.
       See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
       documentation for more details.</li>
 </ol>
@@ -782,8 +782,8 @@ The table matrix can be defined in the following ways:
       <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
 <li>  Statically stored in function \"usertab\" in file \"usertab.c\".
       The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.
+      fileName = \"NoName\" or has only blanks. Row-wise storage of the table matrix
+      is preferred.
       See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
       documentation for more details.</li>
 </ol>
