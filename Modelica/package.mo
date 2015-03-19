@@ -1791,7 +1791,7 @@ email: Board@Modelica.org<br>
 web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
-Copyright &copy; 1998-2013,
+Copyright &copy; 1998-2015,
 ABB, Austrian Institute of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
@@ -2427,8 +2427,8 @@ class Version_3_2_1_BugFixes "Version 3.2.1 with bug fixes"
     extends Modelica.Icons.ReleaseNotes;
 annotation (Documentation(info="<html>
 <p>
-In this section about <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">50 tickets</a>
-are summarized that have been fixed for version 3.2.1-<b>build 3</b>.
+In this section about <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">88 tickets</a>
+are summarized that have been fixed for version 3.2.1+<b>build.3</b>.
 </p>
 </html>"));
 end Version_3_2_1_BugFixes;
@@ -7849,7 +7849,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2013, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, C.&nbsp;Kral, Modelon,
+Copyright &copy; 1998-2015, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, C.&nbsp;Kral, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 
