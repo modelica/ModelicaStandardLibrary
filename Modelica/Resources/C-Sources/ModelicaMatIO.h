@@ -62,7 +62,7 @@
 #define MAT_FT_DEFAULT MAT_FT_MAT5
 
 /* Have MAT int64 / uint64 */
-#if defined (_WIN32)
+#if defined(_WIN32)
 #if defined(_MSC_VER)
 #define HAVE_MAT_INT64_T 1
 #define HAVE_MAT_UINT64_T 1
@@ -82,7 +82,7 @@
 #endif
 
 /* Define to 1 if you have the <stdint.h> header file. */
-#if defined (_WIN32)
+#if defined(_WIN32)
 #if defined(_MSC_VER) && _MSC_VER >= 1600
 #define MATIO_HAVE_STDINT_H 1
 #elif defined(__WATCOMC__)
@@ -90,8 +90,10 @@
 #else
 #undef MATIO_HAVE_STDINT_H
 #endif
-#else
+#elif !defined(__VXWORKS__)
 #define MATIO_HAVE_STDINT_H 1
+#else
+#undef MATIO_HAVE_STDINT_H
 #endif
 
 #if defined(MATIO_HAVE_STDINT_H)
