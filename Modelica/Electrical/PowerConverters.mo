@@ -26,7 +26,7 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
 <h4>Control</h4>
 
 <p>For each of the provided rectifiers a 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is availanble. 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is available. 
 These control models have electrical connectors to be connected with the AC supply. 
 The firing angle of thyristor rectifiers can either be set by a parameter or a signal input. 
 </p>
@@ -231,7 +231,8 @@ A freely available book is available in
       extends Modelica.Icons.ExamplesPackage;
       package Rectifier1Pulse "Single pulse rectifier"
         extends Modelica.Icons.ExamplesPackage;
-        model Thyristor1Pulse_R "One pulse rectifier with resistive load"
+        model Thyristor1Pulse_R
+          "One pulse rectifier with resistive load and constant firing angle"
           extends ExampleTemplates.Thyristor1Pulse(pulse2(
               useConstantFiringAngle=true,
               f=f,
@@ -271,6 +272,7 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example demonstrates the operational behavior of a single phase controlled rectifier with constant firing angle and resistive load.</p>
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end Thyristor1Pulse_R;
@@ -321,16 +323,19 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with resistive load.</p>
+<p>This example demonstrates the operational behavior of a single phase controlled rectifier with variable firing angle and resistive load. The average load voltage can be controlled by means of the firing angle.</p>
+<p><br>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with resistive load.</p>
 </html>"));
         end Thyristor1Pulse_R_Characteristic;
+        annotation (Documentation(info="<html>
+<p>This pacakge includes examples of single pulse controlled rectifiers.</p>
+</html>"));
       end Rectifier1Pulse;
 
       package RectifierBridge2Pulse "Two pulse Graetz bridge"
         extends Modelica.Icons.ExamplesPackage;
         model DiodeBridge2Pulse
           "Two pulse Graetz diode bridge with resistive load"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
@@ -443,22 +448,22 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>Two pulse diode bridge example.</p>
+<p>This examples shows a two pulse uncontrolled bridge example with resistive load.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeBridge2Pulse;
 
         model HalfControlledBridge2Pulse
           "Two pulse Graetz half controlled bridge with resistive load"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          parameter Modelica.SIunits.Angle constantFiringAngle=90*pi/180
+          parameter Modelica.SIunits.Angle constantFiringAngle=30*pi/180
             "Firing angle";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 visible=true, transformation(
                 origin={-80,-50},
@@ -589,7 +594,10 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-    <p>Two pulse half controlled bridge example.</p>
+<p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end HalfControlledBridge2Pulse;
 
@@ -632,6 +640,9 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_R;
@@ -686,6 +697,8 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This examples shows a two pulse full controlled bridge example with R-L load.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_RL;
@@ -750,6 +763,8 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This examples shows a two pulse full controlled bridge example with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_RLV;
@@ -823,13 +838,15 @@ A freely available book is available in
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+
+<p>This examples shows a two pulse full controlled bridge example with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
 </html>"));
         end ThyristorBridge2Pulse_RLV_Characteristic;
 
         model ThyristorBridge2Pulse_DC_Drive
           "Two pulse Graetz thyristor bridge feeding a DC drive"
-          import Modelica;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=dcpmData.VaNominal/(2/pi*sin(
@@ -1062,6 +1079,9 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average current <code>meanCurrent.y</code>. Also plot speed <code>w</code>, voltage <code>voltageSensor.v</code> and the average voltage <code>meanVoltage.y</code>.</p>  
 </html>"));
         end ThyristorBridge2Pulse_DC_Drive;
+        annotation (Documentation(info="<html>
+<p>This package includes single phase two pulse bridge rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+</html>"));
       end RectifierBridge2Pulse;
 
       package RectifierCenterTap2Pulse "Center tap rectifier with two pulses"
@@ -1074,8 +1094,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 visible=true, transformation(
                 origin={-90,-50},
@@ -1191,7 +1210,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>Two pulse diode center tap example.</p>
+<p>This example shows an uncontrolled two pulse center tap diode rectifier with resistive load.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeCenterTap2Pulse;
 
@@ -1234,6 +1255,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled center tap two pulse rectifier with resistive load.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_R;
@@ -1288,6 +1311,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled center tap two pulse rectifier with R-L load.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_RL;
@@ -1352,6 +1377,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_RLV;
@@ -1423,6 +1451,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_RLV_Characteristic;
@@ -1434,7 +1464,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               extent={{-100,-100},{100,100}},
               preserveAspectRatio=true,
               initialScale=0.1,
-              grid={2,2})));
+              grid={2,2})),
+          Documentation(info="<html>
+<p>This package includes single phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+</html>"));
       end RectifierCenterTap2Pulse;
 
       package RectifierCenterTapmPulse "m pulse rectifier with center tap"
@@ -1448,8 +1481,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-80,-100},{-60,-80}})));
           Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -1554,7 +1586,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p><code>m</code> pulse diode center tap example, where <code>m</code> is the number of phases.</p>
+<p>This example shows an uncontrolled <code>m</code> pulse center tap diode rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeCenterTapmPulse;
 
@@ -1589,6 +1623,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>m</code> pulse center tap rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTapmPulse_R;
@@ -1635,6 +1671,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>m</code> pulse center tap rectifier with R-L load, where <code>m</code> is the number of phases.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTapmPulse_RL;
@@ -1691,6 +1729,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTapmPulse_RLV;
@@ -1754,9 +1794,14 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulsem.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
 </html>"));
         end ThyristorCenterTapmPulse_RLV_Characteristic;
+        annotation (Documentation(info="<html>
+<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, equals the number of pulses. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+</html>"));
       end RectifierCenterTapmPulse;
 
       package RectifierBridge2mPulse "2*m pulse rectifier bridge"
@@ -1770,8 +1815,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
@@ -1839,7 +1883,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-20,28},{-10,28},{-10,-40}},
+              points={{-19.8,28},{-10,28},{-10,-40}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
@@ -1877,7 +1921,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows an uncontrolled <code>2*m</code> pulse diode bridge rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
 <p><code>2*m</code> pulse diode bridge example, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeBridge2mPulse;
 
@@ -1890,11 +1938,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Integer m(final min=3) = 3 "Number of phases";
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          parameter Modelica.SIunits.Angle constantFiringAngle=90*pi/180
+          parameter Modelica.SIunits.Angle constantFiringAngle=30*pi/180
             "Firing angle";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
@@ -2018,7 +2065,11 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-    <p><code>2*m</code> pulse half controlled bridge, where <code>m</code> is the number of phases.</p>
+<p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+
 </html>"));
         end HalfControlledBridge2mPulse;
 
@@ -2053,6 +2104,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_R;
@@ -2100,6 +2154,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load, where <code>m</code> is the number of phases.</p> 
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_RL;
@@ -2156,6 +2212,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_RLV;
@@ -2222,6 +2280,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2m.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
 </html>"));
         end ThyristorBridge2mPulse_RLV_Characteristic;
@@ -2374,7 +2434,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,127},
               smooth=Smooth.None));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-28,-6},{-10,-6},{-10,-40}},
+              points={{-27.8,-6},{-10,-6},{-10,-40}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
@@ -2386,7 +2446,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           connect(pulse2.fire_p, rectifier.fire_p) annotation (Line(
-              points={{-44,-29},{-44,-11.8}},
+              points={{-44,-29},{-44,-12}},
               color={255,0,255},
               smooth=Smooth.None));
           connect(pulse2.fire_n, rectifier.fire_n) annotation (Line(
@@ -2438,7 +2498,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           connect(rectifier.dc_n, ground.p) annotation (Line(
-              points={{-28,-6},{-20,-6},{-20,-40}},
+              points={{-27.8,-6},{-20,-6},{-20,-40}},
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
@@ -2455,8 +2515,18 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             experiment(
               StopTime=15,
               Interval=0.0002,
-              Tolerance=1e-006));
+              Tolerance=1e-006),
+            Documentation(info="<html>
+<p>
+In this example a PM excited DC machine is started with nominal torque at nominal speed. After 5 seconds, load torque is reduced to zero over a period of additional 10 seconds. At 15 seconds, the machine is operating at no load.
+</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+</html>"));
         end ThyristorBridge2mPulse_DC_Drive;
+        annotation (Documentation(info="<html>
+<p>This package includes multi phase bridge rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+</html>"));
       end RectifierBridge2mPulse;
 
       package RectifierCenterTap2mPulse "2*m pulse rectifier with center tap"
@@ -2470,8 +2540,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
           parameter Modelica.SIunits.Resistance R=20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-100},{-70,-80}})));
           Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -2594,7 +2663,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p><code>2*m</code> pulse diode center tap example template, where <code>m</code> is the number of phases.</p>
+<p>This example shows an uncontrolled <code>2*m</code> pulse center tap diode rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
+<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeCenterTap2mPulse;
 
@@ -2629,6 +2700,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with resistive load, where <code>m</code> is the number of phases.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_R;
@@ -2675,6 +2748,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load, where <code>m</code> is the number of phases.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_RL;
@@ -2731,6 +2806,8 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_RLV;
@@ -2794,9 +2871,14 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2m.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
+<p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
+
+<p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulsem.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_RLV_Characteristic;
+        annotation (Documentation(info="<html>
+<p>This package includes multi phase center tap rectifiers. The number of phases, <code>m</code>, determines the number of pulses, <code>2*m</code>. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
+</html>"));
       end RectifierCenterTap2mPulse;
 
       package ExampleTemplates "Templates of examples"
@@ -2806,8 +2888,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          // parameter Modelica.SIunits.Angle constantFiringAngle = 90 * pi / 180 "Firing angle";
-          // parameter Modelica.SIunits.Resistance R = 20 "Load resistance";
+
           Modelica.Electrical.Analog.Sensors.VoltageSensor voltagesensor
             annotation (Placement(visible=true, transformation(
                 origin={50,10},
@@ -2911,7 +2992,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 initialScale=0.1,
                 grid={2,2}), graphics),
             Documentation(info="<html>
-<p>Inductive load does not make sense, since average DC voltage is very low due to long conduction period of the thyristor.</p>
+<p>Template of 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
+single pulse rectifiers</a>.</p>
 </html>"));
         end Thyristor1Pulse;
         extends Modelica.Icons.Package;
@@ -2922,10 +3005,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          // parameter Modelica.SIunits.Angle constantFiringAngle = 90 * pi / 180 "Firing angle";
-          // parameter Modelica.SIunits.Resistance R = 20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 visible=true, transformation(
                 origin={-80,-50},
@@ -3035,7 +3115,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 initialScale=0.1,
                 grid={2,2}), graphics),
             Documentation(info="<html>
-<p>Two pulse thyristor bridge example template.</p>
+<p>Template of 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
+two pulse bridge rectifiers</a>.</p>
 </html>"));
         end ThyristorBridge2Pulse;
 
@@ -3046,10 +3128,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           import Modelica.Constants.pi;
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          // parameter Modelica.SIunits.Angle constantFiringAngle = 90 * pi / 180 "Firing angle";
-          // parameter Modelica.SIunits.Resistance R = 20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-120 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 visible=true, transformation(
                 origin={-90,-50},
@@ -3169,7 +3248,9 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 initialScale=0.1,
                 grid={2,2}), graphics),
             Documentation(info="<html>
-<p>Two pulse thyristor center tap example template.</p>
+<p>Template of 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
+center tap two pulse rectifiers</a>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse;
 
@@ -3181,10 +3262,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
           parameter Integer m(final min=3) = 3 "Number of phases";
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          // parameter Modelica.SIunits.Angle constantFiringAngle = 90 * pi / 180 "Firing angle";
-          // parameter Modelica.SIunits.Resistance R = 20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-80,-100},{-60,-80}})));
           Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -3289,22 +3367,21 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics),
             Documentation(info="<html>
-<p><code>m</code> pulse thyristor center tap example template, where <code>m</code> is the number of phases.</p>
+<p>Template of 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
+center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases.</p>
 </html>"));
         end ThyristorCenterTapmPulse;
 
         partial model ThyristorBridge2mPulse
-          "Template of 2*m pulse thyristor rectifier"
+          "Template of 2*m pulse bridge thyristor rectifier"
           import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          // parameter Modelica.SIunits.Angle constantFiringAngle = 90 * pi / 180 "Firing angle";
-          // parameter Modelica.SIunits.Resistance R = 20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
             final m=m,
             V=fill(sqrt(2)*Vrms, m),
@@ -3375,7 +3452,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           connect(rectifier.dc_n, currentSensor.n) annotation (Line(
-              points={{-20,28},{-10,28},{-10,-40}},
+              points={{-19.8,28},{-10,28},{-10,-40}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(rectifier.dc_p, voltagesensor.p) annotation (Line(
@@ -3387,7 +3464,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           connect(pulse2m.fire_p, rectifier.fire_p) annotation (Line(
-              points={{-36,11},{-36,22.2}},
+              points={{-36,11},{-36,22}},
               color={255,0,255},
               smooth=Smooth.None));
           connect(pulse2m.fire_n, rectifier.fire_n) annotation (Line(
@@ -3413,22 +3490,21 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics),
             Documentation(info="<html>
-<p><code>2*m</code> pulse thyristor bridge example template, where <code>m</code> is the number of phases.</p>
+<p>Template of 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
+<code>2*m</code> pulse bridge rectifiers</a>, where <code>m</code> is the number of phases.</p>
 </html>"));
         end ThyristorBridge2mPulse;
 
         partial model ThyristorCenterTap2mPulse
-          "Template of 2*m pulse rectifier with center tap"
+          "Template of 2*m pulse thyristor rectifier with center tap"
           import Modelica;
           extends Icons.ExampleTemplate;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
           parameter Modelica.SIunits.Voltage Vrms=110 "RMS supply voltage";
           parameter Modelica.SIunits.Frequency f=50 "Frequency";
-          // parameter Modelica.SIunits.Angle constantFiringAngle = 90 * pi / 180 "Firing angle";
-          // parameter Modelica.SIunits.Resistance R = 20 "Load resistance";
-          // parameter Modelica.SIunits.Inductance L = 1 "Load resistance" annotation(Evaluate=true);
-          // parameter Modelica.SIunits.Voltage VDC=-260 "DC load offset voltage";
+
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(extent={{-90,-100},{-70,-80}})));
           Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
@@ -3555,9 +3631,14 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics),
             Documentation(info="<html>
-<p><code>2*m</code> pulse thyristor center tap example template, where <code>m</code> is the number of phases.</p>
+<p>Template of 
+<a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
+center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases.</p>
 </html>"));
         end ThyristorCenterTap2mPulse;
+        annotation (Documentation(info="<html>
+<p>This package includes templates of the used examples.</p>
+</html>"));
       end ExampleTemplates;
     end ACDC;
 
@@ -4407,7 +4488,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               color={0,0,255},
               smooth=Smooth.None));
           connect(currentSensor.n, chopperStepDown.dc_n2) annotation (Line(
-              points={{-20,-6},{-39.8,-6}},
+              points={{-20,-6},{-40,-6}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(constantVoltage.n, ground.p) annotation (Line(
@@ -5207,7 +5288,6 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
@@ -5373,13 +5453,11 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
       parameter Boolean offStart_n2=true
         "Boolean start value of variable thyristor_n2.off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2;
-
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
         final Ron=RonThyristor,
         final Goff=GoffThyristor,
@@ -5569,13 +5647,11 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
       parameter Boolean offStart_p2=true
         "Boolean start value of variable thyristor_p2.off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2;
-
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p1(
         final Ron=RonThyristor,
         final Goff=GoffThyristor,
@@ -5758,12 +5834,10 @@ The circuit topology is the same as in
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-
       Modelica.Electrical.Analog.Ideal.IdealDiode diode_p(
         final Ron=RonDiode,
         final Goff=GoffDiode,
@@ -5882,13 +5956,11 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
       parameter Boolean offStart_n=true
         "Boolean start value of variable thyristor_n.off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2;
-
       Modelica.Electrical.Analog.Ideal.IdealThyristor thyristor_p(
         final Ron=RonThyristor,
         final Goff=GoffThyristor,
@@ -6014,12 +6086,10 @@ General information about AC/DC converters can be found at the
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -6125,13 +6195,11 @@ The circuit topology is the same as in
       parameter Boolean offStart[m]=fill(true, m)
         "Boolean start value of variable thyristor_p[:].off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable1m;
-
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor(
         final m=m,
         final Ron=fill(RonThyristor, m),
@@ -6242,12 +6310,10 @@ See example
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -6381,13 +6447,11 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
       parameter Boolean offStart_n[m]=fill(true, m)
         "Boolean start value of variable thyristor_n[:].off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2m;
-
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
@@ -6540,13 +6604,11 @@ See example
       parameter Boolean offStart_p[m]=fill(true, m)
         "Boolean start value of variable thyristor_p[:].off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable1m;
-
       Modelica.Electrical.MultiPhase.Basic.Star star_p(final m=m)
         annotation (Placement(transformation(extent={{70,70},{90,50}})));
       Modelica.Electrical.MultiPhase.Basic.Star star_n(final m=m)
@@ -6701,12 +6763,10 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-
       Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode_p(
         final m=m,
         final Ron=fill(RonDiode, m),
@@ -6840,13 +6900,11 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
       parameter Boolean offStart_n[m]=fill(true, m)
         "Boolean start value of variable thyristor_n[:].off"
         annotation (choices(checkBox=true));
-
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACtwoPlug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2m;
-
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
         final m=m,
         final Ron=fill(RonThyristor, m),
@@ -7000,13 +7058,11 @@ General information about AC/DC converters can be found at the
         "Diode opened conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
       // parameter Boolean useEnable "Enables enable signal connector";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACpin;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable2;
-
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor_p(
         final Ron=RonTransistor,
         final Goff=GoffTransistor,
@@ -7189,12 +7245,10 @@ An example of a single phase inverter with PWM voltage control is included in
         "Diode opened conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
       // parameter Boolean useEnable "Enables enable signal connector";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.DCtwoPin;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCAC.ACplug;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
-
       Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor transistor_p(
         final m=m,
         final Ron=fill(RonTransistor, m),
@@ -7558,13 +7612,11 @@ Currently there is only one PWM method provided in this library.
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode(final min=0) = 0
         "Diode forward threshold voltage";
-
       extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
       extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       extends Interfaces.Enable.Enable1;
-
       Modelica.Electrical.Analog.Ideal.IdealGTOThyristor transistor(
         useHeatPort=useHeatPort,
         Ron=RonTransistor,
@@ -7949,7 +8001,6 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potentials";
         Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
-
       end ACplug;
 
       partial model ACtwoPlug "Two AC multi phase plugs"
@@ -7963,7 +8014,6 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v
           "AC voltages";
         Modelica.SIunits.Current iAC[m]=ac_p.pin[:].i "AC currents";
-
       end ACtwoPlug;
 
       partial model DCtwoPin "Positive and negative DC pins"
@@ -7986,7 +8036,6 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.SIunits.Voltage vDC=dc_p.v "DC potential";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
       end DCpin;
-
     end ACDC;
 
     package DCAC "DC to AC converter interfaces"
@@ -8000,7 +8049,6 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
         Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
-
       end DCtwoPin;
       extends Modelica.Icons.InterfacesPackage;
       partial model ACpin "Single AC pin"
@@ -8009,7 +8057,6 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.SIunits.Voltage vAC=ac.v "AC potential";
         Modelica.SIunits.Current iAC=ac.i "AC current";
-
       end ACpin;
 
       partial model ACplug "AC multi phase plug"
@@ -8019,7 +8066,6 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potential";
         Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC current";
-
       end ACplug;
     end DCAC;
 
@@ -8046,9 +8092,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
         Modelica.SIunits.Voltage vDC2=dc_p2.v - dc_n2.v "DC voltages side 2";
         Modelica.SIunits.Current iDC2=dc_p2.i "DC current side 2";
-
       end DCtwoPin2;
-
     end DCDC;
 
     package Enable "Enabling interfaces"
