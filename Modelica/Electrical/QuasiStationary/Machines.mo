@@ -126,6 +126,7 @@ package Machines "Quasistationary machine models"
         T1Operational=293.15,
         T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                 -10},{20,30}}, rotation=0)));
+
     initial equation
       source.plug_p.reference.gamma = 0;
 
@@ -2472,7 +2473,6 @@ This package contains the quasi stationary space phasor connector and partial mo
 </html>"));
   end Interfaces;
 
-
   package SpacePhasors
     "Space phasor components for quasi stationary electric machines"
     extends Modelica.Icons.Package;
@@ -2497,27 +2497,33 @@ This package contains the quasi stationary space phasor connector and partial mo
         y = {c.re,c.im};
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Line(points={{0,0},{80,80},{60,72},{72,
-                60},{80,80}}, color={0,0,255}),Line(points={{0,0},{80,-80},{72,
-                -60},{60,-72},{80,-80}}, color={0,0,255}),Line(
-                      points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
-                  17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
-                  -20},{-13.33,-17.32},{-6.67,-10},{0,0}},
-                      color={0,0,255},
-                      smooth=Smooth.Bezier),Line(
-                      points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
-                  17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
-                  -20},{-23.33,-17.32},{-16.67,-10},{-10,0}},
-                      color={0,0,255},
-                      smooth=Smooth.Bezier),Line(
-                      points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
-                  17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
-                  -20},{-3.33,-17.32},{3.33,-10},{10,0}},
-                      color={0,0,255},
-                      smooth=Smooth.Bezier),Text(
-                      extent={{-12,-74},{64,-86}},
-                      lineColor={0,0,0},
-                      textString="zero")}),
+                  100,100}}), graphics={
+              Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={85,
+                    170,255}),
+              Line(points={{0,0},{80,-80},{72,-60},{60,-72},{80,-80}}, color={
+                    85,170,255}),
+              Line(
+                points={{-80,0},{-73.33,10},{-66.67,17.32},{-60,20},{-53.33,
+                    17.32},{-46.67,10},{-40,0},{-33.33,-10},{-26.67,-17.32},{-20,
+                    -20},{-13.33,-17.32},{-6.67,-10},{0,0}},
+                color={85,170,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-90,0},{-83.33,10},{-76.67,17.32},{-70,20},{-63.33,
+                    17.32},{-56.67,10},{-50,0},{-43.33,-10},{-36.67,-17.32},{-30,
+                    -20},{-23.33,-17.32},{-16.67,-10},{-10,0}},
+                color={85,170,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-70,0},{-63.33,10},{-56.67,17.32},{-50,20},{-43.33,
+                    17.32},{-36.67,10},{-30,0},{-23.33,-10},{-16.67,-17.32},{-10,
+                    -20},{-3.33,-17.32},{3.33,-10},{10,0}},
+                color={85,170,255},
+                smooth=Smooth.Bezier),
+              Text(
+                extent={{-12,-74},{64,-86}},
+                lineColor={0,0,0},
+                textString="zero")}),
           Documentation(info="<HTML>
 Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
 </HTML>"),
@@ -2540,27 +2546,33 @@ Transformation of quasi stationary multi phase values (voltages or currents) to 
       equation
         y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Line(points={{0,0},{-80,80},{-60,
-                72},{-72,60},{-80,80}}, color={0,0,255}),Line(points={{0,0},{-80,
-                -80},{-72,-60},{-60,-72},{-80,-80}}, color={0,0,255}),Line(
-                      points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,
-                  17.32},{33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},
-                  {66.67,-17.32},{73.33,-10},{80,0}},
-                      color={0,0,255},
-                      smooth=Smooth.Bezier),Line(
-                      points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,
-                  17.32},{23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},
-                  {56.67,-17.32},{63.33,-10},{70,0}},
-                      color={0,0,255},
-                      smooth=Smooth.Bezier),Line(
-                      points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,
-                  17.32},{43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},
-                  {76.67,-17.32},{83.33,-10},{90,0}},
-                      color={0,0,255},
-                      smooth=Smooth.Bezier),Text(
-                      extent={{-62,-74},{14,-86}},
-                      lineColor={0,0,0},
-                      textString="zero")}), Documentation(info="<HTML>
+                  -100},{100,100}}), graphics={
+              Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={
+                    85,170,255}),
+              Line(points={{0,0},{-80,-80},{-72,-60},{-60,-72},{-80,-80}},
+                  color={85,170,255}),
+              Line(
+                points={{0,0},{6.67,10},{13.33,17.32},{20,20},{26.67,17.32},{
+                    33.33,10},{40,0},{46.67,-10},{53.33,-17.32},{60,-20},{66.67,
+                    -17.32},{73.33,-10},{80,0}},
+                color={85,170,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-10,0},{-3.33,10},{3.33,17.32},{10,20},{16.67,17.32},{
+                    23.33,10},{30,0},{36.67,-10},{43.33,-17.32},{50,-20},{56.67,
+                    -17.32},{63.33,-10},{70,0}},
+                color={85,170,255},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{10,0},{16.67,10},{23.33,17.32},{30,20},{36.67,17.32},{
+                    43.33,10},{50,0},{56.67,-10},{63.33,-17.32},{70,-20},{76.67,
+                    -17.32},{83.33,-10},{90,0}},
+                color={85,170,255},
+                smooth=Smooth.Bezier),
+              Text(
+                extent={{-62,-74},{14,-86}},
+                lineColor={0,0,0},
+                textString="zero")}), Documentation(info="<HTML>
 Transformation of space phasor and zero sequence value to quasi stationary multi phase values (voltages or currents).
 </HTML>"));
       end FromSpacePhasor;
