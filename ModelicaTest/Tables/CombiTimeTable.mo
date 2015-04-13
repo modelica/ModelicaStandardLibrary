@@ -761,7 +761,7 @@ package CombiTimeTable
     annotation (experiment(StartTime=0, StopTime=4));
   end Test66_usertab;
 
-  model Test67 "Ticket #1473, timeScale"
+  model Test67 "timeScale (Tickets #1473, #1627)"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.CombiTimeTable t_s(
       table=[0,0;1800,1;1800,1;3600,0],
@@ -782,6 +782,32 @@ package CombiTimeTable
       table=[0,0;1.8e6,1;1.8e6,1;3.6e6,0],
       startTime=400,
       timeScale(displayUnit="ms")=1e-3) annotation(Placement(transformation(extent={{-40,-120},{-20,-100}})));
+    Modelica.Blocks.Continuous.Der d_t_s annotation(Placement(transformation(extent={{0,0},{20,20}})));
+    Modelica.Blocks.Continuous.Der d_t_min annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    Modelica.Blocks.Continuous.Der d_t_h annotation(Placement(transformation(extent={{0,-60},{20,-40}})));
+    Modelica.Blocks.Continuous.Der d_t_d annotation(Placement(transformation(extent={{0,-90},{20,-70}})));
+    Modelica.Blocks.Continuous.Der d_t_ms annotation(Placement(transformation(extent={{0,-120},{20,-100}})));
+  equation 
+    connect(t_s.y[1], d_t_s.u) annotation (Line(
+        points={{-19,10},{-2,10}},
+        color={0,0,127},
+        thickness=0.0625));
+    connect(t_min.y[1], d_t_min.u) annotation (Line(
+        points={{-19,-20},{-2,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+    connect(t_h.y[1], d_t_h.u) annotation (Line(
+        points={{-19,-50},{-2,-50}},
+        color={0,0,127},
+        thickness=0.0625));
+    connect(t_d.y[1], d_t_d.u) annotation (Line(
+        points={{-19,-80},{-2,-80}},
+        color={0,0,127},
+        thickness=0.0625));
+    connect(t_ms.y[1], d_t_ms.u) annotation (Line(
+        points={{-19,-110},{-2,-110}},
+        color={0,0,127},
+        thickness=0.0625));
     annotation (experiment(StartTime=0, StopTime=4000));
   end Test67;
 

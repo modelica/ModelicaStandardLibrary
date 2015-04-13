@@ -2074,7 +2074,7 @@ a flange according to a given acceleration.
     end getInterpolationCoefficients;
   algorithm
     timeScaled := time/timeScale;
-    when {timeScaled >= pre(nextEventScaled),initial()} then
+    when {time >= pre(nextEvent),initial()} then
       (a,b,nextEventScaled,last) := getInterpolationCoefficients(
           table,
           offset,
@@ -2429,7 +2429,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
     timeScaled = time/timeScale;
-    when {timeScaled >= pre(nextTimeEventScaled),initial()} then
+    when {time >= pre(nextTimeEvent),initial()} then
       nextTimeEventScaled = getNextTimeEvent(tableID, timeScaled, tableOnFileRead);
       if (nextTimeEventScaled < DBL_MAX) then
         nextTimeEvent = nextTimeEventScaled*timeScale;

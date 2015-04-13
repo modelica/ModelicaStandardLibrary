@@ -21,6 +21,10 @@
 
 
    Release Notes:
+      Apr. 13, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed event detection of CombiTimeTable with scaled time
+                     (ticket #1627)
+
       Mar. 18, 2015: by Thomas Beutlich, ITI GmbH.
                      Fixed poor performance of readMatTable for MATLAB MAT-files with
                      compressed array streams and large (> 1e5) number of rows
@@ -40,6 +44,15 @@
 
       May 21, 2014:  by Thomas Beutlich, ITI GmbH.
                      Fixed bivariate Akima-spline extrapolation (ticket #1465)
+
+      Oct. 17, 2013: by Thomas Beutlich, ITI GmbH.
+                     Added support of 2D tables that actually degrade to 1D tables
+                     (ticket #1307)
+
+      Sep. 05, 2013: by Thomas Beutlich, ITI GmbH.
+                     Fixed ANSI-C compliance (ticket #1263)
+                     Fixed reading table files with Windows line endings on Linux
+                     (ticket #1264)
 
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
@@ -312,11 +325,6 @@ static size_t findRowIndex(const double* table, size_t nRow, size_t nCol,
 static size_t findColIndex(const double* table, size_t nCol, size_t last,
                            double x);
   /* Same as findRowIndex but works on rows */
-
-static size_t findPreRowIndex(const CombiTimeTable* tableID, size_t last);
-  /* Find the row index i of the previous event interval where last is in
-     the current event interval
-  */
 
 static int isValidName(const char* name);
   /* Check, whether a file or table name is valid */
@@ -722,12 +730,17 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                         /* Event handling for non-periodic extrapolation */
                         if (nextTimeEvent == preNextTimeEvent &&
                             nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
-                            /* Before event iteration */
+                            /* Before event iteration: Return previous
+                               interval value */
                             size_t i;
-                            if (t >= TABLE_COL0(nRow - 1)) {
-                                last = nRow - 1;
+                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                                i = tableID->intervals[
+                                    tableID->eventInterval - 2][0];
                             }
-                            i = findPreRowIndex(tableID, last);
+                            else {
+                                i = tableID->intervals[
+                                    tableID->eventInterval - 2][1];
+                            }
                             y = TABLE(i, col);
                             return y;
                         }
@@ -941,10 +954,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                         if (nextTimeEvent == preNextTimeEvent &&
                             nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
                             /* Before event iteration */
-                            if (t >= TABLE_COL0(nRow - 1)) {
-                                last = nRow - 1;
+                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                                last = tableID->intervals[
+                                    tableID->eventInterval - 2][0];
                             }
-                            last = findPreRowIndex(tableID, last);
+                            else {
+                                last = tableID->intervals[
+                                    tableID->eventInterval - 2][1];
+                            }
                             if (last == 0 && tableID->nEvent == 1) {
                                 extrapolate = LEFT;
                             }
@@ -2693,32 +2710,6 @@ static size_t findColIndex(const double* table, size_t nCol, size_t last,
         }
     }
     return i0;
-}
-
-static size_t findPreRowIndex(const CombiTimeTable* tableID, size_t last) {
-    size_t j = last;
-    if (tableID && tableID->table) {
-        const double* table = tableID->table;
-        const size_t nCol = tableID->nCol;
-        size_t i;
-        for (i = last; i > 0; i--) {
-            double t0 = TABLE_COL0(i - 1);
-            double t1 = TABLE_COL0(i);
-            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                if (!isNearlyEqual(t0, t1)) {
-                    /* First abscissa that is different */
-                    j = i - 1;
-                    break;
-                }
-            }
-            else if (!isNearlyEqual(t0, t1)) {
-                /* Last abscissa that is equal */
-                j = i;
-                break;
-            }
-        }
-    }
-    return j;
 }
 
 /* ----- Internal check functions ----- */
