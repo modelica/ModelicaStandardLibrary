@@ -21,7 +21,7 @@
    to decrease the utilized memory (ticket #1110).
 
    Release Notes:
-      Apr. 13, 2015: by Thomas Beutlich, ITI GmbH.
+      Apr. 16, 2015: by Thomas Beutlich, ITI GmbH.
                      Fixed event detection of CombiTimeTable with scaled time
                      (ticket #1627)
 
@@ -718,7 +718,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 else if (t < TABLE_ROW0(0)) {
                     extrapolate = LEFT;
                 }
-                else if (t > TABLE_COL0(nRow - 1)) {
+                else if (t >= TABLE_COL0(nRow - 1)) {
                     extrapolate = RIGHT;
                     if (tableID->extrapolation != PERIODIC) {
                         /* Event handling for non-periodic extrapolation */
@@ -731,29 +731,58 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 }
 
                 if (extrapolate == IN_TABLE) {
-                    size_t last = findRowIndex(table, nRow, nCol, tableID->last,
-                        t);
-                    tableID->last = last;
-
-                    if (tableID->extrapolation != PERIODIC) {
+                    size_t last;
+                    if (tableID->extrapolation == PERIODIC) {
+                        last = findRowIndex(table, nRow, nCol,
+                            tableID->last, t);
+                    }
+                    else {
                         /* Event handling for non-periodic extrapolation */
                         if (nextTimeEvent == preNextTimeEvent &&
                             nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
                             /* Before event iteration: Return previous
                                interval value */
-                            size_t i;
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                i = tableID->intervals[
+                            if (tableID->eventInterval == 1) {
+                                last = 0;
+                            }
+                            else if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                                last = tableID->intervals[
                                     tableID->eventInterval - 2][0];
                             }
-                            else {
-                                i = tableID->intervals[
+                            else if (tableID->smoothness == LINEAR_SEGMENTS) {
+                                last = tableID->intervals[
                                     tableID->eventInterval - 2][1];
                             }
-                            y = TABLE(i, col);
+                            else if (t >= TABLE_COL0(nRow - 1)) {
+                                last = nRow - 1;
+                            }
+                            else {
+                                last = findRowIndex(table, nRow, nCol,
+                                    tableID->last, t);
+                            }
+                            y = TABLE(last, col);
                             return y;
                         }
+                        else {
+                            last = findRowIndex(table, nRow, nCol,
+                                tableID->last, t);
+                            if (tableID->eventInterval > 1) {
+                                const size_t i0 = tableID->intervals[
+                                    tableID->eventInterval - 2][0];
+                                const size_t i1 = tableID->intervals[
+                                    tableID->eventInterval - 2][1];
+
+                                /* Event interval correction */
+                                if (last < i0) {
+                                    last = i0;
+                                }
+                                if (last >= i1) {
+                                    last = i0;
+                                }
+                            }
+                        }
                     }
+                    tableID->last = last;
 
                     /* Interpolation */
                     switch (tableID->smoothness) {
@@ -940,7 +969,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                 else if (t < TABLE_ROW0(0)) {
                     extrapolate = LEFT;
                 }
-                else if (t > TABLE_COL0(nRow - 1)) {
+                else if (t >= TABLE_COL0(nRow - 1)) {
                     extrapolate = RIGHT;
                     if (tableID->extrapolation != PERIODIC) {
                         /* Event handling for non-periodic extrapolation */
@@ -953,30 +982,55 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                 }
 
                 if (extrapolate == IN_TABLE) {
-                    if (!haveLast) {
-                        last = findRowIndex(table, nRow, nCol, tableID->last, t);
-                        tableID->last = last;
-                    }
-
                     if (tableID->extrapolation != PERIODIC) {
                         /* Event handling for non-periodic extrapolation */
                         if (nextTimeEvent == preNextTimeEvent &&
                             nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
                             /* Before event iteration */
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                            if (tableID->eventInterval == 1) {
+                                last = 0;
+                                extrapolate = LEFT;
+                            }
+                            else if (tableID->smoothness == CONSTANT_SEGMENTS) {
                                 last = tableID->intervals[
                                     tableID->eventInterval - 2][0];
                             }
-                            else {
+                            else if (tableID->smoothness == LINEAR_SEGMENTS) {
                                 last = tableID->intervals[
                                     tableID->eventInterval - 2][1];
                             }
-                            if (last == 0 && tableID->nEvent == 1) {
-                                extrapolate = LEFT;
+                            else if (t >= TABLE_COL0(nRow - 1)) {
+                                last = nRow - 1;
                             }
-                            else if (last > 0) {
+                            else {
+                                last = findRowIndex(table, nRow, nCol,
+                                    tableID->last, t);
+                                tableID->last = last;
+                            }
+                            if (last > 0 && extrapolate == IN_TABLE) {
                                 last--;
                             }
+                            haveLast = 1;
+                        }
+                    }
+
+                    if (!haveLast) {
+                        last = findRowIndex(table, nRow, nCol, tableID->last, t);
+                        tableID->last = last;
+                    }
+
+                    if (tableID->extrapolation != PERIODIC &&
+                        tableID->eventInterval > 1) {
+                        const size_t i0 = tableID->intervals[
+                            tableID->eventInterval - 2][0];
+                        const size_t i1 = tableID->intervals[
+                            tableID->eventInterval - 2][1];
+
+                       if (last < i0) {
+                            last = i0;
+                        }
+                        if (last >= i1) {
+                            last = i0;
                         }
                     }
                 }
