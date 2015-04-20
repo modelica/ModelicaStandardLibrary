@@ -51,10 +51,10 @@ package CombiTimeTable
     extends Test0(t_new(table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1;
             0.7, 0, 0], smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Continuous.Der d_t_new2
-      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+      annotation (Placement(transformation(extent={{0,30},{20,50}})));
   equation
     connect(t_new.y[2], d_t_new2.u) annotation (Line(
-        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        points={{-2,40},{-7,40},{-14,40},{-14,10},{-19,10}},
         color={0,0,127},
         thickness=0.0625));
     annotation (experiment(StartTime=0, StopTime=1));
