@@ -245,6 +245,9 @@ typedef std::map<TableKey, TableVal> TableShareMap;
 #if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
 static TableShareMap tableShare;
 #if defined(_WIN32)
+#if !defined(WIN32_LEAN_AND_MEAN)
+#define WIN32_LEAN_AND_MEAN
+#endif
 #include <Windows.h>
 struct CriticalSection : CRITICAL_SECTION {
     CriticalSection() {
