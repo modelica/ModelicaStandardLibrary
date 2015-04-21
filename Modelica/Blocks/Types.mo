@@ -57,7 +57,7 @@ package Types
         "Initialization with initial outputs (and steady state of the states if possible)",
 
       DoNotUse_InitialIntegratorState
-        "Don not use, only for backward compatibility (initialize only integrator state)")
+        "Do not use, only for backward compatibility (initialize only integrator state)")
     "Enumeration defining initialization of PID and LimPID blocks" annotation (
       Evaluate=true, Documentation(info="<html>
 <p>
@@ -82,7 +82,7 @@ initialization definition.
     <dt><code><strong>InitialOutput</strong></code></dt>
       <dd>Initialization with initial outputs (and steady state of the states if possible)</dd>
     <dt><code><strong>DoNotUse_InitialIntegratorState</strong></code></dt>
-      <dd>Don not use, only for backward compatibility (initialize only integrator state)</dd>
+      <dd>Do not use, only for backward compatibility (initialize only integrator state)</dd>
   </dl>
 </html>"));
 
