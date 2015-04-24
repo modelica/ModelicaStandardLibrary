@@ -25,6 +25,11 @@
                      Fixed event detection of CombiTimeTable with scaled time
                      (ticket #1627)
 
+      Mar. 18, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed poor performance of readMatTable for MATLAB MAT-files with
+                     compressed array streams and large (> 1e5) number of rows
+                     (ticket #1682)
+
       Jan. 02, 2015: by Thomas Beutlich, ITI GmbH.
                      Fixed event detection of CombiTimeTable with non-zero start time
                      (ticket #1619)
@@ -353,6 +358,9 @@ static enum TableSource getTableSource(const char *tableName,
      and file names
   */
 
+static void transpose(double* table, size_t nRow, size_t nCol);
+  /* Cycle-based in-place array transposition */
+
 static double* readTable(const char* tableName, const char* fileName,
                          size_t* nRow, size_t* nCol, int verbose, int force);
   /* Read a table from an ASCII text or MATLAB MAT-file
@@ -499,30 +507,21 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 0 /* Time-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    tableID->nRow = (size_t)dim[0];
-                    tableID->nCol = (size_t)dim[1];
-                    if (colWise) {
+                    if (colWise == 0) {
+                        tableID->nRow = (size_t)dim[0];
+                        tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
                         /* Need to transpose */
-                        size_t dims[2];
-                        double* tableT;
-
-                        dims[0] = tableID->nRow;
-                        dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(
-                            dims[0]*dims[1]*sizeof(double)));
+                        double* tableT = STATIC_CAST(double*, malloc(
+                            dim[0]*dim[1]*sizeof(double)));
                         if (tableT) {
-                            size_t i;
-                            size_t j;
-                            for (i = 0; i < dims[1]; i++) {
-                                for (j = 0; j < dims[0]; j++) {
-                                    tableT[IDX(i, j, dims[0])] =
-                                        tableID->table[IDX(j, i, dims[1])];
-                                }
-                            }
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
-                            tableID->nRow = dims[1];
-                            tableID->nCol = dims[0];
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
                         }
                         else {
                             if (nCols > 0) {
@@ -1526,30 +1525,21 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 1 /* 1D-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    tableID->nRow = (size_t)dim[0];
-                    tableID->nCol = (size_t)dim[1];
-                    if (colWise) {
+                    if (colWise == 0) {
+                        tableID->nRow = (size_t)dim[0];
+                        tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
                         /* Need to transpose */
-                        size_t dims[2];
-                        double* tableT;
-
-                        dims[0] = tableID->nRow;
-                        dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(
-                            dims[0]*dims[1]*sizeof(double)));
+                        double* tableT = STATIC_CAST(double*, malloc(
+                            dim[0]*dim[1]*sizeof(double)));
                         if (tableT) {
-                            size_t i;
-                            size_t j;
-                            for (i = 0; i < dims[1]; i++) {
-                                for (j = 0; j < dims[0]; j++) {
-                                    tableT[IDX(i, j, dims[0])] =
-                                        tableID->table[IDX(j, i, dims[1])];
-                                }
-                            }
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
-                            tableID->nRow = dims[1];
-                            tableID->nCol = dims[0];
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
                         }
                         else {
                             if (nCols > 0) {
@@ -1912,30 +1902,21 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 2 /* 2D-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    tableID->nRow = (size_t)dim[0];
-                    tableID->nCol = (size_t)dim[1];
-                    if (colWise) {
+                    if (colWise == 0) {
+                        tableID->nRow = (size_t)dim[0];
+                        tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
                         /* Need to transpose */
-                        size_t dims[2];
-                        double* tableT;
-
-                        dims[0] = tableID->nRow;
-                        dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(
-                            dims[0]*dims[1]*sizeof(double)));
+                        double* tableT = STATIC_CAST(double*, malloc(
+                            dim[0]*dim[1]*sizeof(double)));
                         if (tableT) {
-                            size_t i;
-                            size_t j;
-                            for (i = 0; i < dims[1]; i++) {
-                                for (j = 0; j < dims[0]; j++) {
-                                    tableT[IDX(i, j, dims[0])] =
-                                        tableID->table[IDX(j, i, dims[1])];
-                                }
-                            }
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
-                            tableID->nRow = dims[1];
-                            tableID->nCol = dims[0];
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
                         }
                         else {
                             free(tableID);
@@ -3567,6 +3548,41 @@ static void spline2DClose(Akima2D* spline) {
     }
 }
 
+static void transpose(double* table, size_t nRow, size_t nCol) {
+  /* Reference:
+
+     Cycle-based in-place array transposition
+     (http://en.wikipedia.org/wiki/In-place_matrix_transposition#Non-square_matrices:_Following_the_cycles)
+  */
+
+    size_t i;
+    for (i = 1; i < nRow*nCol - 1; i++) {
+        size_t x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
+        /* Continue if cycle is of length one or predecessor already was visited */
+        if (x <= i) {
+            continue;
+        }
+        /* Continue if cycle already was visited */
+        while (x > i) {
+            x = nRow*(x % nCol) + x/nCol;
+        }
+        if (x < i) {
+            continue;
+        }
+        {
+            double tmp = table[i];
+            size_t s = i; /* start index in the cycle */
+            x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
+            while (x != i) {
+                table[s] = table[x];
+                s = x;
+                x = nRow*(x % nCol) + x/nCol;
+            }
+            table[s] = tmp;
+        }
+    }
+}
+
 /* ----- Internal I/O functions ----- */
 
 static double* readTable(const char* tableName, const char* fileName,
@@ -3680,7 +3696,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
     if (tableName && fileName && _nRow && _nCol) {
         mat_t* mat;
         matvar_t* matvar;
-        size_t i, nRow, nCol;
+        size_t nRow, nCol;
         int tableReadError = 0;
 
         mat = Mat_Open(fileName, (int)MAT_ACC_RDONLY);
@@ -3737,16 +3753,21 @@ static double* readMatTable(const char* tableName, const char* fileName,
 
         nRow = matvar->dims[0];
         nCol = matvar->dims[1];
-        /* Loop over rows and store table row-wise */
-        for (i = 0; tableReadError == 0 && i < nRow; i++) {
-            tableReadError = Mat_VarReadDataLinear(mat, matvar,
-                &TABLE_COL0(i), (int)i, (int)nRow, (int)nCol);
+        {
+            int start[2] = {0, 0};
+            int stride[2] = {1, 1};
+            int edge[2];
+            edge[0] = (int)nRow;
+            edge[1] = (int)nCol;
+            tableReadError = Mat_VarReadData(mat, matvar, table, start, stride, edge);
         }
 
         Mat_VarFree(matvar);
         (void)Mat_Close(mat);
 
         if (tableReadError == 0) {
+            /* Array is stored column-wise -> need to transpose */
+            transpose(table, nRow, nCol);
             *_nRow = nRow;
             *_nCol = nCol;
         }
