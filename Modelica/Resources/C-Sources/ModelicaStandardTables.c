@@ -4130,13 +4130,13 @@ static double* readTxtTable(const char* tableName, const char* fileName,
 static int readLine(char** buf, int* bufLen, FILE* fp) {
     char* offset;
     int oldBufLen;
-    char* p;
 
     if (fgets(*buf, *bufLen, fp) == NULL) {
         return EOF;
     }
 
     do {
+        char* p;
         char* tmp;
 
         if ((p = strchr(*buf, '\n')) != NULL) {
