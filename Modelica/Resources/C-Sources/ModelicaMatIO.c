@@ -106,6 +106,8 @@
 /* Have va_copy */
 #if defined(__GNUC__)
 #define HAVE_VA_COPY 1
+#elif defined(_MSC_VER) && _MSC_VER >= 1800
+#define HAVE_VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE_VA_COPY 1
 #else
