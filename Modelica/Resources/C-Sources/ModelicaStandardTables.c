@@ -3666,7 +3666,7 @@ static double* readTable(const char* tableName, const char* fileName,
                     HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), iter);
                 }
             }
-            else if (force == 1) {
+            else if (force) {
                 /* Share hit -> Update table share (only if not shared
                    by multiple table objects)
                 */
