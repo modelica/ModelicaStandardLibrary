@@ -256,15 +256,29 @@ typedef struct TableShare {
     double* table; /* Table values */
     UT_hash_handle hh; /* Hashable structure */
 } TableShare;
-#endif
 
 /* ----- Static variables ----- */
 
-#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 static TableShare* tableShare = NULL;
 #if defined(_POSIX_)
 #include <pthread.h>
+#if defined(G_HAS_CONSTRUCTORS)
+static pthread_mutex_t m;
+G_DEFINE_CONSTRUCTOR(initializeMutex)
+static void initializeMutex(void) {
+    if (pthread_mutex_init(&m, NULL) != 0) {
+    	ModelicaError("Initialization of mutex failed\n");
+    }
+}
+G_DEFINE_DESTRUCTOR(destroyMutex)
+static void destroyMutex(void) {
+    if (pthread_mutex_destroy(&m) != 0) {
+    	ModelicaError("Destruction of mutex failed\n");
+    }
+}
+#else
 static pthread_mutex_t m = PTHREAD_MUTEX_INITIALIZER;
+#endif
 #define MUTEX_LOCK() pthread_mutex_lock(&m)
 #define MUTEX_UNLOCK() pthread_mutex_unlock(&m)
 #elif defined(_WIN32) && defined(G_HAS_CONSTRUCTORS)
@@ -350,6 +364,7 @@ static enum TableSource getTableSource(const char *tableName,
 static void transpose(double* table, size_t nRow, size_t nCol);
   /* Cycle-based in-place array transposition */
 
+#if !defined(NO_FILE_SYSTEM)
 static double* readTable(const char* tableName, const char* fileName,
                          size_t* nRow, size_t* nCol, int verbose, int force);
   /* Read a table from an ASCII text or MATLAB MAT-file
@@ -371,6 +386,10 @@ static double* readTxtTable(const char* tableName, const char* fileName,
      <- RETURN: Pointer to array (row-wise storage) of table values
   */
 
+static int readLine(char** buf, int* bufLen, FILE* fp);
+   /* Read line (of unknown and arbitrary length) from an ASCII text file */
+#endif
+
 static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
                              const int* cols, size_t nCols);
   /* Calculate the spline coefficients for univariate Akima-spline interpolation
@@ -389,11 +408,6 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol);
 
 static void spline2DClose(Akima2D* spline);
   /* Free allocated memory of the Akima-spline coefficients */
-
-#if !defined(NO_FILE_SYSTEM)
-static int readLine(char** buf, int* bufLen, FILE* fp);
-   /* Read line (of unknown and arbitrary length) from an ASCII text file */
-#endif
 
 /* ----- Interface functions ----- */
 
@@ -567,8 +581,7 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
                     HASH_FIND_STR(tableShare, key, iter);
                     if (iter) {
                         /* Share hit */
-                        iter->refCount--;
-                        if (iter->refCount == 0) {
+                        if (--iter->refCount == 0) {
                             free(iter->table);
                             free(iter->key);
                             HASH_DEL(tableShare, iter);
@@ -1590,8 +1603,7 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
                     HASH_FIND_STR(tableShare, key, iter);
                     if (iter) {
                         /* Share hit */
-                        iter->refCount--;
-                        if (iter->refCount == 0) {
+                        if (--iter->refCount == 0) {
                             free(iter->table);
                             free(iter->key);
                             HASH_DEL(tableShare, iter);
@@ -1967,8 +1979,7 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
                     HASH_FIND_STR(tableShare, key, iter);
                     if (iter) {
                         /* Share hit */
-                        iter->refCount--;
-                        if (iter->refCount == 0) {
+                        if (--iter->refCount == 0) {
                             free(iter->table);
                             free(iter->key);
                             HASH_DEL(tableShare, iter);
@@ -3587,10 +3598,10 @@ static void transpose(double* table, size_t nRow, size_t nCol) {
 
 /* ----- Internal I/O functions ----- */
 
+#if !defined(NO_FILE_SYSTEM)
 static double* readTable(const char* tableName, const char* fileName,
                          size_t* nRow, size_t* nCol, int verbose, int force) {
     double* table = NULL;
-#if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && nRow && nCol) {
 #if defined(TABLE_SHARE)
         char* key = malloc((strlen(tableName) +
@@ -3635,45 +3646,47 @@ static double* readTable(const char* tableName, const char* fileName,
                 else {
                     table = readTxtTable(tableName, fileName, nRow, nCol);
                 }
+                if (table == NULL) {
+                    return table;
+                }
 #if defined(TABLE_SHARE)
                 /* Again ask for lock and search in hash table share */
                 MUTEX_LOCK();
                 HASH_FIND_STR(tableShare, key, iter);
             }
-            if (!iter || force) {
-                if (table) {
-                    if (!iter) {
-                        /* Share miss -> Insert new table */
-                        iter = malloc(sizeof(TableShare));
-                        if (iter) {
-                            iter->key = key;
-                            iter->refCount = 1;
-                            iter->nRow = *nRow;
-                            iter->nCol = *nCol;
-                            iter->table = table;
-                            HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), iter);
-                        }
-                    }
-                    else { /* force == 1 */
-                        /* Share hit -> Update table share (only if not shared
-                           by multiple table objects)
-                        */
-                        if (iter->refCount == 1) {
-                            free(iter->table);
-                            iter->nRow = *nRow;
-                            iter->nCol = *nCol;
-                            iter->table = table;
-                        }
-                        else {
-                            updateError = 1;
-                        }
-                    }
+            if (!iter) {
+                /* Share miss -> Insert new table */
+                iter = malloc(sizeof(TableShare));
+                if (iter) {
+                    iter->key = key;
+                    iter->refCount = 1;
+                    iter->nRow = *nRow;
+                    iter->nCol = *nCol;
+                    iter->table = table;
+                    HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), iter);
+                }
+            }
+            else if (force == 1) {
+                /* Share hit -> Update table share (only if not shared
+                   by multiple table objects)
+                */
+                if (iter->refCount == 1) {
+                    free(iter->table);
+                    iter->nRow = *nRow;
+                    iter->nCol = *nCol;
+                    iter->table = table;
+                }
+                else {
+                    updateError = 1;
                 }
             }
             else {
                 /* Share hit -> Read from table share and increment table
                    reference counter
                 */
+                if (table != NULL) {
+                	free(table);
+                }
                 iter->refCount++;
                 table = iter->table;
                 *nRow = iter->nRow;
@@ -3688,14 +3701,12 @@ static double* readTable(const char* tableName, const char* fileName,
         }
 #endif
     }
-#endif
     return table;
 }
 
 static double* readMatTable(const char* tableName, const char* fileName,
                             size_t* _nRow, size_t* _nCol) {
     double* table = NULL;
-#if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && _nRow && _nCol) {
         mat_t* mat;
         matvar_t* matvar;
@@ -3784,7 +3795,6 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
     }
-#endif
     return table;
 }
 
@@ -3794,7 +3804,6 @@ static double* readMatTable(const char* tableName, const char* fileName,
 static double* readTxtTable(const char* tableName, const char* fileName,
                             size_t* _nRow, size_t* _nCol) {
     double* table = NULL;
-#if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && _nRow && _nCol) {
         char* buf;
         int bufLen = LINE_BUFFER_LENGTH;
@@ -4119,14 +4128,12 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             }
         }
     }
-#endif
     return table;
 }
 
 #undef DELIM_TABLE_HEADER
 #undef DELIM_TABLE_NUMBER
 
-#if !defined(NO_FILE_SYSTEM)
 static int readLine(char** buf, int* bufLen, FILE* fp) {
     char* offset;
     int oldBufLen;
