@@ -267,13 +267,13 @@ static pthread_mutex_t m;
 G_DEFINE_CONSTRUCTOR(initializeMutex)
 static void initializeMutex(void) {
     if (pthread_mutex_init(&m, NULL) != 0) {
-    	ModelicaError("Initialization of mutex failed\n");
+        ModelicaError("Initialization of mutex failed\n");
     }
 }
 G_DEFINE_DESTRUCTOR(destroyMutex)
 static void destroyMutex(void) {
     if (pthread_mutex_destroy(&m) != 0) {
-    	ModelicaError("Destruction of mutex failed\n");
+        ModelicaError("Destruction of mutex failed\n");
     }
 }
 #else
@@ -3685,7 +3685,7 @@ static double* readTable(const char* tableName, const char* fileName,
                    reference counter
                 */
                 if (table != NULL) {
-                	free(table);
+                    free(table);
                 }
                 iter->refCount++;
                 table = iter->table;
