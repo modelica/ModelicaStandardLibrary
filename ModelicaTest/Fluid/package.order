@@ -1,6 +1,8 @@
 BaseClasses
 TestComponents
+TestCriticalCases
 TestExamplesVariants
+TestOverdeterminedInitial
 TestPipesAndValves
 TestUtilities
 Dissipation
