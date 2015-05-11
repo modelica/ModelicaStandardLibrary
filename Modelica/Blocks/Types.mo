@@ -7,9 +7,10 @@ package Types
       LinearSegments "Table points are linearly interpolated",
       ContinuousDerivative
         "Table points are interpolated such that the first derivative is continuous",
-
       ConstantSegments
-        "Table points are not interpolated, but the value from the previous abscissa point is returned")
+        "Table points are not interpolated, but the value from the previous abscissa point is returned",
+      MonotoneContinuousDerivative
+        "Table points are interpolated such that the monotonicity is preserved and the first derivative is continuous")
     "Enumeration defining the smoothness of table interpolation";
 
   type Extrapolation = enumeration(
@@ -17,7 +18,6 @@ package Types
         "Hold the first/last table point outside of the table scope",
       LastTwoPoints
         "Extrapolate by using the derivative at the first/last table points outside of the table scope",
-
       Periodic "Repeat the table scope periodically",
       NoExtrapolation "Extrapolation triggers an error")
     "Enumeration defining the extrapolation of time table interpolation";
@@ -25,7 +25,6 @@ package Types
   type Init = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
-
       SteadyState
         "Steady state initialization (derivatives of states are zero)",
       InitialState "Initialization with initial states",
@@ -49,13 +48,11 @@ package Types
   type InitPID = enumeration(
       NoInit
         "No initialization (start values are used as guess values with fixed=false)",
-
       SteadyState
         "Steady state initialization (derivatives of states are zero)",
       InitialState "Initialization with initial states",
       InitialOutput
         "Initialization with initial outputs (and steady state of the states if possible)",
-
       DoNotUse_InitialIntegratorState
         "Do not use, only for backward compatibility (initialize only integrator state)")
     "Enumeration defining initialization of PID and LimPID blocks" annotation (

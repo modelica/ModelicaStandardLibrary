@@ -5,14 +5,14 @@ package CombiTable1Ds
 
   partial model Test0
     Modelica.Blocks.Tables.CombiTable1Ds t_new
-      annotation (Placement(transformation(extent={{-41,0},{-21,20}})));
+      annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
     Modelica.Blocks.Sources.Clock clock
       annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   equation
     connect(t_new.y[1], d_t_new.u) annotation (Line(
-        points={{-20,10},{-2,10}},
+        points={{-19,10},{-2,10}},
         color={0,0,127},
         thickness=0.0625));
     connect(clock.y, t_new.u) annotation (Line(
@@ -249,4 +249,28 @@ package CombiTable1Ds
       annotation (Placement(transformation(extent={{-20,-42},{10,-22}})));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test25_usertab;
+
+  model Test26 "Fritsch-Butland, test data set (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,5;1,3;2,1;3,1;4,1;5,3],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test26;
+
+  model Test27 "Fritsch-Butland, data set AKIMA 3 (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=15));
+  end Test27;
+
+  model Test28 "Fritsch-Butland, data set RPN 14 (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+    annotation (experiment(StartTime=7.99, StopTime=20));
+  end Test28;
 end CombiTable1Ds;

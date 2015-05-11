@@ -916,4 +916,54 @@ package CombiTimeTable
     annotation (experiment(StartTime=0, StopTime=8000));
   end Test72;
 
+  model Test73 "Fritsch-Butland, test data set (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,5;1,3;2,1;3,1;4,1;5,3],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      table=[0,5;1,3;2,1;3,1;4,1;5,3],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    equation
+      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
+        points={{-19,-20},{-2,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test73;
+
+  model Test74 "Fritsch-Butland, data set AKIMA 3 (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    equation
+      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
+        points={{-19,-20},{-2,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=0, StopTime=15));
+  end Test74;
+
+  model Test75 "Fritsch-Butland, data set RPN 14 (Ticket #1039)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    Modelica.Blocks.Continuous.Der d_t_new_2 annotation(Placement(transformation(extent={{0,-30},{20,-10}})));
+    equation
+      connect(t_new_2.y[1],d_t_new_2.u) annotation(Line(
+        points={{-19,-20},{-2,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=7.99, StopTime=20));
+  end Test75;
 end CombiTimeTable;

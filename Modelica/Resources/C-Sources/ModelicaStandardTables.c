@@ -21,6 +21,10 @@
 
 
    Release Notes:
+      May 11, 2015:  by Thomas Beutlich, ITI GmbH.
+                     Added univariate Fritsch-Butland-spline interpolation
+                     (ticket #1717)
+
       Apr. 16, 2015: by Thomas Beutlich, ITI GmbH.
                      Fixed event detection of CombiTimeTable with scaled time
                      (ticket #1627)
@@ -120,7 +124,8 @@
 enum Smoothness {
     LINEAR_SEGMENTS = 1,
     CONTINUOUS_DERIVATIVE,
-    CONSTANT_SEGMENTS
+    CONSTANT_SEGMENTS,
+    MONOTONE_CONTINUOUS_DERIVATIVE
 };
 
 enum Extrapolation {
@@ -147,11 +152,11 @@ enum TableSource {
 
 /* ----- Internal table memory ----- */
 
-/* 3 (of 4) 1D-spline coefficients (per interval) */
-typedef double Akima1D[3];
+/* 3 (of 4) 1D cubic Hermite spline coefficients (per interval) */
+typedef double CubicHermite1D[3];
 
-/* 15 (of 16) 2D-spline coefficients (per grid) */
-typedef double Akima2D[15];
+/* 15 (of 16) 2D cubic Hermite spline coefficients (per grid) */
+typedef double CubicHermite2D[15];
 
 /* Left and right interval indices (per interval) */
 typedef size_t Interval[2];
@@ -169,8 +174,9 @@ typedef struct CombiTimeTable {
     int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
     double startTime; /* Start time of interpolation */
-    Akima1D* spline; /* Pre-calculated Akima-spline coefficients, only used if
-        smoothness is CONTINUOUS_DERIVATIVE */
+    CubicHermite1D* spline; /* Pre-calculated cubic Hermite spline coefficients,
+        only used if smoothness is CONTINUOUS_DERIVATIVE or
+        MONOTONE_CONTINUOUS_DERIVATIVE */
     size_t nEvent; /* Time event counter, discrete */
     double preNextTimeEvent; /* Time of previous time event, discrete */
     double preNextTimeEventCalled; /* Time of previous call of
@@ -195,8 +201,9 @@ typedef struct CombiTable1D {
     enum TableSource source; /* Source kind */
     int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
-    Akima1D* spline; /* Pre-calculated Akima-spline coefficients, only used if
-        smoothness is CONTINUOUS_DERIVATIVE */
+    CubicHermite1D* spline; /* Pre-calculated cubic Hermite spline coefficients,
+        only used if smoothness is CONTINUOUS_DERIVATIVE or
+        MONOTONE_CONTINUOUS_DERIVATIVE */
 } CombiTable1D;
 
 typedef struct CombiTable2D {
@@ -209,8 +216,8 @@ typedef struct CombiTable2D {
     size_t last2; /* Last accessed column index of table */
     enum Smoothness smoothness; /* Smoothness kind */
     enum TableSource source; /* Source kind */
-    Akima2D* spline; /* Pre-calculated Akima-spline coefficients, only used if
-        smoothness is CONTINUOUS_DERIVATIVE */
+    CubicHermite2D* spline; /* Pre-calculated cubic Hermite spline coefficients,
+        only used if smoothness is CONTINUOUS_DERIVATIVE */
 } CombiTable2D;
 
 /* ----- Internal constants ----- */
@@ -387,32 +394,47 @@ static double* readTxtTable(const char* tableName, const char* fileName,
   */
 
 static int readLine(char** buf, int* bufLen, FILE* fp);
-   /* Read line (of unknown and arbitrary length) from an ASCII text file */
+  /* Read line (of unknown and arbitrary length) from an ASCII text file */
 #endif
 
-static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
-                             const int* cols, size_t nCols);
-  /* Calculate the spline coefficients for univariate Akima-spline interpolation
+static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
+                                                  size_t nRow, size_t nCol,
+                                                  const int* cols,
+                                                  size_t nCols);
+  /* Calculate the coefficients for univariate cubic Hermite spline
+     interpolation with the Fritsch-Butland slope approximation
 
      <- RETURN: Pointer to array of coefficients
   */
 
-static void spline1DClose(Akima1D* spline);
-  /* Free allocated memory of the Akima-spline coefficients */
-
-static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol);
-  /* Calculate the spline coefficients for bivariate Akima-spline interpolation
+static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
+                                         size_t nCol, const int* cols,
+                                         size_t nCols);
+  /* Calculate the coefficients for univariate cubic Hermite spline
+     interpolation with the Akima slope approximation
 
      <- RETURN: Pointer to array of coefficients
   */
 
-static void spline2DClose(Akima2D* spline);
-  /* Free allocated memory of the Akima-spline coefficients */
+static void spline1DClose(CubicHermite1D* spline);
+  /* Free allocated memory of the 1D cubic Hermite spline coefficients */
+
+static CubicHermite2D* spline2DInit(const double* table, size_t nRow,
+                                    size_t nCol);
+  /* Calculate the coefficients for bivariate cubic Hermite spline
+     interpolation with the Akima algorithm
+
+     <- RETURN: Pointer to array of coefficients
+  */
+
+static void spline2DClose(CubicHermite2D* spline);
+  /* Free allocated memory of the 2D cubic Hermite spline coefficients */
 
 /* ----- Interface functions ----- */
 
 void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
-                                                 const char* fileName, double* table,
+                                                 const char* fileName,
+                                                 double* table,
                                                  size_t nRow, size_t nColumn,
                                                  double startTime, int* cols,
                                                  size_t nCols, int smoothness,
@@ -471,15 +493,24 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 tableID->nRow = nRow;
                 tableID->nCol = nColumn;
                 tableID->table = table;
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
-                    tableID->nRow == 2) {
-                    tableID->smoothness = LINEAR_SEGMENTS;
+                if (tableID->nRow == 2) {
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
+                    }
                 }
                 if (isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                        /* Initialization of the Akima-spline coefficients */
-                        tableID->spline = spline1DInit(table, tableID->nRow,
-                            tableID->nCol, (const int*)cols, tableID->nCols);
+                        /* Initialization of the cubic Hermite spline coefficients */
+                        tableID->spline = akimaSpline1DInit(table,
+                            tableID->nRow, tableID->nCol, (const int*)cols,
+                            tableID->nCols);
+                    }
+                    else if (tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        /* Initialization of the cubic Hermite spline coefficients */
+                        tableID->spline = fritschButlandSpline1DInit(table,
+                            tableID->nRow, tableID->nCol, (const int*)cols,
+                            tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
                     tableID->table = malloc(
@@ -533,14 +564,22 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                             break;
                         }
                     }
-                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
-                        tableID->nRow == 2) {
-                        tableID->smoothness = LINEAR_SEGMENTS;
+                    if (tableID->nRow == 2) {
+                        if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                            tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                            tableID->smoothness = LINEAR_SEGMENTS;
+                        }
                     }
                     if (isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                            /* Initialization of Akima-spline coefficients */
-                            tableID->spline = spline1DInit(tableID->table,
+                            /* Initialization of the cubic Hermite spline coefficients */
+                            tableID->spline = akimaSpline1DInit(table,
+                                tableID->nRow, tableID->nCol, (const int*)cols,
+                                tableID->nCols);
+                        }
+                        else if (tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                            /* Initialization of the cubic Hermite spline coefficients */
+                            tableID->spline = fritschButlandSpline1DInit(table,
                                 tableID->nRow, tableID->nCol, (const int*)cols,
                                 tableID->nCols);
                         }
@@ -815,6 +854,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                         }
 
                         case CONTINUOUS_DERIVATIVE:
+                        case MONOTONE_CONTINUOUS_DERIVATIVE:
                             if (tableID->spline) {
                                 const double* c = tableID->spline[
                                     IDX(last, iCol - 1, tableID->nCols)];
@@ -847,7 +887,8 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             const double t0 = TABLE_COL0(last);
                             const double y0 = TABLE(last, col);
 
-                            if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                            if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                                tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
                                 if (tableID->spline) {
                                     const double* c = tableID->spline[
                                         IDX(last, iCol - 1, tableID->nCols)];
@@ -1060,6 +1101,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                         }
 
                         case CONTINUOUS_DERIVATIVE:
+                        case MONOTONE_CONTINUOUS_DERIVATIVE:
                             if (tableID->spline) {
                                 const double* c = tableID->spline[
                                     IDX(last, iCol - 1, tableID->nCols)];
@@ -1087,7 +1129,8 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                         case LAST_TWO_POINTS:
                             last = (extrapolate == RIGHT) ? nRow - 2 : 0;
 
-                            if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                            if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                                tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
                                 if(tableID->spline) {
                                     const double* c = tableID->spline[
                                         IDX(last, iCol - 1, tableID->nCols)];
@@ -1290,7 +1333,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     tableID->eventInterval = 1;
                     iEnd = 0;
                 }
-                else if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                else if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                    tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
                     iStart = nRow - 1;
                     nextTimeEvent = tMax;
                     iEnd = 0;
@@ -1414,17 +1458,27 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
-                    tableID->nRow == 2) {
-                    tableID->smoothness = LINEAR_SEGMENTS;
+                if (tableID->nRow == 2) {
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
+                    }
                 }
                 if (!isValidCombiTimeTable((const CombiTimeTable*)tableID)) {
                     return 0.; /* Error */
                 }
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                    /* Reinitialization of the Akima-spline coefficients */
+                    /* Reinitialization of the cubic Hermite spline coefficients */
                     spline1DClose(tableID->spline);
-                    tableID->spline = spline1DInit(tableID->table, tableID->nRow,
+                    tableID->spline = akimaSpline1DInit(
+                        (const double*)tableID->table, tableID->nRow,
+                        tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+                }
+                else if (tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                    /* Reinitialization of the cubic Hermite spline coefficients */
+                    spline1DClose(tableID->spline);
+                    tableID->spline = fritschButlandSpline1DInit(
+                        (const double*)tableID->table, tableID->nRow,
                         tableID->nCol, (const int*)tableID->cols, tableID->nCols);
                 }
             }
@@ -1493,15 +1547,24 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 tableID->nRow = nRow;
                 tableID->nCol = nColumn;
                 tableID->table = table;
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
-                    tableID->nRow == 2) {
-                    tableID->smoothness = LINEAR_SEGMENTS;
+                if (tableID->nRow == 2) {
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
+                    }
                 }
                 if (isValidCombiTable1D((const CombiTable1D*)tableID)) {
                     if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                        /* Initialization of Akima-spline coefficients */
-                        tableID->spline = spline1DInit(table, tableID->nRow,
-                            tableID->nCol, (const int*)cols, tableID->nCols);
+                        /* Initialization of the cubic Hermite spline coefficients */
+                        tableID->spline = akimaSpline1DInit(table,
+                            tableID->nRow, tableID->nCol, (const int*)cols,
+                            tableID->nCols);
+                    }
+                    else if (tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        /* Initialization of the cubic Hermite spline coefficients */
+                        tableID->spline = fritschButlandSpline1DInit(table,
+                            tableID->nRow, tableID->nCol, (const int*)cols,
+                            tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
                     tableID->table = malloc(
@@ -1555,14 +1618,22 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                             break;
                         }
                     }
-                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
-                        tableID->nRow == 2) {
-                        tableID->smoothness = LINEAR_SEGMENTS;
+                    if (tableID->nRow == 2) {
+                        if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                            tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                            tableID->smoothness = LINEAR_SEGMENTS;
+                        }
                     }
                     if (isValidCombiTable1D((const CombiTable1D*)tableID)) {
                         if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                            /* Initialization of the Akima-spline coefficients */
-                            tableID->spline = spline1DInit(tableID->table,
+                            /* Initialization of the cubic Hermite spline coefficients */
+                            tableID->spline = akimaSpline1DInit(table,
+                                tableID->nRow, tableID->nCol, (const int*)cols,
+                                tableID->nCols);
+                        }
+                        else if (tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                            /* Initialization of the cubic Hermite spline coefficients */
+                            tableID->spline = fritschButlandSpline1DInit(table,
                                 tableID->nRow, tableID->nCol, (const int*)cols,
                                 tableID->nCols);
                         }
@@ -1700,6 +1771,7 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                 }
 
                 case CONTINUOUS_DERIVATIVE:
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
                     if (tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last, iCol - 1, tableID->nCols)];
@@ -1770,6 +1842,7 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
                     break;
 
                 case CONTINUOUS_DERIVATIVE:
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
                     if (tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last, iCol - 1, tableID->nCols)];
@@ -1816,17 +1889,26 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
                 if (!tableID->table) {
                     return 0.; /* Error */
                 }
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE &&
-                    tableID->nRow == 2) {
-                    tableID->smoothness = LINEAR_SEGMENTS;
+                if (tableID->nRow == 2) {
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        tableID->smoothness = LINEAR_SEGMENTS;
+                    }
                 }
                 if (!isValidCombiTable1D((const CombiTable1D*)tableID)) {
                     return 0.; /* Error */
                 }
                 if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                    /* Reinitialization of the Akima-spline coefficients */
+                    /* Reinitialization of the cubic Hermite spline coefficients */
                     spline1DClose(tableID->spline);
-                    tableID->spline = spline1DInit(
+                    tableID->spline = akimaSpline1DInit(
+                        (const double*)tableID->table, tableID->nRow,
+                        tableID->nCol, (const int*)tableID->cols, tableID->nCols);
+                }
+                else if (tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                    /* Reinitialization of the cubic Hermite spline coefficients */
+                    spline1DClose(tableID->spline);
+                    tableID->spline = fritschButlandSpline1DInit(
                         (const double*)tableID->table, tableID->nRow,
                         tableID->nCol, (const int*)tableID->cols, tableID->nCols);
                 }
@@ -2131,6 +2213,11 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                     }
                     break;
 
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
+                    ModelicaError("Bivariate monotone interpolation is "
+                        "not implemented\n");
+                    break;
+
                 default:
                     ModelicaError("Unknown smoothness kind\n");
                     break;
@@ -2193,6 +2280,11 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 2*c[1])*v1 + c[2], u1 - u11);
                         }
                     }
+                    break;
+
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
+                    ModelicaError("Bivariate monotone interpolation is "
+                        "not implemented\n");
                     break;
 
                 default:
@@ -2384,6 +2476,11 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                     }
                     break;
 
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
+                    ModelicaError("Bivariate monotone interpolation is "
+                        "not implemented\n");
+                    break;
+
                 default:
                     ModelicaError("Unknown smoothness kind\n");
                     break;
@@ -2456,6 +2553,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     }
                     break;
 
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
+                    ModelicaError("Bivariate monotone interpolation is "
+                        "not implemented\n");
+                    break;
+
                 default:
                     ModelicaError("Unknown smoothness kind\n");
                     break;
@@ -2510,6 +2612,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         }
                         der_y *= der_u1;
                     }
+                    break;
+
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
+                    ModelicaError("Bivariate monotone interpolation is "
+                        "not implemented\n");
                     break;
 
                 default:
@@ -2704,6 +2811,11 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                     }
                     break;
 
+                case MONOTONE_CONTINUOUS_DERIVATIVE:
+                    ModelicaError("Bivariate monotone interpolation is "
+                        "not implemented\n");
+                    break;
+
                 default:
                     ModelicaError("Unknown smoothness kind\n");
                     break;
@@ -2844,7 +2956,8 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
 
             /* Check, whether first column values are monotonically or strictly
                increasing */
-            if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+            if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
                 size_t i;
                 for (i = 0; i < nRow - 1; i++) {
                     double t0 = TABLE_COL0(i);
@@ -3038,23 +3151,24 @@ static enum TableSource getTableSource(const char *tableName,
 
 /* ----- Internal univariate spline functions ---- */
 
-static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
-                             const int* cols, size_t nCols) {
+static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
+                                         size_t nCol, const int* cols,
+                                         size_t nCols) {
   /* Reference:
 
-     Akima, Hiroshi. A new method of interpolation and smooth
-     curve fitting based on local procedures. J. ACM 17, 4 (Oct. 1970),
-     589-602. (http://dl.acm.org/citation.cfm?id=321609)
+     Akima, Hiroshi. A new method of interpolation and smooth curve fitting
+     based on local procedures. Journal of the ACM, 17(4), 589-602, Oct. 1970.
+     (http://dx.doi.org/10.1145/321607.321609)
   */
 
-    Akima1D* spline = NULL;
+    CubicHermite1D* spline = NULL;
 
     if (table && cols && nRow > 2) {
         double* d; /* Divided differences */
         size_t col;
 
         /* Actually there is no need for consecutive memory */
-        spline = malloc((nRow - 1)*nCols*sizeof(Akima1D));
+        spline = malloc((nRow - 1)*nCols*sizeof(CubicHermite1D));
         if (!spline) {
             ModelicaError("Memory allocation error\n");
             return NULL;
@@ -3083,30 +3197,34 @@ static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
             d[nRow + 1] = 2*d[nRow] - d[nRow - 1];
             d[nRow + 2] = 3*d[nRow] - 2*d[nRow - 1];
 
+            /* Initialization of the left boundary slope */
+            {
+                double* c = spline[IDX(0, col, nCols)];
+                c[2] = fabs(d[3] - d[2]) + fabs(d[1] - d[0]);
+                if (c[2] > 0) {
+                    const double a = fabs(d[1] - d[0])/c[2];
+                    c[2] = (1 - a)*d[1] + a*d[2];
+                }
+                else {
+                    c[2] = 0.5*d[1] + 0.5*d[2];
+                }
+            }
             /* Calculation of the 3(4) coefficients per interval */
             for (i = 0; i < nRow - 1; i++) {
                 const double dx = TABLE_COL0(i + 1) - TABLE_COL0(i);
-                double t;
                 double* c = spline[IDX(i, col, nCols)];
+                double* cc = spline[IDX(i + 1, col, nCols)];
 
-                t = fabs(d[i + 3] - d[i + 2]) + fabs(d[i + 1] - d[i]);
-                if (t > 0) {
-                    const double a = fabs(d[i + 1] - d[i])/t;
-                    c[2] = (1 - a)*d[i + 1] + a*d[i + 2];
+                cc[2] = fabs(d[i + 4] - d[i + 3]) + fabs(d[i + 2] - d[i + 1]);
+                if (cc[2] > 0) {
+                    const double a = fabs(d[i + 2] - d[i + 1])/cc[2];
+                    cc[2] = (1 - a)*d[i + 2] + a*d[i + 3];
                 }
                 else {
-                    c[2] = 0.5*d[i + 1] + 0.5*d[i + 2];
+                    cc[2] = 0.5*d[i + 2] + 0.5*d[i + 3];
                 }
-                t = fabs(d[i + 4] - d[i + 3]) + fabs(d[i + 2] - d[i + 1]);
-                if (t > 0) {
-                    const double a = fabs(d[i + 2] - d[i + 1])/t;
-                    t = (1 - a)*d[i + 2] + a*d[i + 3];
-                }
-                else {
-                    t = 0.5*d[i + 2] + 0.5*d[i + 3];
-                }
-                c[1] = (3*d[i + 2] - 2*c[2] - t)/dx;
-                c[0] = (c[2] + t - 2*d[i + 2])/(dx*dx);
+                c[1] = (3*d[i + 2] - 2*c[2] - cc[2])/dx;
+                c[0] = (c[2] + cc[2] - 2*d[i + 2])/(dx*dx);
                 /* No need to store the absolute term y0 */
                 /* c[3] = TABLE(i, cols[col] - 1); */
             }
@@ -3117,7 +3235,82 @@ static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
     return spline;
 }
 
-static void spline1DClose(Akima1D* spline) {
+static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
+                                                  size_t nRow, size_t nCol,
+                                                  const int* cols,
+                                                  size_t nCols) {
+  /* Reference:
+
+     Fritsch, Frederick N. and Butland, Judy. A method for constructing local
+     monotone piecewise cubic interpolants. SIAM Journal on Scientific and
+     Statistical Computing, 5(2), 300–304, June 1984.
+     (http://dx.doi.org/10.1137/0905021)
+  */
+
+    CubicHermite1D* spline = NULL;
+
+    if (table && cols && nRow > 2) {
+        double* d; /* Divided differences */
+        size_t col;
+
+        /* Actually there is no need for consecutive memory */
+        spline = malloc((nRow - 1)*nCols*sizeof(CubicHermite1D));
+        if (!spline) {
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        d = malloc((nRow - 1)*sizeof(double));
+        if (!d) {
+            free(spline);
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        for (col = 0; col < nCols; col++) {
+            size_t i;
+
+            /* Calculation of the divided differences */
+            for (i = 0; i < nRow - 1; i++) {
+                d[i] =
+                    (TABLE(i + 1, cols[col] - 1) - TABLE(i, cols[col] - 1))/
+                    (TABLE_COL0(i + 1) - TABLE_COL0(i));
+            }
+
+            /* Initialization of the left boundary slope */
+            {
+                double* c = spline[IDX(0, col, nCols)];
+                c[2] = d[0];
+            }
+            /* Calculation of the 3(4) coefficients per interval */
+            for (i = 0; i < nRow - 1; i++) {
+                const double dx = TABLE_COL0(i + 1) - TABLE_COL0(i);
+                double* c = spline[IDX(i, col, nCols)];
+                double* cc = spline[IDX(i + 1, col, nCols)];
+
+                if (i == nRow - 2) {
+                    cc[2] = d[nRow - 2];
+                }
+                else if (d[i]*d[i + 1] <= 0) {
+                    cc[2] = 0;
+                }
+                else {
+                    const double dx_ = TABLE_COL0(i + 2) - TABLE_COL0(i + 1);
+                    cc[2] = 3*(dx + dx_)/((dx + 2*dx_)/d[i] + (dx_ + 2*dx)/d[i + 1]);
+                }
+                c[1] = (3*d[i] - 2*c[2] - cc[2])/dx;
+                c[0] = (c[2] + cc[2] - 2*d[i])/(dx*dx);
+                /* No need to store the absolute term y0 */
+                /* c[3] = TABLE(i, cols[col] - 1); */
+            }
+        }
+
+        free(d);
+    }
+    return spline;
+}
+
+static void spline1DClose(CubicHermite1D* spline) {
     if (spline) {
         free(spline);
         spline = NULL;
@@ -3168,17 +3361,17 @@ static void spline1DExtrapolateRight(double x1, double x2, double x3, double x4,
 
 #define TABLE_EX(i, j) tableEx[IDX(i, j, nCol + 3)]
 
-static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
+static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
   /* Reference:
 
-     Akima, Hiroshi. A method of bivariate interpolation and smooth
-     surface fitting based on local procedures. Comm. ACM 17, 1 (Jan. 1974),
-     18-20. (http://dl.acm.org/citation.cfm?id=360779)
+     Akima, Hiroshi. A method of bivariate interpolation and smooth surface
+     fitting based on local procedures. Communications of the ACM, 17(1), 18-20,
+     Jan. 1974. (http://dx.doi.org/10.1145/360767.360779)
   */
 
-    Akima2D* spline = NULL;
+    CubicHermite2D* spline = NULL;
     if (table && nRow == 2 && nCol > 2) {
-        Akima1D* spline1D;
+        CubicHermite1D* spline1D;
         size_t j;
         int cols = 2;
 
@@ -3189,7 +3382,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             return NULL;
         }
 
-        spline = malloc((nCol - 1)*sizeof(Akima2D));
+        spline = malloc((nCol - 1)*sizeof(CubicHermite2D));
         if (!spline) {
             free(tableT);
             ModelicaError("Memory allocation error\n");
@@ -3201,7 +3394,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
             tableT[IDX(j - 1, 1, 2)] = TABLE(1, j);
         }
 
-        spline1D = spline1DInit(tableT, nCol - 1, 2, &cols, 1);
+        spline1D = akimaSpline1DInit(tableT, nCol - 1, 2, &cols, 1);
         free(tableT);
         /* Copy coefficients */
         for (j = 0; j < nCol - 1; j++) {
@@ -3214,17 +3407,17 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         spline1DClose(spline1D);
     }
     else if (table && nRow > 2 && nCol == 2) {
-        Akima1D* spline1D;
+        CubicHermite1D* spline1D;
         size_t i;
         int cols = 2;
 
-        spline = malloc((nRow - 1)*sizeof(Akima2D));
+        spline = malloc((nRow - 1)*sizeof(CubicHermite2D));
         if (!spline) {
             ModelicaError("Memory allocation error\n");
             return NULL;
         }
 
-        spline1D = spline1DInit(&table[2], nRow - 1, 2, &cols, 1);
+        spline1D = akimaSpline1DInit(&table[2], nRow - 1, 2, &cols, 1);
         /* Copy coefficients */
         for (i = 0; i < nRow - 1; i++) {
             const double* c1 = spline1D[i];
@@ -3468,7 +3661,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
         free(x);
 
         /* Actually there is no need for consecutive memory */
-        spline = malloc((nRow - 2)*(nCol - 2)*sizeof(Akima2D));
+        spline = malloc((nRow - 2)*(nCol - 2)*sizeof(CubicHermite2D));
         if (!spline) {
             free(dz_dx);
             free(dz_dy);
@@ -3554,7 +3747,7 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
 
 #undef TABLE_EX
 
-static void spline2DClose(Akima2D* spline) {
+static void spline2DClose(CubicHermite2D* spline) {
     if (spline) {
         free(spline);
         spline = NULL;
