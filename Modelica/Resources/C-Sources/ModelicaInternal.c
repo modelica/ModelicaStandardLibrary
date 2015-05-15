@@ -625,19 +625,19 @@ static void deleteCS(void) {
 #define MUTEX_UNLOCK()
 #endif
 
-static void CacheFileForReading(FILE* f, const char* fileName, int line) {
+static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
     FileCache* fv;
     if (fileName == 0) {
         /* Do not add, close file */
-        if (f) {
-            fclose(f);
+        if (fp) {
+            fclose(fp);
         }
         return;
     }
     MUTEX_LOCK();
     HASH_FIND(hh, fileCache, fileName, (unsigned)strlen(fileName), fv);
     if (fv) {
-        fv->fp = f;
+        fv->fp = fp;
         fv->line = line;
     }
     else {
@@ -647,7 +647,7 @@ static void CacheFileForReading(FILE* f, const char* fileName, int line) {
             if (key) {
                 strcpy(key, fileName);
                 fv->fileName = key;
-                fv->fp = f;
+                fv->fp = fp;
                 fv->line = line;
                 HASH_ADD_KEYPTR(hh, fileCache, key, (unsigned)strlen(key), fv);
             }
