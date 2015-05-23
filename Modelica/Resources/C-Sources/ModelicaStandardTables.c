@@ -2058,7 +2058,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                         /* Initialization of the Akima-spline coefficients */
                         tableID->spline = spline2DInit(table, tableID->nRow,
                             tableID->nCol);
-                        if (tableID->spline = NULL) {
+                        if (tableID->spline == NULL) {
                             free(tableID);
                             ModelicaError("Memory allocation error\n");
                             return NULL;
@@ -2119,7 +2119,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                             /* Initialization of the Akima-spline coefficients */
                             tableID->spline = spline2DInit(tableID->table,
                                 tableID->nRow, tableID->nCol);
-                            if (tableID->spline = NULL) {
+                            if (tableID->spline == NULL) {
                                 if (tableID->source == TABLESOURCE_FUNCTION_TRANSPOSE) {
                                     free(tableID->table);
                                 }
@@ -3345,7 +3345,7 @@ static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
 
      Frederick N. Fritsch and Judy Butland. A method for constructing local
      monotone piecewise cubic interpolants. SIAM Journal on Scientific and
-     Statistical Computing, 5(2), 300–304, June 1984.
+     Statistical Computing, 5(2), 300-304, June 1984.
      (http://dx.doi.org/10.1137/0905021)
   */
 
