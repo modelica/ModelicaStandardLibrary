@@ -6585,7 +6585,7 @@ required from medium model \"" + mediumName + "\".
               p,
               T,
               X);
-      u = h - R*(T-T0);
+      u = h - R*T;
       R = R_gas;
       d = p/(R*T);
       MM = MM_const;
