@@ -33,6 +33,62 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
 </html>"));
     end Concept;
 
+    class Discrimination "Discrimination of Machine models"
+      extends Modelica.Icons.Information;
+      annotation (preferredView="info",Documentation(info="<html>
+  <p>
+  <table>
+  <thead>
+  <tr>
+  <th align=\"left\">Machine type</th>
+  <th align=\"left\">Transient models</th>
+  <th align=\"left\">QuasiStatic models</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Transformers</td>
+  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.Transformers\">Modelica.Electrical.Machines.BasicMachines.Transformers</a></td>
+  <td><a href=\"modelica://Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers\">Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Transformers</a></td>
+  </tr>
+  <tr>
+  <td>DC machines</td>
+  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines\">Modelica.Electrical.Machines.BasicMachines.DCMachines</a></td>
+  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines\">Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines</a></td>
+  </tr>
+  <tr>
+  <td>Induction machines, limited to 3 phases</td>
+  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines\">Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines</a></td>
+  <td>n/a</td>
+  </tr>
+  <tr>
+  <td>Synchronous machines, limited to 3 phases</td>
+  <td><a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines\">Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines</a></td>
+  <td>n/a</td>
+  </tr>
+  <tr>
+  <td>Induction machines, arbitrary number of phases</td>
+  <td><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines\">Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines</a></td>
+  <td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines\">Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.InductionMachines</a></td>
+  </tr>
+  <tr>
+  <td>Synchronous machines, arbitrary number of phases</td>
+  <td><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines</a></td>
+  <td><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines\">Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.SynchronousMachines</a></td>
+  </tr>
+   </tbody>
+  </table>
+  </p>
+  <p>
+  <h5>Note:</h5>
+  <ul>
+  <li>Transient and quasiStatic models are parameter compatible.</li>
+  <li>Induction machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
+  <li>Synchronous machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
+  </p>
+  </html>"));
+    end Discrimination;
+
     class Contact "Contact"
       extends Modelica.Icons.Contact;
       annotation (preferredView="info",Documentation(info="<html>
@@ -356,8 +412,8 @@ This is the library of electric machine models.
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
@@ -436,8 +492,8 @@ This is the library of electric machine models.
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points
-              ={{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points=
+               {{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
         connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,
                 40},{-20,40},{-20,30},{-7,30}}, color={255,0,255}));
         connect(idealCloser.plug_n, currentQuasiRMSSensor.plug_p)
@@ -489,8 +545,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
@@ -571,8 +627,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points
-              ={{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points=
+               {{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
         connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,
@@ -623,8 +679,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Time tStart2=2.0
           "Start time of bypass transformer";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
@@ -688,10 +744,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -842,8 +896,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Time tStart2=1.0
           "Start time of shorting starting resistance";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims(
@@ -932,8 +986,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
         connect(sineVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
-        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points
-              ={{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
+        connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(points=
+               {{0,50},{0,48},{0,46},{0,40}}, color={0,0,255}));
         connect(loadInertia.flange_b, quadraticLoadTorque.flange)
           annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
         connect(booleanStep.y, idealCloser.control) annotation (Line(points={{-59,
@@ -1023,8 +1077,8 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
               origin={0,0},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) annotation
-          (Placement(transformation(extent={{-80,50},{-60,70}}, rotation=0)));
+        Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) annotation (
+           Placement(transformation(extent={{-80,50},{-60,70}}, rotation=0)));
         Machines.Utilities.VfController vfController(
           final m=m,
           VNominal=VNominal,
@@ -1117,12 +1171,12 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Motor's running capacitor";
         parameter Modelica.SIunits.Capacitance Cs=5*Cr
           "Motor's (additional) starting capacitor";
-        parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="1/min")
-           = 1350*2*Modelica.Constants.pi/60
+        parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="1/min")=
+             1350*2*Modelica.Constants.pi/60
           "Speed for switching off the starting capacitor";
         parameter Modelica.SIunits.Torque TLoad=2/3*161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
@@ -1344,18 +1398,16 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Simulated current";
         output Modelica.SIunits.Current I_meas=combiTable1Ds.y[1]
           "Measured current";
-        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="1/min") =
+        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="1/min")=
           aimc.wMechanical "Simulated speed";
         output Modelica.SIunits.AngularVelocity w_meas=combiTable1Ds.y[2]
           "Measured speed";
         output Real pf_sim=if noEvent(Sel > Modelica.Constants.small) then Pel/
             Sel else 0 "Simulated power factor";
-        output Real pf_meas=combiTable1Ds.y[3]
-          "Measured power factor";
+        output Real pf_meas=combiTable1Ds.y[3] "Measured power factor";
         output Real eff_sim=if noEvent(abs(Pel) > Modelica.Constants.small)
              then Pmech/Pel else 0 "Simulated efficiency";
-        output Real eff_meas=combiTable1Ds.y[4]
-          "Measured efficiency";
+        output Real eff_meas=combiTable1Ds.y[4] "Measured efficiency";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimc(
           p=aimcData.p,
@@ -1441,7 +1493,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Jr=0.12,
           Rs=0.56,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           Lssigma=1.52/(2*pi*fNominal),
           frictionParameters(PRef=180, wRef=wNominal),
           strayLoadParameters(
@@ -1474,7 +1525,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(currentQuasiRMSSensor.plug_n, electricalPowerSensor.plug_p)
           annotation (Line(
             points={{-30,60},{-30,57.5},{-30,57.5},{-30,55},{-30,50},{-30,50}},
-
             color={0,0,255},
             smooth=Smooth.None));
 
@@ -1577,8 +1627,7 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-72,100},{68,80}},
                       lineColor={0,0,255},
@@ -1601,8 +1650,8 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/aimc.p;
         parameter Modelica.SIunits.Time tStart=0.5 "Start time";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
         Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
@@ -1774,8 +1823,8 @@ This package contains test examples of asynchronous induction machines.
               origin={20,-40},
               extent={{10,-10},{-10,10}},
               rotation=90)));
-        Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) annotation
-          (Placement(transformation(extent={{-80,50},{-60,70}}, rotation=0)));
+        Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) annotation (
+           Placement(transformation(extent={{-80,50},{-60,70}}, rotation=0)));
         Machines.Utilities.VfController vfController(
           final m=m,
           VNominal=VNominal,
@@ -1903,7 +1952,6 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           Rrq=smpmData.Rrq,
           TrRef=smpmData.TrRef,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
-
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
           ir(each fixed=true),
@@ -1921,8 +1969,8 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
               origin={20,-40},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) annotation
-          (Placement(transformation(extent={{-80,50},{-60,70}}, rotation=0)));
+        Modelica.Blocks.Sources.Ramp ramp(height=f, duration=tRamp) annotation (
+           Placement(transformation(extent={{-80,50},{-60,70}}, rotation=0)));
         Machines.Utilities.VfController vfController(
           final m=m,
           VNominal=VNominal,
@@ -2208,8 +2256,8 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             points={{50,-60},{50,-40}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation
-          (Line(
+        connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation (
+           Line(
             points={{-10,40},{-10,10}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -2270,7 +2318,6 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           Rrq=smpmData.Rrq,
           TrRef=smpmData.TrRef,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
-
           TsOperational=293.15,
           alpha20s=smpmData.alpha20s,
           TrOperational=293.15,
@@ -2436,8 +2483,8 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{26,-30},{26,-20},{-16,-20},{-16,-30}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(voltageQuasiRMSSensor.plug_p, currentSensor.plug_n) annotation
-          (Line(
+        connect(voltageQuasiRMSSensor.plug_p, currentSensor.plug_n) annotation (
+           Line(
             points={{-20,-10},{-10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -2449,13 +2496,13 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{-70,-28},{-70,-10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation
-          (Line(
+        connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation (
+           Line(
             points={{-10,10},{-10,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation
-          (Line(
+        connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
+           Line(
             points={{-10,40},{-10,30}},
             color={0,0,255},
             smooth=Smooth.None));
@@ -2479,8 +2526,8 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-        parameter Modelica.SIunits.AngularVelocity wActual(displayUnit="1/min")
-           = 1499*2*Modelica.Constants.pi/60 "Actual speed";
+        parameter Modelica.SIunits.AngularVelocity wActual(displayUnit="1/min")=
+             1499*2*Modelica.Constants.pi/60 "Actual speed";
         parameter Modelica.SIunits.Current Ie=19 "Excitation current";
         parameter Modelica.SIunits.Current Ie0=10 "Initial excitation current";
         parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
@@ -2584,11 +2631,8 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           Td0Subtransient=0.006963029,
           Tq0Subtransient=0.123345081,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TsSpecification=293.15,
           TsRef=293.15,
           TrSpecification=293.15,
@@ -2644,8 +2688,8 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
             points={{0,-40},{40,-40}},
             color={0,0,0},
             smooth=Smooth.None));
-        annotation (experiment(StopTime=30, Interval=0.005), Documentation(info
-              ="<HTML>
+        annotation (experiment(StopTime=30, Interval=0.005), Documentation(info=
+               "<HTML>
 <b>Test example: Electrical excited synchronous induction machine as generator</b><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
@@ -2739,11 +2783,9 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           TsSpecification=293.15,
           TsRef=293.15,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TrSpecification=293.15,
           TrRef=293.15,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TeSpecification=293.15,
           TeRef=293.15,
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
@@ -2922,8 +2964,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             points={{-90,20},{-90,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (experiment(StopTime=10, Interval=0.001), Documentation(info
-              ="<html>
+        annotation (experiment(StopTime=10, Interval=0.001), Documentation(info=
+               "<html>
 <b>Test example: Electrical excited synchronous induction machine with voltage controller</b><br>
 An electrically excited synchronous generator is started with a speed ramp, then driven with constant speed.
 Voltage is controlled, the set point depends on speed. After start-up the generator is loaded, the load is rejected.
@@ -3009,11 +3051,9 @@ One could try to optimize the controller parameters.
           TsSpecification=293.15,
           TsRef=293.15,
           alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TrSpecification=293.15,
           TrRef=293.15,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TeSpecification=293.15,
           TeRef=293.15,
           alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
@@ -3094,8 +3134,8 @@ One could try to optimize the controller parameters.
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-40,40})));
-        Modelica.Electrical.Analog.Basic.Resistor resistor(R=RLoad) annotation
-          (Placement(transformation(
+        Modelica.Electrical.Analog.Basic.Resistor resistor(R=RLoad) annotation (
+           Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-50,60})));
@@ -3440,8 +3480,8 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
         parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
         parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1410*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1410*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
         Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse(
@@ -3550,8 +3590,8 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
         parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
         parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")
-           = 1410*2*Modelica.Constants.pi/60 "Nominal load speed";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+             1410*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
         Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse(
@@ -3823,7 +3863,6 @@ Default machine parameters are used.
           annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           TaNominal=353.15,
           TaRef=353.15)
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -3966,8 +4005,8 @@ So the machine is at the beginning in cold condition, ending in warm condition
               extent={{-10,-10},{10,10}},
               rotation=180,
               origin={-10,-40})));
-        Modelica.Thermal.HeatTransfer.Components.ThermalConductor coreCooling(G
-            =G_core_cooling)
+        Modelica.Thermal.HeatTransfer.Components.ThermalConductor coreCooling(G=
+             G_core_cooling)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
         Modelica.Thermal.FluidHeatFlow.Sources.Ambient inlet(
             constantAmbientTemperature=TAmbient, constantAmbientPressure=0)
@@ -3999,7 +4038,6 @@ So the machine is at the beginning in cold condition, ending in warm condition
       public
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           TaNominal=353.15,
           TaRef=353.15)
           annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
@@ -4087,8 +4125,8 @@ So the machine is at the beginning in cold condition, ending in warm condition
             points={{22,0},{-10,0}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (experiment(StopTime=25, Interval=0.001), Documentation(info
-              ="<HTML>
+        annotation (experiment(StopTime=25, Interval=0.001), Documentation(info=
+               "<HTML>
 <b>Test example: Demonstrate cooling of a DCPM motor</b><br>
 The motor starts at no-load speed, then load pulses are applied.<br>
 The cooling circuit consists of armature's thermal capacitance,
@@ -4362,7 +4400,6 @@ Simulate for 2 seconds and plot (versus time):
         parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData2(
           Ra=0.03864,
           alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
           wNominal=148.44025288212,
           TaNominal=368.15,
           frictionParameters(PRef=100),
@@ -4540,10 +4577,8 @@ This package contains test examples of DC machines.
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                   -10},{20,30}}, rotation=0)));
@@ -4675,10 +4710,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                   -10},{20,30}}, rotation=0)));
@@ -4693,8 +4726,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
               origin={-10,-40},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Analog.Basic.Ground groundT annotation (Placement(transformation(extent
-                ={{-20,-80},{0,-60}}, rotation=0)));
+        Analog.Basic.Ground groundT annotation (Placement(transformation(extent=
+                 {{-20,-80},{0,-60}}, rotation=0)));
       initial equation
         transformer.i2[1] = 0;
       equation
@@ -4841,10 +4874,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
           L2sigma=transformerData1.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-50,
                   30},{-30,50}}, rotation=0)));
@@ -4924,10 +4955,8 @@ neglecting initial transient.
           L2sigma=transformerData2.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15) annotation (Placement(transformation(extent={{-50,
                   -50},{-30,-30}}, rotation=0)));
@@ -5268,7 +5297,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             final lossPowerRotorCore=rotorCore.lossPower,
             final lossPowerBrush=0,
             final powerRotor=Machines.SpacePhasors.Functions.activePower(vr, ir)),
-
           statorCore(final w=statorCoreParameters.wRef));
 
         Machines.BasicMachines.Components.AirGapS airGapS(
@@ -5319,8 +5347,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           wRef(start=1) = 1)
           "Rotor core loss parameter record; all parameters refer to rotor side"
           annotation (Dialog(tab="Losses"));
-        output Modelica.SIunits.Current i_0_r(stateSelect=StateSelect.prefer)
-           = spacePhasorR.zero.i "Rotor zero-sequence current";
+        output Modelica.SIunits.Current i_0_r(stateSelect=StateSelect.prefer)=
+             spacePhasorR.zero.i "Rotor zero-sequence current";
         output Modelica.SIunits.Voltage vr[m]=plug_rp.pin.v - plug_rn.pin.v
           "Rotor instantaneous voltages";
         output Modelica.SIunits.Current ir[m]=plug_rp.pin.i
@@ -5563,8 +5591,7 @@ at standstill with open rotor circuit at nominal voltage and nominal frequency, 
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
-</HTML>"),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}));
@@ -5947,8 +5974,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SM_PermanentMagnet;
 
@@ -6104,11 +6130,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               rotation=90,
               origin={-80,-20})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
-          "Positive excitation pin" annotation (Placement(transformation(extent
-                ={{-110,70},{-90,50}}, rotation=0)));
+          "Positive excitation pin" annotation (Placement(transformation(extent=
+                 {{-110,70},{-90,50}}, rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
-          "Negative excitation pin" annotation (Placement(transformation(extent
-                ={{-90,-50},{-110,-70}}, rotation=0)));
+          "Negative excitation pin" annotation (Placement(transformation(extent=
+                 {{-90,-50},{-110,-70}}, rotation=0)));
         Machines.Losses.DCMachines.Brush brush(final brushParameters=
               brushParameters, final useHeatPort=true) annotation (Placement(
               transformation(
@@ -6381,8 +6407,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SM_ElectricalExcited;
 
@@ -6670,8 +6695,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<HTML>
@@ -6915,8 +6939,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           redeclare final Machines.Interfaces.DCMachines.ThermalPortDCEE
             internalThermalPort,
           redeclare final Machines.Interfaces.DCMachines.PowerBalanceDCEE
-            powerBalance(final powerExcitation=ve*ie, final lossPowerExcitation
-              =re.LossPower),
+            powerBalance(final powerExcitation=ve*ie, final lossPowerExcitation=
+               re.LossPower),
           core(final w=airGapDC.w));
         parameter Modelica.SIunits.Current IeNominal(start=1)
           "Nominal excitation current" annotation (Dialog(tab="Excitation"));
@@ -6938,8 +6962,8 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
           start=0) "Stray fraction of total excitation inductance"
           annotation (Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeOperational(start=293.15)
-          "Operational (shunt) excitation temperature" annotation (Dialog(group
-              ="Operational temperatures", enable=not useThermalPort));
+          "Operational (shunt) excitation temperature" annotation (Dialog(group=
+               "Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Voltage ve=pin_ep.v - pin_en.v
           "Field excitation voltage";
         output Modelica.SIunits.Current ie(start=0) = pin_ep.i
@@ -6975,11 +6999,11 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               rotation=270,
               origin={-80,20})));
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_ep
-          "Positive excitation pin" annotation (Placement(transformation(extent
-                ={{-110,70},{-90,50}}, rotation=0)));
+          "Positive excitation pin" annotation (Placement(transformation(extent=
+                 {{-110,70},{-90,50}}, rotation=0)));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_en
-          "Negative excitation pin" annotation (Placement(transformation(extent
-                ={{-90,-50},{-110,-70}}, rotation=0)));
+          "Negative excitation pin" annotation (Placement(transformation(extent=
+                 {{-90,-50},{-110,-70}}, rotation=0)));
       protected
         final parameter Modelica.SIunits.Inductance Lme=Le*(1 - sigmae)
           "Main part of excitation inductance";
@@ -7563,8 +7587,8 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
       package Yy "Transformers: primary Y / secondary y"
         extends Modelica.Icons.VariantsPackage;
         model Yy00 "Transformer Yy0"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yy00");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yy00");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7604,8 +7628,8 @@ Transformer Yy0
         end Yy00;
 
         model Yy02 "Transformer Yy2"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yy02");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yy02");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7650,8 +7674,8 @@ Transformer Yy2
         end Yy02;
 
         model Yy04 "Transformer Yy4"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yy04");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yy04");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7696,8 +7720,8 @@ Transformer Yy4
         end Yy04;
 
         model Yy06 "Transformer Yy6"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yy06");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yy06");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7737,8 +7761,8 @@ Transformer Yy6
         end Yy06;
 
         model Yy08 "Transformer Yy8"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yy08");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yy08");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7783,8 +7807,8 @@ Transformer Yy8
         end Yy08;
 
         model Yy10 "Transformer Yy10"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yy10");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yy10");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7854,8 +7878,8 @@ This package contains transformers primary Y connected / secondary y connected i
       package Yd "Transformers: primary Y / secondary d"
         extends Modelica.Icons.VariantsPackage;
         model Yd01 "Transformer Yd1"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yd01");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yd01");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7890,8 +7914,8 @@ Transformer Yd1
         end Yd01;
 
         model Yd03 "Transformer Yd3"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yd03");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yd03");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7931,8 +7955,8 @@ Transformer Yd3
         end Yd03;
 
         model Yd05 "Transformer Yd5"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yd05");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yd05");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -7967,8 +7991,8 @@ Transformer Yd5
         end Yd05;
 
         model Yd07 "Transformer Yd7"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yd07");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yd07");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8003,8 +8027,8 @@ Transformer Yd7
         end Yd07;
 
         model Yd09 "Transformer Yd9"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yd09");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yd09");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8044,8 +8068,8 @@ Transformer Yd9
         end Yd09;
 
         model Yd11 "Transformer Yd11"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yd11");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yd11");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8105,8 +8129,8 @@ This package contains transformers primary Y connected / secondary d connected i
       package Yz "Transformers: primary Y / secondary zig-zag"
         extends Modelica.Icons.VariantsPackage;
         model Yz01 "Transformer Yz1"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yz01");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yz01");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8160,8 +8184,8 @@ Transformer Yz1
         end Yz01;
 
         model Yz03 "Transformer Yz3"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yz03");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yz03");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8215,8 +8239,8 @@ Transformer Yz3
         end Yz03;
 
         model Yz05 "Transformer Yz5"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yz05");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yz05");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8263,8 +8287,8 @@ Transformer Yz5
         end Yz05;
 
         model Yz07 "Transformer Yz7"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yz07");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yz07");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8311,8 +8335,8 @@ Transformer Yz7
         end Yz07;
 
         model Yz09 "Transformer Yz9"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yz09");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yz09");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8366,8 +8390,8 @@ Transformer Yz9
         end Yz09;
 
         model Yz11 "Transformer Yz11"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Yz11");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Yz11");
           Modelica.Electrical.MultiPhase.Basic.Star star1(final m=m)
             annotation (Placement(transformation(
                 origin={-10,-80},
@@ -8446,8 +8470,8 @@ This package contains transformers primary Y connected / secondary zig-zag conne
       package Dy "Transformers: primary D / secondary y"
         extends Modelica.Icons.VariantsPackage;
         model Dy01 "Transformer Dy1"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dy01");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dy01");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8487,8 +8511,8 @@ Transformer Dy1
         end Dy01;
 
         model Dy03 "Transformer Dy3"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dy03");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dy03");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8528,8 +8552,8 @@ Transformer Dy3
         end Dy03;
 
         model Dy05 "Transformer Dy5"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dy05");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dy05");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8564,8 +8588,8 @@ Transformer Dy5
         end Dy05;
 
         model Dy07 "Transformer Dy7"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dy07");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dy07");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8605,8 +8629,8 @@ Transformer Dy7
         end Dy07;
 
         model Dy09 "Transformer Dy9"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dy09");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dy09");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8646,8 +8670,8 @@ Transformer Dy9
         end Dy09;
 
         model Dy11 "Transformer Dy11"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dy11");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dy11");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8707,8 +8731,8 @@ This package contains transformers primary D connected / secondary y connected i
       package Dd "Transformers: primary D / secondary d"
         extends Modelica.Icons.VariantsPackage;
         model Dd00 "Transformer Dd0"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dd00");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dd00");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -8738,8 +8762,8 @@ Transformer Dd0
         end Dd00;
 
         model Dd02 "Transformer Dd2"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dd02");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dd02");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -8774,8 +8798,8 @@ Transformer Dd2
         end Dd02;
 
         model Dd04 "Transformer Dd4"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dd04");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dd04");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -8805,8 +8829,8 @@ Transformer Dd4
         end Dd04;
 
         model Dd06 "Transformer Dd6"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dd06");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dd06");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -8836,8 +8860,8 @@ Transformer Dd6
         end Dd06;
 
         model Dd08 "Transformer Dd8"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dd08");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dd08");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -8872,8 +8896,8 @@ Transformer Dd8
         end Dd08;
 
         model Dd10 "Transformer Dd10"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dd10");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dd10");
           Modelica.Electrical.MultiPhase.Basic.Delta Delta1(final m=m)
             annotation (Placement(transformation(extent={{-50,-30},{-30,-10}},
                   rotation=0)));
@@ -8928,8 +8952,8 @@ This package contains transformers primary D connected / secondary d connected i
       package Dz "Transformers: primary D / secondary zig-zag"
         extends Modelica.Icons.VariantsPackage;
         model Dz00 "Transformer Dz0"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dz00");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dz00");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -8978,8 +9002,8 @@ Transformer Dz0
         end Dz00;
 
         model Dz02 "Transformer Dz2"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dz02");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dz02");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -9028,8 +9052,8 @@ Transformer Dz2
         end Dz02;
 
         model Dz04 "Transformer Dz4"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dz04");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dz04");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -9071,8 +9095,8 @@ Transformer Dz4
         end Dz04;
 
         model Dz06 "Transformer Dz6"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dz06");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dz06");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -9114,8 +9138,8 @@ Transformer Dz6
         end Dz06;
 
         model Dz08 "Transformer Dz8"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dz08");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dz08");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -9164,8 +9188,8 @@ Transformer Dz8
         end Dz08;
 
         model Dz10 "Transformer Dz10"
-          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup
-              ="Dz10");
+          extends Machines.Interfaces.PartialBasicTransformer(final VectorGroup=
+               "Dz10");
           Modelica.Electrical.MultiPhase.Basic.Star star2(final m=m)
             annotation (Placement(transformation(
                 origin={10,-80},
@@ -9608,8 +9632,8 @@ This is a model of an inductor, described with space phasors.
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(extent={{-60,45},{-30,75}},
                 lineColor={0,0,255}),Ellipse(extent={{-30,45},{0,75}},
-                lineColor={0,0,255}),Ellipse(extent={{0,45},{30,75}}, lineColor
-                ={0,0,255}),Ellipse(extent={{30,45},{60,75}}, lineColor={0,0,
+                lineColor={0,0,255}),Ellipse(extent={{0,45},{30,75}}, lineColor=
+                 {0,0,255}),Ellipse(extent={{30,45},{60,75}}, lineColor={0,0,
                 255}),Rectangle(
                       extent={{-60,30},{60,60}},
                       lineColor={255,255,255},
@@ -9621,8 +9645,8 @@ This is a model of an inductor, described with space phasors.
                       lineColor={0,0,255},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{80,-40},{80,
-                -60}}, color={0,0,255}),Line(points={{60,-60},{100,-60}}, color
-                ={0,0,255}),Line(points={{70,-80},{90,-80}}, color={0,0,255}),
+                -60}}, color={0,0,255}),Line(points={{60,-60},{100,-60}}, color=
+                 {0,0,255}),Line(points={{70,-80},{90,-80}}, color={0,0,255}),
                 Line(points={{66,-70},{94,-70}}, color={0,0,255}),Text(
                       extent={{-150,-90},{150,-150}},
                       lineColor={0,0,255},
@@ -9822,8 +9846,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
           Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>.
 If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
-</html>"),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
                 lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}},
                 lineColor={0,0,255}),Ellipse(extent={{0,-15},{30,15}},
@@ -10066,8 +10089,8 @@ the connection to airgap has to be grounded at one point.
                       lineColor={255,255,255},
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid),Line(points={{-90,50},{-32,
-                50}}, color={0,0,255}),Line(points={{-90,-50},{-32,-50}}, color
-                ={0,0,255}),Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,
+                50}}, color={0,0,255}),Line(points={{-90,-50},{-32,-50}}, color=
+                 {0,0,255}),Ellipse(extent={{20,40},{45,65}}, lineColor={0,0,
                 255}),Ellipse(extent={{20,65},{45,90}}, lineColor={0,0,255}),
                 Rectangle(
                       extent={{36,40},{46,90}},
@@ -10481,8 +10504,8 @@ Q = giving in stationary state reactive power.<br>
                   extent={{-20,-120},{20,-80}}),Line(visible=not useSupport,
               points={{-20,-100},{20,-100}}),Line(visible=not useSupport,
               points={{-10,-100},{-20,-120}}),Line(visible=not useSupport,
-              points={{0,-100},{-10,-120}}),Line(visible=not useSupport, points
-              ={{10,-100},{0,-120}}),Line(visible=not useSupport, points={{20,-100},
+              points={{0,-100},{-10,-120}}),Line(visible=not useSupport, points=
+               {{10,-100},{0,-120}}),Line(visible=not useSupport, points={{20,-100},
               {10,-120}}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
@@ -10515,8 +10538,8 @@ Calculates (mechanical) power from torque times angular speed.
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation (
           Placement(transformation(extent={{-10,90},{10,110}}, rotation=0)));
       Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor
-        annotation (Placement(transformation(extent={{40,70},{20,90}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{40,70},{20,90}}, rotation=
+               0)));
       Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/
             2) annotation (Placement(transformation(extent={{-50,40},{-30,60}},
               rotation=0)));
@@ -10526,11 +10549,11 @@ Calculates (mechanical) power from torque times angular speed.
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator rotatorVS2R
-        annotation (Placement(transformation(extent={{-20,10},{0,-10}},rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-20,10},{0,-10}},rotation=
+               0)));
       Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar ToPolarVSR
-        annotation (Placement(transformation(extent={{20,-10},{40,10}},rotation
-              =0)));
+        annotation (Placement(transformation(extent={{20,-10},{40,10}},rotation=
+               0)));
       Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
         "support at which the reaction torque is acting" annotation (Placement(
             transformation(extent={{90,90},{110,110}}, rotation=0)));
@@ -10943,8 +10966,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
                       textString="zero")}),
           Documentation(info="<HTML>
 Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end ToSpacePhasor;
 
@@ -11079,7 +11101,6 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
           Documentation(info="<html>
 <p>
 This model determines the RMS value of the input space phasor <code>u</code>.</p> </html>"),
-
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-60,40},{60,-20}},
@@ -12188,12 +12209,9 @@ This package contains loss models and their parameter records used for machine m
           "Not temperature dependent",
         choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium
           "Aluminium",
-        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Brass
-          "Brass",
-        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze
-          "Bronze",
-        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper
-          "Copper"));
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Brass "Brass",
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Bronze "Bronze",
+        choice=Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper "Copper"));
     package Constants "Material Constants"
       extends Modelica.Icons.Package;
       constant Modelica.SIunits.LinearTemperatureCoefficient alpha20Zero=0
@@ -13419,8 +13437,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       parameter Modelica.SIunits.Frequency fsNominal(start=50)
         "Nominal frequency";
       parameter Modelica.SIunits.Temperature TsOperational(start=293.15)
-        "Operational temperature of stator resistance" annotation (Dialog(group
-            ="Operational temperatures", enable=not useThermalPort));
+        "Operational temperature of stator resistance" annotation (Dialog(group=
+             "Operational temperatures", enable=not useThermalPort));
       parameter Modelica.SIunits.Resistance Rs(start=0.03)
         "Stator resistance per phase at TRef"
         annotation (Dialog(tab="Nominal resistances and inductances"));
@@ -13455,7 +13473,6 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         final powerStator=Machines.SpacePhasors.Functions.activePower(vs, is),
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
-
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerStatorWinding=sum(rs.resistor.LossPower),
         final lossPowerStatorCore=statorCore.lossPower,
@@ -13466,7 +13483,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m]=plug_sp.pin.i
         "Stator instantaneous currents";
-      output Modelica.SIunits.Current i_0_s(stateSelect=StateSelect.prefer) =
+      output Modelica.SIunits.Current i_0_s(stateSelect=StateSelect.prefer)=
         spacePhasorS.zero.i "Stator zero-sequence current";
       // to be defined in model that extends from this partial (since airgap isn't included here)
       input Modelica.SIunits.Current idq_ss[2]
@@ -13734,7 +13751,6 @@ Partial thermal port for induction machines
             smooth=Smooth.None));
         connect(TStatorWinding, temperatureStatorWinding.T) annotation (Line(
             points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
-
             color={0,0,127},
             smooth=Smooth.None));
 
@@ -14016,7 +14032,6 @@ Interfaces and partial models for induction machines
         final powerArmature=va*ia,
         final powerMechanical=wMechanical*tauShaft,
         final powerInertiaStator=inertiaStator.J*inertiaStator.a*inertiaStator.w,
-
         final powerInertiaRotor=inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
         final lossPowerArmature=ra.LossPower,
         final lossPowerCore=core.lossPower,
@@ -14059,8 +14074,8 @@ Interfaces and partial models for induction machines
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
       replaceable
         Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines
-        thermalAmbient(final useTemperatureInputs=false, final Ta=TaOperational)
-        if not useThermalPort annotation (Placement(transformation(
+        thermalAmbient(final useTemperatureInputs=false, final Ta=TaOperational) if
+           not useThermalPort annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-30,-80})));
@@ -14257,7 +14272,6 @@ Partial thermal port for DC machines
             smooth=Smooth.None));
         connect(TArmature, temperatureArmature.T) annotation (Line(
             points={{-80,-100},{-80,-60},{-100,-60},{-100,8},{-80,8},{-80,18}},
-
             color={0,0,127},
             smooth=Smooth.None));
 
@@ -14450,8 +14464,8 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
         "Reference temperature of primary resistance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1(start
-          =0) "Temperature coefficient of primary resistance at 20 degC"
+      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1(start=
+           0) "Temperature coefficient of primary resistance at 20 degC"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1 == "D"
              then 1 else 3)) "Primary stray inductance per phase"
@@ -14462,8 +14476,8 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
         "Reference temperature of secondary resistance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2(start
-          =0) "Temperature coefficient of secondary resistance at 20 degC"
+      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_2(start=
+           0) "Temperature coefficient of secondary resistance at 20 degC"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2 == "d"
              then 1 else 3)) "Secondary stray inductance per phase"
@@ -15146,7 +15160,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           annotation (Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio=true
           "Use turnsRatio or calculate from locked-rotor voltage?";
-        parameter Real turnsRatio(final min=Modelica.Constants.small) =
+        parameter Real turnsRatio(final min=Modelica.Constants.small)=
           VsNominal/VrLockedRotor*(2*pi*fsNominal*Lm)/sqrt(Rs^2 + (2*pi*
           fsNominal*(Lm + Lssigma))^2)
           "Effective number of stator turns / effective number of rotor turns"
@@ -15292,8 +15306,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Current IaNominal=100
           "Nominal armature current (>0..Motor, <0..Generator)"
           annotation (Dialog(tab="Nominal parameters"));
-        parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min")
-           = 1425*2*pi/60 "Nominal speed"
+        parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min")=
+             1425*2*pi/60 "Nominal speed"
           annotation (Dialog(tab="Nominal parameters"));
         parameter Modelica.SIunits.Temperature TaNominal=293.15
           "Nominal armature temperature"
@@ -15803,13 +15817,11 @@ They can be used to feed a current source which in turn feeds an induction machi
           smooth=Smooth.None));
       connect(toDQ.y[1], feedback_d.u2) annotation (Line(
           points={{-59.5,-69},{-59.5,-60},{-50,-60},{-50,40},{-28,40},{-28,52}},
-
           color={0,0,127},
           smooth=Smooth.None));
 
       connect(toDQ.y[2], feedback_q.u2) annotation (Line(
           points={{-60.5,-69},{-60.5,-60},{-50,-60},{-50,-20},{-30,-20},{-30,-8}},
-
           color={0,0,127},
           smooth=Smooth.None));
 
@@ -15853,8 +15865,8 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
 
     model SwitchYD "Y-D-switch"
       parameter Integer m=3 "Number of phases";
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m
-          =m) "To grid" annotation (Placement(transformation(extent={{-10,90},{
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
+           m) "To grid" annotation (Placement(transformation(extent={{-10,90},{
                 10,110}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
         "To positive stator plug" annotation (Placement(transformation(extent={
@@ -15929,8 +15941,8 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
       Modelica.Electrical.MultiPhase.Basic.Delta delta(final m=m) if (
         terminalConnection == "D") annotation (Placement(transformation(extent=
                 {{-20,-70},{-40,-50}}, rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m
-          =m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
+           m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
                 {10,-90}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (
         terminalConnection <> "D") annotation (Placement(transformation(extent=
@@ -15984,8 +15996,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
       MultiPhase.Basic.MultiDelta multiDelta(final m=m) if (terminalConnection
          == "D") annotation (Placement(transformation(extent={{-20,-70},{-40,-50}},
               rotation=0)));
-      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m
-          =m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
+      Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
+           m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
                 {10,-90}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoint(final m=
             mSystems) if (terminalConnection <> "D") annotation (Placement(
@@ -16048,8 +16060,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             origin={40,20},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      Modelica.Electrical.MultiPhase.Basic.Resistor rheostat(final m=m, final R
-          =fill(RStart, m)) annotation (Placement(transformation(extent={{0,-30},
+      Modelica.Electrical.MultiPhase.Basic.Resistor rheostat(final m=m, final R=
+           fill(RStart, m)) annotation (Placement(transformation(extent={{0,-30},
                 {-20,-10}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Basic.Star starRheostat(final m=m)
         annotation (Placement(transformation(extent={{-40,-30},{-60,-10}},
@@ -16193,8 +16205,8 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-10,0},{10,0}}, color={0,0,255}),
-            Line(points={{20,0},{26,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{20,0},{26,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>Ramped rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is reduced to zero,
 starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
@@ -16431,6 +16443,7 @@ This package contains utility components for testing examples.
   annotation (
     preferredView="info",
     Documentation(info="<HTML>
+<p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
 <p>
 Copyright &copy; 1998-2014, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>

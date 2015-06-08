@@ -83,8 +83,8 @@ package Machines "Quasistationary machine models"
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
         annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=
                 0)));
-      QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation
-        (Placement(transformation(
+      QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation (
+         Placement(transformation(
             origin={90,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
@@ -119,10 +119,8 @@ package Machines "Quasistationary machine models"
         L2sigma=transformerData.L2sigma,
         T1Ref=293.15,
         alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
         T2Ref=293.15,
         alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
         T1Operational=293.15,
         T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
                 -10},{20,30}}, rotation=0)));
@@ -2526,8 +2524,7 @@ This package contains the quasi stationary space phasor connector and partial mo
                 textString="zero")}),
           Documentation(info="<HTML>
 Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
       end ToSpacePhasor;
 
@@ -2604,7 +2601,8 @@ Transformation of space phasor and zero sequence value to quasi stationary multi
           origin={5.821,15},
           fillPattern=FillPattern.Solid,
           points={{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,
-              -100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
+              -100},{-70,-100},{-70,-90}})}), preferredView="info", Documentation(info="<html>
+<p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
 <h4>Please note</h4>

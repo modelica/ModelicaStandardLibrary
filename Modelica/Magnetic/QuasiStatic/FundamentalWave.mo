@@ -1179,8 +1179,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
-"),
-                Text(
+"),             Text(
                   extent={{-66,10},{14,2}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
@@ -1550,8 +1549,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),
-                Text(
+"),             Text(
                   extent={{20,-4},{100,-12}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
@@ -2745,8 +2743,7 @@ Simulate for 30 seconds:
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-"),
-                Text(
+"),             Text(
                   extent={{20,-10},{100,-18}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
@@ -7084,7 +7081,8 @@ The model output can be used to feed a quasi static current source with phase in
                 {100,100}}), graphics));
     end CurrentController;
   end Utilities;
-  annotation (Documentation(info="<html>
+  annotation (preferredView="info", Documentation(info="<html>
+  <p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
 <p>
 Copyright &copy; 2013-2015, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
