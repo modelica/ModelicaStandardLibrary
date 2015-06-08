@@ -29,7 +29,10 @@ package TestExamplesVariants
     Modelica.Fluid.Examples.BranchingDynamicPipes (
       redeclare package Medium = Modelica.Media.Water.StandardWater)
     "Alternative case for BranchingDynamicPipes using StandardWater medium"
-  annotation(experiment(StopTime=10));
+  annotation(experiment(
+      StopTime=10,
+      Interval=0.002,
+      Tolerance=1e-006));
 
   model InverseParameterization_turbulent =
     Modelica.Fluid.Examples.InverseParameterization (
