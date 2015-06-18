@@ -494,9 +494,6 @@ which is only exactly true for a fluid with constant density d=d0.
           y := if singleState then h_T(x) else h_pT(p,x);
         end f_nonlinear;
 
-        // Dummy definition (has to be added for one tool)
-        redeclare function extends solve
-        end solve;
       end Internal;
     algorithm
      T := Internal.solve(h, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
@@ -524,9 +521,6 @@ which is only exactly true for a fluid with constant density d=d0.
           y := s_T(x);
         end f_nonlinear;
 
-        // Dummy definition (has to be added for one tool)
-        redeclare function extends solve
-        end solve;
       end Internal;
     algorithm
      T := Internal.solve(s, T_min, T_max, p, {1}, Internal.f_nonlinear_Data());
