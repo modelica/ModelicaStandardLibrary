@@ -841,7 +841,7 @@ the output is set to zero: y=0.
             textString=DynamicSelect(" ", String(
                   y,
                   minimumLength=1,
-                  significantDigits=integer(precision)))),
+                  significantDigits=precision))),
           Text(
             extent={{-100,-60},{300,-90}},
             lineColor={0,0,0},

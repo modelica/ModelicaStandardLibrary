@@ -1042,7 +1042,10 @@ of the alternative sequence is executed. Note, that alternatives
 have priorities according to the port index (alternative.split[1]
 has a higher priority to fire as alternative.split[2]).
 </p>
-</html>"),      experiment(StopTime=15));
+</html>"),      experiment(StopTime=15),
+        Diagram(coordinateSystem(extent={{-200,-200},{200,200}}, initialScale=
+                0.1)),
+        Icon(coordinateSystem(initialScale=0.1)));
   end ExecutionPaths;
 
   model ShowCompositeStep
@@ -3085,7 +3088,7 @@ value, still requires to go in to the text layer.
               textString=DynamicSelect(" ", String(
                     Value,
                     minimumLength=1,
-                    significantDigits=integer(precision))),
+                    significantDigits=precision)),
               lineColor={0,0,255})}));
 
   end NumericValue;
