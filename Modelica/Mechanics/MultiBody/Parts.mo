@@ -491,7 +491,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     /* Relationships between quantities of frame_a and frame_b */
     frame_b.r_0 = frame_a.r_0 + Frames.resolve1(frame_a.R, r);
-    if rooted(frame_a.R) then
+    if Connections.rooted(frame_a.R) then
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
       zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r,

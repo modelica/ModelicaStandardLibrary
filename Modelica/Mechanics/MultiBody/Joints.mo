@@ -317,7 +317,7 @@ Possible reasons:
     // relationships between quantities of frame_a and of frame_b
     frame_b.r_0 = frame_a.r_0;
 
-    if rooted(frame_a.R) then
+    if Connections.rooted(frame_a.R) then
       R_rel = Frames.planarRotation(e, phi_offset + phi, w);
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
@@ -1369,7 +1369,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       Connections.branch(frame_a.R, frame_b.R);
 
       frame_b.r_0 = frame_a.r_0;
-      if rooted(frame_a.R) then
+      if Connections.rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
         zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
@@ -1693,7 +1693,7 @@ frame_b of the joint.
     if enforceStates then
       Connections.branch(frame_a.R, frame_b.R);
 
-      if rooted(frame_a.R) then
+      if Connections.rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       else
@@ -8780,7 +8780,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
        R_rel = Frames.axesRotations(sequence_start,
                                     {angle[1], angle[2], angle[3]},
                                     {der(angle[1]), der(angle[2]), der(angle[3])});
-       if rooted(frame_a.R) then
+       if Connections.rooted(frame_a.R) then
           R_rel_inv = Frames.nullRotation();
           frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
        else
