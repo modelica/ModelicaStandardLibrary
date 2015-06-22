@@ -1,5 +1,5 @@
 within Modelica.Media.Air;
-  package MoistAir "Air: Moist air model (190 ... 647 K)"
+package MoistAir "Air: Moist air model (190 ... 647 K)"
     extends Interfaces.PartialCondensingGases(
       mediumName="Moist air",
       substanceNames={"water","air"},
@@ -7,7 +7,6 @@ within Modelica.Media.Air;
       final singleState=false,
       reference_X={0.01,0.99},
       fluidConstants={IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
-
       Temperature(min=190, max=647));
 
     import Modelica.Media.IdealGases.Common.Functions;
@@ -63,8 +62,10 @@ within Modelica.Media.Air;
     equation
       assert(T >= 190 and T <= 647, "
 Temperature T is not in the allowed range
-190.0 K <= (T =" + String(T) + " K) <= 647.0 K
-required from medium model \"" + mediumName + "\".");
+190.0 K <= (T ="
+               + String(T) + " K) <= 647.0 K
+required from medium model \""
+                             + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water] + (1.0 - Xi[Water])/MMX[Air]);
 
       p_steam_sat = min(saturationPressure(T), 0.999*p);
@@ -568,7 +569,8 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
       annotation (Documentation(info="<html>
 The specific heat capacity of water (liquid and solid) is calculated using a
                  polynomial approach and data from VDI-Waermeatlas 8. Edition (Db1)
-</html>"), smoothOrder=2);
+</html>"),
+         smoothOrder=2);
     end HeatCapacityOfWater;
 
     redeclare function extends enthalpyOfLiquid
@@ -986,8 +988,8 @@ Specific internal energy is determined from the thermodynamic state record, assu
             refChoice=ReferenceEnthalpy.UserDefined,
             h_off=25104.684) + enthalpyOfWater(T)*X_liquid - R_gas*T;
 
-      annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info
-            ="<html>
+    annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info=
+           "<html>
 Specific internal energy is determined from pressure p, temperature T and composition X, assuming that the liquid or solid water volume is negligible.
 </html>"));
     end specificInternalEnergy_pTX;
@@ -1159,11 +1161,11 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 </html>"));
     end specificHeatCapacityCv;
 
-  redeclare function extends dynamicViscosity
+redeclare function extends dynamicViscosity
     "Return dynamic viscosity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
 
     import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
-  algorithm
+algorithm
     eta := 1e-6*Polynomials_Temp.evaluateWithRange(
         {9.7391102886305869E-15,-3.1353724870333906E-11,4.3004876595642225E-08,
         -3.8228016291758240E-05,5.0427874367180762E-02,1.7239260139242528E+01},
@@ -1174,13 +1176,13 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 <p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
 <p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
-  end dynamicViscosity;
+end dynamicViscosity;
 
-  redeclare function extends thermalConductivity
+redeclare function extends thermalConductivity
     "Return thermal conductivity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
     import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
     import Cv = Modelica.SIunits.Conversions;
-  algorithm
+algorithm
     lambda := 1e-3*Polynomials_Temp.evaluateWithRange(
         {6.5691470817717812E-15,-3.4025961923050509E-11,5.3279284846303157E-08,
         -4.5340839289219472E-05,7.6129675309037664E-02,2.4169481088097051E+01},
@@ -1192,7 +1194,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 <p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
 <p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
-  end thermalConductivity;
+end thermalConductivity;
 
     package Utilities "Utility functions"
       extends Modelica.Icons.UtilitiesPackage;
@@ -1301,111 +1303,6 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
       end smoothMax_der;
     end Utilities;
 
-    model PsychrometricData "Produces plot data for psychrometric charts"
-      extends Modelica.Icons.Example;
-      package Medium = Modelica.Media.Air.MoistAir "Used medium package";
-      parameter SIunits.Pressure p_const=1e5 "Pressure";
-      parameter Integer n_T=11 "Number of isotherms";
-      parameter SIunits.Temperature T_min=253.15 "Lowest isotherm";
-      parameter SIunits.Temperature T_step=10
-        "Temperature step between two isotherms";
-      parameter Integer n_h=16
-        "Number of lines with constant specific enthalpy";
-      parameter SIunits.SpecificEnthalpy h_min=-20e3
-        "Lowest line of constant enthalpy";
-      parameter SIunits.SpecificEnthalpy h_step=1e4
-        "Enthalpy step between two lines of constant enthalpy";
-      parameter Integer n_phi=10
-        "Number of lines with constant relative humidity";
-      parameter Real phi_min=0.1 "Lowest line of constant humidity";
-      parameter Real phi_step=0.1 "Step between two lines of constant humidity";
-      parameter SIunits.MassFraction x_min=0.00
-        "Minimum diagram absolute humidity";
-      parameter SIunits.MassFraction x_max=0.03
-        "Maximum diagram absolute humidity";
-      parameter SIunits.Time t=1 "Simulation time";
-
-      final parameter SIunits.Temperature[n_T] T_const={T_min - T_step + i*
-          T_step for i in 1:n_T} "Constant temperatures";
-      final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
-          h_min for i in 1:n_h} "Constant enthalpies";
-      final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i
-           in 1:n_phi} "Constant relative humidities";
-      final parameter Real diagSlope=Medium.enthalpyOfVaporization(273.15)
-        "Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region";
-      final parameter SIunits.MassFraction x_start=x_min
-        "Initial absolute humidity in kg water/kg dry air";
-
-      SIunits.MassFraction x(start=x_start)
-        "Absolute humidity in kg water/kg dry air";
-      SIunits.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
-      SIunits.SpecificEnthalpy[n_h] hx_h(start=h_const) "Const h_1+x";
-      SIunits.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
-      SIunits.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
-      SIunits.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
-      SIunits.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
-      Medium.BaseProperties[n_T] medium_T "Medium properties for const T";
-      Medium.BaseProperties[n_phi] medium_phi "Medium properties for const phi";
-
-    protected
-      SIunits.Pressure[n_phi] ps_phi
-        "Saturation pressure for constant-phi-lines";
-      SIunits.Temperature[n_phi] T_phi(each start=290);
-      Boolean[n_T] fog(start=fill(false, n_T))
-        "Triggers events at intersection of isotherms with phi=1";
-      SIunits.Pressure[n_T] pd "Steam partial pressure along isotherms";
-    initial equation
-      x = x_min;
-    equation
-
-      der(x) = (x_max - x_min)/t;
-
-      for i in 1:n_T loop
-        medium_T[i].T = T_const[i];
-        medium_T[i].p = p_const;
-        medium_T[i].Xi = {x/(1 + x)};
-        hx_T[i] = medium_T[i].h*(medium_T[i].x_water + 1);
-        y_T[i] = hx_T[i] - diagSlope*x;
-
-        //trigger events
-        pd[i] = medium_T[i].Xi[1]*medium_T[i].MM/MMX[1]*p_const;
-        fog[i] = pd[i] >= Medium.saturationPressure(T_const[i]);
-      end for;
-      for i in 1:n_h loop
-        der(hx_h[i]) = 0.0;
-        y_h[i] = hx_h[i] - diagSlope*x;
-      end for;
-      for i in 1:n_phi loop
-        medium_phi[i].p = p_const;
-        ps_phi[i] = p_const*x/phi_const[i]/(Medium.k_mair + x);
-        T_phi[i] = if x < 5e-6 then 200 else Medium.saturationTemperature(
-          ps_phi[i]);
-        medium_phi[i].T = T_phi[i];
-        medium_phi[i].Xi = {x/(1 + x)};
-        hx_phi[i] = medium_phi[i].h*(medium_phi[i].x_water + 1);
-        y_phi[i] = hx_phi[i] - diagSlope*x;
-      end for;
-
-      annotation (Documentation(info="<html>
-<p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
-It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
-
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
-</p>
-
-<p>
-<b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
-
-<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=\"modelica://Modelica.Media.Air.MoistAir\">MoistAir package description</a>. Absolute humidity <b>x</b> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
-<ul>
-<li><b>y_h</b>: constant specific enthalpy</li>
-<li><b>y_T</b>: constant temperature</li>
-<li><b>y_phi</b>: constant relative humidity</li>
-</ul>
-</html>"));
-    end PsychrometricData;
 
     redeclare function extends velocityOfSound
     algorithm
@@ -1531,7 +1428,8 @@ It must be noted that the relationship of both axis variables is not right-angle
             steam);
       annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end T_psX;
@@ -1556,7 +1454,8 @@ Temperature is computed from pressure, specific entropy and composition via nume
               {1 - sum(X)}));
       annotation (smoothOrder=2, Documentation(info="<html>
 The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end setState_psX;
@@ -1589,7 +1488,8 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
         Inline=false,
         Documentation(info="<html>
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={Text(
@@ -1648,7 +1548,8 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         smoothOrder=1,
         Documentation(info="<html>
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={Text(
@@ -1705,4 +1606,4 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
 </html>"));
-  end MoistAir;
+end MoistAir;
