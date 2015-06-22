@@ -6728,22 +6728,22 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.SpecificEnthalpy h "Specific enthalpy";
-    input Common.IF97BaseTwoPhase aux "Auxiliary record";
+    input Common.IF97BaseTwoPhase properties "Auxiliary record";
     input Real p_der "Derivative of pressure";
     input Real h_der "Derivative of specific enthalpy";
     output Real rho_der "Derivative of density";
   algorithm
-    if (aux.region == 4) then
-      rho_der := (aux.rho*(aux.rho*aux.cv/aux.dpT + 1.0)/(aux.dpT*aux.T))*p_der
-         + (-aux.rho*aux.rho/(aux.dpT*aux.T))*h_der;
-    elseif (aux.region == 3) then
-      rho_der := ((aux.rho*(aux.cv*aux.rho + aux.pt))/(aux.rho*aux.rho*aux.pd*
-        aux.cv + aux.T*aux.pt*aux.pt))*p_der + (-aux.rho*aux.rho*aux.pt/(aux.rho
-        *aux.rho*aux.pd*aux.cv + aux.T*aux.pt*aux.pt))*h_der;
+    if (properties.region == 4) then
+      rho_der := (properties.rho*(properties.rho*properties.cv/properties.dpT + 1.0)/(properties.dpT*properties.T))*p_der
+         + (-properties.rho*properties.rho/(properties.dpT*properties.T))*h_der;
+    elseif (properties.region == 3) then
+      rho_der := ((properties.rho*(properties.cv*properties.rho + properties.pt))/(properties.rho*properties.rho*properties.pd*
+        properties.cv + properties.T*properties.pt*properties.pt))*p_der + (-properties.rho*properties.rho*properties.pt/(properties.rho
+        *properties.rho*properties.pd*properties.cv + properties.T*properties.pt*properties.pt))*h_der;
     else
       //regions 1,2,5
-      rho_der := (-aux.rho*aux.rho*(aux.vp*aux.cp - aux.vt/aux.rho + aux.T*aux.vt
-        *aux.vt)/aux.cp)*p_der + (-aux.rho*aux.rho*aux.vt/(aux.cp))*h_der;
+      rho_der := (-properties.rho*properties.rho*(properties.vp*properties.cp - properties.vt/properties.rho + properties.T*properties.vt
+        *properties.vt)/properties.cp)*p_der + (-properties.rho*properties.rho*properties.vt/(properties.cp))*h_der;
     end if;
   end rho_ph_der;
 
@@ -6786,20 +6786,20 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.SpecificEnthalpy h "Specific enthalpy";
-    input Common.IF97BaseTwoPhase aux "Auxiliary record";
+    input Common.IF97BaseTwoPhase properties "Auxiliary record";
     input Real p_der "Derivative of pressure";
     input Real h_der "Derivative of specific enthalpy";
     output Real T_der "Derivative of temperature";
   algorithm
-    if (aux.region == 4) then
-      T_der := 1/aux.dpT*p_der;
-    elseif (aux.region == 3) then
-      T_der := ((-aux.rho*aux.pd + aux.T*aux.pt)/(aux.rho*aux.rho*aux.pd*aux.cv
-         + aux.T*aux.pt*aux.pt))*p_der + ((aux.rho*aux.rho*aux.pd)/(aux.rho*aux.rho
-        *aux.pd*aux.cv + aux.T*aux.pt*aux.pt))*h_der;
+    if (properties.region == 4) then
+      T_der := 1/properties.dpT*p_der;
+    elseif (properties.region == 3) then
+      T_der := ((-properties.rho*properties.pd + properties.T*properties.pt)/(properties.rho*properties.rho*properties.pd*properties.cv
+         + properties.T*properties.pt*properties.pt))*p_der + ((properties.rho*properties.rho*properties.pd)/(properties.rho*properties.rho
+        *properties.pd*properties.cv + properties.T*properties.pt*properties.pt))*h_der;
     else
       //regions 1,2 or 5
-      T_der := ((-1/aux.rho + aux.T*aux.vt)/aux.cp)*p_der + (1/aux.cp)*h_der;
+      T_der := ((-1/properties.rho + properties.T*properties.vt)/properties.cp)*p_der + (1/properties.cp)*h_der;
     end if;
   end T_ph_der;
 
@@ -6844,12 +6844,12 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.SpecificEnthalpy h "Specific enthalpy";
-    input Common.IF97BaseTwoPhase aux "Auxiliary record";
+    input Common.IF97BaseTwoPhase properties "Auxiliary record";
     input Real p_der "Derivative of pressure";
     input Real h_der "Derivative of specific enthalpy";
     output Real s_der "Derivative of entropy";
   algorithm
-    s_der := -1/(aux.rho*aux.T)*p_der + 1/aux.T*h_der;
+    s_der := -1/(properties.rho*properties.T)*p_der + 1/properties.T*h_der;
     annotation (Inline=true);
   end s_ph_der;
 
