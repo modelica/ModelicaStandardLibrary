@@ -898,7 +898,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             extent={{-150,145},{150,105}},
             lineColor={0,0,255},
             textString="%name"),
-          Bitmap(extent={{-97,75},{99,-39}}, fileName=
+          Bitmap(extent={{-97,-39},{99,75}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD.png")}));
   end EngineV6_analytic;
 

@@ -35,8 +35,8 @@ package MultiPhase "Multiphase AC components"
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
               rotation=0)));
       QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p2(k=2, m=m)
-        annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=
+               0)));
       QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p3(k=3, m=m)
         annotation (Placement(transformation(extent={{-10,-40},{10,-20}},
               rotation=0)));
@@ -158,8 +158,8 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(extent={{-80,-90},{-60,-70}}, rotation=0)));
       QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p1(m=m, k=1)
-        annotation (Placement(transformation(extent={{12,70},{32,90}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{12,70},{32,90}}, rotation=
+               0)));
       QuasiStationary.MultiPhase.Basic.PlugToPin_p plugToPin_p2(k=2, m=m)
         annotation (Placement(transformation(extent={{10,0},{30,20}}, rotation=
                 0)));
@@ -306,8 +306,8 @@ Examples to demonstrate the usage of quasistationary electric components.
               lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={85,170,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<html>
+            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<html>
 <p>
 Star (wye) connection of a multi phase circuit. The potentials at the star points are the same.
 </p>
@@ -823,8 +823,8 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
     equation
 
       connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(
@@ -904,8 +904,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
                 10}}, rotation=0)));
     equation
       connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(points={{0,
@@ -972,8 +972,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
               rotation=0)));
     equation
       connect(variableCapacitor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableCapacitor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(C, variableCapacitor.C) annotation (Line(
@@ -1033,8 +1033,8 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
               rotation=0)));
     equation
       connect(variableInductor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableInductor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableInductor.L, L) annotation (Line(points={{0,10.8},{0,35.6},
@@ -1223,7 +1223,7 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
       connect(idealCommutingSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
+          pattern=LinePattern.Solid,
           smooth=Smooth.None));
       connect(plugToPins_n1.plug_n, plug_n1) annotation (Line(
           points={{82,50},{100,50}},
@@ -1334,7 +1334,7 @@ This switch is only intended to be used for structural changes, not fast switchi
       connect(idealIntermediateSwitch.heatPort, heatPort) annotation (Line(
           points={{0,-10},{0,-100}},
           color={191,0,0},
-          pattern=LinePattern.None,
+          pattern=LinePattern.Solid,
           smooth=Smooth.None));
       connect(plug_p1, plugToPins_p1.plug_p) annotation (Line(
           points={{-100,50},{-92,50},{-92,50},{-82,50}},
@@ -1757,8 +1757,8 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
       connect(plugToPinsVoltageN.plug_n, voltageN) annotation (Line(points={{0,
               -72},{0,-72},{0,-100}}, color={85,170,255}));
       connect(plugToPinsCurrentP.pin_p, powerSensor.currentP) annotation (Line(
-            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color
-            ={85,170,255}));
+            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color=
+             {85,170,255}));
       connect(powerSensor.currentN, plugToPinsCurrentN.pin_n) annotation (Line(
             points={{10,0},{24.5,0},{24.5,0},{39,0},{39,0},{68,0}}, color={85,
               170,255}));
@@ -1883,8 +1883,8 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
                 {40,60},{4,60},{4,10}}, color={0,0,127}));
       end for;
       connect(plugToPins_p.pin_p, variableVoltageSource.pin_p) annotation (Line(
-            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color
-            ={85,170,255}));
+            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color=
+             {85,170,255}));
       connect(variableVoltageSource.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(V, variableVoltageSource.V) annotation (Line(points={{-40,100},{-40,
@@ -1981,8 +1981,8 @@ This model describes <i>m</i> constant current sources, specifying the complex c
                 {40,60},{4,60},{4,10}}, color={0,0,127}));
       end for;
       connect(plugToPins_p.pin_p, variableCurrentSource.pin_p) annotation (Line(
-            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color
-            ={85,170,255}));
+            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color=
+             {85,170,255}));
       connect(variableCurrentSource.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(I, variableCurrentSource.I) annotation (Line(points={{-40,100},{-40,
@@ -2236,7 +2236,6 @@ The absolute sensor partial model relies on the a
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Line(points={{70,0},{94,0}}, color={0,0,0}),
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255}),
-
             Text(
               extent={{100,-100},{-100,-70}},
               lineColor={0,0,0},
@@ -2257,6 +2256,7 @@ The relative sensor partial model relies on the
 </p>
 
 </html>"));
+
     end RelativeSensor;
 
     partial model Source "Partial voltage / current source"
