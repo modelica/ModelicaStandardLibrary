@@ -2208,7 +2208,7 @@ Simulate for 1.5 seconds and plot (versus time):
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}}, rotation=0)));
 
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
@@ -2239,7 +2239,7 @@ Simulate for 1.5 seconds and plot (versus time):
           alpha20r(displayUnit="1/K") = smpmData.alpha20r,
           permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
           TsOperational=293.15,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
 
@@ -2440,7 +2440,7 @@ and accelerate the inertias.</p>
           Lmq=smpmData.Lmq*m/3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}}, rotation=0)));
 
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
@@ -2473,7 +2473,7 @@ and accelerate the inertias.</p>
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}}, rotation=0)));
 
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
@@ -2761,7 +2761,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}}, rotation=0)));
 
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
@@ -2795,7 +2795,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           Lrsigmaq=smeeData.Lrsigmaq,
           TrRef=smeeData.TrRef,
           TsOperational=293.15,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           TeOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
@@ -3070,7 +3070,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,30},
                   {10,50}}, rotation=0)));
 
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
@@ -3107,7 +3107,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}}, rotation=0)));
 
         Modelica.Electrical.Analog.Basic.Ground groundRM annotation (Placement(
@@ -3444,7 +3444,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}}, rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrE(
@@ -3472,7 +3472,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
           TrRef=smrData.TrRef,
           alpha20r(displayUnit="1/K") = smrData.alpha20r,
           TsOperational=293.15,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}}, rotation=0)));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
@@ -3638,7 +3638,7 @@ Simulate for 1.5 seconds and plot (versus time):
           m=m,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smr3(
@@ -3668,7 +3668,7 @@ Simulate for 1.5 seconds and plot (versus time):
           m=m3,
           TsOperational=293.15,
           TrOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-90},
                   {10,-70}}, rotation=0)));
         Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngle3(
            p=smr3.p) annotation (Placement(transformation(
