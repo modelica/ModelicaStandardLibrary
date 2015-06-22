@@ -640,7 +640,8 @@ parameter menu.
     input SI.Position r_tail[3]={0,0,0}
       "Vector from frame_a to arrow tail, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Axis n={1,0,0} "Vector in arrow direction, resolved in frame_a"
+    input Types.Axis n={1,0,0}
+      "Vector in arrow direction, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Length length=0.1 "Length of complete arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -832,12 +833,11 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
    equation
 
-      connect(fixed.frame_b, ground.frame_a) annotation ={
-                                                         Line(
+      connect(fixed.frame_b, ground.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
           color={95,95,95},
           thickness=0.5,
-          smooth=Smooth.None)};
+          smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Polygon(
@@ -935,7 +935,7 @@ This shape visualizes the x-y plane by a box
     // No forces and torques
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
-    annotation (Icon(graphics={Bitmap(extent={{-98,-98},{98,98}}, fileName=
+    annotation (Icon(graphics={Bitmap(extent={{-98,98},{98,-98}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png"),
             Text(
             extent={{-150,100},{150,140}},
@@ -1041,7 +1041,7 @@ the last point of the parametrization coincide in this case.
             extent={{-150,100},{150,140}},
             lineColor={0,0,255},
             textString="%name"),
-          Bitmap(extent={{-96,-96},{102,96}}, fileName=
+          Bitmap(extent={{-96,96},{102,-96}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png"),
           Rectangle(
             extent={{-96,8},{-18,-8}},
@@ -1127,7 +1127,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
             Text(
             extent={{-150,50},{150,90}},
             lineColor={0,0,255},
-            textString="%name"), Bitmap(extent={{-100,-62},{98,58}}, fileName=
+            textString="%name"), Bitmap(extent={{-100,58},{98,-62}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png")}),
                                    Documentation(info="<html>
 <p>
@@ -2256,7 +2256,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
              T_max=T_max,
              colorMap=colorMapData))
         annotation (Placement(transformation(extent={{-20,2},{0,22}})));
-      annotation (Icon(graphics={Bitmap(extent={{-99,-60},{99,60}}, fileName=
+      annotation (Icon(graphics={Bitmap(extent={{-99,60},{99,-60}}, fileName=
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png"),
               Text(
               extent={{-150,54},{150,94}},
