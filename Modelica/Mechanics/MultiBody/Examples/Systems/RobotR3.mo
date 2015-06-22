@@ -46,22 +46,24 @@ package RobotR3
             extent={{-32,10},{8,50}}, rotation=0)));
   equation
     connect(axis.flange, load.flange_a)
-      annotation (Line(
+      annotation ={
+                  Line(
         points={{40,10},{54,10}},
         color={128,128,128},
-        thickness=0.5));
-    connect(pathPlanning.controlBus, controlBus) annotation (Line(
+        thickness=0.5)};
+    connect(pathPlanning.controlBus, controlBus) annotation ={
+                                                             Line(
         points={{-40,10},{-15,10},{-15,28},{-12,28},{-12,30}},
         color={255,204,51},
-        thickness=0.5));
-    connect(controlBus.axisControlBus1, axis.axisControlBus) annotation (
+        thickness=0.5)};
+    connect(controlBus.axisControlBus1, axis.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
         points={{-12,30},{-12,29},{-9,29},{-9,10},{20,10}},
         color={255,204,51},
-        thickness=0.5));
+        thickness=0.5)};
     annotation (
       Documentation(info="<HTML>
 <p>
@@ -258,25 +260,32 @@ load inertia.
           extent={{-20,-20},{20,20}},
           rotation=90)));
   equation
-    connect(axis2.flange, mechanics.axis2) annotation (Line(points={{-5,-45},{
-            25,-45},{25,-21.5},{33.5,-21.5}}, color={0,0,0}));
-    connect(axis1.flange, mechanics.axis1) annotation (Line(points={{-5,-65},{
-            30,-65},{30,-30.5},{33.5,-30.5}}, color={0,0,0}));
-    connect(axis3.flange, mechanics.axis3) annotation (Line(points={{-5,-25},{
-            15,-25},{15,-12.5},{33.5,-12.5}}, color={0,0,0}));
-    connect(axis4.flange, mechanics.axis4) annotation (Line(points={{-5,-5},{15,
-            -5},{15,-3.5},{33.5,-3.5}}, color={0,0,0}));
+    connect(axis2.flange, mechanics.axis2) annotation ={
+                                                       Line(points={{-5,-45},{
+            25,-45},{25,-21.5},{33.5,-21.5}}, color={0,0,0})};
+    connect(axis1.flange, mechanics.axis1) annotation ={
+                                                       Line(points={{-5,-65},{
+            30,-65},{30,-30.5},{33.5,-30.5}}, color={0,0,0})};
+    connect(axis3.flange, mechanics.axis3) annotation ={
+                                                       Line(points={{-5,-25},{
+            15,-25},{15,-12.5},{33.5,-12.5}}, color={0,0,0})};
+    connect(axis4.flange, mechanics.axis4) annotation ={
+                                                       Line(points={{-5,-5},{15,
+            -5},{15,-3.5},{33.5,-3.5}}, color={0,0,0})};
     connect(axis5.flange, mechanics.axis5)
-      annotation (Line(points={{-5,15},{10,15},{10,5.5},{33.5,5.5}}, color={0,0,
-            0}));
-    connect(axis6.flange, mechanics.axis6) annotation (Line(points={{-5,35},{20,
-            35},{20,14.5},{33.5,14.5}}, color={0,0,0}));
+      annotation ={
+                  Line(points={{-5,15},{10,15},{10,5.5},{33.5,5.5}}, color={0,0,
+            0})};
+    connect(axis6.flange, mechanics.axis6) annotation ={
+                                                       Line(points={{-5,35},{20,
+            35},{20,14.5},{33.5,14.5}}, color={0,0,0})};
     connect(controlBus, pathPlanning.controlBus)
-                                         annotation (Line(
+                                         annotation ={
+                                                     Line(
         points={{-80,-10},{-80,60},{-25,60}},
         color={255,204,51},
-        thickness=0.5));
-    connect(controlBus.axisControlBus1, axis1.axisControlBus) annotation (
+        thickness=0.5)};
+    connect(controlBus.axisControlBus1, axis1.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
@@ -284,50 +293,50 @@ load inertia.
         points={{-80,-10},{-80,-14.5},{-79,-14.5},{-79,-17},{-65,-17},{-65,-65},
             {-25,-65}},
         color={255,204,51},
-        thickness=0.5));
+        thickness=0.5)};
 
-    connect(controlBus.axisControlBus2, axis2.axisControlBus) annotation (
+    connect(controlBus.axisControlBus2, axis2.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-79,-10},{-79,-15},{-62.5,-15},{-62.5,-45},{-25,-45}},
         color={255,204,51},
-        thickness=0.5));
+        thickness=0.5)};
 
-    connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation (
+    connect(controlBus.axisControlBus3, axis3.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-77,-10},{-77,-12.5},{-61,-12.5},{-61,-25},{-25,-25}},
         color={255,204,51},
-        thickness=0.5));
+        thickness=0.5)};
 
-    connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation (
+    connect(controlBus.axisControlBus4, axis4.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-60.5,-10},{-60.5,-5},{-25,-5}},
         color={255,204,51},
-        thickness=0.5));
-    connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation (
+        thickness=0.5)};
+    connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-77,-10},{-77,-7},{-63,-7},{-63,15},{-25,15}},
         color={255,204,51},
-        thickness=0.5));
-    connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
+        thickness=0.5)};
+    connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation ={
       Text(
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
         points={{-80,-10},{-79,-10},{-79,-5},{-65,-5},{-65,35},{-25,35}},
         color={255,204,51},
-        thickness=0.5));
+        thickness=0.5)};
     annotation (
       experiment(StopTime=2),
       __Dymola_Commands(
@@ -450,22 +459,26 @@ determined from the connections to this bus.
              + swingTime) annotation (Placement(transformation(extent={{-50,-30},
                 {30,-24}}, rotation=0)));
     equation
-      connect(path.q, pathToAxis1.q)         annotation (Line(points={{-29,8},{
-              -2,8}}, color={0,0,127}));
-      connect(path.qd, pathToAxis1.qd)         annotation (Line(points={{-29,3},
-              {-2,3}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis1.qdd)         annotation (Line(points={{-29,
-              -3},{-2,-3}}, color={0,0,127}));
-      connect(path.moving, pathToAxis1.moving)             annotation (Line(
-            points={{-29,-8},{-2,-8}}, color={255,0,255}));
-      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
+      connect(path.q, pathToAxis1.q)         annotation ={
+                                                         Line(points={{-29,8},{
+              -2,8}}, color={0,0,127})};
+      connect(path.qd, pathToAxis1.qd)         annotation ={
+                                                           Line(points={{-29,3},
+              {-2,3}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis1.qdd)         annotation ={
+                                                             Line(points={{-29,
+              -3},{-2,-3}}, color={0,0,127})};
+      connect(path.moving, pathToAxis1.moving)             annotation ={
+                                                                       Line(
+            points={{-29,-8},{-2,-8}}, color={255,0,255})};
+      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{20,0},{100,0}},
           color={255,204,51},
-          thickness=0.5));
+          thickness=0.5)};
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -589,102 +602,126 @@ motion on the controlBus of the r3 robot.
              + swingTime) annotation (Placement(transformation(extent={{-50,
                 -100},{30,-94}}, rotation=0)));
     equation
-      connect(path.q, pathToAxis1.q)         annotation (Line(points={{-69,-62},
-              {-60,-62},{-60,88},{-12,88}}, color={0,0,127}));
-      connect(path.qd, pathToAxis1.qd)         annotation (Line(points={{-69,
-              -67},{-59,-67},{-59,83},{-12,83}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis1.qdd)         annotation (Line(points={{-69,
-              -73},{-58,-73},{-58,77},{-12,77}}, color={0,0,127}));
-      connect(path.moving, pathToAxis1.moving)             annotation (Line(
-            points={{-69,-78},{-57,-78},{-57,72},{-12,72}}, color={255,0,255}));
-      connect(path.q, pathToAxis2.q)         annotation (Line(points={{-69,-62},
-              {-60,-62},{-60,58},{-12,58}}, color={0,0,127}));
-      connect(path.qd, pathToAxis2.qd)         annotation (Line(points={{-69,
-              -67},{-59,-67},{-59,53},{-12,53}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis2.qdd)         annotation (Line(points={{-69,
-              -73},{-58,-73},{-58,47},{-12,47}}, color={0,0,127}));
-      connect(path.moving, pathToAxis2.moving)             annotation (Line(
-            points={{-69,-78},{-57,-78},{-57,42},{-12,42}}, color={255,0,255}));
-      connect(path.q, pathToAxis3.q)         annotation (Line(points={{-69,-62},
-              {-60,-62},{-60,28},{-12,28}}, color={0,0,127}));
-      connect(path.qd, pathToAxis3.qd)         annotation (Line(points={{-69,
-              -67},{-59,-67},{-59,23},{-12,23}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis3.qdd)         annotation (Line(points={{-69,
-              -73},{-58,-73},{-58,17},{-12,17}}, color={0,0,127}));
-      connect(path.moving, pathToAxis3.moving)             annotation (Line(
-            points={{-69,-78},{-57,-78},{-57,12},{-12,12}}, color={255,0,255}));
-      connect(path.q, pathToAxis4.q)         annotation (Line(points={{-69,-62},
-              {-60,-62},{-60,-2},{-12,-2}}, color={0,0,127}));
-      connect(path.qd, pathToAxis4.qd)         annotation (Line(points={{-69,
-              -67},{-59,-67},{-59,-7},{-12,-7}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis4.qdd)         annotation (Line(points={{-69,
-              -73},{-58,-73},{-58,-13},{-12,-13}}, color={0,0,127}));
-      connect(path.moving, pathToAxis4.moving)             annotation (Line(
-            points={{-69,-78},{-57,-78},{-57,-18},{-12,-18}}, color={255,0,255}));
-      connect(path.q, pathToAxis5.q)         annotation (Line(points={{-69,-62},
-              {-60,-62},{-60,-32},{-12,-32}}, color={0,0,127}));
-      connect(path.qd, pathToAxis5.qd)         annotation (Line(points={{-69,
-              -67},{-59,-67},{-59,-37},{-12,-37}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis5.qdd)         annotation (Line(points={{-69,
-              -73},{-58,-73},{-58,-43},{-12,-43}}, color={0,0,127}));
-      connect(path.moving, pathToAxis5.moving)             annotation (Line(
-            points={{-69,-78},{-57,-78},{-57,-48},{-12,-48}}, color={255,0,255}));
-      connect(path.q, pathToAxis6.q)         annotation (Line(points={{-69,-62},
-              {-12,-62}}, color={0,0,127}));
-      connect(path.qd, pathToAxis6.qd)         annotation (Line(points={{-69,
-              -67},{-12,-67}}, color={0,0,127}));
-      connect(path.qdd, pathToAxis6.qdd)         annotation (Line(points={{-69,
-              -73},{-12,-73}}, color={0,0,127}));
-      connect(path.moving, pathToAxis6.moving)             annotation (Line(
-            points={{-69,-78},{-12,-78}}, color={255,0,255}));
-      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation (
+      connect(path.q, pathToAxis1.q)         annotation ={
+                                                         Line(points={{-69,-62},
+              {-60,-62},{-60,88},{-12,88}}, color={0,0,127})};
+      connect(path.qd, pathToAxis1.qd)         annotation ={
+                                                           Line(points={{-69,
+              -67},{-59,-67},{-59,83},{-12,83}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis1.qdd)         annotation ={
+                                                             Line(points={{-69,
+              -73},{-58,-73},{-58,77},{-12,77}}, color={0,0,127})};
+      connect(path.moving, pathToAxis1.moving)             annotation ={
+                                                                       Line(
+            points={{-69,-78},{-57,-78},{-57,72},{-12,72}}, color={255,0,255})};
+      connect(path.q, pathToAxis2.q)         annotation ={
+                                                         Line(points={{-69,-62},
+              {-60,-62},{-60,58},{-12,58}}, color={0,0,127})};
+      connect(path.qd, pathToAxis2.qd)         annotation ={
+                                                           Line(points={{-69,
+              -67},{-59,-67},{-59,53},{-12,53}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis2.qdd)         annotation ={
+                                                             Line(points={{-69,
+              -73},{-58,-73},{-58,47},{-12,47}}, color={0,0,127})};
+      connect(path.moving, pathToAxis2.moving)             annotation ={
+                                                                       Line(
+            points={{-69,-78},{-57,-78},{-57,42},{-12,42}}, color={255,0,255})};
+      connect(path.q, pathToAxis3.q)         annotation ={
+                                                         Line(points={{-69,-62},
+              {-60,-62},{-60,28},{-12,28}}, color={0,0,127})};
+      connect(path.qd, pathToAxis3.qd)         annotation ={
+                                                           Line(points={{-69,
+              -67},{-59,-67},{-59,23},{-12,23}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis3.qdd)         annotation ={
+                                                             Line(points={{-69,
+              -73},{-58,-73},{-58,17},{-12,17}}, color={0,0,127})};
+      connect(path.moving, pathToAxis3.moving)             annotation ={
+                                                                       Line(
+            points={{-69,-78},{-57,-78},{-57,12},{-12,12}}, color={255,0,255})};
+      connect(path.q, pathToAxis4.q)         annotation ={
+                                                         Line(points={{-69,-62},
+              {-60,-62},{-60,-2},{-12,-2}}, color={0,0,127})};
+      connect(path.qd, pathToAxis4.qd)         annotation ={
+                                                           Line(points={{-69,
+              -67},{-59,-67},{-59,-7},{-12,-7}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis4.qdd)         annotation ={
+                                                             Line(points={{-69,
+              -73},{-58,-73},{-58,-13},{-12,-13}}, color={0,0,127})};
+      connect(path.moving, pathToAxis4.moving)             annotation ={
+                                                                       Line(
+            points={{-69,-78},{-57,-78},{-57,-18},{-12,-18}}, color={255,0,255})};
+      connect(path.q, pathToAxis5.q)         annotation ={
+                                                         Line(points={{-69,-62},
+              {-60,-62},{-60,-32},{-12,-32}}, color={0,0,127})};
+      connect(path.qd, pathToAxis5.qd)         annotation ={
+                                                           Line(points={{-69,
+              -67},{-59,-67},{-59,-37},{-12,-37}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis5.qdd)         annotation ={
+                                                             Line(points={{-69,
+              -73},{-58,-73},{-58,-43},{-12,-43}}, color={0,0,127})};
+      connect(path.moving, pathToAxis5.moving)             annotation ={
+                                                                       Line(
+            points={{-69,-78},{-57,-78},{-57,-48},{-12,-48}}, color={255,0,255})};
+      connect(path.q, pathToAxis6.q)         annotation ={
+                                                         Line(points={{-69,-62},
+              {-12,-62}}, color={0,0,127})};
+      connect(path.qd, pathToAxis6.qd)         annotation ={
+                                                           Line(points={{-69,
+              -67},{-12,-67}}, color={0,0,127})};
+      connect(path.qdd, pathToAxis6.qdd)         annotation ={
+                                                             Line(points={{-69,
+              -73},{-12,-73}}, color={0,0,127})};
+      connect(path.moving, pathToAxis6.moving)             annotation ={
+                                                                       Line(
+            points={{-69,-78},{-12,-78}}, color={255,0,255})};
+      connect(pathToAxis1.axisControlBus, controlBus.axisControlBus1) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{10,80},{80,80},{80,7},{98,7}},
           color={255,204,51},
-          thickness=0.5));
-      connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
+          thickness=0.5)};
+      connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{10,50},{77,50},{77,5},{97,5}},
           color={255,204,51},
-          thickness=0.5));
-      connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
+          thickness=0.5)};
+      connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{10,20},{75,20},{75,3},{96,3}},
           color={255,204,51},
-          thickness=0.5));
-      connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
+          thickness=0.5)};
+      connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{10,-10},{73,-10},{73,0},{100,0}},
           color={255,204,51},
-          thickness=0.5));
-      connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation (
+          thickness=0.5)};
+      connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{10,-40},{75,-40},{75,-3},{100,-3},{100,0}},
           color={255,204,51},
-          thickness=0.5));
-      connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation (
+          thickness=0.5)};
+      connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
           points={{10,-70},{78,-70},{78,-6},{98,-6}},
           color={255,204,51},
-          thickness=0.5));
+          thickness=0.5)};
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -790,38 +827,42 @@ motion on the controlBus of the r3 robot.
         annotation (Placement(transformation(extent={{-40,-70},{-20,-50}},
               rotation=0)));
     equation
-      connect(q_axisUsed.u, q[axisUsed]) annotation (Line(points={{-42,60},{-60,
-              60},{-60,80},{-120,80}}, color={0,0,127}));
-      connect(qd_axisUsed.u, qd[axisUsed]) annotation (Line(points={{-42,20},{
-              -80,20},{-80,30},{-120,30}}, color={0,0,127}));
-      connect(qdd_axisUsed.u, qdd[axisUsed]) annotation (Line(points={{-42,-20},
-              {-80,-20},{-80,-30},{-120,-30}}, color={0,0,127}));
-      connect(motion_ref_axisUsed.u, moving[axisUsed])     annotation (Line(
-            points={{-42,-60},{-60,-60},{-60,-80},{-120,-80}}, color={255,0,255}));
-      connect(motion_ref_axisUsed.y, axisControlBus.motion_ref) annotation (
+      connect(q_axisUsed.u, q[axisUsed]) annotation ={
+                                                     Line(points={{-42,60},{-60,
+              60},{-60,80},{-120,80}}, color={0,0,127})};
+      connect(qd_axisUsed.u, qd[axisUsed]) annotation ={
+                                                       Line(points={{-42,20},{
+              -80,20},{-80,30},{-120,30}}, color={0,0,127})};
+      connect(qdd_axisUsed.u, qdd[axisUsed]) annotation ={
+                                                         Line(points={{-42,-20},
+              {-80,-20},{-80,-30},{-120,-30}}, color={0,0,127})};
+      connect(motion_ref_axisUsed.u, moving[axisUsed])     annotation ={
+                                                                       Line(
+            points={{-42,-60},{-60,-60},{-60,-80},{-120,-80}}, color={255,0,255})};
+      connect(motion_ref_axisUsed.y, axisControlBus.motion_ref) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{-19,-60},{44,-60},{
-              44,-8},{102,-8},{102,0},{100,0}}, color={255,0,255}));
-      connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
+              44,-8},{102,-8},{102,0},{100,0}}, color={255,0,255})};
+      connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{-19,-20},{40,-20},{
-              40,-4},{98,-4},{98,0},{100,0}}, color={0,0,127}));
-      connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
+              40,-4},{98,-4},{98,0},{100,0}}, color={0,0,127})};
+      connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,
-              0},{100,0}}, color={0,0,127}));
-      connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
+              0},{100,0}}, color={0,0,127})};
+      connect(q_axisUsed.y, axisControlBus.angle_ref) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{-19,60},{40,60},{40,
-              4},{96,4}}, color={0,0,127}));
+              4},{96,4}}, color={0,0,127})};
       annotation (defaultComponentName="pathToAxis1",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -883,25 +924,29 @@ motion on the controlBus of the r3 robot.
             transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
     equation
       connect(spring.flange_b, gear.flange_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{20,0},{50,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       connect(bearingFriction.flange_b, spring.flange_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-40,0},{0,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       connect(gear.flange_b, flange_b)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{70,0},{100,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       connect(bearingFriction.flange_a, flange_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-60,0},{-100,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
     initial equation
       spring.w_rel = 0;
       a_rel = 0;
@@ -999,20 +1044,23 @@ the definition of initial values considerably.
               rotation=0)));
     equation
       connect(gear.flange_b, bearingFriction.flange_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-8,0},{30,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       connect(bearingFriction.flange_b, flange_b)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{50,0},{100,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       connect(gear.flange_a, flange_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-28,0},{-100,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       annotation (
         Documentation(info="<html>
 <p>
@@ -1183,73 +1231,112 @@ Default values for all parameters are given for joint 4.
       der(La.i) = 0;
 
     equation
-      connect(La.n, emf.p) annotation (Line(points={{56,20},{56,15},{56,10}}));
-      connect(Ra.n, La.p) annotation (Line(points={{56,50},{56,40}}));
-      connect(Rd2.n, diff.n1) annotation (Line(points={{-71,30},{-64,30}}));
-      connect(C.n, OpI.p2) annotation (Line(points={{6,46},{6,20}}));
-      connect(OpI.p2, power.p1) annotation (Line(points={{6,20},{16,20}}));
-      connect(Vs.p, Rd2.p) annotation (Line(points={{-90,10},{-90,30},{-86,30}}));
+      connect(La.n, emf.p) annotation ={
+                                       Line(points={{56,20},{56,15},{56,10}})};
+      connect(Ra.n, La.p) annotation ={
+                                      Line(points={{56,50},{56,40}})};
+      connect(Rd2.n, diff.n1) annotation ={
+                                          Line(points={{-71,30},{-64,30}})};
+      connect(C.n, OpI.p2) annotation ={
+                                       Line(points={{6,46},{6,20}})};
+      connect(OpI.p2, power.p1) annotation ={
+                                            Line(points={{6,20},{16,20}})};
+      connect(Vs.p, Rd2.p) annotation ={
+                                       Line(points={{-90,10},{-90,30},{-86,30}})};
       connect(diff.n1, Rd1.p)
-        annotation (Line(points={{-64,30},{-68,30},{-68,45},{-63,45}}));
-      connect(Rd1.n, diff.p2) annotation (Line(points={{-48,45},{-44,45},{-44,
-              25}}));
-      connect(diff.p2, Ri.p) annotation (Line(points={{-44,25},{-37,25}}));
-      connect(Ri.n, OpI.n1) annotation (Line(points={{-22,25},{-14,25}}));
-      connect(OpI.n1, C.p) annotation (Line(points={{-14,25},{-14,46}}));
+        annotation ={
+                    Line(points={{-64,30},{-68,30},{-68,45},{-63,45}})};
+      connect(Rd1.n, diff.p2) annotation ={
+                                          Line(points={{-48,45},{-44,45},{-44,
+              25}})};
+      connect(diff.p2, Ri.p) annotation ={
+                                         Line(points={{-44,25},{-37,25}})};
+      connect(Ri.n, OpI.n1) annotation ={
+                                        Line(points={{-22,25},{-14,25}})};
+      connect(OpI.n1, C.p) annotation ={
+                                       Line(points={{-14,25},{-14,46}})};
       connect(power.n1, Rp1.p)
-        annotation (Line(points={{16,30},{11,30},{11,46},{17,46}}));
-      connect(power.p2, Rp1.n) annotation (Line(points={{36,25},{36,46},{32,46}}));
-      connect(Rp1.p, Rp2.p) annotation (Line(points={{17,46},{11,46},{11,64}}));
+        annotation ={
+                    Line(points={{16,30},{11,30},{11,46},{17,46}})};
+      connect(power.p2, Rp1.n) annotation ={
+                                           Line(points={{36,25},{36,46},{32,46}})};
+      connect(Rp1.p, Rp2.p) annotation ={
+                                        Line(points={{17,46},{11,46},{11,64}})};
       connect(power.p2, Ra.p)
-        annotation (Line(points={{36,25},{42,25},{42,80},{56,80},{56,70}}));
-      connect(Rd3.p, hall2.p) annotation (Line(points={{-70,-30},{-70,-60}}));
-      connect(Rd3.n, diff.p1) annotation (Line(points={{-70,-14},{-70,20},{-64,
-              20}}));
-      connect(Rd3.n, Rd4.p) annotation (Line(points={{-70,-14},{-70,-7},{-55,-7}}));
-      connect(Vs.n, g1.p) annotation (Line(points={{-90,-10},{-90,-17}}));
-      connect(g2.p, hall2.n) annotation (Line(points={{-70,-71},{-70,-40}}));
-      connect(Rd4.n, g3.p) annotation (Line(points={{-40,-7},{-24,-7}}));
-      connect(g3.p, OpI.p1) annotation (Line(points={{-24,-7},{-24,15},{-14,15}}));
+        annotation ={
+                    Line(points={{36,25},{42,25},{42,80},{56,80},{56,70}})};
+      connect(Rd3.p, hall2.p) annotation ={
+                                          Line(points={{-70,-30},{-70,-60}})};
+      connect(Rd3.n, diff.p1) annotation ={
+                                          Line(points={{-70,-14},{-70,20},{-64,
+              20}})};
+      connect(Rd3.n, Rd4.p) annotation ={
+                                        Line(points={{-70,-14},{-70,-7},{-55,-7}})};
+      connect(Vs.n, g1.p) annotation ={
+                                      Line(points={{-90,-10},{-90,-17}})};
+      connect(g2.p, hall2.n) annotation ={
+                                         Line(points={{-70,-71},{-70,-40}})};
+      connect(Rd4.n, g3.p) annotation ={
+                                       Line(points={{-40,-7},{-24,-7}})};
+      connect(g3.p, OpI.p1) annotation ={
+                                        Line(points={{-24,-7},{-24,15},{-14,15}})};
       connect(g5.p, Rp2.n)
-        annotation (Line(points={{11,83},{11,81.5},{11,80}}));
+        annotation ={
+                    Line(points={{11,83},{11,81.5},{11,80}})};
       connect(emf.n, hall1.p)
-        annotation (Line(points={{56,-10},{56,-24},{16,-24},{16,-40}}));
-      connect(hall1.n, g4.p) annotation (Line(points={{16,-60},{16,-62},{16,-64}}));
+        annotation ={
+                    Line(points={{56,-10},{56,-24},{16,-24},{16,-40}})};
+      connect(hall1.n, g4.p) annotation ={
+                                         Line(points={{16,-60},{16,-62},{16,-64}})};
       connect(emf.flange, phi.flange)
-        annotation (Line(points={{66,0},{66,-30},{76,-30}}, pattern=LinePattern.Dot));
+        annotation ={
+                    Line(points={{66,0},{66,-30},{76,-30}}, pattern=LinePattern.Dot)};
       connect(emf.flange, speed.flange)
-        annotation (Line(points={{66,0},{66,-30},{55,-30}}, pattern=LinePattern.Dot));
+        annotation ={
+                    Line(points={{66,0},{66,-30},{55,-30}}, pattern=LinePattern.Dot)};
       connect(OpI.n2, power.n2)
-        annotation (Line(points={{-4,10},{-4,4},{26,4},{26,15}}));
-      connect(OpI.p1, OpI.n2) annotation (Line(points={{-14,15},{-14,10},{-4,10}}));
-      connect(OpI.p1, diff.n2) annotation (Line(points={{-14,15},{-54,15}}));
+        annotation ={
+                    Line(points={{-4,10},{-4,4},{26,4},{26,15}})};
+      connect(OpI.p1, OpI.n2) annotation ={
+                                          Line(points={{-14,15},{-14,10},{-4,10}})};
+      connect(OpI.p1, diff.n2) annotation ={
+                                           Line(points={{-14,15},{-54,15}})};
       connect(Jmotor.flange_b, flange_motor)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{90,0},{100,0}},
           color={128,128,128},
-          thickness=0.5));
+          thickness=0.5)};
       connect(phi.phi, axisControlBus.motorAngle)
-                                       annotation (Line(points={{76,-51},{76,
-              -100},{80,-100}}, color={0,0,127}));
+                                       annotation ={
+                                                   Line(points={{76,-51},{76,
+              -100},{80,-100}}, color={0,0,127})};
       connect(speed.w, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{55,-51},{55,
-              -95},{80,-95},{80,-100}}, color={0,0,127}));
+                                       annotation ={
+                                                   Line(points={{55,-51},{55,
+              -95},{80,-95},{80,-100}}, color={0,0,127})};
       connect(hall1.i, axisControlBus.current)
-                                    annotation (Line(points={{6,-50},{-10,-50},
-              {-10,-95},{80,-95},{80,-100}}, color={0,0,127}));
-      connect(hall1.i, convert1.u) annotation (Line(points={{6,-50},{-28.8,-50}},
-            color={0,0,127}));
-      connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-63,
-              -50}}, color={0,0,127}));
+                                    annotation ={
+                                                Line(points={{6,-50},{-10,-50},
+              {-10,-95},{80,-95},{80,-100}}, color={0,0,127})};
+      connect(hall1.i, convert1.u) annotation ={
+                                               Line(points={{6,-50},{-28.8,-50}},
+            color={0,0,127})};
+      connect(convert1.y, hall2.v) annotation ={
+                                               Line(points={{-42.6,-50},{-63,
+              -50}}, color={0,0,127})};
       connect(convert2.u, axisControlBus.current_ref)
-                                           annotation (Line(points={{-28.8,-95},
-              {80,-95},{80,-100}}, color={0,0,127}));
-      connect(convert2.y, Vs.v) annotation (Line(points={{-42.6,-95},{-108,-95},
-              {-108,0},{-97,0}},                       color={0,0,127}));
-      connect(emf.flange, Jmotor.flange_a) annotation (Line(
+                                           annotation ={
+                                                       Line(points={{-28.8,-95},
+              {80,-95},{80,-100}}, color={0,0,127})};
+      connect(convert2.y, Vs.v) annotation ={
+                                            Line(points={{-42.6,-95},{-108,-95},
+              {-108,0},{-97,0}},                       color={0,0,127})};
+      connect(emf.flange, Jmotor.flange_a) annotation ={
+                                                       Line(
           points={{66,0},{70,0}},
           color={0,0,0},
-          smooth=Smooth.None));
+          smooth=Smooth.None)};
       annotation (
         Documentation(info="<html>
 <p>
@@ -1298,31 +1385,41 @@ produced by the motor).
               rotation=0)));
     equation
       connect(gain1.y, feedback1.u1)
-        annotation (Line(points={{-49,10},{-44,10}}, color={0,0,127}));
+        annotation ={
+                    Line(points={{-49,10},{-44,10}}, color={0,0,127})};
       connect(feedback1.y, P.u)
-        annotation (Line(points={{-27,10},{-18,10}}, color={0,0,127}));
-      connect(P.y, add3.u2) annotation (Line(points={{5,10},{18,10}}, color={0,
-              0,127}));
+        annotation ={
+                    Line(points={{-27,10},{-18,10}}, color={0,0,127})};
+      connect(P.y, add3.u2) annotation ={
+                                        Line(points={{5,10},{18,10}}, color={0,
+              0,127})};
       connect(gain2.y, add3.u1)
-        annotation (Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,
-              127}));
+        annotation ={
+                    Line(points={{-39,50},{10,50},{10,18},{18,18}}, color={0,0,
+              127})};
       connect(add3.y, PI.u)
-        annotation (Line(points={{41,10},{58,10}}, color={0,0,127}));
+        annotation ={
+                    Line(points={{41,10},{58,10}}, color={0,0,127})};
       connect(gain2.u, axisControlBus.speed_ref)
-                                      annotation (Line(points={{-62,50},{-90,50},
-              {-90,-100},{0,-100}}, color={0,0,127}));
+                                      annotation ={
+                                                  Line(points={{-62,50},{-90,50},
+              {-90,-100},{0,-100}}, color={0,0,127})};
       connect(gain1.u, axisControlBus.angle_ref)
-                                      annotation (Line(points={{-72,10},{-80,10},
-              {-80,-100},{0,-100}}, color={0,0,127}));
+                                      annotation ={
+                                                  Line(points={{-72,10},{-80,10},
+              {-80,-100},{0,-100}}, color={0,0,127})};
       connect(feedback1.u2, axisControlBus.motorAngle)
-                                            annotation (Line(points={{-36,2},{
-              -36,-100},{0,-100}}, color={0,0,127}));
+                                            annotation ={
+                                                        Line(points={{-36,2},{
+              -36,-100},{0,-100}}, color={0,0,127})};
       connect(add3.u3, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{18,2},{0,2},{0,
-              -100}}, color={0,0,127}));
+                                       annotation ={
+                                                   Line(points={{18,2},{0,2},{0,
+              -100}}, color={0,0,127})};
       connect(PI.y, axisControlBus.current_ref)
-                                     annotation (Line(points={{81,10},{90,10},{
-              90,-100},{0,-100}}, color={0,0,127}));
+                                     annotation ={
+                                                 Line(points={{81,10},{90,10},{
+              90,-100},{0,-100}}, color={0,0,127})};
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1453,57 +1550,66 @@ reference signals. All signals are communicated via the
               extent={{-65,-65},{-55,-55}}, rotation=0)));
     equation
       connect(gear.flange_b, flange)
-        annotation (Line(points={{20,0},{100,0}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{20,0},{100,0}}, color={0,0,0})};
       connect(gear.flange_b, angleSensor.flange)
-        annotation (Line(points={{20,0},{20,70},{30,70}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{20,0},{20,70},{30,70}}, color={0,0,0})};
       connect(gear.flange_b, speedSensor.flange)
-        annotation (Line(points={{20,0},{24,0},{24,50},{30,50}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{20,0},{24,0},{24,50},{30,50}}, color={0,0,0})};
       connect(motor.flange_motor, gear.flange_a)
-        annotation (Line(points={{-10,0},{0,0}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{-10,0},{0,0}}, color={0,0,0})};
       connect(gear.flange_b, accSensor.flange)
-        annotation (Line(points={{20,0},{28,0},{28,30},{30,30}}, color={0,0,0}));
-      connect(controller.axisControlBus, axisControlBus) annotation (Line(
+        annotation ={
+                    Line(points={{20,0},{28,0},{28,30},{30,30}}, color={0,0,0})};
+      connect(controller.axisControlBus, axisControlBus) annotation ={
+                                                                     Line(
           points={{-60,-10},{-60,-20},{-95,-20},{-95,-4},{-100,-4},{-100,0}},
           color={255,204,51},
-          thickness=0.5));
-      connect(motor.axisControlBus, axisControlBus) annotation (Line(
+          thickness=0.5)};
+      connect(motor.axisControlBus, axisControlBus) annotation ={
+                                                                Line(
           points={{-12,-10},{-12,-20},{-95,-20},{-95,-5},{-100,-5},{-100,0}},
           color={255,204,51},
-          thickness=0.5));
-      connect(angleSensor.phi, axisControlBus.angle) annotation (
+          thickness=0.5)};
+      connect(angleSensor.phi, axisControlBus.angle) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{51,70},{70,70},{70,
-              84},{-98,84},{-98,9},{-100,9},{-100,0}}, color={0,0,127}));
-      connect(speedSensor.w, axisControlBus.speed) annotation (
+              84},{-98,84},{-98,9},{-100,9},{-100,0}}, color={0,0,127})};
+      connect(speedSensor.w, axisControlBus.speed) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{51,50},{74,50},{74,
-              87},{-100,87},{-100,0}}, color={0,0,127}));
-      connect(accSensor.a, axisControlBus.acceleration) annotation (
+              87},{-100,87},{-100,0}}, color={0,0,127})};
+      connect(accSensor.a, axisControlBus.acceleration) annotation ={
         Text(
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(points={{51,30},{77,30},{77,
-              90},{-102,90},{-102,0},{-100,0}}, color={0,0,127}));
-      connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
+              90},{-102,90},{-102,0},{-100,0}}, color={0,0,127})};
+      connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation ={
         Text(
           string="%first",
           index=-1,
           extent=[-6,3; -6,3]), Line(points={{-100,0},{-100,-7},{
-              -97,-7},{-97,-42},{-42,-42}}, color={0,0,0}));
-      connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
+              -97,-7},{-97,-42},{-42,-42}}, color={0,0,0})};
+      connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation ={
         Text(
           string="%first",
           index=-1,
           extent=[-6,3; -6,3]), Line(points={{-100,0},{-99,0},{-99,
-              -50},{-42,-50}}, color={0,0,127}));
-      connect(initializeFlange.flange, flange) annotation (Line(points={{-20,
-              -50},{80,-50},{80,0},{100,0}}, color={0,0,0}));
-      connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,
-              -60},{-48,-60},{-48,-58},{-42,-58}},       color={0,0,127}));
+              -50},{-42,-50}}, color={0,0,127})};
+      connect(initializeFlange.flange, flange) annotation ={
+                                                           Line(points={{-20,
+              -50},{80,-50},{80,0},{100,0}}, color={0,0,0})};
+      connect(const.y, initializeFlange.a_start) annotation ={
+                                                             Line(points={{-54.5,
+              -60},{-48,-60},{-48,-58},{-42,-58}},       color={0,0,127})};
       annotation (
         Documentation(info="<HTML>
 <p>
@@ -1756,81 +1862,101 @@ Default values of the parameters are given for the axis of joint 1.
             rotation=90)));
     equation
       connect(r6.frame_b, b6.frame_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-60,140},{-60,150}},
           color={95,95,95},
-          thickness=0.5));
+          thickness=0.5)};
       q = {r1.phi,r2.phi,r3.phi,r4.phi,r5.phi,r6.phi};
       qd = der(q);
       qdd = der(qd);
       tau = {r1.tau, r2.tau, r3.tau, r4.tau, r5.tau, r6.tau};
       connect(load.frame_a, b6.frame_b)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-60,178},{-60,170}},
           color={95,95,95},
-          thickness=0.5));
-      connect(world.frame_b, b0.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(world.frame_b, b0.frame_a) annotation ={
+                                                     Line(
           points={{-80,-190},{-30,-190},{-30,-180}},
           color={95,95,95},
-          thickness=0.5));
-      connect(b0.frame_b, r1.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(b0.frame_b, r1.frame_a) annotation ={
+                                                  Line(
           points={{-30,-160},{-30,-146},{-48,-146},{-48,-180},{-70,-180},{-70,
               -170}},
           color={95,95,95},
-          thickness=0.5));
-      connect(b1.frame_b, r2.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(b1.frame_b, r2.frame_a) annotation ={
+                                                  Line(
           points={{-70,-108},{-70,-100},{-50,-100}},
           color={95,95,95},
-          thickness=0.5));
-      connect(r1.frame_b, b1.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(r1.frame_b, b1.frame_a) annotation ={
+                                                  Line(
           points={{-70,-150},{-70,-128}},
           color={95,95,95},
-          thickness=0.5));
-      connect(r2.frame_b, b2.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(r2.frame_b, b2.frame_a) annotation ={
+                                                  Line(
           points={{-30,-100},{-16,-100},{-16,-80}},
           color={95,95,95},
-          thickness=0.5));
-      connect(b2.frame_b, r3.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(b2.frame_b, r3.frame_a) annotation ={
+                                                  Line(
           points={{-16,-60},{-16,-36},{-40,-36}},
           color={95,95,95},
-          thickness=0.5));
-      connect(r2.axis, axis2) annotation (Line(points={{-40,-90},{-42,-90},{-42,
-              -80},{-160,-80},{-160,-110},{-210,-110}}, color={0,0,0}));
-      connect(r1.axis, axis1) annotation (Line(points={{-80,-160},{-160,-160},{
-              -160,-170},{-210,-170}}, color={0,0,0}));
-      connect(r3.frame_b, b3.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(r2.axis, axis2) annotation ={
+                                          Line(points={{-40,-90},{-42,-90},{-42,
+              -80},{-160,-80},{-160,-110},{-210,-110}}, color={0,0,0})};
+      connect(r1.axis, axis1) annotation ={
+                                          Line(points={{-80,-160},{-160,-160},{
+              -160,-170},{-210,-170}}, color={0,0,0})};
+      connect(r3.frame_b, b3.frame_a) annotation ={
+                                                  Line(
           points={{-60,-36},{-88,-36},{-86,-32}},
           color={95,95,95},
-          thickness=0.5));
-      connect(b3.frame_b, r4.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(b3.frame_b, r4.frame_a) annotation ={
+                                                  Line(
           points={{-86,-12},{-86,-8},{-70,-8},{-70,0}},
           color={95,95,95},
-          thickness=0.5));
+          thickness=0.5)};
       connect(r3.axis, axis3)
-        annotation (Line(points={{-50,-46},{-50,-50},{-210,-50}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{-50,-46},{-50,-50},{-210,-50}}, color={0,0,0})};
       connect(r4.axis, axis4)
-        annotation (Line(points={{-80,10},{-210,10}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{-80,10},{-210,10}}, color={0,0,0})};
       connect(r4.frame_b, b4.frame_a)
-        annotation (Line(
+        annotation ={
+                    Line(
           points={{-70,20},{-70,40}},
           color={95,95,95},
-          thickness=0.5));
-      connect(b4.frame_b, r5.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(b4.frame_b, r5.frame_a) annotation ={
+                                                  Line(
           points={{-70,60},{-70,80},{-60,80}},
           color={95,95,95},
-          thickness=0.5));
-      connect(r5.axis, axis5) annotation (Line(points={{-50,90},{-50,94},{-160,
-              94},{-160,70},{-210,70}}, color={0,0,0}));
-      connect(r5.frame_b, b5.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(r5.axis, axis5) annotation ={
+                                          Line(points={{-50,90},{-50,94},{-160,
+              94},{-160,70},{-210,70}}, color={0,0,0})};
+      connect(r5.frame_b, b5.frame_a) annotation ={
+                                                  Line(
           points={{-40,80},{-20,80},{-20,88}},
           color={95,95,95},
-          thickness=0.5));
-      connect(b5.frame_b, r6.frame_a) annotation (Line(
+          thickness=0.5)};
+      connect(b5.frame_b, r6.frame_a) annotation ={
+                                                  Line(
           points={{-20,108},{-20,116},{-60,116},{-60,120}},
           color={95,95,95},
-          thickness=0.5));
+          thickness=0.5)};
       connect(r6.axis, axis6)
-        annotation (Line(points={{-70,130},{-210,130}}, color={0,0,0}));
+        annotation ={
+                    Line(points={{-70,130},{-210,130}}, color={0,0,0})};
       annotation (
         Documentation(info="<HTML>
 <p>
@@ -1873,7 +1999,7 @@ This model contains the mechanical components of the r3 robot
               extent={{-198,150},{-138,110}},
               textString="6",
               lineColor={0,0,255}),
-            Bitmap(extent={{-130,195},{195,-195}}, fileName=
+            Bitmap(extent={{-130,-195},{195,195}}, fileName=
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
