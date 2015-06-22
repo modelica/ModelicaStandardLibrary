@@ -281,8 +281,8 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80,-10},{-80,-14.5},{-79,-14.5},{-79,-17},{-65,-17},{-65,-65},
-            {-25,-65}},
+        points={{-80.1,-9.9},{-80.1,-14.5},{-79,-14.5},{-79,-17},{-65,-17},{-65,
+            -65},{-25,-65}},
         color={255,204,51},
         thickness=0.5));
 
@@ -291,7 +291,8 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80,-10},{-79,-10},{-79,-15},{-62.5,-15},{-62.5,-45},{-25,-45}},
+        points={{-80.1,-9.9},{-79,-9.9},{-79,-15},{-62.5,-15},{-62.5,-45},{-25,
+            -45}},
         color={255,204,51},
         thickness=0.5));
 
@@ -300,7 +301,8 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80,-10},{-77,-10},{-77,-12.5},{-61,-12.5},{-61,-25},{-25,-25}},
+        points={{-80.1,-9.9},{-77,-9.9},{-77,-12.5},{-61,-12.5},{-61,-25},{-25,
+            -25}},
         color={255,204,51},
         thickness=0.5));
 
@@ -309,7 +311,7 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80,-10},{-60.5,-10},{-60.5,-5},{-25,-5}},
+        points={{-80.1,-9.9},{-60.5,-9.9},{-60.5,-5},{-25,-5}},
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus5, axis5.axisControlBus) annotation (
@@ -317,7 +319,7 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80,-10},{-77,-10},{-77,-7},{-63,-7},{-63,15},{-25,15}},
+        points={{-80.1,-9.9},{-77,-9.9},{-77,-7},{-63,-7},{-63,15},{-25,15}},
         color={255,204,51},
         thickness=0.5));
     connect(controlBus.axisControlBus6, axis6.axisControlBus) annotation (
@@ -325,7 +327,7 @@ load inertia.
         string="%first",
         index=-1,
         extent=[-6,3; -6,3]), Line(
-        points={{-80,-10},{-79,-10},{-79,-5},{-65,-5},{-65,35},{-25,35}},
+        points={{-80.1,-9.9},{-79,-9.9},{-79,-5},{-65,-5},{-65,35},{-25,35}},
         color={255,204,51},
         thickness=0.5));
     annotation (
@@ -389,17 +391,17 @@ determined from the connections to this bus.
     expandable connector ControlBus "Data bus for all axes of robot"
       extends Modelica.Icons.SignalBus;
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus1 "Bus of axis 1";
+        axisControlBus1 "Bus of axis 1" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus2 "Bus of axis 2";
+        axisControlBus2 "Bus of axis 2" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus3 "Bus of axis 3";
+        axisControlBus3 "Bus of axis 3" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus4 "Bus of axis 4";
+        axisControlBus4 "Bus of axis 4" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus5 "Bus of axis 5";
+        axisControlBus5 "Bus of axis 5" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus6 "Bus of axis 6";
+        axisControlBus6 "Bus of axis 6" annotation ();
 
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -1873,7 +1875,7 @@ This model contains the mechanical components of the r3 robot
               extent={{-198,150},{-138,110}},
               textString="6",
               lineColor={0,0,255}),
-            Bitmap(extent={{-130,195},{195,-195}}, fileName=
+            Bitmap(extent={{-130,-195},{195,195}}, fileName=
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,

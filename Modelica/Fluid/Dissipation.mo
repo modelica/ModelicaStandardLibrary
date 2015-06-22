@@ -11263,22 +11263,22 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.Dash),
                 Line(
                   points={{-62,-26},{60,-36}},
-                  pattern=LinePattern.None,
+                  pattern=LinePattern.Solid,
                   thickness=1,
                   smooth=Smooth.None),
                 Line(
                   points={{-62,24},{60,14}},
-                  pattern=LinePattern.None,
+                  pattern=LinePattern.Solid,
                   thickness=1,
                   smooth=Smooth.None),
                 Line(
                   points={{-60,-16},{62,-26}},
-                  pattern=LinePattern.None,
+                  pattern=LinePattern.Solid,
                   thickness=1,
                   smooth=Smooth.None),
                 Line(
                   points={{-60,34},{62,24}},
-                  pattern=LinePattern.None,
+                  pattern=LinePattern.Solid,
                   thickness=1,
                   smooth=Smooth.None),
                 Ellipse(
@@ -11640,7 +11640,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model Channel_i "Icon for heat transfer in a channel"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/icon_channel.png")}));
         end Channel_i;
@@ -11648,7 +11649,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model General_i "Icon for general heat transfer component"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/icon_general.png")}));
         end General_i;
@@ -11657,7 +11659,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           "Icon for heat transfer of a heat exchanger"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
@@ -11665,7 +11668,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model HelicalPipe_i "Icon for heat transfer in a helical pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/icon_helicalPipe.png")}));
         end HelicalPipe_i;
@@ -11673,7 +11677,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model Plate_i "Icon for heat transfer of a plate"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/icon_plate.png")}));
         end Plate_i;
 
@@ -11681,7 +11686,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           "Icon for heat transfer of a straight pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/icon_straightPipe.png")}));
 
@@ -12600,14 +12606,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model Bend_i "Icon for bend"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/icon_bend.png")}));
         end Bend_i;
 
         partial model Channel_i "Icon for channel"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/icon_channel.png")}));
         end Channel_i;
@@ -12615,7 +12623,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model General_i "Icon for general pressure drop"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/icon_general.png")}));
         end General_i;
@@ -12623,7 +12632,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model HeatExchanger_i
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    {100,100}}), graphics={Bitmap(extent={{-100,-100},{100,100}},
                   fileName=
                   "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
@@ -12631,7 +12640,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model Orifice_i "Icon for orifice"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/icon_orifice.png")}));
         end Orifice_i;
@@ -12639,7 +12649,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model StraightPipe_i "Icon for straight pipe"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName=
                       "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/icon_straightPipe.png")}));
         end StraightPipe_i;
@@ -12647,7 +12658,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model Valve_i "Icon for valve"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
+                    -100},{100,100}}), graphics={Bitmap(extent={{-100,-100},{
+                      100,100}},
                     fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/icon_valve.png")}));
         end Valve_i;
       end PressureLoss;
