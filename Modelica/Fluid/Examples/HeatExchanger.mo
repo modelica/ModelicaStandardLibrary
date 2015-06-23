@@ -469,8 +469,8 @@ The design flow direction with positive m_flow variables is counterflow.</p>
        else
          c_wall*m[i]*der(T[i]) = heatPort_a[i].Q_flow + heatPort_b[i].Q_flow;
        end if;
-       heatPort_a[i].Q_flow=k_wall/s*(Ta[i]-T[i])*area_h/n;
-       heatPort_b[i].Q_flow=k_wall/s*(Tb[i]-T[i])*area_h/n;
+       heatPort_a[i].Q_flow=2*k_wall/s*(Ta[i]-T[i])*area_h/n;
+       heatPort_b[i].Q_flow=2*k_wall/s*(Tb[i]-T[i])*area_h/n;
       end for;
       Ta=heatPort_a.T;
       Tb=heatPort_b.T;
