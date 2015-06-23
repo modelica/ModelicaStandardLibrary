@@ -6351,7 +6351,7 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 
 <ul>
 <li> identical and constant wall temperatures</li>
-<li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1</li>
+<li> hydraulic diameter per gap length (d_hyd / L) &le; 1</li>
 <li> 0.5 &le; Prandtl number Pr &le; 100) </li>
 <li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
 <li> developed fluid flow</li>
@@ -8950,7 +8950,7 @@ The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in depe
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\" alt=\"fig_orifice_thickEdgedOverall_ZETAvsLENGHT\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGTH.png\" alt=\"fig_orifice_thickEdgedOverall_ZETAvsLENGTH\"/>
 </p>
 
 <p>
@@ -9940,7 +9940,7 @@ documentation available in this package.
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
-            //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
+            //SOURCE_3: p.52, eq. 4.6: heterogeneous effects on momentum pressure loss considered through corrected mass flow rate
             input Boolean massFlowRateCorrection=false
               "Consider heterogeneous mass flow rate correction"
               annotation (Dialog(group="Choices"));
@@ -10013,7 +10013,7 @@ documentation available in this package.
                 rho_g,
                 rho_l,
                 eps_end,
-                xflowEnd) "Mean two phase density at end of lenght";
+                xflowEnd) "Mean two phase density at end of length";
             SI.Density rho_sta=
                 Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity(
                 voidFractionApproach,
@@ -10021,7 +10021,7 @@ documentation available in this package.
                 rho_g,
                 rho_l,
                 eps_sta,
-                xflowSta) "Mean two phase density at start of lenght";
+                xflowSta) "Mean two phase density at start of length";
 
             SI.Velocity meanVelEnd=abs(m_flow)/max(MIN, rho_end*A_cross)
               "Mean velocity of two phase flow at end of length";
@@ -10039,7 +10039,7 @@ documentation available in this package.
             SI.Velocity deltaVelSta=meanVelSta*(SR - 1)/(xflowSta*(SR - 1) + 1)
               "Velocity difference of two phases at start of length";
 
-            //SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogenous approach
+            //SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogeneous approach
             SI.MassFlowRate mdotCorEnd=xflowEnd*(1 - xflowEnd)*rho_end*deltaVelEnd*Across
               "Correction mass flow rate at end of length";
             SI.MassFlowRate mdotCorSta=xflowSta*(1 - xflowSta)*rho_sta*deltaVelSta*Across
@@ -10265,7 +10265,7 @@ documentation available in this package.
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
-            //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
+            //SOURCE_3: p.52, eq. 4.6: heterogeneous effects on momentum pressure loss considered through corrected mass flow rate
             input Boolean massFlowRateCorrection=false
               "Consider heterogeneous mass flow rate correction"
               annotation (Dialog(group="Choices"));
@@ -13174,7 +13174,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "true == A_cross_total = 2*A_cross_branch | false == A_cross_total > 2*A_cross_branch"
             annotation (Dialog(group="T-junction"));
           Boolean velocity_reference_branches=true
-            "true == pressure loss coefficents w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
+            "true == pressure loss coefficients w.r.t. velocity in each passage | false == w.r.t. velocity in total passage"
             annotation (Dialog(group="T-junction"));
 
           Integer alpha=90 "Angle of branching" annotation (Dialog(group="T-junction"));
@@ -13215,7 +13215,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Length L_2=L_1 "Length of straight pipe after diffuser section"
             annotation (Dialog(group="Diffuser"));
           SI.Length L_d=L_1
-            "Lenght of diffuser section (parallel to bulk fluid flow)"
+            "Length of diffuser section (parallel to bulk fluid flow)"
             annotation (Dialog(group="Diffuser"));
 
           //numerical aspects
