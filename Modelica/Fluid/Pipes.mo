@@ -107,7 +107,7 @@ or other flow models without storage, are directly connected.
               {32,52}})));
 
     HeatTransfer heatTransfer(
-      redeclare each final package Medium = Medium,
+      redeclare final package Medium = Medium,
       final n=n,
       final nParallel=nParallel,
       final surfaceAreas=perimeter*lengths,
