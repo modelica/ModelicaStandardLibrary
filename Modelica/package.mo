@@ -2423,15 +2423,28 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_1_BugFixes "Version 3.2.1 with bug fixes"
+class Version_3_2_1_build_3 "Version 3.2.1 build 3 (June 27, 2015)"
     extends Modelica.Icons.ReleaseNotes;
 annotation (Documentation(info="<html>
-<p>
-In this section about <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">88 tickets</a>
-are summarized that have been fixed for version 3.2.1+<b>build.3</b>.
-</p>
+<p>Version 3.2.1 build 3 is backward compatible to version 3.2.1 build 2, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release. Short Overview: </p>
+<ul>
+<li>This version of the Modelica package is <b>fully compatible</b> to Modelica Specification <b>3.3 revision 1</b>. </li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a> have been fixed for this release. </li>
+<li><b>No</b> models and blocks and functions are newly included (to be checked). </li>
+</ul>
+<p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet supported the complete Modelica package): </p>
+<ul>
+<li>? CyModelica</li>
+<li>Dymola 2014 FD01<br>Regression test results with regards to Modelica 3.2.1 build 2 are available <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
+<li>? JModelica</li>
+<li>? Maplesim Parser</li>
+<li>? MWorks ?.?</li>
+<li>? OpenModelica ?.?.?(Windows, Linux, Mac)<br>Test reports for the daily builds are available <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.</li>
+<li>? SimulationX ?.? </li>
+</ul>
+<p>The exact difference between package Modelica version 3.2.1 build 2 and version 3.2.1 build 3 is summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo3.2.1+build.2.html\">comparison table</a>. </p>
 </html>"));
-end Version_3_2_1_BugFixes;
+end Version_3_2_1_build_3;
 
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
