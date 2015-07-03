@@ -8031,6 +8031,7 @@ For details of the arguments, see documentation of dgbsv.
       Real work[4*size(A, 1)];
       Integer ipiv[size(A, 1)];
       Integer iwork[size(A, 1)];
+      String equed;
 
     external"FORTRAN 77" dgesvx(
               "N",
@@ -8042,7 +8043,7 @@ For details of the arguments, see documentation of dgbsv.
               AF,
               lda,
               ipiv,
-              "N",
+              equed,
               R,
               C,
               B,
