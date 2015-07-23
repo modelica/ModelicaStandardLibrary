@@ -2434,13 +2434,10 @@ annotation (Documentation(info="<html>
 </ul>
 <p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet supported the complete Modelica package): </p>
 <ul>
-<li>? CyModelica</li>
-<li>Dymola 2014 FD01<br>Regression test results with regards to Modelica 3.2.1 build 2 are available <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
-<li>? JModelica</li>
-<li>? Maplesim Parser</li>
-<li>? MWorks ?.?</li>
-<li>? OpenModelica ?.?.?(Windows, Linux, Mac)<br>Test reports for the daily builds are available <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.</li>
-<li>? SimulationX ?.? </li>
+<li>Dymola 2016<br>Regression test results with regards to Modelica 3.2.1 build 2 are available <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
+<li>Maplesim Parser</li>
+<li>OpenModelica(Windows, Linux, Mac)<br>Test reports for the daily builds are available <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.</li>
+<li>LMS Imagine.Lab Amesim 14.1</li>
 </ul>
 <p>The exact difference between package Modelica version 3.2.1 build 2 and version 3.2.1 build 3 is summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo3.2.1+build.2.html\">comparison table</a>. </p>
 </html>"));
