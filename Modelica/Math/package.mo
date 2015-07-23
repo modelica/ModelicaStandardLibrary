@@ -11361,6 +11361,8 @@ Note: A' is a short hand notation of transpose(A):
 end Matrices;
 
 
+
+
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
   input Real s1 "First scalar";
@@ -11403,6 +11405,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
 </HTML>"));
 end isEqual;
+
 
 
 function sin "Sine"
@@ -12809,7 +12812,7 @@ as well as functions operating on
 </dl>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

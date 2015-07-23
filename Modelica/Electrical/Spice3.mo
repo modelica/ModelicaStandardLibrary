@@ -13217,4 +13217,3 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           Line(points={{20,90},{20,40},{0,40},{0,-40},{20,-40},{20,-90}},
               color={0,0,0})}));
 end Spice3;
-

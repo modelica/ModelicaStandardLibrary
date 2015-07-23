@@ -968,6 +968,7 @@ are possible (norator).
 
   model IdealOpAmp3Pin
     "Ideal operational amplifier (norator-nullator pair), but 3 pins"
+
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
         Placement(transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
@@ -1038,6 +1039,7 @@ are possible.
   end IdealOpAmp3Pin;
 
   model IdealOpAmpLimited "Ideal operational amplifier with limitation"
+
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
         Placement(transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
@@ -2564,7 +2566,7 @@ Christoph Clau&szlig;
 <b>Copyright:</b>
 </dt>
 <dd>
-Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.<br>
+Copyright &copy; 1998-2015, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package

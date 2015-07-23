@@ -3,6 +3,27 @@ package Elementary "Elementary examples to demonstrate various features of the M
 extends Modelica.Icons.ExamplesPackage;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annotation ( Documentation(info="<HTML>
 <p>
 This package contains elementary example models to demonstrate

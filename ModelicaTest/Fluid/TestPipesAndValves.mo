@@ -248,8 +248,7 @@ The steady-state initial values are checked with an assertion.
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valve2.opening)               annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     annotation (
               experiment(
         StopTime=5,
@@ -357,8 +356,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     annotation (
               experiment(StopTime=5),
       Documentation(info="<html>
@@ -465,8 +463,7 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     connect(pipe1.port_b, splitter.port_3) annotation (Line(points={{-60,6},{-55,6},
             {-50,6}},color={0,127,255}));
     connect(pipe2.port_a, splitter.port_2) annotation (Line(points={{-40,46},{
@@ -582,8 +579,7 @@ Simulation starts with both valves closed. At t=1, valve 1 opens; at t=2 valve 2
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     connect(pipe1.port_b, splitter.port_3) annotation (Line(points={{-60,6},{
             -55,6},{-50,6}},
                      color={0,127,255}));
@@ -810,8 +806,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     connect(pipe1.port_b, junctionIdeal.port_3) annotation (Line(points={{-58,6},{
             -53,6},{-48,6}},              color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
@@ -930,8 +925,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
           points={{1,82},{20,82},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valve2.opening)               annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     connect(pipe1.port_b, junctionIdeal.port_3) annotation (Line(points={{-58,6},{
             -48,6}},                      color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
@@ -1053,8 +1047,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
           points={{1,82},{20,82},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valve2.opening)               annotation (Line(
-          points={{1,0},{18,0},{18,-32}},
-                                          color={0,0,127}));
+          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     connect(pipe1.port_b, junctionIdeal.port_3) annotation (Line(points={{-58,6},{
             -48,6}},                      color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
@@ -1586,8 +1579,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
           color={0,127,255}));
     connect(valve.port_b, sink.ports[1])
       annotation (Line(points={{72,0},{74.5,0},{74.5,
-            0},{77,0},{77,0},{82,0}},
-                                               color={0,127,255}));
+            0},{77,0},{77,0},{82,0}},          color={0,127,255}));
     connect(valveOpening1.y, valve.opening)               annotation (Line(
           points={{1,80},{62,80},{62,8}}, color={0,0,127}));
     connect(pipe1.port_b, simpleGenericOrifice.port_a) annotation (Line(points={{-56,
@@ -1596,16 +1588,13 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
                                color={0,127,255}));
     connect(pipe2.port_a, simpleGenericOrifice.port_b) annotation (Line(points={{-14,
             0},{-17,0},{-17,0},{-20,0},
-            {-20,0},{-26,0}},
-                               color={0,127,255}));
+            {-20,0},{-26,0}},  color={0,127,255}));
     connect(pipe2.port_b, pipe3.port_a)
       annotation (Line(points={{6,0},{8.5,0},{8.5,
-            0},{11,0},{11,0},{16,0}},
-                                              color={0,127,255}));
+            0},{11,0},{11,0},{16,0}},         color={0,127,255}));
     connect(pipe3.port_b, valve.port_a)
       annotation (Line(points={{36,0},{40,0},{40,
-            0},{44,0},{44,0},{52,0}},
-                                               color={0,127,255}));
+            0},{44,0},{44,0},{52,0}},          color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>

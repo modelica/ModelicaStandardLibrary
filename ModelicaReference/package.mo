@@ -6910,7 +6910,7 @@ It is based on the
 </p>
 
 <p>
-<b>Copyright &copy; 2003-2013 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
+<b>Copyright &copy; 2003-2015 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -7023,5 +7023,6 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"));
+</html>"),
+  uses(Modelica(version="3.2.1")));
 end ModelicaReference;

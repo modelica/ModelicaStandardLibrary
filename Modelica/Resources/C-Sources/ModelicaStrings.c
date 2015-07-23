@@ -37,7 +37,7 @@
       Jan.  7, 2002: by Martin Otter, DLR.
                      Implemented a first version
 
-   Copyright (C) 2002-2013, Modelica Association and DLR.
+   Copyright (C) 2002-2015, Modelica Association and DLR.
 
    The content of this file is free software; it can be redistributed
    and/or modified under the terms of the Modelica License 2, see the

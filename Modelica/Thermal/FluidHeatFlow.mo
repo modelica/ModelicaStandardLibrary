@@ -1,6 +1,4 @@
 within Modelica.Thermal;
-
-
 package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models"
   extends Modelica.Icons.Package;
@@ -1300,7 +1298,7 @@ This package contains utility components used for the test examples.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
@@ -1343,7 +1341,7 @@ This package contains test examples:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 
 <p>
@@ -1545,7 +1543,7 @@ Thermodynamic equations are defined in partial models (package Partials).<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1562,21 +1560,21 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
   </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
-        origin = {6,40},
-        lineColor = {0,0,255},
-        fillColor = {0,128,255},
-        fillPattern = FillPattern.Solid,
-        points = {{-56,10},{-56,-90},{-6,-40},{44,10},{44,-90},{-56,10}}),
+        origin=  {6,40},
+        lineColor=  {0,0,255},
+        fillColor=  {0,128,255},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-56,10},{-56,-90},{-6,-40},{44,10},{44,-90},{-56,10}}),
       Polygon(
-        origin = {6,40},
-        lineColor = {0,0,127},
-        fillColor = {0,0,127},
-        fillPattern = FillPattern.Solid,
-        points = {{-16,10},{4,10},{-6,-10},{-16,10}}),
+        origin=  {6,40},
+        lineColor=  {0,0,127},
+        fillColor=  {0,0,127},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-16,10},{4,10},{-6,-10},{-16,10}}),
       Line(
-        origin = {6,40},
-        points = {{-6,-10},{-6,-40},{-6,-38}},
-        color = {0,0,127})}));
+        origin=  {6,40},
+        points=  {{-6,-10},{-6,-40},{-6,-38}},
+        color=  {0,0,127})}));
   end Components;
 
   package Media "Medium properties"
@@ -1653,7 +1651,7 @@ This package contains definitions of medium properties.<br>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1819,7 +1817,7 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2108,7 +2106,7 @@ All fans / pumps are considered without losses, they do not change enthalpy flow
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2507,7 +2505,7 @@ This package contains partial models, defining in a very compact way the basic t
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2561,7 +2559,7 @@ This package contains connectors and partial models:
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2641,7 +2639,7 @@ Outlet temperature is defined by variable T of the corresponding component.</li>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2695,21 +2693,21 @@ Copyright &copy; 1998-2013, Modelica Association, Anton Haumer, Christian Kral a
   </ul>
 </html>"), Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
-        origin = {11.533,37.938},
-        lineColor = {0,128,255},
-        fillColor = {0,128,255},
-        fillPattern = FillPattern.Solid,
-        points = {{-80,10},{-60,-10},{-80,-30},{-20,-30},{0,-10},{-20,10},{-80,10}}),
+        origin=  {11.533,37.938},
+        lineColor=  {0,128,255},
+        fillColor=  {0,128,255},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-80,10},{-60,-10},{-80,-30},{-20,-30},{0,-10},{-20,10},{-80,10}}),
       Polygon(
-        origin = {11.533,37.938},
-        lineColor = {255,0,0},
-        fillColor = {255,0,0},
-        fillPattern = FillPattern.Solid,
-        points = {{-40,-90},{-20,-70},{0,-90},{0,-50},{-20,-30},{-40,-50},{-40,-90}}),
+        origin=  {11.533,37.938},
+        lineColor=  {255,0,0},
+        fillColor=  {255,0,0},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-40,-90},{-20,-70},{0,-90},{0,-50},{-20,-30},{-40,-50},{-40,-90}}),
       Polygon(
-        origin = {11.533,37.938},
-        lineColor = {255,128,0},
-        fillColor = {255,128,0},
-        fillPattern = FillPattern.Solid,
-        points = {{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}})}));
+        origin=  {11.533,37.938},
+        lineColor=  {255,128,0},
+        fillColor=  {255,128,0},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}})}));
 end FluidHeatFlow;

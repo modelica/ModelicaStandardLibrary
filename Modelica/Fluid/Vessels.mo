@@ -234,11 +234,12 @@ end OpenTank;
         "= true to use the HeatTransfer model"
             annotation (Dialog(tab="Assumptions", group="Heat transfer"));
         replaceable model HeatTransfer =
-            Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
+          Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer
           constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer"
             annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
+
         HeatTransfer heatTransfer(
           redeclare final package Medium = Medium,
           final n=1,

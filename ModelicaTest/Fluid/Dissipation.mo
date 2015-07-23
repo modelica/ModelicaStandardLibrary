@@ -6785,7 +6785,8 @@ extends Modelica.Icons.ExamplesPackage;
           annotation (Placement(transformation(extent={{-24,-4},{24,44}})));
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_mflow(
-                     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
+                     redeclare package Medium =
+              Modelica.Media.Air.DryAirNasa,
             geometry(d_hyd=0.1, R_0=0.2))
           "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-24,-64},{24,-16}})));
@@ -6901,7 +6902,8 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
                     0.01)) "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{-24,-4},{24,44}})));
         Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice from_mflow(
-                     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
+                     redeclare package Medium =
+              Modelica.Media.Air.DryAirNasa,
             geometry=
               Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.circular(
                     0.01,

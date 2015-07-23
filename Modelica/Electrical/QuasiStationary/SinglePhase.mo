@@ -55,6 +55,7 @@ package SinglePhase "Single phase AC components"
             rotation=90)));
     initial equation
       voltageSource.pin_p.reference.gamma = 0;
+
     equation
       connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},
               {-40,-24}}, color={0,0,127}));
@@ -62,8 +63,8 @@ package SinglePhase "Single phase AC components"
               -1},{-60,-16},{-40,-16}}, color={85,170,255}));
       connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
               {-30,-35},{-30,-30}}, color={85,170,255}));
-      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points
-            ={{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
+      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points=
+             {{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
       connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,
               0},{2.5,0},{5,0},{10,0}}, color={85,170,255}));
       connect(resistor.pin_n, inductor.pin_p) annotation (Line(points={{30,0},{
@@ -116,8 +117,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation
-        (Placement(transformation(
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation (
+         Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -142,10 +143,11 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
-        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{70,10},{90,30}}, rotation=
+               0)));
     initial equation
       currentSource.pin_p.reference.gamma = 0;
+
     equation
       connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,
               30},{-30,40},{-10,40},{-10,30}}, color={85,170,255}));
@@ -153,8 +155,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
               30},{-30,40},{10,40},{10,30}}, color={85,170,255}));
       connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-30,
               30},{-30,40},{30,40},{30,30}}, color={85,170,255}));
-      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points
-            ={{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points=
+             {{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
       connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},
               {-30,5},{-30,0}}, color={85,170,255}));
       connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{-10,
@@ -251,6 +253,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
     initial equation
       voltageQS.pin_p.reference.gamma = 0;
+
     equation
       connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
           points={{-80,60},{-72,60}},
@@ -946,8 +949,8 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
         "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
         "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
@@ -1055,8 +1058,8 @@ This switch is only intended to be used for structural changes, not for fast swi
         "Closed switch resistance";
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
         "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p1
         annotation (Placement(transformation(extent={{-110,40},{-90,60}},
               rotation=0)));
@@ -1198,10 +1201,10 @@ This switch is only intended to be used for structural changes, not for fast swi
         "Closed switch resistance" annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent
-              ={{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+        "Opened switch conductance" annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}}, rotation=0)));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Blocks.Interfaces.BooleanInput control
         "true => switch open, false => p--n connected" annotation (Placement(
             transformation(
@@ -1287,10 +1290,10 @@ This switch is only intended to be used for structural changes, not for fast swi
         "Closed switch resistance" annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}}, rotation=0)));
       parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent
-              ={{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+        "Opened switch conductance" annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}}, rotation=0)));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Blocks.Interfaces.BooleanInput control
         "true => p--n connected, false => switch open" annotation (Placement(
             transformation(

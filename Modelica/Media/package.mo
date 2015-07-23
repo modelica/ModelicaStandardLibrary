@@ -9184,6 +9184,11 @@ provide a package in the following way:
 end Common;
 
 
+
+
+
+
+
 annotation (preferredView="info",Documentation(info="<HTML>
 <p>
 This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>
@@ -9224,7 +9229,7 @@ The following parts are useful, when newly starting with this library:
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 <p>
-Copyright &copy; 1998-2013, Modelica Association.
+Copyright &copy; 1998-2015, Modelica Association.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

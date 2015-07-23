@@ -3,6 +3,7 @@ package Thermal "Library of thermal system components to model heat transfer and
   extends Modelica.Icons.Package;
 
 
+
   annotation (
    Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     Line(

@@ -434,7 +434,8 @@ to a function, see, .e.g.,
   function quadratureLobatto
     "Return the integral of an integrand function using an adaptive Lobatto rule"
     extends Modelica.Icons.Function;
-    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f
+      "Integrand function";
     input Real a "Lower limit of integration interval";
     input Real b "Upper limit of integration interval";
     input Real tolerance = 100*Modelica.Constants.eps

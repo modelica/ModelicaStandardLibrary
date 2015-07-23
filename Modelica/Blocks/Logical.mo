@@ -360,7 +360,8 @@ Real input u2, otherwise the output is <b>false</b>.
 </html>"));
   end Less;
 
-  block LessEqual "Output y is true, if input u1 is less or equal than input u2"
+  block LessEqual
+    "Output y is true, if input u1 is less or equal than input u2"
     extends Blocks.Interfaces.partialBooleanComparison;
 
   equation
@@ -439,7 +440,7 @@ component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
                 {-16.1,-55.3},{-12.1,-52.5},{-8.1,-45.3},{-3.23,-32.1},{10.44,
                 13.7},{15.3,26.4},{20.1,34.8},{24.1,38},{28.9,37.2},{33.8,31.8},
                 {40.2,19.4},{53.1,-10.5},{59.5,-21.2},{65.1,-25.9},{70.7,-25.9},
-                {77.2,-20.5},{82,-13.8}}, color={192,192,192}, smooth = Smooth.Bezier),
+                {77.2,-20.5},{82,-13.8}}, color={192,192,192}, smooth=  Smooth.Bezier),
           Polygon(
             points={{92,0},{70,8},{70,-8},{92,0}},
             lineColor={192,192,192},

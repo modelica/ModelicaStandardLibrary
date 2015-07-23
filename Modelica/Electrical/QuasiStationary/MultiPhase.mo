@@ -79,6 +79,7 @@ package MultiPhase "Multiphase AC components"
             rotation=180)));
     initial equation
       voltageSource.voltageSource.pin_p.reference.gamma = zeros(m);
+
     equation
       connect(ground.pin, star.pin_n)
         annotation (Line(points={{-80,-70},{-80,-60}}, color={85,170,255}));

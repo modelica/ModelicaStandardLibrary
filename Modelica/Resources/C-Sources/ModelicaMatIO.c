@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2013 Christopher C. Hulbert
+ * Copyright (C) 2005-2015 Christopher C. Hulbert
  *
  * All rights reserved.
  *

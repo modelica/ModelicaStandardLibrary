@@ -8,7 +8,8 @@ extends Modelica.Icons.Example;
     level_start=8,
     nPorts=1,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1)},
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
                    annotation (Placement(transformation(extent={{-72,44},{-32,
             84}}, rotation=0)));
 
@@ -19,7 +20,8 @@ extends Modelica.Icons.Example;
     level_start=3,
     nPorts=1,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1)},
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
                    annotation (Placement(transformation(extent={{-12,44},{28,84}},
                   rotation=0)));
 
@@ -33,7 +35,8 @@ extends Modelica.Icons.Example;
     level_start=3,
     nPorts=1,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1)},
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
                    annotation (Placement(transformation(extent={{48,34},{88,74}},
                   rotation=0)));
 
@@ -42,7 +45,8 @@ extends Modelica.Icons.Example;
     height_ab=2,
     length=2,
     diameter=0.1,
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
                  annotation (Placement(transformation(
         origin={-52,14},
         extent={{-10,-10},{10,10}},
@@ -52,7 +56,8 @@ extends Modelica.Icons.Example;
     height_ab=2,
     length=2,
     diameter=0.1,
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
                  annotation (Placement(transformation(
         origin={8,14},
         extent={{-10,-10},{10,10}},
@@ -62,7 +67,8 @@ extends Modelica.Icons.Example;
     height_ab=-1,
     length=2,
     diameter=0.1,
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater)
                   annotation (Placement(transformation(
         origin={68,4},
         extent={{-10,-10},{10,10}},
@@ -70,7 +76,8 @@ extends Modelica.Icons.Example;
   Modelica.Fluid.Valves.ValveIncompressible valveDelayed(
     Kv=10,
     m_flow_nominal=1,
-    redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater,
+    redeclare package Medium =
+        Modelica.Media.Water.ConstantPropertyLiquidWater,
     filteredOpening=true,
     dp_nominal=1)
     annotation (Placement(transformation(extent={{-28,-10},{-12,-26}})));

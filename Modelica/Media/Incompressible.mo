@@ -1,7 +1,7 @@
 within Modelica.Media;
 package Incompressible
   "Medium model for T-dependent properties, defined by tables or polynomials"
-  extends Modelica.Icons.VariantsPackage ;
+  extends Modelica.Icons.VariantsPackage;
   import Modelica.Constants;
   import Modelica.Math;
 
@@ -770,7 +770,7 @@ of a polynomial and to use a polynomial to fit a given set
 of data points.
 </p>
 
-<p><b>Copyright &copy; 2004-2013, Modelica Association and DLR.</b></p>
+<p><b>Copyright &copy; 2004-2015, Modelica Association and DLR.</b></p>
 
 <p><i>
 This package is <b>free</b> software. It can be redistributed and/or modified

@@ -5,23 +5,23 @@ package Sensors "Sensors to measure variables"
   model AbsoluteSensor
     "Measure absolute kinematic quantities of frame connector"
 
-    Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each
-        final unit="m") if
+    Blocks.Interfaces.RealOutput r[3](each final quantity="Length", each final
+              unit="m") if
                      get_r
       "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-100,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each
-        final unit="m/s") if
+    Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each final
+              unit="m/s") if
                        get_v "Absolute velocity vector"
       annotation (Placement(transformation(
           origin={-60,-110},
           extent={{10,-10},{-10,10}},
           rotation=90)));
-    Blocks.Interfaces.RealOutput a[3](each final quantity="Acceleration", each
-        final unit="m/s2") if get_a "Absolute acceleration vector"
+    Blocks.Interfaces.RealOutput a[3](each final quantity="Acceleration", each final
+              unit="m/s2") if get_a "Absolute acceleration vector"
       annotation (Placement(transformation(
           origin={-20,-110},
           extent={{10,-10},{-10,10}},

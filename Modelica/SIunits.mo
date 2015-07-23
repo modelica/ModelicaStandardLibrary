@@ -347,12 +347,11 @@ still kept in Modelica.SIunits.</p>
         textString="[km/h]")}));
     end NonSIunits;
 
-
   function to_unit1 "Change the unit of a Real number to unit=\"1\""
     extends Modelica.SIunits.Icons.Conversion;
     input Real r "Real number";
     output Real result(unit="1") "Real number r with unit=\"1\"";
-algorithm
+  algorithm
     result := r;
     annotation (Inline=true, Documentation(info="<HTML>
 <h4>Syntax</h4>
@@ -1452,7 +1451,7 @@ argument):</p>
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
           "phon") "Obsolete type, use LoudnessLevel instead!";
   type Loundness = Real (final quantity="Loundness", final unit="sone")
-          "Obsolete type, use Loudness instead!";
+    "Obsolete type, use Loudness instead!";
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
@@ -1977,7 +1976,7 @@ with package SIunits, have a look at:
 </p>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

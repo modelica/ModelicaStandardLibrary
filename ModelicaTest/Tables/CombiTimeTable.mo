@@ -4,6 +4,7 @@ package CombiTimeTable
   extends Modelica.Icons.ExamplesPackage;
 
   partial model Test0
+
     Modelica.Blocks.Sources.CombiTimeTable t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
@@ -16,6 +17,7 @@ package CombiTimeTable
   end Test0;
 
   partial model Test0_noDer
+
     Modelica.Blocks.Sources.CombiTimeTable t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   end Test0_noDer;
@@ -110,6 +112,7 @@ package CombiTimeTable
       annotation (Placement(transformation(extent={{20,25},{40,45}})));
   algorithm
     assert(err1.y <= threshold, "Model" + " is wrong");
+
   equation
     connect(t_new.y[1], feedback1.u1) annotation (Line(
         points={{-84,35},{-79,35},{-63,35},{-58,35}},
@@ -150,6 +153,7 @@ package CombiTimeTable
       annotation (Placement(transformation(extent={{20,25},{40,45}})));
   algorithm
     assert(err1.y <= threshold, "Model" + " is wrong");
+
   equation
     connect(t_new.y[1], feedback1.u1) annotation (Line(
         points={{-84,35},{-79,35},{-63,35},{-58,35}},
@@ -190,6 +194,7 @@ package CombiTimeTable
       annotation (Placement(transformation(extent={{20,25},{40,45}})));
   algorithm
     assert(err1.y <= threshold, "Model" + " is wrong");
+
   equation
     connect(t_new.y[1], feedback1.u1) annotation (Line(
         points={{-84,35},{-79,35},{-63,35},{-58,35}},
@@ -230,6 +235,7 @@ package CombiTimeTable
       annotation (Placement(transformation(extent={{20,25},{40,45}})));
   algorithm
     assert(err1.y <= threshold, "Model" + " is wrong");
+
   equation
     connect(t_new.y[1], feedback1.u1) annotation (Line(
         points={{-84,35},{-79,35},{-63,35},{-58,35}},
@@ -279,6 +285,7 @@ package CombiTimeTable
       annotation (Placement(transformation(extent={{20,25},{40,45}})));
   algorithm
     assert(err1.y <= threshold, "Model" + " is wrong");
+
   equation
     connect(t_new.y[1], feedback1.u1) annotation (Line(
         points={{-84,35},{-79,35},{-63,35},{-58,35}},
@@ -503,8 +510,8 @@ package CombiTimeTable
 
   model Test40 "Two time events (Ticket #628), periodic"
     extends Modelica.Icons.Example;
-    extends Test0(t_new(table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0], extrapolation
-          =Modelica.Blocks.Types.Extrapolation.Periodic));
+    extends Test0(t_new(table=[0, 0; 2.5, 0; 2.5, 1; 3, 1; 3, 0], extrapolation=
+           Modelica.Blocks.Types.Extrapolation.Periodic));
     annotation (experiment(StartTime=0, StopTime=100));
   end Test40;
 
@@ -824,7 +831,8 @@ package CombiTimeTable
     annotation (experiment(StartTime=0, StopTime=8000));
   end Test70;
 
-  model Test71 "One internal event @ 1057.668, startTime < 0, t_event < -startTime, t_min > 0 (Ticket #1619)"
+  model Test71
+    "One internal event @ 1057.668, startTime < 0, t_event < -startTime, t_min > 0 (Ticket #1619)"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.CombiTimeTable startTime_0(
       table=startTime.table,
@@ -845,7 +853,8 @@ package CombiTimeTable
     annotation (experiment(StartTime=0, StopTime=8000));
   end Test71;
 
-  model Test72 "One internal event @ 1057.668, startTime < 0, t_event > -startTime, t_min > 0 (Ticket #1619)"
+  model Test72
+    "One internal event @ 1057.668, startTime < 0, t_event > -startTime, t_min > 0 (Ticket #1619)"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.CombiTimeTable startTime_0(
       table=startTime.table,

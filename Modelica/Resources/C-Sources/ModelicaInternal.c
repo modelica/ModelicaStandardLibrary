@@ -56,7 +56,7 @@
         ModelicaInternal_getFullPath
 
 
-    Copyright (C) 2002-2014, Modelica Association and DLR.
+    Copyright (C) 2002-2015, Modelica Association and DLR.
 
 
    The content of this file is free software; it can be redistributed

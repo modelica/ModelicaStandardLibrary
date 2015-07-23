@@ -4,6 +4,7 @@ package CombiTable1D
   extends Modelica.Icons.ExamplesPackage;
 
   partial model Test0
+
     Modelica.Blocks.Tables.CombiTable1D t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new

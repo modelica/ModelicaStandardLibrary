@@ -1,6 +1,4 @@
 within Modelica.Electrical;
-
-
 package MultiPhase "Library for electrical components with 2, 3 or more phases"
   extends Modelica.Icons.Package;
 
@@ -60,6 +58,7 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
             transformation(extent={{-50,-100},{-30,-80}}, rotation=0)));
     initial equation
       transformerL.i[1:m - 1] = zeros(m - 1) "Y-connection";
+
     equation
       connect(starS.pin_n, groundS.p)
         annotation (Line(points={{-90,-72},{-90,-80}}, color={0,0,255}));
@@ -148,6 +147,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
             transformation(extent={{80,-100},{100,-80}}, rotation=0)));
     initial equation
       transformerL.i[1:m] = zeros(m) "D-connection";
+
     equation
       connect(groundS.p, starS.pin_n)
         annotation (Line(points={{-90,-80},{-90,-72}}, color={0,0,255}));
@@ -253,6 +253,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       cDC1.v = 0;
       cDC2.v = 0;
       supplyL.i[1:m - 1] = zeros(m - 1) "Y-connection";
+
     equation
       connect(cDC1.n, cDC2.p)
         annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
@@ -444,8 +445,8 @@ neglecting initial transient.
           points={{60,1},{60,12}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info
-            ="<HTML>
+      annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
+             "<HTML>
 <p>
 Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
@@ -472,7 +473,7 @@ This package contains test examples of analog electrical multiphase circuits.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -519,8 +520,8 @@ This package contains test examples of analog electrical multiphase circuits.
               lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
@@ -559,8 +560,8 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
               lineColor={0,0,0},
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
-            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
 thus establishing a so-called delta (or polygon) connection
@@ -913,8 +914,7 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
             :m}) "Inductance near current=0";
       parameter Modelica.SIunits.Inductance Linf[m](start={Lnom[j]/2 for j in 1
             :m}) "Inductance at large currents";
-      Modelica.Electrical.Analog.Basic.SaturatingInductor saturatingInductor[m]
-        (
+      Modelica.Electrical.Analog.Basic.SaturatingInductor saturatingInductor[m](
         final Inom=Inom,
         final Lnom=Lnom,
         final Lzer=Lzer,
@@ -1380,7 +1380,7 @@ This package contains basic analog electrical multiphase components.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1634,8 +1634,8 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
             Line(points={{-37,2},{40,50}}, color={0,0,255}),
             Line(points={{40,50},{90,50}}, color={0,0,255}),
             Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
 </p>
@@ -1706,8 +1706,8 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
             Line(points={{-44,50},{40,0}}, color={0,0,255}),
             Line(points={{40,50},{90,50}}, color={0,0,255}),
             Line(points={{0,90},{0,25}}, color={0,0,255}),
-            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch).
 </p>
@@ -1802,8 +1802,8 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Line(points={{-90,0},{-41,0}}, color={0,0,255}),
-            Line(points={{91,0},{40,0}}, color={0,0,255})}), Documentation(info
-            ="<HTML>
+            Line(points={{91,0},{40,0}}, color={0,0,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 </p>
@@ -1857,8 +1857,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m]
-        (
+      Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch idealOpeningSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -1915,8 +1914,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m]
-        (
+      Modelica.Electrical.Analog.Ideal.IdealClosingSwitch idealClosingSwitch[m](
         final Ron=Ron,
         final Goff=Goff,
         each final useHeatPort=useHeatPort) annotation (Placement(
@@ -2107,7 +2105,7 @@ like thyristor, diode, switch, transformer.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2564,7 +2562,7 @@ This package contains multiphase potential, voltage, and current sensors.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2585,8 +2583,8 @@ This package contains multiphase potential, voltage, and current sensors.
       Interfaces.NegativePlug plug_n(final m=m) annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Modelica.Blocks.Interfaces.RealInput v[m](each unit="V")
-        "Voltage between pin p and n (= p.v - n.v) as input signal" annotation
-        (Placement(transformation(
+        "Voltage between pin p and n (= p.v - n.v) as input signal" annotation (
+         Placement(transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -3009,7 +3007,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -3229,7 +3227,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -3279,7 +3277,7 @@ Further development:
   </ul>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package

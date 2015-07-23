@@ -724,6 +724,7 @@ The magnetic potential difference of the connector therefore also refers to an e
       initial equation
         reluctance_e.Phi = Complex(0, 0);
         reluctance_m.Phi = Complex(0, 0);
+
       equation
         connect(sineVoltage_e.plug_n, converter_e.plug_n) annotation (Line(
             points={{-80,50},{20,50}},
@@ -880,6 +881,7 @@ In this example the eddy current losses are implemented in two different ways. C
       initial equation
         resistor_e.i = 0;
         resistor_m.i = 0;
+
       equation
         connect(converter_m.port_p, reluctance_m.port_p) annotation (Line(
             points={{20,-20},{60,-20}},
@@ -1001,6 +1003,7 @@ In this example the eddy current losses are implemented in two different ways. C
       initial equation
         resistor_e.i = zeros(m);
         resistor_m.i[1:2] = zeros(2);
+
       equation
         connect(star_e.plug_p, voltageSource_e.plug_n) annotation (Line(
             points={{-60,50},{-60,60}},
@@ -1196,6 +1199,7 @@ In this example the eddy current losses are implemented in two different ways. C
         aimcE.ir = zeros(2);
         aimcM.is = zeros(m);
         aimcM.ir[1:2] = zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1442,6 +1446,7 @@ Simulate for 1.5 seconds and plot (versus time):
         aimc3.ir[1:2] = zeros(2);
         aimcM.is[1:2] = zeros(2);
         aimcM.ir[1:m - 1] = zeros(m - 1);
+
       equation
         connect(starM.pin_n, groundM.p) annotation (Line(points={{-90,72},{-90,
                 70},{-90,60}}, color={0,0,255}));
@@ -1717,6 +1722,7 @@ Simulate for 1.5 seconds and plot (versus time):
         aimsE.ir = zeros(3);
         aimsM.is = zeros(3);
         aimsM.ir = zeros(3);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1997,6 +2003,7 @@ Simulate for 1.5 seconds and plot (versus time):
         aims3.ir[1:3] = zeros(3);
         aimsM.is[1:2] = zeros(2);
         aimsM.ir[1:mr - 2] = zeros(mr - 2);
+
       equation
         connect(loadInertia3.flange_b, quadraticLoadTorque3.flange) annotation (
            Line(points={{70,-60},{76,-60},{80,-60}}, color={0,0,0}));
@@ -2279,6 +2286,7 @@ Simulate for 1.5 seconds and plot (versus time):
         smpmE.is[1:2] = zeros(2);
         smpmM.is[1:2] = zeros(2);
         //conditional damper cage currents are defined as fixed start values
+
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
                 1.22629e-15,70},{1.22629e-15,90},{-50,90}}, color={0,0,255}));
@@ -2540,6 +2548,7 @@ and accelerate the inertias.</p>
         smpm3.is[1:2] = zeros(2);
         smpmM.is[1:2] = zeros(2);
         //conditional damper cage currents are defined as fixed start values
+
       equation
         connect(signalVoltage3.plug_n, star3.plug_p) annotation (Line(points={{
                 1.22629e-15,80},{1.22629e-15,90},{-50,90}}, color={0,0,255}));
@@ -2658,8 +2667,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),
-              Text(
+"),           Text(
                 extent={{40,-44},{100,-52}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -2876,6 +2884,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
         smeeE.is[1:2] = zeros(2);
         smeeM.is[1:2] = zeros(2);
         //conditional damper cage currents are defined as fixed start values
+
       equation
         connect(rotorAngleE.plug_n, smeeE.plug_sn) annotation (Line(points={{36,
                 -70},{36,-60},{-6,-60},{-6,-70}}, color={0,0,255}));
@@ -3215,6 +3224,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         smee3.is[1:2] = zeros(2);
         smeeM.is[1:2] = zeros(2);
         //conditional damper cage currents are defined as fixed start values
+
       equation
         connect(rotorAngle3.plug_n, smee3.plug_sn) annotation (Line(points={{36,
                 -70},{36,-60},{-6,-60},{-6,-70}}, color={0,0,255}));
@@ -3351,16 +3361,14 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),
-              Text(
+"),           Text(
                 extent={{10,-52},{70,-60}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),
-              Rectangle(
+"),           Rectangle(
                 extent={{-50,-60},{100,-100}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -3511,6 +3519,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         smrE.is[1:2] = zeros(2);
         smrM.is[1:2] = zeros(2);
         //conditional damper cage currents are defined as fixed start values
+
       equation
         connect(signalVoltage.plug_n, star.plug_p) annotation (Line(points={{
                 1.22629e-15,70},{1.22629e-15,90},{-50,90}}, color={0,0,255}));
@@ -3768,6 +3777,7 @@ Simulate for 1.5 seconds and plot (versus time):
         smr3.is[1:2] = zeros(2);
         smrM.is[1:2] = zeros(2);
         //conditional damper cage currents are defined as fixed start values
+
       equation
         connect(smr3.flange, loadInertia3.flange_a)
           annotation (Line(points={{10,-80},{50,-80}}, color={0,0,0}));
@@ -3882,16 +3892,14 @@ Simulate for 1.5 seconds and plot (versus time):
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),
-              Text(
+"),           Text(
                 extent={{40,-54},{100,-62}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),
-              Rectangle(
+"),           Rectangle(
                 extent={{-20,-60},{100,-100}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -3910,6 +3918,7 @@ Simulate for 1.5 seconds and plot (versus time):
   package Components "Basic fundamental wave components"
     extends Modelica.Icons.Package;
     model Ground "Magnetic ground"
+
       Interfaces.PositiveMagneticPort port_p "Complex magnetic port"
         annotation (Placement(transformation(extent={{-10,90},{10,110}},
               rotation=0)));
@@ -5329,6 +5338,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
     package Components "Components specially for electric machines"
       model SinglePhaseWinding
         "Symmetric winding model coupling electrical and magnetic domain"
+
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
           annotation (Placement(transformation(
               origin={-100,100},
@@ -6525,6 +6535,7 @@ Positive magnetic <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfa
     end PositiveMagneticPort;
 
     partial model PartialTwoPort "Two magnetic ports for graphical modeling"
+
       PositiveMagneticPort port_p "Positive complex magnetic port" annotation (
           Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       NegativeMagneticPort port_n "Negative complex magnetic port" annotation (
@@ -7082,7 +7093,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </table>
 </html>", info="<html>
 <p>
-Copyright &copy; 2009-2013, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2009-2015, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>

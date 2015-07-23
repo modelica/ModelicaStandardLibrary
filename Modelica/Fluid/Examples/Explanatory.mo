@@ -205,46 +205,54 @@ present as for T_twoPort.T.
     "Illustrating a case in which kinetic terms play a major role in the momentum balance"
      extends Modelica.Icons.Example;
     Modelica.Fluid.Sources.Boundary_pT leftBoundary1(
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
       p=100000)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Fluid.Sources.Boundary_pT rightBoundary1(
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
       p=110000)
       annotation (Placement(transformation(extent={{80,20},{60,40}})));
     Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion1(
       diameter_a=0.1,
       diameter_b=0.2,
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       show_totalPressures=true,
       show_portVelocities=true)
       annotation (Placement(transformation(extent={{-12,20},{8,40}})));
     Modelica.Fluid.Sources.Boundary_pT leftBoundary2(
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
       p=100000)
       annotation (Placement(transformation(extent={{-90,-40},{-70,-20}})));
     Modelica.Fluid.Sources.Boundary_pT rightBoundary2(
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       nPorts=1,
       p=110000)
       annotation (Placement(transformation(extent={{90,-40},{70,-20}})));
     Modelica.Fluid.Fittings.AbruptAdaptor suddenExpansion2(
       diameter_a=0.1,
       diameter_b=0.2,
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       show_totalPressures=true,
       show_portVelocities=true)
       annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
     Modelica.Fluid.Fittings.AbruptAdaptor leftAdaptor(
       diameter_a=0.1,
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       diameter_b=Modelica.Constants.inf)
       annotation (Placement(transformation(extent={{-40,-40},{-60,-20}})));
     Modelica.Fluid.Fittings.AbruptAdaptor rightAdaptor(
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       diameter_a=0.2,
       diameter_b=Modelica.Constants.inf)
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));

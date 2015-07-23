@@ -4,6 +4,7 @@ package CombiTable2D
   extends Modelica.Icons.ExamplesPackage;
 
   partial model Test0
+
     Modelica.Blocks.Tables.CombiTable2D t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
     Modelica.Blocks.Continuous.Der d_t_new
@@ -16,6 +17,7 @@ package CombiTable2D
   end Test0;
 
   partial model Test0_noDer
+
     Modelica.Blocks.Tables.CombiTable2D t_new
       annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   end Test0_noDer;
@@ -672,7 +674,7 @@ package CombiTable2D
     Modelica.Blocks.Tables.CombiTable2D combiTable2DT(
       table=transpose([1,0,6;2,4,4;3,9,9;4,16,16]),
       smoothness=Modelica.Blocks.Types.Smoothness.ConstantSegments) annotation(Placement(transformation(extent={{-95,-60},{-75,-40}})));
-    equation
+  equation
       connect(combiTable1D.u,clock1.y) annotation(Line(
         points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
         color={0,0,127},
@@ -730,7 +732,7 @@ package CombiTable2D
     Modelica.Blocks.Continuous.Der der3 annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
     Modelica.Blocks.Continuous.Der der4 annotation(Placement(transformation(extent={{-60,-30},{-40,-10}})));
     Modelica.Blocks.Continuous.Der der5 annotation(Placement(transformation(extent={{-60,-60},{-40,-40}})));
-    equation
+  equation
       connect(combiTable1D.u,clock1.y) annotation(Line(
         points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
         color={0,0,127},
@@ -813,7 +815,7 @@ package CombiTable2D
     Modelica.Blocks.Continuous.Der der3 annotation(Placement(transformation(extent={{-60,0},{-40,20}})));
     Modelica.Blocks.Continuous.Der der4 annotation(Placement(transformation(extent={{-60,-30},{-40,-10}})));
     Modelica.Blocks.Continuous.Der der5 annotation(Placement(transformation(extent={{-60,-60},{-40,-40}})));
-    equation
+  equation
       connect(combiTable1D.u,clock1.y) annotation(Line(
         points={{-97,10},{-102,10},{-104,10},{-104,75},{-109,75}},
         color={0,0,127},
@@ -875,8 +877,10 @@ package CombiTable2D
 
   model Test22 "Ticket #1465, Akima extrapolation of either u1 xor u2"
     extends Modelica.Icons.Example;
-    parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
-    parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
+    parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039]
+      "Table matrix for right extrapolation";
+    parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778]
+      "Table matrix for left extrapolation";
     // Right extrapolate u1
     Modelica.Blocks.Tables.CombiTable2D combiTable2D_1R(
       table=tableR,
@@ -909,7 +913,7 @@ package CombiTable2D
       phase=Modelica.Constants.pi/2,
       offset=18) annotation(Placement(transformation(extent={{-130,-10},{-110,10}})));
     Modelica.Blocks.Sources.Constant const_L(k=82) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
-    equation
+  equation
       connect(der_1R.u,combiTable2D_1R.y) annotation(Line(
         points={{-32,65},{-37,65},{-44,65},{-49,65}},
         color={0,0,127},
@@ -958,7 +962,7 @@ package CombiTable2D
         points={{-109,-35},{-104,-35},{-77,-35},{-77,-11},{-72,-11}},
         color={0,0,127},
         thickness=0.015625));
-    annotation(
+    annotation (
       Diagram(
         coordinateSystem(preserveAspectRatio=false),
         graphics={
@@ -992,8 +996,10 @@ package CombiTable2D
 
   model Test23 "Ticket #1465, Derivative of Akima extrapolation"
     extends Modelica.Icons.Example;
-    parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
-    parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
+    parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039]
+      "Table matrix for right extrapolation";
+    parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778]
+      "Table matrix for left extrapolation";
     Modelica.Blocks.Tables.CombiTable2D combiTable2D_1R(
       table=tableR,
       smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative) annotation(Placement(transformation(extent={{-70,55},{-50,75}})));
@@ -1030,7 +1036,7 @@ package CombiTable2D
       freqHz=1/3,
       offset=82,
       startTime=1) annotation(Placement(transformation(extent={{-130,-45},{-110,-25}})));
-    equation
+  equation
       connect(der_1R.u,combiTable2D_1R.y) annotation(Line(
         points={{-32,65},{-37,65},{-44,65},{-49,65}},
         color={0,0,127},

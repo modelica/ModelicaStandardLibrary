@@ -1,6 +1,4 @@
 within Modelica.Thermal;
-
-
 package HeatTransfer
   "Library of 1-dimensional heat transfer with lumped elements"
   extends Modelica.Icons.Package;
@@ -3058,49 +3056,49 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
   annotation (
      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {128,128,128},
-        fillColor = {192,192,192},
-        fillPattern = FillPattern.Solid,
-        points = {{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,-49},{-64,-51},{-57,-51},{-47,-50},{-41,-43},{-38,-35},{-40,-27},{-40,-20},{-42,-13},{-47,-7},{-54,-5},{-54,-6}}),
+        origin=  {13.758,27.517},
+        lineColor=  {128,128,128},
+        fillColor=  {192,192,192},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,-49},{-64,-51},{-57,-51},{-47,-50},{-41,-43},{-38,-35},{-40,-27},{-40,-20},{-42,-13},{-47,-7},{-54,-5},{-54,-6}}),
     Polygon(
-        origin = {13.758,27.517},
-        fillColor = {160,160,164},
-        fillPattern = FillPattern.Solid,
-        points = {{-75,-15},{-79,-25},{-80,-34},{-78,-42},{-72,-49},{-64,-51},{-57,-51},{-47,-50},{-57,-47},{-65,-45},{-71,-40},{-74,-33},{-76,-23},{-75,-15},{-75,-15}}),
+        origin=  {13.758,27.517},
+        fillColor=  {160,160,164},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-75,-15},{-79,-25},{-80,-34},{-78,-42},{-72,-49},{-64,-51},{-57,-51},{-47,-50},{-57,-47},{-65,-45},{-71,-40},{-74,-33},{-76,-23},{-75,-15},{-75,-15}}),
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {160,160,164},
-        fillColor = {192,192,192},
-        fillPattern = FillPattern.Solid,
-        points = {{39,-6},{32,-7},{18,-15},{14,-24},{13,-34},{15,-42},{20,-49},{29,-51},{36,-51},{46,-50},{52,-43},{55,-35},{53,-27},{53,-20},{51,-13},{46,-7},{39,-5},{39,-6}}),
+        origin=  {13.758,27.517},
+        lineColor=  {160,160,164},
+        fillColor=  {192,192,192},
+        fillPattern=  FillPattern.Solid,
+        points=  {{39,-6},{32,-7},{18,-15},{14,-24},{13,-34},{15,-42},{20,-49},{29,-51},{36,-51},{46,-50},{52,-43},{55,-35},{53,-27},{53,-20},{51,-13},{46,-7},{39,-5},{39,-6}}),
       Polygon(
-        origin = {13.758,27.517},
-        fillColor = {160,160,164},
-        fillPattern = FillPattern.Solid,
-        points = {{18,-15},{14,-25},{13,-34},{15,-42},{21,-49},{29,-51},{36,-51},{46,-50},{36,-47},{28,-45},{22,-40},{19,-33},{17,-23},{18,-15},{18,-15}}),
+        origin=  {13.758,27.517},
+        fillColor=  {160,160,164},
+        fillPattern=  FillPattern.Solid,
+        points=  {{18,-15},{14,-25},{13,-34},{15,-42},{21,-49},{29,-51},{36,-51},{46,-50},{36,-47},{28,-45},{22,-40},{19,-33},{17,-23},{18,-15},{18,-15}}),
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {191,0,0},
-        fillColor = {191,0,0},
-        fillPattern = FillPattern.Solid,
-        points = {{-9,-23},{-9,-10},{18,-17},{-9,-23}}),
+        origin=  {13.758,27.517},
+        lineColor=  {191,0,0},
+        fillColor=  {191,0,0},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-9,-23},{-9,-10},{18,-17},{-9,-23}}),
       Line(
-        origin = {13.758,27.517},
-        points = {{-41,-17},{-9,-17}},
-        color = {191,0,0},
-        thickness = 0.5),
+        origin=  {13.758,27.517},
+        points=  {{-41,-17},{-9,-17}},
+        color=  {191,0,0},
+        thickness=  0.5),
       Line(
-        origin = {13.758,27.517},
-        points = {{-17,-40},{15,-40}},
-        color = {191,0,0},
-        thickness = 0.5),
+        origin=  {13.758,27.517},
+        points=  {{-17,-40},{15,-40}},
+        color=  {191,0,0},
+        thickness=  0.5),
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {191,0,0},
-        fillColor = {191,0,0},
-        fillPattern = FillPattern.Solid,
-        points = {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
+        origin=  {13.758,27.517},
+        lineColor=  {191,0,0},
+        fillColor=  {191,0,0},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
                             Documentation(info="<HTML>
 <p>
 This package contains components to model <b>1-dimensional heat transfer</b>
@@ -3185,7 +3183,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
   </dd>
 </dl>
-<p><b>Copyright &copy; 2001-2013, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><b>Copyright &copy; 2001-2015, Modelica Association, Michael Tiller and DLR.</b></p>
 
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

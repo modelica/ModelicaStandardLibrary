@@ -313,13 +313,11 @@ combination). In this case the system is not at rest.
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
               textString=" 0.5 m 
- (1 m) "),
-            Text(
+ (1 m) "),  Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
               textString=" 1 m  
- (1 m) "),
-            Text(
+ (1 m) "),  Text(
               extent={{-20,-84},{0,-94}},
               lineColor={0,0,0},
               textString="  1 m  "),
@@ -728,8 +726,7 @@ to see the difference.
 
     model Friction "Use of model Stop"
       extends Modelica.Icons.Example;
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
-        (
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1(
         L=1,
         s(fixed=true),
         v(fixed=true),
@@ -746,8 +743,7 @@ to see the difference.
       Modelica.Blocks.Sources.Sine sineForce(amplitude=25, freqHz=0.25)
         annotation (Placement(transformation(extent={{-60,60},{-40,80}},
               rotation=0)));
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
-        (
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2(
         L=1,
         smax=0.9,
         smin=-0.9,
@@ -2438,8 +2434,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},
                   {-100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation
-          (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+           Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
         flange.s = s_start;
       equation
@@ -2454,8 +2450,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
           "Start velocity" annotation (HideResult=true, Placement(
               transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
 
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation
-          (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+           Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       initial equation
         der(flange.s) = v_start;
       equation
@@ -2484,8 +2480,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       encapsulated model Set_flange_f "Set flange_f to zero"
         import Modelica;
         extends Modelica.Blocks.Icons.Block;
-        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation
-          (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
+           Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       equation
         flange.f = 0;
       end Set_flange_f;
@@ -2852,8 +2848,8 @@ between the stops.</i> </li>
                   extent={{-30,30},{35,-35}},
                   lineColor={0,0,0},
                   fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color
-              ={0,127,0}),Rectangle(
+                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color=
+               {0,127,0}),Rectangle(
                   extent={{-70,-45},{74,-60}},
                   lineColor={0,0,0},
                   fillColor={192,192,192},
@@ -2869,8 +2865,8 @@ between the stops.</i> </li>
               color={0,127,0}),Text(
                   extent={{-150,80},{150,40}},
                   textString="%name",
-                  lineColor={0,0,255}),Line(points={{-50,-90},{-30,-70}}, color
-              ={0,0,0}),Line(points={{-30,-70},{30,-70}}, color={0,0,0}),Line(
+                  lineColor={0,0,255}),Line(points={{-50,-90},{-30,-70}}, color=
+               {0,0,0}),Line(points={{-30,-70},{30,-70}}, color={0,0,0}),Line(
               points={{-30,-90},{-10,-70}}, color={0,0,0}),Line(points={{-10,-90},
               {10,-70}}, color={0,0,0}),Line(points={{10,-90},{30,-70}}, color=
               {0,0,0}),Text(
@@ -2892,8 +2888,8 @@ between the stops.</i> </li>
                   extent={{-30,26},{35,-9}},
                   lineColor={0,0,0},
                   fillPattern=FillPattern.Sphere,
-                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color
-              ={0,127,0}),Line(points={{35,0},{90,0}}, color={0,127,0}),
+                  fillColor={255,255,255}),Line(points={{-90,0},{-30,0}}, color=
+               {0,127,0}),Line(points={{35,0},{90,0}}, color={0,127,0}),
               Rectangle(
                   extent={{-68,-14},{76,-29}},
                   lineColor={0,0,0},
@@ -3366,8 +3362,8 @@ ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>p
           Line(points={{-16,-61},{-16,-81}}, color={0,0,0}),
           Line(points={{4,-61},{4,-81}}, color={0,0,0}),
           Line(points={{24,-61},{24,-81}}, color={0,0,0}),
-          Line(points={{44,-61},{44,-81}}, color={0,0,0})}), Documentation(info
-          ="<html>
+          Line(points={{44,-61},{44,-81}}, color={0,0,0})}), Documentation(info=
+           "<html>
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
@@ -5049,7 +5045,7 @@ positive if heat is flowing out of the heatPort). For an example, see
 </ul>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Universit&auml;t Paderborn, FB 12.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer and Universit&auml;t Paderborn, FB 12.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

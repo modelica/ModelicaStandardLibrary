@@ -3,6 +3,12 @@ package Electrical "Library of electrical models (analog, digital, machines, mul
 extends Modelica.Icons.Package;
 
 
+
+
+
+
+
+
 annotation (
   Documentation(info="<html>
 <p>

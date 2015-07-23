@@ -16,7 +16,8 @@ package Constants
     "see http://en.wikipedia.org/wiki/Euler_constant";
 
   // Machine dependent constants
-  final constant Real eps=ModelicaServices.Machine.eps "Biggest number such that 1.0 + eps = 1.0";
+  final constant Real eps=ModelicaServices.Machine.eps
+    "Biggest number such that 1.0 + eps = 1.0";
   final constant Real small=ModelicaServices.Machine.small
     "Smallest number such that small and -small are representable on the machine";
   final constant Real inf=ModelicaServices.Machine.inf
@@ -73,7 +74,7 @@ dependent constants and constants from nature. The latter constants
 </dl>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

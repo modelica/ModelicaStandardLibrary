@@ -164,7 +164,8 @@ model PowerSensor "Sensor to measure the power"
       "Negative pin, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
              0)));
-  Modelica.Blocks.Interfaces.RealOutput power(unit="W") "Instantaneous power as output signal"
+  Modelica.Blocks.Interfaces.RealOutput power(unit="W")
+      "Instantaneous power as output signal"
     annotation (Placement(transformation(
           origin={-80,-110},
           extent={{-10,10},{10,-10}},
@@ -200,13 +201,13 @@ equation
             -80},{-80,-110}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-      Line(points = {{0,100},{0,70}}, color = {0,0,255}),
-      Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
-      Line(points = {{-80,-100},{-80,-80},{-46,-52}}, color = {0,0,127}),
-      Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
-      Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name"),
-      Line(points = {{0,70},{0,40}}),
-      Text(extent = {{-29,-70},{30,-11}}, textString = "P")}),
+      Line(points=  {{0,100},{0,70}}, color=  {0,0,255}),
+      Line(points=  {{0,-70},{0,-100}}, color=  {0,0,255}),
+      Line(points=  {{-80,-100},{-80,-80},{-46,-52}}, color=  {0,0,127}),
+      Line(points=  {{-100,0},{100,0}}, color=  {0,0,255}),
+      Text(lineColor=  {0,0,255}, extent=  {{-150,120},{150,160}}, textString=  "%name"),
+      Line(points=  {{0,70},{0,40}}),
+      Text(extent=  {{-29,-70},{30,-11}}, textString=  "P")}),
     Documentation(info="<html>
 <p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
@@ -238,7 +239,7 @@ Christoph Clau&szlig;
 <b>Copyright:</b>
 </dt>
 <dd>
-Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.<br>
+Copyright &copy; 1998-2015, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
