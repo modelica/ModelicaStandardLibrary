@@ -2432,7 +2432,7 @@ annotation (Documentation(info="<html>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a> have been fixed for this release. </li>
 <li><b>No</b> models and blocks and functions are newly included (to be checked). </li>
 </ul>
-<p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet supported the complete Modelica package): </p>
+<p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet support the complete Modelica package): </p>
 <ul>
 <li>Dymola 2016<br>Regression test results with regards to Modelica 3.2.1 build 2 are available <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
 <li>Maplesim Parser</li>
