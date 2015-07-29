@@ -2428,7 +2428,7 @@ class Version_3_2_1_build_3 "Version 3.2.1 build 3 (June 27, 2015)"
 annotation (Documentation(info="<html>
 <p>Version 3.2.1 build 3 is backward compatible to version 3.2.1 build 2, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release. Short Overview: </p>
 <ul>
-<li>This version of the Modelica package is <b>fully compatible</b> to Modelica Specification <b>3.3 revision 1</b>. </li>
+<li>This version of the Modelica package is <b>fully compatible</b> to Modelica Specification <b>3.2 revision 2</b>. </li>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a> have been fixed for this release. </li>
 <li><b>No</b> models and blocks and functions are newly included (to be checked). </li>
 </ul>
@@ -7780,20 +7780,6 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 annotation (
