@@ -2423,7 +2423,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_1_build_3 "Version 3.2.1 build 3 (June 27, 2015)"
+class Version_3_2_1_build_3 "Version 3.2.1 build 3 (July 29, 2015)"
     extends Modelica.Icons.ReleaseNotes;
 annotation (Documentation(info="<html>
 <p>Version 3.2.1 build 3 is backward compatible to version 3.2.1 build 2, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release. Short Overview: </p>
@@ -7787,7 +7787,7 @@ preferredView="info",
 version="3.2.1",
 versionBuild=3,
 versionDate="2013-08-14",
-dateModified = "2015-07-12 19:00:00Z",
+dateModified = "2015-07-29 19:20:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
