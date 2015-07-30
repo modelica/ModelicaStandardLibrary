@@ -2423,14 +2423,14 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_1_build_3 "Version 3.2.1 build 3 (July 29, 2015)"
+class Version_3_2_1_build_3 "Version 3.2.1 build 3 (July 30, 2015)"
     extends Modelica.Icons.ReleaseNotes;
 annotation (Documentation(info="<html>
 <p>Version 3.2.1 build 3 is backward compatible to version 3.2.1 build 2, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release. Short Overview: </p>
 <ul>
 <li>This version of the Modelica package is <b>fully compatible</b> to Modelica Specification <b>3.2 revision 2</b>. </li>
 <li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a> have been fixed for this release. </li>
-<li><b>No</b> models and blocks and functions are newly included (to be checked). </li>
+<li><b>No</b> models and blocks and functions are newly included. </li>
 </ul>
 <p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet support the complete Modelica package): </p>
 <ul>
@@ -7782,12 +7782,26 @@ User's Guides that can be accessed by the following links:
 end UsersGuide;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annotation (
 preferredView="info",
 version="3.2.1",
 versionBuild=3,
 versionDate="2013-08-14",
-dateModified = "2015-07-29 19:20:00Z",
+dateModified = "2015-07-30 09:15:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
