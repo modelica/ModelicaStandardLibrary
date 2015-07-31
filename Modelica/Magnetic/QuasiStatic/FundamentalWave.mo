@@ -128,6 +128,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Added new interface model 
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 to simplify consistent inclusion of variables, see #1405</li>
+<li>Changed icon and location of terminal box according to #1706</li>
 </ul>
 
 <h5>Version 0.4.1, 2013-12-18</h5>
@@ -652,7 +653,7 @@ In this example the eddy current losses are implemented in two different ways. C
                 rotation=0)));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
-                  extent={{20,-60},{40,-40}}, rotation=0)));
+                  extent={{20,-64},{40,-44}}, rotation=0)));
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
             imc(
             Jr=imcData.Jr,
@@ -747,7 +748,7 @@ In this example the eddy current losses are implemented in two different ways. C
                 rotation=270,
                 origin={10,30})));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
-            annotation (Placement(transformation(extent={{20,40},{40,60}},
+            annotation (Placement(transformation(extent={{20,36},{40,56}},
                   rotation=0)));
         initial equation
           imc.is[1:2] = zeros(2);
@@ -965,7 +966,7 @@ Simulate for 1 second and plot (versus time):
                     {76,-70}}, rotation=0)));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
               terminalConnection="Y", m=m) annotation (Placement(transformation(
-                  extent={{20,-70},{40,-50}}, rotation=0)));
+                  extent={{20,-74},{40,-54}}, rotation=0)));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
             imcData "Machine data"
@@ -1010,7 +1011,7 @@ Simulate for 1 second and plot (versus time):
             offsetTorque=0) annotation (Placement(transformation(extent={{96,10},
                     {76,30}}, rotation=0)));
           Utilities.MultiTerminalBox terminalBox1(terminalConnection="Y", m=m)
-            annotation (Placement(transformation(extent={{20,30},{40,50}},
+            annotation (Placement(transformation(extent={{20,26},{40,46}},
                   rotation=0)));
           Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor
             currentQuasiRMSSensorQS(m=m) annotation (Placement(transformation(
@@ -1161,8 +1162,9 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 <li><code>imc|imcQS.wMechanical</code>: machine speed</li>
 <li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={Rectangle(
+</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}),
+                                 graphics={Rectangle(
                           extent={{-74,-2},{100,-100}},
                           lineColor={0,0,255},
                           fillColor={255,255,170},
@@ -1242,9 +1244,9 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                 rotation=0)));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
-                  extent={{10,-60},{30,-40}}, rotation=0)));
+                  extent={{10,-64},{30,-44}}, rotation=0)));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
-            annotation (Placement(transformation(extent={{10,40},{30,60}},
+            annotation (Placement(transformation(extent={{10,36},{30,56}},
                   rotation=0)));
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
             ims(
@@ -1531,8 +1533,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>ims|imsQS.wMechanical</code>: machine speed</li>
 <li><code>ims|imsQS.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={Rectangle(
+</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}),
+                                 graphics={Rectangle(
                           extent={{-100,100},{100,2}},
                           lineColor={0,0,255},
                           fillColor={255,255,170},
@@ -1657,7 +1660,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 rotation=270,
                 origin={-30,40})));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
-            annotation (Placement(transformation(extent={{-10,50},{10,70}},
+            annotation (Placement(transformation(extent={{-10,46},{10,66}},
                   rotation=0)));
           Modelica.Electrical.MultiPhase.Sources.CosineVoltage voltageSource(
             m=m,
@@ -1731,7 +1734,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={-30,-88})));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
-                  extent={{-10,-50},{10,-30}}, rotation=0)));
+                  extent={{-10,-54},{10,-34}}, rotation=0)));
         equation
           connect(groundQS.pin, starQS.pin_n) annotation (Line(points={{-68,10},
                   {-68,10},{-60,10}}, color={85,170,255}));
@@ -2110,7 +2113,7 @@ Simulate for 0.1 second and plot (versus time):
                 rotation=0)));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
               terminalConnection="Y") annotation (Placement(transformation(
-                  extent={{-10,-72},{10,-52}},rotation=0)));
+                  extent={{-10,-76},{10,-56}},rotation=0)));
           Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
             rotorDisplacementAngle(p=smpm.p) annotation (Placement(
                 transformation(
@@ -2187,7 +2190,7 @@ Simulate for 0.1 second and plot (versus time):
                 origin={-50,44})));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox
             terminalBoxQS(terminalConnection="Y", m=m) annotation (Placement(
-                transformation(extent={{-10,44},{10,64}}, rotation=0)));
+                transformation(extent={{-10,40},{10,60}}, rotation=0)));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController
             currentController1(m=m, p=smpmQS.p)
             annotation (Placement(transformation(extent={{-50,74},{-30,94}})));
@@ -2392,8 +2395,9 @@ Simulate for 2 seconds and plot (versus time):
 
 <h5>Note</h5>
 <p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p> 
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={Rectangle(
+</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}),
+                                 graphics={Rectangle(
                           extent={{-64,100},{100,14}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
@@ -2440,7 +2444,7 @@ Simulate for 2 seconds and plot (versus time):
                 origin={0,-34})));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(
               terminalConnection="Y", m=m) annotation (Placement(transformation(
-                  extent={{-10,-60},{10,-40}}, rotation=0)));
+                  extent={{-10,-64},{10,-44}}, rotation=0)));
           Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
             smee(
             phiMechanical(start=-(Modelica.Constants.pi + gamma0)/smee.p, fixed=
@@ -2603,7 +2607,7 @@ Simulate for 2 seconds and plot (versus time):
                 rotation=270,
                 origin={0,66})));
           Utilities.MultiTerminalBox terminalBoxQS(m=m, terminalConnection="Y")
-            annotation (Placement(transformation(extent={{-10,40},{10,60}},
+            annotation (Placement(transformation(extent={{-10,36},{10,56}},
                   rotation=0)));
           Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star
             starMachineQS(m=
@@ -2725,8 +2729,9 @@ Simulate for 30 seconds:
 </ul>
 
 <p>Since the rotor slip is very low the transient and quasi static electro magnetic torque are practically equal.</p>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics={Rectangle(
+</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}),
+                                 graphics={Rectangle(
                           extent={{-100,-6},{100,-96}},
                           lineColor={0,0,255},
                           fillColor={255,255,170},
@@ -2806,7 +2811,7 @@ Simulate for 30 seconds:
                 rotation=0)));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
               terminalConnection="Y") annotation (Placement(transformation(
-                  extent={{-10,-72},{10,-52}},rotation=0)));
+                  extent={{-10,-76},{10,-56}},rotation=0)));
           Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
             rotorDisplacementAngle(p=smr.p) annotation (Placement(
                 transformation(
@@ -2852,7 +2857,7 @@ Simulate for 30 seconds:
                 rotation=270,
                 origin={-50,44})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="Y", m=m)
-            annotation (Placement(transformation(extent={{-10,44},{10,64}},
+            annotation (Placement(transformation(extent={{-10,40},{10,60}},
                   rotation=0)));
           FundamentalWave.Utilities.CurrentController currentController1(m=m, p=
                smrQS.p)
@@ -3097,7 +3102,7 @@ Simulate for 30 seconds:
               smooth=Smooth.None));
           connect(rotorDisplacementAngle.plug_p, terminalBox.plug_sp)
             annotation (Line(
-              points={{24,-72},{24,-68},{6,-68},{6,-72}},
+              points={{24,-72},{6,-72}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(terminalBox.plug_sn, rotorDisplacementAngle.plug_n)
@@ -6766,10 +6771,12 @@ The output voltages may serve as inputs for complex voltage sources with phase i
             "Delta connection"));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_sp(final m=m) "To positive stator plug" annotation (Placement(
-            transformation(extent={{50,-90},{70,-110}}, rotation=0)));
+            transformation(extent={{50,-50},{70,-70}},  rotation=0),
+            iconTransformation(extent={{50,-50},{70,-70}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
         plug_sn(final m=m) "To negative stator plug" annotation (Placement(
-            transformation(extent={{-70,-90},{-50,-110}}, rotation=0)));
+            transformation(extent={{-70,-50},{-50,-70}},  rotation=0),
+            iconTransformation(extent={{-70,-50},{-50,-70}})));
       Electrical.QuasiStationary.MultiPhase.Basic.Star star(final m=m) if (
         terminalConnection <> "D") annotation (Placement(transformation(
             origin={-70,-80},
@@ -6780,39 +6787,41 @@ The output voltages may serve as inputs for complex voltage sources with phase i
                 {{-20,-70},{-40,-50}}, rotation=0)));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plugSupply(final m=m) "To grid" annotation (Placement(transformation(
-              extent={{-10,-70},{10,-90}}, rotation=0)));
+              extent={{-10,-30},{10,-50}}, rotation=0), iconTransformation(
+              extent={{-10,-30},{10,-50}})));
       Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint if
            (terminalConnection <> "D") annotation (Placement(transformation(
-              extent={{-100,-90},{-80,-70}}, rotation=0)));
+              extent={{-100,-50},{-80,-30}}, rotation=0), iconTransformation(
+              extent={{-100,-50},{-80,-30}})));
     equation
       connect(star.plug_p, plug_sn) annotation (Line(
-          points={{-60,-80},{-60,-100}},
+          points={{-60,-80},{-60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(delta.plug_n, plug_sn) annotation (Line(
-          points={{-40,-60},{-40,-100},{-60,-100}},
+          points={{-40,-60},{-40,-60},{-60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(delta.plug_p, plug_sp) annotation (Line(
-          points={{-20,-60},{60,-60},{60,-100}},
+          points={{-20,-60},{60,-60},{60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(plugSupply, plug_sp) annotation (Line(
-          points={{0,-80},{0,-100},{60,-100}},
+          points={{0,-40},{0,-60},{60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(star.pin_n, starpoint) annotation (Line(
-          points={{-80,-80},{-90,-80}},
+          points={{-80,-80},{-86,-80},{-86,-40},{-90,-40}},
           color={85,170,255},
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Text(
-                  extent={{-40,-90},{40,-130}},
+                  extent={{-40,-50},{40,-90}},
                   lineColor={0,0,0},
                   textString="%terminalConnection"),Polygon(
-                  points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{
-                80,-110},{80,-84},{76,-80},{-80,-80}},
+                  points={{-80,-40},{-80,-44},{-80,-80},{-40,-100},{40,-100},{
+                  80,-70},{80,-44},{76,-40},{-80,-40}},
                   lineColor={95,95,95},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.Solid)}),
@@ -6834,10 +6843,12 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             "Delta connection"));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_sp(final m=m) "To positive stator plug" annotation (Placement(
-            transformation(extent={{50,-90},{70,-110}}, rotation=0)));
+            transformation(extent={{50,-50},{70,-70}},  rotation=0),
+            iconTransformation(extent={{50,-50},{70,-70}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
         plug_sn(final m=m) "To negative stator plug" annotation (Placement(
-            transformation(extent={{-70,-90},{-50,-110}}, rotation=0)));
+            transformation(extent={{-70,-50},{-50,-70}},  rotation=0),
+            iconTransformation(extent={{-70,-50},{-50,-70}})));
       Electrical.QuasiStationary.MultiPhase.Basic.MultiStar multiStar(final m=m) if
            (terminalConnection <> "D") annotation (Placement(transformation(
             origin={-70,-80},
@@ -6848,40 +6859,42 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             transformation(extent={{-20,-70},{-40,-50}}, rotation=0)));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plugSupply(final m=m) "To grid" annotation (Placement(transformation(
-              extent={{-10,-70},{10,-90}}, rotation=0)));
+              extent={{-10,-30},{10,-50}}, rotation=0), iconTransformation(
+              extent={{-10,-30},{10,-50}})));
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
         starpoint(final m=mSystems) if (terminalConnection <> "D") annotation (
-          Placement(transformation(extent={{-100,-90},{-80,-70}}, rotation=0)));
+          Placement(transformation(extent={{-100,-50},{-80,-30}}, rotation=0),
+            iconTransformation(extent={{-100,-50},{-80,-30}})));
     equation
       connect(multiStar.plug_p, plug_sn) annotation (Line(
-          points={{-60,-80},{-60,-100}},
+          points={{-60,-80},{-60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(starpoint, multiStar.starpoints) annotation (Line(
-          points={{-90,-80},{-80,-80}},
+          points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(multiDelta.plug_n, plug_sn) annotation (Line(
-          points={{-40,-60},{-40,-100},{-60,-100}},
+          points={{-40,-60},{-40,-60},{-60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(multiDelta.plug_p, plug_sp) annotation (Line(
-          points={{-20,-60},{60,-60},{60,-100}},
+          points={{-20,-60},{60,-60},{60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(plugSupply, plug_sp) annotation (Line(
-          points={{0,-80},{0,-100},{60,-100}},
+          points={{0,-40},{0,-60},{60,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
-                  points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{
-                80,-110},{80,-84},{76,-80},{-74,-80}},
+                  points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{
+                  80,-70},{80,-44},{76,-40},{-74,-40}},
                   lineColor={95,95,95},
                   fillColor={135,135,135},
                   fillPattern=FillPattern.CrossDiag),Text(
-                  extent={{-40,-90},{40,-130}},
+                  extent={{-40,-50},{40,-90}},
                   lineColor={0,0,0},
                   textString="%terminalConnection")}),
         Documentation(info="<html>

@@ -116,12 +116,13 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-10-05 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2015-07-31 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Updated blocks and functions towards multi phase systems greater or equal to three</li>
   <li>Added standard blocks and functions</li>
   <li>Improved documentation</li>
   <li>Added alias for rotor current in squirrel cage model</li>
+  <li>Changed icon and location of terminal box according to #1706</li>
 </ul>
 
 <h5>Version 3.2.1, 2014-10-05 (Anton Haumer, Christian Kral)</h5>
@@ -480,7 +481,7 @@ This is the library of electric machine models.
           useSupport=false) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -532,7 +533,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end AIMC_DOL;
 
       model AIMC_YD
@@ -795,7 +798,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           useSupport=false) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -927,8 +930,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           TsOperational=293.15,
           alpha20s=aimsData.alpha20s,
           alpha20r=aimsData.alpha20r,
-          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,
-                  -50},{0,-30}}, rotation=0)));
+          TrOperational=293.15) annotation (Placement(transformation(extent={{-20,-50},
+                  {0,-30}},      rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
           annotation (Placement(transformation(
               origin={0,0},
@@ -969,7 +972,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           useSupport=false) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         Machines.Utilities.SwitchedRheostat switchedRheostat(
           RStart=Rstart,
@@ -1032,7 +1035,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end AIMS_Start;
 
       model AIMC_Inverter
@@ -1106,7 +1111,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
           offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -1156,7 +1161,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end AIMC_Inverter;
 
       model AIMC_Steinmetz
@@ -1230,7 +1237,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           useSupport=false) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox TerminalBox1(terminalConnection="D")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Basic.PlugToPin_p plugToPin_p3(m=m, k=3)
           annotation (Placement(transformation(
@@ -1346,7 +1353,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             smooth=Smooth.None));
         connect(currentQuasiRMSSensor.plug_n, TerminalBox1.plugSupply)
           annotation (Line(
-            points={{-10,-20},{-10,-28},{-10,-28}},
+            points={{-10,-20},{-10,-28}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
@@ -1355,7 +1362,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end AIMC_Steinmetz;
 
       model AIMC_withLosses
@@ -1433,7 +1442,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           alpha20r=aimcData.alpha20r) annotation (Placement(transformation(
                 extent={{-40,0},{-20,20}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
-          annotation (Placement(transformation(extent={{-40,20},{-20,40}},
+          annotation (Placement(transformation(extent={{-40,16},{-20,36}},
                 rotation=0)));
         Machines.Sensors.ElectricalPowerSensor electricalPowerSensor
           annotation (Placement(transformation(
@@ -1534,7 +1543,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             smooth=Smooth.None));
         connect(electricalPowerSensor.plug_ni, terminalBox.plugSupply)
           annotation (Line(
-            points={{-30,30},{-30,26},{-30,26},{-30,22}},
+            points={{-30,30},{-30,22}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(aimc.flange, powerSensor.flange_a) annotation (Line(
@@ -1709,7 +1718,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -1733,7 +1742,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             smooth=Smooth.None));
         connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
           annotation (Line(
-            points={{-10,-28},{-10,-19},{-10,-10},{-10,-10}},
+            points={{-10,-28},{-10,-10}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(loadInertia.flange_b, torqueStep.flange) annotation (Line(
@@ -1761,7 +1770,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end AIMC_Initialize;
       annotation (Documentation(info="<HTML>
 This package contains test examples of asynchronous induction machines.
@@ -1852,7 +1863,7 @@ This package contains test examples of asynchronous induction machines.
           offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.SM_ReluctanceRotorData smrData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -1911,7 +1922,9 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end SMR_Inverter;
 
       model SMPM_Inverter
@@ -1999,7 +2012,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           offsetTorque=0) annotation (Placement(transformation(extent={{90,-50},
                   {70,-30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Utilities.ParameterRecords.SM_PermanentMagnetData smpmData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
@@ -2142,7 +2155,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
           annotation (Placement(transformation(
@@ -2275,7 +2288,9 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"));
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
       end SMPM_CurrentSource;
 
       model SMPM_VoltageSource
@@ -2341,7 +2356,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         Modelica.Blocks.Sources.Constant id(k=-53.5)
           annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
           annotation (Placement(transformation(
@@ -2613,7 +2628,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,-10},{10,10}},
               rotation=90)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+          annotation (Placement(transformation(extent={{-20,-34},{0,-14}},
                 rotation=0)));
         parameter Machines.Utilities.SynchronousMachineData smeeData(
           SNominal=30e3,
@@ -2792,7 +2807,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
 
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{0,-20},{20,0}},
+          annotation (Placement(transformation(extent={{0,-24},{20,-4}},
                 rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -3060,7 +3075,7 @@ One could try to optimize the controller parameters.
           annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
 
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{0,-20},{20,0}},
+          annotation (Placement(transformation(extent={{0,-24},{20,-4}},
                 rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
@@ -15928,11 +15943,13 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "To positive stator plug" annotation (Placement(transformation(extent={
-                {50,-90},{70,-110}}, rotation=0)));
+        "To positive stator plug" annotation (Placement(transformation(extent={{50,-50},
+                {70,-70}},           rotation=0), iconTransformation(extent={{
+                50,-50},{70,-70}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "To negative stator plug" annotation (Placement(transformation(extent={
-                {-70,-90},{-50,-110}}, rotation=0)));
+        "To negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
+                {-50,-70}},            rotation=0), iconTransformation(extent={
+                {-70,-50},{-50,-70}})));
       Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) if (
         terminalConnection <> "D") annotation (Placement(transformation(
             origin={-70,-80},
@@ -15942,30 +15959,34 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
         terminalConnection == "D") annotation (Placement(transformation(extent=
                 {{-20,-70},{-40,-50}}, rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
-           m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
-                {10,-90}}, rotation=0)));
+           m) "To grid" annotation (Placement(transformation(extent={{-10,-30},
+                {10,-50}}, rotation=0), iconTransformation(extent={{-10,-30},{
+                10,-50}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin starpoint if (
-        terminalConnection <> "D") annotation (Placement(transformation(extent=
-                {{-100,-90},{-80,-70}}, rotation=0)));
+        terminalConnection <> "D") annotation (Placement(transformation(extent={{-100,
+                -50},{-80,-30}},        rotation=0), iconTransformation(extent=
+                {{-100,-50},{-80,-30}})));
     equation
       connect(plug_sn, star.plug_p)
-        annotation (Line(points={{-60,-100},{-60,-80}}, color={0,0,255}));
-      connect(plug_sn, delta.plug_n) annotation (Line(points={{-60,-100},{-40,-100},
-              {-40,-60}}, color={0,0,255}));
+        annotation (Line(points={{-60,-60},{-60,-80}},  color={0,0,255}));
+      connect(plug_sn, delta.plug_n) annotation (Line(points={{-60,-60},{-40,
+              -60},{-40,-60}},
+                          color={0,0,255}));
       connect(delta.plug_p, plug_sp) annotation (Line(points={{-20,-60},{60,-60},
-              {60,-100}}, color={0,0,255}));
-      connect(plug_sp, plugSupply) annotation (Line(points={{60,-100},{0,-100},
-              {0,-80}}, color={0,0,255}));
+              {60,-60}},  color={0,0,255}));
+      connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
+              -40}},    color={0,0,255}));
       connect(star.pin_n, starpoint)
-        annotation (Line(points={{-80,-80},{-90,-80}}, color={0,0,255}));
+        annotation (Line(points={{-80,-80},{-86,-80},{-86,-40},{-90,-40}},
+                                                       color={0,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
-              points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-80,-80}},
+              points={{-80,-40},{-80,-44},{-80,-80},{-40,-100},{40,-100},{80,
+                  -70},{80,-44},{76,-40},{-80,-40}},
               lineColor={95,95,95},
               fillColor={135,135,135},
               fillPattern=FillPattern.Solid), Text(
-              extent={{-40,-90},{40,-130}},
+              extent={{-40,-50},{40,-90}},
               lineColor={0,0,0},
               textString="%terminalConnection")}), Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
@@ -15983,11 +16004,13 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         annotation (choices(choice="Y" "Star connection", choice="D"
             "Delta connection"));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_sp(final m=m)
-        "To positive stator plug" annotation (Placement(transformation(extent={
-                {50,-90},{70,-110}}, rotation=0)));
+        "To positive stator plug" annotation (Placement(transformation(extent={{50,-50},
+                {70,-70}},           rotation=0), iconTransformation(extent={{
+                50,-50},{70,-70}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug plug_sn(final m=m)
-        "To negative stator plug" annotation (Placement(transformation(extent={
-                {-70,-90},{-50,-110}}, rotation=0)));
+        "To negative stator plug" annotation (Placement(transformation(extent={{-70,-50},
+                {-50,-70}},            rotation=0), iconTransformation(extent={
+                {-70,-50},{-50,-70}})));
       MultiPhase.Basic.MultiStar multiStar(final m=m) if (terminalConnection
          <> "D") annotation (Placement(transformation(
             origin={-70,-80},
@@ -15997,33 +16020,35 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
          == "D") annotation (Placement(transformation(extent={{-20,-70},{-40,-50}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plugSupply(final m=
-           m) "To grid" annotation (Placement(transformation(extent={{-10,-70},
-                {10,-90}}, rotation=0)));
+           m) "To grid" annotation (Placement(transformation(extent={{-10,-30},
+                {10,-50}}, rotation=0), iconTransformation(extent={{-10,-30},{
+                10,-50}})));
       Modelica.Electrical.MultiPhase.Interfaces.NegativePlug starpoint(final m=
             mSystems) if (terminalConnection <> "D") annotation (Placement(
-            transformation(extent={{-100,-90},{-80,-70}}, rotation=0)));
+            transformation(extent={{-100,-50},{-80,-30}}, rotation=0),
+            iconTransformation(extent={{-100,-50},{-80,-30}})));
     equation
       connect(plug_sn, multiStar.plug_p)
-        annotation (Line(points={{-60,-100},{-60,-80}}, color={0,0,255}));
-      connect(plug_sn, multiDelta.plug_n) annotation (Line(points={{-60,-100},{
-              -40,-100},{-40,-60}}, color={0,0,255}));
+        annotation (Line(points={{-60,-60},{-60,-80}},  color={0,0,255}));
+      connect(plug_sn, multiDelta.plug_n) annotation (Line(points={{-60,-60},{
+              -40,-60},{-40,-60}},  color={0,0,255}));
       connect(multiDelta.plug_p, plug_sp) annotation (Line(points={{-20,-60},{
-              60,-60},{60,-100}}, color={0,0,255}));
-      connect(plug_sp, plugSupply) annotation (Line(points={{60,-100},{0,-100},
-              {0,-80}}, color={0,0,255}));
+              60,-60},{60,-60}},  color={0,0,255}));
+      connect(plug_sp, plugSupply) annotation (Line(points={{60,-60},{0,-60},{0,
+              -40}},    color={0,0,255}));
       connect(starpoint, multiStar.starpoints) annotation (Line(
-          points={{-90,-80},{-80,-80}},
+          points={{-90,-40},{-86,-40},{-86,-80},{-80,-80}},
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
-              points={{-74,-80},{-80,-86},{-80,-120},{-40,-140},{40,-140},{80,-110},
-                  {80,-84},{76,-80},{-74,-80}},
+              points={{-74,-40},{-80,-46},{-80,-80},{-40,-100},{40,-100},{80,
+                  -70},{80,-44},{76,-40},{-74,-40}},
               lineColor={95,95,95},
               fillColor={135,135,135},
               fillPattern=FillPattern.CrossDiag), Text(
-              extent={{-40,-90},{40,-130}},
+              extent={{-40,-50},{40,-90}},
               lineColor={0,0,0},
               textString="%terminalConnection")}),
         Documentation(info="<html>
