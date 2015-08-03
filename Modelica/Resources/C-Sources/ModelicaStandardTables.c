@@ -3285,6 +3285,7 @@ static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
 
         for (col = 0; col < nCols; col++) {
             size_t i;
+            double c2;
 
             /* Calculation of the divided differences */
             for (i = 0; i < nRow - 1; i++) {
@@ -3300,33 +3301,31 @@ static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
             d[nRow + 2] = 3*d[nRow] - 2*d[nRow - 1];
 
             /* Initialization of the left boundary slope */
-            {
-                double* c = spline[IDX(0, col, nCols)];
-                c[2] = fabs(d[3] - d[2]) + fabs(d[1] - d[0]);
-                if (c[2] > 0) {
-                    const double a = fabs(d[1] - d[0])/c[2];
-                    c[2] = (1 - a)*d[1] + a*d[2];
-                }
-                else {
-                    c[2] = 0.5*d[1] + 0.5*d[2];
-                }
+            c2 = fabs(d[3] - d[2]) + fabs(d[1] - d[0]);
+            if (c2 > 0) {
+                const double a = fabs(d[1] - d[0])/c2;
+                c2 = (1 - a)*d[1] + a*d[2];
             }
+            else {
+                c2 = 0.5*d[1] + 0.5*d[2];
+            }
+
             /* Calculation of the 3(4) coefficients per interval */
             for (i = 0; i < nRow - 1; i++) {
                 const double dx = TABLE_COL0(i + 1) - TABLE_COL0(i);
                 double* c = spline[IDX(i, col, nCols)];
-                double* cc = spline[IDX(i + 1, col, nCols)];
 
-                cc[2] = fabs(d[i + 4] - d[i + 3]) + fabs(d[i + 2] - d[i + 1]);
-                if (cc[2] > 0) {
-                    const double a = fabs(d[i + 2] - d[i + 1])/cc[2];
-                    cc[2] = (1 - a)*d[i + 2] + a*d[i + 3];
+                c[2] = c2;
+                c2 = fabs(d[i + 4] - d[i + 3]) + fabs(d[i + 2] - d[i + 1]);
+                if (c2 > 0) {
+                    const double a = fabs(d[i + 2] - d[i + 1])/c2;
+                    c2 = (1 - a)*d[i + 2] + a*d[i + 3];
                 }
                 else {
-                    cc[2] = 0.5*d[i + 2] + 0.5*d[i + 3];
+                    c2 = 0.5*d[i + 2] + 0.5*d[i + 3];
                 }
-                c[1] = (3*d[i + 2] - 2*c[2] - cc[2])/dx;
-                c[0] = (c[2] + cc[2] - 2*d[i + 2])/(dx*dx);
+                c[1] = (3*d[i + 2] - 2*c[2] - c2)/dx;
+                c[0] = (c[2] + c2 - 2*d[i + 2])/(dx*dx);
                 /* No need to store the absolute term y0 */
                 /* c[3] = TABLE(i, cols[col] - 1); */
             }
@@ -3369,6 +3368,7 @@ static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
 
         for (col = 0; col < nCols; col++) {
             size_t i;
+            double c2;
 
             /* Calculation of the divided differences */
             for (i = 0; i < nRow - 1; i++) {
@@ -3378,28 +3378,26 @@ static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
             }
 
             /* Initialization of the left boundary slope */
-            {
-                double* c = spline[IDX(0, col, nCols)];
-                c[2] = d[0];
-            }
+            c2 = d[0];
+
             /* Calculation of the 3(4) coefficients per interval */
             for (i = 0; i < nRow - 1; i++) {
                 const double dx = TABLE_COL0(i + 1) - TABLE_COL0(i);
                 double* c = spline[IDX(i, col, nCols)];
-                double* cc = spline[IDX(i + 1, col, nCols)];
 
+                c[2] = c2;
                 if (i == nRow - 2) {
-                    cc[2] = d[nRow - 2];
+                    c2 = d[nRow - 2];
                 }
                 else if (d[i]*d[i + 1] <= 0) {
-                    cc[2] = 0;
+                    c2 = 0;
                 }
                 else {
                     const double dx_ = TABLE_COL0(i + 2) - TABLE_COL0(i + 1);
-                    cc[2] = 3*(dx + dx_)/((dx + 2*dx_)/d[i] + (dx_ + 2*dx)/d[i + 1]);
+                    c2 = 3*(dx + dx_)/((dx + 2*dx_)/d[i] + (dx_ + 2*dx)/d[i + 1]);
                 }
-                c[1] = (3*d[i] - 2*c[2] - cc[2])/dx;
-                c[0] = (c[2] + cc[2] - 2*d[i])/(dx*dx);
+                c[1] = (3*d[i] - 2*c[2] - c2)/dx;
+                c[0] = (c[2] + c2 - 2*d[i])/(dx*dx);
                 /* No need to store the absolute term y0 */
                 /* c[3] = TABLE(i, cols[col] - 1); */
             }
