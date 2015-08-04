@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.1 (Build 2)"
+package Modelica "Modelica Standard Library - Version 3.2.1 (Build 3)"
 extends Modelica.Icons.Package;
 
 
@@ -1475,13 +1475,13 @@ This class summarizes contact information of the contributing persons.
         &lt;a href=\"mailto:dr.christian.kral@gmail.com\"&gt;C. Kral&lt;/a&gt;
       &lt;/td&gt;
       &lt;td valign=\"top\"&gt;
-        &lt;a href=\"http://www.ait.ac.at\"&gt;Austrian Institute of Technology, AIT&lt;/a&gt;, Mobility Department&lt;br&gt;
-        Giefinggasse 2&lt;br&gt;
-        1210 Vienna&lt;br&gt;
+        &lt;a href=\"http://christiankral.net\"&gt;Electric Machines, Drives and Systems&lt;/a&gt;&lt;br&gt;
+        1060 Vienna&lt;br&gt;
         Austria
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;</pre>
+
 
 <p>appears as</p>
 
@@ -1509,16 +1509,15 @@ This class summarizes contact information of the contributing persons.
         <a href=\"mailto:dr.christian.kral@gmail.com\">C. Kral</a>
       </td>
       <td valign=\"top\">
-        <a href=\"http://www.ait.ac.at\">Austrian Institute of Technology, AIT</a>, Mobility Department<br>
-        Giefinggasse 2<br>
-        1210 Vienna<br>
+        <a href=\"http://christiankral.net\">Electric Machines, Drives and Systems</a><br>
+        1060 Vienna<br>
         Austria
       </td>
     </tr>
     <tr>
       <td valign=\"top\">Contributor</td>
       <td valign=\"top\">
-        <a href=\"http://claimid.com/dietmarw\">D. Winkler</a>
+        <a href=\"http://www.linkedin.com/in/dietmarw\">D. Winkler</a>
       </td>
       <td valign=\"top\">
         <a href=\"http://www.hit.no\">Telemark University College</a><br>
@@ -1792,7 +1791,7 @@ email: Board@Modelica.org<br>
 web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
-Copyright &copy; 1998-2013,
+Copyright &copy; 1998-2015,
 ABB, Austrian Institute of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
@@ -2424,6 +2423,26 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_3_2_1_build_3 "Version 3.2.1 build 3 (July 30, 2015)"
+    extends Modelica.Icons.ReleaseNotes;
+annotation (Documentation(info="<html>
+<p>Version 3.2.1 build 3 is backward compatible to version 3.2.1 build 2, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release. Short Overview: </p>
+<ul>
+<li>This version of the Modelica package is <b>fully compatible</b> to Modelica Specification <b>3.2 revision 2</b>. </li>
+<li>About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a> have been fixed for this release. </li>
+<li><b>No</b> models and blocks and functions are newly included. </li>
+</ul>
+<p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet support the complete Modelica package): </p>
+<ul>
+<li>Dymola 2016<br>Regression test results with regards to Modelica 3.2.1 build 2 are available <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
+<li>Maplesim Parser</li>
+<li>OpenModelica(Windows, Linux, Mac)<br>Test reports for the daily builds are available <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.</li>
+<li>LMS Imagine.Lab Amesim 14.1</li>
+</ul>
+<p>The exact difference between package Modelica version 3.2.1 build 2 and version 3.2.1 build 3 is summarized in a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo3.2.1+build.2.html\">comparison table</a>. </p>
+</html>"));
+end Version_3_2_1_build_3;
+
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
 
@@ -2862,7 +2881,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-stationary, periodic part
     and neglecting non-periodic transients.<br>
-    (This library was developed by Anton Haumer and Christian Kral, AIT).
+    (This library was developed by Anton Haumer and Christian Kral).
     </td></tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
@@ -2895,7 +2914,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
      electrical machines.
      From a didactic point of view this library is very beneficial for students in the field
      of electrical engineering.<br>
-     (This library was developed by Christian Kral, AIT, and Anton Haumer, using
+     (This library was developed by Christian Kral, and Anton Haumer, using
      ideas and source code of a library from Michael Beuschel from 2000).
     </td></tr>
 
@@ -3348,7 +3367,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
-    <td valign=\"top\"> Returns t" + "rue, if all elements of the Boolean input vector are true. </td> </tr>
+    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
     <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
@@ -4991,7 +5010,7 @@ should be automatic):
                                                 transforms from the \"old\" to the \"new\" form of initialization.</td> </tr>
 
 <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Sensors.</b></td></tr>
-<tr><" + "td valign=\"top\"> AbsoluteSensor<br>
+<tr><td valign=\"top\"> AbsoluteSensor<br>
                                                 RelativeSensor<br>
                                                 CutForceAndTorque</td>
           <td valign=\"top\"> New design of sensor components: Via Boolean parameters<br>
@@ -6083,7 +6102,7 @@ units are wrong or errors in documentation):
 </tr>
 
 <tr><td colspan=\"2\"><b>Mechanics.MultiBody.Examples.Loops.</b></td></tr>
-<tr><td valign=\"top\"> Engi" + "neV6</td>
+<tr><td valign=\"top\"> EngineV6</td>
           <td valign=\"top\"> Corrected wrong crankAngleOffset of some cylinders
                    and improved the example.
            </td>
@@ -7352,7 +7371,7 @@ class Contact "Contact"
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
         (Martin Otter)<br>
         Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, <br>
-        Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)
+        Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria
 </td>
 
 </tr>
@@ -7375,7 +7394,7 @@ class Contact "Contact"
                       Modelica.Electrical.MultiPhase<br>
                       Modelica.Electrical.QuasiStationary </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)</td>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria</td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
@@ -7386,7 +7405,7 @@ class Contact "Contact"
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Magnetic.FundamentalWave </td>
-   <td valign=\"top\"> Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral),<br>
+   <td valign=\"top\"> Electric Machines, Drives and Systems, Vienna, Austria<br>
                      Anton Haumer, Consultant, St.Andrae-Woerdern, Austria
 </td>
 </tr>
@@ -7413,7 +7432,7 @@ class Contact "Contact"
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria
    </td>
 </tr>
 
@@ -7427,13 +7446,13 @@ class Contact "Contact"
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
       Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral),<br>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria,<br>
       Modelon AB, Lund, Sweden (Johan Andreasson)</td>
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Mechanics.Translational </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria,<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral), <br>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria, <br>
       DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
        Modelon AB, Lund, Sweden (Johan Andreasson)</td>
@@ -7452,7 +7471,7 @@ class Contact "Contact"
 <tr><td valign=\"top\"> Modelica.Thermal.FluidHeatFlow <br>
       Modelica.Thermal.HeatTransfer </td>
    <td valign=\"top\"> Anton Haumer, Consultant, St.Andrae-Woerdern, Austria, and<br>
-      Austrian Institute of Technology (AIT), Vienna, Austria (Christian Kral)</td>
+      Christian Kral, Electric Machines, Drives and Systems, Vienna, Austria</td>
 
 <tr><td valign=\"top\"> Modelica.Utilities </td>
    <td valign=\"top\"> DLR Institute of System Dynamics and Control, Oberpfaffenhofen, Germany<br>
@@ -7563,7 +7582,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Christian Kral</b> </td>
-   <td valign=\"top\"> Austrian Institute of Technology (AIT), Vienna, Austria</td>
+   <td valign=\"top\"> Electric Machines, Drives and Systems, Vienna, Austria</td>
    <td valign=\"top\"> Modelica.ComplexBlocks<br>
      Modelica.Electrical.Machines<br>
      Modelica.Electrical.MultiPhase<br>
@@ -7763,13 +7782,27 @@ User's Guides that can be accessed by the following links:
 end UsersGuide;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annotation (
 preferredView="info",
 version="3.2.1",
-versionBuild=2,
+versionBuild=3,
 versionDate="2013-08-14",
-dateModified = "2013-08-14 08:44:41Z",
-revisionId="$Id:: package.mo 6947 2013-08-23 07:41:37Z #$",
+dateModified = "2015-07-30 09:15:00Z",
+revisionId="$Id::                                       $",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
  noneFromVersion="3.2",
@@ -7840,7 +7873,7 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2013, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.Haumer, ITI, Modelon,
+Copyright &copy; 1998-2015, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, C.&nbsp;Kral, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 

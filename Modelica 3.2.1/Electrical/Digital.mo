@@ -673,7 +673,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           annotation (        Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
 </html>"),
-        experiment(StopTime=1.01));
+        experiment(StopTime=10));
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"
@@ -4250,8 +4250,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Table;
 
         model Pulse "Digital Pulse Source"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter Real width(
             final min=Modelica.Constants.small,
             final max=100, start=50) "Widths of pulses in % of periods";
@@ -4261,7 +4261,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         "Output = quiet for time < startTime";
           parameter D.Interfaces.Logic pulse(start=L.'0') "pulsed value";
           parameter D.Interfaces.Logic quiet(start=L.'1') "quiet value";
-          Modelica.SIunits.Time T0(final start=startTime)
+          Modelica.SIunits.Time T0(final start=startTime, fixed=true)
         "Start time of current period";
           parameter Integer nperiod(start=-1)
         "Number of periods (< 0 means infinite number of periods)";
@@ -4355,7 +4355,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
     protected
-          Modelica.SIunits.Time t_i(final start=startTime)
+          Modelica.SIunits.Time t_i(final start=startTime, fixed=true)
         "Start time of current period";
           Modelica.SIunits.Time t_width=period*width/100;
         equation
@@ -8212,7 +8212,7 @@ the library is implemented and released for public use.
 </p>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
+Copyright &copy; 1998-2015, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 
 <p>
@@ -8225,13 +8225,13 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
             points={{-84,-6},{-52,-6}}),
           Rectangle(
             origin={59,53},
-            fillColor = {255,255,255},
-            fillPattern = FillPattern.Solid,
+            fillColor=  {255,255,255},
+            fillPattern=  FillPattern.Solid,
             extent={{-104,-63},{-64,7}}),
           Rectangle(
             origin={146,34},
-            fillColor = {255,255,255},
-            fillPattern = FillPattern.Solid,
+            fillColor=  {255,255,255},
+            fillPattern=  FillPattern.Solid,
             extent={{-104,-63},{-64,7}}),
           Line(
             origin={7,15},

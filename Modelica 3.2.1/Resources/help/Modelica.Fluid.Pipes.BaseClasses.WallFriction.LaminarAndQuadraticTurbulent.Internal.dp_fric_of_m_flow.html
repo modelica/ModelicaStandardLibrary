@@ -10,7 +10,7 @@
 Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.dp_fric_of_m_flow</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">WallFriction</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.html">LaminarAndQuadraticTurbulent</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.html">Internal</a>.dp_fric_of_m_flow</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.html">Pipes</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">WallFriction</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.html">LaminarAndQuadraticTurbulent</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.html">Internal</a>.<span class="omc-h1">dp_fric_of_m_flow</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 Calculate pressure drop due to friction as function of mass flow rate
@@ -27,15 +27,16 @@ function dp_fric_of_m_flow
   input SI.DynamicViscosity mu_b "Dynamic viscosity at port_b (dummy if use_mu = false)";
   input SI.Length length "Length of pipe";
   input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
+  input SI.Area crossArea "Inner cross section area";
   input SI.ReynoldsNumber Re1 "Boundary between laminar regime and transition";
   input SI.ReynoldsNumber Re2 "Boundary between transition and turbulent regime";
   input Real Delta "Relative roughness";
   output SI.Pressure dp_fric "Pressure loss due to friction (dp_fric = port_a.p - port_b.p - dp_grav)";
   output Real ddp_fric_dm_flow "Derivative of pressure drop with mass flow rate";
 end dp_fric_of_m_flow;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

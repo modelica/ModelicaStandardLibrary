@@ -2,7 +2,7 @@ dnl Init
 AC_PREREQ([2.63])
 AC_INIT([Modelica Standard Library Tables],[3.2.1],[https://trac.modelica.org/Modelica],[libmodelicastandardtables],[https://modelica.org])
 
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_LANG([C])

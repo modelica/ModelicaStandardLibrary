@@ -9,7 +9,7 @@
 <title>Modelica.Math.Matrices.singularValues</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.singularValues</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">singularValues</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
@@ -28,13 +28,14 @@ decomposition of A is computed, i.e.,</p>
 </pre></blockquote>
 <p>where <b>U</b> and <b>V</b> are orthogonal matrices
 (<b>UU</b><sup>T</sup>=<b>I,</b> <b>VV</b><sup>T</sup>=<b>I</b>).
-<b><font face="Symbol">S</font></b> = diag(<font face="Symbol">s</font><sub>i</sub>) has the same size as matrix A with
-nonnegative diagonal elements in decreasing order and with all
-other elements zero (<font face="Symbol">s</font><sub>1</sub> is
-the largest element). The function returns the singular values
-<font face="Symbol">s</font><sub>i</sub> in vector
-<code>sigma</code> and the orthogonal matrices in matrices
-<code>U</code> and <code>V</code>.</p>
+<b><font face="Symbol">S</font></b> = [diagonal(<font face="Symbol">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) ≤
+m=size(A,2)) or [diagonal(<font face="Symbol">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
+m=size(A,2)). <b><font face="Symbol">S</font></b> has the same size
+as matrix A with nonnegative diagonal elements in decreasing order
+and with all other elements zero (<font face="Symbol">s</font><sub>1</sub> is the largest element). The function
+returns the singular values <font face="Symbol">s</font><sub>i</sub> in vector <code>sigma</code> and the
+orthogonal matrices in matrices <code>U</code> and
+<code>VT</code>.</p>
 <h4>Example</h4>
 <blockquote>
 <pre>
@@ -56,14 +57,14 @@ the largest element). The function returns the singular values
 <pre>
 function singularValues
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Matrix";
+  input Real A[:, :] "Matrix";
   output Real sigma[min(size(A, 1), size(A, 2))] "Singular values";
-  output Real U[size(A, 1),size(A, 1)] = identity(size(A, 1)) "Left orthogonal matrix";
-  output Real VT[size(A, 2),size(A, 2)] = identity(size(A, 2)) "Transposed right orthogonal matrix";
+  output Real U[size(A, 1), size(A, 1)] = identity(size(A, 1)) "Left orthogonal matrix";
+  output Real VT[size(A, 2), size(A, 2)] = identity(size(A, 2)) "Transposed right orthogonal matrix";
 end singularValues;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

@@ -13,9 +13,18 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-Download [Modelica Standard Library v3.2.1 (2013-08-14)](../../archive/v3.2.1+build.2.zip)
+Download [Modelica Standard Library v3.2.1+build.3 (2015-07-30)](../../archive/v3.2.1+build.3.zip)
 
 #### Release notes
+
+* [Version v3.2.1+build.3 (2015-07-30)](../../archive/v3.2.1+build.3.zip)
+  * Summary: Version 3.2.1 (Build 3) is backward compatible to version 3.2.1 (Build 2), that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release.
+  * Short Overview:
+    * This version of the Modelica package is **fully compatible** to Modelica Specification **3.2 revision 2**.
+    * About [103 tickets](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html) have been fixed for this release.
+    * **No** models and blocks and functions are newly included.
+  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3.html)
+</ul>
 
 * [Version v3.2.1 (2013-08-14)](../../archive/v3.2.1+build.2.zip)
   * Summary: Version 3.2.1 (Build 2) is backward compatible to version 3.2, that is models developed with versions 3.0, 3.0.1, 3.1, or 3.2 will work without any changes also with version 3.2.1. This is a "clean-up" with major emphasis on quality improvement and tool compatibility. The goal is that all Modelica tools will support this package and will interpret it in the same way. This version of the Modelica package is **fully compatible** to Modelica Specification **3.2 Revision 2**. 60 models and blocks and 90 functions were newly included.

@@ -10,7 +10,7 @@
 Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.wallFriction</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Fittings.html">Fittings</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<a href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a>.wallFriction</h1>
+<h1><a href="Icons/4f77090c0425036db4fddfa50908b176a71f40a5.svg"><img class="svgiconhead" src="Icons/4f77090c0425036db4fddfa50908b176a71f40a5.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.html">Fittings</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.html">QuadraticTurbulent</a>.<a class="omc-h1-a" href="Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData.html">LossFactorData</a>.<span class="omc-h1">wallFriction</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Friction in straight pipe with walls of nonuniform roughness
 (commercial pipes) in the region that does not depend on the
@@ -31,7 +31,7 @@ port_b as:</p>
 <p>where</p>
 <ul>
 <li>D is the inner pipe diameter</li>
-<li>L is the lenght of the pipe</li>
+<li>L is the length of the pipe</li>
 <li>Δ = δ/D is the relative roughness where δ is the absolute
 "roughness", i.e., the averaged height of asperities in the pipe.
 (δ may change over time due to growth of surface asperities during
@@ -89,12 +89,12 @@ encapsulated function wallFriction
   import SI = Modelica.SIunits;
   input SI.Length length "Length of pipe" annotation(Dialog);
   input SI.Diameter diameter "Inner diameter of pipe" annotation(Dialog);
-  input SI.Length roughness(min = 0.0000000001) "Absolute roughness of pipe (&gt; 0 required, details see info layer)" annotation(Dialog);
+  input SI.Length roughness(min = 1e-10) "Absolute roughness of pipe (&gt; 0 required, details see info layer)" annotation(Dialog);
   output LossFactorData data "Pressure loss factors for both flow directions";
 end wallFriction;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

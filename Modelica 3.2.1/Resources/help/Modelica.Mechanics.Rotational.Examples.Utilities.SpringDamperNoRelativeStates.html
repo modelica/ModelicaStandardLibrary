@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates</title>
+</head>
+<body>
+<h1><a href="Icons/f0803f19184b9b8aba348f1e5a4692fead910f09.svg"><img class="svgiconhead" src="Icons/f0803f19184b9b8aba348f1e5a4692fead910f09.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Examples.Utilities.html">Utilities</a>.<span class="omc-h1">SpringDamperNoRelativeStates</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A <b>spring</b> and <b>damper</b> element <b>connected in
+parallel</b>. The component can be connected either between two
+inertias/gears to describe the shaft elasticity and damping, or
+between an inertia/gear and the housing (component Fixed), to
+describe a coupling of the element with the housing via a
+spring/damper.</p>
+<p>This is the same element as <a href="Modelica.Mechanics.Rotational.Components.SpringDamper.html">Rotational.Components.SpringDamper</a>
+but with the only difference, that the relative quantities are not
+used as states. If the relative states are potentially used as
+states, "a_rel = der(w_rel)" is present, and then exporting this
+model as FMU requires to also have the accelerations in the flanges
+as inputs, which is usually not desired for a force element.</p>
+<hr />
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
+</body>
+</html>

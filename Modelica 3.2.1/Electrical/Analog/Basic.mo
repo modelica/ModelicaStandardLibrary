@@ -395,8 +395,8 @@ end Conductor;
       "Inductance near current=0";
     parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
-    Modelica.SIunits.Inductance Lact(start=Lzer);
-    Modelica.SIunits.MagneticFlux Psi(start=0, fixed=true);
+    Modelica.SIunits.Inductance Lact(start=Lzer) "Present inductance";
+    Modelica.SIunits.MagneticFlux Psi(start=0, fixed=true) "Present flux";
   protected
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
   initial equation
@@ -481,7 +481,8 @@ end Conductor;
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
     parameter SI.Inductance M(start=1) "Coupling inductance";
-    Real dv;
+    Real dv "Difference between voltage drop over primary inductor and
+    voltage drop over secondary inductor";
   equation
     v1 = L1*der(i1) + M*der(i2);
 
@@ -580,12 +581,12 @@ end Conductor;
 
 model M_Transformer "Generic transformer with free number of inductors"
 
-  parameter Integer N(final min=1)=3 "number of inductors";
+  parameter Integer N(final min=1)=3 "Number of inductors";
   protected
   parameter Integer dimL=div(N*(N+1),2);
   public
   parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
-      "inductances and coupling inductances";
+      "Inductances and coupling inductances";
   Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
               annotation (Placement(transformation(
           extent={{-80,-40},{-62,40}})));
@@ -593,9 +594,11 @@ model M_Transformer "Generic transformer with free number of inductors"
               annotation (Placement(transformation(
           extent={{62,-40},{80,40}})));
 
-  Modelica.SIunits.Voltage v[N];
-  Modelica.SIunits.Current i[N](each start=0, fixed=true);
-  parameter Modelica.SIunits.Inductance Lm[N,N](each final fixed=false);
+  Modelica.SIunits.Voltage v[N] "Voltage drop over inductors";
+  Modelica.SIunits.Current i[N](each start=0, fixed=true)
+      "Current through inductors";
+  parameter Modelica.SIunits.Inductance Lm[N,N](each final fixed=false)
+      "Complete symmetric inductance matrix, calculated internally";
 
 initial equation
   for s in 1:N loop

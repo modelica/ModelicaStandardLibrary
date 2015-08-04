@@ -9,7 +9,7 @@
 <title>Modelica.Math.Matrices.integralExpT</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.integralExpT</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<span class="omc-h1">integralExpT</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <blockquote>
 <pre>
@@ -46,14 +46,13 @@ Third Edition, p. 256</dd>
 <pre>
 function integralExpT
   extends Modelica.Icons.Function;
-  input Real A[:,size(A, 1)];
-  input Real B[size(A, 1),:];
+  input Real A[:, size(A, 1)];
+  input Real B[size(A, 1), :];
   input Real T = 1;
-  output Real phi[size(A, 1),size(A, 1)] "= exp(A*T)";
-  output Real gamma[size(A, 1),size(B, 2)] "= integral(phi)*B";
-  output Real gamma1[size(A, 1),size(B, 2)] "= integral((T-t)*exp(A*t))*B";
+  output Real phi[size(A, 1), size(A, 1)] "= exp(A*T)";
+  output Real gamma[size(A, 1), size(B, 2)] "= integral(phi)*B";
+  output Real gamma1[size(A, 1), size(B, 2)] "= integral((T-t)*exp(A*t))*B";
 end integralExpT;
-
 </pre></blockquote>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
 <p><b>Release Notes:</b></p>
@@ -62,6 +61,7 @@ end integralExpT;
 Realized.</li>
 </ul>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

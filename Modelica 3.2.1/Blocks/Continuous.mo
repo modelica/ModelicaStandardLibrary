@@ -85,8 +85,7 @@ This is discussed in the description of package
             Line(
               visible=true,
               points={{-80.0,-80.0},{80.0,80.0}},
-              color={0,0,127})
-      }),
+              color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -296,11 +295,11 @@ If k=0, the block reduces to y=0.
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid,
       points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
-    Line(visible = true,
-      origin = {-24.667,-27.333},
-      points = {{-55.333,87.333},{-19.333,-40.667},{86.667,-52.667}},
-      color = {0,0,127},
-      smooth = Smooth.Bezier),
+    Line(visible=  true,
+      origin=  {-24.667,-27.333},
+      points=  {{-55.333,87.333},{-19.333,-40.667},{86.667,-52.667}},
+      color=  {0,0,127},
+      smooth=  Smooth.Bezier),
     Text(visible=true,
         lineColor={192,192,192},
       extent={{-30.0,14.0},{86.0,60.0}},
@@ -394,11 +393,11 @@ Example:
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid,
       points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
-    Line(visible = true,
-        origin = {-26.667,6.667},
-        points = {{106.667,43.333},{-13.333,29.333},{-53.333,-86.667}},
-        color = {0,0,127},
-        smooth = Smooth.Bezier),
+    Line(visible=  true,
+        origin=  {-26.667,6.667},
+        points=  {{106.667,43.333},{-13.333,29.333},{-53.333,-86.667}},
+        color=  {0,0,127},
+        smooth=  Smooth.Bezier),
     Text(visible=true,
       lineColor={192,192,192},
       extent={{0.0,-60.0},{60.0,0.0}},
@@ -501,11 +500,11 @@ Example:
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
-      Line(visible = true,
-          origin = {-1.939,-1.816},
-          points = {{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,113.485},{-65.374,-61.217},{-78.061,-78.184}},
-          color = {0,0,127},
-          smooth = Smooth.Bezier),
+      Line(visible=  true,
+          origin=  {-1.939,-1.816},
+          points=  {{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,113.485},{-65.374,-61.217},{-78.061,-78.184}},
+          color=  {0,0,127},
+          smooth=  Smooth.Bezier),
       Text(visible=true,
             lineColor={192,192,192},
           extent={{0.0,-70.0},{60.0,-10.0}},
@@ -643,7 +642,7 @@ This is discussed in the description of package
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points = {{-80.0,-80.0},{-80.0,-20.0},{60.0,80.0}}, color = {0,0,127}),
+          Line(points=  {{-80.0,-80.0},{-80.0,-20.0},{60.0,80.0}}, color=  {0,0,127}),
           Text(
             extent={{0,6},{60,-56}},
             lineColor={192,192,192},
@@ -769,7 +768,7 @@ This is discussed in the description of package
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid,
             points={{90.0,-80.0},{68.0,-72.0},{68.0,-88.0},{90.0,-80.0}}),
-        Line(visible = true, points = {{-80,-80},{-80,-20},{60,80}}, color = {0,0,127}),
+        Line(visible=  true, points=  {{-80,-80},{-80,-20},{60,80}}, color=  {0,0,127}),
         Text(visible=true,
             lineColor={192,192,192},
             extent={{-20.0,-60.0},{80.0,-20.0}},
@@ -874,8 +873,7 @@ to compute u by an algebraic equation.
       "Time constant of Integrator block"
        annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                                 controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-    parameter SIunits.Time Td(min=0)= 0.1
-      "Time constant of Derivative block"
+    parameter SIunits.Time Td(min=0)= 0.1 "Time constant of Derivative block"
          annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
@@ -1586,11 +1584,11 @@ the model.
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid,
               points={{-79.5584,91.817},{-87.5584,69.817},{-71.5584,69.817},{-79.5584,91.817}}),
-          Line(visible = true,
-              origin = {-1.939,-1.816},
-              points = {{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,113.485},{-65.374,-61.217},{-78.061,-78.184}},
-              color = {0,0,127},
-              smooth = Smooth.Bezier),
+          Line(visible=  true,
+              origin=  {-1.939,-1.816},
+              points=  {{81.939,36.056},{65.362,36.056},{14.39,-26.199},{-29.966,113.485},{-65.374,-61.217},{-78.061,-78.184}},
+              color=  {0,0,127},
+              smooth=  Smooth.Bezier),
           Line(visible=true,
               points={{-90.9779,-80.7697},{81.0221,-80.7697}},
               color={192,192,192}),
@@ -1717,11 +1715,11 @@ initType=Modelica.Blocks.Types.Init.SteadyState).
             lineColor={192,192,192},
             extent={{0.0,-60.0},{60.0,0.0}},
             textString="PTn"),
-          Line(visible = true,
-            origin = {-17.976,-6.521},
-            points = {{96.962,55.158},{16.42,50.489},{-18.988,18.583},{-32.024,-53.479},{-62.024,-73.479}},
-            color = {0,0,127},
-            smooth = Smooth.Bezier),
+          Line(visible=  true,
+            origin=  {-17.976,-6.521},
+            points=  {{96.962,55.158},{16.42,50.489},{-18.988,18.583},{-32.024,-53.479},{-62.024,-73.479}},
+            color=  {0,0,127},
+            smooth=  Smooth.Bezier),
           Text(visible=true,
             lineColor={192,192,192},
             extent={{-70.0,48.0},{26.0,94.0}},
@@ -2010,7 +2008,7 @@ The critical damping filter is defined as
           fillColor={255,255,255},
           fillPattern=FillPattern.Backward,
           extent={{-80.0,-78.0},{22.0,10.0}}),
-        Line(visible = true, origin = {3.333,-6.667}, points = {{-83.333,34.667},{24.667,34.667},{42.667,-71.333}}, color = {0,0,127}, smooth = Smooth.Bezier)}),
+        Line(visible=  true, origin=  {3.333,-6.667}, points=  {{-83.333,34.667},{24.667,34.667},{42.667,-71.333}}, color=  {0,0,127}, smooth=  Smooth.Bezier)}),
       Documentation(info="<html>
 
 <p>

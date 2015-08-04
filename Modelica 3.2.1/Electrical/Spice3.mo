@@ -1595,7 +1595,7 @@ Zeunerstrasse 38<br />
       connect(VIE.p, n41);
       connect(VIE.n, n42);
 
-      annotation (experiment(Interval=0.001,
+      annotation (experiment(StopTime=1, Interval=0.001,
           Tolerance=1e-005),
           Documentation(info="<html>
 <p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
@@ -1833,7 +1833,6 @@ RC 3 4 1K<br/>
       connect(Q5.B, n8);
       connect(Q5.E, n0);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end NAND;
 
     model ONEBIT ".SUBCKT ONEBIT 1 2 3 4 5 6"
@@ -1917,7 +1916,6 @@ RC 3 4 1K<br/>
       connect(X9.p3, n5);
       connect(X9.p4, n6);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end ONEBIT;
 
     model TWOBIT ".SUBCKT TWOBIT 1 2 3 4 5 6 7 8 9"
@@ -1974,7 +1972,6 @@ RC 3 4 1K<br/>
       connect(X2.p5, n8);
       connect(X2.p6, n9);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end TWOBIT;
 
     model FOURBIT ".SUBCKT FOURBIT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
@@ -2055,7 +2052,6 @@ RC 3 4 1K<br/>
       connect(X2.p8, n14);
       connect(X2.p9, n15);
 
-      annotation (experiment(StopTime=0, Interval=0));
     end FOURBIT;
 
       // *** DEFINE NOMINAL CIRCUIT
@@ -2117,7 +2113,7 @@ RC 3 4 1K<br/>
                                 Q4(icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 RC(v(start=0)))),
-                         X2(X1( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
+                         X2(X1( Q1(vbc(start=0, fixed=true), vbe(start=0, fixed=false)),
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q4(Binternal(start=0), icapbc(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
@@ -2339,17 +2335,30 @@ RC 3 4 1K<br/>
       annotation (experiment(StopTime=1e-006, Interval=1e-009),
         Documentation(info="<html>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
-<p>The model adds two 4-bit numbers. It has eight inputs where the first one is the lowest-order bit of the first number, the second is the lowest-order bit of the second number, the third one is the second-order bit of
-first number and so on. The Four Bit Binary Adder has four outputs where the first one (node 9) is the lowest-order bit, the second and the third one (node 10 and node 11) are the next two bits and the last one (node 12) is the highest-order bit. The picture illustrates the pin-assignment referring to line 41 and 42 in the SPICE3 source code.</p>
+<p>The model adds two 4-bit numbers (Number A and Number B). It has eight inputs where the first one is the lowest-order bit of the first number (Number A Bit0), the second is the lowest-order bit of the second number (Number B Bit0), the third one is the second-order bit of the first number (Number A Bit1) and so on. The Four Bit Binary Adder has four outputs where the first one (Sum Bit0) is the lowest-order bit, the second and the third one (Sum Bit1 and Sum Bit2) are the next two bits and the last one (Sum Bit3) is the highest-order bit. The picture illustrates the pin-assignment.</p>
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg\"
      alt=\"segment.png\">
 </blockquote>
 
-
+<p>Inside the model the names of the inputs refer to the names in the picture as follows:</p>
+<p>X1_p1_v --> Number A Bit0</p>
+<p>X1_p2_v --> Number B Bit0</p>
+<p>X1_p3_v --> Number A Bit1</p>
+<p>X1_p4_v --> Number B Bit1</p>
+<p>X1_p5_v --> Number A Bit2</p>
+<p>X1_p6_v --> Number B Bit2</p>
+<p>X1_p7_v --> Number A Bit3</p>
+<p>X1_p8_v --> Number B Bit3</p>
+<p>X1_p9_v --> Sum Bit0</p>
+<p>X1_p10_v --> Sum Bit1</p>
+<p>X1_p11_v --> Sum Bit2</p>
+<p>X1_p12_v --> Sum Bit3</p>
+<p>X1_p14_v --> Cout</p>
 <p>The Four Bit Binary Adder is built out of two two bit adders which respectively are built out of two one bit adders. One one bit adder is build out of nine NAND circuits. </p>
 <p>Please note, that the simulation time of the Four Bit Binary Adder can take several hours due to its immense size (e.g. 11387 equations).</p>
-<p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1.p1.v, ..., X1.p8.v) and the four outputs (X1.p9.v, ..., X1.p12.v) and the carryout output (X1.p14.v).</p>
+<p>The user is recommended to simulate from t=0 to t=1e-6s and observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four outputs (X1_p9_v, ..., X1_p12_v) and the carryout output (X1_p14_v).</p>
+<p><b>The timing of the single transistors of the adder causes a delay which makes it hard to recognize the adder behaviour. Since the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not changed in order to see the adder behaviour in a better way.</b></p>
 <p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
 <pre>
 ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER
@@ -3347,7 +3356,7 @@ The corresponding SPICE description
         "End time of width phase within one period";
       parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
-      SI.Time T0(final start=TD) "Start time of current period";
+      SI.Time T0(final start=TD, fixed=true) "Start time of current period";
       Integer counter(start=-1, fixed=true) "Period counter";
       Integer counter2(start=-1, fixed=true);
 
@@ -3720,7 +3729,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         "End time of width phase within one period";
       parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
-      SI.Time T0(final start=TD) "Start time of current period";
+      SI.Time T0(final start=TD, fixed=true) "Start time of current period";
       Integer counter(start=-1) "Period counter";
       Integer counter2(start=-1);
 
@@ -7748,7 +7757,8 @@ on the model behaviour.
         input Spice3.Internal.Mos2.Mos2ModelLineParams
                                        in_p "Input record Mos2 values";
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
-        input MosModelLineVariables in_vp "Input record model line variables";
+        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp
+          "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record MOSFET parameters";
 
@@ -7920,7 +7930,8 @@ on the model behaviour.
                                        in_p
           "Output record Mos1 calculated values";
         input Spice3.Internal.SpiceConstants in_C "Spice constants";
-        input MosModelLineVariables in_vp "Input record model line variables";
+        input Spice3.Internal.Mos2.Mos2ModelLineVariables in_vp
+          "Input record model line variables";
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record MOSFET parameters";
         input Spice3.Internal.Mos2.Mos2Calc
@@ -8278,10 +8289,39 @@ on the model behaviour.
         Modelica.SIunits.Current cur "Voltage";
         Integer n;
 
-        DEVqmeyer in_qm "Qmeyer capacitances";
+        DEVqmeyer in_qm(
+        qm_capgb = 0,
+        qm_capgs =  0,
+        qm_capgd =  0,
+        qm_qgs =  0,
+        qm_qgb =  0,
+        qm_qgd =  0,
+        qm_vgs =  0,
+        qm_vgb =  0,
+        qm_vgd =  0) "Qmeyer capacitances";
         Spice3.Internal.Mos2.Mos2Calc
                       int_c "Record Mos2Calc";
-        Spice3.Internal.Mosfet.Mosfet int_m "Record Mosfet";
+        Spice3.Internal.Mosfet.Mosfet int_m(
+        m_len =          1e-4,
+        m_width =        1e-4,
+        m_drainArea =    Spice3.Internal.SpiceConstants.CKTdefaultMosAD,
+        m_sourceArea =   Spice3.Internal.SpiceConstants.CKTdefaultMosAS,
+        m_drainSquares = 1.0,
+        m_sourceSquares= 1.0,
+        m_drainPerimeter=0.0,
+        m_sourcePerimeter= 0.0,
+        m_dICVDS =         0.0,
+        m_dICVDSIsGiven =  0.0,
+        m_dICVGS =         0.0,
+        m_dICVGSIsGiven =  0.0,
+        m_dICVBS =         0.0,
+        m_dICVBSIsGiven =  0.0,
+        m_off =            0,
+        m_bPMOS =          0,
+        m_nLevel =         1,
+        m_drainPerimiter = 0.0,
+        m_sourcePerimiter= 0.0,
+        m_uic =            false) "Record Mosfet";
         Real hlp;
       algorithm
         int_c := in_c;
@@ -11281,7 +11321,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Charge chargebx;
         Real argtf;
         Real exponent;
-        Modelica.SIunits.Temp_K temp;
+        Real temp;
 
         Real aux1;
         Real aux2;
@@ -11290,6 +11330,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real sarg;
 
       algorithm
+        temp := 0;
+
         vce := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[6]); // ( ColP, EmitP);
         vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
         vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
@@ -11421,7 +11463,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
             end if;
               arg2 := argtf;
               if (in_p.m_transitTimeHighCurrentF <> 0) then
-               cbe := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
+               temp := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
                 argtf := argtf * temp * temp;
                 arg2  := argtf * (3-temp-temp);
               end if;
@@ -13175,4 +13217,3 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
           Line(points={{20,90},{20,40},{0,40},{0,-40},{20,-40},{20,-90}},
               color={0,0,0})}));
 end Spice3;
-

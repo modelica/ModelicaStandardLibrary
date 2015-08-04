@@ -2,6 +2,7 @@ within Modelica.Mechanics.MultiBody;
 package Icons "Icons for MultiBody package"
   extends Modelica.Icons.IconsPackage;
   model Surface "Surface icon"
+
     annotation (Icon(graphics={Polygon(
             points={{-102,40},{-98,92},{28,-8},{96,146},{104,-118},{-18,-34},{-52,
                 -130},{-102,40}},

@@ -10,7 +10,7 @@
 Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower_der</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a>.SmoothPower_der</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.html">Dissipation</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.html">Utilities</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.html">Functions</a>.<a class="omc-h1-a" href="Modelica.Fluid.Dissipation.Utilities.Functions.General.html">General</a>.<span class="omc-h1">SmoothPower_der</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 The derivative of function SmoothPower
@@ -24,13 +24,14 @@ function SmoothPower_der
   input Real deltax "range of interpolation";
   input Real pow "exponent for x";
   input Real dx "derivative of x";
-  input Real ddeltax "derivative of deltax";
-  input Real dpow "derivative of pow";
   output Real dy "derivative of SmoothPower";
 end SmoothPower_der;
-
 </pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+2014-04-29 Stefan Wischhusen: Corrected branch for x&lt;=-adeltax,
+removed dpow and ddeltax.
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

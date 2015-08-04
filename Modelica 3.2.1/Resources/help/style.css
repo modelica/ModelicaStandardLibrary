@@ -1,12 +1,17 @@
-
-h1
+.omc-h1
 {
     font-family: mono;
     font-size: x-large;
     color:rgb(153,0,0);
+    vertical-align: middle;
 }
 
-h1 a {font-size:large;}
+.omc-h1-a
+{
+    font-family: mono;
+    font-size: large;
+    vertical-align: middle;
+}
 
 table
 {
@@ -30,3 +35,19 @@ pre
 {
     white-space: pre-wrap; /* CSS 3 */
 }
+
+.svgiconhead {
+    height: 32px;
+    width: 32px;
+    vertical-align: top;
+    -o-object-fit: contain;
+}
+
+.svgiconsmall {
+    height: 20px;
+    width: 20px;
+    vertical-align: top;
+    -o-object-fit: contain;
+}
+
+

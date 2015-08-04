@@ -83,7 +83,7 @@ Note, r g, b are given in the range 0 .. 255.
         choice={255,255,255} "{255,255,255} \"white\""),
     Documentation(info="<html>
 <p>
-Type <b>Color</b> is an Real vector with 3 elements,
+Type <b>RealColor</b> is a Real vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.

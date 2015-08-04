@@ -10,7 +10,7 @@
 Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a>.partialSurfaceCharacteristic</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Interfaces.html">Interfaces</a>.<span class="omc-h1">partialSurfaceCharacteristic</span></h1>
 <h4><a name="interface" id="interface">Interface</a></h4>
 <blockquote>
 <pre>
@@ -19,14 +19,14 @@ partial function partialSurfaceCharacteristic
   input Integer nu "Number of points in u-Dimension";
   input Integer nv "Number of points in v-Dimension";
   input Boolean multiColoredSurface = false "= true: Color is defined for each surface point";
-  output Modelica.SIunits.Position X[nu,nv] "[nu,nv] positions of points in x-Direction resolved in surface frame";
-  output Modelica.SIunits.Position Y[nu,nv] "[nu,nv] positions of points in y-Direction resolved in surface frame";
-  output Modelica.SIunits.Position Z[nu,nv] "[nu,nv] positions of points in z-Direction resolved in surface frame";
-  output Real C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3] "[nu,nv,3] Color array, defining the color for each surface point";
+  output Modelica.SIunits.Position X[nu, nv] "[nu,nv] positions of points in x-Direction resolved in surface frame";
+  output Modelica.SIunits.Position Y[nu, nv] "[nu,nv] positions of points in y-Direction resolved in surface frame";
+  output Modelica.SIunits.Position Z[nu, nv] "[nu,nv] positions of points in z-Direction resolved in surface frame";
+  output Real C[if multiColoredSurface then nu else 0, if multiColoredSurface then nv else 0, 3] "[nu,nv,3] Color array, defining the color for each surface point";
 end partialSurfaceCharacteristic;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

@@ -10,21 +10,37 @@
 Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Electrical.html">Electrical</a>.<a href="Modelica.Electrical.Spice3.html">Spice3</a>.<a href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.Spice3BenchmarkFourBitBinaryAdder</h1>
+<h1><a href="Icons/2fa3410adcba006541e6e6c1177c3db9a1e24d23.svg"><img class="svgiconhead" src="Icons/2fa3410adcba006541e6e6c1177c3db9a1e24d23.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.html">Spice3</a>.<a class="omc-h1-a" href="Modelica.Electrical.Spice3.Examples.html">Examples</a>.<span class="omc-h1">Spice3BenchmarkFourBitBinaryAdder</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>This Four Bit Binary Adder model is one of the five benchmark
 circuits described in the SPICE3 Version e3 User's Manual (see
 information of package Spice3).</p>
-<p>The model adds two 4-bit numbers. It has eight inputs where the
-first one is the lowest-order bit of the first number, the second
-is the lowest-order bit of the second number, the third one is the
-second-order bit of first number and so on. The Four Bit Binary
-Adder has four outputs where the first one (node 9) is the
-lowest-order bit, the second and the third one (node 10 and node
-11) are the next two bits and the last one (node 12) is the
-highest-order bit. The picture illustrates the pin-assignment
-referring to line 41 and 42 in the SPICE3 source code.</p>
+<p>The model adds two 4-bit numbers (Number A and Number B). It has
+eight inputs where the first one is the lowest-order bit of the
+first number (Number A Bit0), the second is the lowest-order bit of
+the second number (Number B Bit0), the third one is the
+second-order bit of the first number (Number A Bit1) and so on. The
+Four Bit Binary Adder has four outputs where the first one (Sum
+Bit0) is the lowest-order bit, the second and the third one (Sum
+Bit1 and Sum Bit2) are the next two bits and the last one (Sum
+Bit3) is the highest-order bit. The picture illustrates the
+pin-assignment.</p>
 <blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg" alt="segment.png" /></blockquote>
+<p>Inside the model the names of the inputs refer to the names in
+the picture as follows:</p>
+<p>X1_p1_v --&gt; Number A Bit0</p>
+<p>X1_p2_v --&gt; Number B Bit0</p>
+<p>X1_p3_v --&gt; Number A Bit1</p>
+<p>X1_p4_v --&gt; Number B Bit1</p>
+<p>X1_p5_v --&gt; Number A Bit2</p>
+<p>X1_p6_v --&gt; Number B Bit2</p>
+<p>X1_p7_v --&gt; Number A Bit3</p>
+<p>X1_p8_v --&gt; Number B Bit3</p>
+<p>X1_p9_v --&gt; Sum Bit0</p>
+<p>X1_p10_v --&gt; Sum Bit1</p>
+<p>X1_p11_v --&gt; Sum Bit2</p>
+<p>X1_p12_v --&gt; Sum Bit3</p>
+<p>X1_p14_v --&gt; Cout</p>
 <p>The Four Bit Binary Adder is built out of two two bit adders
 which respectively are built out of two one bit adders. One one bit
 adder is build out of nine NAND circuits.</p>
@@ -32,9 +48,14 @@ adder is build out of nine NAND circuits.</p>
 Adder can take several hours due to its immense size (e.g. 11387
 equations).</p>
 <p>The user is recommended to simulate from t=0 to t=1e-6s and
-observe the eight inputs (X1.p1.v, ..., X1.p8.v) and the four
-outputs (X1.p9.v, ..., X1.p12.v) and the carryout output
-(X1.p14.v).</p>
+observe the eight inputs (X1_p1_v, ..., X1_p8_v) and the four
+outputs (X1_p9_v, ..., X1_p12_v) and the carryout output
+(X1_p14_v).</p>
+<p><b>The timing of the single transistors of the adder causes a
+delay which makes it hard to recognize the adder behaviour. Since
+the Four Bit Binary Adder is a SPICE3 benchmark, the circuit is not
+changed in order to see the adder behaviour in a better
+way.</b></p>
 <p>Original SPICE3 netlist of the Four Bit Binary Adder:</p>
 <pre>
 ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER
@@ -126,33 +147,34 @@ print v(11) v(12) v(13)
 <p>The model is built out of several subcircuits which were
 described only ones and used several times.</p>
 <h2>Contents</h2>
-<table summary="Items">
+<table>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 <tr>
 <td><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.NAND.html">
-NAND</a></td>
+<img class="svgiconsmall" src="Icons/8ccf42cb5cbe4d3a66287dab3ad0057b3641ac25.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.NAND.html">NAND</a></td>
 <td>.SUBCKT NAND 1 2 3 4</td>
 </tr>
 <tr>
 <td><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.ONEBIT.html">
-ONEBIT</a></td>
+<img class="svgiconsmall" src="Icons/cf29f19a9387d55a625373d6fcf24055d0dd7dce.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.ONEBIT.html">ONEBIT</a></td>
 <td>.SUBCKT ONEBIT 1 2 3 4 5 6</td>
 </tr>
 <tr>
 <td><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.TWOBIT.html">
-TWOBIT</a></td>
+<img class="svgiconsmall" src="Icons/859ad0cbf7bef0aeb8aaff162a5356c34060c0df.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.TWOBIT.html">TWOBIT</a></td>
 <td>.SUBCKT TWOBIT 1 2 3 4 5 6 7 8 9</td>
 </tr>
 <tr>
 <td><a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.FOURBIT.html">
-FOURBIT</a></td>
+<img class="svgiconsmall" src="Icons/0b41a836cfa6282a328c14df32de6ac85a44a55c.svg" /></a>&nbsp;<a href="Modelica.Electrical.Spice3.Examples.Spice3BenchmarkFourBitBinaryAdder.FOURBIT.html">FOURBIT</a></td>
 <td>.SUBCKT FOURBIT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</td>
 </tr>
 </table>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

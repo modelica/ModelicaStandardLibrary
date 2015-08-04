@@ -10,7 +10,7 @@
 Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a>.EngineV6_analytic</h1>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Loops.html">Loops</a>.<span class="omc-h1">EngineV6_analytic</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>This is a similar model as the example "EngineV6". However, the
 cylinders have been built up with component
@@ -18,18 +18,22 @@ Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR that solves
 the non-linear system of equations in an aggregation of 3
 revolution joints <b>analytically</b> and only one body is used
 that holds the total mass of the crank shaft:</p>
-<img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png" />
+<p><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD_small.png" /></p>
 <p>This model is about 20 times faster as the EngineV6 example and
 <b>no</b> linear or non-linear system of equations occur. In
 contrast, the "EngineV6" example leads to 6 systems of nonlinear
 equations (every system has dimension = 5, with Evaluate=false and
 dimension=1 with Evaluate=true) and a linear system of equations of
 about 40. This shows the power of the analytic loop handling.</p>
-<p>Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
-<b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the
-result file has a size of about 50 Mbyte (for 5000 output
-intervals).</p>
+<p>Simulate for 3 s with about 50000 output intervals, and plot the
+variables <b>engineSpeed_rpm</b>, <b>engineTorque</b>, and
+<b>filteredEngineTorque</b>. Note, the result file has a size of
+about 240 Mbyte in this case. The default setting of StopTime =
+1.01 s (with the default setting of the tool for the number of
+output points), in order that (automatic) regression testing does
+not have to cope with a large result file.</p>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

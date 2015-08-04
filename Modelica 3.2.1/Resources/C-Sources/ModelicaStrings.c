@@ -37,7 +37,7 @@
       Jan.  7, 2002: by Martin Otter, DLR.
                      Implemented a first version
 
-   Copyright (C) 2002-2013, Modelica Association and DLR.
+   Copyright (C) 2002-2015, Modelica Association and DLR.
 
    The content of this file is free software; it can be redistributed
    and/or modified under the terms of the Modelica License 2, see the
@@ -47,11 +47,11 @@
 #if !defined(MODELICA_EXPORT)
 #   define MODELICA_EXPORT
 #endif
-
-#include "ModelicaUtilities.h"
-#if defined(__linux__)
+#if defined(__gnu_linux__)
 #define _GNU_SOURCE 1
 #endif
+
+#include "ModelicaUtilities.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
@@ -261,7 +261,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
                                        && string[next] != 'E') ) {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                 _locale_t loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
                 locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
 #endif
                 char buf[MAX_TOKEN_SIZE+1];
@@ -276,7 +276,7 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                 x = (int)_strtol_l(buf, &endptr, 10, loc);
                 _free_locale(loc);
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
                 x = (int)strtol_l(buf, &endptr, 10, loc);
                 freelocale(loc);
 #else
@@ -367,7 +367,7 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
     if (total_length > 0 && total_length < MAX_TOKEN_SIZE) {
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         _locale_t loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
 #else
         char* dec = localeconv()->decimal_point;
@@ -384,7 +384,7 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         x = _strtod_l(buf, &endptr, loc);
         _free_locale(loc);
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         x = strtod_l(buf, &endptr, loc);
         freelocale(loc);
 #else

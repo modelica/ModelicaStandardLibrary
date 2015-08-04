@@ -18,13 +18,42 @@
 
    If compiled as C++ and NO_FILE_SYTEM is not defined then common/shared table arrays
    are stored in a global std::map in order to avoid superfluous file input access and
-   to decrease the utilized memory.
+   to decrease the utilized memory (ticket #1110).
 
    Release Notes:
+      Apr. 16, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed event detection of CombiTimeTable with scaled time
+                     (ticket #1627)
+
+      Mar. 18, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed poor performance of readMatTable for MATLAB MAT-files with
+                     compressed array streams and large (> 1e5) number of rows
+                     (ticket #1682)
+
+      Jan. 02, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed event detection of CombiTimeTable with non-zero start time
+                     (ticket #1619)
+
+      Aug. 22, 2014: by Thomas Beutlich, ITI GmbH.
+                     Fixed multi-threaded access of common/shared table arrays
+                     (ticket #1556)
+
+      May 21, 2014:  by Thomas Beutlich, ITI GmbH.
+                     Fixed bivariate Akima-spline extrapolation (ticket #1465)
+
+      Oct. 17, 2013: by Thomas Beutlich, ITI GmbH.
+                     Added support of 2D tables that actually degrade to 1D tables
+                     (ticket #1307)
+
+      Sep. 05, 2013: by Thomas Beutlich, ITI GmbH.
+                     Fixed ANSI-C compliance (ticket #1263)
+                     Fixed reading table files with Windows line endings on Linux
+                     (ticket #1264)
+
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH.
                      Implemented a first version
 
-   Copyright (C) 2013, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2015, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -51,27 +80,15 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "ModelicaStandardTables.h"
-#if defined(__cplusplus)
-extern "C" {
-#endif
-#include "ModelicaUtilities.h"
-#if defined(__cplusplus)
-}
-#endif
-#if !defined(NO_FILE_SYSTEM)
-#if defined(__linux__)
+#if defined(__gnu_linux__) && !defined(NO_FILE_SYSTEM)
 #define _GNU_SOURCE 1
 #endif
+#include "ModelicaStandardTables.h"
+#include "ModelicaUtilities.h"
+#if !defined(NO_FILE_SYSTEM)
 #include <stdio.h>
 #include <locale.h>
-#if defined(__cplusplus)
-extern "C" {
-#endif
 #include "ModelicaMatIO.h"
-#if defined(__cplusplus)
-}
-#endif
 #endif
 #include <float.h>
 #include <math.h>
@@ -114,10 +131,10 @@ enum TableSource {
 
 /* ----- Internal table memory ----- */
 
-/* 3 (of 4) 1D-spline coefficents (per interval) */
+/* 3 (of 4) 1D-spline coefficients (per interval) */
 typedef double Akima1D[3];
 
-/* 15 (of 16) 2D-spline coefficents (per grid) */
+/* 15 (of 16) 2D-spline coefficients (per grid) */
 typedef double Akima2D[15];
 
 /* Left and right interval indices (per interval) */
@@ -142,14 +159,13 @@ typedef struct CombiTimeTable {
     double preNextTimeEvent; /* Time of previous time event, discrete */
     double preNextTimeEventCalled; /* Time of previous call of
         ModelicaStandardTables_CombiTimeTable_nextTimeEvent, discrete */
-    size_t nEventsPerPeriod; /* Number of time events per period/cycle, only
-        used if extrapolation is PERIODIC */
-    size_t eventInterval; /* Event interval marker, discrete, only used if
-        extrapolation is PERIODIC */
+    size_t maxEvents; /* Maximum number of time events (per period/cycle) */
+    size_t eventInterval; /* Event interval marker, discrete,
+        In case of periodic extrapolation this is the current event interval,
+        otherwise it is the next event interval. */
     double tOffset; /* Time offset, calculated by floor function, discrete,
         only used if extrapolation is PERIODIC */
-    Interval* intervals; /* Event interval indices, only used if extrapolation
-        is PERIODIC */
+    Interval* intervals; /* Event interval indices */
 } CombiTimeTable;
 
 typedef struct CombiTable1D {
@@ -194,6 +210,27 @@ typedef struct CombiTable2D {
 #define TABLE_ROW0(j) table[j]
 #define TABLE_COL0(i) table[(i)*nCol]
 
+#define LINEAR(u, u0, u1, y0, y1) \
+    y = (y0) + ((y1) - (y0))*((u) - (u0))/((u1) - (u0));
+/*
+LINEAR(u0, ...) -> y0
+LINEAR(u1, ...) -> y1
+*/
+
+#define LINEAR_SLOPE(y0, dy_du, du) ((y0) + (dy_du)*(du))
+
+#define BILINEAR(u1, u2, u10, u11, u20, u21, y00, y01, y10, y11) {\
+    const double tmp = ((u2) - (u20))/((u20) - (u21)); \
+    y = (y00) + tmp*((y00) - (y01)) + ((u1) - (u10))/((u10) - (u11))* \
+        ((1 + tmp)*((y00) - (y10)) + tmp*((y11) - (y01))); \
+}
+/*
+BILINEAR(u10, u20, ...) -> y00
+BILINEAR(u10, u21, ...) -> y01
+BILINEAR(u11, u20, ...) -> y10
+BILINEAR(u11, u21, ...) -> y11
+*/
+
 #if defined(__cplusplus)
 #define STATIC_CAST(T, E) static_cast<T>(E)
 #else
@@ -213,6 +250,9 @@ typedef std::map<TableKey, TableVal> TableShareMap;
 #if defined(__cplusplus) && !defined(NO_FILE_SYSTEM)
 static TableShareMap tableShare;
 #if defined(_WIN32)
+#if !defined(WIN32_LEAN_AND_MEAN)
+#define WIN32_LEAN_AND_MEAN
+#endif
 #include <Windows.h>
 struct CriticalSection : CRITICAL_SECTION {
     CriticalSection() {
@@ -300,11 +340,6 @@ static size_t findColIndex(const double* table, size_t nCol, size_t last,
                            double x);
   /* Same as findRowIndex but works on rows */
 
-static size_t findPreRowIndex(const CombiTimeTable* tableID, size_t last);
-  /* Find the row index i of the previous event interval where last is in
-     the current event interval
-  */
-
 static int isValidName(const char* name);
   /* Check, whether a file or table name is valid */
 
@@ -322,6 +357,9 @@ static enum TableSource getTableSource(const char *tableName,
   /* Determine table source (file, model or "usertab" function) from table
      and file names
   */
+
+static void transpose(double* table, size_t nRow, size_t nCol);
+  /* Cycle-based in-place array transposition */
 
 static double* readTable(const char* tableName, const char* fileName,
                          size_t* nRow, size_t* nCol, int verbose, int force);
@@ -443,8 +481,8 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                             tableID->nCol, (const int*)cols, tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
-                    tableID->table = STATIC_CAST(double*, malloc(tableID->nRow*tableID->nCol*
-                        sizeof(double)));
+                    tableID->table = STATIC_CAST(double*, malloc(
+                        tableID->nRow*tableID->nCol*sizeof(double)));
                     if (tableID->table) {
                         memcpy(tableID->table, table, tableID->nRow*
                             tableID->nCol*sizeof(double));
@@ -469,29 +507,21 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 0 /* Time-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    tableID->nRow = (size_t)dim[0];
-                    tableID->nCol = (size_t)dim[1];
-                    if (colWise) {
+                    if (colWise == 0) {
+                        tableID->nRow = (size_t)dim[0];
+                        tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
                         /* Need to transpose */
-                        size_t dims[2];
-                        double* tableT;
-
-                        dims[0] = tableID->nRow;
-                        dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(dims[0]*dims[1]*sizeof(double)));
+                        double* tableT = STATIC_CAST(double*, malloc(
+                            dim[0]*dim[1]*sizeof(double)));
                         if (tableT) {
-                            size_t i;
-                            size_t j;
-                            for (i = 0; i < dims[1]; i++) {
-                                for (j = 0; j < dims[0]; j++) {
-                                    tableT[IDX(i, j, dims[0])] =
-                                        tableID->table[IDX(j, i, dims[1])];
-                                }
-                            }
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
-                            tableID->nRow = dims[1];
-                            tableID->nCol = dims[0];
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
                         }
                         else {
                             if (nCols > 0) {
@@ -542,12 +572,12 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
             if (tableID->tableName && tableID->fileName) {
                 TableKey key = std::make_pair(tableID->fileName,
                     tableID->tableName);
+#if defined(_WIN32) || defined(__linux__)
+                CriticalSectionHandler csh;
+#endif
                 TableShareMap::iterator iter = tableShare.find(key);
                 if (iter != tableShare.end()) {
                     /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
                     TableVal& val = iter->second;
                     TableData& data = val.first;
                     data.first--;
@@ -690,7 +720,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 else if (t < TABLE_ROW0(0)) {
                     extrapolate = LEFT;
                 }
-                else if (t > TABLE_COL0(nRow - 1)) {
+                else if (t >= TABLE_COL0(nRow - 1)) {
                     extrapolate = RIGHT;
                     if (tableID->extrapolation != PERIODIC) {
                         /* Event handling for non-periodic extrapolation */
@@ -703,24 +733,58 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                 }
 
                 if (extrapolate == IN_TABLE) {
-                    size_t last = findRowIndex(table, nRow, nCol, tableID->last,
-                        t);
-                    tableID->last = last;
-
-                    if (tableID->extrapolation != PERIODIC) {
+                    size_t last;
+                    if (tableID->extrapolation == PERIODIC) {
+                        last = findRowIndex(table, nRow, nCol,
+                            tableID->last, t);
+                    }
+                    else {
                         /* Event handling for non-periodic extrapolation */
                         if (nextTimeEvent == preNextTimeEvent &&
                             nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
-                            /* Before event iteration */
-                            size_t i;
-                            if (t >= TABLE_COL0(nRow - 1)) {
+                            /* Before event iteration: Return previous
+                               interval value */
+                            if (tableID->eventInterval == 1) {
+                                last = 0;
+                            }
+                            else if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                                last = tableID->intervals[
+                                    tableID->eventInterval - 2][0];
+                            }
+                            else if (tableID->smoothness == LINEAR_SEGMENTS) {
+                                last = tableID->intervals[
+                                    tableID->eventInterval - 2][1];
+                            }
+                            else if (t >= TABLE_COL0(nRow - 1)) {
                                 last = nRow - 1;
                             }
-                            i = findPreRowIndex(tableID, last);
-                            y = TABLE(i, col);
+                            else {
+                                last = findRowIndex(table, nRow, nCol,
+                                    tableID->last, t);
+                            }
+                            y = TABLE(last, col);
                             return y;
                         }
+                        else {
+                            last = findRowIndex(table, nRow, nCol,
+                                tableID->last, t);
+                            if (tableID->eventInterval > 1) {
+                                const size_t i0 = tableID->intervals[
+                                    tableID->eventInterval - 2][0];
+                                const size_t i1 = tableID->intervals[
+                                    tableID->eventInterval - 2][1];
+
+                                /* Event interval correction */
+                                if (last < i0) {
+                                    last = i0;
+                                }
+                                if (last >= i1) {
+                                    last = i0;
+                                }
+                            }
+                        }
                     }
+                    tableID->last = last;
 
                     /* Interpolation */
                     switch (tableID->smoothness) {
@@ -740,7 +804,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                 y = y1;
                             }
                             else {
-                                y = y0 + (y1 - y0)*(t - t0)/(t1 - t0);
+                                LINEAR(t, t0, t1, y0, y1)
                             }
                             break;
                         }
@@ -749,7 +813,6 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             if (tableID->spline) {
                                 const double* c = tableID->spline[
                                     IDX(last, iCol - 1, tableID->nCols)];
-                                /* Calculation of the polynomial */
                                 t -= TABLE_COL0(last);
                                 y = TABLE(last, col); /* c[3] = y0 */
                                 y += ((c[0]*t + c[1])*t + c[2])*t;
@@ -783,16 +846,15 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                 if (tableID->spline) {
                                     const double* c = tableID->spline[
                                         IDX(last, iCol - 1, tableID->nCols)];
-                                    if (extrapolate == RIGHT) {
-                                        const double t1 = TABLE_COL0(last + 1);
-                                        const double y1 = TABLE(last + 1, col);
-                                        /* Calculation of the polynomial */
-                                        y = t1 - t0;
-                                        y = (3*c[0]*y + 2*c[1])*y + c[2]; /* = der_y */
-                                        y = y1 + y*(t - t1);
+                                    if (extrapolate == LEFT) {
+                                        y = LINEAR_SLOPE(y0, c[2], t - t0);
                                     }
-                                    else {
-                                        y = y0 + c[2]*(t - t0);
+                                    else /* if (extrapolate == RIGHT) */ {
+                                        const double t1 = TABLE_COL0(last + 1);
+                                        const double v = t1 - t0;
+                                        y = LINEAR_SLOPE(TABLE(last + 1, col),
+                                            (3*c[0]*v + 2*c[1])*v + c[2],
+                                            t - t1);
                                     }
                                 }
                             }
@@ -803,7 +865,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                                     y = y1;
                                 }
                                 else {
-                                    y = y0 + (y1 - y0)*(t - t0)/(t1 - t0);
+                                    LINEAR(t, t0, t1, y0, y1)
                                 }
                             }
                             break;
@@ -850,7 +912,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
 
             if (nRow > 1) {
                 enum PointInterval extrapolate = IN_TABLE;
-                size_t last;
+                size_t last = 0;
                 int haveLast = 0;
 
                 /* Periodic extrapolation */
@@ -909,7 +971,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                 else if (t < TABLE_ROW0(0)) {
                     extrapolate = LEFT;
                 }
-                else if (t > TABLE_COL0(nRow - 1)) {
+                else if (t >= TABLE_COL0(nRow - 1)) {
                     extrapolate = RIGHT;
                     if (tableID->extrapolation != PERIODIC) {
                         /* Event handling for non-periodic extrapolation */
@@ -922,26 +984,55 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                 }
 
                 if (extrapolate == IN_TABLE) {
-                    if (!haveLast) {
-                        last = findRowIndex(table, nRow, nCol, tableID->last, t);
-                        tableID->last = last;
-                    }
-
                     if (tableID->extrapolation != PERIODIC) {
                         /* Event handling for non-periodic extrapolation */
                         if (nextTimeEvent == preNextTimeEvent &&
                             nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
                             /* Before event iteration */
-                            if (t >= TABLE_COL0(nRow - 1)) {
-                                last = nRow - 1;
-                            }
-                            last = findPreRowIndex(tableID, last);
-                            if (last == 0 && tableID->nEvent == 1) {
+                            if (tableID->eventInterval == 1) {
+                                last = 0;
                                 extrapolate = LEFT;
                             }
-                            else if (last > 0) {
+                            else if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                                last = tableID->intervals[
+                                    tableID->eventInterval - 2][0];
+                            }
+                            else if (tableID->smoothness == LINEAR_SEGMENTS) {
+                                last = tableID->intervals[
+                                    tableID->eventInterval - 2][1];
+                            }
+                            else if (t >= TABLE_COL0(nRow - 1)) {
+                                last = nRow - 1;
+                            }
+                            else {
+                                last = findRowIndex(table, nRow, nCol,
+                                    tableID->last, t);
+                                tableID->last = last;
+                            }
+                            if (last > 0 && extrapolate == IN_TABLE) {
                                 last--;
                             }
+                            haveLast = 1;
+                        }
+                    }
+
+                    if (!haveLast) {
+                        last = findRowIndex(table, nRow, nCol, tableID->last, t);
+                        tableID->last = last;
+                    }
+
+                    if (tableID->extrapolation != PERIODIC &&
+                        tableID->eventInterval > 1) {
+                        const size_t i0 = tableID->intervals[
+                            tableID->eventInterval - 2][0];
+                        const size_t i1 = tableID->intervals[
+                            tableID->eventInterval - 2][1];
+
+                       if (last < i0) {
+                            last = i0;
+                        }
+                        if (last >= i1) {
+                            last = i0;
                         }
                     }
                 }
@@ -967,7 +1058,6 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                             if (tableID->spline) {
                                 const double* c = tableID->spline[
                                     IDX(last, iCol - 1, tableID->nCols)];
-                                /* Calculation of the polynomial */
                                 t -= TABLE_COL0(last);
                                 der_y = (3*c[0]*t + 2*c[1])*t + c[2];
                                 der_y *= der_t;
@@ -996,15 +1086,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                                 if(tableID->spline) {
                                     const double* c = tableID->spline[
                                         IDX(last, iCol - 1, tableID->nCols)];
-                                    if (extrapolate == RIGHT) {
-                                        /* Calculation of the polynomial */
+                                    if (extrapolate == LEFT) {
+                                        der_y = c[2];
+                                    }
+                                    else /* if (extrapolate == RIGHT) */ {
                                         der_y = TABLE_COL0(last + 1) -
                                             TABLE_COL0(last); /* = (t1 - t0) */
                                         der_y = (3*c[0]*der_y + 2*c[1])*
                                             der_y + c[2];
-                                    }
-                                    else {
-                                        der_y = c[2];
                                     }
                                 }
                             }
@@ -1073,14 +1162,14 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
         }
 
-        if (tableID->extrapolation == PERIODIC && tableID->nEvent == 0) {
-            /* Determine number of time events per period */
+        if (tableID->nEvent == 0) {
+            /* Determine maximum number of time events (per period) */
             double tEvent = TABLE_ROW0(0);
             const double tMax = TABLE_COL0(nRow - 1);
             size_t i, eventInterval;
 
             /* There is at least one time event at the interval boundaries */
-            tableID->nEventsPerPeriod = 1;
+            tableID->maxEvents = 1;
             for (i = 0; i < nRow - 1; i++) {
                 double t0 = TABLE_COL0(i);
                 double t1 = TABLE_COL0(i + 1);
@@ -1088,18 +1177,18 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     if (tableID->smoothness == CONSTANT_SEGMENTS) {
                         if (!isNearlyEqual(t0, t1)) {
                             tEvent = t1;
-                            tableID->nEventsPerPeriod++;
+                            tableID->maxEvents++;
                         }
                     }
                     else if (isNearlyEqual(t0, t1)) {
                         tEvent = t1;
-                        tableID->nEventsPerPeriod++;
+                        tableID->maxEvents++;
                     }
                 }
             }
             /* Once again with storage of indices of event intervals */
-            tableID->intervals = STATIC_CAST(Interval*, calloc(tableID->nEventsPerPeriod,
-                sizeof(Interval)));
+            tableID->intervals = STATIC_CAST(Interval*, calloc(
+                tableID->maxEvents, sizeof(Interval)));
             if (!tableID->intervals) {
                 ModelicaError("Memory allocation error\n");
                 return nextTimeEvent;
@@ -1109,7 +1198,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             eventInterval = 0;
             if (tableID->smoothness == CONSTANT_SEGMENTS) {
                 for (i = 0; i < nRow - 1 &&
-                    eventInterval < tableID->nEventsPerPeriod; i++) {
+                    eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent) {
@@ -1130,7 +1219,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
             else {
                 for (i = 0; i < nRow - 1 &&
-                    eventInterval < tableID->nEventsPerPeriod; i++) {
+                    eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent) {
@@ -1138,7 +1227,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                             tEvent = t1;
                             tableID->intervals[eventInterval][1] = i;
                             eventInterval++;
-                            if (eventInterval < tableID->nEventsPerPeriod) {
+                            if (eventInterval < tableID->maxEvents) {
                                 tableID->intervals[eventInterval][0] = i + 1;
                             }
                         }
@@ -1153,23 +1242,24 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
         }
 
-        t -= tableID->startTime;
-        if (t < 0) {
-            /* Next time event at start time */
-            nextTimeEvent = 0;
+        if (t < tableID->startTime) {
+            nextTimeEvent = tableID->startTime;
         }
         else if (nRow > 1) {
             const double tMin = TABLE_ROW0(0);
             const double tMax = TABLE_COL0(nRow - 1);
             const double T = tMax - tMin;
-            size_t i, iStart, iEnd;
-            if (tableID->extrapolation == PERIODIC) {
-                if (tableID->eventInterval == 0) {
-                    /* Initialization of offset time and event interval */
+            if (tableID->eventInterval == 0) {
+                /* Initialization of event interval */
 #if defined(DEBUG_TIME_EVENTS)
-                    const double tOld = t;
+                const double tOld = t;
 #endif
-                    double tEvent = tMin;
+                double tEvent = tMin;
+                size_t i, iStart, iEnd;
+
+                t -= tableID->startTime;
+                if (tableID->extrapolation == PERIODIC) {
+                    /* Initialization of offset time */
                     tableID->tOffset = floor((t - tMin)/T)*T;
                     t -= tableID->tOffset;
                     if (t < tMin) {
@@ -1181,94 +1271,100 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     iStart = findRowIndex(table, nRow, nCol, tableID->last,
                         t + _EPSILON*T);
                     nextTimeEvent = tMax;
-                    for (i = iStart + 1; i < nRow - 1; i++) {
-                        double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
-                        if (t0 > t) {
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
-                            else if (isNearlyEqual(t0, t1)) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
-                        }
-                    }
-
                     tableID->eventInterval = 1;
                     iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
-                    for (i = 0; i < iEnd; i++) {
-                        double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
-                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                if (!isNearlyEqual(t0, t1)) {
-                                    tEvent = t1;
-                                    tableID->eventInterval++;
-                                }
-                            }
-                            else if (isNearlyEqual(t0, t1)) {
+                }
+                else if (t > tMax) {
+                    iStart = nRow - 1;
+                    tableID->eventInterval = tableID->maxEvents + 1;
+                    iEnd = 0;
+                }
+                else if (t < tMin) {
+                    iStart = nRow - 1;
+                    nextTimeEvent = tMin;
+                    tableID->eventInterval = 1;
+                    iEnd = 0;
+                }
+                else if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                    iStart = nRow - 1;
+                    nextTimeEvent = tMax;
+                    iEnd = 0;
+                }
+                else {
+                    iStart = findRowIndex(table, nRow, nCol, tableID->last,
+                        t + _EPSILON*T);
+                    nextTimeEvent = tMax;
+                    tableID->eventInterval = 2;
+                    iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
+                }
+
+                for (i = iStart + 1; i < nRow - 1; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t0 > t) {
+                        if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                            nextTimeEvent = t0;
+                            break;
+                        }
+                        else if (isNearlyEqual(t0, t1)) {
+                            nextTimeEvent = t0;
+                            break;
+                        }
+                    }
+                }
+
+                for (i = 0; i < iEnd; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                        if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                            if (!isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
                                 tableID->eventInterval++;
                             }
                         }
-                    }
-
-                    nextTimeEvent += tableID->tOffset;
-                    if (tableID->eventInterval == tableID->nEventsPerPeriod) {
-                        tableID->tOffset += T;
-                    }
-#if defined(DEBUG_TIME_EVENTS)
-                    t = tOld;
-#endif
-                }
-                else {
-                    /* Increment event interval */
-                    tableID->eventInterval =
-                        1 + tableID->eventInterval % tableID->nEventsPerPeriod;
-                    if (tableID->eventInterval == tableID->nEventsPerPeriod) {
-                        nextTimeEvent = tMax + tableID->tOffset;
-                        tableID->tOffset += T;
-                    }
-                    else {
-                        i = tableID->intervals[
-                            tableID->eventInterval - 1][1];
-                        nextTimeEvent = TABLE_COL0(i) + tableID->tOffset;
-                    }
-                }
-            }
-            else if (t < tMin) {
-                nextTimeEvent = tMin;
-            }
-            else if (t < tMax) {
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
-                    nextTimeEvent = tMax;
-                }
-                else {
-                    iStart = findRowIndex(table, nRow, nCol,
-                        tableID->last, t + _EPSILON*T);
-                    nextTimeEvent = tMax;
-                    for (i = iStart + 1; i < nRow - 1; i++) {
-                        double t0 = TABLE_COL0(i);
-                        if (t0 > t) {
-                            double t1 = TABLE_COL0(i + 1);
-                            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
-                            else if (isNearlyEqual(t0, t1)) {
-                                nextTimeEvent = t0;
-                                break;
-                            }
+                        else if (isNearlyEqual(t0, t1)) {
+                            tEvent = t1;
+                            tableID->eventInterval++;
                         }
                     }
                 }
-            }
-        }
 
-        if (nextTimeEvent < DBL_MAX) {
-            nextTimeEvent += tableID->startTime;
+                if (tableID->extrapolation == PERIODIC) {
+                    nextTimeEvent += tableID->tOffset;
+                    if (tableID->eventInterval == tableID->maxEvents) {
+                        tableID->tOffset += T;
+                    }
+                }
+#if defined(DEBUG_TIME_EVENTS)
+                t = tOld;
+#endif
+            }
+            else if (tableID->extrapolation == PERIODIC) {
+                /* Increment event interval */
+                tableID->eventInterval =
+                    1 + tableID->eventInterval % tableID->maxEvents;
+                if (tableID->eventInterval == tableID->maxEvents) {
+                    nextTimeEvent = tMax + tableID->tOffset;
+                    tableID->tOffset += T;
+                }
+                else {
+                    size_t i = tableID->intervals[
+                        tableID->eventInterval - 1][1];
+                    nextTimeEvent = TABLE_COL0(i) + tableID->tOffset;
+                }
+            }
+            else if (tableID->eventInterval <= tableID->maxEvents) {
+                size_t i = tableID->intervals[
+                    tableID->eventInterval - 1][1];
+                nextTimeEvent = TABLE_COL0(i);
+                /* Increment event interval */
+                tableID->eventInterval++;
+            }
+
+            if (nextTimeEvent < DBL_MAX) {
+                nextTimeEvent += tableID->startTime;
+            }
         }
 
         if (nextTimeEvent > tableID->preNextTimeEvent) {
@@ -1278,12 +1374,11 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
 #if defined(DEBUG_TIME_EVENTS)
         if (nextTimeEvent < DBL_MAX) {
-            ModelicaFormatMessage("At time %lf: %lu. time event at %lf\n",
-                t + tableID->startTime, (unsigned long)tableID->nEvent, nextTimeEvent);
+            ModelicaFormatMessage("At time %lf: %lu. time event at %lf\n", t,
+                (unsigned long)tableID->nEvent, nextTimeEvent);
         }
         else {
-            ModelicaFormatMessage("No more time events for time > %lf\n",
-                t + tableID->startTime);
+            ModelicaFormatMessage("No more time events for time > %lf\n", t);
         }
 #endif
     }
@@ -1359,7 +1454,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName = STATIC_CAST(char*, malloc((strlen(tableName) + 1)*sizeof(char)));
+                tableID->tableName = STATIC_CAST(char*, malloc(
+                    (strlen(tableName) + 1)*sizeof(char)));
                 if (tableID->tableName) {
                     strcpy(tableID->tableName, tableName);
                 }
@@ -1372,7 +1468,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     break;
                 }
-                tableID->fileName = STATIC_CAST(char*, malloc((strlen(fileName) + 1)*sizeof(char)));
+                tableID->fileName = STATIC_CAST(char*, malloc(
+                    (strlen(fileName) + 1)*sizeof(char)));
                 if (tableID->fileName) {
                     strcpy(tableID->fileName, fileName);
                 }
@@ -1402,8 +1499,8 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                             tableID->nCol, (const int*)cols, tableID->nCols);
                     }
 #ifndef NO_TABLE_COPY
-                    tableID->table = STATIC_CAST(double*, malloc(tableID->nRow*tableID->nCol*
-                        sizeof(double)));
+                    tableID->table = STATIC_CAST(double*, malloc(
+                        tableID->nRow*tableID->nCol*sizeof(double)));
                     if (tableID->table) {
                         memcpy(tableID->table, table, tableID->nRow*
                             tableID->nCol*sizeof(double));
@@ -1428,29 +1525,21 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 1 /* 1D-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    tableID->nRow = (size_t)dim[0];
-                    tableID->nCol = (size_t)dim[1];
-                    if (colWise) {
+                    if (colWise == 0) {
+                        tableID->nRow = (size_t)dim[0];
+                        tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
                         /* Need to transpose */
-                        size_t dims[2];
-                        double* tableT;
-
-                        dims[0] = tableID->nRow;
-                        dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(dims[0]*dims[1]*sizeof(double)));
+                        double* tableT = STATIC_CAST(double*, malloc(
+                            dim[0]*dim[1]*sizeof(double)));
                         if (tableT) {
-                            size_t i;
-                            size_t j;
-                            for (i = 0; i < dims[1]; i++) {
-                                for (j = 0; j < dims[0]; j++) {
-                                    tableT[IDX(i, j, dims[0])] =
-                                        tableID->table[IDX(j, i, dims[1])];
-                                }
-                            }
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
-                            tableID->nRow = dims[1];
-                            tableID->nCol = dims[0];
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
                         }
                         else {
                             if (nCols > 0) {
@@ -1501,12 +1590,12 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
             if (tableID->tableName && tableID->fileName) {
                 TableKey key = std::make_pair(tableID->fileName,
                     tableID->tableName);
+#if defined(_WIN32) || defined(__linux__)
+                CriticalSectionHandler csh;
+#endif
                 TableShareMap::iterator iter = tableShare.find(key);
                 if (iter != tableShare.end()) {
                     /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
                     TableVal& val = iter->second;
                     TableData& data = val.first;
                     data.first--;
@@ -1567,80 +1656,65 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
         }
         else {
             enum PointInterval extrapolate = IN_TABLE;
+            size_t last;
 
             if (u < TABLE_ROW0(0)) {
                 extrapolate = LEFT;
+                last = 0;
             }
             else if (u > TABLE_COL0(nRow - 1)) {
                 extrapolate = RIGHT;
+                last = nRow - 2;
+            }
+            else {
+                last = findRowIndex(table, nRow, nCol, tableID->last, u);
+                tableID->last = last;
             }
 
-            if (extrapolate == IN_TABLE) {
-                size_t last = findRowIndex(table, nRow, nCol, tableID->last, u);
-                tableID->last = last;
-
-                /* Interpolation */
-                switch (tableID->smoothness) {
-                    case CONSTANT_SEGMENTS:
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate == IN_TABLE) {
                         if (u >= TABLE_COL0(last + 1)) {
                             last += 1;
                         }
                         y = TABLE(last, col);
                         break;
-
-                    case LINEAR_SEGMENTS: {
-                        const double u0 = TABLE_COL0(last);
-                        const double u1 = TABLE_COL0(last + 1);
-                        const double y0 = TABLE(last, col);
-                        const double y1 = TABLE(last + 1, col);
-                        y = y0 + (y1 - y0)*(u - u0)/(u1 - u0);
-                        break;
                     }
-
-                    case CONTINUOUS_DERIVATIVE:
-                        if (tableID->spline) {
-                            const double* c = tableID->spline[
-                                IDX(last, iCol - 1, tableID->nCols)];
-                            /* Calculation of the polynomial */
-                            u -= TABLE_COL0(last);
-                            y = TABLE(last, col); /* c[3] = y0 */
-                            y += ((c[0]*u + c[1])*u + c[2])*u;
-                        }
-                        break;
-
-                    default:
-                        ModelicaError("Unknown smoothness kind\n");
-                        break;
+                    /* Fall through: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u0 = TABLE_COL0(last);
+                    const double u1 = TABLE_COL0(last + 1);
+                    const double y0 = TABLE(last, col);
+                    const double y1 = TABLE(last + 1, col);
+                    LINEAR(u, u0, u1, y0, y1)
+                    break;
                 }
-            }
-            else {
-                /* Extrapolation */
-                const size_t last = (extrapolate == RIGHT) ? nRow - 2 : 0;
-                const double u0 = TABLE_COL0(last);
-                const double y0 = TABLE(last, col);
 
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                case CONTINUOUS_DERIVATIVE:
                     if (tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last, iCol - 1, tableID->nCols)];
-                        if (extrapolate == RIGHT) {
-                            const double u1 = TABLE_COL0(last + 1);
-                            const double y1 = TABLE(last + 1, col);
-                            /* Calculation of the polynomial */
-                            y = u1 - u0;
-                            y = (3*c[0]*y + 2*c[1])*y + c[2]; /* = der_y */
-                            y = y1 + y*(u - u1);
+                        const double u0 = TABLE_COL0(last);
+                        if (extrapolate == IN_TABLE) {
+                            const double v = u - u0;
+                            y = TABLE(last, col); /* c[3] = y0 */
+                            y += ((c[0]*v + c[1])*v + c[2])*v;
                         }
-                        else {
-                            y = y0 + c[2]*(u - u0);
+                        else if (extrapolate == LEFT) {
+                            y = LINEAR_SLOPE(TABLE(last, col), c[2], u - u0);
+                        }
+                        else /* if (extrapolate == RIGHT) */ {
+                            const double u1 = TABLE_COL0(last + 1);
+                            const double v = u1 - u0;
+                            y = LINEAR_SLOPE(TABLE(last + 1, col),
+                               (3*c[0]*v + 2*c[1])*v + c[2], u - u1);
                         }
                     }
-                }
-                else {
-                    const double u1 = TABLE_COL0(last + 1);
-                    const double y1 = TABLE(last + 1, col);
-                    y = y0 + (y1 - y0)*(u - u0)/(u1 - u0);
-                }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
             }
         }
     }
@@ -1659,69 +1733,56 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
 
         if (nRow > 1) {
             enum PointInterval extrapolate = IN_TABLE;
+            size_t last;
 
             if (u < TABLE_ROW0(0)) {
                 extrapolate = LEFT;
+                last = 0;
             }
             else if (u > TABLE_COL0(nRow - 1)) {
                 extrapolate = RIGHT;
-            }
-
-            if (extrapolate == IN_TABLE) {
-                size_t last = findRowIndex(table, nRow, nCol, tableID->last, u);
-                tableID->last = last;
-
-                /* Interpolation */
-                switch (tableID->smoothness) {
-                    case CONSTANT_SEGMENTS:
-                        break;
-
-                    case LINEAR_SEGMENTS:
-                        der_y = (TABLE(last + 1, col) - TABLE(last, col))/
-                            (TABLE_COL0(last + 1) - TABLE_COL0(last));
-                        der_y *= der_u;
-                        break;
-
-                    case CONTINUOUS_DERIVATIVE:
-                        if (tableID->spline) {
-                            const double* c = tableID->spline[
-                                IDX(last, iCol - 1, tableID->nCols)];
-                            /* Calculation of the polynomial */
-                            u -= TABLE_COL0(last);
-                            der_y = (3*c[0]*u + 2*c[1])*u + c[2];
-                            der_y *= der_u;
-                        }
-                        break;
-
-                    default:
-                        ModelicaError("Unknown smoothness kind\n");
-                        break;
-                }
+                last = nRow - 2;
             }
             else {
-                /* Extrapolation */
-                const size_t last = (extrapolate == RIGHT) ? nRow - 2 : 0;
+                last = findRowIndex(table, nRow, nCol, tableID->last, u);
+                tableID->last = last;
+            }
 
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate == IN_TABLE) {
+                        break;
+                    }
+                    /* Fall through: linear extrapolation */
+                case LINEAR_SEGMENTS:
+                    der_y = (TABLE(last + 1, col) - TABLE(last, col))/
+                        (TABLE_COL0(last + 1) - TABLE_COL0(last));
+                    der_y *= der_u;
+                    break;
+
+                case CONTINUOUS_DERIVATIVE:
                     if (tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last, iCol - 1, tableID->nCols)];
-                        if (extrapolate == RIGHT) {
-                            /* Calculation of the polynomial */
-                            der_y = TABLE_COL0(last + 1) -
-                                TABLE_COL0(last); /* = (u1 - u0) */
-                            der_y = (3*c[0]*der_y + 2*c[1])*der_y + c[2];
+                        if (extrapolate == IN_TABLE) {
+                            const double v = u - TABLE_COL0(last);
+                            der_y = (3*c[0]*v + 2*c[1])*v + c[2];
                         }
-                        else {
+                        else if (extrapolate == LEFT) {
                             der_y = c[2];
                         }
+                        else /* if (extrapolate == RIGHT) */ {
+                            const double v = TABLE_COL0(last + 1) -
+                                TABLE_COL0(last);
+                            der_y = (3*c[0]*v + 2*c[1])*v + c[2];
+                        }
+                        der_y *= der_u;
                     }
-                }
-                else {
-                    der_y = (TABLE(last + 1, col) - TABLE(last, col))/
-                        (TABLE_COL0(last + 1) - TABLE_COL0(last));
-                }
-                der_y *= der_u;
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
             }
         }
     }
@@ -1818,8 +1879,8 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                             tableID->nCol);
                     }
 #ifndef NO_TABLE_COPY
-                    tableID->table = STATIC_CAST(double*, malloc(tableID->nRow*tableID->nCol*
-                        sizeof(double)));
+                    tableID->table = STATIC_CAST(double*, malloc(
+                        tableID->nRow*tableID->nCol*sizeof(double)));
                     if (tableID->table) {
                         memcpy(tableID->table, table, tableID->nRow*
                             tableID->nCol*sizeof(double));
@@ -1841,29 +1902,21 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                 int dim[MAX_TABLE_DIMENSIONS];
                 if (usertab((char*)tableName, 2 /* 2D-interpolation */, dim,
                     &colWise, &tableID->table) == 0) {
-                    tableID->nRow = (size_t)dim[0];
-                    tableID->nCol = (size_t)dim[1];
-                    if (colWise) {
+                    if (colWise == 0) {
+                        tableID->nRow = (size_t)dim[0];
+                        tableID->nCol = (size_t)dim[1];
+                    }
+                    else {
                         /* Need to transpose */
-                        size_t dims[2];
-                        double* tableT;
-
-                        dims[0] = tableID->nRow;
-                        dims[1] = tableID->nCol;
-                        tableT = STATIC_CAST(double*, malloc(dims[0]*dims[1]*sizeof(double)));
+                        double* tableT = STATIC_CAST(double*, malloc(
+                            dim[0]*dim[1]*sizeof(double)));
                         if (tableT) {
-                            size_t i;
-                            size_t j;
-                            for (i = 0; i < dims[1]; i++) {
-                                for (j = 0; j < dims[0]; j++) {
-                                    tableT[IDX(i, j, dims[0])] =
-                                        tableID->table[IDX(j, i, dims[1])];
-                                }
-                            }
+                            memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
-                            tableID->nRow = dims[1];
-                            tableID->nCol = dims[0];
+                            tableID->nRow = (size_t)dim[1];
+                            tableID->nCol = (size_t)dim[0];
                             tableID->source = TABLESOURCE_FUNCTION_TRANSPOSE;
+                            transpose(tableID->table, tableID->nRow, tableID->nCol);
                         }
                         else {
                             free(tableID);
@@ -1910,12 +1963,12 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
             if (tableID->tableName && tableID->fileName) {
                 TableKey key = std::make_pair(tableID->fileName,
                     tableID->tableName);
+#if defined(_WIN32) || defined(__linux__)
+                CriticalSectionHandler csh;
+#endif
                 TableShareMap::iterator iter = tableShare.find(key);
                 if (iter != tableShare.end()) {
                     /* Share hit */
-#if defined(_WIN32) || defined(__linux__)
-                    CriticalSectionHandler csh;
-#endif
                     TableVal& val = iter->second;
                     TableData& data = val.first;
                     data.first--;
@@ -2007,35 +2060,170 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
             /* Single row */
             y = TABLE(1, 1);
         }
-        else {
-            enum PointInterval extrapolate1 = IN_TABLE;
+        else if (nRow == 2 && nCol > 2) {
             enum PointInterval extrapolate2 = IN_TABLE;
+            size_t last2;
+
+            if (u2 < TABLE_ROW0(1)) {
+                extrapolate2 = LEFT;
+                last2 = 0;
+            }
+            else if (u2 > TABLE_ROW0(nCol - 1)) {
+                extrapolate2 = RIGHT;
+                last2 = nCol - 3;
+            }
+            else {
+                last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                    tableID->last2, u2);
+                tableID->last2 = last2;
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate2 == IN_TABLE) {
+                        if (u2 >= TABLE_ROW0(last2 + 2)) {
+                            last2 += 1;
+                        }
+                        y = TABLE(1, last2 + 1);
+                        break;
+                    }
+                    /* Fall through: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u20 = TABLE_ROW0(last2 + 1);
+                    const double u21 = TABLE_ROW0(last2 + 2);
+                    const double y0 = TABLE(1, last2 + 1);
+                    const double y1 = TABLE(1, last2 + 2);
+                    LINEAR(u2, u20, u21, y0, y1)
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last2];
+                        const double u20 = TABLE_ROW0(last2 + 1);
+                        if (extrapolate2 == IN_TABLE) {
+                            u2 -= u20;
+                            y = TABLE(1, last2 + 1); /* c[3] = y0 */
+                            y += ((c[0]*u2 + c[1])*u2 + c[2])*u2;
+                        }
+                        else if (extrapolate2 == LEFT) {
+                            y = LINEAR_SLOPE(TABLE(1, last2 + 1), c[2],
+                                u2 - u20);
+                        }
+                        else /* if (extrapolate2 == RIGHT) */ {
+                            const double u21 = TABLE_ROW0(last2 + 2);
+                            const double v2 = u21 - u20;
+                            y = LINEAR_SLOPE(TABLE(1, last2 + 2), (3*c[0]*v2 +
+                                2*c[1])*v2 + c[2], u2 - u21);
+                        }
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol == 2) {
+            enum PointInterval extrapolate1 = IN_TABLE;
+            size_t last1;
 
             if (u1 < TABLE_COL0(1)) {
                 extrapolate1 = LEFT;
+                last1 = 0;
             }
             else if (u1 > TABLE_COL0(nRow - 1)) {
                 extrapolate1 = RIGHT;
+                last1 = nRow - 3;
+            }
+            else {
+                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1);
+                tableID->last1 = last1;
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate1 == IN_TABLE) {
+                        if (u1 >= TABLE_COL0(last1 + 2)) {
+                            last1 += 1;
+                        }
+                        y = TABLE(last1 + 1, 1);
+                        break;
+                    }
+                    /* Fall through: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u10 = TABLE_COL0(last1 + 1);
+                    const double u11 = TABLE_COL0(last1 + 2);
+                    const double y0 = TABLE(last1 + 1, 1);
+                    const double y1 = TABLE(last1 + 2, 1);
+                    LINEAR(u1, u10, u11, y0, y1)
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last1];
+                        const double u10 = TABLE_COL0(last1 + 1);
+                        if (extrapolate1 == IN_TABLE) {
+                            u1 -= u10;
+                            y = TABLE(last1 + 1, 1); /* c[3] = y0 */
+                            y += ((c[0]*u1 + c[1])*u1 + c[2])*u1;
+                        }
+                        else if (extrapolate1 == LEFT) {
+                            y = LINEAR_SLOPE(TABLE(last1 + 1, 1), c[2],
+                                u1 - u10);
+                        }
+                        else /* if (extrapolate1 == RIGHT) */ {
+                            const double u11 = TABLE_COL0(last1 + 2);
+                            const double v1 = u11 - u10;
+                            y = LINEAR_SLOPE(TABLE(last1 + 2, 1), (3*c[0]*v1 +
+                                2*c[1])*v1 + c[2], u1 - u11);
+                        }
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol > 2) {
+            enum PointInterval extrapolate1 = IN_TABLE;
+            enum PointInterval extrapolate2 = IN_TABLE;
+            size_t last1, last2;
+
+            if (u1 < TABLE_COL0(1)) {
+                extrapolate1 = LEFT;
+                last1 = 0;
+            }
+            else if (u1 > TABLE_COL0(nRow - 1)) {
+                extrapolate1 = RIGHT;
+                last1 = nRow - 3;
+            }
+            else {
+                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1);
+                tableID->last1 = last1;
             }
 
             if (u2 < TABLE_ROW0(1)) {
                 extrapolate2 = LEFT;
+                last2 = 0;
             }
             else if (u2 > TABLE_ROW0(nCol - 1)) {
                 extrapolate2 = RIGHT;
+                last2 = nCol - 3;
+            }
+            else {
+                last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                    tableID->last2, u2);
+                tableID->last2 = last2;
             }
 
-            if (extrapolate1 == IN_TABLE && extrapolate2 == IN_TABLE) {
-                size_t last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1);
-                size_t last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                    tableID->last2, u2);
-                tableID->last1 = last1;
-                tableID->last2 = last2;
-
-                /* Interpolation */
-                switch (tableID->smoothness) {
-                    case CONSTANT_SEGMENTS:
+            switch (tableID->smoothness) {
+                case  CONSTANT_SEGMENTS:
+                    if (extrapolate1 == IN_TABLE && extrapolate2 == IN_TABLE) {
                         if (u1 >= TABLE_COL0(last1 + 2)) {
                             last1 += 1;
                         }
@@ -2044,119 +2232,52 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                         }
                         y = TABLE(last1 + 1, last2 + 1);
                         break;
-
-                    case LINEAR_SEGMENTS: {
-                        const double u10 = TABLE_COL0(last1 + 1);
-                        const double u11 = TABLE_COL0(last1 + 2);
-                        const double u20 = TABLE_ROW0(last2 + 1);
-                        const double u21 = TABLE_ROW0(last2 + 2);
-                        const double y00 = TABLE(last1 + 1, last2 + 1);
-                        const double y01 = TABLE(last1 + 1, last2 + 2);
-                        const double y10 = TABLE(last1 + 2, last2 + 1);
-                        const double y11 = TABLE(last1 + 2, last2 + 2);
-                        y = (u2 - u20)/(u20 - u21);
-                        y = y00 + y*(y00 - y01) + (u1 - u10)/(u10 - u11)*
-                            ((1 + y)*(y00 - y10) + y*(y11 - y01));
-                        break;
                     }
-
-                    case CONTINUOUS_DERIVATIVE:
-                        if (tableID->spline) {
-                            const double* c = tableID->spline[
-                                IDX(last1, last2, nCol - 2)];
-                            double p1, p2, p3;
-                            /* Calculation of the polynomial */
-                            u1 -= TABLE_COL0(last1 + 1);
-                            u2 -= TABLE_ROW0(last2 + 1);
-                            p1 = ((c[0]*u2 + c[1])*u2 + c[2])*u2 + c[3];
-                            p2 = ((c[4]*u2 + c[5])*u2 + c[6])*u2 + c[7];
-                            p3 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
-                            y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
-                            /* p4 = ((c[12]*u2 + c[13])*u2 + c[14])*u2 + y00; */
-                            y += ((c[12]*u2 + c[13])*u2 + c[14])*u2; /* p4 */
-                            y += ((p1*u1 + p2)*u1 + p3)*u1;
-                        }
-                        break;
-
-                    default:
-                        ModelicaError("Unknown smoothness kind\n");
-                        break;
+                    /* Fall through: bilinear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u10 = TABLE_COL0(last1 + 1);
+                    const double u11 = TABLE_COL0(last1 + 2);
+                    const double u20 = TABLE_ROW0(last2 + 1);
+                    const double u21 = TABLE_ROW0(last2 + 2);
+                    const double y00 = TABLE(last1 + 1, last2 + 1);
+                    const double y01 = TABLE(last1 + 1, last2 + 2);
+                    const double y10 = TABLE(last1 + 2, last2 + 1);
+                    const double y11 = TABLE(last1 + 2, last2 + 2);
+                    BILINEAR(u1, u2,
+                        u10, u11, u20, u21, y00, y01, y10, y11)
+                    break;
                 }
-            }
-            else {
-                /* Extrapolation */
-                const size_t last1 = (extrapolate1 == RIGHT) ? nRow - 3 :
-                    ((extrapolate1 == LEFT) ? 0 : findRowIndex(&TABLE(1, 0),
-                    nRow - 1, nCol, tableID->last1, u1));
-                const size_t last2 = (extrapolate2 == RIGHT) ? nCol - 3 :
-                    ((extrapolate2 == LEFT) ? 0 : findColIndex(&TABLE(0, 1),
-                    nCol - 1, tableID->last2, u2));
-                double u10, u11, u20, u21, y00, y01, y10, y11;
 
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+                case CONTINUOUS_DERIVATIVE:
                     if (tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last1, last2, nCol - 2)];
-                        if (extrapolate1 == LEFT) {
-                            u11 = TABLE_COL0(1);
-                            u10 = 2*u11 - TABLE_COL0(2);
-                            if (extrapolate2 == LEFT) {
-                                u21 = TABLE_ROW0(1);
-                                u20 = 2*u21 - TABLE_ROW0(2);
-                                y11 = TABLE(1, 1);
-                                y00 = u10 - u11;
-                                y01 = y11 + c[11]*y00;
-                                y10 = y11 + c[14]*(u20 - u21);
-                                y00 = y10 + c[11]*y00;
+                        if (extrapolate1 == IN_TABLE) {
+                            u1 -= TABLE_COL0(last1 + 1);
+                            y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                            if (extrapolate2 == IN_TABLE) {
+                                double p1, p2, p3;
+                                u2 -= TABLE_ROW0(last2 + 1);
+                                p1 = ((c[0]*u2 + c[1])*u2 + c[2])*u2 + c[3];
+                                p2 = ((c[4]*u2 + c[5])*u2 + c[6])*u2 + c[7];
+                                p3 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
+                                y += ((c[12]*u2 + c[13])*u2 + c[14])*u2; /* p4 */
+                                y += ((p1*u1 + p2)*u1 + p3)*u1;
                             }
-                            else if (extrapolate2 == RIGHT) {
-                                u20 = TABLE_ROW0(nCol - 1);
-                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                y10 = TABLE(1, nCol - 1);
-                                y01 = u21 - u20;
-                                y00 = ((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11]; /* = der_y1 */
-                                y11 =(3*c[12]*y01 + 2*c[13])*y01 + c[14]; /* = der_y2 */
-                                y00 = y10 + y00*(u10 - u11);
-                                y11 *= y01;
-                                y01 = y00 + y11;
-                                y11 = y10 + y11;
+                            else if (extrapolate2 == LEFT) {
+                                double der_y2;
+                                u2 -= TABLE_ROW0(1);
+                                der_y2 = ((c[2]*u1 + c[6])*u1 + c[10])*u1 + c[14];
+                                y += ((c[3]*u1 + c[7])*u1 + c[11])*u1;
+                                y += der_y2*u2;
                             }
-                            else {
-                                u20 = TABLE_ROW0(last2 + 1);
-                                u21 = TABLE_ROW0(last2 + 2);
-                                y10 = TABLE(1, last2 + 1);
-                                y11 = TABLE(1, last2 + 2);
-                                y00 = u10 - u11;
-                                y01 = u21 - u20;
-                                y01 = ((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11]; /* = der_y1 */
-                                y01 = y11 + y01*y00;
-                                y00 = y10 + c[11]*y00;
-                            }
-                        }
-                        else if (extrapolate1 == RIGHT) {
-                            u10 = TABLE_COL0(nRow - 1);
-                            u11 = 2*u10 - TABLE_COL0(nRow - 2);
-                            if (extrapolate2 == LEFT) {
-                                u21 = TABLE_ROW0(1);
-                                u20 = 2*u21 - TABLE_ROW0(2);
-                                y01 = TABLE(nRow - 1, 1);
-                                y00 = u11 - u10;
-                                y11 = (3*c[3]*y00 + 2*c[7])*y00 + c[11]; /* = der_y1 */
-                                y10 = ((c[2]*y00 + c[6])*y00 + c[10])*y00 + c[14]; /* = der_y2 */
-                                y11 = y01 + y11*y00;
-                                y10 *= u20 - u21;
-                                y00 = y01 + y10;
-                                y10 = y11 + y10;
-                            }
-                            else if (extrapolate2 == RIGHT) {
-                                double v1, v2;
+                            else /* if (extrapolate2 == RIGHT) */ {
+                                const double v2 = TABLE_ROW0(nCol - 1) -
+                                    TABLE_ROW0(nCol - 2);
                                 double p1, p2, p3;
                                 double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
-                                u20 = TABLE_ROW0(nCol - 1);
-                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                y00 = TABLE(nRow - 1, nCol - 1);
-                                v1 = u11 - u10;
-                                v2 = u21 - u20;
+                                double der_y2;
+                                u2 -= TABLE_ROW0(nCol - 1);
                                 p1 = ((c[0]*v2 + c[1])*v2 + c[2])*v2 + c[3];
                                 p2 = ((c[4]*v2 + c[5])*v2 + c[6])*v2 + c[7];
                                 p3 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
@@ -2164,83 +2285,96 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                 dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
                                 dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
                                 dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
-                                y10 = ((3*p1*v1 + 2*p2)*v1 + p3);  /* = der_y1 */
-                                y11 = (((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2);  /* = der_y1 */
-                                y10 = y00 + y10*v1;
-                                y01 = y00 + y11*v2;
-                                y11 = y10 + y11*v2;
-                            }
-                            else {
-                                double v1, p1, p2, p3;
-                                u20 = TABLE_ROW0(last2 + 1);
-                                u21 = TABLE_ROW0(last2 + 2);
-                                y00 = TABLE(nRow - 1, last2 + 1);
-                                y01 = TABLE(nRow - 1, last2 + 2);
-                                v1 = u11 - u10;
-                                y10 = ((3*c[3]*v1 + 2*c[7])*v1 + c[11]); /* = der_y1 */
-                                y10 = y00 + y10*v1;
-                                y11 = u21 - u20;
-                                p1 = ((c[0]*y11 + c[1])*y11 + c[2])*y11 + c[3];
-                                p2 = ((c[4]*y11 + c[5])*y11 + c[6])*y11 + c[7];
-                                p3 = ((c[8]*y11 + c[9])*y11 + c[10])*y11 + c[11];
-                                y11 = (3*p1*v1 + 2*p2)*v1 + p3; /* = der_y1 */
-                                y11 = y01 + y11*v1;
+                                der_y2 = ((dp1_u2*u1 + dp2_u2)*u1 + dp3_u2)*u1 + dp4_u2;
+                                y += ((c[12]*v2 + c[13])*v2 + c[14])*v2; /* p4 */
+                                y += ((p1*u1 + p2)*u1 + p3)*u1;
+                                y += der_y2*u2;
                             }
                         }
-                        else {
-                            u10 = TABLE_COL0(last1 + 1);
-                            u11 = TABLE_COL0(last1 + 2);
-                            if (extrapolate2 == LEFT) {
-                                u21 = TABLE_ROW0(1);
-                                u20 = 2*u21 - TABLE_ROW0(2);
-                                y01 = TABLE(last1 + 1, 1);
-                                y11 = TABLE(last1 + 2, 1);
-                                y00 = y01 + c[14]*(u20 - u21);
-                                y10 = u11 - u10;
-                                y10 = ((c[2]*y10 + c[6])*y10 + c[10])*y10 + c[14]; /* = der_y2 */
-                                y10 = y11 + y10*(u20 - u21);
+                        else if (extrapolate1 == LEFT) {
+                            u1 -= TABLE_COL0(1);
+                            if (extrapolate2 == IN_TABLE) {
+                                double der_y1;
+                                u2 -= TABLE_ROW0(last2 + 1);
+                                der_y1 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                y += ((c[12]*u2 + c[13])*u2 + c[14])*u2; /* p4 */
+                                y += der_y1*u1;
                             }
-                            else if (extrapolate2 == RIGHT) {
-                                double v2, dp1_u2, dp2_u2, dp3_u2, dp4_u2;
-                                u20 = TABLE_ROW0(nCol - 1);
-                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                y00 = TABLE(last1 + 1, nCol - 1);
-                                y10 = TABLE(last1 + 2, nCol - 1);
-                                v2 = u21 - u20;
-                                y01 = (3*c[12]*v2 + 2*c[13])*v2 + c[14]; /* = der_y2 */
-                                y01 = y00 + y01*v2;
+                            else if (extrapolate2 == LEFT) {
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(1);
+                                der_y1 = c[11];
+                                der_y2 = c[14];
+                                der_y12 = c[10];
+                                y = TABLE(1, 1);
+                                y += der_y1*u1 + der_y2*u2 + der_y12*u1*u2;
+                            }
+                            else /* if (extrapolate2 == RIGHT) */ {
+                                const double v2 = TABLE_ROW0(nCol - 1) -
+                                    TABLE_ROW0(nCol - 2);
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(nCol - 1);
+                                der_y1 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
+                                der_y2 =(3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                                der_y12 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
+                                y = TABLE(1, nCol - 1);
+                                y += der_y1*u1 + der_y2*u2 + der_y12*u1*u2;
+                            }
+                        }
+                        else /* if (extrapolate1 == RIGHT) */ {
+                            const double v1 = TABLE_COL0(nRow - 1) -
+                                TABLE_COL0(nRow - 2);
+                            u1 -= TABLE_COL0(nRow - 1);
+                            if (extrapolate2 == IN_TABLE) {
+                                double p1, p2, p3;
+                                double der_y1;
+                                u2 -= TABLE_ROW0(last2 + 1);
+                                p1 = ((c[0]*u2 + c[1])*u2 + c[2])*u2 + c[3];
+                                p2 = ((c[4]*u2 + c[5])*u2 + c[6])*u2 + c[7];
+                                p3 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
+                                der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
+                                y = TABLE(last1 + 1, last2 + 1); /* c[15] = y00 */
+                                y += ((c[12]*u2 + c[13])*u2 + c[14])*u2; /* p4 */
+                                y += ((p1*v1 + p2)*v1 + p3)*v1;
+                                y += der_y1*u1;
+                            }
+                            else if (extrapolate2 == LEFT) {
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(1);
+                                der_y1 = (3*c[3]*v1 + 2*c[7])*v1 + c[11];
+                                der_y2 = ((c[2]*v1 + c[6])*v1 + c[10])*v1 + c[14];
+                                der_y12 = (3*c[2]*v1 + 2*c[6])*v1 + c[10];
+                                y = TABLE(nRow - 1, 1);
+                                y += der_y1*u1 + der_y2*u2 + der_y12*u1*u2;
+                            }
+                            else /* if (extrapolate2 == RIGHT) */ {
+                                const double v2 = TABLE_ROW0(nCol - 1) -
+                                    TABLE_ROW0(nCol - 2);
+                                double p1, p2, p3;
+                                double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(nCol - 1);
+                                p1 = ((c[0]*v2 + c[1])*v2 + c[2])*v2 + c[3];
+                                p2 = ((c[4]*v2 + c[5])*v2 + c[6])*v2 + c[7];
+                                p3 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
                                 dp1_u2 = (3*c[0]*v2 + 2*c[1])*v2 + c[2];
                                 dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
                                 dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
                                 dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
-                                y11 = u11 - u10;
-                                y11 = ((dp1_u2*y11 + dp2_u2)*y11 + dp3_u2)*y11 + dp4_u2; /* = der_y2 */
-                                y11 = y10 + y11*v2;
-                            }
-                            else {
-                                /* Should not be possible to get here */
-                                return y;
+                                der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
+                                der_y2 = ((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2;
+                                der_y12 = (3*dp1_u2*v1 + 2*dp2_u2)*v1 + dp3_u2;
+                                y = TABLE(nRow - 1, nCol - 1);
+                                y += der_y1*u1 + der_y2*u2 + der_y12*u1*u2;
                             }
                         }
                     }
-                    else {
-                        /* Normally tableID->spline should not be NULL */
-                        return y;
-                    }
-                }
-                else {
-                    u10 = TABLE_COL0(last1 + 1);
-                    u11 = TABLE_COL0(last1 + 2);
-                    u20 = TABLE_ROW0(last2 + 1);
-                    u21 = TABLE_ROW0(last2 + 2);
-                    y00 = TABLE(last1 + 1, last2 + 1);
-                    y01 = TABLE(last1 + 1, last2 + 2);
-                    y10 = TABLE(last1 + 2, last2 + 1);
-                    y11 = TABLE(last1 + 2, last2 + 2);
-                }
-                y = (u2 - u20)/(u20 - u21);
-                y = y00 + y*(y00 - y01) + (u1 - u10)/(u10 - u11)*
-                    ((1 + y)*(y00 - y10) + y*(y11 - y01));
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
             }
         }
     }
@@ -2257,135 +2391,209 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
 
-        if (nRow > 2 || nCol > 2) {
-            enum PointInterval extrapolate1 = IN_TABLE;
+        if (nRow == 2 && nCol == 2) {
+        }
+        else if (nRow == 2 && nCol > 2) {
             enum PointInterval extrapolate2 = IN_TABLE;
+            size_t last2;
+
+            if (u2 < TABLE_ROW0(1)) {
+                extrapolate2 = LEFT;
+                last2 = 0;
+            }
+            else if (u2 > TABLE_ROW0(nCol - 1)) {
+                extrapolate2 = RIGHT;
+                last2 = nCol - 3;
+            }
+            else {
+                last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                    tableID->last2, u2);
+                tableID->last2 = last2;
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate2 == IN_TABLE) {
+                        break;
+                    }
+                    /* Fall through: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    der_y = (TABLE(1, last2 + 2) - TABLE(1, last2 + 1))/
+                        (TABLE_ROW0(last2 + 2) - TABLE_ROW0(last2 + 1));
+                    der_y *= der_u2;
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last2];
+                        const double u20 = TABLE_ROW0(last2 + 1);
+                        if (extrapolate2 == IN_TABLE) {
+                            u2 -= u20;
+                            der_y = (3*c[0]*u2 + 2*c[1])*u2 + c[2];
+                        }
+                        else if (extrapolate2 == LEFT) {
+                            der_y = c[2];
+                        }
+                        else /* if (extrapolate2 == RIGHT) */ {
+                            const double u21 = TABLE_ROW0(last2 + 2);
+                            der_y = u21 - u20;
+                            der_y = (3*c[0]*der_y + 2*c[1])*der_y + c[2];
+                        }
+                        der_y *= der_u2;
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol == 2) {
+            enum PointInterval extrapolate1 = IN_TABLE;
+            size_t last1;
 
             if (u1 < TABLE_COL0(1)) {
                 extrapolate1 = LEFT;
+                last1 = 0;
             }
             else if (u1 > TABLE_COL0(nRow - 1)) {
                 extrapolate1 = RIGHT;
+                last1 = nRow - 3;
+            }
+            else {
+                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1);
+                tableID->last1 = last1;
+            }
+
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate1 == IN_TABLE) {
+                        break;
+                    }
+                    /* Fall through: linear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    der_y = (TABLE(last1 + 2, 1) - TABLE(last1 + 1, 1))/
+                        (TABLE_COL0(last1 + 2) - TABLE_COL0(last1 + 1));
+                    der_y *= der_u1;
+                    break;
+                }
+
+                case CONTINUOUS_DERIVATIVE:
+                    if (tableID->spline) {
+                        const double* c = tableID->spline[last1];
+                        const double u10 = TABLE_COL0(last1 + 1);
+                        if (extrapolate1 == IN_TABLE) {
+                            u1 -= u10;
+                            der_y = (3*c[0]*u1 + 2*c[1])*u1 + c[2];
+                        }
+                        else if (extrapolate1 == LEFT) {
+                            der_y = c[2];
+                        }
+                        else /* if (extrapolate1 == RIGHT) */ {
+                            const double u11 = TABLE_COL0(last1 + 2);
+                            der_y = u11 - u10;
+                            der_y = (3*c[0]*der_y + 2*c[1])*der_y + c[2];
+                        }
+                        der_y *= der_u1;
+                    }
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
+            }
+        }
+        else if (nRow > 2 && nCol > 2) {
+            enum PointInterval extrapolate1 = IN_TABLE;
+            enum PointInterval extrapolate2 = IN_TABLE;
+            size_t last1, last2;
+
+            if (u1 < TABLE_COL0(1)) {
+                extrapolate1 = LEFT;
+                last1 = 0;
+            }
+            else if (u1 > TABLE_COL0(nRow - 1)) {
+                extrapolate1 = RIGHT;
+                last1 = nRow - 3;
+            }
+            else {
+                last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
+                    tableID->last1, u1);
+                tableID->last1 = last1;
             }
 
             if (u2 < TABLE_ROW0(1)) {
                 extrapolate2 = LEFT;
+                last2 = 0;
             }
             else if (u2 > TABLE_ROW0(nCol - 1)) {
                 extrapolate2 = RIGHT;
-            }
-
-            if (extrapolate1 == IN_TABLE && extrapolate2 == IN_TABLE) {
-                size_t last1 = findRowIndex(&TABLE(1, 0), nRow - 1, nCol,
-                    tableID->last1, u1);
-                size_t last2 = findColIndex(&TABLE(0, 1), nCol - 1,
-                    tableID->last2, u2);
-                tableID->last1 = last1;
-                tableID->last2 = last2;
-
-                /* Interpolation */
-                switch (tableID->smoothness) {
-                    case CONSTANT_SEGMENTS:
-                        break;
-
-                    case LINEAR_SEGMENTS: {
-                        const double u10 = TABLE_COL0(last1 + 1);
-                        const double u11 = TABLE_COL0(last1 + 2);
-                        const double u20 = TABLE_ROW0(last2 + 1);
-                        const double u21 = TABLE_ROW0(last2 + 2);
-                        const double y00 = TABLE(last1 + 1, last2 + 1);
-                        const double y01 = TABLE(last1 + 1, last2 + 2);
-                        const double y10 = TABLE(last1 + 2, last2 + 1);
-                        const double y11 = TABLE(last1 + 2, last2 + 2);
-                        der_y = (u21*(y10 - y00) + u20*(y01 - y11) +
-                            u2*(y00 - y01 - y10 + y11))*der_u1;
-                        der_y += (u11*(y01 - y00) + u10*(y10 - y11) +
-                            u1*(y00 - y01 - y10 + y11))*der_u2;
-                        der_y /= (u10 - u11);
-                        der_y /= (u20 - u21);
-                        break;
-                    }
-
-                    case CONTINUOUS_DERIVATIVE:
-                        if (tableID->spline) {
-                            const double* c = tableID->spline[
-                                IDX(last1, last2, nCol - 2)];
-                            double p1, p2, p3;
-                            double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
-                            /* Calculation of the polynomial */
-                            u1 -= TABLE_COL0(last1 + 1);
-                            u2 -= TABLE_ROW0(last2 + 1);
-                            p1 = ((c[0]*u2 + c[1])*u2 + c[2])*u2 + c[3];
-                            p2 = ((c[4]*u2 + c[5])*u2 + c[6])*u2 + c[7];
-                            p3 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
-                            dp1_u2 = (3*c[0]*u2 + 2*c[1])*u2 + c[2];
-                            dp2_u2 = (3*c[4]*u2 + 2*c[5])*u2 + c[6];
-                            dp3_u2 = (3*c[8]*u2 + 2*c[9])*u2 + c[10];
-                            dp4_u2 = (3*c[12]*u2 + 2*c[13])*u2 + c[14];
-                            der_y = ((3*p1*u1 + 2*p2)*u1 + p3)*der_u1;
-                            der_y += (((dp1_u2*u1 + dp2_u2)*u1 + dp3_u2)*u1 +
-                                dp4_u2)*der_u2;
-                        }
-                        break;
-
-                    default:
-                        ModelicaError("Unknown smoothness kind\n");
-                        break;
-                }
+                last2 = nCol - 3;
             }
             else {
-                /* Extrapolation */
-                const size_t last1 = (extrapolate1 == RIGHT) ? nRow - 3 :
-                    ((extrapolate1 == LEFT) ? 0 : findRowIndex(&TABLE(1, 0),
-                    nRow - 1, nCol, tableID->last1, u1));
-                const size_t last2 = (extrapolate2 == RIGHT) ? nCol - 3 :
-                    ((extrapolate2 == LEFT) ? 0 : findColIndex(&TABLE(0, 1),
-                    nCol - 1, tableID->last2, u2));
-                double u10, u11, u20, u21, y00, y01, y10, y11;
+                last2 = findColIndex(&TABLE(0, 1), nCol - 1,
+                    tableID->last2, u2);
+                tableID->last2 = last2;
+            }
 
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE) {
+            switch (tableID->smoothness) {
+                case CONSTANT_SEGMENTS:
+                    if (extrapolate1 == IN_TABLE && extrapolate2 == IN_TABLE) {
+                        break;
+                    }
+                    /* Fall through: bilinear extrapolation */
+                case LINEAR_SEGMENTS: {
+                    const double u10 = TABLE_COL0(last1 + 1);
+                    const double u11 = TABLE_COL0(last1 + 2);
+                    const double u20 = TABLE_ROW0(last2 + 1);
+                    const double u21 = TABLE_ROW0(last2 + 2);
+                    const double y00 = TABLE(last1 + 1, last2 + 1);
+                    const double y01 = TABLE(last1 + 1, last2 + 2);
+                    const double y10 = TABLE(last1 + 2, last2 + 1);
+                    const double y11 = TABLE(last1 + 2, last2 + 2);
+                    der_y = (u21*(y10 - y00) + u20*(y01 - y11) +
+                        u2*(y00 - y01 - y10 + y11))*der_u1;
+                    der_y += (u11*(y01 - y00) + u10*(y10 - y11) +
+                        u1*(y00 - y01 - y10 + y11))*der_u2;
+                    der_y /= (u10 - u11);
+                    der_y /= (u20 - u21);
+                }
+
+                case CONTINUOUS_DERIVATIVE:
                     if (tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last1, last2, nCol - 2)];
-                        if (extrapolate1 == LEFT) {
-                            if (extrapolate2 == LEFT) {
-                                der_y = c[11]*der_u1 + c[14]*der_u2;
-                                return der_y;
-                            }
-                            else if (extrapolate2 == RIGHT) {
-                                u20 = TABLE_ROW0(nCol - 1);
-                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                y01 = u21 - u20;
-                                der_y = (((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11])*der_u1;
-                                der_y += ((3*c[12]*y01 + 2*c[13])*y01 + c[14])*der_u2;
-                                return der_y;
-                            }
-                            else {
-                                u11 = TABLE_COL0(1);
-                                u10 = 2*u11 - TABLE_COL0(2);
-                                u20 = TABLE_ROW0(last2 + 1);
-                                u21 = TABLE_ROW0(last2 + 2);
-                                y10 = TABLE(1, last2 + 1);
-                                y11 = TABLE(1, last2 + 2);
-                                y00 = u10 - u11;
-                                y01 = u21 - u20;
-                                y01 = ((c[8]*y01 + c[9])*y01 + c[10])*y01 + c[11]; /* = der_y1 */
-                                y01 = y11 + y01*y00;
-                                y00 = y10 + c[11]*y00;
-                            }
-                        }
-                        else if (extrapolate1 == RIGHT) {
-                            if (extrapolate2 == LEFT) {
-                                const double v1 = TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 2);
-                                der_y = ((3*c[3]*v1 + 2*c[7])*v1 + c[11])*der_u1;
-                                der_y += (((c[2]*v1 + c[6])*v1 + c[10])*v1 + c[14])*der_u2;
-                                return der_y;
-                            }
-                            else if (extrapolate2 == RIGHT) {
-                                const double v1 = TABLE_COL0(nRow - 1) - TABLE_COL0(nRow - 2);
-                                const double v2 = TABLE_ROW0(nCol - 1) - TABLE_ROW0(nCol - 2);
+                        if (extrapolate1 == IN_TABLE) {
+                            double der_y1, der_y2;
+                            u1 -= TABLE_COL0(last1 + 1);
+                            if (extrapolate2 == IN_TABLE) {
                                 double p1, p2, p3;
                                 double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                u2 -= TABLE_ROW0(last2 + 1);
+                                p1 = ((c[0]*u2 + c[1])*u2 + c[2])*u2 + c[3];
+                                p2 = ((c[4]*u2 + c[5])*u2 + c[6])*u2 + c[7];
+                                p3 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
+                                dp1_u2 = (3*c[0]*u2 + 2*c[1])*u2 + c[2];
+                                dp2_u2 = (3*c[4]*u2 + 2*c[5])*u2 + c[6];
+                                dp3_u2 = (3*c[8]*u2 + 2*c[9])*u2 + c[10];
+                                dp4_u2 = (3*c[12]*u2 + 2*c[13])*u2 + c[14];
+                                der_y1 = (3*p1*u1 + 2*p2)*u1 + p3;
+                                der_y2 = ((dp1_u2*u1 + dp2_u2)*u1 + dp3_u2)*u1 + dp4_u2;
+                            }
+                            else if (extrapolate2 == LEFT) {
+                                u2 -= TABLE_ROW0(1);
+                                der_y1 = (3*c[3]*u1 + 2*c[7])*u1 + c[11];
+                                der_y1 += ((3*c[2]*u1 + 2*c[6])*u1 + c[10])*u2;
+                                der_y2 = ((c[2]*u1 + c[6])*u1 + c[10])*u1 + c[14];
+                            }
+                            else /* if (extrapolate2 == RIGHT) */ {
+                                const double v2 = TABLE_ROW0(nCol - 1) -
+                                    TABLE_ROW0(nCol - 2);
+                                double p1, p2, p3;
+                                double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                u2 -= TABLE_ROW0(nCol - 1);
                                 p1 = ((c[0]*v2 + c[1])*v2 + c[2])*v2 + c[3];
                                 p2 = ((c[4]*v2 + c[5])*v2 + c[6])*v2 + c[7];
                                 p3 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
@@ -2393,86 +2601,100 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                 dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
                                 dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
                                 dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
-                                der_y = (((3*p1*v1 + 2*p2)*v1 + p3))*der_u1;
-                                der_y += (((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2)*der_u2;
-                                return der_y;
+                                der_y1 = (3*p1*u1 + 2*p2)*u1 + p3;
+                                der_y1 += ((3*dp1_u2*u1 + 2*dp2_u2)*u1 + dp3_u2)*u2;
+                                der_y2 = ((dp1_u2*u1 + dp2_u2)*u1 + dp3_u2)*u1 + dp4_u2;
                             }
-                            else {
-                                double v1, p1, p2, p3;
-                                u10 = TABLE_COL0(nRow - 1);
-                                u11 = 2*u10 - TABLE_COL0(nRow - 2);
-                                u20 = TABLE_ROW0(last2 + 1);
-                                u21 = TABLE_ROW0(last2 + 2);
-                                y00 = TABLE(nRow - 1, last2 + 1);
-                                y01 = TABLE(nRow - 1, last2 + 2);
-                                v1 = u11 - u10;
-                                y10 = ((3*c[3]*v1 + 2*c[7])*v1 + c[11]); /* = der_y1 */
-                                y10 = y00 + y10*v1;
-                                y11 = u21 - u20;
-                                p1 = ((c[0]*y11 + c[1])*y11 + c[2])*y11 + c[3];
-                                p2 = ((c[4]*y11 + c[5])*y11 + c[6])*y11 + c[7];
-                                p3 = ((c[8]*y11 + c[9])*y11 + c[10])*y11 + c[11];
-                                y11 = (3*p1*v1 + 2*p2)*v1 + p3; /* = der_y1 */
-                                y11 = y01 + y11*v1;
+                            der_y = der_y1*der_u1 + der_y2*der_u2;
+                        }
+                        else if (extrapolate1 == LEFT) {
+                            u1 -= TABLE_COL0(1);
+                            if (extrapolate2 == IN_TABLE) {
+                                double der_y1, der_y2;
+                                u2 -= TABLE_ROW0(last2 + 1);
+                                der_y1 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
+                                der_y2 = (3*c[12]*u2 + 2*c[13])*u2 + c[14];
+                                der_y2 += ((3*c[8]*u2 + 2*c[9])*u2 + c[10])*u1;
+                                der_y = der_y1*der_u1 + der_y2*der_u2;
+                            }
+                            else if (extrapolate2 == LEFT) {
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(1);
+                                der_y1 = c[11];
+                                der_y2 = c[14];
+                                der_y12 = c[10];
+                                der_y = (der_y1 + der_y12*u2)*der_u1;
+                                der_y += (der_y2 + der_y12*u1)*der_u2;
+                            }
+                            else /* if (extrapolate2 == RIGHT) */ {
+                                const double v2 = TABLE_ROW0(nCol - 1) -
+                                    TABLE_ROW0(nCol - 2);
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(nCol - 1);
+                                der_y1 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
+                                der_y2 =(3*c[12]*v2 + 2*c[13])*v2 + c[14];
+                                der_y12 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
+                                der_y = (der_y1 + der_y12*u2)*der_u1;
+                                der_y += (der_y2 + der_y12*u1)*der_u2;
                             }
                         }
-                        else {
-                            u10 = TABLE_COL0(last1 + 1);
-                            u11 = TABLE_COL0(last1 + 2);
-                            if (extrapolate2 == LEFT) {
-                                u21 = TABLE_ROW0(1);
-                                u20 = 2*u21 - TABLE_ROW0(2);
-                                y01 = TABLE(last1 + 1, 1);
-                                y11 = TABLE(last1 + 2, 1);
-                                y00 = y01 + c[14]*(u20 - u21);
-                                y10 = u11 - u10;
-                                y10 = ((c[2]*y10 + c[6])*y10 + c[10])*y10 + c[14]; /* = der_y2 */
-                                y10 = y11 + y10*(u20 - u21);
+                        else /* if (extrapolate1 == RIGHT) */ {
+                            const double v1 = TABLE_COL0(nRow - 1) -
+                                TABLE_COL0(nRow - 2);
+                            u1 -= TABLE_COL0(nRow - 1);
+                            if (extrapolate2 == IN_TABLE) {
+                                double p1, p2, p3;
+                                double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                double der_y1, der_y2;
+                                u2 -= TABLE_ROW0(last2 + 1);
+                                p1 = ((c[0]*u2 + c[1])*u2 + c[2])*u2 + c[3];
+                                p2 = ((c[4]*u2 + c[5])*u2 + c[6])*u2 + c[7];
+                                p3 = ((c[8]*u2 + c[9])*u2 + c[10])*u2 + c[11];
+                                dp1_u2 = (3*c[0]*u2 + 2*c[1])*u2 + c[2];
+                                dp2_u2 = (3*c[4]*u2 + 2*c[5])*u2 + c[6];
+                                dp3_u2 = (3*c[8]*u2 + 2*c[9])*u2 + c[10];
+                                dp4_u2 = (3*c[12]*u2 + 2*c[13])*u2 + c[14];
+                                der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
+                                der_y2 = ((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2;
+                                der_y2 += ((3*dp1_u2*v1 + 2*dp2_u2)*v1 + dp3_u2)*u1;
+                                der_y = der_y1*der_u1 + der_y2*der_u2;
                             }
-                            else if (extrapolate2 == RIGHT) {
-                                double v2, dp1_u2, dp2_u2, dp3_u2, dp4_u2;
-                                u20 = TABLE_ROW0(nCol - 1);
-                                u21 = 2*u20 - TABLE_ROW0(nCol - 2);
-                                y00 = TABLE(last1 + 1, nCol - 1);
-                                y10 = TABLE(last1 + 2, nCol - 1);
-                                v2 = u21 - u20;
-                                y01 = (3*c[12]*v2 + 2*c[13])*v2 + c[14]; /* = der_y2 */
-                                y01 = y00 + y01*v2;
+                            else if (extrapolate2 == LEFT) {
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(1);
+                                der_y1 = (3*c[3]*v1 + 2*c[7])*v1 + c[11];
+                                der_y2 = ((c[2]*v1 + c[6])*v1 + c[10])*v1 + c[14];
+                                der_y12 = (3*c[2]*v1 + 2*c[6])*v1 + c[10];
+                                der_y = (der_y1 + der_y12*u2)*der_u1;
+                                der_y += (der_y2 + der_y12*u1)*der_u2;
+                            }
+                            else /* if (extrapolate2 == RIGHT) */ {
+                                const double v2 = TABLE_ROW0(nCol - 1) -
+                                    TABLE_ROW0(nCol - 2);
+                                double p1, p2, p3;
+                                double dp1_u2, dp2_u2, dp3_u2, dp4_u2;
+                                double der_y1, der_y2, der_y12;
+                                u2 -= TABLE_ROW0(nCol - 1);
+                                p1 = ((c[0]*v2 + c[1])*v2 + c[2])*v2 + c[3];
+                                p2 = ((c[4]*v2 + c[5])*v2 + c[6])*v2 + c[7];
+                                p3 = ((c[8]*v2 + c[9])*v2 + c[10])*v2 + c[11];
                                 dp1_u2 = (3*c[0]*v2 + 2*c[1])*v2 + c[2];
                                 dp2_u2 = (3*c[4]*v2 + 2*c[5])*v2 + c[6];
                                 dp3_u2 = (3*c[8]*v2 + 2*c[9])*v2 + c[10];
                                 dp4_u2 = (3*c[12]*v2 + 2*c[13])*v2 + c[14];
-                                y11 = u11 - u10;
-                                y11 = ((dp1_u2*y11 + dp2_u2)*y11 + dp3_u2)*y11 + dp4_u2; /* = der_y2 */
-                                y11 = y10 + y11*v2;
-                            }
-                            else {
-                                /* Should not be possible to get here */
-                                return der_y;
+                                der_y1 = (3*p1*v1 + 2*p2)*v1 + p3;
+                                der_y2 = ((dp1_u2*v1 + dp2_u2)*v1 + dp3_u2)*v1 + dp4_u2;
+                                der_y12 = (3*dp1_u2*v1 + 2*dp2_u2)*v1 + dp3_u2;
+                                der_y = (der_y1 + der_y12*u2)*der_u1;
+                                der_y += (der_y2 + der_y12*u1)*der_u2;
                             }
                         }
                     }
-                    else {
-                        /* Normally tableID->spline should not be NULL */
-                        return der_y;
-                    }
-                }
-                else {
-                    u10 = TABLE_COL0(last1 + 1);
-                    u11 = TABLE_COL0(last1 + 2);
-                    u20 = TABLE_ROW0(last2 + 1);
-                    u21 = TABLE_ROW0(last2 + 2);
-                    y00 = TABLE(last1 + 1, last2 + 1);
-                    y01 = TABLE(last1 + 1, last2 + 2);
-                    y10 = TABLE(last1 + 2, last2 + 1);
-                    y11 = TABLE(last1 + 2, last2 + 2);
-                }
-                der_y = (u21*(y10 - y00) + u20*(y01 - y11) +
-                    u2*(y00 - y01 - y10 + y11))*der_u1;
-                der_y += (u11*(y01 - y00) + u10*(y10 - y11) +
-                    u1*(y00 - y01 - y10 + y11))*der_u2;
-                der_y /= (u10 - u11);
-                der_y /= (u20 - u21);
+                    break;
+
+                default:
+                    ModelicaError("Unknown smoothness kind\n");
+                    break;
             }
         }
     }
@@ -2544,32 +2766,6 @@ static size_t findColIndex(const double* table, size_t nCol, size_t last,
         }
     }
     return i0;
-}
-
-static size_t findPreRowIndex(const CombiTimeTable* tableID, size_t last) {
-    size_t j = last;
-    if (tableID && tableID->table) {
-        const double* table = tableID->table;
-        const size_t nCol = tableID->nCol;
-        size_t i;
-        for (i = last; i > 0; i--) {
-            double t0 = TABLE_COL0(i - 1);
-            double t1 = TABLE_COL0(i);
-            if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                if (!isNearlyEqual(t0, t1)) {
-                    /* First abscissa that is different */
-                    j = i - 1;
-                    break;
-                }
-            }
-            else if (!isNearlyEqual(t0, t1)) {
-                /* Last abscissa that is equal */
-                j = i;
-                break;
-            }
-        }
-    }
-    return j;
 }
 
 /* ----- Internal check functions ----- */
@@ -2845,7 +3041,7 @@ static Akima1D* spline1DInit(const double* table, size_t nRow, size_t nCol,
         size_t col;
 
         /* Actually there is no need for consecutive memory */
-        spline =STATIC_CAST(Akima1D*, malloc((nRow - 1)*nCols*sizeof(Akima1D)));
+        spline = STATIC_CAST(Akima1D*, malloc((nRow - 1)*nCols*sizeof(Akima1D)));
         if (!spline) {
             ModelicaError("Memory allocation error\n");
             return NULL;
@@ -2968,7 +3164,65 @@ static Akima2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
   */
 
     Akima2D* spline = NULL;
-    if (table && nRow > 2 && nCol > 2) {
+    if (table && nRow == 2 && nCol > 2) {
+        Akima1D* spline1D;
+        size_t j;
+        int cols = 2;
+
+        /* Need to transpose */
+        double* tableT = STATIC_CAST(double*, malloc(2*(nCol - 1)*sizeof(double)));
+        if (!tableT) {
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        spline = STATIC_CAST(Akima2D*, malloc((nCol - 1)*sizeof(Akima2D)));
+        if (!spline) {
+            free(tableT);
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        for (j = 1; j < nCol; j++) {
+            tableT[IDX(j - 1, 0, 2)] = TABLE_ROW0(j);
+            tableT[IDX(j - 1, 1, 2)] = TABLE(1, j);
+        }
+
+        spline1D = spline1DInit(tableT, nCol - 1, 2, &cols, 1);
+        free(tableT);
+        /* Copy coefficients */
+        for (j = 0; j < nCol - 1; j++) {
+            const double* c1 = spline1D[j];
+            double* c2 = spline[j];
+            c2[0] = c1[0];
+            c2[1] = c1[1];
+            c2[2] = c1[2];
+        }
+        spline1DClose(spline1D);
+    }
+    else if (table && nRow > 2 && nCol == 2) {
+        Akima1D* spline1D;
+        size_t i;
+        int cols = 2;
+
+        spline = STATIC_CAST(Akima2D*, malloc((nRow - 1)*sizeof(Akima2D)));
+        if (!spline) {
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
+        spline1D = spline1DInit(&table[2], nRow - 1, 2, &cols, 1);
+        /* Copy coefficients */
+        for (i = 0; i < nRow - 1; i++) {
+            const double* c1 = spline1D[i];
+            double* c2 = spline[i];
+            c2[0] = c1[0];
+            c2[1] = c1[1];
+            c2[2] = c1[2];
+        }
+        spline1DClose(spline1D);
+    }
+    else if (table && nRow > 2 && nCol > 2) {
         size_t i, j;
         double* dz_dx;
         double* dz_dy;
@@ -3294,6 +3548,41 @@ static void spline2DClose(Akima2D* spline) {
     }
 }
 
+static void transpose(double* table, size_t nRow, size_t nCol) {
+  /* Reference:
+
+     Cycle-based in-place array transposition
+     (http://en.wikipedia.org/wiki/In-place_matrix_transposition#Non-square_matrices:_Following_the_cycles)
+  */
+
+    size_t i;
+    for (i = 1; i < nRow*nCol - 1; i++) {
+        size_t x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
+        /* Continue if cycle is of length one or predecessor already was visited */
+        if (x <= i) {
+            continue;
+        }
+        /* Continue if cycle already was visited */
+        while (x > i) {
+            x = nRow*(x % nCol) + x/nCol;
+        }
+        if (x < i) {
+            continue;
+        }
+        {
+            double tmp = table[i];
+            size_t s = i; /* start index in the cycle */
+            x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
+            while (x != i) {
+                table[s] = table[x];
+                s = x;
+                x = nRow*(x % nCol) + x/nCol;
+            }
+            table[s] = tmp;
+        }
+    }
+}
+
 /* ----- Internal I/O functions ----- */
 
 static double* readTable(const char* tableName, const char* fileName,
@@ -3302,9 +3591,20 @@ static double* readTable(const char* tableName, const char* fileName,
 #if !defined(NO_FILE_SYSTEM)
     if (tableName && fileName && nRow && nCol) {
 #if defined(__cplusplus)
+        int updateError = 0;
         TableKey key = std::make_pair(fileName, tableName);
-        TableShareMap::iterator iter = tableShare.find(key);
-        if (iter == tableShare.end() || force) {
+        int read;
+        {
+#if defined(_WIN32) || defined(__linux__)
+            /* Lock and release lock since readMatTable/readTxtTable may fail with
+               ModelicaError
+            */
+            CriticalSectionHandler csh;
+#endif
+            TableShareMap::iterator iter = tableShare.find(key);
+            read = (iter == tableShare.end()) || force;
+        }
+        if (read) {
 #endif
             const char* ext;
             int isMatExt = 0;
@@ -3330,52 +3630,58 @@ static double* readTable(const char* tableName, const char* fileName,
                 table = readTxtTable(tableName, fileName, nRow, nCol);
             }
 #if defined(__cplusplus)
-            if (table) {
-                if (iter == tableShare.end()) {
-                    /* Share miss -> Insert new table */
-                    tableShare.insert(std::make_pair(
-                        key, std::make_pair(
-                        std::make_pair(1, table),
-                        std::make_pair(*nRow, *nCol))));
-                }
-                else { /* force == 1 */
-                    /* Share hit -> Update table share (only if not shared
-                       by multiple table objects)
-                    */
-                    TableVal& val = iter->second;
-                    TableData& data = val.first;
-                    if (data.first == 1) {
+        }
+        {
 #if defined(_WIN32) || defined(__linux__)
-                        CriticalSectionHandler csh;
+            /* Again ask for lock and search in hash table share */
+            CriticalSectionHandler csh;
 #endif
-                        TableDim& dim = val.second;
-                        free(data.second);
-                        data.second = table;
-                        dim.first = *nRow;
-                        dim.second = *nCol;
+            TableShareMap::iterator iter = tableShare.find(key);
+            if ((iter == tableShare.end()) || force) {
+                if (table) {
+                    if (iter == tableShare.end()) {
+                        /* Share miss -> Insert new table */
+                        tableShare.insert(std::make_pair(
+                            key, std::make_pair(
+                            std::make_pair(1, table),
+                            std::make_pair(*nRow, *nCol))));
                     }
-                    else {
-                        ModelicaFormatError("Not possible to update shared "
-                            "table \"%s\" from \"%s\": File and table name "
-                            "must be unique.\n", tableName, fileName);
+                    else { /* force == 1 */
+                        /* Share hit -> Update table share (only if not shared
+                           by multiple table objects)
+                        */
+                        TableVal& val = iter->second;
+                        TableData& data = val.first;
+                        if (data.first == 1) {
+                            TableDim& dim = val.second;
+                            free(data.second);
+                            data.second = table;
+                            dim.first = *nRow;
+                            dim.second = *nCol;
+                        }
+                        else {
+                            updateError = 1;
+                        }
                     }
                 }
             }
+            else {
+                /* Share hit -> Read from table share and increment table
+                   reference counter
+                */
+                TableVal& val = iter->second;
+                TableData& data = val.first;
+                TableDim& dim = val.second;
+                data.first++;
+                table = data.second;
+                *nRow = dim.first;
+                *nCol = dim.second;
+            }
         }
-        else {
-            /* Share hit -> Read from table share and increment table
-               reference counter
-            */
-#if defined(_WIN32) || defined(__linux__)
-            CriticalSectionHandler csh;
-#endif
-            TableVal& val = iter->second;
-            TableData& data = val.first;
-            TableDim& dim = val.second;
-            data.first++;
-            table = data.second;
-            *nRow = dim.first;
-            *nCol = dim.second;
+        if (updateError == 1) {
+            ModelicaFormatError("Not possible to update shared "
+                "table \"%s\" from \"%s\": File and table name "
+                "must be unique.\n", tableName, fileName);
         }
 #endif
     }
@@ -3390,7 +3696,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
     if (tableName && fileName && _nRow && _nCol) {
         mat_t* mat;
         matvar_t* matvar;
-        size_t i, nRow, nCol;
+        size_t nRow, nCol;
         int tableReadError = 0;
 
         mat = Mat_Open(fileName, (int)MAT_ACC_RDONLY);
@@ -3436,7 +3742,8 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        table = STATIC_CAST(double*, malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double)));
+        table = STATIC_CAST(double*, malloc(
+            matvar->dims[0]*matvar->dims[1]*sizeof(double)));
         if (!table) {
             Mat_VarFree(matvar);
             (void)Mat_Close(mat);
@@ -3446,16 +3753,21 @@ static double* readMatTable(const char* tableName, const char* fileName,
 
         nRow = matvar->dims[0];
         nCol = matvar->dims[1];
-        /* Loop over rows and store table row-wise */
-        for (i = 0; tableReadError == 0 && i < nRow; i++) {
-            tableReadError = Mat_VarReadDataLinear(mat, matvar,
-                &TABLE_COL0(i), (int)i, (int)nRow, (int)nCol);
+        {
+            int start[2] = {0, 0};
+            int stride[2] = {1, 1};
+            int edge[2];
+            edge[0] = (int)nRow;
+            edge[1] = (int)nCol;
+            tableReadError = Mat_VarReadData(mat, matvar, table, start, stride, edge);
         }
 
         Mat_VarFree(matvar);
         (void)Mat_Close(mat);
 
         if (tableReadError == 0) {
+            /* Array is stored column-wise -> need to transpose */
+            transpose(table, nRow, nCol);
             *_nRow = nRow;
             *_nCol = nCol;
         }
@@ -3474,8 +3786,8 @@ static double* readMatTable(const char* tableName, const char* fileName,
     return table;
 }
 
-#define DELIM_TABLE_HEADER " \t(,)"
-#define DELIM_TABLE_NUMBER " \t,;"
+#define DELIM_TABLE_HEADER " \t(,)\r"
+#define DELIM_TABLE_NUMBER " \t,;\r"
 
 static double* readTxtTable(const char* tableName, const char* fileName,
                             size_t* _nRow, size_t* _nCol) {
@@ -3492,7 +3804,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         unsigned long lineNo = 1;
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         _locale_t loc;
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         locale_t loc;
 #else
         char* dec;
@@ -3527,9 +3839,9 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         /* Expected file header format: "#1" */
         if (0 != strncmp(buf, "#1", 2)) {
             size_t len = strlen(buf);
+            fclose(fp);
             if (len == 0) {
                 free(buf);
-                fclose(fp);
                 ModelicaFormatError(
                     "Error reading format and version information in first "
                     "line of file \"%s\": \"#1\" expected.\n", fileName);
@@ -3537,7 +3849,6 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             else if (len == 1) {
                 char c0 = buf[0];
                 free(buf);
-                fclose(fp);
                 ModelicaFormatError(
                     "Error reading format and version information in first "
                     "line of file \"%s\": \"#1\" expected, but \"%c\" found.\n",
@@ -3547,7 +3858,6 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 char c0 = buf[0];
                 char c1 = buf[1];
                 free(buf);
-                fclose(fp);
                 ModelicaFormatError(
                     "Error reading format and version information in first "
                     "line of file \"%s\": \"#1\" expected, but \"%c%c\" "
@@ -3558,7 +3868,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
 
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         loc = newlocale(LC_NUMERIC, "C", NULL);
 #else
         dec = localeconv()->decimal_point;
@@ -3594,7 +3904,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             }
 #if defined(_MSC_VER) && _MSC_VER >= 1400
             nRow = (unsigned long)_strtol_l(token, &endptr, 10, loc);
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
             nRow = (unsigned long)strtol_l(token, &endptr, 10, loc);
 #else
             nRow = (unsigned long)strtol(token, &endptr, 10);
@@ -3608,7 +3918,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             }
 #if defined(_MSC_VER) && _MSC_VER >= 1400
             nCol = (unsigned long)_strtol_l(token, &endptr, 10, loc);
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
             nCol = (unsigned long)strtol_l(token, &endptr, 10, loc);
 #else
             nCol = (unsigned long)strtol(token, &endptr, 10);
@@ -3629,7 +3939,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                     fclose(fp);
 #if defined(_MSC_VER) && _MSC_VER >= 1400
                     _free_locale(loc);
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
                     freelocale(loc);
 #endif
                     ModelicaError("Memory allocation error\n");
@@ -3656,11 +3966,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         continue;
                     }
                     token = strtok(&buf[k], DELIM_TABLE_NUMBER);
-                    while (i < nRow && j < nCol) {
-                        if (!token) {
-                            break;
-                        }
-                        else if (token[0] == '#') {
+                    while (token && i < nRow && j < nCol) {
+                        if (token[0] == '#') {
                             /* Skip trailing comment line */
                             break;
                         }
@@ -3669,7 +3976,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         if (*endptr != 0) {
                             tableReadError = 1;
                         }
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
                         TABLE(i, j) = strtod_l(token, &endptr, loc);
                         if (*endptr != 0) {
                             tableReadError = 1;
@@ -3682,7 +3989,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             TABLE(i, j) = strtod(token, &endptr);
                         }
                         else {
-                            char* token2 = STATIC_CAST(char*, malloc((strlen(token) + 1)*sizeof(char)));
+                            char* token2 = STATIC_CAST(char*, malloc(
+                                (strlen(token) + 1)*sizeof(char)));
                             if (token2) {
                                 char* p;
                                 strcpy(token2, token);
@@ -3719,7 +4027,46 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                     }
                     /* Check for trailing non-comment character */
                     if (token && token[0] != '#') {
-                        tableReadError = 1;
+                        /* Check for trailing number */
+                        if (i == nRow) {
+                            int foundExponentSign = 0;
+                            int foundExponent = 0;
+                            int foundDec = 0;
+                            tableReadError = 2;
+                            if (token[0] == '+' || token[0] == '-') {
+                                k = 1;
+                            }
+                            else {
+                                k = 0;
+                            }
+                            while (token[k] != '\0') {
+                                if (token[k] >= '0' && token[k] <= '9') {
+                                    k++;
+                                }
+                                else if (token[k] == '.' && foundDec == 0 &&
+                                    foundExponent == 0 && foundExponentSign == 0) {
+                                    foundDec = 1;
+                                    k++;
+                                }
+                                else if ((token[k] == 'e' || token[k] == 'E') &&
+                                    foundExponent == 0) {
+                                    foundExponent = 1;
+                                    k++;
+                                }
+                                else if ((token[k] == '+' || token[k] == '-') &&
+                                    foundExponent == 1 && foundExponentSign == 0) {
+                                    foundExponentSign = 1;
+                                    k++;
+                                }
+                                else {
+                                    tableReadError = 1;
+                                    break;
+                                }
+                            }
+                        }
+                        else {
+                            tableReadError = 1;
+                        }
                         break;
                     }
                 }
@@ -3731,7 +4078,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         fclose(fp);
 #if defined(_MSC_VER) && _MSC_VER >= 1400
         _free_locale(loc);
-#elif defined(__linux__)
+#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         freelocale(loc);
 #endif
         if (foundTable == 0) {
@@ -3752,13 +4099,21 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             *_nCol = 0;
             if (tableReadError == EOF) {
                 ModelicaFormatError(
-                    "End-of-file reached when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                    "from file \"%s\"\n", tableName, nRow, nCol, fileName);
+                    "End-of-file reached when reading numeric data of matrix "
+                    "\"%s(%lu,%lu)\" from file \"%s\"\n", tableName, nRow,
+                    nCol, fileName);
+            }
+            else if (tableReadError == 2) {
+                ModelicaFormatError(
+                    "The table dimensions of matrix \"%s(%lu,%lu)\" from file "
+                    "\"%s\" do not match the actual table size.\n", tableName,
+                    nRow, nCol, fileName);
             }
             else {
                 ModelicaFormatError(
-                    "Error in line %lu when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                    "from file \"%s\"\n", lineNo, tableName, nRow, nCol, fileName);
+                    "Error in line %lu when reading numeric data of matrix "
+                    "\"%s(%lu,%lu)\" from file \"%s\"\n", lineNo, tableName,
+                    nRow, nCol, fileName);
             }
         }
     }
@@ -3773,18 +4128,13 @@ static double* readTxtTable(const char* tableName, const char* fileName,
 static int readLine(char** buf, int* bufLen, FILE* fp) {
     char* offset;
     int oldBufLen;
-    char* p;
 
     if (fgets(*buf, *bufLen, fp) == NULL) {
         return EOF;
     }
 
-    if ((p = strchr(*buf, '\n')) != NULL) {
-        *p = '\0';
-        return 0;
-    }
-
     do {
+        char* p;
         char* tmp;
 
         if ((p = strchr(*buf, '\n')) != NULL) {
@@ -3796,6 +4146,8 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
         *bufLen *= 2;
         tmp = STATIC_CAST(char*, realloc(*buf, (size_t)*bufLen));
         if (!tmp) {
+            fclose(fp);
+            free(*buf);
             ModelicaError("Memory allocation error\n");
             return 1;
         }

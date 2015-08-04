@@ -10,7 +10,7 @@
 Modelica.Math.Matrices.Utilities.continuousRiccatiIterative</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.continuousRiccatiIterative</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.Utilities.html">Utilities</a>.<span class="omc-h1">continuousRiccatiIterative</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
@@ -108,23 +108,23 @@ The algorithm is taken from [1] and [2].</p>
 function continuousRiccatiIterative
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
-  input Real A[:,size(A, 1)] "Matrix A of Riccati equation X*A + A'*X -X*G*X +Q = 0";
-  input Real B[size(A, 1),:] "Matrix B in G = B*inv(R)*B'";
-  input Real R[size(B, 2),size(B, 2)] = identity(size(B, 2)) "Matrix R in G = B*inv(R)*B'";
-  input Real Q[size(A, 1),size(A, 2)] = identity(size(A, 1)) "Matrix Q of Riccati equation X*A + A'*X -X*G*X +Q = 0";
-  input Real X0[size(A, 1),size(A, 2)] = identity(size(A, 1)) "Initial approximate solution for X*A + A'*X -X*G*X +Q = 0";
+  input Real A[:, size(A, 1)] "Matrix A of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real B[size(A, 1), :] "Matrix B in G = B*inv(R)*B'";
+  input Real R[size(B, 2), size(B, 2)] = identity(size(B, 2)) "Matrix R in G = B*inv(R)*B'";
+  input Real Q[size(A, 1), size(A, 2)] = identity(size(A, 1)) "Matrix Q of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real X0[size(A, 1), size(A, 2)] = identity(size(A, 1)) "Initial approximate solution for X*A + A'*X -X*G*X +Q = 0";
   input Integer maxSteps = 10 "Maximal number of iteration steps";
-  input Real eps = Matrices.frobeniusNorm(A) * 0.000000001 "Tolerance for stop criterion";
-  output Real X[size(X0, 1),size(X0, 2)] "Solution X of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real eps = Matrices.frobeniusNorm(A) * 1e-9 "Tolerance for stop criterion";
+  output Real X[size(X0, 1), size(X0, 2)] "Solution X of Riccati equation X*A + A'*X -X*G*X +Q = 0";
   output Real r "Norm of X*A + A'*X - X*G*X + Q, zero for exact solution";
 end continuousRiccatiIterative;
-
 </pre></blockquote>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
 <ul>
 <li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

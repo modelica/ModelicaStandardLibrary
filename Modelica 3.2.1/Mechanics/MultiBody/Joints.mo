@@ -317,7 +317,7 @@ Possible reasons:
     // relationships between quantities of frame_a and of frame_b
     frame_b.r_0 = frame_a.r_0;
 
-    if rooted(frame_a.R) then
+    if Connections.rooted(frame_a.R) then
       R_rel = Frames.planarRotation(e, phi_offset + phi, w);
       frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       frame_a.f = -Frames.resolve1(R_rel, frame_b.f);
@@ -1369,7 +1369,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       Connections.branch(frame_a.R, frame_b.R);
 
       frame_b.r_0 = frame_a.r_0;
-      if rooted(frame_a.R) then
+      if Connections.rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
         zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
@@ -1693,7 +1693,7 @@ frame_b of the joint.
     if enforceStates then
       Connections.branch(frame_a.R, frame_b.R);
 
-      if rooted(frame_a.R) then
+      if Connections.rooted(frame_a.R) then
         R_rel_inv = Frames.nullRotation();
         frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
       else
@@ -3323,136 +3323,136 @@ the origin of frame_a to the middle of the rod, this might be defined as:
         thickness=0.5));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-        Text(origin = {0,-20},
-          lineColor = {0,0,255},
-          extent = {{-150,135},{150,175}},
-          textString = "%name"),
-        Text(origin = {0,12},
-          extent = {{-150,-94},{150,-64}},
-          textString = "%ratio"),
-        Rectangle(origin = {-35,60},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-15,-40},{15,40}}),
-        Rectangle(origin = {-35,0},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-15,-21},{15,21}}),
-        Line(points = {{-80,20},{-60,20}}),
-        Line(points = {{-80,-20},{-60,-20}}),
-        Line(points = {{-70,-20},{-70,-86}}),
-        Line(points = {{0,40},{0,-100}}),
-        Line(points = {{-10,40},{10,40}}),
-        Line(points = {{-10,80},{10,80}}),
-        Line(points = {{60,-20},{80,-20}}),
-        Line(points = {{60,20},{80,20}}),
-        Line(points = {{70,-20},{70,-86}}),
-        Rectangle(origin = {-75,0},
-          lineColor = {64,64,64},
-          fillColor = {191,191,191},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-25,-10},{25,10}}),
-        Rectangle(origin = {75,0},
-          lineColor = {64,64,64},
-          fillColor = {191,191,191},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-25,-10},{25,10}}),
-        Rectangle(origin = {-35,-19},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {-35,-8},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {-35,19},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {-35,8},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {0,60},
-          lineColor = {64,64,64},
-          fillColor = {191,191,191},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-20,-10},{20,10}}),
-        Rectangle(origin = {-35,98},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {-35,87},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {-35,50},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-4},{15,4}}),
-        Rectangle(origin = {-35,22},
-          fillColor = {102,102,102},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {-35,33},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {-35,70},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-4},{15,4}}),
-        Rectangle(origin = {35,60},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-15,-21},{15,21}}),
-        Rectangle(origin = {35,41},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {35,52},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {35,79},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {35,68},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {35,0},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-15,-40},{15,40}}),
-        Rectangle(origin = {35,38},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-2},{15,2}}),
-        Rectangle(origin = {35,27},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {35,-10},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-4},{15,4}}),
-        Rectangle(origin = {35,-27},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-3},{15,3}}),
-        Rectangle(origin = {35,10},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-15,-4},{15,4}}),
-        Rectangle(origin = {-35,40},
-          fillColor = {255,255,255},
-          extent = {{-15,-61},{15,60}}),
-        Rectangle(origin = {35,21},
-          fillColor = {255,255,255},
-          extent = {{-15,-61},{15,60}}),
-        Line(points = {{70,-86},{-70,-86}})}),
+        Text(origin=  {0,-20},
+          lineColor=  {0,0,255},
+          extent=  {{-150,135},{150,175}},
+          textString=  "%name"),
+        Text(origin=  {0,12},
+          extent=  {{-150,-94},{150,-64}},
+          textString=  "%ratio"),
+        Rectangle(origin=  {-35,60},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-15,-40},{15,40}}),
+        Rectangle(origin=  {-35,0},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-15,-21},{15,21}}),
+        Line(points=  {{-80,20},{-60,20}}),
+        Line(points=  {{-80,-20},{-60,-20}}),
+        Line(points=  {{-70,-20},{-70,-86}}),
+        Line(points=  {{0,40},{0,-100}}),
+        Line(points=  {{-10,40},{10,40}}),
+        Line(points=  {{-10,80},{10,80}}),
+        Line(points=  {{60,-20},{80,-20}}),
+        Line(points=  {{60,20},{80,20}}),
+        Line(points=  {{70,-20},{70,-86}}),
+        Rectangle(origin=  {-75,0},
+          lineColor=  {64,64,64},
+          fillColor=  {191,191,191},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-25,-10},{25,10}}),
+        Rectangle(origin=  {75,0},
+          lineColor=  {64,64,64},
+          fillColor=  {191,191,191},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-25,-10},{25,10}}),
+        Rectangle(origin=  {-35,-19},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {-35,-8},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {-35,19},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {-35,8},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {0,60},
+          lineColor=  {64,64,64},
+          fillColor=  {191,191,191},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-20,-10},{20,10}}),
+        Rectangle(origin=  {-35,98},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {-35,87},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {-35,50},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-4},{15,4}}),
+        Rectangle(origin=  {-35,22},
+          fillColor=  {102,102,102},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {-35,33},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {-35,70},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-4},{15,4}}),
+        Rectangle(origin=  {35,60},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-15,-21},{15,21}}),
+        Rectangle(origin=  {35,41},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {35,52},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {35,79},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {35,68},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {35,0},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-15,-40},{15,40}}),
+        Rectangle(origin=  {35,38},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-2},{15,2}}),
+        Rectangle(origin=  {35,27},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {35,-10},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-4},{15,4}}),
+        Rectangle(origin=  {35,-27},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-3},{15,3}}),
+        Rectangle(origin=  {35,10},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-15,-4},{15,4}}),
+        Rectangle(origin=  {-35,40},
+          fillColor=  {255,255,255},
+          extent=  {{-15,-61},{15,60}}),
+        Rectangle(origin=  {35,21},
+          fillColor=  {255,255,255},
+          extent=  {{-15,-61},{15,60}}),
+        Line(points=  {{70,-86},{-70,-86}})}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
 frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation
@@ -3603,6 +3603,7 @@ November 3-4, 2003, pp. 149-158</p>
 
     model RollingWheelSet
     "Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)"
+
      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
       "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
@@ -7289,7 +7290,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None)}),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7454,14 +7455,13 @@ pair of joints\" from Woernle and Hiller is described in:
               smooth=Smooth.None),
             Text(
               extent={{-49,82},{45,59}},
-              textString="constraint",
-              pattern=LinePattern.None),
+              textString="constraint"),
             Text(
               extent={{-150,120},{150,80}},
               lineColor={0,0,255},
               textString="%name")}),
           Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7637,7 +7637,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None)}),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7834,7 +7834,7 @@ pair of joints\" from Woernle and Hiller is described in:
               thickness=0.5,
               smooth=Smooth.None)}),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order to describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -8781,7 +8781,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
        R_rel = Frames.axesRotations(sequence_start,
                                     {angle[1], angle[2], angle[3]},
                                     {der(angle[1]), der(angle[2]), der(angle[3])});
-       if rooted(frame_a.R) then
+       if Connections.rooted(frame_a.R) then
           R_rel_inv = Frames.nullRotation();
           frame_b.R = Frames.absoluteRotation(frame_a.R, R_rel);
        else

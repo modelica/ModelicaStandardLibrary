@@ -716,8 +716,7 @@ Whereas the steady state current is the same in both models, the steady state ac
 
           connect(armature.flange_b, flange) annotation (Line(
               points={{80,0},{100,0}},
-              color={0,127,0},
-              pattern=LinePattern.None));
+              color={0,127,0}));
           connect(r.p, p) annotation (Line(points={{-80,40},{-80,60},{-100,60}},
                 color={0,0,255}));
           connect(armature.flange_a, g_mb.flange)
@@ -4220,7 +4219,8 @@ For modelling of reluctance actuators with this source component it is assumed t
       "Signal-controlled magnetomotive force"
 
       extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
-      Modelica.Blocks.Interfaces.RealInput V_m(unit="A") "Magnetic potential difference"
+      Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
+        "Magnetic potential difference"
         annotation (Placement(transformation(
             origin={0,90},
             extent={{10,-10},{-10,10}},
@@ -4460,7 +4460,7 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2013, Modelica Association and Thomas B&ouml;drich.
+Copyright &copy; 2005-2015, Modelica Association and Thomas B&ouml;drich.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

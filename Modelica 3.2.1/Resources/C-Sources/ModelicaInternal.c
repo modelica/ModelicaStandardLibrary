@@ -23,6 +23,9 @@
 
 
     Release Notes:
+      Nov. 20, 2014, by Thomas Beutlich, ITI GmbH.
+        Fixed platform dependency of ModelicaInternal_readLine/_readFile (ticket #1580)
+
       May 21, 2013, by Martin Otter, DLR.
         Included the improvements from DS Lund:
           - Changed implementation of print to do nothing in case of missing file-system.
@@ -53,7 +56,7 @@
         ModelicaInternal_getFullPath
 
 
-    Copyright (C) 2002-2013, Modelica Association and DLR.
+    Copyright (C) 2002-2015, Modelica Association and DLR.
 
 
    The content of this file is free software; it can be redistributed
@@ -99,6 +102,10 @@ static void ModelicaNotExistError(const char* name) {
   MODELICA_EXPORT const char* ModelicaInternal_temporaryFileName(void) {
        ModelicaNotExistError("ModelicaInternal_temporaryFileName"); return 0; }
   MODELICA_EXPORT void ModelicaInternal_print(const char* string, const char* fileName) {
+       if ( fileName[0] == '\0' ) {
+           /* Write string to terminal */
+           ModelicaFormatMessage("%s\n", string);
+       }
        return; }
   MODELICA_EXPORT int  ModelicaInternal_countLines(const char* fileName) {
        ModelicaNotExistError("ModelicaInternal_countLines"); return 0; }
@@ -116,9 +123,16 @@ static void ModelicaNotExistError(const char* name) {
        ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
-#if defined(__linux__) && !defined _POSIX_
-#define _POSIX_ 1
-#endif
+/* The standard way to detect if we have posix is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#  if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+#    include <unistd.h>
+#  endif
+
+#  if !defined(_POSIX_) && defined(_POSIX_VERSION)
+#    define _POSIX_ 1
+#  endif
 
 #  include <stdio.h>
 #  include <stdlib.h>
@@ -493,8 +507,8 @@ MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name)
 
     char* fullName=0;
 
-#if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED)
-#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED)
+#if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || (_POSIX_VERSION >= 200112L))
+#if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
     /* realpath availability: 4.4BSD, POSIX.1-2001. Using the behaviour of NULL: POSIX.1-2008 */
     char* tempName = realpath(name, buffer);
 #else
@@ -683,7 +697,7 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
   /* Read file into string vector string[nLines] */
      FILE* fp = ModelicaStreams_openFileForReading(fileName, 0);
      char*  line;
-     int    c;
+     int    c, c2;
      size_t lineLen;
      size_t iLines;
      long   offset;
@@ -697,12 +711,17 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
            offset  = ftell(fp);
            lineLen = 0;
            c = fgetc(fp);
+           c2 = c;
            while ( c != '\n' && c != EOF ) {
-              if (lineLen<sizeof(localbuf)) localbuf[lineLen]=c;
+              if (lineLen < sizeof(localbuf)) localbuf[lineLen]=c;
               lineLen++;
+              c2 = c;
               c = fgetc(fp);
            }
 
+           if ( lineLen > 0 && c2 == '\r' ) {
+              lineLen--;
+           }
         /* Allocate storage for next line */
            line = ModelicaAllocateStringWithErrorReturn(lineLen);
            if ( line == NULL ) {
@@ -714,8 +733,7 @@ MODELICA_EXPORT void ModelicaInternal_readFile(const char* fileName, const char*
 
         /* Read next line */
               if (lineLen<=sizeof(localbuf)) {
-                 size_t i;
-                 for(i=0;i<lineLen;++i) line[i]=localbuf[i];
+                 memcpy(line, localbuf, lineLen);
               } else {
               if ( fseek(fp, offset, SEEK_SET != 0) ) {
                  fclose(fp);
@@ -741,7 +759,7 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
   /* Read line lineNumber from file fileName */
      FILE*  fp = ModelicaStreams_openFileForReading(fileName, lineNumber-1);
      char*  line;
-     int    c;
+     int    c, c2;
      size_t lineLen;
      long   offset;
      char   localbuf[200]; /* To avoid fseek */
@@ -752,20 +770,24 @@ MODELICA_EXPORT const char* ModelicaInternal_readLine(const char* fileName, int 
      offset  = ftell(fp);
      lineLen = 0;
      c = fgetc(fp);
+     c2 = c;
      while ( c != '\n' && c != EOF ) {
         if (lineLen<sizeof(localbuf)) localbuf[lineLen]=c;
         lineLen++;
+        c2 = c;
         c = fgetc(fp);
      }
      if ( lineLen == 0 && c == EOF ) goto END_OF_FILE;
 
   /* Read line lineNumber */
+     if ( lineLen > 0 && c2 == '\r' ) {
+        lineLen--;
+     }
      line = ModelicaAllocateStringWithErrorReturn(lineLen);
      if ( line == NULL ) goto Modelica_ERROR3;
 
-     if (lineLen<=sizeof(localbuf)) {
-        size_t i;
-        for(i=0;i<lineLen;++i) line[i]=localbuf[i];
+     if (lineLen <= sizeof(localbuf)) {
+        memcpy(line, localbuf, lineLen);
      } else {
         if ( fseek(fp, offset, SEEK_SET) != 0 ) goto Modelica_ERROR3;
         if ( fread(line, sizeof(char), lineLen, fp) != lineLen ) goto Modelica_ERROR3;

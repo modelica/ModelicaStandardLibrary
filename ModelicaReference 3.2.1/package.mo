@@ -6755,7 +6755,7 @@ class Contact "Contact"
   annotation (Documentation(info="<html>
 <dl>
 <dt><b>Library Officers:</b>
-<dd> <a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a><br>
+<dd> <a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a><br>
      Telemark University College<br>
      PO box 203<br>
      NO-3901 Porsgrunn<br>
@@ -6899,7 +6899,7 @@ annotation (
   versionBuild=2,
   versionDate="2013-08-14",
   dateModified = "2013-08-14 08:44:41Z",
-  revisionId="$Id:: package.mo 6944 2013-08-23 07:16:36Z #$",
+  revisionId="$Id:: package.mo 8368 2015-07-23 15:38:14Z #$",
   Documentation(info="<html>
 <p>
 This package is a reference to Modelica keywords,
@@ -6910,7 +6910,7 @@ It is based on the
 </p>
 
 <p>
-<b>Copyright &copy; 2003-2013 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
+<b>Copyright &copy; 2003-2015 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -6927,7 +6927,7 @@ It is based on the
      <tr>
       <td valign=\"top\"></td>
       <td valign=\"top\">2013-07-26</td>
-      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a>,<br>
+      <td valign=\"top\"><a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a>,<br>
                          <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></td>
       <td valign=\"top\">
 <ul>
@@ -6967,25 +6967,25 @@ It is based on the
      <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4781/Modelica\">r4781</a></td>
       <td valign=\"top\">2011-12-15</td>
-      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a></td>
+      <td valign=\"top\"><a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a></td>
       <td valign=\"top\">Use quoted class names for function descriptions (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/565\">#565</a>)</td>
     </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4256/Modelica\">r4256</a></td>
       <td valign=\"top\">2010-10-06</td>
-      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a></td>
+      <td valign=\"top\"><a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a></td>
       <td valign=\"top\">Removed 'uses' annotation and added icons so it can be used with multiple versions of the MSL (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/425\">#425</a>)</td>
     </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4218/Modelica\">r4218</a></td>
       <td valign=\"top\">2010-09-25</td>
-      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a></td>
+      <td valign=\"top\"><a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a></td>
       <td valign=\"top\">Major clean up of the documentation by use of <a href=\"http://linkchecker.sourceforge.net\"> LinkChecker</a> (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
     </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4145/Modelica\">r4145</a></td>
       <td valign=\"top\">2010-09-07</td>
-      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a></td>
+      <td valign=\"top\"><a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a></td>
       <td valign=\"top\">Added an update of the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
                        from Stefan Vorkoetter (Maplesoft).</td>
     </tr>
@@ -7001,7 +7001,7 @@ It is based on the
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3598/Modelica\">r3598</a></td>
       <td valign=\"top\">2010-03-10</td>
-      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a></td>
+      <td valign=\"top\"><a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a></td>
       <td valign=\"top\">Added some annotations from Modelica language version 3.1 and 3.2 (see ticket <a href=\"http://trac.modelica.org/Modelica/ticket/228\">#228</a>)</td>
     </tr>
     <tr>

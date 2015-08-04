@@ -9,7 +9,7 @@
 <title>Modelica.Mechanics.MultiBody.Frames.axesRotations</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.axesRotations</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<span class="omc-h1">axesRotations</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 Return fixed rotation object to rotate in sequence around fixed angles along 3 axes
@@ -20,14 +20,14 @@ Return fixed rotation object to rotate in sequence around fixed angles along 3 a
 function axesRotations
   import TM = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
   extends Modelica.Icons.Function;
-  input Integer sequence[3](min = {1,1,1}, max = {3,3,3}) = {1,2,3} "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
+  input Integer sequence[3](min = {1, 1, 1}, max = {3, 3, 3}) = {1, 2, 3} "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
   input Modelica.SIunits.Angle angles[3] "Rotation angles around the axes defined in 'sequence'";
   input Modelica.SIunits.AngularVelocity der_angles[3] "= der(angles)";
   output Orientation R "Orientation object to rotate frame 1 into frame 2";
 end axesRotations;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

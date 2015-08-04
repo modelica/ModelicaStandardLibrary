@@ -3,6 +3,8 @@ package Mechanics "Library of 1-dim. and 3-dim. mechanical components (multi-bod
 extends Modelica.Icons.Package;
 
 
+
+
 annotation (
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
       Rectangle(

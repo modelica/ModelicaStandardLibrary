@@ -10,7 +10,7 @@
 Modelica.Mechanics.MultiBody.Frames.Quaternions.from_T_inv</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a>.from_T_inv</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.Quaternions.html">Quaternions</a>.<span class="omc-h1">from_T_inv</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 Return quaternion orientation object Q from inverse transformation matrix T_inv
@@ -20,13 +20,13 @@ Return quaternion orientation object Q from inverse transformation matrix T_inv
 <pre>
 function from_T_inv
   extends Modelica.Icons.Function;
-  input Real T_inv[3,3] "Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)";
+  input Real T_inv[3, 3] "Inverse transformation matrix to transform vector from frame 2 to frame 1 (v1=T_inv*v2)";
   input Quaternions.Orientation Q_guess = nullRotation() "Guess value for output Q (there are 2 solutions; the one closer to Q_guess is used";
   output Quaternions.Orientation Q "Quaternions orientation object to rotate frame 1 into frame 2 (Q and -Q have same transformation matrix)";
 end from_T_inv;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

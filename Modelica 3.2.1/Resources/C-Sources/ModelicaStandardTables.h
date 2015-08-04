@@ -15,7 +15,7 @@
                      Implemented a first version
 
    Copyright (C) 2008, Modelica Association and DLR
-   Copyright (C) 2013, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2015, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without

@@ -9,14 +9,31 @@
 <title>Modelica.Blocks.Sources.BooleanTable</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Blocks.html">Blocks</a>.<a href="Modelica.Blocks.Sources.html">Sources</a>.BooleanTable</h1>
+<h1><a href="Icons/e06afdc5e269bf2f1e75a2374573aa57a144198e.svg"><img class="svgiconhead" src="Icons/e06afdc5e269bf2f1e75a2374573aa57a144198e.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Blocks.html">Blocks</a>.<a class="omc-h1-a" href="Modelica.Blocks.Sources.html">Sources</a>.<span class="omc-h1">BooleanTable</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>The Boolean output y is a signal defined by parameter vector
 <b>table</b>. In the vector time points are stored. At every time
 point, the output y changes its value to the negated value of the
 previous one.</p>
 <p><img src="../../../Modelica%203.2.1/Resources/Images/Blocks/Sources/BooleanTable.png" alt="BooleanTable.png" /></p>
+<p>The precise semantics is:</p>
+<pre>
+  <b>if</b> size(table,1) == 0 <b>then</b>
+     y = startValue;
+  <b>else</b>
+     //            time &lt; table[1]: y = startValue
+     // table[1] ≤ time &lt; table[2]: y = not startValue
+     // table[2] ≤ time &lt; table[3]: y = startValue
+     // table[3] ≤ time &lt; table[4]: y = not startValue
+     // ...
+  <b>end if</b>;
+</pre>
+<p>Note, the result of this block depends only on time, but not on
+the simulation start time (changing the simulation start time, will
+result exactly in the same output y at the same time instant
+ti);</p>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

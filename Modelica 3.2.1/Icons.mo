@@ -21,7 +21,7 @@ package Icons "Library of icons"
             fillPattern=FillPattern.Solid,
             extent={{-12.5,-12.5},{12.5,12.5}})}),
                               Documentation(info="<html>
-<p>This icon indicate classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
+<p>This icon indicates classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
 </html>"));
   end Information;
   extends Icons.Package;
@@ -113,7 +113,7 @@ package Icons "Library of icons"
           Line(points={{10,-10},{70,-10}}, color={0,0,0}),
           Line(points={{10,-50},{70,-50}}, color={0,0,0})}), Documentation(info=
            "<html>
-<p>This icon indicates a documentation class containing references external documentation and literature.</p>
+<p>This icon indicates a documentation class containing references to external documentation and literature.</p>
 </html>"));
 
   end References;
@@ -137,15 +137,15 @@ package Icons "Library of icons"
   partial model Example "Icon for runnable examples"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
-          Ellipse(lineColor = {75,138,73},
+          Ellipse(lineColor=  {75,138,73},
                   fillColor={255,255,255},
-                  fillPattern = FillPattern.Solid,
-                  extent = {{-100,-100},{100,100}}),
-          Polygon(lineColor = {0,0,255},
-                  fillColor = {75,138,73},
-                  pattern = LinePattern.None,
-                  fillPattern = FillPattern.Solid,
-                  points = {{-36,60},{64,0},{-36,-60},{-36,60}})}), Documentation(info="<html>
+                  fillPattern=  FillPattern.Solid,
+                  extent=  {{-100,-100},{100,100}}),
+          Polygon(lineColor=  {0,0,255},
+                  fillColor=  {75,138,73},
+                  pattern=  LinePattern.None,
+                  fillPattern=  FillPattern.Solid,
+                  points=  {{-36,60},{64,0},{-36,-60},{-36,60}})}), Documentation(info="<html>
 <p>This icon indicates an example. The play button suggests that the example can be executed.</p>
 </html>"));
   end Example;
@@ -210,7 +210,7 @@ package Icons "Library of icons"
             fillPattern=FillPattern.Solid,
             extent={{-80.0,0.0},{-20.0,60.0}})}),
                               Documentation(info="<html>
-<p>This icon shall be used for a package/library that contains several variants of one components.</p>
+<p>This icon shall be used for a package/library that contains several variants of one component.</p>
 </html>"));
   end VariantsPackage;
 
@@ -242,10 +242,10 @@ package Icons "Library of icons"
             fillPattern=FillPattern.Solid,
             points={{-23.333,30.0},{46.667,0.0},{-23.333,-30.0}}),
           Rectangle(
-            fillColor = {128,128,128},
-            pattern = LinePattern.None,
-            fillPattern = FillPattern.Solid,
-            extent = {{-70,-4.5},{0,4.5}})}),
+            fillColor=  {128,128,128},
+            pattern=  LinePattern.None,
+            fillPattern=  FillPattern.Solid,
+            extent=  {{-70,-4.5},{0,4.5}})}),
                               Documentation(info="<html>
 <p>This icon indicates a package which contains sources.</p>
 </html>"));
@@ -492,10 +492,10 @@ This icon is designed for a <b>translational sensor</b> model.
             extent={{-150,105},{150,145}},
             textString="%name"),
           Ellipse(
-            lineColor = {108,88,49},
-            fillColor = {255,215,136},
-            fillPattern = FillPattern.Solid,
-            extent = {{-100,-100},{100,100}}),
+            lineColor=  {108,88,49},
+            fillColor=  {255,215,136},
+            fillPattern=  FillPattern.Solid,
+            extent=  {{-100,-100},{100,100}}),
           Text(
             lineColor={108,88,49},
             extent={{-90.0,-90.0},{90.0,90.0}},
@@ -968,9 +968,8 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd>D-82230 Wessling</dd>
     <dd>email: <a href=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</a></dd>
 <dt>Christian Kral</dt>
-    <dd><a href=\"http://www.ait.ac.at/\">Austrian Institute of Technology, AIT</a></dd>
-    <dd>Mobility Department</dd><dd>Giefinggasse 2</dd>
-    <dd>1210 Vienna, Austria</dd>
+    <dd><a href=\"http://christiankral.net/\">Electric Machines, Drives and Systems</a></dd>
+    <dd>1060 Vienna, Austria</dd>
     <dd>email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a></dd>
 <dt>Johan Andreasson</dt>
     <dd><a href=\"http://www.modelon.se/\">Modelon AB</a></dd>
@@ -979,7 +978,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
     <dd>email: <a href=\"mailto:johan.andreasson@modelon.se\">johan.andreasson@modelon.se</a></dd>
 </dl>
 
-<p>Copyright &copy; 1998-2013, Modelica Association, DLR, AIT, and Modelon AB. </p>
+<p>Copyright &copy; 1998-2015, Modelica Association, DLR, AIT, and Modelon AB. </p>
 <p><i>This Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>.</i> </p>
 </html>"));
 end Icons;

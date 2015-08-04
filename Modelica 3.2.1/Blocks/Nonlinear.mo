@@ -7,10 +7,11 @@ package Nonlinear
       block Limiter "Limit the range of a signal"
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
-        parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
+        parameter Boolean strict=false
+      "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Boolean limitsAtInit=true
-          "= false, if limits are ignored during initialization (i.e., y=u)"
+      "= false, if limits are ignored during initialization (i.e., y=u)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         extends Interfaces.SISO;
 
@@ -231,7 +232,7 @@ is passed as output.
     import Modelica.Constants.small;
     parameter Modelica.SIunits.DampingCoefficient Rising( min= small) = 1
       "Maximum rising slew rate [+small..+inf)";
-    parameter Modelica.SIunits.DampingCoefficient Falling(min=-small) = -Rising
+    parameter Modelica.SIunits.DampingCoefficient Falling(max=-small) = -Rising
       "Maximum falling slew rate (-inf..-small]";
     parameter Modelica.SIunits.Time Td(min=small) = 0.001
       "Derivative time constant";

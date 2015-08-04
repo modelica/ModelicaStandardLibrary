@@ -56,7 +56,7 @@ is negative. It must be positive.
   algorithm
     y := x/(x*x+delta*delta)^0.25;
 
-    annotation(derivative(zeroDerivative=delta)=Utilities.regRoot_der,
+    annotation(derivative(zeroDerivative=delta)=regRoot_der,
       Documentation(info="<html>
 <p>
 This function approximates sqrt(abs(x))*sgn(x), such that the derivative is finite and smooth in x=0.

@@ -27,7 +27,8 @@ package DrumBoiler
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1, p=Cv.from_bar(0.5),
-      redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
+      redeclare package Medium =
+          Modelica.Media.Water.StandardWaterOnePhase,
       T=500)
       annotation (Placement(transformation(
           origin={90,-20},

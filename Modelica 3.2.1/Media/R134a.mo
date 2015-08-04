@@ -161,7 +161,8 @@ package R134a "R134a: Medium model for R134a"
 
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;
-      input Modelica.Media.Common.HelmholtzDerivs f "Dimensionless derivatives of Helmholtz function";
+      input Modelica.Media.Common.HelmholtzDerivs f
+        "Dimensionless derivatives of Helmholtz function";
       output PhaseBoundaryProperties sat "Phase boundary property record";
     protected
       SI.Pressure p "Pressure";
@@ -1019,8 +1020,8 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
         4]);
 
       // annotation(smoothOrder=5);
-      annotation (derivative=dDewEnthalpy_dPressure_der_sat, Documentation(info
-            ="<html>
+      annotation (derivative=dDewEnthalpy_dPressure_der_sat, Documentation(info=
+             "<html>
 <p>This function calculates the vapor phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
@@ -1441,7 +1442,8 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 
     protected
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
-      Modelica.Media.Common.HelmholtzDerivs f_ref "Helmholtz derivatives for reference state";
+      Modelica.Media.Common.HelmholtzDerivs f_ref
+        "Helmholtz derivatives for reference state";
       Modelica.SIunits.ThermalConductivity lambda_dg
         "Dilute gas contribution to lambda";
       R134aData.CoeffsThermalConductivity coeff
@@ -2105,7 +2107,8 @@ This function adds the ideal gas contribution of the fundamental equation to the
 
       input Real delta "Reduced density (delta=d/dcrit)";
       input Real tau "Reduced temperature (tau=Tcrit/T)";
-      output Modelica.Media.Common.HelmholtzDerivs fid "Helmholtz derivatives of ideal part";
+      output Modelica.Media.Common.HelmholtzDerivs fid
+        "Helmholtz derivatives of ideal part";
     protected
       Modelica.Media.R134a.R134aData.Ideal id "Ideal coeffcients";
       Real atau=abs(tau) "|tau|";

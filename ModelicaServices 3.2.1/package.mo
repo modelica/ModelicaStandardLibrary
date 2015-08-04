@@ -39,7 +39,7 @@ email: Board@Modelica.org<br>
 web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
-Copyright &copy; 1998-2013, DLR, Dassault Syst&egrave;mes AB.
+Copyright &copy; 1998-2015, DLR, Dassault Syst&egrave;mes AB.
 </p>
 
 <p>
@@ -756,7 +756,7 @@ annotation (
   versionBuild=2,
   versionDate="2013-08-14",
   dateModified = "2013-08-14 08:44:41Z",
-  revisionId="$Id:: package.mo 6931 2013-08-14 11:38:51Z #$",
+  revisionId="$Id:: package.mo 8368 2015-07-23 15:38:14Z #$",
   uses(Modelica(version="3.2.1")),
   conversion(
     noneFromVersion="1.0",
@@ -805,7 +805,7 @@ This ModelicaServices package provides only \"dummy\" models that do nothing.
 
 <p>
 <b>Licensed by DLR and Dassault Syst&egrave;mes AB under the Modelica License 2</b><br>
-Copyright &copy; 2009-2013, DLR and Dassault Syst&egrave;mes AB.
+Copyright &copy; 2009-2015, DLR and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>

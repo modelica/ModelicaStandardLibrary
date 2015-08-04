@@ -10,7 +10,7 @@
 Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Fluid.html">Fluid</a>.<a href="Modelica.Fluid.Pipes.html">Pipes</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">WallFriction</a>.<a href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.html">PartialWallFriction</a>.massFlowRate_dp</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Fluid.html">Fluid</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.html">Pipes</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.html">BaseClasses</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.html">WallFriction</a>.<a class="omc-h1-a" href="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.html">PartialWallFriction</a>.<span class="omc-h1">massFlowRate_dp</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <h4><a name="interface" id="interface">Interface</a></h4>
 <blockquote>
@@ -24,14 +24,15 @@ partial function massFlowRate_dp
   input SI.DynamicViscosity mu_b "Dynamic viscosity at port_b (dummy if use_mu = false)";
   input SI.Length length "Length of pipe";
   input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-  input SI.Length roughness(min = 0) = 0.000025 "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
+  input SI.Area crossArea = pi * diameter ^ 2 / 4 "Inner cross section area";
+  input SI.Length roughness(min = 0) = 2.5e-5 "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
   input SI.AbsolutePressure dp_small = 1 "Regularization of zero flow if |dp| &lt; dp_small (dummy if use_dp_small = false)";
   input SI.ReynoldsNumber Re_turbulent = 4000 "Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)";
   output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
 end massFlowRate_dp;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

@@ -9,7 +9,7 @@
 <title>Modelica.Math.Matrices.LAPACK.dgeevx</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dgeevx</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.<span class="omc-h1">dgeevx</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 Lapack documentation
@@ -195,17 +195,17 @@ Lapack documentation
 <pre>
 function dgeevx
   extends Modelica.Icons.Function;
-  input Real A[:,size(A, 1)];
+  input Real A[:, size(A, 1)];
   output Real alphaReal[size(A, 1)] "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
   output Real alphaImag[size(A, 1)] "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
-  output Real lEigenVectors[size(A, 1),size(A, 1)] "left eigenvectors of matrix A";
-  output Real rEigenVectors[size(A, 1),size(A, 1)] "right eigenvectors of matrix A";
-  output Real AS[size(A, 1),size(A, 2)] = A "AS iss the real Schur form of the balanced version of the input matrix A";
+  output Real lEigenVectors[size(A, 1), size(A, 1)] "left eigenvectors of matrix A";
+  output Real rEigenVectors[size(A, 1), size(A, 1)] "right eigenvectors of matrix A";
+  output Real AS[size(A, 1), size(A, 2)] = A "AS iss the real Schur form of the balanced version of the input matrix A";
   output Integer info;
 end dgeevx;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

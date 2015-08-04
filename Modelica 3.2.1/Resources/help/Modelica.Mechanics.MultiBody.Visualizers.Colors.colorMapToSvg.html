@@ -10,7 +10,7 @@
 Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.html">Colors</a>.colorMapToSvg</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Colors.html">Colors</a>.<span class="omc-h1">colorMapToSvg</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <h4>Syntax</h4>
 <blockquote>
@@ -105,7 +105,7 @@ function colorMapToSvg
   extends Modelica.Icons.Function;
   encapsulated type HeaderType = enumeration(svgBeginAndEnd, svgBegin, svgEnd, noHeader);
   import Modelica.Utilities.Streams.print;
-  input Real colorMap[:,3] "Color map to be stored in svg format" annotation(choices(choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.hot(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.gray(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.spring(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.summer(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.autumn(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.winter()));
+  input Real colorMap[:, 3] "Color map to be stored in svg format" annotation(choices(choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.hot(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.gray(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.spring(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.summer(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.autumn(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.winter()));
   input String fileName = "colorMap.svg" "File where the svg representation shall be stored";
   input Real width(unit = "mm") = 10 "Width in svg-figure";
   input Real height(unit = "mm") = 100 "Height in svg-figure";
@@ -120,21 +120,21 @@ function colorMapToSvg
   input String caption = "" "Caption above the map";
   input HeaderType headerType = Colors.colorMapToSvg.HeaderType.svgBeginAndEnd "Type of header";
 end colorMapToSvg;
-
 </pre></blockquote>
 <h2>Contents</h2>
-<table summary="Items">
+<table>
 <tr>
 <th>Name</th>
 <th>Description</th>
 </tr>
 <tr>
 <td><a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.HeaderType.html">
-HeaderType</a></td>
+<img class="svgiconsmall" src="Icons/9f6ca1d4d28e0aa45d2ea3e11f1e76d8871cffaf.svg" /></a>&nbsp;<a href="Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.HeaderType.html">HeaderType</a></td>
 <td></td>
 </tr>
 </table>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

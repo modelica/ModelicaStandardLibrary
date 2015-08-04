@@ -1873,7 +1873,7 @@ This model contains the mechanical components of the r3 robot
               extent={{-198,150},{-138,110}},
               textString="6",
               lineColor={0,0,255}),
-            Bitmap(extent={{-130,195},{195,-195}}, fileName=
+            Bitmap(extent={{-130,-195},{195,195}}, fileName=
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,

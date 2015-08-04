@@ -535,7 +535,7 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -793,7 +793,7 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1140,7 +1140,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1408,7 +1408,7 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1636,7 +1636,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1954,7 +1954,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -2028,7 +2028,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -2218,30 +2218,30 @@ This package contains components for modeling electrical machines, specially thr
     end Components;
     annotation (Icon(graphics={
       Rectangle(
-        origin = {0,14.817},
-        fillColor = {170,213,255},
-        fillPattern = FillPattern.HorizontalCylinder,
-        extent = {{-54.179,-59.817},{65.821,60.183}}),
+        origin=  {0,14.817},
+        fillColor=  {170,213,255},
+        fillPattern=  FillPattern.HorizontalCylinder,
+        extent=  {{-54.179,-59.817},{65.821,60.183}}),
       Rectangle(
-        origin = {5.821,15},
-        fillColor = {128,128,128},
-        fillPattern = FillPattern.HorizontalCylinder,
-        extent = {{-80,-60},{-60,60}}),
+        origin=  {5.821,15},
+        fillColor=  {128,128,128},
+        fillPattern=  FillPattern.HorizontalCylinder,
+        extent=  {{-80,-60},{-60,60}}),
       Rectangle(
-        origin = {5.821,15},
-        fillColor = {95,95,95},
-        fillPattern = FillPattern.HorizontalCylinder,
-        extent = {{60,-10},{80,10}}),
+        origin=  {5.821,15},
+        fillColor=  {95,95,95},
+        fillPattern=  FillPattern.HorizontalCylinder,
+        extent=  {{60,-10},{80,10}}),
       Rectangle(
-        origin = {5.821,15},
-        lineColor = {95,95,95},
-        fillColor = {95,95,95},
-        fillPattern = FillPattern.Solid,
-        extent = {{-60,50},{20,70}}),
+        origin=  {5.821,15},
+        lineColor=  {95,95,95},
+        fillColor=  {95,95,95},
+        fillPattern=  FillPattern.Solid,
+        extent=  {{-60,50},{20,70}}),
       Polygon(
-        origin = {5.821,15},
-        fillPattern = FillPattern.Solid,
-        points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
+        origin=  {5.821,15},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
 This package contains components for modeling quasi stationary electrical induction machines machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
@@ -2495,30 +2495,30 @@ This package contains the quasi stationary space phasor connector and partial mo
   end Interfaces;
   annotation (Icon(graphics={
       Rectangle(
-        origin = {0,14.817},
-        fillColor = {170,213,255},
-        fillPattern = FillPattern.HorizontalCylinder,
-        extent = {{-54.179,-59.817},{65.821,60.183}}),
+        origin=  {0,14.817},
+        fillColor=  {170,213,255},
+        fillPattern=  FillPattern.HorizontalCylinder,
+        extent=  {{-54.179,-59.817},{65.821,60.183}}),
       Rectangle(
-        origin = {5.821,15},
-        fillColor = {128,128,128},
-        fillPattern = FillPattern.HorizontalCylinder,
-        extent = {{-80,-60},{-60,60}}),
+        origin=  {5.821,15},
+        fillColor=  {128,128,128},
+        fillPattern=  FillPattern.HorizontalCylinder,
+        extent=  {{-80,-60},{-60,60}}),
       Rectangle(
-        origin = {5.821,15},
-        fillColor = {95,95,95},
-        fillPattern = FillPattern.HorizontalCylinder,
-        extent = {{60,-10},{80,10}}),
+        origin=  {5.821,15},
+        fillColor=  {95,95,95},
+        fillPattern=  FillPattern.HorizontalCylinder,
+        extent=  {{60,-10},{80,10}}),
       Rectangle(
-        origin = {5.821,15},
-        lineColor = {95,95,95},
-        fillColor = {95,95,95},
-        fillPattern = FillPattern.Solid,
-        extent = {{-60,50},{20,70}}),
+        origin=  {5.821,15},
+        lineColor=  {95,95,95},
+        fillColor=  {95,95,95},
+        fillPattern=  FillPattern.Solid,
+        extent=  {{-60,50},{20,70}}),
       Polygon(
-        origin = {5.821,15},
-        fillPattern = FillPattern.Solid,
-        points = {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
+        origin=  {5.821,15},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-70,-90},{-60,-90},{-30,-20},{20,-20},{50,-90},{60,-90},{60,-100},{-70,-100},{-70,-90}})}), Documentation(info="<html>
 <p>This package hosts models for quasi stationary induction machines and transformers.
 </p>
 <h4>Please note</h4>

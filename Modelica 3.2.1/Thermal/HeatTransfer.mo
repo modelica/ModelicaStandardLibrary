@@ -1,6 +1,4 @@
 within Modelica.Thermal;
-
-
 package HeatTransfer
   "Library of 1-dimensional heat transfer with lumped elements"
   extends Modelica.Icons.Package;
@@ -1026,82 +1024,82 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
     end ThermalCollector;
     annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
       Rectangle(
-        origin = {12,40},
-        fillColor = {192,192,192},
-        fillPattern = FillPattern.Backward,
-        extent = {{-100,-100},{-70,18}}),
+        origin=  {12,40},
+        fillColor=  {192,192,192},
+        fillPattern=  FillPattern.Backward,
+        extent=  {{-100,-100},{-70,18}}),
       Line(
-        origin = {12,40},
-        points = {{-44,16},{-44,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-44,16},{-44,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-4,16},{-4,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-4,16},{-4,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{30,18},{30,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{30,18},{30,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{66,18},{66,-100}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{66,18},{66,-100}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{66,-100},{76,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{66,-100},{76,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{66,-100},{56,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{66,-100},{56,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{30,-100},{40,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{30,-100},{40,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{30,-100},{20,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{30,-100},{20,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-4,-100},{6,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-4,-100},{6,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-4,-100},{-14,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-4,-100},{-14,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-44,-100},{-34,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-44,-100},{-34,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-44,-100},{-54,-80}},
-        color = {0,127,255}),
+        origin=  {12,40},
+        points=  {{-44,-100},{-54,-80}},
+        color=  {0,127,255}),
       Line(
-        origin = {12,40},
-        points = {{-70,-60},{66,-60}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{-70,-60},{66,-60}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-70},{66,-60}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-70},{66,-60}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-50},{66,-60}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-50},{66,-60}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-30},{66,-20}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-30},{66,-20}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{46,-10},{66,-20}},
-        color = {191,0,0}),
+        origin=  {12,40},
+        points=  {{46,-10},{66,-20}},
+        color=  {191,0,0}),
       Line(
-        origin = {12,40},
-        points = {{-70,-20},{66,-20}},
-        color = {191,0,0})}), Documentation(
+        origin=  {12,40},
+        points=  {{-70,-20},{66,-20}},
+        color=  {191,0,0})}), Documentation(
           info="<html>
 
 </html>"));
@@ -1346,20 +1344,20 @@ The output signal is positive, if the heat flows from port_a to port_b.
       annotation (
         Icon(graphics={
           Rectangle(
-            lineColor = {255,0,0},
-            fillColor = {255,0,0},
-            fillPattern = FillPattern.HorizontalCylinder,
-            extent = {{-90,-10},{-70,10}}),
+            lineColor=  {255,0,0},
+            fillColor=  {255,0,0},
+            fillPattern=  FillPattern.HorizontalCylinder,
+            extent=  {{-90,-10},{-70,10}}),
           Rectangle(
-            lineColor = {255,0,0},
-            fillColor = {255,0,0},
-            fillPattern = FillPattern.HorizontalCylinder,
+            lineColor=  {255,0,0},
+            fillColor=  {255,0,0},
+            fillPattern=  FillPattern.HorizontalCylinder,
             extent={{70,-10},{90,10}}),
           Text(
-            lineColor = {0,0,255},
-            extent = {{-150,85},{150,125}},
-            textString = "%name"),
-          Line(points = {{0,-70},{0,-90}}, color = {0,0,127})},
+            lineColor=  {0,0,255},
+            extent=  {{-150,85},{150,125}},
+            textString=  "%name"),
+          Line(points=  {{0,-70},{0,-90}}, color=  {0,0,127})},
             coordinateSystem(extent = {{-100,-100},{100,100}},
               preserveAspectRatio = true,
               initialScale = 0.1)),
@@ -2139,7 +2137,9 @@ and provides is as output signal.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degFahrenheit"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
+      parameter Integer n=1
+        "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)"
+                                                                                                            annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -2236,11 +2236,7 @@ and provides them as output signals.
             Line(
               points={{-42,0},{66,0}},
               color={191,0,0},
-              thickness=0.5),
-            Text(
-              extent={{58,-22},{-90,-86}},
-              lineColor={0,0,0},
-              textString="degF")}),
+              thickness=0.5)}),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degF],
@@ -2308,11 +2304,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
               fillColor={191,0,0},
-              fillPattern=FillPattern.Solid),
-            Text(
-              extent={{54,-20},{-94,-84}},
-              lineColor={0,0,0},
-              textString="degF")}),
+              fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition
@@ -2419,17 +2411,13 @@ as required to keep the temperature at the specified value.
             Line(points={{-40,20},{-12,20}}, color={0,0,0}),
             Line(points={{-40,60},{-12,60}}, color={0,0,0}),
             Text(
-              extent={{126,-20},{26,-120}},
+              extent={{150,-22},{30,-92}},
               lineColor={0,0,0},
               textString="degF"),
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{150,-28},{38,-76}},
-              lineColor={0,0,0},
-              textString="degF")}),
+              lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -2466,7 +2454,9 @@ Example:
     extends Modelica.Icons.VariantsPackage;
 
     model ToKelvin "Conversion block from degRankine to Kelvin"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
+      parameter Integer n=1
+        "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)"
+                                                                                                            annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Rankine(unit="degRk")
        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -2526,7 +2516,9 @@ and provides them as output signals.
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degRankine"
-      parameter Integer n=1 "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)" annotation(Dialog(enable=false));
+      parameter Integer n=1
+        "Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)"
+                                                                                                            annotation(Dialog(enable=false));
       Modelica.Blocks.Interfaces.RealInput Kelvin(unit="K")
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
@@ -3062,51 +3054,51 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </html>"));
   end Interfaces;
   annotation (
-     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {128,128,128},
-        fillColor = {192,192,192},
-        fillPattern = FillPattern.Solid,
-        points = {{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,-49},{-64,-51},{-57,-51},{-47,-50},{-41,-43},{-38,-35},{-40,-27},{-40,-20},{-42,-13},{-47,-7},{-54,-5},{-54,-6}}),
+        origin=  {13.758,27.517},
+        lineColor=  {128,128,128},
+        fillColor=  {192,192,192},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-54,-6},{-61,-7},{-75,-15},{-79,-24},{-80,-34},{-78,-42},{-73,-49},{-64,-51},{-57,-51},{-47,-50},{-41,-43},{-38,-35},{-40,-27},{-40,-20},{-42,-13},{-47,-7},{-54,-5},{-54,-6}}),
     Polygon(
-        origin = {13.758,27.517},
-        fillColor = {160,160,164},
-        fillPattern = FillPattern.Solid,
-        points = {{-75,-15},{-79,-25},{-80,-34},{-78,-42},{-72,-49},{-64,-51},{-57,-51},{-47,-50},{-57,-47},{-65,-45},{-71,-40},{-74,-33},{-76,-23},{-75,-15},{-75,-15}}),
+        origin=  {13.758,27.517},
+        fillColor=  {160,160,164},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-75,-15},{-79,-25},{-80,-34},{-78,-42},{-72,-49},{-64,-51},{-57,-51},{-47,-50},{-57,-47},{-65,-45},{-71,-40},{-74,-33},{-76,-23},{-75,-15},{-75,-15}}),
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {160,160,164},
-        fillColor = {192,192,192},
-        fillPattern = FillPattern.Solid,
-        points = {{39,-6},{32,-7},{18,-15},{14,-24},{13,-34},{15,-42},{20,-49},{29,-51},{36,-51},{46,-50},{52,-43},{55,-35},{53,-27},{53,-20},{51,-13},{46,-7},{39,-5},{39,-6}}),
+        origin=  {13.758,27.517},
+        lineColor=  {160,160,164},
+        fillColor=  {192,192,192},
+        fillPattern=  FillPattern.Solid,
+        points=  {{39,-6},{32,-7},{18,-15},{14,-24},{13,-34},{15,-42},{20,-49},{29,-51},{36,-51},{46,-50},{52,-43},{55,-35},{53,-27},{53,-20},{51,-13},{46,-7},{39,-5},{39,-6}}),
       Polygon(
-        origin = {13.758,27.517},
-        fillColor = {160,160,164},
-        fillPattern = FillPattern.Solid,
-        points = {{18,-15},{14,-25},{13,-34},{15,-42},{21,-49},{29,-51},{36,-51},{46,-50},{36,-47},{28,-45},{22,-40},{19,-33},{17,-23},{18,-15},{18,-15}}),
+        origin=  {13.758,27.517},
+        fillColor=  {160,160,164},
+        fillPattern=  FillPattern.Solid,
+        points=  {{18,-15},{14,-25},{13,-34},{15,-42},{21,-49},{29,-51},{36,-51},{46,-50},{36,-47},{28,-45},{22,-40},{19,-33},{17,-23},{18,-15},{18,-15}}),
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {191,0,0},
-        fillColor = {191,0,0},
-        fillPattern = FillPattern.Solid,
-        points = {{-9,-23},{-9,-10},{18,-17},{-9,-23}}),
+        origin=  {13.758,27.517},
+        lineColor=  {191,0,0},
+        fillColor=  {191,0,0},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-9,-23},{-9,-10},{18,-17},{-9,-23}}),
       Line(
-        origin = {13.758,27.517},
-        points = {{-41,-17},{-9,-17}},
-        color = {191,0,0},
-        thickness = 0.5),
+        origin=  {13.758,27.517},
+        points=  {{-41,-17},{-9,-17}},
+        color=  {191,0,0},
+        thickness=  0.5),
       Line(
-        origin = {13.758,27.517},
-        points = {{-17,-40},{15,-40}},
-        color = {191,0,0},
-        thickness = 0.5),
+        origin=  {13.758,27.517},
+        points=  {{-17,-40},{15,-40}},
+        color=  {191,0,0},
+        thickness=  0.5),
       Polygon(
-        origin = {13.758,27.517},
-        lineColor = {191,0,0},
-        fillColor = {191,0,0},
-        fillPattern = FillPattern.Solid,
-        points = {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
+        origin=  {13.758,27.517},
+        lineColor=  {191,0,0},
+        fillColor=  {191,0,0},
+        fillPattern=  FillPattern.Solid,
+        points=  {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
                             Documentation(info="<HTML>
 <p>
 This package contains components to model <b>1-dimensional heat transfer</b>
@@ -3191,7 +3183,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
   </dd>
 </dl>
-<p><b>Copyright &copy; 2001-2013, Modelica Association, Michael Tiller and DLR.</b></p>
+<p><b>Copyright &copy; 2001-2015, Modelica Association, Michael Tiller and DLR.</b></p>
 
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

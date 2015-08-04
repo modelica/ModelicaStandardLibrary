@@ -162,12 +162,16 @@ modeling of one cylinder, see example
 An animation of the engine is shown in the figure below.
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
+</p>
 
 <p>
-Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
+Simulate for 3 s with about 50000 output intervals, and plot the variables <b>engineSpeed_rpm</b>,
 <b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
-a size of about 50 Mbyte (for 5000 output intervals).
+a size of about 300 Mbyte in this case. The default setting of StopTime = 1.01 s (with the default setting of the tool for the number of output points), in order that (automatic) regression testing does not have to cope with a large result file.
 </p>
-</html>"), experiment(StopTime=1.01));
+</html>"), experiment(StopTime=1.01),Icon(coordinateSystem(extent={{-100,-100},{100, 100}})),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},{140,
+            100}})));
 end EngineV6;

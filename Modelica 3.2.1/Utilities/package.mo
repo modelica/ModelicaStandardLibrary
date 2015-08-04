@@ -159,6 +159,12 @@ in Modelica that will allow to catch errors at a defined place.
 end UsersGuide;
 
 
+
+
+
+
+
+
     annotation (
 Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     Polygon(
@@ -209,7 +215,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
+Copyright &copy; 1998-2015, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>

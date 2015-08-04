@@ -3,6 +3,15 @@ package Loops "Examples with kinematic loops"
 extends Modelica.Icons.ExamplesPackage;
 
 
+
+
+
+
+
+
+
+
+
 annotation ( Documentation(info="<html>
 <p>
 This package contains different examples to show how

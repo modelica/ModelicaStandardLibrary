@@ -1042,7 +1042,10 @@ of the alternative sequence is executed. Note, that alternatives
 have priorities according to the port index (alternative.split[1]
 has a higher priority to fire as alternative.split[2]).
 </p>
-</html>"),      experiment(StopTime=15));
+</html>"),      experiment(StopTime=15),
+        Diagram(coordinateSystem(extent={{-200,-200},{200,200}}, initialScale=
+                0.1)),
+        Icon(coordinateSystem(initialScale=0.1)));
   end ExecutionPaths;
 
   model ShowCompositeStep
@@ -1989,11 +1992,7 @@ package Interfaces "Connectors and partial models"
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
                                             Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics={Rectangle(
-              extent={{0,0},{0,0}},
-              lineColor={255,255,255},
-              pattern=LinePattern.None)}));
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
   end CompositeStep_resume;
 
   connector CompositeStep_suspend
@@ -2011,10 +2010,7 @@ package Interfaces "Connectors and partial models"
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}}), graphics={Rectangle(
-              extent={{0,0},{0,0}},
-              lineColor={255,255,255},
-              pattern=LinePattern.None)}));
+                       extent={{-100,-100},{100,100}})));
   end CompositeStep_suspend;
 
   connector CompositeStepStatePort_in
@@ -3092,7 +3088,7 @@ value, still requires to go in to the text layer.
               textString=DynamicSelect(" ", String(
                     Value,
                     minimumLength=1,
-                    significantDigits=integer(precision))),
+                    significantDigits=precision)),
               lineColor={0,0,255})}));
 
   end NumericValue;
@@ -3190,7 +3186,7 @@ are nearly always needed).
 </p>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR
+Copyright &copy; 1998-2015, Modelica Association and DLR
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

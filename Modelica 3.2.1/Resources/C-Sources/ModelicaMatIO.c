@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2013 Christopher C. Hulbert
+ * Copyright (C) 2005-2015 Christopher C. Hulbert
  *
  * All rights reserved.
  *
@@ -76,53 +76,13 @@
 /* Have asprintf */
 #undef HAVE_ASPRINTF
 
-/* Have MAT int16 */
-#define HAVE_MAT_INT16_T 1
-
-/* Have MAT int32 */
-#define HAVE_MAT_INT32_T 1
-
-/* Have MAT int64 */
+/* Have long long / long double on Win32 */
 #if defined (_WIN32)
-#if defined(_MSC_VER) && _MSC_VER >= 1300
-#define HAVE_MAT_INT64_T 1
-#elif defined(__WATCOMC__)
-#define HAVE_MAT_INT64_T 1
-#elif defined(__BORLANDC__)
-#undef HAVE_MAT_INT64_T
-#else
-#undef HAVE_MAT_INT64_T
+#if defined(__WATCOMC__) || (defined(_MSC_VER) && _MSC_VER >= 1300)
+#define HAVE_LONG_LONG 1
+#define HAVE_LONG_DOUBLE 1
 #endif
-#else
-#define HAVE_MAT_INT64_T 1
 #endif
-
-/* Have MAT int8 */
-#define HAVE_MAT_INT8_T 1
-
-/* Have MAT uint16 */
-#define HAVE_MAT_UINT16_T 1
-
-/* Have MAT uint32 */
-#define HAVE_MAT_UINT32_T 1
-
-/* Have MAT uint64 */
-#if defined (_WIN32)
-#if defined(_MSC_VER) && _MSC_VER >= 1300
-#define HAVE_MAT_UINT64_T 1
-#elif defined(__WATCOMC__)
-#define HAVE_MAT_UINT64_T 1
-#elif defined(__BORLANDC__)
-#undef HAVE_MAT_UINT64_T
-#else
-#undef HAVE_MAT_UINT64_T
-#endif
-#else
-#define HAVE_MAT_UINT64_T 1
-#endif
-
-/* Have MAT uint8 */
-#define HAVE_MAT_UINT8_T 1
 
 /* Have snprintf */
 #if defined(_MSC_VER) && _MSC_VER >= 1400
@@ -145,6 +105,8 @@
 
 /* Have va_copy */
 #if defined(__GNUC__)
+#define HAVE_VA_COPY 1
+#elif defined(_MSC_VER) && _MSC_VER >= 1800
 #define HAVE_VA_COPY 1
 #elif defined(__WATCOMC__)
 #define HAVE_VA_COPY 1
@@ -174,29 +136,11 @@
 /* Platform */
 #define MATIO_PLATFORM "UNKNOWN"
 
-/* The size of `char', as computed by sizeof. */
-#define SIZEOF_CHAR 1
-
-/* The size of `double', as computed by sizeof. */
-#define SIZEOF_DOUBLE 8
-
-/* The size of `float', as computed by sizeof. */
-#define SIZEOF_FLOAT 4
-
-/* The size of `int', as computed by sizeof. */
-#define SIZEOF_INT 4
-
-/* The size of `long', as computed by sizeof. */
-#define SIZEOF_LONG 4
-
-/* The size of `long long', as computed by sizeof. */
-#define SIZEOF_LONG_LONG 8
-
-/* The size of `short', as computed by sizeof. */
-#define SIZEOF_SHORT 2
-
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
+
+/* Define to 1 if you have the ctype.h header file. */
+#define HAVE_CTYPE_H 1
 
 /* Z prefix */
 #undef Z_PREFIX
@@ -1518,13 +1462,10 @@ strdup_printf(const char* format, ...)
  */
 void Mat_Critical( const char *format, ... )
 {
-    char* buffer;
     va_list ap;
     va_start(ap, format);
-    buffer = strdup_vprintf(format, ap);
+    ModelicaVFormatError(format, ap);
     va_end(ap);
-    ModelicaFormatError("%s\n", buffer);
-    free(buffer);
 }
 
 /** @brief Prints a warning message
@@ -1537,13 +1478,10 @@ void Mat_Critical( const char *format, ... )
 void
 Mat_Warning( const char *format, ... )
 {
-    char* buffer;
     va_list ap;
     va_start(ap, format);
-    buffer = strdup_vprintf(format, ap);
+    ModelicaVFormatMessage(format, ap);
     va_end(ap);
-    ModelicaFormatMessage("%s\n", buffer);
-    free(buffer);
 }
 
 /** @brief Calculate the size of MAT data types
@@ -1564,7 +1502,7 @@ Mat_SizeOf(enum matio_types data_type)
         case MAT_T_INT64:
             return sizeof(mat_int64_t);
 #endif
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MAT_UINT64_T
         case MAT_T_UINT64:
             return sizeof(mat_uint64_t);
 #endif
@@ -2456,6 +2394,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#ifdef HAVE_MAT_UINT64_T
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64;
@@ -2474,6 +2413,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#endif /* HAVE_MAT_UINT64_T */
         case MAT_T_INT32:
         {
             mat_int32_t i32;
@@ -2848,6 +2788,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#ifdef HAVE_MAT_INT64_T
         case MAT_T_INT64:
         {
             mat_int64_t i64;
@@ -2866,6 +2807,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
+#endif /* HAVE_MAT_INT64_T */
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64;
@@ -6554,7 +6496,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             break;
         }
 #endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MAT_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr;
@@ -7372,19 +7314,27 @@ ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
             double *ptr;
 
             ptr = (double *)data;
-            row_stride = (stride[0]-1)*data_size;
-            col_stride = stride[1]*dims[0]*data_size;
-            pos = ftell(mat->fp);
-            fseek(mat->fp,start[1]*dims[0]*data_size,SEEK_CUR);
-            for ( i = 0; i < edge[1]; i++ ) {
+            /* If stride[0] is 1 and stride[1] is 1, we are reading all of the
+             * data so get rid of the loops.
+             */
+            if ( (stride[0] == 1 && edge[0] == dims[0]) &&
+                 (stride[1] == 1) ) {
+                ReadDoubleData(mat,ptr,data_type,edge[0]*edge[1]);
+            } else {
+                row_stride = (stride[0]-1)*data_size;
+                col_stride = stride[1]*dims[0]*data_size;
                 pos = ftell(mat->fp);
-                fseek(mat->fp,start[0]*data_size,SEEK_CUR);
-                for ( j = 0; j < edge[0]; j++ ) {
-                    ReadDoubleData(mat,ptr++,data_type,1);
-                    fseek(mat->fp,row_stride,SEEK_CUR);
+                fseek(mat->fp,start[1]*dims[0]*data_size,SEEK_CUR);
+                for ( i = 0; i < edge[1]; i++ ) {
+                    pos = ftell(mat->fp);
+                    fseek(mat->fp,start[0]*data_size,SEEK_CUR);
+                    for ( j = 0; j < edge[0]; j++ ) {
+                        ReadDoubleData(mat,ptr++,data_type,1);
+                        fseek(mat->fp,row_stride,SEEK_CUR);
+                    }
+                    pos = pos+col_stride-ftell(mat->fp);
+                    fseek(mat->fp,pos,SEEK_CUR);
                 }
-                pos = pos+col_stride-ftell(mat->fp);
-                fseek(mat->fp,pos,SEEK_CUR);
             }
             break;
         }
@@ -7804,7 +7754,6 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
              * is not 0, we are reading whole columns, so get rid of inner loop
              * to speed up the code
              */
-#if 0
             if ( (stride[0] == 1 && edge[0] == dims[0]) &&
                  (stride[1] == 1) ) {
                 ReadCompressedDoubleData(mat,&z_copy,ptr,data_type,
@@ -7818,20 +7767,17 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
                     InflateSkipData(mat,&z_copy,data_type,pos);
                 }
             } else {
-#endif
-            for ( i = 0; i < edge[1]; i++ ) {
-                InflateSkipData(mat,&z_copy,data_type,start[0]);
-                for ( j = 0; j < edge[0]-1; j++ ) {
+                for ( i = 0; i < edge[1]; i++ ) {
+                    InflateSkipData(mat,&z_copy,data_type,start[0]);
+                    for ( j = 0; j < edge[0]-1; j++ ) {
+                        ReadCompressedDoubleData(mat,&z_copy,ptr++,data_type,1);
+                        InflateSkipData(mat,&z_copy,data_type,stride[0]-1);
+                    }
                     ReadCompressedDoubleData(mat,&z_copy,ptr++,data_type,1);
-                    InflateSkipData(mat,&z_copy,data_type,stride[0]-1);
+                    pos = dims[0]-(edge[0]-1)*stride[0]-1-start[0] + col_stride;
+                    InflateSkipData(mat,&z_copy,data_type,pos);
                 }
-                ReadCompressedDoubleData(mat,&z_copy,ptr++,data_type,1);
-                pos = dims[0]-(edge[0]-1)*stride[0]-1-start[0] + col_stride;
-                InflateSkipData(mat,&z_copy,data_type,pos);
             }
-#if 0
-            }
-#endif
             break;
         }
         case MAT_C_SINGLE:
@@ -7855,7 +7801,7 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MAT_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr;
@@ -9019,6 +8965,11 @@ EXTERN int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
 #define strdup _strdup
 #endif
 #endif
+#if defined(_MSC_VER)
+#define SIZE_T_FMTSTR "Iu"
+#else
+#define SIZE_T_FMTSTR "zu"
+#endif
 
 static void
 ReadData(mat_t *mat, matvar_t *matvar)
@@ -9183,6 +9134,7 @@ Mat_Open(const char *matname,int mode)
     mat->subsys_offset = calloc(8,1);
     mat->filename      = NULL;
     mat->byteswap      = 0;
+    mat->version       = 0;
 
     bytesread += fread(mat->header,1,116,fp);
     mat->header[116] = '\0';
@@ -9190,25 +9142,27 @@ Mat_Open(const char *matname,int mode)
     bytesread += 2*fread(&tmp2,2,1,fp);
     bytesread += fread(&tmp,1,2,fp);
 
-    mat->byteswap = -1;
-    if (tmp == 0x4d49)
-        mat->byteswap = 0;
-    else if (tmp == 0x494d) {
-        mat->byteswap = 1;
-        Mat_int16Swap(&tmp2);
+    if ( 128 == bytesread ) {
+        /* v5 and v7.3 files have at least 128 byte header */
+        mat->byteswap = -1;
+        if (tmp == 0x4d49)
+            mat->byteswap = 0;
+        else if (tmp == 0x494d) {
+            mat->byteswap = 1;
+            Mat_int16Swap(&tmp2);
+        }
+
+        mat->version = (int)tmp2;
+        if ( (mat->version == 0x0100 || mat->version == 0x0200) &&
+             -1 != mat->byteswap ) {
+            mat->bof = ftell(mat->fp);
+            mat->next_index    = 0;
+        } else {
+            mat->version = 0;
+        }
     }
 
-    mat->version = (int)tmp2;
-    if ( (mat->version == 0x0100 || mat->version == 0x0200) &&
-         -1 != mat->byteswap ) {
-        mat->bof = ftell(mat->fp);
-        mat->next_index    = 0;
-        if ( 128 != bytesread ) {
-            Mat_Critical("Could not read MAT file header");
-            Mat_Close(mat);
-            return NULL;
-        }
-    } else {
+    if ( 0 == mat->version ) {
         /* Maybe a V4 MAT file */
         matvar_t *var;
         if ( NULL != mat->header )
@@ -9227,15 +9181,9 @@ Mat_Open(const char *matname,int mode)
 
         Mat_Rewind(mat);
         var = Mat_VarReadNextInfo4(mat);
-        /* Check sanity of variable information */
-        if ( NULL == var || NULL == var->name ||
-            (var->class_type != MAT_C_DOUBLE  &&
-             var->class_type != MAT_C_SPARSE &&
-             var->class_type != MAT_C_CHAR) ) {
+        if ( NULL == var ) {
             /* Does not seem to be a valid V4 file */
             Mat_Critical("%s does not seem to be a valid MAT file",matname);
-            if ( NULL != var )
-                Mat_VarFree(var);
             Mat_Close(mat);
             mat = NULL;
         } else {
@@ -9271,8 +9219,8 @@ Mat_Open(const char *matname,int mode)
         mat->fp = NULL;
         Mat_Close(mat);
         mat = NULL;
-        Mat_Critical("Not possible to read HDF5 based v7.3 MAT file \"%s\"",
-            matname);
+        Mat_Critical("No HDF5 support which is required to read the v7.3 "
+                     "MAT file \"%s\"",matname);
 #endif
     }
 
@@ -10236,10 +10184,10 @@ Mat_VarPrint( matvar_t *matvar, int printdata )
     printf("      Rank: %d\n", matvar->rank);
     if ( matvar->rank == 0 )
         return;
-    printf("Dimensions: %zu",matvar->dims[0]);
+    printf("Dimensions: %" SIZE_T_FMTSTR,matvar->dims[0]);
     nmemb = matvar->dims[0];
     for ( i = 1; i < matvar->rank; i++ ) {
-        printf(" x %zu",matvar->dims[i]);
+        printf(" x %" SIZE_T_FMTSTR,matvar->dims[i]);
         nmemb *= matvar->dims[i];
     }
     printf("\n");
@@ -10256,7 +10204,7 @@ Mat_VarPrint( matvar_t *matvar, int printdata )
         matvar_t **fields = (matvar_t **)matvar->data;
         int nfields = matvar->internal->num_fields;
         if ( nmemb*nfields > 0 ) {
-            printf("Fields[%zu] {\n", nfields*nmemb);
+            printf("Fields[%" SIZE_T_FMTSTR "] {\n", nfields*nmemb);
             for ( i = 0; i < nfields*nmemb; i++ ) {
                 if ( NULL == fields[i] ) {
                     printf("      Name: %s\n      Rank: %d\n",
@@ -11099,6 +11047,15 @@ Mat_VarReadNextInfo4(mat_t *mat)
             /* IEEE big endian */
             mat->byteswap = (endian.c[0] != 1);
             break;
+        default:
+            /* VAX, Cray, or bogus */
+            Mat_VarFree(matvar);
+            return NULL;
+    }
+    /* O must be zero */
+    if ( 0 != O ) {
+        Mat_VarFree(matvar);
+        return NULL;
     }
     /* Convert the V4 data type */
     switch ( data_type ) {
@@ -11121,8 +11078,8 @@ Mat_VarReadNextInfo4(mat_t *mat)
             matvar->data_type = MAT_T_UINT8;
             break;
         default:
-            matvar->data_type = MAT_T_UNKNOWN;
-            break;
+            Mat_VarFree(matvar);
+            return NULL;
     }
     switch ( class_type ) {
         case 0:
@@ -11134,10 +11091,16 @@ Mat_VarReadNextInfo4(mat_t *mat)
         case 2:
             matvar->class_type = MAT_C_SPARSE;
             break;
+        default:
+            Mat_VarFree(matvar);
+            return NULL;
     }
     matvar->rank = 2;
-    /* FIXME: Check allocation */
     matvar->dims = malloc(2*sizeof(*matvar->dims));
+    if ( NULL == matvar->dims ) {
+        Mat_VarFree(matvar);
+        return NULL;
+    }
     err = fread(&tmp,sizeof(int),1,mat->fp);
     if ( mat->byteswap )
         Mat_int32Swap(&tmp);
@@ -11167,8 +11130,16 @@ Mat_VarReadNextInfo4(mat_t *mat)
     }
     if ( mat->byteswap )
         Mat_int32Swap(&tmp);
-    /* FIXME: Check allocation */
+    /* Check that the length of the variable name is at least 1 */
+    if ( tmp < 1 ) {
+        Mat_VarFree(matvar);
+        return NULL;
+    }
     matvar->name = malloc(tmp);
+    if ( NULL == matvar->name ) {
+        Mat_VarFree(matvar);
+        return NULL;
+    }
     err = fread(matvar->name,1,tmp,mat->fp);
     if ( !err ) {
         Mat_VarFree(matvar);
@@ -15111,8 +15082,6 @@ Read5(mat_t *mat, matvar_t *matvar)
                 matvar->nbytes = 0;
                 break;
             }
-            for ( i = 0; i < matvar->rank; i++ )
-                len *= matvar->dims[i];
             matvar->data_size = sizeof(char);
             /* FIXME: */
             matvar->data_type = MAT_T_UINT8;
@@ -17094,9 +17063,9 @@ Mat_VarReadNextInfo5( mat_t *mat )
         Mat_int32Swap(&nBytes);
     }
     switch ( data_type ) {
-#if defined(HAVE_ZLIB)
         case MAT_T_COMPRESSED:
         {
+#if defined(HAVE_ZLIB)
             mat_uint32_t uncomp_buf[16] = {0,};
             int      nbytes;
             long     bytesread = 0;
@@ -17218,8 +17187,13 @@ Mat_VarReadNextInfo5( mat_t *mat )
             matvar->internal->datapos = ftell(mat->fp);
             fseek(mat->fp,nBytes+8+fpos,SEEK_SET);
             break;
-        }
+#else
+            Mat_Critical("Compressed variable found in \"%s\", but matio was "
+                         "built without zlib support",mat->filename);
+            fseek(mat->fp,nBytes+8+fpos,SEEK_SET);
+            return NULL;
 #endif
+        }
         case MAT_T_MATRIX:
         {
             int      nbytes;
@@ -17506,99 +17480,107 @@ Mat_class_type_to_hid_t(enum matio_classes class_type)
         case MAT_C_SINGLE:
             return H5T_NATIVE_FLOAT;
         case MAT_C_INT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_SHORT;
+            else
+                return -1;
         case MAT_C_UINT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_UINT;
+            if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_USHORT;
+            else
+                return -1;
         case MAT_C_INT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_C_UINT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_C_INT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_C_UINT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_C_INT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_SCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_LLONG;
+            else
+                return -1;
         case MAT_C_UINT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_ULLONG;
-#       endif
-       default:
-           return -1;
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_UCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_ULLONG;
+            else
+                return -1;
+        default:
+            return -1;
     }
 }
 
@@ -17611,99 +17593,107 @@ Mat_data_type_to_hid_t(enum matio_types data_type)
         case MAT_T_SINGLE:
             return H5T_NATIVE_FLOAT;
         case MAT_T_INT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_SHORT;
+            else
+                return -1;
         case MAT_T_UINT64:
-#       if CHAR_BIT*SIZEOF_SHORT == 64
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 64
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 64
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 64
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(long long) == 64 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT*sizeof(long) == 64 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(int) == 64 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(short) == 64 )
+                return H5T_NATIVE_USHORT;
+            else
+                return -1;
         case MAT_T_INT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_T_UINT32:
-#       if CHAR_BIT == 32
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 32
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 32
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 32
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 32
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(int) == 32 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(short) == 32 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(long) == 32 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 32 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 32 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_T_INT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_LLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_SCHAR;
+            else
+                return -1;
         case MAT_T_UINT16:
-#       if CHAR_BIT == 16
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 16
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 16
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 16
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 16
-            return H5T_NATIVE_ULLONG;
-#       endif
+            if ( CHAR_BIT*sizeof(short) == 16 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 16 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 16 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 16 )
+                return H5T_NATIVE_ULLONG;
+            else if ( CHAR_BIT == 16 )
+                return H5T_NATIVE_UCHAR;
+            else
+                return -1;
         case MAT_T_INT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_SCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_SHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_INT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_LONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_LLONG;
-#       endif
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_SCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_SHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_INT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_LONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_LLONG;
+            else
+                return -1;
         case MAT_T_UINT8:
-#       if CHAR_BIT == 8
-            return H5T_NATIVE_UCHAR;
-#       elif CHAR_BIT*SIZEOF_SHORT == 8
-            return H5T_NATIVE_USHORT;
-#       elif CHAR_BIT*SIZEOF_INT == 8
-            return H5T_NATIVE_UINT;
-#       elif CHAR_BIT*SIZEOF_LONG == 8
-            return H5T_NATIVE_ULONG;
-#       elif CHAR_BIT*SIZEOF_LONG_LONG == 8
-            return H5T_NATIVE_ULLONG;
-#       endif
-       default:
-           return -1;
+            if ( CHAR_BIT == 8 )
+                return H5T_NATIVE_UCHAR;
+            else if ( CHAR_BIT*sizeof(short) == 8 )
+                return H5T_NATIVE_USHORT;
+            else if ( CHAR_BIT*sizeof(int) == 8 )
+                return H5T_NATIVE_UINT;
+            else if ( CHAR_BIT*sizeof(long) == 8 )
+                return H5T_NATIVE_ULONG;
+            else if ( CHAR_BIT*sizeof(long long) == 8 )
+                return H5T_NATIVE_ULLONG;
+            else
+                return -1;
+        default:
+            return -1;
     }
 }
 
@@ -18245,7 +18235,7 @@ Mat_H5ReadNextReferenceInfo(hid_t ref_id,matvar_t *matvar,mat_t *mat)
             hsize_t  dims[10];
             hid_t   attr_id,type_id,dset_id,space_id;
 
-            //matvar->fp = mat;
+            /* matvar->fp = mat; */
             dset_id = ref_id;
 
 #if 0

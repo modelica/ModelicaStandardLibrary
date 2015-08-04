@@ -9,7 +9,7 @@
 <title>Modelica.Math.Matrices.LAPACK.dtrsyl</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dtrsyl</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.<span class="omc-h1">dtrsyl</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 Lapack documentation
@@ -93,19 +93,19 @@ Lapack documentation
 <pre>
 function dtrsyl
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Upper quais-triangular matrix";
-  input Real B[:,:] "Upper quais-triangular matrix";
-  input Real C[if tranA then size(A, 1) else size(A, 2),if tranB then size(B, 1) else size(B, 2)] "Right side of the Sylvester equation";
+  input Real A[:, :] "Upper quais-triangular matrix";
+  input Real B[:, :] "Upper quais-triangular matrix";
+  input Real C[if tranA then size(A, 1) else size(A, 2), if tranB then size(B, 1) else size(B, 2)] "Right side of the Sylvester equation";
   input Boolean tranA = false "True if op(A)=A'";
   input Boolean tranB = false "True if op(B)=B'";
   input Integer isgn = 1 "Specifies the sign in the equation, +1 or -1";
-  output Real X[size(C, 1),size(C, 2)] = C "Solution of the Sylvester equation";
+  output Real X[size(C, 1), size(C, 2)] = C "Solution of the Sylvester equation";
   output Real scale "Scale factor";
   output Integer info;
 end dtrsyl;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

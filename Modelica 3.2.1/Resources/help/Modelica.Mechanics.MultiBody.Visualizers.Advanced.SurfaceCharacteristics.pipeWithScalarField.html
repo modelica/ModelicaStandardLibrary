@@ -10,7 +10,7 @@
 Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Mechanics.html">Mechanics</a>.<a href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<a href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a>.pipeWithScalarField</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.html">Visualizers</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.html">Advanced</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.html">SurfaceCharacteristics</a>.<span class="omc-h1">pipeWithScalarField</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>Function <b>pipeWithScalarField</b> computes the X,Y,Z,C arrays
 in order to visualize a pipe and a scalar field along the pipe axis
@@ -34,7 +34,7 @@ Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a> using the
 following call:</p>
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, heading="Temperature in C");
 </pre></blockquote>
 <blockquote><img src="../../../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png" /></blockquote>
@@ -49,11 +49,11 @@ function pipeWithScalarField
   input Real T[size(xsi, 1)] "Scalar field value at position xsi*length" annotation(Dialog);
   input Real T_min "T &lt;= T_min is mapped to colorMap[1,:]" annotation(Dialog);
   input Real T_max "T &gt;= T_max is mapped to colorMap[end,:]" annotation(Dialog);
-  input Real colorMap[:,3] "Color map to map scalar T to a corresponding color" annotation(Dialog);
+  input Real colorMap[:, 3] "Color map to map scalar T to a corresponding color" annotation(Dialog);
 end pipeWithScalarField;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

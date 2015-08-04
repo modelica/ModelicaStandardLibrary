@@ -271,7 +271,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
           Text(
             extent={{150,-90},{-150,-60}},
             lineColor={0,0,0},
-            textString="%=r"),
+            textString="r=%r"),
           Polygon(
             points={{-100,50},{-100,-44},{-10,-24},{79,-43},{80,49},{-10,28},{-100,
                 50}},
@@ -640,8 +640,7 @@ parameter menu.
     input SI.Position r_tail[3]={0,0,0}
       "Vector from frame_a to arrow tail, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Axis n={1,0,0}
-      "Vector in arrow direction, resolved in frame_a"
+    input Types.Axis n={1,0,0} "Vector in arrow direction, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Length length=0.1 "Length of complete arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -935,7 +934,7 @@ This shape visualizes the x-y plane by a box
     // No forces and torques
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
-    annotation (Icon(graphics={Bitmap(extent={{-98,98},{98,-98}}, fileName=
+    annotation (Icon(graphics={Bitmap(extent={{-98,-98},{98,98}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/TorusIcon.png"),
             Text(
             extent={{-150,100},{150,140}},
@@ -1041,7 +1040,7 @@ the last point of the parametrization coincide in this case.
             extent={{-150,100},{150,140}},
             lineColor={0,0,255},
             textString="%name"),
-          Bitmap(extent={{-96,96},{102,-96}}, fileName=
+          Bitmap(extent={{-96,-96},{102,96}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/VoluminousWheelIcon.png"),
           Rectangle(
             extent={{-96,8},{-18,-8}},
@@ -1127,7 +1126,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
             Text(
             extent={{-150,50},{150,90}},
             lineColor={0,0,255},
-            textString="%name"), Bitmap(extent={{-100,58},{98,-62}}, fileName=
+            textString="%name"), Bitmap(extent={{-100,-62},{98,58}}, fileName=
                 "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png")}),
                                    Documentation(info="<html>
 <p>
@@ -1161,7 +1160,7 @@ using the following call:
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
@@ -2256,7 +2255,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
              T_max=T_max,
              colorMap=colorMapData))
         annotation (Placement(transformation(extent={{-20,2},{0,22}})));
-      annotation (Icon(graphics={Bitmap(extent={{-99,60},{99,-60}}, fileName=
+      annotation (Icon(graphics={Bitmap(extent={{-99,-60},{99,60}}, fileName=
                   "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarFieldIcon.png"),
               Text(
               extent={{-150,54},{150,94}},
@@ -2294,7 +2293,7 @@ using the following call:
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
@@ -2429,7 +2428,7 @@ using the following call:
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
 </pre>
 </blockquote>

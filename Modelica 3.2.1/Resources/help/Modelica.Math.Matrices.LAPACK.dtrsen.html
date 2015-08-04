@@ -9,7 +9,7 @@
 <title>Modelica.Math.Matrices.LAPACK.dtrsen</title>
 </head>
 <body>
-<h1><a href="index.html">.</a><a href="Modelica.html">Modelica</a>.<a href="Modelica.Math.html">Math</a>.<a href="Modelica.Math.Matrices.html">Matrices</a>.<a href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.dtrsen</h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.html">Matrices</a>.<a class="omc-h1-a" href="Modelica.Math.Matrices.LAPACK.html">LAPACK</a>.<span class="omc-h1">dtrsen</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <pre>
 Lapack documentation
@@ -223,10 +223,10 @@ function dtrsen
   input String job = "N" "Specifies the usage of a condition number";
   input String compq = "V" "Is \"V\" if Schur vector matrix is to be updated";
   input Boolean select[:] "Specifies the eigenvalues to reorder";
-  input Real T[:,:] "Real Schur form to be reordered";
-  input Real Q[:,size(T, 2)] "Matrix of the Schur vectors";
-  output Real To[:,:] = T "Reordered Schur form";
-  output Real Qo[:,:] = Q "Reordered Schur vectors";
+  input Real T[:, :] "Real Schur form to be reordered";
+  input Real Q[:, size(T, 2)] "Matrix of the Schur vectors";
+  output Real To[:, :] = T "Reordered Schur form";
+  output Real Qo[:, :] = Q "Reordered Schur vectors";
   output Real wr[size(T, 2)] "Reordered eigenvalues, real part";
   output Real wi[size(T, 2)] "Reordered eigenvalues, imaginary part";
   output Integer m "Dimension of the invariant sub space spanned bei the selected eigenvalues";
@@ -234,9 +234,9 @@ function dtrsen
   output Real sep "Estimated reciprocal condition number of the specified invariant subspace";
   output Integer info;
 end dtrsen;
-
 </pre></blockquote>
 <hr />
-Generated at 2013-08-23T06:45:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.0 beta4+dev (r16855)
+Generated at 2015-08-04T08:51:11Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

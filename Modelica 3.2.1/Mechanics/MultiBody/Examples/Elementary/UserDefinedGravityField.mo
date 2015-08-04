@@ -12,7 +12,7 @@ model UserDefinedGravityField
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity,
       redeclare function gravityAcceleration =
         Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84
-        (mue=1, phi=geodeticLatitude),
+        (phi=geodeticLatitude),
     axisLength=10,
     nominalLength=10)              annotation (Placement(transformation(extent={{-80,-20},
             {-60,0}},        rotation=0)));

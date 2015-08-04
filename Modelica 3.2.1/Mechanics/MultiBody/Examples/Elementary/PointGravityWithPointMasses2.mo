@@ -44,8 +44,10 @@ model PointGravityWithPointMasses2
         extent={{10,-10},{-10,10}},
         rotation=90)));
 
-  inner World world(                             gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity, mue=
-        5)
+  inner World world(
+    gravitySphereDiameter=0.1,
+    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity,
+    mue=5)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}}, rotation=0)));
   Joints.FreeMotion freeMotion annotation (Placement(transformation(extent={{
             -40,60},{-20,80}}, rotation=0)));

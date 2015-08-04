@@ -876,14 +876,14 @@ end HeatingDiode;
       "Zero bias threshold voltage";
           parameter Real K2=1.144 "Bulk threshold parameter";
           parameter Real K5=0.7311 "Reduction of pinch-off region";
-          parameter Modelica.SIunits.Length dW=-2.5e-6 "narrowing of channel";
-          parameter Modelica.SIunits.Length dL=-1.5e-6 "shortening of channel";
+          parameter Modelica.SIunits.Length dW=-2.5e-6 "Narrowing of channel";
+          parameter Modelica.SIunits.Length dL=-1.5e-6 "Shortening of channel";
           parameter Modelica.SIunits.Resistance RDS=1.e+7
       "Drain-Source-Resistance";
           parameter Modelica.SIunits.Temperature Tnom=300.15
       "Parameter measurement temperature";
-          parameter Real kvt=-6.96e-3 "fitting parameter for Vt";
-          parameter Real kk2=6.0e-4 "fitting parameter for K22";
+          parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
+          parameter Real kk2=6.0e-4 "Fitting parameter for K2";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
@@ -1035,8 +1035,8 @@ end HeatingDiode;
       "Drain-Source-Resistance";
           parameter Modelica.SIunits.Temperature Tnom=300.15
       "Parameter measurement temperature";
-          parameter Real kvt=-2.9e-3 "fitting parameter for Vt";
-          parameter Real kk2=6.2e-4 "fitting parameter for Kk2";
+          parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
+          parameter Real kk2=6.2e-4 "Fitting parameter for K2";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected

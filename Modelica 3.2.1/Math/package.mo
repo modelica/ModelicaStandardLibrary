@@ -383,7 +383,7 @@ is usually inlined and symbolic processing is applied.
   end normalize;
 
 function normalizeWithAssert
-  "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
+    "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
   import Modelica.Math.Vectors.length;
   extends Modelica.Icons.Function;
   input Real v[:] "Vector";
@@ -1873,7 +1873,7 @@ matrix A was interchanged with row pivots[i].
   algorithm
     for i in 1:size(LU, 1) loop
       assert(LU[i, i] <> 0, "Solving a linear system of equations with function
-\"Matrices.LU_solve\" is not possible, since the LU decomposition
+\"Matrices.LU_solve2\" is not possible, since the LU decomposition
 is singular, i.e., no unique solution exists.");
     end for;
     X := Modelica.Math.Matrices.LAPACK.dgetrs(
@@ -1883,7 +1883,7 @@ is singular, i.e., no unique solution exists.");
     annotation (Documentation(info="<HTML>
 <h4>Syntax</h4>
 <blockquote><pre>
-Matrices.<b>LU_solve</b>(LU, pivots, B);
+Matrices.<b>LU_solve2</b>(LU, pivots, B);
 </pre></blockquote>
 <h4>Description</h4>
 <p>
@@ -2132,15 +2132,16 @@ value decomposition of A is computed, i.e.,
   = U*Sigma*VT
 </pre></blockquote>
 <p>
-where <b>U </b>and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
+where <b>U</b> and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
 </b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
-</font></b> = diag(<font face=\"Symbol\">s</font><sub>i</sub>)
-has the same size as matrix A with nonnegative diagonal elements
-in decreasing order and with all other elements zero
+</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le; 
+m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt; 
+m=size(A,2)). <b><font face=\"Symbol\">S</font></b> has the same size as matrix A with
+nonnegative diagonal elements in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <code>V</code>.
+matrices <code>U</code> and <code>VT</code>. 
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -5530,7 +5531,6 @@ Lapack documentation
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
       Integer nrhs=size(B, 2);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + nrhs);
       Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
         size(A, 2)) + size(B, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
@@ -5547,7 +5547,6 @@ Lapack documentation
               rcond,
               rank,
               work,
-              lwork,
               info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation
     Purpose
@@ -5662,7 +5661,6 @@ Lapack documentation
       Integer nrow=size(A, 1);
       Integer ncol=size(A, 2);
       Integer nx=max(nrow, ncol);
-      Integer lwork=max(min(nrow, ncol) + 3*ncol, 2*min(nrow, ncol) + 1);
       Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
         size(A, 2)) + 1)];
       Real Awork[size(A, 1), size(A, 2)]=A;
@@ -5679,104 +5677,99 @@ Lapack documentation
               rcond,
               rank,
               work,
-              lwork,
               info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation
     Purpose
     =======
 
-    DGEEV computes for an N-by-N real nonsymmetric matrix A, the
-    eigenvalues and, optionally, the left and/or right eigenvectors.
+    This routine is deprecated and has been replaced by routine DGELSY.
 
-    The right eigenvector v(j) of A satisfies
-                     A * v(j) = lambda(j) * v(j)
-    where lambda(j) is its eigenvalue.
-    The left eigenvector u(j) of A satisfies
-                  u(j)**H * A = lambda(j) * u(j)**H
-    where u(j)**H denotes the conjugate transpose of u(j).
+    DGELSX computes the minimum-norm solution to a real linear least
+    squares problem:
+        minimize || A * X - B ||
+    using a complete orthogonal factorization of A.  A is an M-by-N
+    matrix which may be rank-deficient.
 
-    The computed eigenvectors are normalized to have Euclidean norm
-    equal to 1 and largest component real.
+    Several right hand side vectors b and solution vectors x can be
+    handled in a single call; they are stored as the columns of the
+    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+    matrix X.
+
+    The routine first computes a QR factorization with column pivoting:
+        A * P = Q * [ R11 R12 ]
+                    [  0  R22 ]
+    with R11 defined as the largest leading submatrix whose estimated
+    condition number is less than 1/RCOND.  The order of R11, RANK,
+    is the effective rank of A.
+
+    Then, R22 is considered to be negligible, and R12 is annihilated
+    by orthogonal transformations from the right, arriving at the
+    complete orthogonal factorization:
+       A * P = Q * [ T11 0 ] * Z
+                   [  0  0 ]
+    The minimum-norm solution is then
+       X = P * Z' [ inv(T11)*Q1'*B ]
+                  [        0       ]
+    where Q1 consists of the first RANK columns of Q.
 
     Arguments
     =========
 
-    JOBVL   (input) CHARACTER*1
-            = 'N': left eigenvectors of A are not computed;
-            = 'V': left eigenvectors of A are computed.
-
-    JOBVR   (input) CHARACTER*1
-            = 'N': right eigenvectors of A are not computed;
-            = 'V': right eigenvectors of A are computed.
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M >= 0.
 
     N       (input) INTEGER
-            The order of the matrix A. N >= 0.
+            The number of columns of the matrix A.  N >= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of
+            columns of matrices B and X. NRHS >= 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the N-by-N matrix A.
-            On exit, A has been overwritten.
+            On entry, the M-by-N matrix A.
+            On exit, A has been overwritten by details of its
+            complete orthogonal factorization.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA >= max(1,N).
+            The leading dimension of the array A.  LDA >= max(1,M).
 
-    WR      (output) DOUBLE PRECISION array, dimension (N)
-    WI      (output) DOUBLE PRECISION array, dimension (N)
-            WR and WI contain the real and imaginary parts,
-            respectively, of the computed eigenvalues.  Complex
-            conjugate pairs of eigenvalues appear consecutively
-            with the eigenvalue having the positive imaginary part
-            first.
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the M-by-NRHS right hand side matrix B.
+            On exit, the N-by-NRHS solution matrix X.
+            If m >= n and RANK = n, the residual sum-of-squares for
+            the solution in the i-th column is given by the sum of
+            squares of elements N+1:M in that column.
 
-    VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)
-            If JOBVL = 'V', the left eigenvectors u(j) are stored one
-            after another in the columns of VL, in the same order
-            as their eigenvalues.
-            If JOBVL = 'N', VL is not referenced.
-            If the j-th eigenvalue is real, then u(j) = VL(:,j),
-            the j-th column of VL.
-            If the j-th and (j+1)-st eigenvalues form a complex
-            conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and
-            u(j+1) = VL(:,j) - i*VL(:,j+1).
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB >= max(1,M,N).
 
-    LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL >= 1; if
-            JOBVL = 'V', LDVL >= N.
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is an
+            initial column, otherwise it is a free column.  Before
+            the QR factorization of A, all initial columns are
+            permuted to the leading positions; only the remaining
+            free columns are moved as a result of column pivoting
+            during the factorization.
+            On exit, if JPVT(i) = k, then the i-th column of A*P
+            was the k-th column of A.
 
-    VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
-            If JOBVR = 'V', the right eigenvectors v(j) are stored one
-            after another in the columns of VR, in the same order
-            as their eigenvalues.
-            If JOBVR = 'N', VR is not referenced.
-            If the j-th eigenvalue is real, then v(j) = VR(:,j),
-            the j-th column of VR.
-            If the j-th and (j+1)-st eigenvalues form a complex
-            conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and
-            v(j+1) = VR(:,j) - i*VR(:,j+1).
+    RCOND   (input) DOUBLE PRECISION
+            RCOND is used to determine the effective rank of A, which
+            is defined as the order of the largest leading triangular
+            submatrix R11 in the QR factorization with pivoting of A,
+            whose estimated condition number < 1/RCOND.
 
-    LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR >= 1; if
-            JOBVR = 'V', LDVR >= N.
+    RANK    (output) INTEGER
+            The effective rank of A, i.e., the order of the submatrix
+            R11.  This is the same as the order of the submatrix T11
+            in the complete orthogonal factorization of A.
 
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK >= max(1,3*N), and
-            if JOBVL = 'V' or JOBVR = 'V', LWORK >= 4*N.  For good
-            performance, LWORK must generally be larger.
-
-            If LWORK = -1, then a workspace query is assumed; the routine
-            only calculates the optimal size of the WORK array, returns
-            this value as the first entry of the WORK array, and no error
-            message related to LWORK is issued by XERBLA.
+    WORK    (workspace) DOUBLE PRECISION array, dimension
+                        (max( min(M,N)+3*N, 2*min(M,N)+NRHS )),
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            < 0:  if INFO = -i, the i-th argument had an illegal value.
-            > 0:  if INFO = i, the QR algorithm failed to compute all the
-                  eigenvalues, and no eigenvectors have been computed;
-                  elements i+1:N of WR and WI contain eigenvalues which
-                  have converged.
+            < 0:  if INFO = -i, the i-th argument had an illegal value
 "));
     end dgelsx_vec;
 
@@ -7165,16 +7158,16 @@ For details of the arguments, see documentation of dgbsv.
         "imaginary part of the eigenvectors of A";
       output Integer info;
 
-protected
-  constant Integer dummyFunctionPointerNotUsed[1] = {0};
-  Integer n=size(A, 1) "Row dimension of A";
-  Integer lda=max(1, n);
-  Integer sdim=0;
-  Integer lwork=max(1, 10*size(A, 1));
-  Real work[lwork];
-  Boolean bwork[size(A, 1)];
+    protected
+      constant Integer dummyFunctionPointerNotUsed[1]={0};
+      Integer n=size(A, 1) "Row dimension of A";
+      Integer lda=max(1, n);
+      Integer sdim=0;
+      Integer lwork=max(1, 10*size(A, 1));
+      Real work[lwork];
+      Boolean bwork[size(A, 1)];
 
-external"FORTRAN 77" dgees(
+    external"FORTRAN 77" dgees(
     "V",
     "N",
     dummyFunctionPointerNotUsed,
@@ -7590,7 +7583,7 @@ external"FORTRAN 77" dgees(
       Real work[4*size(A, 1)];
       Integer ipiv[size(A, 1)];
       Integer iwork[size(A, 1)];
-
+      String equed = " ";
     external"FORTRAN 77" dgesvx(
               "N",
               transA,
@@ -7601,7 +7594,7 @@ external"FORTRAN 77" dgees(
               AF,
               lda,
               ipiv,
-              "N",
+              equed,
               R,
               C,
               B,
@@ -10396,7 +10389,7 @@ This package contains a direct interface to the LAPACK subroutines
     protected
       Integer n=size(A, 1);
       Real G[size(A, 1), size(A, 2)]=B*Matrices.solve2(R, transpose(B));
-      Real Xk[size(X, 1), size(X, 2)];
+      Real Xk[size(A, 1), size(A, 2)];
       Real Ak[size(A, 1), size(A, 2)];
       Real Rk[size(A, 1), size(A, 2)];
       Real Nk[size(A, 1), size(A, 2)];
@@ -10559,7 +10552,7 @@ The algorithm is taken from [1] and [2].
 
     protected
       Integer n=size(A, 1);
-      Real Xk[size(X, 1), size(X, 2)];
+      Real Xk[size(A, 1), size(A, 2)];
       Real Ak[size(A, 1), size(A, 2)];
       Real Rk[size(A, 1), size(A, 2)];
       Real Nk[size(A, 1), size(A, 2)];
@@ -11368,6 +11361,8 @@ Note: A' is a short hand notation of transpose(A):
 end Matrices;
 
 
+
+
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
   input Real s1 "First scalar";
@@ -11410,6 +11405,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
 </HTML>"));
 end isEqual;
+
 
 
 function sin "Sine"
@@ -12816,7 +12812,7 @@ as well as functions operating on
 </dl>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>

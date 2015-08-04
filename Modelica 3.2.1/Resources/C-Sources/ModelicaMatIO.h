@@ -50,16 +50,36 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 1
+#define MATIO_RELEASE_LEVEL 2
 
 /* Matio version number */
-#define MATIO_VERSION 151
+#define MATIO_VERSION 152
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
 
+/* Have MAT int64 / uint64 */
+#if defined(_WIN32)
+#if defined(_MSC_VER)
+#define HAVE_MAT_INT64_T 1
+#define HAVE_MAT_UINT64_T 1
+#elif defined(__WATCOMC__)
+#define HAVE_MAT_INT64_T 1
+#define HAVE_MAT_UINT64_T 1
+#elif defined(__BORLANDC__)
+#undef HAVE_MAT_INT64_T
+#undef HAVE_MAT_UINT64_T
+#else
+#undef HAVE_MAT_INT64_T
+#undef HAVE_MAT_UINT64_T
+#endif
+#else
+#define HAVE_MAT_INT64_T 1
+#define HAVE_MAT_UINT64_T 1
+#endif
+
 /* Define to 1 if you have the <stdint.h> header file. */
-#if defined (_WIN32)
+#if defined(_WIN32)
 #if defined(_MSC_VER) && _MSC_VER >= 1600
 #define MATIO_HAVE_STDINT_H 1
 #elif defined(__WATCOMC__)
@@ -67,8 +87,10 @@
 #else
 #undef MATIO_HAVE_STDINT_H
 #endif
-#else
+#elif !defined(__VXWORKS__)
 #define MATIO_HAVE_STDINT_H 1
+#else
+#undef MATIO_HAVE_STDINT_H
 #endif
 
 /* int16 type */
@@ -79,7 +101,11 @@
 
 /* int64 type */
 #ifdef HAVE_MAT_INT64_T
+#if defined(_MSC_VER) && _MSC_VER < 1300
+#define _mat_int64_t __int64
+#else
 #define _mat_int64_t long long
+#endif
 #endif
 
 /* int8 type */
@@ -93,7 +119,11 @@
 
 /* uint64 type */
 #ifdef HAVE_MAT_UINT64_T
+#if defined(_MSC_VER) && _MSC_VER < 1300
+#define _mat_uint64_t unsigned __int64
+#else
 #define _mat_uint64_t unsigned long long
+#endif
 #endif
 
 /* uint8 type */
@@ -132,7 +162,11 @@
 
 #include <stdarg.h>
 
+#if defined(__cplusplus)
+#define EXTERN extern "C"
+#else
 #define EXTERN extern
+#endif
 
 /** @defgroup MAT Matlab MAT File I/O Library */
 /** @defgroup mat_util MAT File I/O Utitlity Functions */

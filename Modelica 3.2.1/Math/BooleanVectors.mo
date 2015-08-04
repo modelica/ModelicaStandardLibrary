@@ -135,7 +135,7 @@ function enumerate
   output Integer enumerated[size(b, 1)]
       "Indices of the true entries (increasing order; 0 for false entries)";
 
-protected
+  protected
   Integer count;
 
 algorithm
@@ -233,7 +233,7 @@ function index "Returns the indices of the true entries of a Boolean vector"
   input Boolean b[:] "Boolean vector";
   output Integer indices[countTrue(b)] "Indices of the true entries";
 
-protected
+  protected
   Integer count;
 
 algorithm

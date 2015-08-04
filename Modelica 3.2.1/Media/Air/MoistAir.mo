@@ -1,5 +1,5 @@
 within Modelica.Media.Air;
-  package MoistAir "Air: Moist air model (190 ... 647 K)"
+package MoistAir "Air: Moist air model (190 ... 647 K)"
     extends Interfaces.PartialCondensingGases(
       mediumName="Moist air",
       substanceNames={"water","air"},
@@ -7,14 +7,13 @@ within Modelica.Media.Air;
       final singleState=false,
       reference_X={0.01,0.99},
       fluidConstants={IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
-
       Temperature(min=190, max=647));
 
     import Modelica.Media.IdealGases.Common.Functions;
     constant Integer Water=1
-      "Index of water (in substanceNames, massFractions X, etc.)";
+    "Index of water (in substanceNames, massFractions X, etc.)";
     constant Integer Air=2
-      "Index of air (in substanceNames, massFractions X, etc.)";
+    "Index of air (in substanceNames, massFractions X, etc.)";
     //     constant SI.Pressure psat_low=saturationPressureWithoutLimits(200.0);
     //     constant SI.Pressure psat_high=saturationPressureWithoutLimits(422.16);
     constant Real k_mair=steam.MM/dryair.MM "Ratio of molar weights";
@@ -22,7 +21,7 @@ within Modelica.Media.Air;
     constant IdealGases.Common.DataRecord dryair=IdealGases.Common.SingleGasesData.Air;
     constant IdealGases.Common.DataRecord steam=IdealGases.Common.SingleGasesData.H2O;
     constant SI.MolarMass[2] MMX={steam.MM,dryair.MM}
-      "Molar masses of components";
+    "Molar masses of components";
 
     import Modelica.Media.Interfaces;
     import Modelica.Math;
@@ -31,7 +30,7 @@ within Modelica.Media.Air;
     import Modelica.Media.Interfaces.Choices.ReferenceEnthalpy;
 
     redeclare record extends ThermodynamicState
-      "ThermodynamicState record for moist air"
+    "ThermodynamicState record for moist air"
     end ThermodynamicState;
 
     redeclare replaceable model extends BaseProperties(
@@ -51,26 +50,28 @@ within Modelica.Media.Air;
       MassFraction x_water "Mass of total water/mass of dry air";
       Real phi "Relative humidity";
 
-    protected
+  protected
       MassFraction X_liquid "Mass fraction of liquid or solid water";
       MassFraction X_steam "Mass fraction of steam water";
       MassFraction X_air "Mass fraction of air";
       MassFraction X_sat
-        "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
+      "Steam water mass fraction of saturation boundary in kg_water/kg_moistair";
       MassFraction x_sat
-        "Steam water mass content of saturation boundary in kg_water/kg_dryair";
+      "Steam water mass content of saturation boundary in kg_water/kg_dryair";
       AbsolutePressure p_steam_sat "partial saturation pressure of steam";
     equation
       assert(T >= 190 and T <= 647, "
 Temperature T is not in the allowed range
-190.0 K <= (T =" + String(T) + " K) <= 647.0 K
-required from medium model \"" + mediumName + "\".");
+190.0 K <= (T ="
+               + String(T) + " K) <= 647.0 K
+required from medium model \""
+                             + mediumName + "\".");
       MM = 1/(Xi[Water]/MMX[Water] + (1.0 - Xi[Water])/MMX[Air]);
 
       p_steam_sat = min(saturationPressure(T), 0.999*p);
       X_sat = min(p_steam_sat*k_mair/max(100*Constants.eps, p - p_steam_sat)*(1
          - Xi[Water]), 1.0)
-        "Water content at saturation with respect to actual water content";
+      "Water content at saturation with respect to actual water content";
       X_liquid = max(Xi[Water] - X_sat, 0.0);
       X_steam = Xi[Water] - X_liquid;
       X_air = 1 - Xi[Water];
@@ -100,7 +101,7 @@ required from medium model \"" + mediumName + "\".");
     end BaseProperties;
 
     redeclare function setState_pTX
-      "Return thermodynamic state as function of pressure p, temperature T and composition X"
+    "Return thermodynamic state as function of pressure p, temperature T and composition X"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
@@ -123,7 +124,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
     end setState_pTX;
 
     redeclare function setState_phX
-      "Return thermodynamic state as function of pressure p, specific enthalpy h and composition X"
+    "Return thermodynamic state as function of pressure p, specific enthalpy h and composition X"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
@@ -152,7 +153,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
     end setState_phX;
 
     redeclare function setState_dTX
-      "Return thermodynamic state as function of density d, temperature T and composition X"
+    "Return thermodynamic state as function of density d, temperature T and composition X"
       extends Modelica.Icons.Function;
       input Density d "Density";
       input Temperature T "Temperature";
@@ -178,7 +179,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
     end setState_dTX;
 
     redeclare function extends setSmoothState
-      "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
+    "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
     algorithm
       state := ThermodynamicState(
             p=Media.Common.smoothStep(
@@ -199,7 +200,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
     end setSmoothState;
 
     function Xsaturation
-      "Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record"
+    "Return absolute humidity per unit mass of moist air at saturation as a function of the thermodynamic state record"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction X_sat "Steam mass fraction of sat. boundary";
@@ -212,7 +213,7 @@ Absolute humidity per unit mass of moist air at saturation is computed from pres
     end Xsaturation;
 
     function xsaturation
-      "Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record"
+    "Return absolute humidity per unit mass of dry air at saturation as a function of the thermodynamic state record"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction x_sat "Absolute humidity per unit mass of dry air";
@@ -225,7 +226,7 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
     end xsaturation;
 
     function xsaturation_pT
-      "Return absolute humidity per unit mass of dry air at saturation as a function of pressure p and temperature T"
+    "Return absolute humidity per unit mass of dry air at saturation as a function of pressure p and temperature T"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SI.Temperature T "Temperature";
@@ -239,13 +240,13 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
     end xsaturation_pT;
 
     function massFraction_pTphi
-      "Return steam mass fraction as a function of relative humidity phi and temperature T"
+    "Return steam mass fraction as a function of relative humidity phi and temperature T"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input Real phi "Relative humidity (0 ... 1.0)";
       output MassFraction X_steam "Absolute humidity, steam mass fraction";
-    protected
+  protected
       constant Real k=0.621964713077499 "Ratio of molar masses";
       AbsolutePressure psat=saturationPressure(T) "Saturation pressure";
     algorithm
@@ -256,13 +257,13 @@ Absolute humidity per unit mass of moist air is computed from temperature, press
     end massFraction_pTphi;
 
     function relativeHumidity_pTX
-      "Return relative humidity as a function of pressure p, temperature T and composition X"
+    "Return relative humidity as a function of pressure p, temperature T and composition X"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction[:] X "Composition";
       output Real phi "Relative humidity";
-    protected
+  protected
       SI.Pressure p_steam_sat "Saturation pressure";
       SI.MassFraction X_air "Dry air mass fraction";
     algorithm
@@ -275,7 +276,7 @@ Relative humidity is computed from pressure, temperature and composition with 1.
     end relativeHumidity_pTX;
 
     function relativeHumidity
-      "Return relative humidity as a function of the thermodynamic state record"
+    "Return relative humidity as a function of the thermodynamic state record"
       extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state";
       output Real phi "Relative humidity";
@@ -303,7 +304,7 @@ Relative humidity is computed from the thermodynamic state record with 1.0 as th
 */
 
     redeclare function extends gasConstant
-      "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
+    "Return ideal gas constant as a function from thermodynamic state, only valid for phi<1"
 
     algorithm
       R := dryair.R*(1 - state.X[Water]) + steam.R*state.X[Water];
@@ -313,7 +314,7 @@ The ideal gas constant for moist air is computed from <a href=\"modelica://Model
     end gasConstant;
 
     function gasConstant_X
-      "Return ideal gas constant as a function from composition X"
+    "Return ideal gas constant as a function from composition X"
       extends Modelica.Icons.Function;
       input SI.MassFraction X[:] "Gas phase composition";
       output SI.SpecificHeatCapacity R "Ideal gas constant";
@@ -325,12 +326,12 @@ The ideal gas constant for moist air is computed from the gas phase composition.
     end gasConstant_X;
 
     function saturationPressureLiquid
-      "Return saturation pressure of water as a function of temperature T in the range of 273.16 to 647.096 K"
+    "Return saturation pressure of water as a function of temperature T in the range of 273.16 to 647.096 K"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Saturation temperature";
       output SI.AbsolutePressure psat "Saturation pressure";
-    protected
+  protected
       SI.Temperature Tcritical=647.096 "Critical temperature";
       SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
       Real r1=(1 - Tsat/Tcritical) "Common subexpression";
@@ -351,13 +352,13 @@ The ideal gas constant for moist air is computed from the gas phase composition.
     end saturationPressureLiquid;
 
     function saturationPressureLiquid_der
-      "Derivative function for 'saturationPressureLiquid'"
+    "Derivative function for 'saturationPressureLiquid'"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Saturation temperature";
       input Real dTsat(unit="K/s") "Saturation temperature derivative";
       output Real psat_der(unit="Pa/s") "Saturation pressure derivative";
-    protected
+  protected
       SI.Temperature Tcritical=647.096 "Critical temperature";
       SI.AbsolutePressure pcritical=22.064e6 "Critical pressure";
       Real r1=(1 - Tsat/Tcritical) "Common subexpression 1";
@@ -385,12 +386,12 @@ The ideal gas constant for moist air is computed from the gas phase composition.
     end saturationPressureLiquid_der;
 
     function sublimationPressureIce
-      "Return sublimation pressure of water as a function of temperature T between 190 and 273.16 K"
+    "Return sublimation pressure of water as a function of temperature T between 190 and 273.16 K"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Sublimation temperature";
       output SI.AbsolutePressure psat "Sublimation pressure";
-    protected
+  protected
       SI.Temperature Ttriple=273.16 "Triple point temperature";
       SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
       Real r1=Tsat/Ttriple "Common subexpression";
@@ -409,13 +410,13 @@ The ideal gas constant for moist air is computed from the gas phase composition.
     end sublimationPressureIce;
 
     function sublimationPressureIce_der
-      "Derivative function for 'sublimationPressureIce'"
+    "Derivative function for 'sublimationPressureIce'"
 
       extends Modelica.Icons.Function;
       input SI.Temperature Tsat "Sublimation temperature";
       input Real dTsat(unit="K/s") "Sublimation temperature derivative";
       output Real psat_der(unit="Pa/s") "Sublimation pressure derivative";
-    protected
+  protected
       SI.Temperature Ttriple=273.16 "Triple point temperature";
       SI.AbsolutePressure ptriple=611.657 "Triple point pressure";
       Real r1=Tsat/Ttriple "Common subexpression 1";
@@ -436,7 +437,7 @@ The ideal gas constant for moist air is computed from the gas phase composition.
     end sublimationPressureIce_der;
 
     redeclare function extends saturationPressure
-      "Return saturation pressure of water as a function of temperature T between 190 and 647.096 K"
+    "Return saturation pressure of water as a function of temperature T between 190 and 647.096 K"
 
     algorithm
       psat := Utilities.spliceFunction(
@@ -455,7 +456,7 @@ Saturation pressure of water in the liquid and the solid region is computed usin
     end saturationPressure;
 
     function saturationPressure_der
-      "Derivative function for 'saturationPressure'"
+    "Derivative function for 'saturationPressure'"
       extends Modelica.Icons.Function;
       input Temperature Tsat "Saturation temperature";
       input Real dTsat(unit="K/s") "Time derivative of saturation temperature";
@@ -481,14 +482,14 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
     end saturationPressure_der;
 
     function saturationTemperature
-      "Return saturation temperature of water as a function of (partial) pressure p"
+    "Return saturation temperature of water as a function of (partial) pressure p"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T_min=190 "Lower boundary of solution";
       input SI.Temperature T_max=647 "Upper boundary of solution";
       output SI.Temperature T "Saturation temperature";
 
-    protected
+  protected
       package Internal
         extends Modelica.Media.Common.OneNonLinearEquation;
 
@@ -518,9 +519,9 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
     end saturationTemperature;
 
     redeclare function extends enthalpyOfVaporization
-      "Return enthalpy of vaporization of water as a function of temperature T, 273.16 to 647.096 K"
+    "Return enthalpy of vaporization of water as a function of temperature T, 273.16 to 647.096 K"
 
-    protected
+  protected
       Real Tcritical=647.096 "Critical temperature";
       Real dcritical=322 "Critical density";
       Real pcritical=22.064e6 "Critical pressure";
@@ -529,26 +530,26 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
           1.80122502} "Coefficients in equation (1) of [1]";
       Real m[:]={1/3,2/3,5/3,16/3,43/3,110/3} "Powers in equation (2)";
       Real b[:]={1.99274064,1.09965342,-0.510839303,-1.75493479,-45.5170352,-6.74694450e5}
-        "Coefficients in equation (2) of [1]";
+      "Coefficients in equation (2) of [1]";
       Real o[:]={2/6,4/6,8/6,18/6,37/6,71/6} "Powers in equation (3)";
       Real c[:]={-2.03150240,-2.68302940,-5.38626492,-17.2991605,-44.7586581,-63.9201063}
-        "Coefficients in equation (3) of [1]";
+      "Coefficients in equation (3) of [1]";
       Real tau=1 - T/Tcritical "Temperature expression";
       Real r1=(a[1]*Tcritical*tau^n[1])/T + (a[2]*Tcritical*tau^n[2])/T + (a[3]
           *Tcritical*tau^n[3])/T + (a[4]*Tcritical*tau^n[4])/T + (a[5]*
           Tcritical*tau^n[5])/T + (a[6]*Tcritical*tau^n[6])/T "Expression 1";
       Real r2=a[1]*n[1]*tau^n[1] + a[2]*n[2]*tau^n[2] + a[3]*n[3]*tau^n[3] + a[
           4]*n[4]*tau^n[4] + a[5]*n[5]*tau^n[5] + a[6]*n[6]*tau^n[6]
-        "Expression 2";
+      "Expression 2";
       Real dp=dcritical*(1 + b[1]*tau^m[1] + b[2]*tau^m[2] + b[3]*tau^m[3] + b[
           4]*tau^m[4] + b[5]*tau^m[5] + b[6]*tau^m[6])
-        "Density of saturated liquid";
+      "Density of saturated liquid";
       Real dpp=dcritical*exp(c[1]*tau^o[1] + c[2]*tau^o[2] + c[3]*tau^o[3] + c[
           4]*tau^o[4] + c[5]*tau^o[5] + c[6]*tau^o[6])
-        "Density of saturated vapor";
+      "Density of saturated vapor";
     algorithm
       r0 := -(((dp - dpp)*exp(r1)*pcritical*(r2 + r1*tau))/(dp*dpp*tau))
-        "Difference of equations (7) and (6)";
+      "Difference of equations (7) and (6)";
       annotation (
         smoothOrder=2,
         Documentation(info="<html>
@@ -558,7 +559,7 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
     end enthalpyOfVaporization;
 
     function HeatCapacityOfWater
-      "Return specific heat capacity of water (liquid only) as a function of temperature T"
+    "Return specific heat capacity of water (liquid only) as a function of temperature T"
       extends Modelica.Icons.Function;
       input Temperature T "Temperature";
       output SpecificHeatCapacity cp_fl "Specific heat capacity of liquid";
@@ -568,11 +569,12 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
       annotation (Documentation(info="<html>
 The specific heat capacity of water (liquid and solid) is calculated using a
                  polynomial approach and data from VDI-Waermeatlas 8. Edition (Db1)
-</html>"), smoothOrder=2);
+</html>"),
+         smoothOrder=2);
     end HeatCapacityOfWater;
 
     redeclare function extends enthalpyOfLiquid
-      "Return enthalpy of liquid water as a function of temperature T(use enthalpyOfWater instead)"
+    "Return enthalpy of liquid water as a function of temperature T(use enthalpyOfWater instead)"
 
     algorithm
       h := (T - 273.15)*1e3*(4.2166 - 0.5*(T - 273.15)*(0.0033166 + 0.333333*(T
@@ -587,7 +589,7 @@ Specific enthalpy of liquid water is computed from temperature using a polynomia
     end enthalpyOfLiquid;
 
     redeclare function extends enthalpyOfGas
-      "Return specific enthalpy of gas (air and steam) as a function of temperature T and composition X"
+    "Return specific enthalpy of gas (air and steam) as a function of temperature T and composition X"
 
     algorithm
       h := Modelica.Media.IdealGases.Common.Functions.h_Tlow(
@@ -609,7 +611,7 @@ Specific enthalpy of moist air is computed from temperature, provided all water 
     end enthalpyOfGas;
 
     redeclare function extends enthalpyOfCondensingGas
-      "Return specific enthalpy of steam as a function of temperature T"
+    "Return specific enthalpy of steam as a function of temperature T"
 
     algorithm
       h := Modelica.Media.IdealGases.Common.Functions.h_Tlow(
@@ -626,7 +628,7 @@ Specific enthalpy of steam is computed from temperature.
     end enthalpyOfCondensingGas;
 
     redeclare function extends enthalpyOfNonCondensingGas
-      "Return specific enthalpy of dry air as a function of temperature T"
+    "Return specific enthalpy of dry air as a function of temperature T"
 
     algorithm
       h := Modelica.Media.IdealGases.Common.Functions.h_Tlow(
@@ -643,7 +645,7 @@ Specific enthalpy of dry air is computed from temperature.
     end enthalpyOfNonCondensingGas;
 
     function enthalpyOfWater
-      "Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T"
+    "Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T"
       extends Modelica.Icons.Function;
       input SIunits.Temperature T "Temperature";
       output SIunits.SpecificEnthalpy h "Specific enthalpy of water";
@@ -697,7 +699,7 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.enthalp
     end enthalpyOfWater_der;
 
     redeclare function extends pressure
-      "Returns pressure of ideal gas as a function of the thermodynamic state record"
+    "Returns pressure of ideal gas as a function of the thermodynamic state record"
 
     algorithm
       p := state.p;
@@ -707,7 +709,7 @@ Pressure is returned from the thermodynamic state record input as a simple assig
     end pressure;
 
     redeclare function extends temperature
-      "Return temperature of ideal gas as a function of the thermodynamic state record"
+    "Return temperature of ideal gas as a function of the thermodynamic state record"
 
     algorithm
       T := state.T;
@@ -717,19 +719,19 @@ Temperature is returned from the thermodynamic state record input as a simple as
     end temperature;
 
     function T_phX
-      "Return temperature as a function of pressure p, specific enthalpy h and composition X"
+    "Return temperature as a function of pressure p, specific enthalpy h and composition X"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEnthalpy h "Specific enthalpy";
       input MassFraction[:] X "Mass fractions of composition";
       output Temperature T "Temperature";
 
-    protected
+  protected
       package Internal
-        "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
+      "Solve h(data,T) for T with given h (use only indirectly via temperature_phX)"
         extends Modelica.Media.Common.OneNonLinearEquation;
         redeclare record extends f_nonlinear_Data
-          "Data to be passed to non-linear function"
+        "Data to be passed to non-linear function"
           extends Modelica.Media.IdealGases.Common.DataRecord;
         end f_nonlinear_Data;
 
@@ -760,7 +762,7 @@ Temperature is computed from pressure, specific enthalpy and composition via num
     end T_phX;
 
     redeclare function extends density
-      "Returns density of ideal gas as a function of the thermodynamic state record"
+    "Returns density of ideal gas as a function of the thermodynamic state record"
 
     algorithm
       d := state.p/(gasConstant(state)*state.T);
@@ -770,7 +772,7 @@ Density is computed from pressure, temperature and composition in the thermodyna
     end density;
 
     redeclare function extends specificEnthalpy
-      "Return specific enthalpy of moist air as a function of the thermodynamic state record"
+    "Return specific enthalpy of moist air as a function of the thermodynamic state record"
 
     algorithm
       h := h_pTX(
@@ -783,13 +785,13 @@ Specific enthalpy of moist air is computed from the thermodynamic state record. 
     end specificEnthalpy;
 
     function h_pTX
-      "Return specific enthalpy of moist air as a function of pressure p, temperature T and composition X"
+    "Return specific enthalpy of moist air as a function of pressure p, temperature T and composition X"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction X[:] "Mass fractions of moist air";
       output SI.SpecificEnthalpy h "Specific enthalpy at p, T, X";
-    protected
+  protected
       SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
       SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
       SI.MassFraction X_liquid "Mass fraction of liquid water";
@@ -833,21 +835,21 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
       input Real dT(unit="K/s") "Temperature derivative";
       input Real dX[:](each unit="1/s") "Composition derivative";
       output Real h_der(unit="J/(kg.s)") "Time derivative of specific enthalpy";
-    protected
+  protected
       SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
       SI.MassFraction X_sat "Absolute humidity per unit mass of moist air";
       SI.MassFraction X_liquid "Mass fraction of liquid water";
       SI.MassFraction X_steam "Mass fraction of steam water";
       SI.MassFraction X_air "Mass fraction of air";
       SI.MassFraction x_sat
-        "Absolute humidity per unit mass of dry air at saturation";
+      "Absolute humidity per unit mass of dry air at saturation";
       Real dX_steam(unit="1/s") "Time derivative of steam mass fraction";
       Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
       Real dX_liq(unit="1/s")
-        "Time derivative of liquid/solid water mass fraction";
+      "Time derivative of liquid/solid water mass fraction";
       Real dps(unit="Pa/s") "Time derivative of saturation pressure";
       Real dx_sat(unit="1/s")
-        "Time derivative of absolute humidity per unit mass of dry air";
+      "Time derivative of absolute humidity per unit mass of dry air";
     algorithm
       p_steam_sat := saturationPressure(T);
       x_sat := p_steam_sat*k_mair/max(100*Modelica.Constants.eps, p -
@@ -904,21 +906,21 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
     end h_pTX_der;
 
     redeclare function extends isentropicExponent
-      "Return isentropic exponent (only for gas fraction!)"
+    "Return isentropic exponent (only for gas fraction!)"
     algorithm
       gamma := specificHeatCapacityCp(state)/specificHeatCapacityCv(state);
     end isentropicExponent;
 
     function isentropicEnthalpyApproximation
-      "Approximate calculation of h_is from upstream properties, downstream pressure, gas part only"
+    "Approximate calculation of h_is from upstream properties, downstream pressure, gas part only"
       extends Modelica.Icons.Function;
       input AbsolutePressure p2 "Downstream pressure";
       input ThermodynamicState state "Thermodynamic state at upstream location";
       output SpecificEnthalpy h_is "Isentropic enthalpy";
-    protected
+  protected
       SpecificEnthalpy h "Specific enthalpy at upstream location";
       IsentropicExponent gamma=isentropicExponent(state) "Isentropic exponent";
-    protected
+  protected
       MassFraction[nX] X "Complete X-vector";
     algorithm
       X := state.X;
@@ -939,7 +941,7 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
     end isentropicEnthalpyApproximation;
 
     redeclare function extends specificInternalEnergy
-      "Return specific internal energy of moist air as a function of the thermodynamic state record"
+    "Return specific internal energy of moist air as a function of the thermodynamic state record"
       extends Modelica.Icons.Function;
       output SI.SpecificInternalEnergy u "Specific internal energy";
     algorithm
@@ -954,13 +956,13 @@ Specific internal energy is determined from the thermodynamic state record, assu
     end specificInternalEnergy;
 
     function specificInternalEnergy_pTX
-      "Return specific internal energy of moist air as a function of pressure p, temperature T and composition X"
+    "Return specific internal energy of moist air as a function of pressure p, temperature T and composition X"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction X[:] "Mass fractions of moist air";
       output SI.SpecificInternalEnergy u "Specific internal energy";
-    protected
+  protected
       SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
       SI.MassFraction X_liquid "Mass fraction of liquid water";
       SI.MassFraction X_steam "Mass fraction of steam water";
@@ -986,14 +988,14 @@ Specific internal energy is determined from the thermodynamic state record, assu
             refChoice=ReferenceEnthalpy.UserDefined,
             h_off=25104.684) + enthalpyOfWater(T)*X_liquid - R_gas*T;
 
-      annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info
-            ="<html>
+    annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info=
+           "<html>
 Specific internal energy is determined from pressure p, temperature T and composition X, assuming that the liquid or solid water volume is negligible.
 </html>"));
     end specificInternalEnergy_pTX;
 
     function specificInternalEnergy_pTX_der
-      "Derivative function for specificInternalEnergy_pTX"
+    "Derivative function for specificInternalEnergy_pTX"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
@@ -1002,7 +1004,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
       input Real dT(unit="K/s") "Temperature derivative";
       input Real dX[:](each unit="1/s") "Mass fraction derivatives";
       output Real u_der(unit="J/(kg.s)") "Specific internal energy derivative";
-    protected
+  protected
       SI.AbsolutePressure p_steam_sat "partial saturation pressure of steam";
       SI.MassFraction X_liquid "Mass fraction of liquid water";
       SI.MassFraction X_steam "Mass fraction of steam water";
@@ -1011,14 +1013,14 @@ Specific internal energy is determined from pressure p, temperature T and compos
       SI.SpecificHeatCapacity R_gas "Ideal gas constant";
 
       SI.MassFraction x_sat
-        "Absolute humidity per unit mass of dry air at saturation";
+      "Absolute humidity per unit mass of dry air at saturation";
       Real dX_steam(unit="1/s") "Time derivative of steam mass fraction";
       Real dX_air(unit="1/s") "Time derivative of dry air mass fraction";
       Real dX_liq(unit="1/s")
-        "Time derivative of liquid/solid water mass fraction";
+      "Time derivative of liquid/solid water mass fraction";
       Real dps(unit="Pa/s") "Time derivative of saturation pressure";
       Real dx_sat(unit="1/s")
-        "Time derivative of absolute humidity per unit mass of dry air";
+      "Time derivative of absolute humidity per unit mass of dry air";
       Real dR_gas(unit="J/(kg.K.s)") "Time derivative of ideal gas constant";
     algorithm
       p_steam_sat := saturationPressure(T);
@@ -1078,7 +1080,7 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.specifi
     end specificInternalEnergy_pTX_der;
 
     redeclare function extends specificEntropy
-      "Return specific entropy from thermodynamic state record, only valid for phi<1"
+    "Return specific entropy from thermodynamic state record, only valid for phi<1"
 
     algorithm
       s := s_pTX(
@@ -1094,7 +1096,7 @@ Specific entropy is calculated from the thermodynamic state record, assuming ide
     end specificEntropy;
 
     redeclare function extends specificGibbsEnergy
-      "Return specific Gibbs energy as a function of the thermodynamic state record, only valid for phi<1"
+    "Return specific Gibbs energy as a function of the thermodynamic state record, only valid for phi<1"
       extends Modelica.Icons.Function;
     algorithm
       g := h_pTX(
@@ -1107,7 +1109,7 @@ The Gibbs Energy is computed from the thermodynamic state record for moist air w
     end specificGibbsEnergy;
 
     redeclare function extends specificHelmholtzEnergy
-      "Return specific Helmholtz energy as a function of the thermodynamic state record, only valid for phi<1"
+    "Return specific Helmholtz energy as a function of the thermodynamic state record, only valid for phi<1"
       extends Modelica.Icons.Function;
     algorithm
       f := h_pTX(
@@ -1121,9 +1123,9 @@ The Specific Helmholtz Energy is computed from the thermodynamic state record fo
     end specificHelmholtzEnergy;
 
     redeclare function extends specificHeatCapacityCp
-      "Return specific heat capacity at constant pressure as a function of the thermodynamic state record"
+    "Return specific heat capacity at constant pressure as a function of the thermodynamic state record"
 
-    protected
+  protected
       Real dT(unit="s/K") = 1.0;
     algorithm
       cp := h_pTX_der(
@@ -1144,7 +1146,7 @@ The specific heat capacity at constant pressure <b>cp</b> is computed from tempe
     end specificHeatCapacityCp;
 
     redeclare function extends specificHeatCapacityCv
-      "Return specific heat capacity at constant volume as a function of the thermodynamic state record"
+    "Return specific heat capacity at constant volume as a function of the thermodynamic state record"
 
     algorithm
       cv := Modelica.Media.IdealGases.Common.Functions.cp_Tlow(dryair, state.T)
@@ -1159,11 +1161,11 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 </html>"));
     end specificHeatCapacityCv;
 
-  redeclare function extends dynamicViscosity
+redeclare function extends dynamicViscosity
     "Return dynamic viscosity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
 
     import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
-  algorithm
+algorithm
     eta := 1e-6*Polynomials_Temp.evaluateWithRange(
         {9.7391102886305869E-15,-3.1353724870333906E-11,4.3004876595642225E-08,
         -3.8228016291758240E-05,5.0427874367180762E-02,1.7239260139242528E+01},
@@ -1174,13 +1176,13 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 <p>Dynamic viscosity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
 <p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
-  end dynamicViscosity;
+end dynamicViscosity;
 
-  redeclare function extends thermalConductivity
+redeclare function extends thermalConductivity
     "Return thermal conductivity as a function of the thermodynamic state record, valid from 123.15 K to 1273.15 K"
     import Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
     import Cv = Modelica.SIunits.Conversions;
-  algorithm
+algorithm
     lambda := 1e-3*Polynomials_Temp.evaluateWithRange(
         {6.5691470817717812E-15,-3.4025961923050509E-11,5.3279284846303157E-08,
         -4.5340839289219472E-05,7.6129675309037664E-02,2.4169481088097051E+01},
@@ -1192,7 +1194,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 <p>Thermal conductivity is computed from temperature using a simple polynomial for dry air. Range of validity is from 123.15 K to 1273.15 K. The influence of pressure and moisture is neglected. </p>
 <p>Source: VDI Waermeatlas, 8th edition. </p>
 </html>"));
-  end thermalConductivity;
+end thermalConductivity;
 
     package Utilities "Utility functions"
       extends Modelica.Icons.UtilitiesPackage;
@@ -1203,7 +1205,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
         input Real x "Function argument";
         input Real deltax=1 "Region around x with spline interpolation";
         output Real out;
-      protected
+    protected
         Real scaledX;
         Real scaledX1;
         Real y;
@@ -1232,7 +1234,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
         input Real dx;
         input Real ddeltax=0;
         output Real out;
-      protected
+    protected
         Real scaledX;
         Real scaledX1;
         Real dscaledX1;
@@ -1263,7 +1265,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
         input Real x1 "First argument of smooth max operator";
         input Real x2 "Second argument of smooth max operator";
         input Real dx
-          "Approximate difference between x1 and x2, below which regularization starts";
+        "Approximate difference between x1 and x2, below which regularization starts";
         output Real y "Result of smooth max operator";
       algorithm
         y := max(x1, x2) + Math.log((exp((4/dx)*(x1 - max(x1, x2)))) + (exp((4/
@@ -1282,7 +1284,7 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
         input Real x1 "First argument of smooth max operator";
         input Real x2 "Second argument of smooth max operator";
         input Real dx
-          "Approximate difference between x1 and x2, below which regularization starts";
+        "Approximate difference between x1 and x2, below which regularization starts";
         input Real dx1;
         input Real dx2;
         input Real ddx;
@@ -1300,112 +1302,6 @@ The specific heat capacity at constant density <b>cv</b> is computed from temper
 </html>"));
       end smoothMax_der;
     end Utilities;
-
-    model PsychrometricData "Produces plot data for psychrometric charts"
-      extends Modelica.Icons.Example;
-      package Medium = Modelica.Media.Air.MoistAir "Used medium package";
-      parameter SIunits.Pressure p_const=1e5 "Pressure";
-      parameter Integer n_T=11 "Number of isotherms";
-      parameter SIunits.Temperature T_min=253.15 "Lowest isotherm";
-      parameter SIunits.Temperature T_step=10
-        "Temperature step between two isotherms";
-      parameter Integer n_h=16
-        "Number of lines with constant specific enthalpy";
-      parameter SIunits.SpecificEnthalpy h_min=-20e3
-        "Lowest line of constant enthalpy";
-      parameter SIunits.SpecificEnthalpy h_step=1e4
-        "Enthalpy step between two lines of constant enthalpy";
-      parameter Integer n_phi=10
-        "Number of lines with constant relative humidity";
-      parameter Real phi_min=0.1 "Lowest line of constant humidity";
-      parameter Real phi_step=0.1 "Step between two lines of constant humidity";
-      parameter SIunits.MassFraction x_min=0.00
-        "Minimum diagram absolute humidity";
-      parameter SIunits.MassFraction x_max=0.03
-        "Maximum diagram absolute humidity";
-      parameter SIunits.Time t=1 "Simulation time";
-
-      final parameter SIunits.Temperature[n_T] T_const={T_min - T_step + i*
-          T_step for i in 1:n_T} "Constant temperatures";
-      final parameter SIunits.SpecificEnthalpy[n_h] h_const={(i - 1)*h_step +
-          h_min for i in 1:n_h} "Constant enthalpies";
-      final parameter Real[n_phi] phi_const={(i - 1)*phi_step + phi_min for i
-           in 1:n_phi} "Constant relative humidities";
-      final parameter Real diagSlope=Medium.enthalpyOfVaporization(273.15)
-        "Rotation of diagram that zero degrees isotherm becomes horizontal outside the fog region";
-      final parameter SIunits.MassFraction x_start=x_min
-        "Initial absolute humidity in kg water/kg dry air";
-
-      SIunits.MassFraction x(start=x_start)
-        "Absolute humidity in kg water/kg dry air";
-      SIunits.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
-      SIunits.SpecificEnthalpy[n_h] hx_h(start=h_const) "Const h_1+x";
-      SIunits.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
-      SIunits.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
-      SIunits.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
-      SIunits.SpecificEnthalpy[n_phi] y_phi "Chart enthalpy for const phi";
-      Medium.BaseProperties[n_T] medium_T "Medium properties for const T";
-      Medium.BaseProperties[n_phi] medium_phi "Medium properties for const phi";
-
-    protected
-      SIunits.Pressure[n_phi] ps_phi
-        "Saturation pressure for constant-phi-lines";
-      SIunits.Temperature[n_phi] T_phi(each start=290);
-      Boolean[n_T] fog(start=fill(false, n_T))
-        "Triggers events at intersection of isotherms with phi=1";
-      SIunits.Pressure[n_T] pd "Steam partial pressure along isotherms";
-    initial equation
-      x = x_min;
-    equation
-
-      der(x) = (x_max - x_min)/t;
-
-      for i in 1:n_T loop
-        medium_T[i].T = T_const[i];
-        medium_T[i].p = p_const;
-        medium_T[i].Xi = {x/(1 + x)};
-        hx_T[i] = medium_T[i].h*(medium_T[i].x_water + 1);
-        y_T[i] = hx_T[i] - diagSlope*x;
-
-        //trigger events
-        pd[i] = medium_T[i].Xi[1]*medium_T[i].MM/MMX[1]*p_const;
-        fog[i] = pd[i] >= Medium.saturationPressure(T_const[i]);
-      end for;
-      for i in 1:n_h loop
-        der(hx_h[i]) = 0.0;
-        y_h[i] = hx_h[i] - diagSlope*x;
-      end for;
-      for i in 1:n_phi loop
-        medium_phi[i].p = p_const;
-        ps_phi[i] = p_const*x/phi_const[i]/(Medium.k_mair + x);
-        T_phi[i] = if x < 5e-6 then 200 else Medium.saturationTemperature(
-          ps_phi[i]);
-        medium_phi[i].T = T_phi[i];
-        medium_phi[i].Xi = {x/(1 + x)};
-        hx_phi[i] = medium_phi[i].h*(medium_phi[i].x_water + 1);
-        y_phi[i] = hx_phi[i] - diagSlope*x;
-      end for;
-
-      annotation (Documentation(info="<html>
-<p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
-It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
-
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
-</p>
-
-<p>
-<b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
-
-<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href=\"modelica://Modelica.Media.Air.MoistAir\">MoistAir package description</a>. Absolute humidity <b>x</b> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
-<ul>
-<li><b>y_h</b>: constant specific enthalpy</li>
-<li><b>y_T</b>: constant temperature</li>
-<li><b>y_phi</b>: constant relative humidity</li>
-</ul>
-</html>"));
-    end PsychrometricData;
 
     redeclare function extends velocityOfSound
     algorithm
@@ -1493,18 +1389,18 @@ It must be noted that the relationship of both axis variables is not right-angle
     end molarMass;
 
     function T_psX
-      "Return temperature as a function of pressure p, specific entropy s and composition X"
+    "Return temperature as a function of pressure p, specific entropy s and composition X"
       extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SpecificEntropy s "Specific entropy";
       input MassFraction[:] X "Mass fractions of composition";
       output Temperature T "Temperature";
 
-    protected
+  protected
       package Internal "Solve s(data,T) for T with given s"
         extends Modelica.Media.Common.OneNonLinearEquation;
         redeclare record extends f_nonlinear_Data
-          "Data to be passed to non-linear function"
+        "Data to be passed to non-linear function"
           extends Modelica.Media.IdealGases.Common.DataRecord;
         end f_nonlinear_Data;
 
@@ -1531,7 +1427,8 @@ It must be noted that the relationship of both axis variables is not right-angle
             steam);
       annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end T_psX;
@@ -1556,21 +1453,22 @@ Temperature is computed from pressure, specific entropy and composition via nume
               {1 - sum(X)}));
       annotation (smoothOrder=2, Documentation(info="<html>
 The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end setState_psX;
 
     function s_pTX
-      "Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi<1)"
+    "Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi<1)"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction X[:] "Mass fractions of moist air";
       output SI.SpecificEntropy s "Specific entropy at p, T, X";
-    protected
+  protected
       MoleFraction[2] Y=massToMoleFractions(X, {steam.MM,dryair.MM})
-        "Molar fraction";
+      "Molar fraction";
 
     algorithm
       s := Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1 - X[
@@ -1589,7 +1487,8 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
         Inline=false,
         Documentation(info="<html>
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={Text(
@@ -1599,7 +1498,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     end s_pTX;
 
     function s_pTX_der
-      "Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi<1)"
+    "Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi<1)"
       extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
@@ -1608,9 +1507,9 @@ Specific entropy of moist air is computed from pressure, temperature and composi
       input Real dT(unit="K/s") "Derivative of temperature";
       input Real dX[nX](unit="1/s") "Derivative of mass fractions";
       output Real ds(unit="J/(kg.K.s)") "Specific entropy at p, T, X";
-    protected
+  protected
       MoleFraction[2] Y=massToMoleFractions(X, {steam.MM,dryair.MM})
-        "Molar fraction";
+      "Molar fraction";
 
     algorithm
       ds := Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(
@@ -1648,7 +1547,8 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         smoothOrder=1,
         Documentation(info="<html>
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
-</html>", revisions="<html>
+</html>",
+        revisions="<html>
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={Text(
@@ -1658,7 +1558,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
     end s_pTX_der;
 
     redeclare function extends isentropicEnthalpy
-      "Isentropic enthalpy (only valid for phi<1)"
+    "Isentropic enthalpy (only valid for phi<1)"
       extends Modelica.Icons.Function;
     algorithm
       h_is := Modelica.Media.Air.MoistAir.h_pTX(
@@ -1694,7 +1594,7 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 <p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
 
 <h4>Application</h4>
-<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
+<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
@@ -1705,4 +1605,4 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
 </html>"));
-  end MoistAir;
+end MoistAir;
