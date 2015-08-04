@@ -110,16 +110,16 @@ Lapack documentation
 <pre>
 function dgelsx
   extends Modelica.Icons.Function;
-  input Real A[:,:];
-  input Real B[size(A, 1),:];
+  input Real A[:, :];
+  input Real B[size(A, 1), :];
   input Real rcond = 0.0 "Reciprocal condition number to estimate rank";
-  output Real X[max(size(A, 1), size(A, 2)),size(B, 2)] = cat(1, B, zeros(max(nrow, ncol) - nrow, nrhs)) "Solution is in first size(A,2) rows";
+  output Real X[max(size(A, 1), size(A, 2)), size(B, 2)] = cat(1, B, zeros(max(nrow, ncol) - nrow, nrhs)) "Solution is in first size(A,2) rows";
   output Integer info;
   output Integer rank "Effective rank of A";
 end dgelsx;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

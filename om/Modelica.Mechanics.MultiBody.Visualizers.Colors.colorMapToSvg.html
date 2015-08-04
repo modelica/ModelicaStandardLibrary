@@ -105,7 +105,7 @@ function colorMapToSvg
   extends Modelica.Icons.Function;
   encapsulated type HeaderType = enumeration(svgBeginAndEnd, svgBegin, svgEnd, noHeader);
   import Modelica.Utilities.Streams.print;
-  input Real colorMap[:,3] "Color map to be stored in svg format" annotation(choices(choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.hot(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.gray(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.spring(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.summer(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.autumn(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.winter()));
+  input Real colorMap[:, 3] "Color map to be stored in svg format" annotation(choices(choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.hot(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.gray(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.spring(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.summer(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.autumn(), choice = Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.winter()));
   input String fileName = "colorMap.svg" "File where the svg representation shall be stored";
   input Real width(unit = "mm") = 10 "Width in svg-figure";
   input Real height(unit = "mm") = 100 "Height in svg-figure";
@@ -134,7 +134,7 @@ end colorMapToSvg;
 </tr>
 </table>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

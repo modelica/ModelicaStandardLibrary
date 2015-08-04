@@ -81,15 +81,15 @@ Lapack documentation
 <pre>
 function dgeqrf
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Square or rectangular matrix";
-  output Real Aout[size(A, 1),size(A, 2)] = A "the upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors";
+  input Real A[:, :] "Square or rectangular matrix";
+  output Real Aout[size(A, 1), size(A, 2)] = A "the upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors";
   output Real tau[min(size(A, 1), size(A, 2))] "scalar factors of the elementary reflectors";
   output Integer info;
   output Real work[3 * max(1, size(A, 2))];
 end dgeqrf;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

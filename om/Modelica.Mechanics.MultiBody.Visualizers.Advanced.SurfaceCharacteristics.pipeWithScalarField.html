@@ -34,7 +34,7 @@ Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a> using the
 following call:</p>
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
               height=50, nScalars=6, T_max=100, heading="Temperature in C");
 </pre></blockquote>
 <blockquote><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png" /></blockquote>
@@ -49,11 +49,11 @@ function pipeWithScalarField
   input Real T[size(xsi, 1)] "Scalar field value at position xsi*length" annotation(Dialog);
   input Real T_min "T &lt;= T_min is mapped to colorMap[1,:]" annotation(Dialog);
   input Real T_max "T &gt;= T_max is mapped to colorMap[end,:]" annotation(Dialog);
-  input Real colorMap[:,3] "Color map to map scalar T to a corresponding color" annotation(Dialog);
+  input Real colorMap[:, 3] "Color map to map scalar T to a corresponding color" annotation(Dialog);
 end pipeWithScalarField;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

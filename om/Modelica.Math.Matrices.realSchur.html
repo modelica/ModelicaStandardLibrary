@@ -63,9 +63,9 @@ using the internal methods of balancing and scaling of dgees.</p>
 function realSchur
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
-  input Real A[:,size(A, 1)] "Square matrix";
-  output Real S[size(A, 1),size(A, 2)] "Real Schur form of A";
-  output Real QZ[size(A, 1),size(A, 2)] "Schur vector Matrix";
+  input Real A[:, size(A, 1)] "Square matrix";
+  output Real S[size(A, 1), size(A, 2)] "Real Schur form of A";
+  output Real QZ[size(A, 1), size(A, 2)] "Schur vector Matrix";
   output Real alphaReal[size(A, 1)] "Real part of eigenvalue=alphaReal+i*alphaImag";
   output Real alphaImag[size(A, 1)] "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
 end realSchur;
@@ -75,7 +75,7 @@ end realSchur;
 <li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

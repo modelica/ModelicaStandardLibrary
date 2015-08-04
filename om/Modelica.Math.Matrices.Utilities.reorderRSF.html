@@ -56,13 +56,13 @@ and imaginary parts of the reordered eigenvalues respectively.</p>
 function reorderRSF
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices.LAPACK;
-  input Real T[:,:] "Real Schur form";
-  input Real Q[:,size(T, 2)] "Schur vector Matrix";
+  input Real T[:, :] "Real Schur form";
+  input Real Q[:, size(T, 2)] "Schur vector Matrix";
   input Real alphaReal[size(T, 1)] "Real part of eigenvalue=alphaReal+i*alphaImag";
   input Real alphaImag[size(T, 1)] "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
   input Boolean iscontinuous = true "True if the according system is continuous. False for discrete systems";
-  output Real To[size(T, 1),size(T, 2)] "Reordered Schur form";
-  output Real Qo[size(T, 1),size(T, 2)] "Reordered Schur vector matrix";
+  output Real To[size(T, 1), size(T, 2)] "Reordered Schur form";
+  output Real Qo[size(T, 1), size(T, 2)] "Reordered Schur vector matrix";
   output Real wr[size(T, 2)] "Reordered eigenvalues, real part";
   output Real wi[size(T, 2)] "Reordered eigenvalues, imaginary part";
 end reorderRSF;
@@ -72,7 +72,7 @@ end reorderRSF;
 <li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

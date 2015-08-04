@@ -63,14 +63,14 @@ Lapack documentation
 <pre>
 function dpotrf
   extends Modelica.Icons.Function;
-  input Real A[:,size(A, 1)] "Real symmetric positive definite matrix A";
+  input Real A[:, size(A, 1)] "Real symmetric positive definite matrix A";
   input Boolean upper = true "True if the upper triangle of A is provided";
-  output Real Acholesky[size(A, 1),size(A, 1)] = A "Cholesky factor";
+  output Real Acholesky[size(A, 1), size(A, 1)] = A "Cholesky factor";
   output Integer info;
 end dpotrf;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

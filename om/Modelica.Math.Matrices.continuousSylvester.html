@@ -89,12 +89,12 @@ for more information.</p>
 function continuousSylvester
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
-  input Real A[:,:] "Square matrix A";
-  input Real B[:,:] "Square matrix B";
-  input Real C[size(A, 1),size(B, 2)] "Matrix C";
+  input Real A[:, :] "Square matrix A";
+  input Real B[:, :] "Square matrix B";
+  input Real C[size(A, 1), size(B, 2)] "Matrix C";
   input Boolean AisSchur = false "True if A has already real Schur form";
   input Boolean BisSchur = false "True if B has already real Schur form";
-  output Real X[size(A, 1),size(B, 2)] "Solution of the continuous Sylvester equation";
+  output Real X[size(A, 1), size(B, 2)] "Solution of the continuous Sylvester equation";
 end continuousSylvester;
 </pre></blockquote>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
@@ -102,7 +102,7 @@ end continuousSylvester;
 <li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

@@ -46,13 +46,13 @@ Vectors.<b>norm</b>(A*v,p) ≤ Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,p
 <pre>
 function norm
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Input matrix";
+  input Real A[:, :] "Input matrix";
   input Real p(min = 1) = 2 "Type of p-norm (only allowed: 1, 2 or Modelica.Constants.inf)";
   output Real result = 0.0 "p-norm of matrix A";
 end norm;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

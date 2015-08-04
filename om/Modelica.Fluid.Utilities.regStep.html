@@ -31,7 +31,7 @@ function regStep
   input Real x "Abscissa value";
   input Real y1 "Ordinate value for x &gt; 0";
   input Real y2 "Ordinate value for x &lt; 0";
-  input Real x_small(min = 0) = 1e-05 "Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt;= 0 required";
+  input Real x_small(min = 0) = 1e-5 "Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt;= 0 required";
   output Real y "Ordinate value to approximate y = if x &gt; 0 then y1 else y2";
 end regStep;
 </pre></blockquote>
@@ -44,7 +44,7 @@ Minor modification to cover the limit case <code>x_small -&gt;
 0</code> without division by zero.</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

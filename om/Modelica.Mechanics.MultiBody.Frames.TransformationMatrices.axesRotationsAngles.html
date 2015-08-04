@@ -54,13 +54,13 @@ are:</p>
 function axesRotationsAngles
   extends Modelica.Icons.Function;
   input TransformationMatrices.Orientation T "Orientation object to rotate frame 1 into frame 2";
-  input Integer sequence[3](min = {1,1,1}, max = {3,3,3}) = {1,2,3} "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
+  input Integer sequence[3](min = {1, 1, 1}, max = {3, 3, 3}) = {1, 2, 3} "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
   input SI.Angle guessAngle1 = 0 "Select angles[1] such that |angles[1] - guessAngle1| is a minimum";
   output SI.Angle angles[3] "Rotation angles around the axes defined in 'sequence' such that T=TransformationMatrices.axesRotation(sequence,angles); -pi &lt; angles[i] &lt;= pi";
 end axesRotationsAngles;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

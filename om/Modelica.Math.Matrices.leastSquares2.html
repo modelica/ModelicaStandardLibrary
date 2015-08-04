@@ -98,15 +98,15 @@ square, regular matrices A)</p>
 <pre>
 function leastSquares2
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Matrix A";
-  input Real B[size(A, 1),:] "Matrix B";
+  input Real A[:, :] "Matrix A";
+  input Real B[size(A, 1), :] "Matrix B";
   input Real rcond = 100 * Modelica.Constants.eps "Reciprocal condition number to estimate rank of A";
-  output Real X[size(A, 2),size(B, 2)] "Matrix X such that min|A*X-B|^2 if size(A,1) &gt;= size(A,2) or min|X|^2 and A*X=B, if size(A,1) &lt; size(A,2)";
+  output Real X[size(A, 2), size(B, 2)] "Matrix X such that min|A*X-B|^2 if size(A,1) &gt;= size(A,2) or min|X|^2 and A*X=B, if size(A,1) &lt; size(A,2)";
   output Integer rank "Rank of A";
 end leastSquares2;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

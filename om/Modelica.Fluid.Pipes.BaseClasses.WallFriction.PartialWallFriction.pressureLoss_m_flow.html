@@ -24,14 +24,15 @@ partial function pressureLoss_m_flow
   input SI.DynamicViscosity mu_b "Dynamic viscosity at port_b (dummy if use_mu = false)";
   input SI.Length length "Length of pipe";
   input SI.Diameter diameter "Inner (hydraulic) diameter of pipe";
-  input SI.Length roughness(min = 0) = 2.5e-05 "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
+  input SI.Area crossArea = pi * diameter ^ 2 / 4 "Inner cross section area";
+  input SI.Length roughness(min = 0) = 2.5e-5 "Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)";
   input SI.MassFlowRate m_flow_small = 0.01 "Regularization of zero flow if |m_flow| &lt; m_flow_small (dummy if use_m_flow_small = false)";
   input SI.ReynoldsNumber Re_turbulent = 4000 "Turbulent flow if Re &gt;= Re_turbulent (dummy if use_Re_turbulent = false)";
   output SI.Pressure dp "Pressure loss (dp = port_a.p - port_b.p)";
 end pressureLoss_m_flow;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

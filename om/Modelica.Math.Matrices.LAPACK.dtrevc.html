@@ -144,17 +144,17 @@ Lapack documentation
 <pre>
 function dtrevc
   extends Modelica.Icons.Function;
-  input Real T[:,size(T, 1)] "Upper quasi triangular matrix";
+  input Real T[:, size(T, 1)] "Upper quasi triangular matrix";
   input String side = "R" "Specify which eigenvectors";
   input String howmny = "B" "Specify how many eigenvectors";
-  input Real Q[size(T, 1),size(T, 1)] "Orthogonal matrix Q of Schur vectors returned by DHSEQR";
-  output Real lEigenVectors[size(T, 1),size(T, 1)] = Q "left eigenvectors of matrix T";
-  output Real rEigenVectors[size(T, 1),size(T, 1)] = Q "right eigenvectors of matrix T";
+  input Real Q[size(T, 1), size(T, 1)] "Orthogonal matrix Q of Schur vectors returned by DHSEQR";
+  output Real lEigenVectors[size(T, 1), size(T, 1)] = Q "left eigenvectors of matrix T";
+  output Real rEigenVectors[size(T, 1), size(T, 1)] = Q "right eigenvectors of matrix T";
   output Integer info;
 end dtrevc;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

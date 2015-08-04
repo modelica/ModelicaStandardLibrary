@@ -79,11 +79,11 @@ to Schur in the case that <b>A</b>' has already Schur form.</p>
 function continuousLyapunov
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
-  input Real A[:,size(A, 1)] "Square matrix A in X*A + A'*X = C";
-  input Real C[size(A, 1),size(A, 2)] "Square matrix C in X*A + A'*X = C";
+  input Real A[:, size(A, 1)] "Square matrix A in X*A + A'*X = C";
+  input Real C[size(A, 1), size(A, 2)] "Square matrix C in X*A + A'*X = C";
   input Boolean ATisSchur = false "True if transpose(A) has already real Schur form";
   input Real eps = Modelica.Math.Matrices.norm(A, 1) * 10 * 1e-15 "Tolerance eps";
-  output Real X[size(A, 1),size(A, 2)] "Solution X of the Lyapunov equation X*A + A'*X = C";
+  output Real X[size(A, 1), size(A, 2)] "Solution X of the Lyapunov equation X*A + A'*X = C";
 end continuousLyapunov;
 </pre></blockquote>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
@@ -91,7 +91,7 @@ end continuousLyapunov;
 <li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

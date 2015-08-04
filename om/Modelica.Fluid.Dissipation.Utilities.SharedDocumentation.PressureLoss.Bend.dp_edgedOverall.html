@@ -122,17 +122,14 @@ p. 191, eq. 8.4]:</i></p>
 </table>
 <p>Note that the Darcy friction factor for a smooth surface
 <b>lambda_FRI_smooth</b> is calculated with the previous equation
-and an absolute roughness of <b>K = 0</b> . Additionally no
-influence of surface roughness is considered for angles of turning
-equal or smaller than 45° according to <i>[Miller 1984, p. 214, eq.
-9.4.2]</i>.</p>
+and an absolute roughness of <b>K = 0</b> .</p>
 <p>The correction for surface roughness through <b>CF_Fri</b> is
 used only in the turbulent regime, where the fluid flow is
 influenced by surface asperities not covered by a laminar boundary
 layer. Here the correction according to friction starts at <b>Re ≥
 Re_lam_leave</b> according to <i>[Idelchik 2006, p. 336, sec.
 15]</i>. Here the end of the laminar regime is restricted to a
-Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig.
+Reynolds number smaller than 2e3 w.r.t <i>[VDI, p. Lac 6, fig.
 16]</i>.</p>
 <p>Nevertheless the transition point from the laminar to the
 transition regime is shifted to smaller Reynolds numbers for an
@@ -153,15 +150,14 @@ to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:</p>
 </tr>
 </table>
 <p>Note that the beginning of the laminar regime cannot be beneath
-<b>Re ≤ 1e2</b> according to <i>[VDI 2002, p. Lac 6, fig.
-16]</i></p>
+<b>Re ≤ 5e2</b> .</p>
 <p>In addition the influence or decreasing Reynolds numbers
 <b>Re</b> on the pressure loss coefficient <b>zeta_TOT</b> in the
-laminar regime is considered through a second correction factor
-<b>CF_Re</b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i>
-and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:</p>
+laminar and turbulent regime is considered through a second
+correction factor <b>CF_Re</b> according to <i>[Miller 1984, p.
+149, sec. 9.4]</i> by:</p>
 <pre>
-   CF_Re = B/Re^exp for Re ≤ Re_lam_leave
+   CF_Re = B/Re^exp for Re ≤ 2e5
 </pre>
 <p>with</p>
 <table>
@@ -178,10 +174,6 @@ regime [-],</td>
 <td><b>Re</b></td>
 <td>as Reynolds number [-],</td>
 </tr>
-<tr>
-<td><b>Re_lam_leave</b></td>
-<td>as Reynolds number for leaving laminar regime [-].</td>
-</tr>
 </table>
 <p>Note that the coefficient <b>B</b> considers the influence of
 the angle of turning <b>delta</b> on the pressure loss coefficient
@@ -190,8 +182,8 @@ the angle of turning <b>delta</b> on the pressure loss coefficient
 <p>Note that the correction of the pressure loss coefficient
 <b>zeta_TOT</b> is influenced by the correction factor <b>CF_Re</b>
 only for decreasing Reynolds numbers <b>Re</b> out of the turbulent
-fluid flow regime at <b>Re ≤ Re_lam_leave</b> into transition and
-laminar fluid flow regime.</p>
+fluid flow regime at <b>Re ≤ 2e5</b> into transition and laminar
+fluid flow regime.</p>
 <h4>Verification</h4>
 <p>The pressure loss coefficient <b>zeta_TOT</b> of a edged bend in
 dependence of the Reynolds number <b>Re</b> for different angles of
@@ -204,12 +196,12 @@ for an edged bend.</p>
 <p>The validation of the pressure loss coefficient for an edged
 bends shows four possible flow regimes:</p>
 <ul>
-<li><b>laminar regime</b> for Re ≤ 4e2</li>
-<li><b>transition regime</b> for 4e2 ≤ Re ≤ 2e3</li>
-<li><b>turbulent regime dependent on Reynolds number</b> for 2e3 ≤
-Re ≤ 1e5</li>
+<li><b>laminar regime</b> for Re ≤ 5e2</li>
+<li><b>transition regime</b> for 5e2 ≤ Re ≤ 1e3 ... 1e4</li>
+<li><b>turbulent regime dependent on Reynolds number</b> for 2e3
+... 1e4 ≤ Re ≤ 1e5</li>
 <li><b>turbulent regime independent of Reynolds number</b> for Re ≥
-1e5</li>
+2e5</li>
 </ul>
 <p><b>Incompressible case</b> [Pressure loss = f(m_flow)]:</p>
 <p>The pressure loss in dependence of the mass flow rate of water
@@ -236,7 +228,7 @@ thesis, Leningrad State University, 1968.</dd>
 Wärmeübergang</b>. Springer Verlag, 9th edition, 2002.</dd>
 </dl>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

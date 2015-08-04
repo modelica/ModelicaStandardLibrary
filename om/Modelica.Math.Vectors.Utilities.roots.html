@@ -58,11 +58,11 @@ encapsulated function roots
   import Modelica;
   extends Modelica.Icons.Function;
   input Real p[:] "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
-  output Real roots[max(0, size(p, 1) - 1),2] = fill(0, max(0, size(p, 1) - 1), 2) "roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p";
+  output Real roots[max(0, size(p, 1) - 1), 2] = fill(0, max(0, size(p, 1) - 1), 2) "roots[:,1] and roots[:,2] are the real and imaginary parts of the roots of polynomial p";
 end roots;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

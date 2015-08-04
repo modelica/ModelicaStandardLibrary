@@ -69,15 +69,15 @@ called as: <code>(,R,p) = QR(A)</code>.</p>
 <pre>
 function QR
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Rectangular matrix with size(A,1) &gt;= size(A,2)";
+  input Real A[:, :] "Rectangular matrix with size(A,1) &gt;= size(A,2)";
   input Boolean pivoting = true "True if column pivoting is performed. True is default";
-  output Real Q[size(A, 1),size(A, 2)] "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
-  output Real R[size(A, 2),size(A, 2)] "Square upper triangular matrix";
+  output Real Q[size(A, 1), size(A, 2)] "Rectangular matrix with orthonormal columns such that Q*R=A[:,p]";
+  output Real R[size(A, 2), size(A, 2)] "Square upper triangular matrix";
   output Integer p[size(A, 2)] "Column permutation vector";
 end QR;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

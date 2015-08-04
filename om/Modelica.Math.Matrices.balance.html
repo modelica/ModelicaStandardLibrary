@@ -55,10 +55,10 @@ EISPACK.</p>
 <pre>
 function balance
   extends Modelica.Icons.Function;
-  input Real A[:,size(A, 1)];
+  input Real A[:, size(A, 1)];
   output Real D[size(A, 1)] "diagonal(D)=T is transformation matrix, such that
-          B = inv(T)*A*T has smaller condition as A";
-  output Real B[size(A, 1),size(A, 1)] "Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )";
+            B = inv(T)*A*T has smaller condition as A";
+  output Real B[size(A, 1), size(A, 1)] "Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )";
 end balance;
 </pre></blockquote>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
@@ -68,7 +68,7 @@ end balance;
 Implemented.</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

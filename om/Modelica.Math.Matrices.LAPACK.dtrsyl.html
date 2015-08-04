@@ -93,19 +93,19 @@ Lapack documentation
 <pre>
 function dtrsyl
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Upper quais-triangular matrix";
-  input Real B[:,:] "Upper quais-triangular matrix";
-  input Real C[if tranA then size(A, 1) else size(A, 2),if tranB then size(B, 1) else size(B, 2)] "Right side of the Sylvester equation";
+  input Real A[:, :] "Upper quais-triangular matrix";
+  input Real B[:, :] "Upper quais-triangular matrix";
+  input Real C[if tranA then size(A, 1) else size(A, 2), if tranB then size(B, 1) else size(B, 2)] "Right side of the Sylvester equation";
   input Boolean tranA = false "True if op(A)=A'";
   input Boolean tranB = false "True if op(B)=B'";
   input Integer isgn = 1 "Specifies the sign in the equation, +1 or -1";
-  output Real X[size(C, 1),size(C, 2)] = C "Solution of the Sylvester equation";
+  output Real X[size(C, 1), size(C, 2)] = C "Solution of the Sylvester equation";
   output Real scale "Scale factor";
   output Integer info;
 end dtrsyl;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

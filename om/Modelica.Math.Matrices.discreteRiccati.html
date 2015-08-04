@@ -109,12 +109,12 @@ X = [14.5623, 9.7082;
 function discreteRiccati
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
-  input Real A[:,size(A, 1)] "Square matrix A in DARE";
-  input Real B[size(A, 1),:] "Matrix B in DARE";
-  input Real R[size(B, 2),size(B, 2)] = identity(size(B, 2)) "Matrix R in DARE";
-  input Real Q[size(A, 1),size(A, 1)] = identity(size(A, 1)) "Matrix Q in DARE";
+  input Real A[:, size(A, 1)] "Square matrix A in DARE";
+  input Real B[size(A, 1), :] "Matrix B in DARE";
+  input Real R[size(B, 2), size(B, 2)] = identity(size(B, 2)) "Matrix R in DARE";
+  input Real Q[size(A, 1), size(A, 1)] = identity(size(A, 1)) "Matrix Q in DARE";
   input Boolean refine = false "True for subsequent refinement";
-  output Real X[size(A, 1),size(A, 2)] "orthogonal matrix of the Schur vectors associated to ordered rsf";
+  output Real X[size(A, 1), size(A, 2)] "orthogonal matrix of the Schur vectors associated to ordered rsf";
   output Real alphaReal[size(H, 1)] "Real part of eigenvalue=alphaReal+i*alphaImag";
   output Real alphaImag[size(H, 1)] "Imaginary part of eigenvalue=alphaReal+i*alphaImag";
 end discreteRiccati;
@@ -124,7 +124,7 @@ end discreteRiccati;
 <li><i>2010/05/31</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

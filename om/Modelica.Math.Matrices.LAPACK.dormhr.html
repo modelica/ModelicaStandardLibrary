@@ -103,19 +103,19 @@ Lapack documentation
 <pre>
 function dormhr
   extends Modelica.Icons.Function;
-  input Real C[:,:];
-  input Real A[:,:];
+  input Real C[:, :];
+  input Real A[:, :];
   input Real tau[if side == "L" then size(C, 2) - 1 else size(C, 1) - 1];
   input String side = "L";
   input String trans = "N";
   input Integer ilo = 1 "lowest index where the original matrix had been Hessenbergform";
   input Integer ihi = if side == "L" then size(C, 1) else size(C, 2) "highest index where the original matrix had been Hessenbergform";
-  output Real Cout[size(C, 1),size(C, 2)] = C "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
+  output Real Cout[size(C, 1), size(C, 2)] = C "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
   output Integer info;
 end dormhr;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

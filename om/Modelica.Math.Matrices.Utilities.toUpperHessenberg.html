@@ -50,11 +50,11 @@ function toUpperHessenberg
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
   import Modelica.Math.Matrices.LAPACK;
-  input Real A[:,size(A, 1)] "Square matrix A";
+  input Real A[:, size(A, 1)] "Square matrix A";
   input Integer ilo = 1 "Lowest index where the original matrix had been Hessenbergform";
   input Integer ihi = size(A, 1) "Highest index where the original matrix had been Hessenbergform";
-  output Real H[size(A, 1),size(A, 2)] "Upper Hessenberg form";
-  output Real V[size(A, 1),size(A, 2)] "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
+  output Real H[size(A, 1), size(A, 2)] "Upper Hessenberg form";
+  output Real V[size(A, 1), size(A, 2)] "V=[v1,v2,..vn-1,0] with vi are vectors which define the elementary reflectors";
   output Real tau[max(0, size(A, 1) - 1)] "Scalar factors of the elementary reflectors";
   output Integer info "Information of successful function call";
 end toUpperHessenberg;
@@ -64,7 +64,7 @@ end toUpperHessenberg;
 <li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

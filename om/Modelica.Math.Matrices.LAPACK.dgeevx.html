@@ -195,17 +195,17 @@ Lapack documentation
 <pre>
 function dgeevx
   extends Modelica.Icons.Function;
-  input Real A[:,size(A, 1)];
+  input Real A[:, size(A, 1)];
   output Real alphaReal[size(A, 1)] "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
   output Real alphaImag[size(A, 1)] "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
-  output Real lEigenVectors[size(A, 1),size(A, 1)] "left eigenvectors of matrix A";
-  output Real rEigenVectors[size(A, 1),size(A, 1)] "right eigenvectors of matrix A";
-  output Real AS[size(A, 1),size(A, 2)] = A "AS iss the real Schur form of the balanced version of the input matrix A";
+  output Real lEigenVectors[size(A, 1), size(A, 1)] "left eigenvectors of matrix A";
+  output Real rEigenVectors[size(A, 1), size(A, 1)] "right eigenvectors of matrix A";
+  output Real AS[size(A, 1), size(A, 2)] = A "AS iss the real Schur form of the balanced version of the input matrix A";
   output Integer info;
 end dgeevx;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

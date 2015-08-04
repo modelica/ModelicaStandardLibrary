@@ -164,20 +164,20 @@ Lapack documentation
 <pre>
 function dhseqr
   extends Modelica.Icons.Function;
-  input Real H[:,size(H, 1)] "Matrix H with Hessenberg form";
+  input Real H[:, size(H, 1)] "Matrix H with Hessenberg form";
   input Boolean eigenValuesOnly = true "True to compute the eigenvalues. False to compute the Schur form too";
   input String compz = "N" "Specifies the computation of the Schur vectors";
-  input Real Z[:,:] = H "Matrix Z";
+  input Real Z[:, :] = H "Matrix Z";
   output Real alphaReal[size(H, 1)] "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
   output Real alphaImag[size(H, 1)] "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
   output Integer info;
-  output Real Ho[:,:] = H "Schur decomposition (if eigenValuesOnly==false, unspecified else)";
-  output Real Zo[:,:] = Z;
+  output Real Ho[:, :] = H "Schur decomposition (if eigenValuesOnly==false, unspecified else)";
+  output Real Zo[:, :] = Z;
   output Real work[3 * max(1, size(H, 1))];
 end dhseqr;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

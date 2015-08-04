@@ -20,13 +20,13 @@ Return rotation object to rotate in sequence around 3 axes
 <pre>
 function axesRotations
   extends Modelica.Icons.Function;
-  input Integer sequence[3](min = {1,1,1}, max = {3,3,3}) = {1,2,3} "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
-  input Modelica.SIunits.Angle angles[3] = {0,0,0} "Rotation angles around the axes defined in 'sequence'";
+  input Integer sequence[3](min = {1, 1, 1}, max = {3, 3, 3}) = {1, 2, 3} "Sequence of rotations from frame 1 to frame 2 along axis sequence[i]";
+  input Modelica.SIunits.Angle angles[3] = {0, 0, 0} "Rotation angles around the axes defined in 'sequence'";
   output TransformationMatrices.Orientation T "Orientation object to rotate frame 1 into frame 2";
 end axesRotations;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

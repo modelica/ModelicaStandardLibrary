@@ -108,14 +108,14 @@ The algorithm is taken from [1] and [2].</p>
 function continuousRiccatiIterative
   extends Modelica.Icons.Function;
   import Modelica.Math.Matrices;
-  input Real A[:,size(A, 1)] "Matrix A of Riccati equation X*A + A'*X -X*G*X +Q = 0";
-  input Real B[size(A, 1),:] "Matrix B in G = B*inv(R)*B'";
-  input Real R[size(B, 2),size(B, 2)] = identity(size(B, 2)) "Matrix R in G = B*inv(R)*B'";
-  input Real Q[size(A, 1),size(A, 2)] = identity(size(A, 1)) "Matrix Q of Riccati equation X*A + A'*X -X*G*X +Q = 0";
-  input Real X0[size(A, 1),size(A, 2)] = identity(size(A, 1)) "Initial approximate solution for X*A + A'*X -X*G*X +Q = 0";
+  input Real A[:, size(A, 1)] "Matrix A of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real B[size(A, 1), :] "Matrix B in G = B*inv(R)*B'";
+  input Real R[size(B, 2), size(B, 2)] = identity(size(B, 2)) "Matrix R in G = B*inv(R)*B'";
+  input Real Q[size(A, 1), size(A, 2)] = identity(size(A, 1)) "Matrix Q of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real X0[size(A, 1), size(A, 2)] = identity(size(A, 1)) "Initial approximate solution for X*A + A'*X -X*G*X +Q = 0";
   input Integer maxSteps = 10 "Maximal number of iteration steps";
-  input Real eps = Matrices.frobeniusNorm(A) * 1e-09 "Tolerance for stop criterion";
-  output Real X[size(X0, 1),size(X0, 2)] "Solution X of Riccati equation X*A + A'*X -X*G*X +Q = 0";
+  input Real eps = Matrices.frobeniusNorm(A) * 1e-9 "Tolerance for stop criterion";
+  output Real X[size(X0, 1), size(X0, 2)] "Solution X of Riccati equation X*A + A'*X -X*G*X +Q = 0";
   output Real r "Norm of X*A + A'*X - X*G*X + Q, zero for exact solution";
 end continuousRiccatiIterative;
 </pre></blockquote>
@@ -124,7 +124,7 @@ end continuousRiccatiIterative;
 <li><i>2010/04/30</i> by Marcus Baur, DLR-RM</li>
 </ul>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

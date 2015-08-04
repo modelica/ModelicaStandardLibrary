@@ -98,7 +98,7 @@ square, regular matrices A)</p>
 <pre>
 function leastSquares
   extends Modelica.Icons.Function;
-  input Real A[:,:] "Matrix A";
+  input Real A[:, :] "Matrix A";
   input Real b[size(A, 1)] "Vector b";
   input Real rcond = 100 * Modelica.Constants.eps "Reciprocal condition number to estimate the rank of A";
   output Real x[size(A, 2)] "Vector x such that min|A*x-b|^2 if size(A,1) &gt;= size(A,2) or min|x|^2 and A*x=b, if size(A,1) &lt; size(A,2)";
@@ -106,7 +106,7 @@ function leastSquares
 end leastSquares;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

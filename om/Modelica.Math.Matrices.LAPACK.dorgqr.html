@@ -73,14 +73,14 @@ Lapack documentation
 <pre>
 function dorgqr
   extends Modelica.Icons.Function;
-  input Real QR[:,:] "QR from dgeqpf";
+  input Real QR[:, :] "QR from dgeqpf";
   input Real tau[min(size(QR, 1), size(QR, 2))] "The scalar factors of the elementary reflectors of Q";
-  output Real Q[size(QR, 1),size(QR, 2)] = QR "Orthogonal matrix Q";
+  output Real Q[size(QR, 1), size(QR, 2)] = QR "Orthogonal matrix Q";
   output Integer info;
 end dorgqr;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

@@ -67,14 +67,14 @@ pivots[i].</p>
 <pre>
 function LU_solve
   extends Modelica.Icons.Function;
-  input Real LU[:,size(LU, 1)] "L,U factors of Matrices.LU(..) for a square matrix";
+  input Real LU[:, size(LU, 1)] "L,U factors of Matrices.LU(..) for a square matrix";
   input Integer pivots[size(LU, 1)] "Pivots indices of Matrices.LU(..)";
   input Real b[size(LU, 1)] "Right hand side vector of P*L*U*x=b";
   output Real x[size(b, 1)] "Solution vector such that P*L*U*x = b";
 end LU_solve;
 </pre></blockquote>
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>

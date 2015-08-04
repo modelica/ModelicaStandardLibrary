@@ -24,13 +24,14 @@ function SmoothPower_der
   input Real deltax "range of interpolation";
   input Real pow "exponent for x";
   input Real dx "derivative of x";
-  input Real ddeltax "derivative of deltax";
-  input Real dpow "derivative of pow";
   output Real dy "derivative of SmoothPower";
 end SmoothPower_der;
 </pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+2014-04-29 Stefan Wischhusen: Corrected branch for x&lt;=-adeltax,
+removed dpow and ddeltax.
 <hr />
-Generated at 2014-02-11T19:03:12Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.1+dev (r19045) (RML
-version)
+Generated at 2015-08-04T10:18:23Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
+1.9.3~dev-547-g0ef9219
 </body>
 </html>
