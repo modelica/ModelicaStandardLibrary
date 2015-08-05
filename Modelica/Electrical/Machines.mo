@@ -123,6 +123,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   <li>Improved documentation</li>
   <li>Added alias for rotor current in squirrel cage model</li>
   <li>Changed icon and location of terminal box according to #1706</li>
+  <li>Updated documentation accoring to #1753, #1754 and #1755</li>
 </ul>
 
 <h5>Version 3.2.1, 2014-10-05 (Anton Haumer, Christian Kral)</h5>
@@ -533,8 +534,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end AIMC_DOL;
 
@@ -1035,8 +1035,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end AIMS_Start;
 
@@ -1161,8 +1160,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end AIMC_Inverter;
 
@@ -1362,8 +1360,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end AIMC_Steinmetz;
 
@@ -1770,8 +1767,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end AIMC_Initialize;
       annotation (Documentation(info="<HTML>
@@ -1922,8 +1918,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end SMR_Inverter;
 
@@ -2288,8 +2283,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})));
       end SMPM_CurrentSource;
 
@@ -11732,7 +11726,7 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
                 lineColor={0,0,255},
                 textString="%name")}), Documentation(info="<html>
 <p>
-Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
+Stray load losses are modeled similar to standards EN 60034-2 and IEEE 112, i.e., they are dependent on square of current,
 but without scaling them to zero at no-load current.
 </p>
 <p>
@@ -13612,22 +13606,24 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           smooth=Smooth.None));
       connect(statorCore.heatPort, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{10,40},{50,40},{50,-80},{0,-80}},
+          points={{10,40},{50,40},{50,-80},{0,-80},{0,-80},{0,-80},{0.4,-80},{
+              0.4,-79.2}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{90,70},{90,60},{50,60},{50,-80},{0,-80}},
+          points={{90,70},{90,60},{50,60},{50,-80},{0.4,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(rs.heatPort, internalThermalPort.heatPortStatorWinding)
         annotation (Line(
-          points={{50,70},{50,-80},{0,-80}},
+          points={{50,70},{50,-80},{0,-80},{0,-80},{0,-80},{-0.4,-80},{-0.4,
+              -79.2}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction)
         annotation (Line(
-          points={{80,-50},{50,-50},{50,-80},{0,-80}},
+          points={{80,-50},{50,-50},{50,-80},{0,-80},{0,-81.6}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
@@ -13639,7 +13635,9 @@ Partial model for induction machine models
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
-                color={0,0,255})}));
+                color={0,0,255})}),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}})));
     end PartialBasicInductionMachine;
 
     package InductionMachines
@@ -15710,21 +15708,20 @@ Simple Current-Controller.
 </p>
 <p>
 The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
+Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"y[3]\") are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
 </HTML>"));
     end CurrentController;
 
-    model VoltageController "Current controller"
+    model VoltageController "Voltage controller"
       import Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
       parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
       parameter Modelica.SIunits.Voltage VsOpenCircuit
         "Open circuit RMS voltage per phase @ fsNominal";
-      parameter Modelica.SIunits.Resistance Rs
-        "Stator resistance per phase at TOperational";
+      parameter Modelica.SIunits.Resistance Rs "Stator resistance per phase";
       parameter Modelica.SIunits.Inductance Ld "Inductance in d-axis";
       parameter Modelica.SIunits.Inductance Lq "Inductance in q-axis";
       //Decoupling
