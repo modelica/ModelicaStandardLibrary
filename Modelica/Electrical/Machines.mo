@@ -123,7 +123,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   <li>Improved documentation</li>
   <li>Added alias for rotor current in squirrel cage model</li>
   <li>Changed icon and location of terminal box according to #1706</li>
-  <li>Updated documentation accoring to #1753, #1754 and #1755</li>
+  <li>Updated documentation according to #1753, #1754 and #1755</li>
 </ul>
 
 <h5>Version 3.2.1, 2014-10-05 (Anton Haumer, Christian Kral)</h5>
