@@ -76,7 +76,6 @@ package OpAmps
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
       Documentation(info="<html>
                         <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
                         </html>"),
