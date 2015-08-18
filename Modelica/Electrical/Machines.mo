@@ -11216,7 +11216,7 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
                       lineColor={0,0,255},
                       textString="%name")}), Documentation(info="<html>
 <p>
-Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
+Stray load losses are modeled similar to standards EN 60034-2 and IEEE 112, i.e., they are dependent on square of current,
 but without scaling them to zero at no-load current.
 </p>
 <p>
@@ -15025,21 +15025,20 @@ Simple Current-Controller.
 </p>
 <p>
 The desired rms values of d- and q-component of the space phasor current in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"i[3]\") are calculated.
+Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"y[3]\") are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
 </HTML>"));
     end CurrentController;
 
-    model VoltageController "Current controller"
+    model VoltageController "Voltage controller"
       import Modelica.Constants.pi;
       constant Integer m=3 "Number of phases";
       parameter Integer p "Number of pole pairs";
       parameter Modelica.SIunits.Frequency fsNominal "Nominal frequency";
       parameter Modelica.SIunits.Voltage VsOpenCircuit
         "Open circuit RMS voltage per phase @ fsNominal";
-      parameter Modelica.SIunits.Resistance Rs
-        "Stator resistance per phase at TOperational";
+      parameter Modelica.SIunits.Resistance Rs "Stator resistance per phase";
       parameter Modelica.SIunits.Inductance Ld "Inductance in d-axis";
       parameter Modelica.SIunits.Inductance Lq "Inductance in q-axis";
       //Decoupling
