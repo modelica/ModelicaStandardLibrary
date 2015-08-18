@@ -5697,7 +5697,7 @@ The single phase winding consists of a
           useHeatPort "Heat ports of winding resistors"
           annotation (Placement(transformation(extent={{-50,-110},{-30,-90}})));
         Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore if useHeatPort
-          "Heat ports of winding resistor"
+          "Heat ports of core"
           annotation (Placement(transformation(extent={{30,-110},{50,-90}})));
         Modelica.Magnetic.FundamentalWave.Components.EddyCurrent core(final
             useHeatPort=useHeatPort, final G=(m/2)*GcRef*effectiveTurns^2)
