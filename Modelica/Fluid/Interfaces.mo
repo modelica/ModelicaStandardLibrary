@@ -309,7 +309,7 @@ partial model PartialTwoPortTransport
 
   // Advanced
   // Note: value of dp_start shall be refined by derived model, basing on local dp_nominal
-  parameter Medium.AbsolutePressure dp_start = 0.01*system.p_start
+  parameter Medium.AbsolutePressure dp_start(min=-Modelica.Constants.inf) = 0.01*system.p_start
       "Guess value of dp = port_a.p - port_b.p"
     annotation(Dialog(tab = "Advanced", enable=from_dp));
   parameter Medium.MassFlowRate m_flow_start = system.m_flow_start
