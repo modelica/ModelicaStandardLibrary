@@ -216,11 +216,7 @@ end OpenTank;
         parameter Boolean use_Re = system.use_eps_Re
         "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
           annotation(Dialog(tab="Advanced", group="Port properties"), Evaluate=true);
-      /*
-  parameter Medium.AbsolutePressure dp_small = system.dp_small
-    "Turbulent flow if |dp| >= dp_small (regularization of zero flow)"
-    annotation(Dialog(tab="Advanced",group="Ports"));
-*/
+
         Medium.EnthalpyFlowRate ports_H_flow[nPorts];
         Medium.MassFlowRate ports_mXi_flow[nPorts,Medium.nXi];
         Medium.MassFlowRate[Medium.nXi] sum_ports_mXi_flow
