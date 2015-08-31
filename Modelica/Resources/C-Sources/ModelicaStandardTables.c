@@ -1254,8 +1254,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 return tableID->preNextTimeEvent;
             }
         }
-
-        if (tableID->nEvent == 0) {
+        else {
             /* Determine maximum number of time events (per period) */
             double tEvent = TABLE_ROW0(0);
             const double tMax = TABLE_COL0(nRow - 1);
