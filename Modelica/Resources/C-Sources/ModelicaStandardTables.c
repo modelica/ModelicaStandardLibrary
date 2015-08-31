@@ -21,6 +21,11 @@
 
 
    Release Notes:
+      Aug. 31, 2015: by Thomas Beutlich, ITI GmbH.
+                     Fixed event detection of CombiTimeTable when using a fixed time
+                     step integrator with a step size greater than the event
+                     resolution of the table (ticket #1768)
+
       May 11, 2015:  by Thomas Beutlich, ITI GmbH.
                      Added univariate Fritsch-Butland-spline interpolation
                      (ticket #1717)
@@ -1428,31 +1433,39 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 #if defined(DEBUG_TIME_EVENTS)
                 t = tOld;
 #endif
-            }
-            else if (tableID->extrapolation == PERIODIC) {
-                /* Increment event interval */
-                tableID->eventInterval =
-                    1 + tableID->eventInterval % tableID->maxEvents;
-                if (tableID->eventInterval == tableID->maxEvents) {
-                    nextTimeEvent = tMax + tableID->tOffset;
-                    tableID->tOffset += T;
-                }
-                else {
-                    size_t i = tableID->intervals[
-                        tableID->eventInterval - 1][1];
-                    nextTimeEvent = TABLE_COL0(i) + tableID->tOffset;
+                if (nextTimeEvent < DBL_MAX) {
+                    nextTimeEvent += tableID->startTime;
                 }
             }
-            else if (tableID->eventInterval <= tableID->maxEvents) {
-                size_t i = tableID->intervals[
-                    tableID->eventInterval - 1][1];
-                nextTimeEvent = TABLE_COL0(i);
-                /* Increment event interval */
-                tableID->eventInterval++;
-            }
-
-            if (nextTimeEvent < DBL_MAX) {
-                nextTimeEvent += tableID->startTime;
+            else {
+                do {
+                    if (tableID->extrapolation == PERIODIC) {
+                        /* Increment event interval */
+                        tableID->eventInterval =
+                            1 + tableID->eventInterval % tableID->maxEvents;
+                        if (tableID->eventInterval == tableID->maxEvents) {
+                            nextTimeEvent = tMax + tableID->tOffset +
+                                tableID->startTime;
+                            tableID->tOffset += T;
+                        }
+                        else {
+                            size_t i = tableID->intervals[
+                                tableID->eventInterval - 1][1];
+                            nextTimeEvent = TABLE_COL0(i) + tableID->tOffset +
+                                tableID->startTime;
+                        }
+                    }
+                    else if (tableID->eventInterval <= tableID->maxEvents) {
+                        size_t i = tableID->intervals[
+                            tableID->eventInterval - 1][1];
+                        nextTimeEvent = TABLE_COL0(i) + tableID->startTime;
+                        /* Increment event interval */
+                        tableID->eventInterval++;
+                    }
+                    else {
+                        nextTimeEvent = DBL_MAX;
+                    }
+                } while (nextTimeEvent < t);
             }
         }
 
