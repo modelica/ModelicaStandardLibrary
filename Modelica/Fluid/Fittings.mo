@@ -317,7 +317,7 @@ model SimpleGenericOrifice
 
   // Variables
   public
-  Real zeta_nominal(start = zeta);
+  Real zeta_nominal;
   Medium.Density d = 0.5*(Medium.density(state_a) + Medium.density(state_b));
   Modelica.SIunits.Pressure dp_fg(start=dp_start)
       "pressure loss due to friction and gravity";
@@ -334,7 +334,7 @@ equation
   if use_zeta then
     zeta_nominal = zeta;
   else
-    dp_nominal = BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/d*m_flow_nominal^2;
+    zeta_nominal = 2*A_mean^2*d*dp_nominal/m_flow_nominal^2;
   end if;
 
   Ib_flow = 0;
