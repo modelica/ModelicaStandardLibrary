@@ -1605,4 +1605,9 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
 </html>"));
+  model PsychrometricData
+    "An obsolete and moved example to compute Psychrometric data "
+    extends Examples.PsychrometricData;
+    extends Modelica.Icons.ObsoleteModel;
+  end PsychrometricData;
 end MoistAir;
