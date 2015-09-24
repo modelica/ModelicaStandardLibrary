@@ -1576,6 +1576,13 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isentropicEnthalpy;
+
+  model PsychrometricData
+    "An obsolete and moved example to compute Psychrometric data "
+    extends Examples.PsychrometricData;
+    extends Modelica.Icons.ObsoleteModel;
+  end PsychrometricData;
+
     annotation (Documentation(info="<html>
 <h4>Thermodynamic Model</h4>
 <p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.
@@ -1605,9 +1612,4 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 <b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
 
 </html>"));
-  model PsychrometricData
-    "An obsolete and moved example to compute Psychrometric data "
-    extends Examples.PsychrometricData;
-    extends Modelica.Icons.ObsoleteModel;
-  end PsychrometricData;
 end MoistAir;
