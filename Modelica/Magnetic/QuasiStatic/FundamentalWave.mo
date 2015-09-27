@@ -4446,8 +4446,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={20,-40})));
-        FundamentalWave.BasicMachines.Components.QuasiStionaryAnalogWinding
-          excitation(
+        Components.QuasiStaticAnalogWinding excitation(
           final RRef=Re,
           final TRef=TeRef,
           final effectiveTurns=effectiveStatorTurns*turnsRatio*m/2,
@@ -4950,7 +4949,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
                   {100,100}}), graphics));
       end SymmetricMultiPhaseWinding;
 
-      model QuasiStionaryAnalogWinding
+      model QuasiStaticAnalogWinding
         "Quasi static single phase winding neglecting induced voltage"
 
         Modelica.Electrical.Analog.Interfaces.PositivePin pin_p "Positive pin"
@@ -5080,7 +5079,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
 </p>
 </html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics));
-      end QuasiStionaryAnalogWinding;
+      end QuasiStaticAnalogWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
         import Modelica.Constants.pi;
@@ -5902,7 +5901,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             smooth=Smooth.None));
         connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,60},{60,50},{50,50},{50,-80},{-40,-80},{-40,-90}},
+            points={{60,60},{60,50},{50,50},{50,-80},{-39.6,-80},{-39.6,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(friction.support, internalSupport) annotation (Line(
@@ -5919,7 +5918,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             smooth=Smooth.None));
         connect(friction.heatPort, internalThermalPort.heatPortFriction)
           annotation (Line(
-            points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-90}},
+            points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(groundS.port_p, airGap.port_sp) annotation (Line(
@@ -5936,12 +5935,12 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             smooth=Smooth.None));
         connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
           annotation (Line(
-            points={{-10,44},{-40,44},{-40,-90}},
+            points={{-10,44},{-40.4,44},{-40.4,-89.2}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(stator.heatPortCore, internalThermalPort.heatPortStatorCore)
           annotation (Line(
-            points={{-10,36},{-40,36},{-40,-90}},
+            points={{-10,36},{-39.6,36},{-39.6,-89.2}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (

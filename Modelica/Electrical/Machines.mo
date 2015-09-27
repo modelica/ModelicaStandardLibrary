@@ -11815,8 +11815,8 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       end PermanentMagnetLosses;
 
       model Core "Model of core losses"
-        parameter Machines.Losses.CoreParameters coreParameters(final m=m);
-        final parameter Integer m=3 "Number of phases";
+        parameter Machines.Losses.CoreParameters coreParameters;
+        final parameter Integer m=coreParameters.m "Number of phases";
         parameter Real turnsRatio(final min=Modelica.Constants.small)
           "Effective number of stator turns / effective number of rotor turns (if used as rotor core)";
         extends
@@ -13606,8 +13606,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           smooth=Smooth.None));
       connect(statorCore.heatPort, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{10,40},{50,40},{50,-80},{0,-80},{0,-80},{0,-80},{0.4,-80},{
-              0.4,-79.2}},
+          points={{10,40},{50,40},{50,-80},{0.4,-80},{0.4,-79.2}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
