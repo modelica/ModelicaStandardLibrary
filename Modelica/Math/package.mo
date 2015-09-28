@@ -346,6 +346,12 @@ not the case with function norm(..).
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
   algorithm
+    /* This function has the inline annotation. If the function is inlined:
+     - "smooth(..)" defines how often the expression can be differentiated
+       (if symbolic processing is performed). 
+     - "noEvent(..)" prevents event handling of the if-clause,
+       in order to guard against division by zero.
+  */
     result := smooth(0, noEvent(if length(v) >= eps then v/length(v) else v/eps));
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
