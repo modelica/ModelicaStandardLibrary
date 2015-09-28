@@ -1471,36 +1471,6 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 </html>"));
     end isentropicEnthalpy;
 
-
-    annotation (Documentation(info="<html>
-<h4>Thermodynamic Model</h4>
-<p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.
-The governing assumptions in this model are:</p>
-<ul>
-<li>the perfect gas law applies</li>
-<li>water volume other than that of steam is neglected</li></ul>
-<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this library. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humidity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
-<p>At the triple point temperature of water of 0.01 &deg;C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.</p>
-
-<h4>Range of validity</h4>
-<p>From the assumptions mentioned above it follows that the <b>pressure</b> should be in the region around <b>atmospheric</b> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
-The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 ... 647 K</b>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term \"relative humidity\" in this region. Please note, that although several functions compute pure water properties, they are designed to be used within the moist air medium model where properties are dominated by air and steam in their vapor states, and not for pure liquid water applications.</p>
-
-<h4>Transport Properties</h4>
-<p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
-
-<h4>Application</h4>
-<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
-
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
-</p>
-
-<p>
-<b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
-
-</html>"));
     package Utilities "Utility functions"
       extends Modelica.Icons.UtilitiesPackage;
       function spliceFunction "Spline interpolation of two functions"
@@ -1607,4 +1577,35 @@ The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 
 </html>"));
       end smoothMax_der;
     end Utilities;
+
+
+    annotation (Documentation(info="<html>
+<h4>Thermodynamic Model</h4>
+<p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.
+The governing assumptions in this model are:</p>
+<ul>
+<li>the perfect gas law applies</li>
+<li>water volume other than that of steam is neglected</li></ul>
+<p>All extensive properties are expressed in terms of the total mass in order to comply with other media in this library. However, for moist air it is rather common to express the absolute humidity in terms of mass of dry air only, which has advantages when working with charts. In addition, care must be taken, when working with mass fractions with respect to total mass, that all properties refer to the same water content when being used in mathematical operations (which is always the case if based on dry air only). Therefore two absolute humidities are computed in the <b>BaseProperties</b> model: <b>X</b> denotes the absolute humidity in terms of the total mass while <b>x</b> denotes the absolute humidity per unit mass of dry air. In addition, the relative humidity <b>phi</b> is also computed.</p>
+<p>At the triple point temperature of water of 0.01 &deg;C or 273.16 K and a relative humidity greater than 1 fog may be present as liquid and as ice resulting in a specific enthalpy somewhere between those of the two isotherms for solid and liquid fog, respectively. For numerical reasons a coexisting mixture of 50% solid and 50% liquid fog is assumed in the fog region at the triple point in this model.</p>
+
+<h4>Range of validity</h4>
+<p>From the assumptions mentioned above it follows that the <b>pressure</b> should be in the region around <b>atmospheric</b> conditions or below (a few bars may still be fine though). Additionally a very high water content at low temperatures would yield incorrect densities, because the volume of the liquid or solid phase would not be negligible anymore. The model does not provide information on limits for water drop size in the fog region or transport information for the actual condensation or evaporation process in combination with surfaces. All excess water which is not in its vapour state is assumed to be still present in the air regarding its energy but not in terms of its spatial extent.<br><br>
+The thermodynamic model may be used for <b>temperatures</b> ranging from <b>190 ... 647 K</b>. This holds for all functions unless otherwise stated in their description. However, although the model works at temperatures above the saturation temperature it is questionable to use the term \"relative humidity\" in this region. Please note, that although several functions compute pure water properties, they are designed to be used within the moist air medium model where properties are dominated by air and steam in their vapor states, and not for pure liquid water applications.</p>
+
+<h4>Transport Properties</h4>
+<p>Several additional functions that are not needed to describe the thermodynamic system, but are required to model transport processes, like heat and mass transfer, may be called. They usually neglect the moisture influence unless otherwise stated.</p>
+
+<h4>Application</h4>
+<p>The model's main area of application is all processes that involve moist air cooling under near atmospheric pressure with possible moisture condensation. This is the case in all domestic and industrial air conditioning applications. Another large domain of moist air applications covers all processes that deal with dehydration of bulk material using air as a transport medium. Engineering tasks involving moist air are often performed (or at least visualized) by using charts that contain all relevant thermodynamic data for a moist air system. These so called psychrometric charts can be generated from the medium properties in this package. The model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a> may be used for this purpose in order to obtain data for figures like those below (the plotting itself is not part of the model though).</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Media/Air/Mollier.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Media/Air/PsycroChart.png\">
+</p>
+
+<p>
+<b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
+
+</html>"));
 end MoistAir;
