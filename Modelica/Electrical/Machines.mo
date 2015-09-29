@@ -5596,8 +5596,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -6026,8 +6025,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor
@@ -6313,8 +6311,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<HTML>
 This package contains models of synchronous induction machines, based on space phasor theory:
@@ -14156,9 +14153,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <td valign=\"top\">300</td><td valign=\"top\">W</td>
 </tr>
 </table>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PartialBasicTransformer;
 
     connector ThermalPortTransformer "Thermal port of transformers"

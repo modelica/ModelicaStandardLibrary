@@ -2134,14 +2134,14 @@ value decomposition of A is computed, i.e.,
 <p>
 where <b>U</b> and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
 </b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
-</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le; 
-m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt; 
+</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
 m=size(A,2)). <b><font face=\"Symbol\">S</font></b> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <code>VT</code>. 
+matrices <code>U</code> and <code>VT</code>.
 </p>
 <h4>Example</h4>
 <blockquote><pre>

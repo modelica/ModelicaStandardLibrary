@@ -2435,19 +2435,19 @@ This version is a bug-fix release. Short Overview:
 </p>
 
 <ol>
-<li> This version of the Modelica package is <b>fully compatible</b> to 
+<li> This version of the Modelica package is <b>fully compatible</b> to
      Modelica Specification <b>3.2 revision 2</b>
-     (with exception of issue (5) reported below and in 
-      ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>). 
+     (with exception of issue (5) reported below and in
+      ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>).
      </li>
-     
+
 <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
      have been fixed for this release. In particular the following <b>critical bug</b> has been fixed:<br>
-     Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a> 
+     Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a>
      fixes an issue with block <a href=\"modelica://Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
      (wrong output when using fixed time step integrator with time step greater than table resolution).
       </li>
-    
+
 <li> Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>
      states that simulation of
      <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Modelica.Fluid.Examples.HeatingSystem</a>
@@ -2459,8 +2459,8 @@ This version is a bug-fix release. Short Overview:
      (and therefore Dymola 2016 correctly reports errors if the pedantic flag is set).
      In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1320\">1320</a>
      this issue was resolved for Modelica Specification 3.3 revision 1 by allowing
-     cyclic parameter definitions if the cycles disappear when evaluating parameters 
-     that have annotation Evaluate=true. Modelica.Fluid is correct with respect 
+     cyclic parameter definitions if the cycles disappear when evaluating parameters
+     that have annotation Evaluate=true. Modelica.Fluid is correct with respect
      to Modelica Specification 3.3 revision 1.
      Changing the Modelica.Fluid library for build 4 so that no cyclic parameter dependencies
      would be present anymore would (a) result in a non-backwards compatible
@@ -2469,19 +2469,19 @@ This version is a bug-fix release. Short Overview:
      the pedantic flag in Dymola 2016 needs to be switched off, when using the
      Modelica.Fluid library in version 3.2.1 build 4 and any previous version).
      </li>
-    
+
 <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
      that the example model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a>
      was moved to another location and that this is a non-backwards compatible change.
      This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
-     a package in which it resides), for details see ticket 
+     a package in which it resides), for details see ticket
      <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
      Fixing this ticket is seen as of much higher priority, as the small drawback that
      an example model is moved (and the probability is very high that this moved model is not
      used in any user model).
      </li>
-     
-<li> In the release notes of build 3 it is stated that no models, blocks, or functions have been 
+
+<li> In the release notes of build 3 it is stated that no models, blocks, or functions have been
      newly introduced. This is not correct.<br>
      In package Modelica the following models have been newly introduced:<br>
      &nbsp;&nbsp;&nbsp;Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates
@@ -2506,7 +2506,7 @@ This version is a bug-fix release. Short Overview:
 </ol>
 
 <p>
-This release of package Modelica, and the accompanying ModelicaTest, 
+This release of package Modelica, and the accompanying ModelicaTest,
 has been tested with the following tools (the tools are listed alphabetically.
 At the time of the test, some of the tools might not yet support the complete Modelica package):
 </p>
@@ -2515,15 +2515,15 @@ At the time of the test, some of the tools might not yet support the complete Mo
 <li> Dymola 2016<br>
      Regression test results with regards to Modelica 3.2.1 build 3 are available
      <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
-     
+
 <li> Maplesim Parser</li>
 <li> OpenModelica(Windows, Linux, Mac)<br>
-     Test reports for the daily builds are available 
+     Test reports for the daily builds are available
      <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.</li>
 </ul>
 
 <p>
-The exact difference between package Modelica version 3.2.1 build 3 and version 3.2.1 build 4 is summarized in 
+The exact difference between package Modelica version 3.2.1 build 3 and version 3.2.1 build 4 is summarized in
 a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo3.2.1+build.3.html\">comparison table</a>.
 </p>
 </html>"));
