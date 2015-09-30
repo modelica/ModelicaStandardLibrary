@@ -2430,14 +2430,14 @@ annotation (Documentation(info="<html>
 Version 3.2.1 build 4 is backward compatible to version 3.2.1 build 3,
 that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will
 work without any changes also with version 3.2.1 build 4
-(see also issue (4), ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a>, below).
+(see also issue (4) below, ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a>).
 This version is a bug-fix release. Short Overview:
 </p>
 
 <ol>
 <li> This version of the Modelica package is <b>fully compatible</b> to
      Modelica Specification <b>3.2 revision 2</b>
-     (with exception of issue (5) reported below and in
+     (with exception of issue (3) reported below and in
       ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>).
      </li>
 
