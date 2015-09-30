@@ -12085,7 +12085,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        parameter Machines.Losses.CoreParameters coreParameters(final m=1)
+        parameter Machines.Losses.CoreParameters coreParameters
           "Armature core losses";
         extends
           Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
