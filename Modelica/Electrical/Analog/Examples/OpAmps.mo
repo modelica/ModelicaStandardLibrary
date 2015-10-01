@@ -74,8 +74,6 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
       Documentation(info="<html>
                         <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
                         </html>"),
@@ -164,10 +162,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                          <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
                          </html>"),
       experiment(
@@ -252,10 +247,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
     <p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
                          </html>"),
       experiment(
@@ -335,10 +327,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
                         </html>"),
       experiment(
@@ -421,10 +410,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
                         </html>"),
       experiment(
@@ -518,10 +504,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                          <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
                          </html>"),
       experiment(
@@ -611,10 +594,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                          <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
                          </html>"),
       experiment(
@@ -698,10 +678,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &LT; Vref and Vp for input voltage &GT; Vref.</p>
                         </html>"),
       experiment(
@@ -789,10 +766,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &GT; 0 + vHys and Vp for input voltage &LT; vHys*Vns/Vps.</p>
                         </html>"),
       experiment(
@@ -880,10 +854,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &GT; vHys and Vn for input voltage &LT; vHys*Vns/Vps.</p>
                         </html>"),
       experiment(
@@ -970,10 +941,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This is a Multivibrator with Schmitt Trigger according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
                         </html>"),
@@ -1088,10 +1056,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                         <p>This signal generator consists of a Schmitt Trigger and an integrator. The output of the first OpAmp (Schmidt Trigger) s a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
                         <p>The switching level of the comparator defines the ampltude of the triangle, the frequency is defined by: f = Vps/VAmp/(4*R*C) according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
@@ -1199,10 +1164,7 @@ package OpAmps
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      __Dymola_experimentSetupOutput,
-      Documentation(info="<html>
+Documentation(info="<html>
                        <p>This is an LC oscillator according to:</p>
                        <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.1</p>
                        </html>"),

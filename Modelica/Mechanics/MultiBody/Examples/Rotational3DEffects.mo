@@ -402,8 +402,6 @@ is much faster.
         color={0,0,127},
         smooth=Smooth.None));
     annotation (experiment(StopTime=1.1),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
       Documentation(info="<html>
 <p>
 This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
@@ -697,9 +695,7 @@ axes of the revolute joints.
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
-      Documentation(info="<html>
+    annotation (      Documentation(info="<html>
 <p>
 This model consists of a drive train with two inertias that are coupled by a bevel gear
 (with 90 degree angle between the two gear flanges).

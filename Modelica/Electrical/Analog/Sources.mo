@@ -2367,8 +2367,6 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(

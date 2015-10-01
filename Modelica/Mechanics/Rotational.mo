@@ -914,9 +914,7 @@ locked, forward sliding.</p>
             "Simulate and Plot"),
         experiment(StopTime=1.5, Interval=0.001),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-140,-100},
-                {140,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})));
+                {140,100}})));
     end CoupledClutches;
 
     model LossyGearDemo1

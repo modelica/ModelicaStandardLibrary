@@ -534,8 +534,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMC_DOL;
 
       model AIMC_YD
@@ -1035,8 +1034,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMS_Start;
 
       model AIMC_Inverter
@@ -1160,8 +1158,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMC_Inverter;
 
       model AIMC_Steinmetz
@@ -1360,8 +1357,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMC_Steinmetz;
 
       model AIMC_withLosses
@@ -1767,8 +1763,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMC_Initialize;
       annotation (Documentation(info="<HTML>
 This package contains test examples of asynchronous induction machines.
@@ -1918,8 +1913,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end SMR_Inverter;
 
       model SMPM_Inverter
@@ -2283,8 +2277,7 @@ whereas the stator voltage is influenced by the d-current.</p>
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</html>"));
       end SMPM_CurrentSource;
 
       model SMPM_VoltageSource
@@ -5983,8 +5976,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -6416,8 +6408,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor
@@ -6704,8 +6695,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<HTML>
 This package contains models of synchronous induction machines, based on space phasor theory:
@@ -10678,9 +10668,7 @@ If the machine's stator also implicitly fixed (useSupport=false), the angle at t
 is equal to the angle of the machine's rotor against the stator.<br>
 Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics));
+</HTML>"));
     end RotorDisplacementAngle;
     annotation (Documentation(info="<HTML>
 This package contains sensors that are useful when modelling machines.
@@ -10975,8 +10963,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
                       textString="zero")}),
           Documentation(info="<HTML>
 Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end ToSpacePhasor;
 
       block FromSpacePhasor
@@ -11105,8 +11092,6 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Documentation(info="<html>
 <p>
 This model determines the RMS value of the input space phasor <code>u</code>.</p> </html>"),
@@ -13634,9 +13619,7 @@ Partial model for induction machine models
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
-                color={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}})));
+                color={0,0,255})}));
     end PartialBasicInductionMachine;
 
     package InductionMachines
@@ -14688,9 +14671,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <td valign=\"top\">300</td><td valign=\"top\">W</td>
 </tr>
 </table>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PartialBasicTransformer;
 
     connector ThermalPortTransformer "Thermal port of transformers"
@@ -15577,8 +15558,7 @@ using the provided mechanical rotor angle phi. The output are the resulting d an
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.FromDQ\">FromDQ</a>
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end ToDQ;
 
     block FromDQ
@@ -15633,8 +15613,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.FToDQ\">ToDQ</a>
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end FromDQ;
 
     model CurrentController "Current controller"
@@ -16050,9 +16029,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end MultiTerminalBox;
 
     model SwitchedRheostat "Rheostat which is shortened after a given time"

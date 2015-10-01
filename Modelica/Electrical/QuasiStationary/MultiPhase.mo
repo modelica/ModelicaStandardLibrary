@@ -425,9 +425,7 @@ Star (wye) connection of a multi phase circuit consiting of multiple base system
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
-</p></html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</p></html>"));
     end MultiStar;
 
     model MultiDelta
@@ -536,8 +534,6 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
           color={85,170,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
@@ -1060,9 +1056,7 @@ A linear temperature dependency of the resistances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableResistor;
 
     model VariableConductor "Multiphase variable conductor"
@@ -1140,9 +1134,7 @@ A linear temperature dependency of the conductances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableConductor;
 
     model VariableCapacitor "Multiphase variable capacitor"
@@ -1202,9 +1194,7 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableCapacitor;
 
     model VariableInductor "Multiphase variable inductor"
@@ -1264,9 +1254,7 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableInductor;
 
     model VariableImpedance "Multiphase variable impedance"
@@ -1358,9 +1346,7 @@ A linear temperature dependency of the resistances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableImpedance;
 
     model VariableAdmittance "Multiphase variable admittance"
@@ -1451,9 +1437,7 @@ A linear temperature dependency of the conductances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableAdmittance;
     annotation (Icon(graphics={
           Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
@@ -1929,8 +1913,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       y =
         Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(
         m)*u;
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics), Icon(coordinateSystem(
+      annotation ( Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
             Line(
@@ -2080,9 +2063,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               textString="zero")}),
         Documentation(info="<HTML>
     Transformation of m phase values (voltages or currents) to space phasor.
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end ToSpacePhasor;
 
     block FromSpacePhasor "Conversion: space phasor -> m phase"
@@ -2187,8 +2168,7 @@ In quasistaionary operation, instantaneous power equals active power;
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid,
-              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio
-              =false, extent={{-100,-100},{100,100}}), graphics));
+              textString="ref")}));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"
@@ -2381,9 +2361,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
 <pre>
  V = sqrt(sum(v[k]^2 for k in 1:m)/m)
 </pre>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VoltageQuasiRMSSensor;
 
     model CurrentSensor "Current Sensor"
@@ -2486,9 +2464,7 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
 <pre>
  I = sqrt(sum(i[k]^2 for k in 1:m)/m)
 </pre>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end CurrentQuasiRMSSensor;
 
     model PowerSensor "Power sensor"
@@ -2586,9 +2562,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>
 </p>
 
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PowerSensor;
     annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
@@ -2643,9 +2617,7 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VoltageSource;
 
     model VariableVoltageSource "Variable multiphase AC voltage"
@@ -2725,8 +2697,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end ReferenceVoltageSource;
 
     model CurrentSource "Constant multiphase AC current"
@@ -2852,9 +2823,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource\">VariableVoltageSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource\">CurrentSource</a>.
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end ReferenceCurrentSource;
     annotation (Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
@@ -3194,9 +3163,7 @@ The source partial model relies on the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource\">VariableCurrentSource</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source\">SinglePhase.Interfaces.Source</a>.
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Source;
 
     partial model ReferenceSource

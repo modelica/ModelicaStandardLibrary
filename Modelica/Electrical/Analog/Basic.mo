@@ -446,7 +446,7 @@ package Basic "Basic electrical components"
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
     parameter SI.Inductance M(start=1) "Coupling inductance";
-    Real dv "Difference between voltage drop over primary inductor and 
+    Real dv "Difference between voltage drop over primary inductor and
     voltage drop over secondary inductor";
   equation
     v1 = L1*der(i1) + M*der(i2);
@@ -1956,8 +1956,6 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Text(

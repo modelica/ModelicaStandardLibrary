@@ -684,9 +684,7 @@ A zero crossing of the R signal could cause singularities due to the actual stru
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableResistor;
 
     model VariableConductor "Single phase variable conductor"
@@ -754,9 +752,7 @@ A linear temperature dependency of the conductance is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableConductor;
 
     model VariableCapacitor "Single phase variable capacitor"
@@ -816,9 +812,7 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableCapacitor;
 
     model VariableInductor "Single phase variable inductor"
@@ -878,9 +872,7 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>,
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableInductor;
 
     model VariableImpedance "Single phase variable impedance"
@@ -968,9 +960,7 @@ singularities due to the actual structure of the connected network.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableImpedance;
 
     model VariableAdmittance "Single phase variable admittance"
@@ -1059,9 +1049,7 @@ singularities due to the actual structure of the connected network.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end VariableAdmittance;
     annotation (Icon(graphics={
           Line(origin={10,40}, points={{-100,-40},{-80,-40}}),
@@ -1742,8 +1730,7 @@ Quasi stationary theory for single phase circuits can be found in the
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid,
-              textString="ref")}), Diagram(coordinateSystem(preserveAspectRatio
-              =false, extent={{-100,-100},{100,100}}), graphics));
+              textString="ref")}));
     end ReferenceSensor;
 
     model FrequencySensor "Frequency sensor"

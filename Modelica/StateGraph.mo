@@ -1989,9 +1989,7 @@ package Interfaces "Connectors and partial models"
               points={{-100,100},{100,0},{-100,-100},{-100,100}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-                                            Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
+              fillPattern=FillPattern.Solid)}));
   end CompositeStep_resume;
 
   connector CompositeStep_suspend
@@ -2007,9 +2005,7 @@ package Interfaces "Connectors and partial models"
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-                              Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}})));
+              fillPattern=FillPattern.Solid)}));
   end CompositeStep_suspend;
 
   connector CompositeStepStatePort_in

@@ -350,8 +350,8 @@ no. 829420.
 <h5>Version 3.2.2, 2014-09-13</h5>
 
 <ul>
-<li>Updated documentation of 
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>, 
+<li>Updated documentation of
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet\">PermanentMagnet</a>
     </li>
@@ -361,12 +361,12 @@ no. 829420.
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
-<li>Restructured cage models with reluctance instead of inductance model according to ticket #1536; 
+<li>Restructured cage models with reluctance instead of inductance model according to ticket #1536;
 the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
 <li>Some more bug fixes according to #1226, since not all reference orientations have been correct</li>
 <li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see #1405</li>
 </ul>
- 
+
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
@@ -1287,9 +1287,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimcM|E.wMechanical</code>: machine speed</li>
 <li><code>aimcM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMC_DOL;
 
       model AIMC_DOL_MultiPhase
@@ -1818,9 +1816,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/E.wMechanical</code>: machine speed</li>
 <li><code>aimsM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end AIMS_Start;
 
       model AIMS_Start_MultiPhase
@@ -2375,9 +2371,7 @@ and accelerate the inertias.</p>
 <li><code>smpmM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAnglepmsmM|E.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end SMPM_Inverter;
 
       model SMPM_Inverter_MultiPhase
@@ -2992,9 +2986,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 <li><code>speedM|E.tauElectrical</code>: machine torque</li>
 <li><code>mechanicalPowerSensorM|E.P</code>: mechanical power</li>
 </ul>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end SMEE_Generator;
 
       model SMEE_Generator_MultiPhase
@@ -3606,9 +3598,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>smrM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAngleM|R.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})));
+</HTML>"));
       end SMR_Inverter;
 
       model SMR_Inverter_MultiPhase
@@ -4522,9 +4512,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>
 </p>
 
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Crossing;
     annotation (Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
@@ -4628,8 +4616,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing\">AIM_SlipRing</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slip ring rotor"
@@ -4793,8 +4780,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end AIM_SlipRing;
       annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -5022,8 +5008,7 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -5278,8 +5263,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
@@ -5442,8 +5426,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SM_ReluctanceRotor;
       annotation (Documentation(info="<html>
 <p>This package contains various synchronous induction machine models.</p>
@@ -6121,8 +6104,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
@@ -6283,8 +6265,7 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SaliencyCageWinding;
 
       model PermanentMagnet
@@ -6457,8 +6438,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SymmetricMultiPhaseCageWinding_obsolete;
 
       model SaliencyCageWinding_obsolete
@@ -7073,8 +7053,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a>
-</p></html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics));
+</p></html>"));
     end PartialTwoPort;
 
     partial model PartialTwoPortExtended
@@ -7099,8 +7078,7 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 <p>This magnetic two port element consists of a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">positive</a> and a <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">negative magnetic port</a> and some additionally variables, but no physical balance equations. </p>
 <h4>See also</h4>
 <p><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort\">PositiveMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary\">PartialTwoPortElementary</a> </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PartialTwoPortExtended;
 
     partial model PartialTwoPortElementary
@@ -7525,8 +7503,6 @@ i.e., with small derivatives.
       port.Phi.im + port_im.Phi = 0;
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-100,0},{0,0},{100,100}},
@@ -7565,8 +7541,6 @@ i.e., with small derivatives.
       port.Phi.im + port_im.Phi = 0;
 
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-100,0},{0,0},{100,100}},

@@ -348,7 +348,7 @@ not the case with function norm(..).
   algorithm
     /* This function has the inline annotation. If the function is inlined:
      - "smooth(..)" defines how often the expression can be differentiated
-       (if symbolic processing is performed). 
+       (if symbolic processing is performed).
      - "noEvent(..)" prevents event handling of the if-clause,
        in order to guard against division by zero.
   */
@@ -2144,14 +2144,14 @@ value decomposition of A is computed, i.e.,
 <p>
 where <b>U</b> and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
 </b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
-</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le; 
-m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt; 
+</font></b> = [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>), zeros(n,m-n)], if n=size(A,1) &le;
+m=size(A,2)) or [diagonal(<font face=\"Symbol\">s</font><sub>i</sub>); zeros(n-m,m)], if n &gt;
 m=size(A,2)). <b><font face=\"Symbol\">S</font></b> has the same size as matrix A with
 nonnegative diagonal elements in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <code>VT</code>. 
+matrices <code>U</code> and <code>VT</code>.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -2790,8 +2790,8 @@ Diff = [Matrices.inv(T)*A*T, Matrices.inv(T)*B;
         C*T, zeros(1,2)] - [As, Bs; Cs, zeros(1,2)];
 err  = Matrices.norm(Diff);
 
--> Results in: 
-scale = {16, 1, 0.0625}   
+-> Results in:
+scale = {16, 1, 0.0625}
 norm(A)  = 1000.15, norm(B)  = 100.504, norm(C)  = 100.006
 norm(As) = 10.8738, norm(Bs) = 16.0136, norm(Cs) = 10.2011
 err = 0

@@ -2524,8 +2524,7 @@ This package contains the quasi stationary space phasor connector and partial mo
                 textString="zero")}),
           Documentation(info="<HTML>
 Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</HTML>"));
       end ToSpacePhasor;
 
       block FromSpacePhasor "Conversion: space phasor -> three phase"

@@ -1655,7 +1655,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
 <li>valve (simple controlled valve)</li>
 </ul>
 <p>
-Pressure drop is taken from partial model SimpleFriction. 
+Pressure drop is taken from partial model SimpleFriction.
 Thermodynamic equations are defined in partial models (package Partials).</p>
 
 </HTML>", revisions="<HTML>
@@ -1886,7 +1886,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 
 <p>Some of the sensors do not need access to medium properties for measuring,
 but it is necessary to define the medium in the connector (check of connections).
-Thermodynamic equations are defined in partial models (package Interfaces.Partials). 
+Thermodynamic equations are defined in partial models (package Interfaces.Partials).
 All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
 
 </HTML>", revisions="<HTML>

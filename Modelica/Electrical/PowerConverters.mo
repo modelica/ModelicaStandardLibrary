@@ -20,23 +20,23 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
 
 <h4>Topology classificaton</h4>
 
-<p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see 
+<p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
 
 <h4>Control</h4>
 
-<p>For each of the provided rectifiers a 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is available. 
-These control models have electrical connectors to be connected with the AC supply. 
-The firing angle of thyristor rectifiers can either be set by a parameter or a signal input. 
+<p>For each of the provided rectifiers a
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">control model</a> is available.
+These control models have electrical connectors to be connected with the AC supply.
+The firing angle of thyristor rectifiers can either be set by a parameter or a signal input.
 </p>
 
 <h4>Examples</h4>
 
 <p>A variety of examples is provided at
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC\">Examples.ACDC</a>. 
-These examples include different kinds of DC loads. Even the control characeteristics 
-of the rectifiers can be obtained experimentally; the names of these models 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC\">Examples.ACDC</a>.
+These examples include different kinds of DC loads. Even the control characeteristics
+of the rectifiers can be obtained experimentally; the names of these models
 contain <code>_Characteristic</code>.
 </p>
 </html>"));
@@ -50,10 +50,10 @@ contain <code>_Characteristic</code>.
 
 <h4>Control</h4>
 
-<p>There are currently no space phasor pulse width modulation (PWM) models provided. However, for operating the single 
-and multi phase inverter the PWM 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">controller</a> 
-can be used. 
+<p>There are currently no space phasor pulse width modulation (PWM) models provided. However, for operating the single
+and multi phase inverter the PWM
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM\">controller</a>
+can be used.
 </p>
 
 <h4>Examples</h4>
@@ -79,9 +79,9 @@ can be used.
 
 <h4>Control</h4>
 
-<p>A pulse width modulation (PWM) 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control\">controller</a> 
-is provided. 
+<p>A pulse width modulation (PWM)
+<a href=\"modelica://Modelica.Electrical.PowerConverters.DCDC.Control\">controller</a>
+is provided.
 </p>
 
 <h4>Examples</h4>
@@ -192,22 +192,22 @@ General types of AC/AC converters are currently not provided in this library.
 
 <ul>
   <li>All converter models rely on existing diode, thyristor and switch models provided in the
-      <a href=\"modelica://Modelica.Electrical.Analog.Ideal\">Analog.Ideal</a> and the 
-      <a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">MultiPhase.Ideal</a> 
+      <a href=\"modelica://Modelica.Electrical.Analog.Ideal\">Analog.Ideal</a> and the
+      <a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">MultiPhase.Ideal</a>
       package of the Modelica Standard Library.</li>
   <li>Switching losses and recovery effects are not considered</li>
   <li>Only conduction losses are taken into account</li>
   <li>The parameters of the semiconductors include<li>
   <ul>
-    <li>The on state resistance <code>Ron</code><li> 
-    <li>The off state conductance <code>Goff</code><li> 
-    <li>The knee voltage <code>Vknee</code><li> 
+    <li>The on state resistance <code>Ron</code><li>
+    <li>The off state conductance <code>Goff</code><li>
+    <li>The knee voltage <code>Vknee</code><li>
   </ul>
   <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
       <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
-      so all temepratures of all semiconductors are equal and the heat flow of the converter heat port 
-      is determined by the sum of all semiconductor heat flows</li> 
-  <li>Each converter containg boolean firing inputs provides variables <code>offStart...</code>     
+      so all temepratures of all semiconductors are equal and the heat flow of the converter heat port
+      is determined by the sum of all semiconductor heat flows</li>
+  <li>Each converter containg boolean firing inputs provides variables <code>offStart...</code>
       to specify the initial conditions of the off state of each semiconductor</li>
   <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code><li>
   <li>The number of phases of multi phase converters is not restricted to three</li>
@@ -216,10 +216,10 @@ General types of AC/AC converters are currently not provided in this library.
 <h4>Literature</h4>
 
 <p>
-General background knowledge on power converters and power electronics can be found in 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Skvarenina01]</a> and 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Luo05]</a>. 
-A freely available book is available in 
+General background knowledge on power converters and power electronics can be found in
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Skvarenina01]</a> and
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Luo05]</a>.
+A freely available book is available in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">[Williams2006]</a>.
 </p>
 </html>"));
@@ -257,16 +257,6 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -308,16 +298,6 @@ A freely available book is available in
               color={0,0,127},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=10,
               Tolerance=1e-06,
@@ -433,16 +413,6 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -579,22 +549,12 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the 
+<p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
@@ -625,22 +585,12 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the 
+<p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
@@ -682,16 +632,6 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -748,16 +688,6 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -823,16 +753,6 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=10,
               Tolerance=1e-06,
@@ -1056,16 +976,6 @@ A freely available book is available in
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=15,
               Interval=0.0002,
@@ -1076,7 +986,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
 </p>
 
 <p>
-Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average current <code>meanCurrent.y</code>. Also plot speed <code>w</code>, voltage <code>voltageSensor.v</code> and the average voltage <code>meanVoltage.y</code>.</p>  
+Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average current <code>meanCurrent.y</code>. Also plot speed <code>w</code>, voltage <code>voltageSensor.v</code> and the average voltage <code>meanVoltage.y</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_DC_Drive;
         annotation (Documentation(info="<html>
@@ -1195,16 +1105,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1240,16 +1140,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1296,16 +1186,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1362,16 +1242,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1436,16 +1306,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=10,
               Tolerance=1e-06,
@@ -1456,16 +1316,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 <p>Plot average voltage <code>meanVoltage.v</code> versus firingAngle <code>pulse2.firingAngle</code> to see control characteristic of this type of rectifier with R-L load including active voltage.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_RLV_Characteristic;
-        annotation (Icon(coordinateSystem(
-              extent={{-100,-100},{100,100}},
-              preserveAspectRatio=true,
-              initialScale=0.1,
-              grid={2,2})), Diagram(coordinateSystem(
-              extent={{-100,-100},{100,100}},
-              preserveAspectRatio=true,
-              initialScale=0.1,
-              grid={2,2})),
-          Documentation(info="<html>
+        annotation (          Documentation(info="<html>
 <p>This package includes single phase two pulse center tap rectifiers. The examples show uncontrolled and controlled rectifiers with constant and variable firing angle. </p>
 </html>"));
       end RectifierCenterTap2Pulse;
@@ -1577,10 +1428,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1616,8 +1463,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1664,8 +1509,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1722,8 +1565,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -1787,8 +1628,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,127},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=10,
               Tolerance=1e-06,
@@ -1912,10 +1751,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -2056,16 +1891,12 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the 
+<p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
@@ -2097,14 +1928,12 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the 
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
 
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
@@ -2147,14 +1976,12 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load, where <code>m</code> is the number of phases.</p> 
+<p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load, where <code>m</code> is the number of phases.</p>
 
 <p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
@@ -2205,8 +2032,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -2273,8 +2098,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=10,
               Tolerance=1e-06,
@@ -2502,16 +2325,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             experiment(
               StopTime=15,
               Interval=0.0002,
@@ -2654,10 +2467,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -2693,8 +2502,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -2741,8 +2548,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -2799,8 +2604,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Tolerance=1e-06,
@@ -2864,8 +2667,6 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=10,
               Tolerance=1e-06,
@@ -2981,18 +2782,8 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             Documentation(info="<html>
-<p>Template of 
+<p>Template of
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.Rectifier1Pulse\">
 single pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
@@ -3104,18 +2895,8 @@ single pulse rectifiers</a>; load is not yet included.</p>
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             Documentation(info="<html>
-<p>Template of 
+<p>Template of
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse\">
 two pulse bridge rectifiers</a>; load is not yet included.</p>
 </html>"));
@@ -3237,18 +3018,8 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=true,
-                initialScale=0.1,
-                grid={2,2})),
-            Diagram(coordinateSystem(
-                extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false,
-                initialScale=0.1,
-                grid={2,2}), graphics),
             Documentation(info="<html>
-<p>Template of 
+<p>Template of
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">
 center tap two pulse rectifiers</a>; load is not yet included.</p>
 </html>"));
@@ -3362,12 +3133,8 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             Documentation(info="<html>
-<p>Template of 
+<p>Template of
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">
 center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
@@ -3485,12 +3252,8 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             Documentation(info="<html>
-<p>Template of 
+<p>Template of
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">
 <code>2*m</code> pulse bridge rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
@@ -3626,12 +3389,8 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
               color={255,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             Documentation(info="<html>
-<p>Template of 
+<p>Template of
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">
 center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the number of phases; load is not yet included.</p>
 </html>"));
@@ -3670,8 +3429,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StartTime=0,
               StopTime=0.1,
@@ -3716,8 +3473,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StartTime=0,
               StopTime=0.1,
@@ -3866,8 +3621,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StartTime=0,
               StopTime=0.1,
@@ -4027,8 +3780,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StartTime=0,
               StopTime=0.1,
@@ -4139,8 +3890,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{80,-10},{90,-10},{90,38}},
               color={0,0,127},
               smooth=Smooth.None));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}), graphics), Documentation(
+          annotation ( Documentation(
                 info="<html>
 <p>Single phase two level example template including supply and sensors; load is not yet included.</p>
 </html>"));
@@ -4176,8 +3926,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StartTime=0,
               StopTime=0.1,
@@ -4219,8 +3967,6 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StartTime=0,
               StopTime=0.1,
@@ -4255,8 +4001,6 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=0.1,
               Interval=0.0002,
@@ -4297,8 +4041,6 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               color={0,0,255},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             Documentation(info="<html>
 <p>This example demonstrates the switching on of an R-L load operated by an H bridge.
 DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.
@@ -4385,14 +4127,12 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               color={0,0,127},
               smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
             experiment(
               StopTime=24,
               Interval=0.0002,
               Tolerance=1e-06),
             Documentation(info="<html>
-<p>This example of am H brdge with DC drive demonstrates the operation of the DC machine in four quadrants. 
+<p>This example of am H brdge with DC drive demonstrates the operation of the DC machine in four quadrants.
 The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.</p>
 
 <p>
@@ -4510,8 +4250,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               points={{-56,-49},{-56,-12}},
               color={255,0,255},
               smooth=Smooth.None));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}), graphics), Documentation(
+          annotation ( Documentation(
                 info="<html>
 <p>Step down chopper example template including supply and sensors; load is not yet included</p>
 </html>"));
@@ -4592,8 +4331,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               points={{-44,-49},{-44,-12}},
               color={255,0,255},
               smooth=Smooth.None));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}), graphics), Documentation(
+          annotation ( Documentation(
                 info="<html>
 <p>H bridge example template including supply and sensors; load is not yet included</p>
 </html>"));
@@ -4792,8 +4530,6 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -4813,7 +4549,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
 </html>", info="<html>
 
 <p>
-General information about controllers is summarized in 
+General information about controllers is summarized in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 </html>"));
@@ -4903,8 +4639,6 @@ General information about controllers is summarized in
             color={255,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -4924,15 +4658,15 @@ General information about controllers is summarized in
 </html>", info="<html>
 
 <p>
-General information about controllers is summarized in 
+General information about controllers is summarized in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 
 <p>
 This model provides two firing signal for Graetz bridge thyristor and half bridge rectifiers. The boolean
-signal <code>fire_p</code> is assigned to the thyristors connected with the positive DC output pin.  
+signal <code>fire_p</code> is assigned to the thyristors connected with the positive DC output pin.
 The boolean
-signal <code>fire_n</code> is assigned to the thyristors connected with the negative DC output pin.  
+signal <code>fire_n</code> is assigned to the thyristors connected with the negative DC output pin.
 </p>
 </html>"));
       end VoltageBridge2Pulse;
@@ -5030,8 +4764,6 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
             color={255,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -5050,7 +4782,7 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
           Documentation(info="<html>
 
 <p>
-General information about controllers is summarized in 
+General information about controllers is summarized in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 
@@ -5153,8 +4885,6 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
             color={255,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-40,-20},{-40,-24},{-20,-24},{-20,-40},{-40,-40},
@@ -5174,7 +4904,7 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
 </html>", info="<html>
 
 <p>
-General information about controllers is summarized in 
+General information about controllers is summarized in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control\">Control</a>.
 </p>
 </html>"));
@@ -5220,8 +4950,6 @@ General information about controllers is summarized in
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Documentation(info="<html>
 <p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order allpass filters tuned on supply frequency <code>f</code>.</p>
 </html>"),Icon(graphics={Polygon(
@@ -5254,23 +4982,23 @@ General information about controllers is summarized in
       end Filter;
       annotation (Documentation(info="<html>
 <p>
-A generic controller with signal input and <code>2*m</code> firing signals is provided in 
+A generic controller with signal input and <code>2*m</code> firing signals is provided in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
-where <code>m</code> is the arbitrary number of phases</code>. 
+where <code>m</code> is the arbitrary number of phases</code>.
 Additinal topology specific controllers with electrical connectors are also included.
 </p>
 
 <h4>Filters</h4>
 
 <p>
-Each controller is equipped with an optional 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Filter\">filter</a> 
-to filter the input voltages. By default the filter is enabled.  
+Each controller is equipped with an optional
+<a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Filter\">filter</a>
+to filter the input voltages. By default the filter is enabled.
 </p>
 
 <p>
-Such filter is needed if the electrical grid includes a significant voltage drop across the grid impedance 
-distoring the input voltage wave form of the rectifier. The filter included in the PowerConverters library is first order filter with additional compensation of the filter specific phase lag. 
+Such filter is needed if the electrical grid includes a significant voltage drop across the grid impedance
+distoring the input voltage wave form of the rectifier. The filter included in the PowerConverters library is first order filter with additional compensation of the filter specific phase lag.
 However, it important to note that the transients of the filters may cause some initial effects which deteriorate after
 certein periods.
 </p>
@@ -5279,8 +5007,8 @@ certein periods.
 
 <p>
 The topology specific controllers allow enabling and disabling of the firing signals. The internal enabling signal of the controllers is either derived from the parameter <code>constantEnable</code>,
-if <code>useConstantEnable = true</code>. For if <code>useConstantEnable = false</code> the internal 
-enabling signal is taken from the optional signal input <code>enable</code>. 
+if <code>useConstantEnable = true</code>. For if <code>useConstantEnable = false</code> the internal
+enabling signal is taken from the optional signal input <code>enable</code>.
 </p>
 </html>"));
     end Control;
@@ -5392,8 +5120,6 @@ enabling signal is taken from the optional signal input <code>enable</code>.
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5432,7 +5158,7 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a two pulse Graetz diode rectifier bridge. The circuit topology is the same as in 
+This is a two pulse Graetz diode rectifier bridge. The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
@@ -5578,8 +5304,6 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5623,9 +5347,9 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a two pulse Graetz thyristor rectifier bridge. The firing signal <code>fire_p</code> are connected
-with thyristor <code>thyristor_p1</code> and <code>thyristor_n2</code>. 
+with thyristor <code>thyristor_p1</code> and <code>thyristor_n2</code>.
 The firing signal <code>fire_n</code> are connected
-with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See example 
+with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
@@ -5760,8 +5484,6 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -5822,10 +5544,10 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a two pulse Graetz half controlled rectifier bridge. The firing signal <code>fire_p</code> is connected
-with thyristor <code>thyristor_p1</code>. 
+with thyristor <code>thyristor_p1</code>.
 The firing signal <code>fire_n</code> is connected
-with thyristor <code>thyristor_p2</code>. 
-The circuit topology is the same as in 
+with thyristor <code>thyristor_p2</code>.
+The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
@@ -5928,11 +5650,6 @@ The circuit topology is the same as in
               points={{20,0},{-20,24},{-20,-24},{20,0}},
               color={0,0,255},
               smooth=Smooth.None)}),
-        Diagram(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            preserveAspectRatio=false,
-            initialScale=0.1,
-            grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
@@ -5940,7 +5657,7 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a two pulse diode rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in 
+This is a two pulse diode rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
@@ -6065,18 +5782,13 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
               points={{0,12},{0,28}},
               color={0,0,255},
               smooth=Smooth.None)}),
-        Diagram(coordinateSystem(
-            extent={{-100,-100},{100,100}},
-            preserveAspectRatio=false,
-            initialScale=0.1,
-            grid={2,2}), graphics),
         Documentation(info="<html>
 <p>
 General information about AC/DC converters can be found at the
 <a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept\">AC/DC converter concept</a>
 </p>
 
-<p>This a two pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in 
+<p>This a two pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2Pulse\">Examples.ACDC.RectifierCenterTap2Pulse</a>.
 </p>
 </html>"));
@@ -6139,8 +5851,6 @@ General information about AC/DC converters can be found at the
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6180,8 +5890,8 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a m pulse diode rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>. 
-The circuit topology is the same as in 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
+The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">Examples.ACDC.RectifierCenterTapmPulse</a>.
 </p>
 </html>"));
@@ -6254,8 +5964,6 @@ The circuit topology is the same as in
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6299,7 +6007,7 @@ General information about AC/DC converters can be found at the
 
 <p>
 This is a m pulse thyristor rectifier with center tap. All voltage sources must have one interconnected plug (tap). This rectifiers works only with odd number of phases due the symmetry constrains of even phase numbers implemented in
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>. 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTapmPulse\">Examples.ACDC.RectifierCenterTapmPulse</a>.
 </p>
@@ -6390,8 +6098,6 @@ See example
           color={191,0,0},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6430,9 +6136,9 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the 
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources. 
+This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 </p>
 </html>"));
     end DiodeBridge2mPulse;
@@ -6538,8 +6244,6 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6582,8 +6286,8 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for multi phase circuits with phase even phase numbers greater than three the 
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources. 
+This is a 2*m pulse thyristor rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. It is important to note that for multi phase circuits with phase even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>.
 </p>
@@ -6690,8 +6394,6 @@ See example
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6752,9 +6454,9 @@ General information about AC/DC converters can be found at the
 
 
 <p>
-This is a 2*m pulse half controlled rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in 
-<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the 
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources. 
+This is a 2*m pulse half controlled rectifier bridge. In order to operate this rectifier a voltage source with center tap is required. The circuit topology is the same as in
+<a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse\">Examples.ACDC.RectifierBridge2mPulse</a>. It is important to note that for multi phase circuits with even phase numbers greater than three the
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStarResistance\">MultiStarResistance</a> shall be used for grounding the voltage sources.
 </p>
 </html>"));
     end HalfControlledBridge2mPulse;
@@ -6843,8 +6545,6 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -6883,7 +6583,7 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a 2*m pulse diode rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in 
+This is a 2*m pulse diode rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. The circuit topology is the same as in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">Examples.ACDC.RectifierCenterTap2mPulse</a>.
 </p>
 </html>"));
@@ -6991,8 +6691,6 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}),     graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -7035,7 +6733,7 @@ General information about AC/DC converters can be found at the
 </p>
 
 <p>
-This is a 2*m pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. See example 
+This is a 2*m pulse thyristor rectifier with center tap. In order to operate this rectifier a voltage source with center tap is required. The center tap has to be connected with the negative pin of the load. See example
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierCenterTap2mPulse\">Examples.ACDC.RectifierCenterTap2mPulse</a>.
 </p>
 </html>"));
@@ -7163,8 +6861,6 @@ General information about AC/DC converters can be found at the
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -7378,8 +7074,6 @@ An example of a single phase inverter with PWM voltage control is included in
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -7448,7 +7142,7 @@ This is a multi phase two level inverter. The boolean signals <code>fire_p[k]</c
     annotation (Documentation(info="<html>
 <p>
 General information about DC/AC converters can be found at the
-<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept\">DC/AC converter concept</a> 
+<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.DCACConcept\">DC/AC converter concept</a>
 </p>
 </html>"));
   end DCAC;
@@ -7544,8 +7238,6 @@ General information about DC/AC converters can be found at the
             color={255,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}),graphics={Line(
                       points={{-100,0},{-98,0},{12,0}},
@@ -7577,9 +7269,9 @@ General information about DC/AC converters can be found at the
                       smooth=Smooth.None)}),
           Documentation(info="<html>
 <p>
-This controller can be used both for DC/DC and AC/DC converters. 
-The signal input of the PWM controller is the duty cycle; the duty cycle is the ratio of the on time 
-to the switching period. The output firing signal is strictly determined by the actual duty cycle, indicated as <code>d</code> in Fig.&nbsp;1. 
+This controller can be used both for DC/DC and AC/DC converters.
+The signal input of the PWM controller is the duty cycle; the duty cycle is the ratio of the on time
+to the switching period. The output firing signal is strictly determined by the actual duty cycle, indicated as <code>d</code> in Fig.&nbsp;1.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -7592,7 +7284,7 @@ to the switching period. The output firing signal is strictly determined by the 
 </table>
 
 <p>
-The firing signal is generated by comparing the sampled duty cycle input with a periodic saw tooth signal [<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">Williams2006</a>]. 
+The firing signal is generated by comparing the sampled duty cycle input with a periodic saw tooth signal [<a href=\"modelica://Modelica.Electrical.PowerConverters.UsersGuide.References\">Williams2006</a>].
 </p>
 </html>"));
       end SignalPWM;
@@ -7643,8 +7335,7 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
             points={{-19,-50},{20,-50},{20,0},{110,0}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}), graphics), Icon(graphics={
+        annotation ( Icon(graphics={
               Rectangle(
                 extent={{-100,100},{100,-100}},
                 lineColor={0,0,0},
@@ -7759,8 +7450,6 @@ Currently there is only one PWM method provided in this library.
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}),     graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -7822,7 +7511,7 @@ Currently there is only one PWM method provided in this library.
               smooth=Smooth.None)}),
         Documentation(info="<html>
 <p>
-This is a conventional step down chopper model. It consists of a transistor and free wheeling diode. 
+This is a conventional step down chopper model. It consists of a transistor and free wheeling diode.
 </p>
 </html>"));
     end ChopperStepDown;
@@ -7938,8 +7627,6 @@ This is a conventional step down chopper model. It consists of a transistor and 
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),graphics),
         Icon(graphics={
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -8043,12 +7730,10 @@ General information about DC/DC converters can be found at the
           color={255,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
         Documentation(info="<html>
-<p>This model provides an internal enable signal derived either from a parameter or an optional signal input. 
-For <code>useConstantEnable = true</code> the internal signal <code>internalEnable</code> is equal to the parameter <code>constantEnable</code>. 
-For <code>useConstantEnable = false</code> the internal signal 
+<p>This model provides an internal enable signal derived either from a parameter or an optional signal input.
+For <code>useConstantEnable = true</code> the internal signal <code>internalEnable</code> is equal to the parameter <code>constantEnable</code>.
+For <code>useConstantEnable = false</code> the internal signal
 <code>internalEnable</code> is equal to the external signal input <code>enable</code>.</p>
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -8208,8 +7893,7 @@ For <code>useConstantEnable = false</code> the internal signal
             points={{100,-92},{100,-120}},
             color={255,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
+        annotation ( Documentation(info="<html>
 <p>
 This partial model provides parameters and the conditional input signal for the enabling models:</p>
 <p>
@@ -8254,8 +7938,7 @@ This partial model provides parameters and the conditional input signal for the 
                 {-52,-100},{-52,-92}},
             color={255,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
+        annotation ( Documentation(info="<html>
 <p>This partial model provides the enabling logic for one firing signal.</p>
 </html>"));
       end Enable1;
@@ -8305,8 +7988,7 @@ This partial model provides parameters and the conditional input signal for the 
                 {-52,-100},{-52,-92}},
             color={255,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
+        annotation ( Documentation(info="<html>
 <p>This partial model provides the enabling logic for <code>m</code> firing signal.</p>
 </html>"));
       end Enable1m;
@@ -8336,8 +8018,7 @@ This partial model provides parameters and the conditional input signal for the 
             points={{79,-80},{76,-80},{76,-96},{52,-96},{52,-92}},
             color={255,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
+        annotation ( Documentation(info="<html>
 <p>This partial model provides the enabling logic for two firing signal.</p>
 </html>"));
       end Enable2;
@@ -8366,8 +8047,7 @@ This partial model provides parameters and the conditional input signal for the 
             points={{79,-80},{76,-80},{76,-96},{52,-96},{52,-92}},
             color={255,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics), Documentation(info="<html>
+        annotation ( Documentation(info="<html>
 <p>This partial model provides the enabling logic for <code>2*m</code> firing signal.</p>
 </html>"));
       end Enable2m;
@@ -8425,16 +8105,6 @@ This partial model provides parameters and the conditional input signal for the 
     end Control;
   end Icons;
   annotation (
-    Icon(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=true,
-        initialScale=0.1,
-        grid={2,2}), graphics),
-    Diagram(coordinateSystem(
-        extent={{-100,-100},{100,100}},
-        preserveAspectRatio=true,
-        initialScale=0.1,
-        grid={2,2})),
     preferredView="info",
     Documentation(info="<html>
 <p>

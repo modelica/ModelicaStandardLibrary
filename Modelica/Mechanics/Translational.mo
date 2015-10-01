@@ -14,7 +14,7 @@ package Translational
 
 <p>
 This package contains components to model <b>1-dimensional translational
-mechanical</b> systems, including different types of masses, 
+mechanical</b> systems, including different types of masses,
 external forces, spring/damper elements,
 frictional elements, elastogaps, elements to measure position, velocity,
 acceleration and the cut-force of a flange. In sublibrary
@@ -43,7 +43,7 @@ systems are available in the simulation tool, the simulation of
 <p>
 A simple example of the usage of this library is given in the
 figure above. This drive consists of a shaft with mass m1=1 which
-is connected via a spring to a second shaft with mass m2=5. 
+is connected via a spring to a second shaft with mass m2=5.
 The left shaft is driven via an external, sinusoidal force.
 The <b>filled</b> and <b>non-filled green squares</b> at the left and
 right side of a component represent <b>mechanical flanges</b>.
@@ -170,7 +170,7 @@ vector direction displayed according to this rule:
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/drive3.png\" ALT=\"drive3\">
 </p>
 <p>
-The cut-force <code>m2.flange_a.f</code> 
+The cut-force <code>m2.flange_a.f</code>
 of the right mass is directed into the
 direction of movement if the values are positive. Similarly,
 the velocitiy <code>m2.v</code> of the right mass
@@ -263,7 +263,7 @@ there is a support flange.
 The equations of a mechanical component are vector equations, i.e.,
 they need to be expressed in a common coordinate system.
 Therefore, for a component a <b>local axis of movement</b> has to be
-defined. All vector quantities, such as cut-forces or 
+defined. All vector quantities, such as cut-forces or
 velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
 for a mass component:
@@ -276,7 +276,7 @@ for a mass component:
 <p>
 As can be seen, all vectors are directed into the direction
 of the movement axis. The positions in the flanges are defined
-correspondingly. 
+correspondingly.
 </p>
 <p>
 On first view, one may assume that the selected local
@@ -389,7 +389,7 @@ Therefore, a tool will select in most cases relative positions as states.
 </p>
 
 <p>
-The relative positions of compliant components are usually small. 
+The relative positions of compliant components are usually small.
 Without further action, the error control would not work properly on variables
 that are so small (so often switching the error control off). The remedy is to define
 explicitly a nominal value on the relative angle. This definition is provided in the
@@ -744,11 +744,11 @@ combination). In this case the system is not at rest.
             Text(
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
-              textString=" 0.5 m 
+              textString=" 0.5 m
  (1 m) "),  Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
-              textString=" 1 m  
+              textString=" 1 m
  (1 m) "),  Text(
               extent={{-20,-84},{0,-94}},
               lineColor={0,0,0},

@@ -15,22 +15,22 @@ Let us assume that the air gap model contains stator and rotor magnetic ports wh
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\"/>, 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\"/>,
 </p>
 
 <p>where
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"/> 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"/>
 is the connector reference angle of the stator ports,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"/> 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"/>
 is the connector reference angle of the rotor ports, and
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_mechanical.png\"/> 
-is the difference of the mechanical angles of the flange and the support, respectively, 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_mechanical.png\"/>
+is the difference of the mechanical angles of the flange and the support, respectively,
 multiplied by the number of pole pairs,
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/p.png\"/>. 
-The stator and rotor reference angles are directly related with the electrical frequencies of the 
-electric circuits of the stator, 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/p.png\"/>.
+The stator and rotor reference angles are directly related with the electrical frequencies of the
+electric circuits of the stator,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/f_s.png\"/>,
-and rotor, 
+and rotor,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/f_r.png\"/>,
 respectively, by means of:
 </p>
@@ -53,7 +53,7 @@ This is a strict consequence of the elctro magnetic coupling between the quasi s
 </table>
 
 <p>
-The complex magnetic flux with respect a stator and rotor magnetic port are equal, 
+The complex magnetic flux with respect a stator and rotor magnetic port are equal,
 </p>
 
 <p>
@@ -117,7 +117,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Update and improvement of documentation</li>
 <li>Added new component:</li>
 <ul>
-    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>   
+    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Fixed issues of ticket #1524</li>
@@ -125,7 +125,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Bug fixes according to #1226</li>
 <li>Added magnitude and argument of complex magnetic potentials, magnetic fluxes, voltages and currents in interface, electromagnetic coupling and machine models, see #1405</li>
 <li>Added active, reactive and aparrent power and power factor in interface and machine models, see #1405</li>
-<li>Added new interface model 
+<li>Added new interface model
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 to simplify consistent inclusion of variables, see #1405</li>
 <li>Changed icon and location of terminal box according to #1706</li>
@@ -155,7 +155,7 @@ to simplify consistent inclusion of variables, see #1405</li>
 <ul>
 <li>Changed implementation of symmetrical components: symmetricTransformationMatrix(m) is now
     multiplied by numberOfSymmetricBaseSystems(m) in order to overcome differences in calculation
-    of current and voltage symmetrical components. The symmetrical components of a system of 
+    of current and voltage symmetrical components. The symmetrical components of a system of
     even phase numbers are now equal to the symmetrical components of one corresponding base system.
 <li>Imporoved examples package and removed SMPM_Inverter example<li>
 </ul>
@@ -212,7 +212,7 @@ to simplify consistent inclusion of variables, see #1405</li>
     <tr>
       <td valign=\"top\">[Lang1984]</td>
       <td valign=\"top\">W. Lang,
-        &quot;&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r 
+        &quot;&Uuml;ber die Bemessung verlustarmer Asynchronmotoren mit K&auml;figl&auml;ufer f&uuml;r
         Pulsumrichterspeisung,&quot;
         Doctoral Thesis,
         Technical University of Vienna, 1984.</td>
@@ -222,7 +222,7 @@ to simplify consistent inclusion of variables, see #1405</li>
     end References;
     annotation (Documentation(info="<html>
 <p>
-This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of 
+This is the library of quasi static fundamental wave models for multi phase electric machines. This is complementary library with the transient machine models of
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">FundamentalWave</a>.
 </p>
 </html>"));
@@ -353,8 +353,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
             points={{-20,-20},{0,-20}},
             color={85,170,255},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}}), graphics), experiment(StopTime=100,
+        annotation ( experiment(StopTime=100,
               Interval=0.01));
       end MultiPhaseInductance;
 
@@ -560,9 +559,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
           Documentation(info="<html>
 <p>
 In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
-</html>"),Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-                preserveAspectRatio=false), graphics),
-          Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+</html>"));
       end EddyCurrentLosses;
     end Components;
 
@@ -1150,7 +1147,7 @@ Simulate for 1 second and plot (versus time):
             Documentation(info="<HTML>
 <h4>Induction machine with squirrel cage fed by an ideal inverter</h4>
 
-<p>This example compares a time transient and a quasi static model of a multi phase induction machine.  
+<p>This example compares a time transient and a quasi static model of a multi phase induction machine.
 An ideal frequency inverter is modeled by using a <code>VfController</code> and a multi phase <code>SignalVoltage.
 Frequency is raised by a ramp, causing the induction machine with squirrel cage to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
@@ -1520,7 +1517,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 <h4>Starting of an induction machine with slipring rotor resistance starting</h4>
 
 <p>
-This example compares a time transient and a quasi static model of a multi phase induction machine. 
+This example compares a time transient and a quasi static model of a multi phase induction machine.
 At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are connected to induction machine with sliprings. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
 using a starting resistance. At time <code>tRheostat</code> external rotor resistance is shortened, finally reaching nominal speed.</p>
 
@@ -2015,7 +2012,7 @@ Simulate for 0.1 second and plot (versus time):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p> 
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
 </HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
                           extent={{-60,-4},{40,-80}},
@@ -2383,7 +2380,7 @@ Simulate for 0.1 second and plot (versus time):
 
 <p>
 This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
- 
+
 <p>
 Simulate for 2 seconds and plot (versus time):
 </p>
@@ -2394,7 +2391,7 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 
 <h5>Note</h5>
-<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p> 
+<p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
 </HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
@@ -3123,7 +3120,7 @@ Simulate for 30 seconds:
 
 <p>
 This example compares a time transient and a quasi static model of a synchronous reluctance machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
- 
+
 <p>
 Simulate for 2 seconds and plot (versus time):
 </p>
@@ -3358,8 +3355,7 @@ relationship of the voltage and current space phasor.
 <h4>See also</h4>
 
 <p><a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
-</html>"),
-        Diagram(graphics));
+</html>"));
     end EddyCurrent;
 
     model MultiPhaseElectroMagneticConverter
@@ -3658,7 +3654,7 @@ The total complex magnetic potential difference of the single phase winding is d
 </p>
 
 <p>
-where 
+where
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png\">
 is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v.png\"> is identical to zero.
 
@@ -3674,9 +3670,7 @@ MultiPhaseElectroMagneticConverter</a>
 </p>
 
 
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end QuasiStaticAnalogElectroMagneticConverter;
 
     model Idle "Idle running branch"
@@ -3801,9 +3795,7 @@ This is a simple short cut branch.
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Magnetic.FundamentalWave.Components.Crossing</a>
 </p>
 
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end Crossing;
 
     annotation (Documentation(info="<html>
@@ -3915,8 +3907,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRin
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
 Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end IM_SquirrelCage;
 
       model IM_SlipRing "Induction machine with slip ring rotor"
@@ -4097,8 +4088,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRin
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">
 Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end IM_SlipRing;
     end InductionMachines;
 
@@ -4316,8 +4306,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -4569,8 +4558,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor
@@ -4731,8 +4719,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
 Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SM_ReluctanceRotor;
     end SynchronousMachines;
 
@@ -4945,8 +4932,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SymmetricMultiPhaseWinding;
 
       model QuasiStaticAnalogWinding
@@ -5065,7 +5051,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
 <p>
 The single phase winding consists of a
 <a href=\"modelica://Modelica.Electrical.Analog.Basic.Resistor\">resistor</a>,  and a
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electromagnetic coupling</a>. 
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">single phase electromagnetic coupling</a>.
 </p>
 
 <h4>See also</h4>
@@ -5077,8 +5063,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end QuasiStaticAnalogWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
@@ -5206,16 +5191,16 @@ This salient air gap model can be used for machines with uniform airgaps and for
 For the mechanical interaction of the air gap model with the stator and the rotor it is equipped with to
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The stator and the rotor reference angles,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"> and
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"> are related by 
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\"> 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"> are related by
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_relationship.png\">
 where
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png\"> 
-is the electrical angle between stator and rotor. 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png\">
+is the electrical angle between stator and rotor.
 </p>
 
 <p>
 The air gap model has two magnetic stator and two magnetic rotor
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quanitites, respectively, but the reference angles are different; see <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quanitites, respectively, but the reference angles are different; see <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by
 </p>
 
 <p>
@@ -5236,8 +5221,7 @@ The d and q axis magnetic potential difference components and flux components ar
 Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 </p>
 
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end RotorSaliencyAirGap;
 
       model SymmetricMultiPhaseCageWinding "Symmetrical rotor cage"
@@ -5399,7 +5383,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 
 <p>
 The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns, 
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\">, has to be chosen equivalent to the effective number of stator turns.
 </p>
 
@@ -5412,8 +5396,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">
 Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
@@ -5586,8 +5569,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">
 Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+</html>"));
       end SaliencyCageWinding;
 
       model PermanentMagnet
@@ -5628,11 +5610,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         annotation (
           Documentation(info="<html>
 <p>Permanent magnet model with magnetic, mechanical and thermal connector including losses. The PM model is source  of constant magnetic potential difference. The PM loss is calculated by
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>. 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Losses.PermanentMagnetLosses\">PermanentMagnetLosses</a>.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Line(
                 points={{-100,0},{100,0}},
                 color={255,170,85},
@@ -5983,9 +5963,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
                 visible=not useSupport,
                 points={{120,-100},{110,-120}},
                 color={0,0,0},
-                smooth=Smooth.None)}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}), graphics));
+                smooth=Smooth.None)}));
       end PartialBasicMachine;
     end BaseClasses;
   end BasicMachines;
@@ -6026,7 +6004,7 @@ Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e.
 but without scaling them to zero at no-load current.
 </p>
 <p>
-For an estimation of dependency on varying angular velocity see: 
+For an estimation of dependency on varying angular velocity see:
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.References\">[Lang1984]</a>
 </p>
 <p>
@@ -6402,9 +6380,7 @@ ConstantFlux</a>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticPotentialDifferenceSensor\">MagneticPotentialDifferenceSensor</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end MagneticFluxSensor;
 
     model MagneticPotentialDifferenceSensor
@@ -6511,7 +6487,7 @@ This package provides sensors for the magnetic potential difference and the magn
       flow Modelica.SIunits.ComplexMagneticFlux Phi
         "Complex magnetic flux flowing into the pin";
       annotation (Documentation(info="<html>
-<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p> 
+<p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
 </p>
 
 <h4>See also</h4>
@@ -6547,9 +6523,9 @@ This package provides sensors for the magnetic potential difference and the magn
         Documentation(info="<html>
 
 <p>
-The positive port is based on 
+The positive port is based on
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">MagneticPort</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the 
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi static voltage and current. The symbol is also designed such way to look different than the
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.NegativeMagneticPort\">NegativeMagneticPort</a>.
 </p>
 
@@ -6614,10 +6590,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 <p>
 The partial two port model consists of a positive and a negative magnetic port. The reference angles of the two ports are set equal and connected through <code>Connections.branch</code>.
 </p>
-</html>"),
-        Icon(graphics),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PartialTwoPort;
 
     partial model PartialTwoPortExtended
@@ -6648,10 +6621,7 @@ The partial two port model consists of a positive and a negative magnetic port. 
 This interface model contains an extended set of (output) variables compared to
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPort\">PartialTwoPort</a>.
 </p>
-</html>"),
-        Icon(graphics),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PartialTwoPortExtended;
 
     partial model PartialTwoPortElementary
@@ -6677,12 +6647,9 @@ This interface model contains an extended set of (output) variables compared to
       annotation (
         Documentation(info="<html>
 <p>
-The partial two port elementary model extends from the partial two port model and adds one equation considering the balance of flow variables, <code>port_p.Phi + port_n.Phi = Complex(0,0)</code>. Additionally, a variable for magnetic potential difference of the two magnetic ports, <code>V_m</code>, and the flux into the positive port, <code>Phi</code>, are defined. 
+The partial two port elementary model extends from the partial two port model and adds one equation considering the balance of flow variables, <code>port_p.Phi + port_n.Phi = Complex(0,0)</code>. Additionally, a variable for magnetic potential difference of the two magnetic ports, <code>V_m</code>, and the flux into the positive port, <code>Phi</code>, are defined.
 </p>
-</html>"),
-        Icon(graphics),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PartialTwoPortElementary;
   end Interfaces;
 
@@ -6744,8 +6711,8 @@ The partial two port elementary model extends from the partial two port model an
                   lineColor={0,0,255})}),
         Documentation(info="<HTML>
 <p>
-This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An 
-<code>m</code> quasi static phasor signal is proivded as output signal <code>y</code>, representing complex voltages. 
+This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
+<code>m</code> quasi static phasor signal is proivded as output signal <code>y</code>, representing complex voltages.
 The output voltages may serve as inputs for complex voltage sources with phase input. Symmetrical voltages are assumed.
 </p>
 
@@ -6758,9 +6725,7 @@ The output voltages may serve as inputs for complex voltage sources with phase i
   </tr>
 </table>
 
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end VfController;
 
     model TerminalBox "Terminal box Y/D-connection"
@@ -6827,9 +6792,7 @@ The output voltages may serve as inputs for complex voltage sources with phase i
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end TerminalBox;
 
     model MultiTerminalBox "Terminal box Y/D-connection"
@@ -6899,9 +6862,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Documentation(info="<html>
 TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
 choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end MultiTerminalBox;
 
     model SwitchedRheostat "Rheostat which is shortened after a given time"
@@ -6994,11 +6955,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
         Documentation(info="<HTML>
 <p>Switched rheostat, used for starting induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
-</HTML>"),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+</HTML>"));
     end SwitchedRheostat;
 
     model CurrentController "Current controller"
@@ -7088,9 +7045,7 @@ The desired RMS values of d  and q component of the quasi static space phasor cu
 Using the given rotor position input <code>phi</code>, the quasi static <code>m</code> phase output currents <code>i[m]</code> are calculated.
 The model output can be used to feed a quasi static current source with phase input to supply synchronous machines.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end CurrentController;
   end Utilities;
   annotation (preferredView="info", Documentation(info="<html>

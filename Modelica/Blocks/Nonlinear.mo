@@ -604,7 +604,7 @@ also the default setting of this block. The setting
 </p>
 
 <p>
-It is strongly recommended to always set parameter <b>balance</b> = true, 
+It is strongly recommended to always set parameter <b>balance</b> = true,
 in order to arrive at a much better reliable numerical computation.
 This is not the default, in order to be backwards compatible, so you have
 to explicitly set it. Besides better numerics, also all states are initialized
@@ -613,16 +613,16 @@ with <b>balance</b> = true (in steady-state, so der(x)=0). Longer explanation:
 
 <p>
 By default the transfer function of the Pade approximation is implemented
-in controller canonical form. This results in coefficients of the A-matrix in 
+in controller canonical form. This results in coefficients of the A-matrix in
 the order of 1 up to the order of O(1/delayTime)^n. For already modest values
-of delayTime and n, this gives largely varying coefficients (for example delayTime=0.001 and n=4 
+of delayTime and n, this gives largely varying coefficients (for example delayTime=0.001 and n=4
 results in coefficients between 1 and 1e12). In turn, this results
 in a large norm of the system matrix [A,B;C,D] and therefore in unreliable
 numerical computations. When setting parameter <b>balance</b> = true, a state
 transformation is performed that considerably reduces the norm of the system matrix.
 This is performed without introducing round-off errors. For details see
 function <a href=\"modelica://Modelica.Math.Matrices.balanceABC\">balanceABC</a>.
-As a result, both the simulation of the PadeDelay block, and especially 
+As a result, both the simulation of the PadeDelay block, and especially
 its linearization becomes more reliable.
 </p>
 

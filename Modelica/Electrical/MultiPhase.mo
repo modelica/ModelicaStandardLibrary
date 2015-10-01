@@ -769,9 +769,7 @@ Star (wye) connection of a multi phase circuit consiting of multiple base system
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Star\">Star</a>,
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Delta\">Delta</a>,
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
-</p></html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</p></html>"));
     end MultiStar;
 
     model MultiDelta
@@ -878,8 +876,6 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -1781,9 +1777,7 @@ This package contains basic analog electrical multiphase components.
 <p>
 Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</HTML>"));
     end IdealDiode;
 
     model IdealThyristor "Multiphase ideal thyristor"
@@ -2651,7 +2645,6 @@ This function determines the orientation of the symmetrical winding with <img sr
           m));
     algorithm
       y := 2*sin(pi/mBasic);
-      annotation ();
     end factorY2D;
 
     function factorY2DC "Calculates factor of DC-voltage from RMS Y-voltage"
@@ -3615,8 +3608,7 @@ This partial model provides conditional heat ports for the connection to a therm
      the fixed device temperatures.</li>
 <li> If <b>useHeatPort</b> is set to <b>true</b>, all heat ports are available.</li>
 </ul>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end ConditionalHeatPort;
 
     partial model TwoPlug "Component with one m-phase electric port"

@@ -2952,9 +2952,7 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 <ul>
 <li>Added parameter <code>useConductance</code> including alternative parameterization</li>
 </ul>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+</html>"));
     end EddyCurrent;
 
     model Idle "Idle running branch"
@@ -3087,9 +3085,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 <li>Added crossing model</li>
 </ul>
 
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}), graphics));
+</html>"));
     end Crossing;
   end Basic;
 

@@ -437,7 +437,7 @@ ideal AC DC converter</a>, which is used in the
 <li>Implementation of ideal transformer model</li>
 </ul>
 
-<h5>Version 1.0.0</h5> 
+<h5>Version 1.0.0</h5>
 <ul><li>First official release</li></ul>
 </html>",   revisions="<html>
 </html>"));

@@ -343,8 +343,7 @@ ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
 <b>T_heatPort</b> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
-</html>"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
   end ConditionalHeatPort;
 
   partial model AbsoluteSensor
