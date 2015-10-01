@@ -378,8 +378,8 @@ which is only exactly true for a fluid with constant density d=d0.
      annotation(Inline=true,smoothOrder=2);
     end s_T;
 
-    redeclare function extends specificEntropy "Return specific entropy
- as a function of the thermodynamic state record"
+    redeclare function extends specificEntropy
+      "Return specific entropy as a function of the thermodynamic state record"
 
     protected
       Integer npol=size(poly_Cp,1)-1;

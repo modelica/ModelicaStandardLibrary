@@ -7,12 +7,10 @@ model IdealTriacCircuit "Ideal triac test circuit"
   Modelica.Electrical.Analog.Basic.Resistor R(R=20)         annotation (
       Placement(transformation(
         extent={{-10,-10},{12,12}},
-        rotation=0,
         origin={-44,32})));
   Modelica.Electrical.Analog.Sources.SineVoltage V(V=5, freqHz=2)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-42,-20})));
   Modelica.Blocks.Sources.BooleanPulse booleanPulse(width=50,
     period=0.25,
@@ -25,24 +23,19 @@ model IdealTriacCircuit "Ideal triac test circuit"
 equation
   connect(V.n, ground.p)            annotation (Line(
       points={{-32,-20},{-2,-20}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(R.p, V.p)                   annotation (Line(
       points={{-54,33},{-60,33},{-60,-20},{-52,-20}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(R.n, idealTriac.n)                      annotation (Line(
       points={{-32,33},{6,33}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(idealTriac.p, ground.p)               annotation (Line(
       points={{32.52,33},{42,33},{42,-20},{-2,-20}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(idealTriac.fire1, booleanPulse.y)               annotation (Line(
       points={{11.2,21.04},{0,21.04},{0,8},{-5.2,8}},
-      color={255,0,255},
-      smooth=Smooth.None));
+      color={255,0,255}));
   annotation (    experiment(StopTime=2),
     Documentation(revisions="<html>
 <ul>

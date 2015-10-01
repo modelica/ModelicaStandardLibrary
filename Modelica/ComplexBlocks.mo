@@ -70,27 +70,22 @@ This library contains blocks for processing complex signals.
     model TestConversionBlock "Test the conversion blocks"
       extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6) annotation (
-          Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
+          Placement(transformation(extent={{-80,10},{-60,30}})));
       Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration
-          =1) annotation (Placement(transformation(extent={{-80,-30},{-60,-10}},
-              rotation=0)));
+          =1) annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
       Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.ComplexBlocks.ComplexMath.ComplexToReal complexToReal
-        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation
-              =0)));
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     equation
       connect(phi.y, polarToComplex.phi) annotation (Line(points={{-59,-20},{-50,
               -20},{-50,-6},{-46,-6},{-42,-6}}, color={0,0,127}));
       connect(len.y, polarToComplex.len) annotation (Line(
           points={{-59,20},{-50,20},{-50,6},{-42,6}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(polarToComplex.y, complexToReal.u) annotation (Line(
           points={{-19,0},{-2,0}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>A Complex signal is defined by its length and angle, both linearly rising with time.
 Plotting the imaginary part versus the real part, you will see an Archimedean spiral.</p>
@@ -160,7 +155,7 @@ Connector with one output signal of type Complex.
     partial block ComplexSO "Single Output continuous control block"
       extends Modelica.Blocks.Icons.Block;
       ComplexOutput y "Connector of Complex output signal" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
       annotation (Documentation(info="<html>
 <p>
 Block has one continuous Complex output signal.
@@ -172,7 +167,7 @@ Block has one continuous Complex output signal.
       extends Modelica.Blocks.Icons.Block;
       parameter Integer nout(min=1) = 1 "Number of outputs";
       ComplexOutput y[nout] "Connector of Complex output signals" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
       annotation (Documentation(info="<html>
 <p>
 Block has one continuous Complex output signal vector.
@@ -184,9 +179,9 @@ Block has one continuous Complex output signal vector.
       "Single Input Single Output continuous control block"
       extends Modelica.Blocks.Icons.Block;
       ComplexInput u "Connector of Complex input signal" annotation (Placement(
-            transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+            transformation(extent={{-140,-20},{-100,20}})));
       ComplexOutput y "Connector of Complex output signal" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
       parameter Boolean useConjugateInput=false
         "If true, input is processed conjugate complex";
     protected
@@ -204,11 +199,11 @@ Block has one continuous Complex input and one continuous Complex output signal.
       "2 Single Input / 1 Single Output continuous control block"
       extends Modelica.Blocks.Icons.Block;
       ComplexInput u1 "Connector of Complex input signal 1" annotation (
-          Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
+          Placement(transformation(extent={{-140,40},{-100,80}})));
       ComplexInput u2 "Connector of Complex input signal 2" annotation (
-          Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
+          Placement(transformation(extent={{-140,-80},{-100,-40}})));
       ComplexOutput y "Connector of Complex output signal" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
       parameter Boolean useConjugateInput1=false
         "If true, input 1 is processed conjugate complex";
       parameter Boolean useConjugateInput2=false
@@ -234,9 +229,9 @@ continuous Complex output signal y.
       parameter Integer nout=1 "Number of outputs";
 
       ComplexInput u "Connector of Complex input signal" annotation (Placement(
-            transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+            transformation(extent={{-140,-20},{-100,20}})));
       ComplexOutput y[nout] "Connector of Complex output signals" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
 
       parameter Boolean useConjugateInput=false
         "If true, input is processed conjugate complex";
@@ -258,9 +253,9 @@ vector of continuous Complex output signals.
       extends Modelica.Blocks.Icons.Block;
       parameter Integer nin=1 "Number of inputs";
       ComplexInput u[nin] "Connector of Complex input signals" annotation (
-          Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+          Placement(transformation(extent={{-140,-20},{-100,20}})));
       ComplexOutput y "Connector of Complex output signal" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
 
       parameter Boolean useConjugateInput[nin]=fill(false, nin)
         "If true, inputs are processed conjugate complex";
@@ -283,9 +278,9 @@ one continuous Complex output signal.
       parameter Integer nin=1 "Number of inputs";
       parameter Integer nout=1 "Number of outputs";
       ComplexInput u[nin] "Connector of Complex input signals" annotation (
-          Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+          Placement(transformation(extent={{-140,-20},{-100,20}})));
       ComplexOutput y[nout] "Connector of Complex output signals" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
       parameter Boolean useConjugateInput[nin]=fill(false, nin)
         "If true, inputs are processed conjugate complex";
     protected
@@ -306,9 +301,9 @@ The signal sizes of the input and output vector may be different.
       extends Modelica.Blocks.Icons.Block;
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       ComplexInput u[n] "Connector of Complex input signals" annotation (
-          Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+          Placement(transformation(extent={{-140,-20},{-100,20}})));
       ComplexOutput y[n] "Connector of Complex output signals" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
 
       parameter Boolean useConjugateInput[n]=fill(false, n)
         "If true, inputs are processed conjugate complex";
@@ -330,11 +325,11 @@ where the signal sizes of the input and output vector are identical.
       extends Modelica.Blocks.Icons.Block;
       parameter Integer n=1 "Dimension of input and output vectors.";
       ComplexInput u1[n] "Connector 1 of Complex input signals" annotation (
-          Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
+          Placement(transformation(extent={{-140,40},{-100,80}})));
       ComplexInput u2[n] "Connector 2 of Complex input signals" annotation (
-          Placement(transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
+          Placement(transformation(extent={{-140,-80},{-100,-40}})));
       ComplexOutput y[n] "Connector of Complex output signals" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
 
       parameter Boolean useConjugateInput1[n]=fill(false, n)
         "If true, inputs 1 are processed conjugate complex";
@@ -400,17 +395,12 @@ This block computes output <code>y</code> as
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{-40,0},{40,0}},
-                  color={0,0,255},
-                  smooth=Smooth.None),Line(
+                  color={0,0,255}),Line(
                   points={{-40,0},{40,0}},
                   color={0,0,255},
-                  smooth=Smooth.None,
-                  origin={0,0},
                   rotation=60),Line(
                   points={{-40,0},{40,0}},
                   color={0,0,255},
-                  smooth=Smooth.None,
-                  origin={0,0},
                   rotation=120)}));
     end Conj;
 
@@ -421,9 +411,9 @@ This block computes output <code>y</code> as
       parameter Boolean useConjugateInput=false
         "If true, input is processed conjugate complex";
       Interfaces.ComplexInput u "Input signal connector" annotation (Placement(
-            transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+            transformation(extent={{-140,-20},{-100,20}})));
       Interfaces.ComplexOutput y "Output signal connector" annotation (
-          Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          Placement(transformation(extent={{100,-10},{120,10}})));
 
     equation
       y = k*(if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
@@ -494,7 +484,6 @@ Example:
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
                   points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
-                  color={0,0,0},
                   thickness=0.25),Text(
                   extent={{-150,150},{150,110}},
                   textString="%name",
@@ -506,7 +495,6 @@ Example:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(
                   points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
-                  color={0,0,0},
                   thickness=0.25)}));
     end Sum;
 
@@ -514,13 +502,13 @@ Example:
       "Output difference between commanded input 1 and feedback input 2"
 
       Interfaces.ComplexInput u1 annotation (Placement(transformation(extent={{
-                -100,-20},{-60,20}}, rotation=0)));
+                -100,-20},{-60,20}})));
       Interfaces.ComplexInput u2 annotation (Placement(transformation(
             origin={0,-80},
             extent={{-20,-20},{20,20}},
             rotation=90)));
       Interfaces.ComplexOutput y annotation (Placement(transformation(extent={{
-                80,-10},{100,10}}, rotation=0)));
+                80,-10},{100,10}})));
 
       parameter Boolean useConjugateInput1=false
         "If true, input 1 is processed conjugate complex";
@@ -630,7 +618,7 @@ result in the following equation:
                   lineColor={0,0,255}),Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
               0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,
-              255}),Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
+              255}),Line(points={{-15,-25.99},{15,25.99}}),
               Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,127},
@@ -663,7 +651,7 @@ result in the following equation:
                   textString="%k1"),Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,255}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,
               0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,
-              255}),Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
+              255}),Line(points={{-15,-25.99},{15,25.99}}),
               Rectangle(
                   extent={{-100,-100},{100,100}},
                   lineColor={0,0,127},
@@ -700,17 +688,13 @@ result in the following equation:
         "If true, input 3 is processed conjugate complex";
 
       Interfaces.ComplexInput u1 "Connector 1 of Complex input signals"
-        annotation (Placement(transformation(extent={{-140,60},{-100,100}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
       Interfaces.ComplexInput u2 "Connector 2 of Complex input signals"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       Interfaces.ComplexInput u3 "Connector 3 of Complex input signals"
-        annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
       Interfaces.ComplexOutput y "Connector of Complex output signals"
-        annotation (Placement(transformation(extent={{100,-10},{120,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
     equation
       y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
@@ -818,9 +802,9 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                 100,100}}), graphics={Line(points={{-100,60},{-40,60},{-30,40}},
               color={0,0,127}),Line(points={{-100,-60},{-40,-60},{-30,-40}},
               color={0,0,127}),Line(points={{50,0},{100,0}}, color={0,0,127}),
-              Line(points={{-30,0},{30,0}}, color={0,0,0}),Line(points={{-15,
-              25.99},{15,-25.99}}, color={0,0,0}),Line(points={{-15,-25.99},{15,
-              25.99}}, color={0,0,0}),Ellipse(extent={{-50,50},{50,-50}},
+              Line(points={{-30,0},{30,0}}),Line(points={{-15,
+              25.99},{15,-25.99}}),Line(points={{-15,-25.99},{15,
+              25.99}}),Ellipse(extent={{-50,50},{50,-50}},
               lineColor={0,0,127})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -830,9 +814,9 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Line(points={{-100,60},{-40,60},
               {-30,40}}, color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,
               -40}}, color={0,0,255}),Line(points={{50,0},{100,0}}, color={0,0,
-              255}),Line(points={{-30,0},{30,0}}, color={0,0,0}),Line(points={{
-              -15,25.99},{15,-25.99}}, color={0,0,0}),Line(points={{-15,-25.99},
-              {15,25.99}}, color={0,0,0}),Ellipse(extent={{-50,50},{50,-50}},
+              255}),Line(points={{-30,0},{30,0}}),Line(points={{
+              -15,25.99},{15,-25.99}}),Line(points={{-15,-25.99},
+              {15,25.99}}),Ellipse(extent={{-50,50},{50,-50}},
               lineColor={0,0,255})}));
     end Product;
 
@@ -862,7 +846,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{50,0},{100,0}}, color={0,0,
-              127}),Line(points={{-30,0},{30,0}}, color={0,0,0}),Ellipse(
+              127}),Line(points={{-30,0},{30,0}}),Ellipse(
                   extent={{-5,20},{5,30}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -883,7 +867,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-              color={0,0,255}),Line(points={{-30,0},{30,0}}, color={0,0,0}),
+              color={0,0,255}),Line(points={{-30,0},{30,0}}),
               Ellipse(
                   extent={{-5,20},{5,30}},
                   lineColor={0,0,0},
@@ -913,7 +897,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -68.7},{-78.4,-64},{-76.8,-57.3},{-73.6,-47.9},{-67.9,-36.1},{-59.1,
               -22.2},{-46.2,-6.49},{-28.5,10.7},{-4.42,30},{27.7,51.3},{69.5,
-              74.7},{80,80}}, color={0,0,0}),Polygon(
+              74.7},{80,80}}),Polygon(
                   points={{-80,90},{-88,68},{-72,68},{-80,90}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -931,7 +915,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -68.7},{-78.4,-64},{-76.8,-57.3},{-73.6,-47.9},{-67.9,-36.1},{-59.1,
               -22.2},{-46.2,-6.49},{-28.5,10.7},{-4.42,30},{27.7,51.3},{69.5,
-              74.7},{80,80}}, color={0,0,0}),Polygon(
+              74.7},{80,80}}),Polygon(
                   points={{-80,98},{-86,82},{-74,82},{-80,98}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -1004,7 +988,7 @@ Otherwise an error occurs.
               79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,
               21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},{29.3,-73.1},{35,-78.4},
               {40.6,-80},{46.2,-77.6},{51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{
-              72,-24.8},{80,0}}, color={0,0,0}),Text(
+              72,-24.8},{80,0}}),Text(
                   extent={{-105,72},{-85,88}},
                   textString="1",
                   lineColor={0,0,255}),Text(
@@ -1054,8 +1038,7 @@ as <b>sine</b> of the input <code>u</code>. Optionally, the input <code>u</code>
               78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},
               {-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},
               {6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{
-              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}},
-              color={0,0,0}),Text(
+              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}),Text(
                   extent={{-36,82},{36,34}},
                   lineColor={192,192,192},
                   textString="cos")}),
@@ -1087,8 +1070,7 @@ as <b>sine</b> of the input <code>u</code>. Optionally, the input <code>u</code>
               78.1},{-68.7,72.3},{-63.1,63},{-56.7,48.7},{-48.6,26.6},{-29.3,-32.5},
               {-22.1,-51.7},{-15.7,-65.3},{-10.1,-73.8},{-4.42,-78.8},{1.21,-79.9},
               {6.83,-77.1},{12.5,-70.6},{18.1,-60.6},{24.5,-45.7},{32.6,-23},{
-              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}},
-              color={0,0,0}),Text(
+              50.3,31.3},{57.5,50.7},{63.9,64.6},{69.5,73.4},{75.2,78.6},{80,80}}),Text(
                   extent={{74,-4},{98,-24}},
                   lineColor={160,160,164},
                   textString="u")}),
@@ -1124,7 +1106,7 @@ as <b>cos</b> of the input <code>u</code>. Optionally, the input <code>u</code> 
               -59.7},{-74.4,-50},{-71.2,-40.9},{-67.1,-33},{-60.7,-24.8},{-51.1,
               -17.2},{-35.8,-9.98},{-4.42,-1.07},{33.4,9.12},{49.4,16.2},{59.1,
               23.2},{65.5,30.6},{70.4,39.1},{73.6,47.4},{76,56.1},{77.6,63.8},{
-              80,80}}, color={0,0,0}),Line(points={{-90,0},{68,0}}, color={192,
+              80,80}}),Line(points={{-90,0},{68,0}}, color={192,
               192,192}),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1161,7 +1143,7 @@ as <b>cos</b> of the input <code>u</code>. Optionally, the input <code>u</code> 
               -68.4},{-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},{-67.1,-33},{-60.7,
               -24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},{33.4,9.12},{
               49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,47.4},{76,
-              56.1},{77.6,63.8},{80,80}}, color={0,0,0}),Text(
+              56.1},{77.6,63.8},{80,80}}),Text(
                   extent={{70,-6},{94,-26}},
                   lineColor={160,160,164},
                   textString="u")}),
@@ -1195,8 +1177,7 @@ as <b>tan</b> of the input <code>u</code>. Optionally, the input <code>u</code> 
                   fillPattern=FillPattern.Solid),Line(points={{0,-80},{0,68}},
               color={192,192,192}),Line(points={{-80,-80},{-79.2,-72.8},{-77.6,
               -67.5},{-73.6,-59.4},{-66.3,-49.8},{-53.5,-37.3},{-30.2,-19.7},{
-              37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}},
-              color={0,0,0}),Line(points={{-90,0},{68,0}}, color={192,192,192}),
+              37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}}),Line(points={{-90,0},{68,0}}, color={192,192,192}),
               Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1235,7 +1216,7 @@ as <b>tan</b> of the input <code>u</code>. Optionally, the input <code>u</code> 
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,-49.8},{-53.5,-37.3},{-30.2,
               -19.7},{37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},
-              {80,80}}, color={0,0,0}),Text(
+              {80,80}}),Text(
                   extent={{74,-4},{100,-26}},
                   lineColor={160,160,164},
                   textString="u")}),
@@ -1274,7 +1255,7 @@ Otherwise an error occurs.
                   fillPattern=FillPattern.Solid),Line(points={{-80,80},{-79.2,
               72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},{-53.5,37.3},{-30.2,
               19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{75.2,-62.2},{77.6,-67.5},
-              {80,-80}}, color={0,0,0}),Line(points={{0,-88},{0,68}}, color={
+              {80,-80}}),Line(points={{0,-88},{0,68}}, color={
               192,192,192}),Line(points={{-90,-80},{68,-80}}, color={192,192,
               192}),Polygon(
                   points={{90,-80},{68,-72},{68,-88},{90,-80}},
@@ -1302,7 +1283,7 @@ Otherwise an error occurs.
                   fillPattern=FillPattern.Solid),Line(points={{-80,80},{-79.2,
               72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},{-53.5,37.3},{-30.2,
               19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{75.2,-62.2},{77.6,-67.5},
-              {80,-80}}, color={0,0,0}),Text(
+              {80,-80}}),Text(
                   extent={{-30,88},{-5,72}},
                   textString=" pi",
                   lineColor={0,0,255}),Text(
@@ -1379,7 +1360,7 @@ Otherwise an error occurs.
               -75.2},{-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},{-14.1,-45.8},{-10.1,
               -36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,21},{9.25,34.1},{13.3,
               44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{
-              80,80}}, color={0,0,0}),Text(
+              80,80}}),Text(
                   extent={{-32,91},{-12,71}},
                   textString="1.4",
                   lineColor={0,0,255}),Text(
@@ -1430,7 +1411,7 @@ This blocks computes the output <code>y</code> as the
               points={{-80,-80},{-76,-65.4},{-71.2,-51.4},{-65.5,-38.8},{-59.1,
               -28.1},{-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{
               24.5,4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,
-              47.4},{74.4,60.4},{78.4,73.8},{80,80}}, color={0,0,0}),Polygon(
+              47.4},{74.4,60.4},{78.4,73.8},{80,80}}),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -1453,8 +1434,7 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-76,-65.4},
               {-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},{-51.1,-18.7},{-41.4,-11.4},
               {-27.7,-5.5},{-4.42,-0.653},{24.5,4.57},{39,10.1},{49.4,17.2},{
-              57.5,25.9},{63.9,35.8},{69.5,47.4},{74.4,60.4},{78.4,73.8},{80,80}},
-              color={0,0,0}),Text(
+              57.5,25.9},{63.9,35.8},{69.5,47.4},{74.4,60.4},{78.4,73.8},{80,80}}),Text(
                   extent={{-31,72},{-11,88}},
                   textString="27",
                   lineColor={0,0,255}),Text(
@@ -1506,7 +1486,7 @@ This blocks computes the output <code>y</code> as the
               -43.5},{-46.2,-55.1},{-39,-64.3},{-30.2,-71.7},{-18.9,-77.1},{-4.42,
               -79.9},{10.9,-79.1},{23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{48.6,
               -51.2},{54.3,-40},{59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,
-              20.7},{74.4,39.3},{77.6,61.1},{80,80}}, color={0,0,0}),Line(
+              20.7},{74.4,39.3},{77.6,61.1},{80,80}}),Line(
               points={{-90,-86.083},{68,-86.083}}, color={192,192,192}),Polygon(
                   points={{90,-86.083},{68,-78.083},{68,-94.083},{90,-86.083}},
                   lineColor={192,192,192},
@@ -1532,7 +1512,7 @@ This blocks computes the output <code>y</code> as the
               -29.8},{-52.7,-43.5},{-46.2,-55.1},{-39,-64.3},{-30.2,-71.7},{-18.9,
               -77.1},{-4.42,-79.9},{10.9,-79.1},{23.7,-75.2},{34.2,-68.7},{42.2,
               -60.6},{48.6,-51.2},{54.3,-40},{59.1,-27.5},{63.1,-14.6},{67.1,
-              1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{80,80}}, color={0,0,0}),
+              1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{80,80}}),
               Text(
                   extent={{-31,72},{-11,88}},
                   textString="27",
@@ -1574,7 +1554,7 @@ This blocks computes the output <code>y</code> as the
               Line(points={{-80,-80},{-47.8,-78.7},{-35.8,-75.7},{-27.7,-70.6},
               {-22.1,-64.2},{-17.3,-55.9},{-12.5,-44.3},{-7.64,-29.2},{-1.21,-4.82},
               {6.83,26.3},{11.7,42},{16.5,54.2},{21.3,63.1},{26.9,69.9},{34.2,
-              75},{45.4,78.4},{72,79.9},{80,80}}, color={0,0,0}),Polygon(
+              75},{45.4,78.4},{72,79.9},{80,80}}),Polygon(
                   points={{0,90},{-8,68},{8,68},{0,90}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
@@ -1605,7 +1585,7 @@ This blocks computes the output <code>y</code> as the
               -78.7},{-35.8,-75.7},{-27.7,-70.6},{-22.1,-64.2},{-17.3,-55.9},{-12.5,
               -44.3},{-7.64,-29.2},{-1.21,-4.82},{6.83,26.3},{11.7,42},{16.5,
               54.2},{21.3,63.1},{26.9,69.9},{34.2,75},{45.4,78.4},{72,79.9},{80,
-              80}}, color={0,0,0}),Text(
+              80}}),Text(
                   extent={{70,25},{90,5}},
                   textString="4",
                   lineColor={0,0,255}),Text(
@@ -1654,8 +1634,7 @@ This blocks computes the output <code>y</code> as the
                   lineColor={192,192,192},
                   textString="exp"),Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},
               {10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,-27.8},{
-              56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}},
-              color={0,0,0}),Line(points={{-90,-80.3976},{68,-80.3976}}, color=
+              56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}),Line(points={{-90,-80.3976},{68,-80.3976}}, color=
               {192,192,192}),Polygon(
                   points={{90,-80.3976},{68,-72.3976},{68,-88.3976},{90,-80.3976}},
                   lineColor={192,192,192},
@@ -1679,7 +1658,7 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-31,-77.9},
               {-6.03,-74},{10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,
               -27.8},{56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{
-              80,80}}, color={0,0,0}),Text(
+              80,80}}),Text(
                   extent={{-31,72},{-11,88}},
                   textString="20",
                   lineColor={0,0,255}),Text(
@@ -1727,7 +1706,7 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,
               -1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,
-              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, color={0,0,0}),
+              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}),
               Line(points={{-90,0},{68,0}}, color={192,192,192}),Polygon(
                   points={{90,0},{68,8},{68,-8},{90,0}},
                   lineColor={192,192,192},
@@ -1754,7 +1733,7 @@ This blocks computes the output <code>y</code> as the
                   fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,
               -50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,
               -1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,
-              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}, color={0,0,0}),
+              48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}}),
               Text(
                   extent={{-105,72},{-85,88}},
                   textString="3",
@@ -1971,7 +1950,7 @@ connected with continuous blocks or with sampled-data blocks.
       Modelica.ComplexBlocks.Interfaces.ComplexOutput y=Complex(0)
         "Value of Complex output" annotation (Dialog(group=
               "Time varying output signal"), Placement(transformation(extent={{
-                100,-10},{120,10}}, rotation=0)));
+                100,-10},{120,10}})));
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
@@ -2018,8 +1997,7 @@ Variable <b>y</b> is both a variable and a connector.
                   points={{90,-70},{68,-62},{68,-78},{90,-70}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,0},{80,0}},
-              color={0,0,0}),Text(
+                  fillPattern=FillPattern.Solid),Line(points={{-80,0},{80,0}}),Text(
                   extent={{-150,-150},{150,-110}},
                   lineColor={0,0,0},
                   textString="k=%k")}),
@@ -2078,7 +2056,7 @@ The Complex output y is a constant signal:
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),Line(points={{-80,-70},{0,-70},
-              {0,50},{80,50}}, color={0,0,0}),Text(
+              {0,50},{80,50}}),Text(
                   extent={{-150,-150},{150,-110}},
                   lineColor={0,0,0},
                   textString="startTime=%startTime")}),
@@ -2173,7 +2151,6 @@ The Complex output y is a step signal (of real and imaginary part):
                   fillPattern=FillPattern.Solid),Line(
                   points={{-10,0},{50,50}},
                   color={0,0,255},
-                  smooth=Smooth.None,
                   thickness=0.5),Polygon(
                   points={{50,50},{29,41},{38,30},{50,50}},
                   lineColor={95,95,95},

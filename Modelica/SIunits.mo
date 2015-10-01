@@ -1917,8 +1917,7 @@ which is only valid in the rotor-fixed coordinate system.
             -100},{100,100}}), graphics={
         Line(
           points={{-66,78},{-66,-40}},
-          color={64,64,64},
-          smooth=Smooth.None),
+          color={64,64,64}),
         Ellipse(
           extent={{12,36},{68,-38}},
           lineColor={64,64,64},
@@ -1932,13 +1931,11 @@ which is only valid in the rotor-fixed coordinate system.
         Polygon(
           points={{-66,-4},{-66,6},{-16,56},{-16,46},{-66,-4}},
           lineColor={64,64,64},
-          smooth=Smooth.None,
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Polygon(
           points={{-46,16},{-40,22},{-2,-40},{-10,-40},{-46,16}},
           lineColor={64,64,64},
-          smooth=Smooth.None,
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(

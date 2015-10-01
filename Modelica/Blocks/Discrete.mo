@@ -14,25 +14,19 @@ package Discrete
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Ellipse(visible=true,
-          lineColor={0,0,127},
+        Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{25.0,-10.0},{45.0,10.0}}),
-        Line(visible=true,
-          points={{-100.0,0.0},{-45.0,0.0}},
+        Line(points={{-100.0,0.0},{-45.0,0.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{45.0,0.0},{100.0,0.0}},
+        Line(points={{45.0,0.0},{100.0,0.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{-35.0,0.0},{30.0,35.0}},
+        Line(points={{-35.0,0.0},{30.0,35.0}},
           color={0,0,127}),
-        Ellipse(visible=true,
-          lineColor={0,0,127},
+        Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
@@ -75,11 +69,9 @@ via parameter <b>samplePeriod</b>.
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Line(visible=true,
-          points={{-78.0,-42.0},{-52.0,-42.0},{-52.0,0.0},{-26.0,0.0},{-26.0,24.0},{-6.0,24.0},{-6.0,64.0},{18.0,64.0},{18.0,20.0},{38.0,20.0},{38.0,0.0},{44.0,0.0},{44.0,0.0},{62.0,0.0}},
+        Line(points={{-78.0,-42.0},{-52.0,-42.0},{-52.0,0.0},{-26.0,0.0},{-26.0,24.0},{-6.0,24.0},{-6.0,64.0},{18.0,64.0},{18.0,20.0},{38.0,20.0},{38.0,0.0},{44.0,0.0},{44.0,0.0},{62.0,0.0}},
           color={0,0,127})}),
       Documentation(info="<HTML>
 <p>
@@ -117,14 +109,11 @@ sample instant during the sample points.
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Line(visible=true,
-          points={{-79.0,-41.0},{-59.0,-33.0},{-40.0,1.0},{-20.0,9.0},{0.0,63.0},{21.0,20.0},{41.0,10.0},{60.0,20.0}},
+        Line(points={{-79.0,-41.0},{-59.0,-33.0},{-40.0,1.0},{-20.0,9.0},{0.0,63.0},{21.0,20.0},{41.0,10.0},{60.0,20.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{60.0,20.0},{81.0,10.0}},
+        Line(points={{60.0,20.0},{81.0,10.0}},
           color={0,0,127})}),
       Documentation(info="<HTML>
 <p>
@@ -163,18 +152,14 @@ the output y is identical to parameter yStart.
 
 </html>"),   Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
-      Line(visible=true,
-        points={{-30.0,0.0},{30.0,0.0}},
+      Line(points={{-30.0,0.0},{30.0,0.0}},
         color={0,0,127}),
-      Text(visible=true,
-        lineColor={0,0,127},
+      Text(lineColor={0,0,127},
         extent={{-90.0,10.0},{90.0,90.0}},
         textString="1"),
-      Text(visible=true,
-        lineColor={0,0,127},
+      Text(lineColor={0,0,127},
         extent={{-90.0,-90.0},{90.0,-10.0}},
         textString="z")}),
       Diagram(coordinateSystem(
@@ -191,7 +176,7 @@ the output y is identical to parameter yStart.
             lineColor={0,0,255}),
           Line(points={{-100,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{100,0}}, color={0,0,255}),
-          Line(points={{40,0},{-40,0}}, color={0,0,0}),
+          Line(points={{40,0},{-40,0}}),
           Text(
             extent={{-55,55},{55,5}},
             lineColor={0,0,0},
@@ -274,18 +259,14 @@ states can be set as start values of <b>x</b>.</p>
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
-      Line(visible=true,
-        points={{82.0,0.0},{-84.0,0.0}},
+      Line(points={{82.0,0.0},{-84.0,0.0}},
         color={0,0,127}),
-      Text(visible=true,
-        lineColor={0,0,127},
+      Text(lineColor={0,0,127},
         extent={{-92.0,12.0},{86.0,92.0}},
         textString="b(z)"),
-      Text(visible=true,
-        lineColor={0,0,127},
+      Text(lineColor={0,0,127},
         extent={{-90.0,-90.0},{90.0,-12.0}},
         textString="a(z)")}),
       Diagram(coordinateSystem(
@@ -294,7 +275,6 @@ states can be set as start values of <b>x</b>.</p>
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
           Line(
             points={{40,0},{-44,0}},
-            color={0,0,0},
             thickness=0.5),
           Text(
             extent={{-54,54},{54,4}},
@@ -409,10 +389,10 @@ results in the following equations:
 
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
                                                           annotation (Placement(
-          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+          transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Connector with a Real output signal"                annotation (Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
           transformation(
           origin={0,-118},
@@ -427,28 +407,21 @@ results in the following equations:
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Ellipse(visible=true,
-          lineColor={0,0,127},
+        Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{25.0,-10.0},{45.0,10.0}}),
-        Line(visible=true,
-          points={{-100.0,0.0},{-45.0,0.0}},
+        Line(points={{-100.0,0.0},{-45.0,0.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{45.0,0.0},{100.0,0.0}},
+        Line(points={{45.0,0.0},{100.0,0.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{0.0,-100.0},{0.0,-26.0}},
+        Line(points={{0.0,-100.0},{0.0,-26.0}},
           color={255,0,255}),
-        Line(visible=true,
-          points={{-35.0,0.0},{28.0,-48.0}},
+        Line(points={{-35.0,0.0},{28.0,-48.0}},
           color={0,0,127}),
-        Ellipse(visible=true,
-          lineColor={0,0,127},
+        Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),
@@ -485,10 +458,10 @@ the initial value defined via parameter <b>y0</b>.
     extends Modelica.Blocks.Icons.DiscreteBlock;
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
                                            annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Connector with a Real output signal" annotation (Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
     Modelica.Blocks.Interfaces.BooleanInput trigger annotation (Placement(
           transformation(
           origin={0,-118},
@@ -503,32 +476,24 @@ the initial value defined via parameter <b>y0</b>.
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Ellipse(visible=true,
-          lineColor={0,0,127},
+        Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{25.0,-10.0},{45.0,10.0}}),
-        Line(visible=true,
-          points={{-100.0,0.0},{-45.0,0.0}},
+        Line(points={{-100.0,0.0},{-45.0,0.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{45.0,0.0},{100.0,0.0}},
+        Line(points={{45.0,0.0},{100.0,0.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{0.0,-100.0},{0.0,-26.0}},
+        Line(points={{0.0,-100.0},{0.0,-26.0}},
           color={255,0,255}),
-        Line(visible=true,
-          points={{-35.0,0.0},{28.0,-48.0}},
+        Line(points={{-35.0,0.0},{28.0,-48.0}},
           color={0,0,127}),
-        Text(visible=true,
-          extent={{-86.0,24.0},{82.0,82.0}},
+        Text(extent={{-86.0,24.0},{82.0,82.0}},
           color={0,0,127},
           textString="max"),
-        Ellipse(visible=true,
-          lineColor={0,0,127},
+        Ellipse(lineColor={0,0,127},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-45.0,-10.0},{-25.0,10.0}})}),

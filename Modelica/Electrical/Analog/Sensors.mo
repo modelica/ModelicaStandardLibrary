@@ -7,11 +7,10 @@ package Sensors "Potential, voltage, current, and power sensors"
     extends Modelica.Icons.RotationalSensor;
 
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Blocks.Interfaces.RealOutput phi(unit="V")
       "Absolute voltage potential as output signal"
-        annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+        annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     p.i = 0;
     phi = p.v;
@@ -31,7 +30,7 @@ package Sensors "Potential, voltage, current, and power sensors"
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}),
             Line(points={{100,0},{70,0}}, color={0,0,127})}),
       Documentation(revisions="<html>
 <ul>
@@ -48,9 +47,9 @@ package Sensors "Potential, voltage, current, and power sensors"
     extends Modelica.Icons.RotationalSensor;
 
     Interfaces.PositivePin p "positive pin" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.RealOutput v(unit="V")
       "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (Placement(transformation(
@@ -80,8 +79,8 @@ package Sensors "Potential, voltage, current, and power sensors"
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-96,0}}, color={0,0,0}),
-          Line(points={{70,0},{96,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-96,0}}),
+          Line(points={{70,0},{96,0}}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -98,9 +97,9 @@ package Sensors "Potential, voltage, current, and power sensors"
     extends Modelica.Icons.RotationalSensor;
 
     Interfaces.PositivePin p "positive pin" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.RealOutput i(unit="A")
       "Current in the branch from p to n as output signal"
        annotation (Placement(transformation(
@@ -134,8 +133,8 @@ package Sensors "Potential, voltage, current, and power sensors"
             extent={{-153,79},{147,119}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-70,0},{-96,0}}, color={0,0,0}),
-          Line(points={{70,0},{96,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-96,0}}),
+          Line(points={{70,0},{96,0}}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -152,18 +151,16 @@ model PowerSensor "Sensor to measure the power"
   extends Modelica.Icons.RotationalSensor;
   Modelica.Electrical.Analog.Interfaces.PositivePin pc
       "Positive pin, current path"
-    annotation (Placement(transformation(extent={{-90,-10},{-110,10}}, rotation=
-             0)));
+    annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin nc
       "Negative pin, current path"
-    annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=0)));
+    annotation (Placement(transformation(extent={{110,-10},{90,10}})));
   Modelica.Electrical.Analog.Interfaces.PositivePin pv
       "Positive pin, voltage path"
-    annotation (Placement(transformation(extent={{-10,110},{10,90}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-10,110},{10,90}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin nv
       "Negative pin, voltage path"
-    annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
-             0)));
+    annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
   Modelica.Blocks.Interfaces.RealOutput power(unit="W")
       "Instantaneous power as output signal"
     annotation (Placement(transformation(
@@ -176,8 +173,7 @@ model PowerSensor "Sensor to measure the power"
           extent={{10,10},{-10,-10}},
           rotation=90)));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
-    annotation (Placement(transformation(extent={{-50,-10},{-30,10}}, rotation=
-              0)));
+    annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
   Modelica.Blocks.Math.Product product
     annotation (Placement(transformation(
           origin={-30,-50},

@@ -37,7 +37,7 @@ package Pipes "Devices for conveying fluid"
             final roughnesses={roughness, roughness},
             final dheights={height_ab},
             final g=system.g) "Flow model"
-       annotation (Placement(transformation(extent={{-38,-18},{38,18}},rotation=0)));
+       annotation (Placement(transformation(extent={{-38,-18},{38,18}})));
   equation
     // Mass balance
     port_a.m_flow = flowModel.m_flows[1];
@@ -117,7 +117,7 @@ or other flow models without storage, are directly connected.
       final states=mediums.state,
       final vs = vs,
       final use_k = use_HeatTransfer) "Heat transfer model"
-        annotation (Placement(transformation(extent={{-45,20},{-23,42}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-45,20},{-23,42}})));
     final parameter Real[n] dxs = lengths/sum(lengths);
   equation
     Qb_flows = heatTransfer.Q_flows;
@@ -201,37 +201,27 @@ or other flow models without storage, are directly connected.
           Line(
             points={{100,45},{100,50}},
             arrow={Arrow.None,Arrow.Filled},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Line(
             points={{0,45},{0,50}},
             arrow={Arrow.None,Arrow.Filled},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Line(
             points={{100,-45},{100,-50}},
             arrow={Arrow.None,Arrow.Filled},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Line(
             points={{0,-45},{0,-50}},
             arrow={Arrow.None,Arrow.Filled},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Line(
             points={{-50,60},{-50,50}},
-            smooth=Smooth.None,
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Line(
             points={{50,60},{50,50}},
-            smooth=Smooth.None,
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Line(
             points={{0,-50},{0,-60}},
-            smooth=Smooth.None,
-            color={0,0,0},
             pattern=LinePattern.Dot)}));
   end DynamicPipe;
 
@@ -394,7 +384,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
               final roughnesses=roughnessesFM,
               final dheights=dheightsFM,
               final g=system.g) "Flow model"
-         annotation (Placement(transformation(extent={{-77,-37},{75,-19}},rotation=0)));
+         annotation (Placement(transformation(extent={{-77,-37},{75,-19}})));
 
       // Flow quantities
       Medium.MassFlowRate[n+1] m_flows(
@@ -714,14 +704,12 @@ This also allows for taking into account friction losses with respect to the act
                 100,100}}), graphics={
             Polygon(
               points={{-100,-50},{-100,50},{100,60},{100,-60},{-100,-50}},
-              smooth=Smooth.None,
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None,
               lineColor={0,0,0}),
             Polygon(
               points={{-34,-53},{-34,53},{34,57},{34,-57},{-34,-53}},
-              smooth=Smooth.None,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid,
               pattern=LinePattern.None,
@@ -729,7 +717,6 @@ This also allows for taking into account friction losses with respect to the act
             Line(
               points={{-100,-50},{-100,50}},
               arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Text(
               extent={{-99,36},{-69,30}},
@@ -738,7 +725,6 @@ This also allows for taking into account friction losses with respect to the act
             Line(
               points={{-100,70},{-34,70}},
               arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Text(
               extent={{0,36},{40,30}},
@@ -747,7 +733,6 @@ This also allows for taking into account friction losses with respect to the act
             Line(
               points={{100,-60},{100,60}},
               arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Text(
               extent={{100.5,36},{130.5,30}},
@@ -755,23 +740,17 @@ This also allows for taking into account friction losses with respect to the act
               textString="crossAreas[n]"),
             Line(
               points={{-34,52},{-34,-53}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dash),
             Line(
               points={{34,57},{34,-57}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dash),
             Line(
               points={{34,70},{100,70}},
               arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{-34,70},{34,70}},
               arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Text(
               extent={{-30,77},{30,71}},
@@ -779,44 +758,38 @@ This also allows for taking into account friction losses with respect to the act
               textString="lengths[2:n-1]"),
             Line(
               points={{-100,-70},{0,-70}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-80,-63},{-20,-69}},
               lineColor={0,0,255},
               textString="flowModel.dps_fg[1]"),
             Line(
               points={{0,-70},{100,-70}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{20.5,-63},{80,-69}},
               lineColor={0,0,255},
               textString="flowModel.dps_fg[2:n-1]"),
             Line(
               points={{-95,0},{-5,0}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-62,7},{-32,1}},
               lineColor={0,0,255},
               textString="m_flows[2]"),
             Line(
               points={{5,0},{95,0}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{34,7},{64,1}},
               lineColor={0,0,255},
               textString="m_flows[3:n]"),
             Line(
               points={{-150,0},{-105,0}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Line(
               points={{105,0},{150,0}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-140,7},{-110,1}},
               lineColor={0,0,255},
@@ -831,18 +804,12 @@ This also allows for taking into account friction losses with respect to the act
               textString="(ModelStructure av_vb, n=3)"),
             Line(
               points={{-100,-50},{-100,-86}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{0,-55},{0,-86}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{100,-60},{100,-86}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Ellipse(
               extent={{-5,5},{5,-5}},
@@ -888,43 +855,29 @@ This also allows for taking into account friction losses with respect to the act
               textString="dimensions[n]"),
             Line(
               points={{-34,73},{-34,52}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{34,73},{34,57}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{-100,50},{100,60}},
-              smooth=Smooth.None,
-              color={0,0,0},
               thickness=0.5),
             Line(
               points={{-100,-50},{100,-60}},
-              smooth=Smooth.None,
-              color={0,0,0},
               thickness=0.5),
             Line(
               points={{-100,73},{-100,50}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{100,73},{100,60}},
-              smooth=Smooth.None,
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{0,-55},{0,55}},
               arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0},
               pattern=LinePattern.Dot),
             Line(
               points={{-34,11},{34,11}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{5,18},{25,12}},
               lineColor={0,0,255},
@@ -935,28 +888,24 @@ This also allows for taking into account friction losses with respect to the act
               textString="vs[1]"),
             Line(
               points={{-100,11},{-34,11}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{63,18},{73,12}},
               lineColor={0,0,255},
               textString="vs[n]"),
             Line(
               points={{34,11},{100,11}},
-              arrow={Arrow.None,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.None,Arrow.Filled}),
             Text(
               extent={{-80,-75},{-20,-81}},
               lineColor={0,0,255},
               textString="flowModel.pathLengths[1]"),
             Line(
               points={{-100,-82},{0,-82}},
-              arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.Filled,Arrow.Filled}),
             Line(
               points={{0,-82},{100,-82}},
-              arrow={Arrow.Filled,Arrow.Filled},
-              color={0,0,0}),
+              arrow={Arrow.Filled,Arrow.Filled}),
             Text(
               extent={{15,-75},{85,-81}},
               lineColor={0,0,255},
@@ -1149,7 +1098,6 @@ e.g., with numerical smoothing or by raising events as appropriate.
                   -100},{100,100}}), graphics={Line(
                 points={{-80,-50},{-80,50},{80,-50},{80,50}},
                 color={0,0,255},
-                smooth=Smooth.None,
                 thickness=1), Text(
                 extent={{-40,-50},{40,-90}},
                 lineColor={0,0,0},

@@ -376,7 +376,6 @@ equation
           extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-60,-50},{-60,50},{60,-50},{60,50}},
-            color={0,0,0},
             thickness=0.5),
           Line(points={{-60,0},{-100,0}}, color={0,127,255}),
           Line(points={{60,0},{100,0}}, color={0,127,255}),
@@ -522,7 +521,7 @@ model AbruptAdaptor
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,-100},
-                {100,100},{0,100},{0,40}}, color={0,0,0}),
+                {100,100},{0,100},{0,40}}),
           Rectangle(
             extent={{-100,40},{0,-40}},
             lineColor={255,255,255},
@@ -534,7 +533,7 @@ model AbruptAdaptor
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,-100},
-                {100,100},{0,100},{0,40}}, color={0,0,0}),
+                {100,100},{0,100},{0,40}}),
           Line(
             points={{-60,-40},{-60,40}},
             color={0,0,255},
@@ -592,12 +591,10 @@ end AbruptAdaptor;
 
     Modelica.Fluid.Interfaces.FluidPort_a port_a(
       redeclare package Medium=Medium)
-      annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     Modelica.Fluid.Interfaces.FluidPorts_b ports_b[nPorts_b](
       redeclare each package Medium=Medium)
-      annotation (Placement(transformation(extent={{30,40},{50,-40}},
-                                  rotation=0)));
+      annotation (Placement(transformation(extent={{30,40},{50,-40}})));
 
     Medium.MassFraction ports_b_Xi_inStream[nPorts_b,Medium.nXi]
       "inStream mass fractions at ports_b";
@@ -677,12 +674,10 @@ then ideal mixing would take place in the connection set, outside the volume. Th
   equation
     connect(port_1, port_2) annotation (Line(
         points={{-100,0},{100,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(port_1, port_3) annotation (Line(
         points={{-100,0},{0,0},{0,100}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     annotation(Documentation(info="<html>
   This model is the simplest implementation for a splitting/joining component for
   three flows. Its use is not required. It just formulates the balance
@@ -1004,12 +999,12 @@ As a short summary:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,
-                      -100},{100,100},{0,100},{0,40}}, color={0,0,0})}),
+                      -100},{100,100},{0,100},{0,40}})}),
                                    Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                 graphics={
                 Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,
-                      -100},{100,100},{0,100},{0,40}}, color={0,0,0}),
+                      -100},{100,100},{0,100},{0,40}}),
                 Rectangle(
                   extent={{-100,40},{0,-40}},
                   lineColor={255,255,255},
@@ -1021,7 +1016,7 @@ As a short summary:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,
-                      -100},{100,100},{0,100},{0,40}}, color={0,0,0}),
+                      -100},{100,100},{0,100},{0,40}}),
                 Line(
                   points={{-60,-40},{-60,40}},
                   color={0,0,255},
@@ -2110,20 +2105,17 @@ where
             Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_1
                == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium =
             Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_2
                == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Fluid.Interfaces.FluidPort_a port_3(
         redeclare package Medium=Medium,
         m_flow(min=if (portFlowDirection_3==PortFlowDirection.Entering) then 0.0 else -Modelica.Constants.inf,
         max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
-        annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{-10,90},{10,110}})));
 
     protected
       parameter PortFlowDirection portFlowDirection_1=PortFlowDirection.Bidirectional

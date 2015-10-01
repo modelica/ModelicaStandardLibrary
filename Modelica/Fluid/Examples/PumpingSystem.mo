@@ -13,8 +13,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     T=Modelica.SIunits.Conversions.from_degC(20),
     p=system.p_ambient,
     redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
 
   Modelica.Fluid.Pipes.StaticPipe pipe(
     allowFlowReversal=true,
@@ -41,8 +40,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     redeclare package Medium = Medium,
     p_b_start=600000,
     T_start=system.T_start)
-    annotation (Placement(transformation(extent={{-68,-80},{-48,-60}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-68,-80},{-48,-60}})));
 
   Modelica.Fluid.Vessels.OpenTank reservoir(
     T_start=Modelica.SIunits.Conversions.from_degC(20),
@@ -55,48 +53,45 @@ model PumpingSystem "Model of a pumping system for drinking water"
         Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.3),
         Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.01)},
     redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{-20,-16},{0,4}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-20,-16},{0,4}})));
 
   Modelica.Fluid.Valves.ValveLinear userValve(
     allowFlowReversal=false,
     dp_nominal=200000,
     m_flow_nominal=400,
     redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{58,-38},{74,-22}}, rotation=0)));
+    annotation (Placement(transformation(extent={{58,-38},{74,-22}})));
   Modelica.Fluid.Sources.FixedBoundary sink(
     p=system.p_ambient,
     T=system.T_ambient,
     nPorts=2,
     redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{100,-40},{80,-20}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{100,-40},{80,-20}})));
   Modelica.Blocks.Sources.Step valveOpening(startTime=200, offset=1e-6)
-    annotation (Placement(transformation(extent={{56,0},{76,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{56,0},{76,20}})));
   Modelica.Blocks.Sources.Constant RelativePressureSetPoint(k=2e4)
-    annotation (Placement(transformation(extent={{-100,60},{-80,80}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
   Modelica.Blocks.Logical.OnOffController controller(bandwidth=4000,
       pre_y_start=false)
                         annotation (Placement(transformation(extent={{-40,60},{
-            -20,80}}, rotation=0)));
+            -20,80}})));
   Modelica.Blocks.Logical.TriggeredTrapezoid PumpRPMGenerator(
     rising=3,
     falling=3,
     amplitude=1200,
-    offset=0.001) annotation (Placement(transformation(extent={{0,60},{20,80}},
-          rotation=0)));
+    offset=0.001) annotation (Placement(transformation(extent={{0,60},{20,80}})));
   Modelica.Fluid.Sensors.RelativePressure reservoirPressure(redeclare package
       Medium = Medium)
-    annotation (Placement(transformation(extent={{10,-12},{30,-32}}, rotation=0)));
+    annotation (Placement(transformation(extent={{10,-12},{30,-32}})));
   Modelica.Blocks.Continuous.FirstOrder PT1(
     T=2,
     initType=Modelica.Blocks.Types.Init.InitialState,
     y_start=0)
-    annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{40,60},{60,80}})));
 
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                    annotation (Placement(transformation(extent=
-            {{60,-96},{80,-76}}, rotation=0)));
+            {{60,-96},{80,-76}})));
 equation
   connect(userValve.port_b, sink.ports[1])     annotation (Line(points={{74,-30},
           {77,-30},{77,-28},{80,-28}},
@@ -124,17 +119,14 @@ equation
           {-30,-70},{-48,-70}},                color={0,127,255}));
   connect(reservoir.ports[1], pipe.port_b) annotation (Line(
       points={{-12.6667,-16},{-12.6667,-30},{-30,-30},{-30,-40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(reservoir.ports[3], reservoirPressure.port_a) annotation (Line(
       points={{-7.33333,-16},{-7,-16},{-7,-22},{10,-22}},
       color={0,127,255},
-      smooth=Smooth.None,
       pattern=LinePattern.Dot));
   connect(reservoir.ports[2], userValve.port_a) annotation (Line(
       points={{-10,-16},{-10,-30},{58,-30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (
     Documentation(info="<html>
 <p>

@@ -101,7 +101,6 @@ package Basic "Basic electrical components"
             visible=useHeatPort,
             points={{0,-100},{0,-30}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-152,87},{148,47}},
@@ -171,7 +170,6 @@ package Basic "Basic electrical components"
             visible=useHeatPort,
             points={{0,-100},{0,-30}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-156,109},{144,69}},
@@ -244,7 +242,6 @@ package Basic "Basic electrical components"
             visible=useHeatPort,
             points={{0,-100},{0,-30}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-152,87},{148,47}},
@@ -446,8 +443,7 @@ package Basic "Basic electrical components"
     parameter SI.Inductance L1(start=1) "Primary inductance";
     parameter SI.Inductance L2(start=1) "Secondary inductance";
     parameter SI.Inductance M(start=1) "Coupling inductance";
-    Real dv "Difference between voltage drop over primary inductor and
-    voltage drop over secondary inductor";
+    Real dv "Difference between voltage drop over primary inductor and voltage drop over secondary inductor";
   equation
     v1 = L1*der(i1) + M*der(i2);
 
@@ -713,9 +709,9 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Line(points={{-5,10},{-10,-10}}, color={0,0,0}),
-          Line(points={{9,10},{4,-9}}, color={0,0,0}),
-          Line(points={{-14,9},{16,10}}, color={0,0,0}),
+          Line(points={{-5,10},{-10,-10}}),
+          Line(points={{9,10},{4,-9}}),
+          Line(points={{-14,9},{16,10}}),
           Text(
             extent={{-29,59},{30,30}},
             textString="G1",
@@ -783,7 +779,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange annotation (
-        Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Placement(transformation(extent={{90,-10},{110,10}})));
     Mechanics.Rotational.Interfaces.Support support if useSupport
       "Support/housing of emf shaft"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -802,13 +798,9 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     k*w = v;
     flange.tau = -k*i;
     connect(internalSupport.flange, support) annotation (Line(
-        points={{-80,0},{-100,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-80,0},{-100,0}}));
     connect(internalSupport.flange, fixed.flange) annotation (Line(
-        points={{-80,0},{-80,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-80,0},{-80,-10}}));
     annotation (
       defaultComponentName="emf",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -840,24 +832,19 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
             textString="k=%k"),
           Line(
             visible=not useSupport,
-            points={{-100,-30},{-40,-30}},
-            color={0,0,0}),
+            points={{-100,-30},{-40,-30}}),
           Line(
             visible=not useSupport,
-            points={{-100,-50},{-80,-30}},
-            color={0,0,0}),
+            points={{-100,-50},{-80,-30}}),
           Line(
             visible=not useSupport,
-            points={{-80,-50},{-60,-30}},
-            color={0,0,0}),
+            points={{-80,-50},{-60,-30}}),
           Line(
             visible=not useSupport,
-            points={{-60,-50},{-40,-30}},
-            color={0,0,0}),
+            points={{-60,-50},{-40,-30}}),
           Line(
             visible=not useSupport,
-            points={{-70,-30},{-70,-10}},
-            color={0,0,0})}),
+            points={{-70,-30},{-70,-10}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
               points={{-17,95},{-20,85},{-23,95},{-17,95}},
@@ -914,7 +901,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange annotation (
-        Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Mechanics.Translational.Interfaces.Support support if useSupport
       "Support/housing"
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
@@ -935,12 +922,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     flange.f = -k*i;
     connect(internalSupport.flange, support) annotation (Line(
         points={{-80,0},{-90,0},{-90,0},{-100,0}},
-        color={0,127,0},
-        smooth=Smooth.None));
+        color={0,127,0}));
     connect(internalSupport.flange, fixed.flange) annotation (Line(
         points={{-80,0},{-80,-10}},
-        color={0,127,0},
-        smooth=Smooth.None));
+        color={0,127,0}));
     annotation (
       defaultComponentName="emf",
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -987,24 +972,19 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
             fillPattern=FillPattern.Solid),
           Line(
             visible=not useSupport,
-            points={{-100,-70},{-40,-70}},
-            color={0,0,0}),
+            points={{-100,-70},{-40,-70}}),
           Line(
             visible=not useSupport,
-            points={{-100,-90},{-80,-70}},
-            color={0,0,0}),
+            points={{-100,-90},{-80,-70}}),
           Line(
             visible=not useSupport,
-            points={{-80,-90},{-60,-70}},
-            color={0,0,0}),
+            points={{-80,-90},{-60,-70}}),
           Line(
             visible=not useSupport,
-            points={{-60,-90},{-40,-70}},
-            color={0,0,0}),
+            points={{-60,-90},{-40,-70}}),
           Line(
             visible=not useSupport,
-            points={{-70,-70},{-70,-50}},
-            color={0,0,0}),
+            points={{-70,-70},{-70,-50}}),
           Text(
             extent={{0,-50},{199,-90}},
             textString="%name",
@@ -1263,19 +1243,18 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
       "Slope of the out.v/vin characteristic at vin=0";
     Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
-            extent={{-110,-60},{-90,-40}}, rotation=0)));
+            extent={{-110,-60},{-90,-40}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
-            extent={{-90,40},{-110,60}}, rotation=0)));
+            extent={{-90,40},{-110,60}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin out "Output pin"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin VMax
       "Positive output voltage limitation" annotation (Placement(transformation(
-            extent={{-10,60},{10,80}}, rotation=0)));
+            extent={{-10,60},{10,80}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
-            extent={{-10,-80},{10,-60}}, rotation=0)));
+            extent={{-10,-80},{10,-60}})));
     SI.Voltage vin "input voltage";
   protected
     Real f "auxiliary variable";
@@ -1416,19 +1395,18 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive pin of the input port" annotation (Placement(transformation(
-            extent={{-111,-61},{-90,-40}}, rotation=0)));
+            extent={{-111,-61},{-90,-40}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin m
       "Negative pin of the input port" annotation (Placement(transformation(
-            extent={{-90,40},{-111,61}}, rotation=0)));
+            extent={{-90,40},{-111,61}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin outp "Output pin"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p_supply
       "Positive output voltage limitation" annotation (Placement(transformation(
-            extent={{-8,65},{9,82}}, rotation=0)));
+            extent={{-8,65},{9,82}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin m_supply
       "Negative output voltage limitation" annotation (Placement(transformation(
-            extent={{-9,-83},{9,-65}}, rotation=0)));
+            extent={{-9,-83},{9,-65}})));
 
     // power supply
     SI.Voltage v_pos;
@@ -1949,12 +1927,10 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
     LossPower = (pin_p.v - contact.v)*pin_p.i + (pin_n.v - contact.v)*pin_n.i;
     connect(rInt, r) annotation (Line(
         points={{-80,-80},{-100,-80},{-100,-110}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(rInt, rConst.y) annotation (Line(
         points={{-80,-80},{-90,-80},{-90,-61}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
@@ -1969,38 +1945,31 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
             fillPattern=FillPattern.Solid),
           Line(
             points={{-90,0},{-70,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{70,0},{90,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,-30}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Line(
             points={{0,40},{0,-40},{100,-80},{100,-90}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             visible=useRinput,
             points={{-100,-90},{-100,-80},{0,-40}},
             color={0,0,255},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Line(
             visible=useHeatPort,
             points={{0,-90},{0,-40}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Polygon(
             points={{0,-30},{-4,-40},{4,-40},{0,-30}},
             lineColor={0,0,255},
-            smooth=Smooth.None,
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
@@ -2027,8 +1996,8 @@ Christoph Clau&szlig;
 </dd>
 </dl>
 </html>"), Icon(graphics={
-        Line(points={{-12,60},{-12,-60}}, color={0,0,0}),
-        Line(points={{-80,0},{-12,0}}, color={0,0,0}),
-        Line(points={{12,60},{12,-60}}, color={0,0,0}),
-        Line(points={{12,0},{80,0}}, color={0,0,0})}));
+        Line(points={{-12,60},{-12,-60}}),
+        Line(points={{-80,0},{-12,0}}),
+        Line(points={{12,60},{12,-60}}),
+        Line(points={{12,0},{80,0}})}));
 end Basic;

@@ -2,17 +2,16 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
   extends Modelica.Icons.Example;
   inner World world(animateGravity=false) annotation (Placement(transformation(
-          extent={{-90,30},{-70,50}}, rotation=0)));
+          extent={{-90,30},{-70,50}})));
   Parts.BodyCylinder body(r={1,0,0}) annotation (Placement(transformation(
-          extent={{0,30},{20,50}}, rotation=0)));
+          extent={{0,30},{20,50}})));
   Parts.Fixed fixed1(r={0,-0.5,0}, width=0.03)
-    annotation (Placement(transformation(extent={{-90,-10},{-70,10}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
   Parts.FixedRotation fixedRotation(n={0,0,1}, angle=30)
-    annotation (Placement(transformation(extent={{-8,-30},{12,-10}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-8,-30},{12,-10}})));
   Forces.ForceAndTorque forceAndTorque(Nm_to_m=120, N_to_m=1200,
     resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
-    annotation (Placement(transformation(extent={{60,50},{40,30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,50},{40,30}})));
   Joints.Revolute revolute2(n={0,1,0},
     phi(fixed=true),
     w(fixed=true))        annotation (Placement(transformation(
@@ -25,10 +24,9 @@ model ForceAndTorque "Demonstrate usage of ForceAndTorque element"
         extent={{10,-10},{-10,10}},
         rotation=270)));
   Joints.Revolute revolute1(phi(fixed=true), w(fixed=true))
-    annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Parts.Fixed fixed2(width=0.03, r={1.5,0.25,0})
-    annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{100,30},{80,50}})));
   Modelica.Blocks.Sources.Constant force[3](k={0,1000,0})
     annotation (Placement(transformation(
         origin={80,-10},
@@ -69,12 +67,10 @@ equation
       pattern=LinePattern.Dot));
   connect(force.y, forceAndTorque.force) annotation (Line(
       points={{80,1},{80,10},{58,10},{58,28}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(torque.y, forceAndTorque.torque) annotation (Line(
       points={{40,1},{40,10},{50,10},{50,28}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (
     Documentation(info="<HTML>
 <p>

@@ -24,54 +24,52 @@ package Examples
       initType=Modelica.Blocks.Types.InitPID.SteadyState,
       limitsAtInit=false,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
-      Td=0.1) annotation (Placement(transformation(extent={{-56,-20},{-36,0}},
-            rotation=0)));
+      Td=0.1) annotation (Placement(transformation(extent={{-56,-20},{-36,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
       phi(fixed=true, start=0),
       J=1,
       a(fixed=true, start=0)) annotation (Placement(transformation(extent={{2,-20},
-              {22,0}}, rotation=0)));
+              {22,0}})));
 
     Modelica.Mechanics.Rotational.Sources.Torque torque annotation (Placement(
-          transformation(extent={{-25,-20},{-5,0}}, rotation=0)));
+          transformation(extent={{-25,-20},{-5,0}})));
     Modelica.Mechanics.Rotational.Components.SpringDamper spring(
       c=1e4,
       d=100,
       stateSelect=StateSelect.prefer,
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{32,-20},
-              {52,0}}, rotation=0)));
+              {52,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=2) annotation (
-        Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
+        Placement(transformation(extent={{60,-20},{80,0}})));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP(
       startTime=0.5,
       deltaq={driveAngle},
       qd_max={1},
       qdd_max={1}) annotation (Placement(transformation(extent={{-92,20},{-72,
-              40}}, rotation=0)));
+              40}})));
     Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.Types.Init.InitialState)
-      annotation (Placement(transformation(extent={{-63,20},{-43,40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-63,20},{-43,40}})));
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
-        Placement(transformation(extent={{22,-50},{2,-30}}, rotation=0)));
+        Placement(transformation(extent={{22,-50},{2,-30}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
         tau_constant=10, useSupport=false) annotation (Placement(transformation(
-            extent={{98,-15},{88,-5}}, rotation=0)));
+            extent={{98,-15},{88,-5}})));
   initial equation
     der(spring.w_rel) = 0;
 
   equation
     connect(spring.flange_b, inertia2.flange_a)
-      annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
+      annotation (Line(points={{52,-10},{60,-10}}));
     connect(inertia1.flange_b, spring.flange_a)
-      annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
+      annotation (Line(points={{22,-10},{32,-10}}));
     connect(torque.flange, inertia1.flange_a)
-      annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
+      annotation (Line(points={{-5,-10},{2,-10}}));
     connect(kinematicPTP.y[1], integrator.u)
       annotation (Line(points={{-71,30},{-65,30}}, color={0,0,127}));
     connect(speedSensor.flange, inertia1.flange_b)
-      annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
+      annotation (Line(points={{22,-40},{22,-10}}));
     connect(loadTorque.flange, inertia2.flange_b)
-      annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
+      annotation (Line(points={{88,-10},{80,-10}}));
     connect(PI.y, torque.tau)
       annotation (Line(points={{-35,-10},{-27,-10}}, color={0,0,127}));
     connect(speedSensor.w, PI.u_m)
@@ -220,20 +218,16 @@ is forced back to its limit after a transient phase.
   equation
     connect(step.y, CriticalDamping.u) annotation (Line(
         points={{-39,50},{-22,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(step.y, Bessel.u) annotation (Line(
         points={{-39,50},{-32,50},{-32,10},{-22,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(Butterworth.u, step.y) annotation (Line(
         points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(ChebyshevI.u, step.y) annotation (Line(
         points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (
       experiment(StopTime=0.9),
       Documentation(info="<html>
@@ -278,20 +272,16 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
   equation
     connect(step.y, Bessel.u) annotation (Line(
         points={{-59,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(Bessel.y, der1.u) annotation (Line(
         points={{-19,50},{-8,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(der1.y, der2.u) annotation (Line(
         points={{15,50},{28,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(der2.y, der3.u) annotation (Line(
         points={{51,50},{60,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (
       experiment(StopTime=0.9),
       Documentation(info="<html>
@@ -324,16 +314,13 @@ discontinuous control signal.
   equation
     connect(step.y, filter_fac5.u) annotation (Line(
         points={{-39,30},{-30,30},{-30,-10},{-22,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(step.y, filter_fac4.u) annotation (Line(
         points={{-39,30},{-22,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(step.y, filter_fac3.u) annotation (Line(
         points={{-39,30},{-30,30},{-30,72},{-22,72}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=4), Documentation(info="<html>
 <p>
 Filters are usually parameterized with the cut-off frequency.
@@ -430,32 +417,25 @@ reached with different precisions. This is summarized in the following table:
   equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
         points={{-1,30},{-6,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(inverseBlockConstraints.y2, firstOrder1.u) annotation (Line(
         points={{27,30},{22,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(firstOrder2.y, feedback.u1) annotation (Line(
         points={{-1,-10},{-42,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, criticalDamping.u) annotation (Line(
         points={{-59,30},{-42,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(criticalDamping.y, inverseBlockConstraints.u1) annotation (Line(
         points={{-19,30},{-12,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, feedback.u2) annotation (Line(
         points={{-59,30},{-50,30},{-50,-2}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(inverseBlockConstraints.y1, firstOrder2.u) annotation (Line(
         points={{31,30},{40,30},{40,-10},{22,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
@@ -532,18 +512,18 @@ agreement. A typical simulation result is shown in the next figure:
     "Demonstrates the usage of logical sources together with their diagram animation"
     extends Modelica.Icons.Example;
     Sources.BooleanTable table(table={2,4,6,8}) annotation (Placement(
-          transformation(extent={{-60,-100},{-40,-80}}, rotation=0)));
+          transformation(extent={{-60,-100},{-40,-80}})));
     Sources.BooleanConstant const annotation (Placement(transformation(extent={
-              {-60,60},{-40,80}}, rotation=0)));
+              {-60,60},{-40,80}})));
     Sources.BooleanStep step(startTime=4) annotation (Placement(transformation(
-            extent={{-60,20},{-40,40}}, rotation=0)));
+            extent={{-60,20},{-40,40}})));
     Sources.BooleanPulse pulse(period=1.5) annotation (Placement(transformation(
-            extent={{-60,-20},{-40,0}}, rotation=0)));
+            extent={{-60,-20},{-40,0}})));
 
     Sources.SampleTrigger sample(period=0.5) annotation (Placement(
-          transformation(extent={{-60,-60},{-40,-40}}, rotation=0)));
+          transformation(extent={{-60,-60},{-40,-40}})));
     Sources.BooleanExpression booleanExpression(y=pulse.y and step.y)
-      annotation (Placement(transformation(extent={{20,20},{80,40}},rotation=0)));
+      annotation (Placement(transformation(extent={{20,20},{80,40}})));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in
@@ -561,18 +541,16 @@ model.
 
     extends Modelica.Icons.Example;
     Sources.BooleanTable table2(table={1,3,5,7}) annotation (Placement(
-          transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
+          transformation(extent={{-80,-20},{-60,0}})));
     Sources.BooleanTable table1(table={2,4,6,8}) annotation (Placement(
-          transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+          transformation(extent={{-80,20},{-60,40}})));
     Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{-20,
-              0}}, rotation=0)));
+              0}})));
 
-    Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}},
-            rotation=0)));
-    Logical.Or Or1 annotation (Placement(transformation(extent={{40,20},{60,40}},
-            rotation=0)));
+    Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}})));
+    Logical.Or Or1 annotation (Placement(transformation(extent={{40,20},{60,40}})));
     Logical.Pre Pre1 annotation (Placement(transformation(extent={{-40,-60},{-20,
-              -40}}, rotation=0)));
+              -40}})));
   equation
 
     connect(table2.y, Not1.u)
@@ -640,52 +618,40 @@ model RealNetwork1 "Demonstrates the usage of blocks from Modelica.Blocks.Math"
 equation
   connect(booleanPulse1.y, multiSwitch.u[1]) annotation (Line(
       points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
-      color={255,0,255},
-      smooth=Smooth.None));
+      color={255,0,255}));
   connect(booleanPulse2.y, multiSwitch.u[2]) annotation (Line(
       points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
-      color={255,0,255},
-      smooth=Smooth.None));
+      color={255,0,255}));
   connect(sine.y, add.u[1]) annotation (Line(
       points={{-75,70},{-46.5,70},{-46.5,72.1},{-14,72.1}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(integerStep.y, add.u[2]) annotation (Line(
       points={{-39,40},{-28,40},{-28,67.9},{-14,67.9}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(add.y, showValue.numberPort) annotation (Line(
       points={{-0.98,70},{64.5,70}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(integerStep.y, product.u[1]) annotation (Line(
       points={{-39,40},{-20,40},{-20,32.1},{6,32.1}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(integerConstant.y, product.u[2]) annotation (Line(
       points={{-39,0},{-20,0},{-20,27.9},{6,27.9}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(product.y, showValue1.numberPort) annotation (Line(
       points={{19.02,30},{62.5,30}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(add.y, linearDependency1.u1) annotation (Line(
       points={{-0.98,70},{20,70},{20,96},{38,96}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(product.y, linearDependency1.u2) annotation (Line(
       points={{19.02,30},{30,30},{30,84},{38,84}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(add.y, minMax.u[1]) annotation (Line(
       points={{-0.98,70},{48,70},{48,-2.5},{58,-2.5}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(product.y, minMax.u[2]) annotation (Line(
       points={{19.02,30},{40,30},{40,-9.5},{58,-9.5}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (
     experiment(StopTime=10),
     Documentation(info="<html>
@@ -750,56 +716,43 @@ end RealNetwork1;
   equation
     connect(sine.y, realToInteger.u) annotation (Line(
         points={{-79,70},{-62,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(realToInteger.y, sum.u[1]) annotation (Line(
         points={{-39,70},{-32,70},{-32,72},{-14,72},{-14,72.8}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(integerStep.y, sum.u[2]) annotation (Line(
         points={{-39,40},{-28,40},{-28,70},{-14,70}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(integerConstant.y, sum.u[3]) annotation (Line(
         points={{-39,0},{-22,0},{-22,67.2},{-14,67.2}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(sum.y, showValue.numberPort) annotation (Line(
         points={{-1.1,70},{38.5,70}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(sum.y, product.u[1]) annotation (Line(
         points={{-1.1,70},{4,70},{4,32.1},{16,32.1}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(integerStep.y, product.u[2]) annotation (Line(
         points={{-39,40},{-8,40},{-8,27.9},{16,27.9}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(product.y, showValue1.numberPort) annotation (Line(
         points={{28.9,30},{38.5,30}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(integerConstant.y, triggeredAdd.u) annotation (Line(
         points={{-39,0},{13.6,0}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(booleanPulse1.y, triggeredAdd.trigger) annotation (Line(
         points={{9,-20},{18.4,-20},{18.4,-7.2}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(triggeredAdd.y, showValue2.numberPort) annotation (Line(
         points={{29.2,0},{38.5,0}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(booleanPulse1.y, multiSwitch1.u[1]) annotation (Line(
         points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, multiSwitch1.u[2]) annotation (Line(
         points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
@@ -884,120 +837,91 @@ Note, that
   equation
     connect(booleanPulse1.y, and1.u[1]) annotation (Line(
         points={{-79,70},{-68,70},{-68,72.8},{-58,72.8}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanStep.y, and1.u[2]) annotation (Line(
         points={{-79,38},{-64,38},{-64,70},{-58,70}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, and1.u[3]) annotation (Line(
         points={{-79,6},{-62,6},{-62,67.2},{-58,67.2}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(and1.y, or1.u[1]) annotation (Line(
         points={{-45.1,70},{-36.4,70},{-36.4,70.1},{-28,70.1}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, or1.u[2]) annotation (Line(
         points={{-79,6},{-40,6},{-40,65.9},{-28,65.9}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, xor1.u[1]) annotation (Line(
         points={{-15.1,68},{-8,68},{-8,68.1},{-2,68.1}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, xor1.u[2]) annotation (Line(
         points={{-79,6},{-12,6},{-12,63.9},{-2,63.9}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(and1.y, showValue.activePort) annotation (Line(
         points={{-45.1,70},{-42,70},{-42,84},{-37.5,84}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, showValue2.activePort) annotation (Line(
         points={{-15.1,68},{-12,68},{-12,84},{-3.5,84}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(xor1.y, showValue3.activePort) annotation (Line(
         points={{10.9,66},{22.5,66}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(xor1.y, nand1.u[1]) annotation (Line(
         points={{10.9,66},{16,66},{16,48.1},{22,48.1}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, nand1.u[2]) annotation (Line(
         points={{-79,6},{16,6},{16,44},{22,44},{22,43.9}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(nand1.y, or2.u[1]) annotation (Line(
         points={{34.9,46},{46,46},{46,46.1}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, or2.u[2]) annotation (Line(
         points={{-79,6},{42,6},{42,41.9},{46,41.9}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or2.y, nor1.u) annotation (Line(
         points={{58.9,44},{66.4,44}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(nor1.y, showValue4.activePort) annotation (Line(
         points={{76.8,44},{88.5,44}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, rising.u) annotation (Line(
         points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(rising.y, set1.u[1]) annotation (Line(
         points={{-47.2,-11},{-38.6,-11},{-38.6,-11.5},{-30,-11.5}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(falling.y, set1.u[2]) annotation (Line(
         points={{-47.2,-28},{-40,-28},{-40,-14.5},{-30,-14.5}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, falling.u) annotation (Line(
         points={{-79,6},{-62,6},{-62,-28},{-57.6,-28}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanTable.y, onDelay.u) annotation (Line(
         points={{-79,-90},{-57.6,-90}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanPulse2.y, changing.u) annotation (Line(
         points={{-79,6},{-62,6},{-62,-55},{-57.6,-55}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(integerConstant.y, triggeredAdd.u) annotation (Line(
         points={{1,-50},{11.6,-50}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(changing.y, triggeredAdd.trigger) annotation (Line(
         points={{-47.2,-55},{-30,-55},{-30,-74},{16.4,-74},{16.4,-57.2}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(triggeredAdd.y, showValue1.numberPort) annotation (Line(
         points={{27.2,-50},{38.5,-50}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(set1.y, showValue5.activePort) annotation (Line(
         points={{11,-13},{22.5,-13}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(onDelay.y, showValue6.activePort) annotation (Line(
         points={{-47.2,-90},{-33.5,-90}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(sampleTriggerSet.y, rSFlipFlop.S) annotation (Line(
         points={{54.7,-69},{60,-69},{60,-74},{68,-74}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(sampleTriggerReset.y, rSFlipFlop.R) annotation (Line(
         points={{54.7,-91},{60,-91},{60,-86},{68,-86}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
@@ -1045,16 +969,13 @@ Note, that
   equation
     connect(integerTable.y, integerValue.numberPort) annotation (Line(
         points={{-59,30},{-41.5,30}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(timeTable.y, realValue.numberPort) annotation (Line(
         points={{-59,70},{-41.5,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(booleanTable.y, booleanValue.activePort) annotation (Line(
         points={{-59,-10},{-41.5,-10}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks
@@ -1073,16 +994,16 @@ to show how diagram animations can be constructed.
       height=1,
       offset=2,
       startTime=0.5) annotation (Placement(transformation(extent={{-60,-40},{-40,
-              -20}}, rotation=0)));
+              -20}})));
     Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) annotation (
-        Placement(transformation(extent={{-58,0},{-38,20}}, rotation=0)));
+        Placement(transformation(extent={{-58,0},{-38,20}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
-          transformation(extent={{-60,40},{-40,60}}, rotation=0)));
+          transformation(extent={{-60,40},{-40,60}})));
 
     Modelica.Blocks.Examples.BusUsage_Utilities.Part part annotation (Placement(
-          transformation(extent={{-60,-80},{-40,-60}}, rotation=0)));
+          transformation(extent={{-60,-80},{-40,-60}})));
     Modelica.Blocks.Math.Gain gain(k=1) annotation (Placement(transformation(
-            extent={{-40,70},{-60,90}}, rotation=0)));
+            extent={{-40,70},{-60,90}})));
   protected
     BusUsage_Utilities.Interfaces.ControlBus controlBus annotation (Placement(
           transformation(
@@ -1093,25 +1014,20 @@ to show how diagram animations can be constructed.
 
     connect(sine.y, controlBus.realSignal1) annotation (Line(
         points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(booleanStep.y, controlBus.booleanSignal) annotation (Line(
         points={{-37,10},{30,10}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(integerStep.y, controlBus.integerSignal) annotation (Line(
         points={{-39,-30},{0,-30},{0,6},{32,6},{32,10},{30,10}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(part.subControlBus, controlBus.subControlBus) annotation (Line(
         points={{-40,-70},{30,-70},{30,10}},
         color={255,204,51},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(gain.u, controlBus.realSignal1) annotation (Line(
         points={{-38,80},{20,80},{20,18},{32,18},{32,10},{30,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (Documentation(info="<html>
 <p><b>Signal bus concept</b></p>
 <p>
@@ -1302,19 +1218,17 @@ This package contains the bus definitions needed for the
             extent={{-20,-20},{20,20}},
             rotation=270)));
       Sources.RealExpression realExpression(y=time) annotation (Placement(
-            transformation(extent={{-6,0},{20,20}}, rotation=0)));
+            transformation(extent={{-6,0},{20,20}})));
       Sources.BooleanExpression booleanExpression(y=time > 0.5) annotation (
-          Placement(transformation(extent={{-6,-30},{20,-10}}, rotation=0)));
+          Placement(transformation(extent={{-6,-30},{20,-10}})));
     equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
           points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(booleanExpression.y, subControlBus.myBooleanSignal) annotation (
           Line(
           points={{21.3,-20},{60,-20},{60,0},{100,0}},
-          color={255,0,255},
-          smooth=Smooth.None));
+          color={255,0,255}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-100,60},{100,-60}},
@@ -1347,7 +1261,7 @@ usage of package blocks.
 end Examples;
 
 
-annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
+annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={0.0,35.1488},
         fillColor={255,255,255},

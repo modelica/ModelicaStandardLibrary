@@ -15,8 +15,7 @@ package Forces "Components that exert forces and/or torques between frames"
           rotation=270)));
     Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit="N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
@@ -56,23 +55,19 @@ package Forces "Components that exert forces and/or torques between frames"
     connect(basicWorldForce.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicWorldForce.force, force) annotation (Line(
         points={{-12,0},{-120,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
         points={{0,-10},{0,-100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
       annotation (Line(
         points={{20,-30},{0,-30},{0,-10}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     annotation (defaultComponentName="force",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -179,8 +174,7 @@ This leads to the following animation
           rotation=270)));
     Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
       "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
       Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
@@ -219,23 +213,19 @@ This leads to the following animation
     connect(basicWorldTorque.frame_b, frame_b) annotation (Line(
         points={{10,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicWorldTorque.torque, torque) annotation (Line(
         points={{-12,0},{-120,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(frame_resolve, basicWorldTorque.frame_resolve) annotation (Line(
         points={{0,100},{0,10}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
       annotation (Line(
         points={{20,20},{0,20},{0,10}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     annotation (defaultComponentName="torque",
       Documentation(info="<HTML>
 
@@ -324,7 +314,6 @@ This leads to the following animation
             points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
                 81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{58,
                 40}},
-            color={0,0,0},
             thickness=0.5),
           Polygon(
             points={{94,10},{75,59},{41,24},{94,10}},
@@ -348,13 +337,11 @@ This leads to the following animation
     Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit=
                      "N")
       "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
-      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
                      "N.m")
       "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
-      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
@@ -413,46 +400,38 @@ This leads to the following animation
     connect(basicWorldForce.frame_b, frame_b) annotation (Line(
         points={{38,-60},{60,-60},{60,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicWorldForce.force, force) annotation (Line(
         points={{16,-60},{-120,-60}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicWorldTorque.frame_b, frame_b)
                                       annotation (Line(
         points={{10,60},{60,60},{60,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicWorldTorque.torque, torque)
                                     annotation (Line(
         points={{-12,60},{-120,60}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicWorldForce.frame_resolve, frame_resolve) annotation (Line(
         points={{28,-50},{28,80},{0,80},{0,100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(basicWorldTorque.frame_resolve, frame_resolve)
                                                   annotation (Line(
         points={{0,70},{0,100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicWorldTorque.frame_resolve)
                                                                annotation (Line(
         points={{58,80},{0,80},{0,70}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicWorldForce.frame_resolve)
       annotation (Line(
         points={{58,80},{40,80},{40,-40},{28,-40},{28,-50}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     annotation (defaultComponentName="forceAndTorque",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -468,7 +447,6 @@ This leads to the following animation
             points={{-100,60},{-86,68},{-80,72},{-70,78},{-64,82},{-46,86},{-34,
                 88},{-16,88},{-2,86},{12,80},{24,74},{34,68},{46,58},{52,54},{
                 58,48}},
-            color={0,0,0},
             thickness=0.5),
           Polygon(
             points={{89,17},{64,76},{30,41},{89,17}},
@@ -636,28 +614,23 @@ This leads to the following animation
     connect(basicForce.frame_a, frame_a) annotation (Line(
         points={{0,0},{-100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicForce.frame_b, frame_b) annotation (Line(
         points={{20,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(force, basicForce.force) annotation (Line(
         points={{-60,120},{-60,40},{4,40},{4,12}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
         points={{14,10},{14,40},{40,40},{40,100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
         Line(
         points={{40,20},{27,20},{27,10},{14,10}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={
@@ -692,8 +665,8 @@ This leads to the following animation
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{-64,0},{-20,0}}, color={0,0,0}),
-          Line(points={{20,0},{65,0}}, color={0,0,0})}),
+          Line(points={{-64,0},{-20,0}}),
+          Line(points={{20,0},{65,0}})}),
       Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
@@ -833,28 +806,23 @@ clarity this is not shown in the animation):
     connect(basicTorque.frame_a, frame_a) annotation (Line(
         points={{-8,0},{-100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicTorque.frame_b, frame_b) annotation (Line(
         points={{12,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicTorque.torque, torque) annotation (Line(
         points={{-4,12},{-4,60},{-60,60},{-60,120}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
         points={{6,10},{6,60},{40,60},{40,100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicTorque.frame_resolve) annotation (
         Line(
         points={{34,20},{20,20},{20,10},{6,10}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -889,10 +857,8 @@ clarity this is not shown in the animation):
             points={{-60,100},{40,100}},
             color={95,95,95},
             pattern=LinePattern.Dot),
-          Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
-              color={0,0,0}),
-          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
-              color={0,0,0})}),
+          Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
+          Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}})}),
       Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
@@ -1063,53 +1029,43 @@ clarity this is not shown in the animation):
     connect(basicForce.frame_a, frame_a) annotation (Line(
         points={{-84,0},{-100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicForce.frame_b, frame_b) annotation (Line(
         points={{-64,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicTorque.frame_b, frame_b) annotation (Line(
         points={{16,20},{68,20},{68,0},{100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicTorque.frame_a, frame_a) annotation (Line(
         points={{-4,20},{-90,20},{-90,0},{-100,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(basicForce.force, force) annotation (Line(
         points={{-80,12},{-80,120}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicTorque.torque, torque) annotation (Line(
         points={{0,32},{0,120}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(basicTorque.frame_resolve, frame_resolve) annotation (Line(
         points={{10,30},{10,80},{80,80},{80,100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(basicForce.frame_resolve, frame_resolve) annotation (Line(
         points={{-70,10},{-70,80},{80,80},{80,100}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicTorque.frame_resolve)  annotation (
         Line(
         points={{20,40},{10,40},{10,30}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     connect(zeroPosition.frame_resolve, basicForce.frame_resolve) annotation (
         Line(
         points={{20,40},{-70,40},{-70,10}},
         color={95,95,95},
-        pattern=LinePattern.Dot,
-        smooth=Smooth.None));
+        pattern=LinePattern.Dot));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
@@ -1154,12 +1110,10 @@ clarity this is not shown in the animation):
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{-64,0},{-20,0}}, color={0,0,0}),
-          Line(points={{20,0},{65,0}}, color={0,0,0}),
-          Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
-              color={0,0,0}),
-          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
-              color={0,0,0}),
+          Line(points={{-64,0},{-20,0}}),
+          Line(points={{20,0},{65,0}}),
+          Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
+          Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}}),
           Text(
             extent={{-144,124},{-106,102}},
             lineColor={0,0,0},
@@ -1471,13 +1425,10 @@ for this situation:
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
-          Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}},
-              color={0,0,0}),
-          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}, color=
-               {0,0,0}),
+          Line(points={{-56,0},{-56,23},{-30,23},{-30,70},{-60,70},{-60,101}}),
+          Line(points={{55,-1},{55,20},{30,20},{30,70},{60,70},{60,100}}),
           Line(
             points={{-56,0},{55,-1}},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{-8,8},{8,-8}},
@@ -1542,13 +1493,10 @@ for this situation:
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
-          Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,100}},
-              color={0,0,0}),
-          Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,100}}, color=
-                {0,0,0}),
+          Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,100}}),
+          Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,100}}),
           Line(
             points={{-60,0},{60,0}},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{-8,8},{8,-8}},
@@ -1905,13 +1853,10 @@ for this situation:
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
-          Line(points={{-60,0},{-60,23},{-30,23},{-30,70},{-60,70},{-60,101}},
-              color={0,0,0}),
-          Line(points={{60,0},{60,20},{30,20},{30,70},{60,70},{60,100}}, color=
-                {0,0,0}),
+          Line(points={{-60,0},{-60,23},{-30,23},{-30,70},{-60,70},{-60,101}}),
+          Line(points={{60,0},{60,20},{30,20},{30,70},{60,70},{60,100}}),
           Line(
             points={{-23,0},{25,0}},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{23,8},{39,-8}},
@@ -1923,8 +1868,8 @@ for this situation:
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{-60,0},{-29,0}}, color={0,0,0}),
-          Line(points={{29,0},{60,0}}, color={0,0,0}),
+          Line(points={{-60,0},{-29,0}}),
+          Line(points={{29,0},{60,0}}),
           Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
           Text(visible=fixedRotationAtFrame_a,
             extent={{-62,50},{-140,30}},
@@ -1983,13 +1928,10 @@ for this situation:
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={192,192,192}),
-          Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,110}},
-              color={0,0,0}),
-          Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,110}}, color=
-                {0,0,0}),
+          Line(points={{-60,0},{-60,24},{-40,24},{-40,60},{-60,60},{-60,110}}),
+          Line(points={{60,1},{60,21},{40,21},{40,60},{60,60},{60,110}}),
           Line(
             points={{-60,0},{60,0}},
-            color={0,0,0},
             pattern=LinePattern.Dot),
           Ellipse(
             extent={{20,8},{36,-8}},
@@ -2137,10 +2079,10 @@ in the other flange connector.
       massColor=massColor,
       fixedRotationAtFrame_a=fixedRotationAtFrame_a,
       fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,
-              -20},{20,20}}, rotation=0)));
+              -20},{20,20}})));
     Modelica.Mechanics.Translational.Components.Spring spring(
                                                    s_rel0=s_unstretched, c=c)
-      annotation (Placement(transformation(extent={{-8,40},{12,60}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-8,40},{12,60}})));
 
   equation
     connect(lineForce.frame_a, frame_a)
@@ -2164,7 +2106,6 @@ in the other flange connector.
           Line(
             points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},
                 {100,0}},
-            color={0,0,0},
             pattern=LinePattern.Solid,
             thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
@@ -2308,16 +2249,16 @@ where a mass is hanging on a damper.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-101,0},{-60,0}}, color={0,0,0}),
-          Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
-          Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
-          Line(points={{-60,30},{60,30}}, color={0,0,0}),
+          Line(points={{-101,0},{-60,0}}),
+          Line(points={{-60,-30},{-60,30}}),
+          Line(points={{-60,-30},{60,-30}}),
+          Line(points={{-60,30},{60,30}}),
           Rectangle(
             extent={{-60,30},{30,-30}},
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{30,0},{100,0}}, color={0,0,0}),
+          Line(points={{30,0},{100,0}}),
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
@@ -2329,21 +2270,20 @@ where a mass is hanging on a damper.
           Line(visible=useHeatPort,
             points={{-100,-99},{-100,-25},{-10,-25}},
             color={191,0,0},
-            pattern=LinePattern.Dot,
-            smooth=Smooth.None)}),
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-60,0}}, color={0,0,0}),
-          Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
-          Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
-          Line(points={{-60,30},{60,30}}, color={0,0,0}),
+          Line(points={{-100,0},{-60,0}}),
+          Line(points={{-60,-30},{-60,30}}),
+          Line(points={{-60,-30},{60,-30}}),
+          Line(points={{-60,30},{60,30}}),
           Rectangle(
             extent={{-60,30},{30,-30}},
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{30,0},{100,0}}, color={0,0,0}),
+          Line(points={{30,0},{100,0}}),
           Line(points={{-50,60},{50,60}}, color={128,128,128}),
           Text(
             extent={{-40,64},{23,77}},
@@ -2422,20 +2362,20 @@ and der(s) is the time derivative of s.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{60,
-                40},{80,40}}, color={0,0,0}),
-          Line(points={{-80,40},{-80,-70}}, color={0,0,0}),
-          Line(points={{-80,-70},{-52,-70}}, color={0,0,0}),
+                40},{80,40}}),
+          Line(points={{-80,40},{-80,-70}}),
+          Line(points={{-80,-70},{-52,-70}}),
           Rectangle(
             extent={{-52,-40},{38,-100}},
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-52,-40},{68,-40}}, color={0,0,0}),
-          Line(points={{-52,-100},{68,-100}}, color={0,0,0}),
-          Line(points={{38,-70},{80,-70}}, color={0,0,0}),
-          Line(points={{80,40},{80,-70}}, color={0,0,0}),
-          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-          Line(points={{80,0},{100,0}}, color={0,0,0}),
+          Line(points={{-52,-40},{68,-40}}),
+          Line(points={{-52,-100},{68,-100}}),
+          Line(points={{38,-70},{80,-70}}),
+          Line(points={{80,40},{80,-70}}),
+          Line(points={{-100,0},{-80,0}}),
+          Line(points={{80,0},{100,0}}),
           Text(
             extent={{-150,70},{150,100}},
             lineColor={0,0,0},
@@ -2443,8 +2383,7 @@ and der(s) is the time derivative of s.
           Line(visible=useHeatPort,
             points={{-100,-101},{-100,-80},{-6,-80}},
             color={191,0,0},
-            pattern=LinePattern.Dot,
-            smooth=Smooth.None),
+            pattern=LinePattern.Dot),
           Text(
             extent={{-150,105},{150,135}},
             lineColor={0,0,0},
@@ -2455,7 +2394,6 @@ and der(s) is the time derivative of s.
           Line(
             points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},{
                 80,32}},
-            color={0,0,0},
             thickness=0.5),
           Line(points={{-68,32},{-68,97}}, color={128,128,128}),
           Line(points={{72,32},{72,97}}, color={128,128,128}),
@@ -2474,14 +2412,14 @@ and der(s) is the time derivative of s.
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-52,-80},{68,-80}}, color={0,0,0}),
-          Line(points={{-52,-20},{68,-20}}, color={0,0,0}),
-          Line(points={{38,-50},{80,-50}}, color={0,0,0}),
-          Line(points={{-80,-50},{-52,-50}}, color={0,0,0}),
-          Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
-          Line(points={{80,32},{80,-50}}, color={0,0,0}),
-          Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-          Line(points={{100,0},{80,0}}, color={0,0,0})}));
+          Line(points={{-52,-80},{68,-80}}),
+          Line(points={{-52,-20},{68,-20}}),
+          Line(points={{38,-50},{80,-50}}),
+          Line(points={{-80,-50},{-52,-50}}),
+          Line(points={{-80,32},{-80,-50}}),
+          Line(points={{80,32},{80,-50}}),
+          Line(points={{-100,0},{-80,0}}),
+          Line(points={{100,0},{80,0}})}));
   end SpringDamperParallel;
 
   model SpringDamperSeries
@@ -2531,16 +2469,16 @@ force element) and der(s_damper) is the time derivative of s_damper.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-15,0}}, color={0,0,0}),
-          Line(points={{-60,-30},{-15,-30}}, color={0,0,0}),
-          Line(points={{-60,30},{-15,30}}, color={0,0,0}),
+          Line(points={{-100,0},{-15,0}}),
+          Line(points={{-60,-30},{-15,-30}}),
+          Line(points={{-60,30},{-15,30}}),
           Rectangle(
             extent={{-60,30},{-30,-30}},
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
-                100,0}}, color={0,0,0}),
+                100,0}}),
           Text(
             extent={{-150,50},{150,90}},
             textString="%name",
@@ -2552,7 +2490,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
           Line(visible=useHeatPort,
             points={{-100,-99},{-100,-24},{-45,-24}},
             color={191,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,-100},{150,-70}},
@@ -2561,16 +2498,16 @@ force element) and der(s_damper) is the time derivative of s_damper.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-100,0},{-15,0}}, color={0,0,0}),
-          Line(points={{-60,-30},{-15,-30}}, color={0,0,0}),
-          Line(points={{-60,30},{-15,30}}, color={0,0,0}),
+          Line(points={{-100,0},{-15,0}}),
+          Line(points={{-60,-30},{-15,-30}}),
+          Line(points={{-60,30},{-15,30}}),
           Rectangle(
             extent={{-60,30},{-30,-30}},
             lineColor={0,0,0},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-15,0},{-5,0},{5,-30},{25,30},{45,-30},{65,30},{75,0},{
-                99,0}}, color={0,0,0}),
+                99,0}}),
           Line(points={{-75,0},{-75,85}}, color={160,160,164}),
           Line(points={{-10,0},{-10,65}}, color={160,160,164}),
           Line(points={{80,0},{80,85}}, color={160,160,164}),
@@ -2686,8 +2623,8 @@ force element) and der(s_damper) is the time derivative of s_damper.
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
-            Line(points={{-64,0},{-20,0}}, color={0,0,0}),
-            Line(points={{20,0},{65,0}}, color={0,0,0})}),
+            Line(points={{-64,0},{-20,0}}),
+            Line(points={{20,0},{65,0}})}),
         Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
@@ -2816,10 +2753,8 @@ values from the outside in order that the model remains balanced
               points={{-60,100},{40,100}},
               color={95,95,95},
               pattern=LinePattern.Dot),
-            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}},
-                color={0,0,0}),
-            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}},
-                color={0,0,0})}),
+            Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
+            Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}})}),
         Documentation(info="<HTML>
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
@@ -2871,8 +2806,7 @@ values from the outside in order that the model remains balanced
 
       Modelica.Blocks.Interfaces.RealInput force[3](each final quantity="Force", each final unit="N")
         "x-, y-, z-coordinates of force resolved in frame defined by resolveInFrame"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB
         resolveInFrame=
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
@@ -2974,8 +2908,7 @@ values from the outside in order that the model remains balanced
 
       Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit="N.m")
         "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
       parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB
         resolveInFrame=
         Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
@@ -3008,7 +2941,6 @@ values from the outside in order that the model remains balanced
               points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
                   81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{
                   58,40}},
-              color={0,0,0},
               thickness=0.5),
             Polygon(
               points={{97,6},{75,59},{41,24},{97,6}},
@@ -3033,7 +2965,6 @@ values from the outside in order that the model remains balanced
               points={{-100,0},{-94,13},{-86,28},{-74,48},{-65,60},{-52,72},{-35,
                   81},{-22,84},{-8,84},{7,80},{19,73},{32,65},{44,55},{52,47},{
                   58,40}},
-              color={0,0,0},
               thickness=0.5),
             Polygon(
               points={{94,10},{75,59},{41,24},{94,10}},

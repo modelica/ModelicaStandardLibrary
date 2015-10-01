@@ -33,14 +33,13 @@ encapsulated model NandGate "CMOS NAND Gate (see Tietze/Schenk, page 157)"
         origin={50,70},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}},
-          rotation=0)));
+  Basic.Ground Gnd1 annotation (Placement(transformation(extent={{45,43},{55,53}})));
   Basic.Ground Gnd4 annotation (Placement(transformation(extent={{-75,-5},{-65,
-            5}}, rotation=0)));
+            5}})));
   Basic.Ground Gnd5 annotation (Placement(transformation(extent={{-75,-55},{-65,
-            -45}}, rotation=0)));
+            -45}})));
   Utilities.Nand Nand(C4(v(start=0, fixed=true)),C7(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-40,-45},{
-            40,55}}, rotation=0)));
+            40,55}})));
 equation
   connect(VDD.n, Gnd1.p) annotation (Line(points={{50,60},{50,53}}, color={0,0,255}));
   connect(VIN1.n, Gnd4.p) annotation (Line(points={{-70,10},{-70,5}}, color={0,0,255}));

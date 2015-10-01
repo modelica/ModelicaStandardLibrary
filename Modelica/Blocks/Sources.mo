@@ -9,7 +9,7 @@ package Sources
 
     Modelica.Blocks.Interfaces.RealOutput y=0.0 "Value of Real output"
       annotation (Dialog(group="Time varying output signal"), Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
 
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -48,7 +48,7 @@ Variable <b>y</b> is both a variable and a connector.
 
     Modelica.Blocks.Interfaces.IntegerOutput y=0 "Value of Integer output"
       annotation (Dialog(group="Time varying output signal"), Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
 
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -87,7 +87,7 @@ Variable <b>y</b> is both a variable and a connector.
 
     Modelica.Blocks.Interfaces.BooleanOutput y=false "Value of Boolean output"
       annotation (Dialog(group="Time varying output signal"), Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
 
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
@@ -156,11 +156,9 @@ Variable <b>y</b> is both a variable and a connector.
           Line(points={{-38,70},{-28,51}}, color={160,160,164}),
           Line(
             points={{0,0},{-50,50}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{0,0},{40,0}},
-            color={0,0,0},
             thickness=0.5),
           Text(
             extent={{-150,-150},{150,-110}},
@@ -258,7 +256,7 @@ The Real output y is a clock signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,0},{80,0}}, color={0,0,0}),
+          Line(points={{-80,0},{80,0}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -328,7 +326,7 @@ The Real output y is a constant signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}),
+          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -441,12 +439,12 @@ The Real output y is a step signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-40,-70},{31,38}}, color={0,0,0}),
+          Line(points={{-80,-70},{-40,-70},{31,38}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
             textString="duration=%duration"),
-          Line(points={{31,38},{86,38}}, color={0,0,0})}),
+          Line(points={{31,38},{86,38}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -589,7 +587,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
                 74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
                 59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,
                 -64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},
-                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={0,0,0}, smooth = Smooth.Bezier),
+                {57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, smooth = Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
             lineColor={0,0,0},
@@ -700,13 +698,13 @@ The Real output y is a sine signal:
           Line(points={{-80,80},{-76.2,79.8},{-70.6,76.6},{-64.9,69.7},{-59.3,
                 59.4},{-52.9,44.1},{-44.83,21.2},{-27.9,-30.8},{-20.7,-50.2},{-14.3,
                 -64.2},{-8.7,-73.1},{-3,-78.4},{2.6,-80},{8.2,-77.6},{13.9,-71.5},
-                {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, color={0,0,0}, smooth=Smooth.Bezier),
+                {19.5,-61.9},{25.9,-47.2},{34,-24.8},{42,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
             lineColor={0,0,0},
             textString="freqHz=%freqHz"),
           Line(points={{42,1},{53.3,35.2},{60.5,54.1},{66.9,67.4},{72.6,75.6},{
-                78.2,80.1},{83.8,80.8}}, color={0,0,0})}),
+                78.2,80.1},{83.8,80.8}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,-90},{-80,84}}, color={95,95,
@@ -810,7 +808,7 @@ The Real output y is a cosine signal:
                 {-18.1,-55.3},{-14.1,-52.5},{-10.1,-45.3},{-5.23,-32.1},{8.44,
                 13.7},{13.3,26.4},{18.1,34.8},{22.1,38},{26.9,37.2},{31.8,31.8},
                 {38.2,19.4},{51.1,-10.5},{57.5,-21.2},{63.1,-25.9},{68.7,-25.9},
-                {75.2,-20.5},{80,-13.8}}, color={0,0,0}, smooth = Smooth.Bezier),
+                {75.2,-20.5},{80,-13.8}}, smooth = Smooth.Bezier),
           Text(
             extent={{-147,-152},{153,-112}},
             lineColor={0,0,0},
@@ -1085,7 +1083,7 @@ by a falling exponential signal:
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-80,-70},{-40,-70},{-40,44},{0,44},{0,-70},{40,-70},{40,
-                44},{79,44}}, color={0,0,0}),
+                44},{79,44}}),
           Text(
             extent={{-147,-152},{153,-112}},
             lineColor={0,0,0},
@@ -1241,8 +1239,7 @@ The Real output y is a pulse signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-60,-70},{0,40},{0,-70},{60,41},{60,-70}},
-              color={0,0,0}),
+          Line(points={{-80,-70},{-60,-70},{0,40},{0,-70},{60,41},{60,-70}}),
           Text(
             extent={{-147,-152},{153,-112}},
             lineColor={0,0,0},
@@ -1397,7 +1394,7 @@ The Real output y is a saw tooth signal:
             lineColor={0,0,0},
             textString="period=%period"),
           Line(points={{-81,-70},{-60,-70},{-30,40},{9,40},{39,-70},{61,-70},{
-                90,40}}, color={0,0,0})}),
+                90,40}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -1634,7 +1631,6 @@ The Real output y is a trapezoid signal:
           Line(
             points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
                 60,-70},{60,0},{68,0}},
-            color={0,0,0},
             thickness=0.25),
           Text(
             extent={{2,80},{80,20}},
@@ -1745,17 +1741,16 @@ a flange according to a given acceleration.
 
     Modelica.Blocks.Interfaces.RealOutput q[nout]
       "Reference position of path planning" annotation (Placement(
-          transformation(extent={{100,70},{120,90}}, rotation=0)));
+          transformation(extent={{100,70},{120,90}})));
     Modelica.Blocks.Interfaces.RealOutput qd[nout]
       "Reference speed of path planning" annotation (Placement(transformation(
-            extent={{100,20},{120,40}}, rotation=0)));
+            extent={{100,20},{120,40}})));
     Modelica.Blocks.Interfaces.RealOutput qdd[nout]
       "Reference acceleration of path planning" annotation (Placement(
-          transformation(extent={{100,-40},{120,-20}}, rotation=0)));
+          transformation(extent={{100,-40},{120,-20}})));
     Modelica.Blocks.Interfaces.BooleanOutput moving[nout]
       "= true, if end position not yet reached; = false, if end position reached or axis is completely at rest"
-      annotation (Placement(transformation(extent={{100,-90},{120,-70}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-90},{120,-70}})));
 
   protected
     parameter Real p_q_begin[nout]=(if size(q_begin, 1) == 1 then ones(nout)*
@@ -1889,7 +1884,6 @@ a flange according to a given acceleration.
           Line(
             points={{-80,0},{-70,0},{-70,70},{-50,70},{-50,0},{-15,0},{-15,-70},
                 {5,-70},{5,0},{18,0}},
-            color={0,0,0},
             thickness=0.25),
           Text(
             extent={{34,96},{94,66}},
@@ -2108,8 +2102,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-48,-50},{-48,70},{52,70},{52,-50},{-48,-50},{-48,-20},
-                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}},
-              color={0,0,0}),
+                {52,-20},{52,10},{-48,10},{-48,40},{52,40},{52,70},{2,70},{2,-51}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -2135,8 +2128,7 @@ a flange according to a given acceleration.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}},
-              color={0,0,0}),
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{30,90},{30,-31}}),
           Text(
             extent={{-70,-42},{-32,-54}},
             lineColor={0,0,0},
@@ -2626,32 +2618,25 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
-      Polygon(visible=true,
-        lineColor={192,192,192},
+      Polygon(lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid,
         points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
-      Line(visible=true,
-        points={{-80.0,68.0},{-80.0,-80.0}},
+      Line(points={{-80.0,68.0},{-80.0,-80.0}},
         color={192,192,192}),
-      Line(visible=true,
-        points={{-90.0,-70.0},{82.0,-70.0}},
+      Line(points={{-90.0,-70.0},{82.0,-70.0}},
         color={192,192,192}),
-      Polygon(visible=true,
-        lineColor={192,192,192},
+      Polygon(lineColor={192,192,192},
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid,
         points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
-      Rectangle(visible=true,
-        lineColor={255,255,255},
+      Rectangle(lineColor={255,255,255},
         fillColor={255,215,136},
         fillPattern=FillPattern.Solid,
         extent={{-48.0,-50.0},{2.0,70.0}}),
-      Line(visible=true,
-        points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}})}),
+      Line(points={{-48.0,-50.0},{-48.0,70.0},{52.0,70.0},{52.0,-50.0},{-48.0,-50.0},{-48.0,-20.0},{52.0,-20.0},{52.0,10.0},{-48.0,10.0},{-48.0,40.0},{52.0,40.0},{52.0,70.0},{2.0,70.0},{2.0,-51.0}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Polygon(
@@ -2672,8 +2657,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-20,-30},{-20,90},{80,90},{80,-30},{-20,-30},{-20,0},{
-                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}},
-              color={0,0,0}),
+                80,0},{80,30},{-20,30},{-20,60},{80,60},{80,90},{20,90},{20,-30}}),
           Text(
             extent={{-71,-42},{-32,-54}},
             lineColor={0,0,0},
@@ -2711,7 +2695,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             extent={{21,82},{50,68}},
             lineColor={0,0,0},
             textString="y[1]"),
-          Line(points={{50,90},{50,-30}}, color={0,0,0}),
+          Line(points={{50,90},{50,-30}}),
           Line(points={{80,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{34,-30},{71,-42}},
@@ -2732,7 +2716,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-80,0},{80,0}}),
             Text(
             extent={{-150,-140},{150,-110}},
             lineColor={0,0,0},
@@ -2780,12 +2764,10 @@ The Boolean output y is a constant signal:
               100}}), graphics={
           Line(
             visible=not startValue,
-            points={{-80,-70},{0,-70},{0,50},{80,50}},
-            color={0,0,0}),
+            points={{-80,-70},{0,-70},{0,50},{80,50}}),
           Line(
             visible=startValue,
-            points={{-80,50},{0,50},{0,-70},{68,-70}},
-            color={0,0,0}),
+            points={{-80,50},{0,50},{0,-70},{68,-70}}),
           Text(
             extent={{-150,-140},{150,-110}},
             lineColor={0,0,0},
@@ -2849,7 +2831,7 @@ The Boolean output y is a step signal:
             extent={{-150,-140},{150,-110}},
             lineColor={0,0,0},
             textString="%period"), Line(points={{-80,-70},{-40,-70},{-40,44},{0,
-                44},{0,-70},{40,-70},{40,44},{79,44}}, color={0,0,0})}),
+                44},{0,-70},{40,-70},{40,44},{79,44}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -2929,10 +2911,10 @@ The Boolean output y is a pulse signal:
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-60,-70},{-60,70}}, color={0,0,0}),
-          Line(points={{-20,-70},{-20,70}}, color={0,0,0}),
-          Line(points={{20,-70},{20,70}}, color={0,0,0}),
-          Line(points={{60,-70},{60,70}}, color={0,0,0}),
+          Line(points={{-60,-70},{-60,70}}),
+          Line(points={{-20,-70},{-20,70}}),
+          Line(points={{20,-70},{20,70}}),
+          Line(points={{60,-70},{60,70}}),
           Text(
             extent={{-150,-140},{150,-110}},
             lineColor={0,0,0},
@@ -3086,7 +3068,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid), Line(points={{-18,-50},{-18,70},{32,
                 70},{32,-50},{-18,-50},{-18,-20},{32,-20},{32,10},{-18,10},{-18,
-                40},{32,40},{32,70},{32,70},{32,-51}}, color={0,0,0})}),
+                40},{32,40},{32,70},{32,70},{32,-51}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),graphics={Rectangle(
               extent={{-34,66},{16,-54}},
@@ -3094,7 +3076,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-34,-54},{-34,66},{
             16,66},{16,-54},{-34,-54},{-34,-24},{16,-24},{16,6},{-34,6},{-34,36},
-            {16,36},{16,66},{16,66},{16,-55}}, color={0,0,0}),Text(
+            {16,36},{16,66},{16,66},{16,-55}}),Text(
               extent={{-29,59},{10,44}},
               lineColor={0,0,0},
               textString="time")}),
@@ -3142,8 +3124,7 @@ time instant ti);
       annotation (Dialog(group="Time varying expressions"));
 
     Modelica.Blocks.Interfaces.BooleanOutput on(start=false,fixed=true)
-      annotation (Placement(transformation(extent={{100,-15},{130,15}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-15},{130,15}})));
   protected
     Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
     parameter Integer nReset=size(reset, 1);
@@ -3229,7 +3210,7 @@ This example is also available in
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,0},{80,0}}, color={0,0,0}),
+          Line(points={{-80,0},{80,0}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -3290,7 +3271,7 @@ The Integer output y is a constant signal:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}, color={0,0,0}),
+          Line(points={{-80,-70},{0,-70},{0,50},{80,50}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -3459,8 +3440,7 @@ The Integer output y is a step signal:
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-46,-52},{-46,68},{54,68},{54,-52},{-46,-52},{-46,-22},
-                {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-53}},
-              color={0,0,0})}),
+                {54,-22},{54,8},{-46,8},{-46,38},{54,38},{54,68},{4,68},{4,-53}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),graphics={Rectangle(
               extent={{-40,60},{10,-60}},
@@ -3468,7 +3448,7 @@ The Integer output y is a step signal:
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-40,-60},{-40,60},{
             60,60},{60,-60},{-40,-60},{-40,-30},{60,-30},{60,0},{-40,0},{-40,30},
-            {60,30},{60,60},{10,60},{10,-61}}, color={0,0,0}),Text(
+            {60,30},{60,60},{10,60},{10,-61}}),Text(
               extent={{-35,53},{4,38}},
               lineColor={0,0,0},
               textString="time"),Text(

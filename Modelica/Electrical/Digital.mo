@@ -164,33 +164,33 @@ the library and has the following content:
           extends Modelica.Icons.Example;
 
           D.Sources.Clock CLK(period=20, startTime=0, width=50)  annotation (Placement(transformation(
-                  extent={{-80,-56},{-60,-36}}, rotation=0)));
+                  extent={{-80,-56},{-60,-36}})));
           D.Sources.Table D0(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,58},
-                {-60,78}},         rotation=0)));
+                {-60,78}})));
           D.Sources.Table D1(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,32},
-                {-60,52}},         rotation=0)));
+                {-60,52}})));
           D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent={{-10,0},
-                {70,80}},             rotation=0)));
+                {70,80}})));
           D.Sources.Table D2(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,6},
-                {-60,26}},     rotation=0)));
+                {-60,26}})));
           D.Sources.Table D3(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,-20},
-                {-60,0}},          rotation=0)));
+                {-60,0}})));
           D.Examples.Utilities.JKFF FF annotation (Placement(transformation(extent={{-20,-62},
-                {0,-42}},                rotation=0)));
+                {0,-42}})));
           D.Sources.Set Enable(x=Modelica.Electrical.Digital.Interfaces.Logic.'1') annotation (Placement(transformation(extent={{-80,-82},
-                {-60,-62}},          rotation=0)));
+                {-60,-62}})));
         equation
           connect(CLK.y, FF.clk) annotation (Line(
               points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}},
@@ -232,19 +232,19 @@ the library and has the following content:
 
           D.Examples.Utilities.JKFF FF
                          annotation (Placement(transformation(extent={{-10,-40},{70,
-                    40}}, rotation=0)));
+                    40}})));
           D.Sources.Clock CLK(period=10, startTime=0, width=50)  annotation (Placement(transformation(
-                  extent={{-80,-10},{-60,10}}, rotation=0)));
+                  extent={{-80,-10},{-60,10}})));
           D.Sources.Table J(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,
-                    18},{-60,38}}, rotation=0)));
+                    18},{-60,38}})));
           D.Sources.Table K(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
-                    -38},{-60,-18}}, rotation=0)));
+                    -38},{-60,-18}})));
         equation
           connect(J.y, FF.j)     annotation (Line(
               points={{-60,28},{-10,28}},
@@ -270,18 +270,16 @@ the library and has the following content:
           Modelica.Electrical.Digital.Sources.Table a(
             t={1,2,3,4},
             x={L.'1',L.'0',L.'1',L.'0'},
-            y0=L.'0')   annotation (Placement(transformation(extent={{-80,18},{-60,38}},
-                  rotation=0)));
+            y0=L.'0')   annotation (Placement(transformation(extent={{-80,18},{-60,38}})));
           Modelica.Electrical.Digital.Sources.Table b(
             x={L.'1',L.'0'},
             t={2,4},
-            y0=L.'0')   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
-                  rotation=0)));
+            y0=L.'0')   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}})));
           Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3, AND(G2(
                                                                                         y(       start=L.'U', fixed=true))),
         XOR(G2(                                                                                                    y(       start=L.'U', fixed=true))))
                                 annotation (Placement(transformation(extent={{-40,
-                    -40},{40,40}}, rotation=0)));
+                    -40},{40,40}})));
           Modelica.Electrical.Digital.Converters.LogicToReal s(
         n=1,
         value_U=0.5,
@@ -293,7 +291,7 @@ the library and has the following content:
         value_L=0,
         value_H=1,
         value_m=0.5)               annotation (Placement(transformation(extent={{60,
-                    18},{80,38}}, rotation=0)));
+                    18},{80,38}})));
           Modelica.Electrical.Digital.Converters.LogicToReal c(
         n=1,
         value_U=0.5,
@@ -305,7 +303,7 @@ the library and has the following content:
         value_L=0,
         value_H=1,
         value_m=0.5)               annotation (Placement(transformation(extent={{60,
-                    -38},{80,-18}}, rotation=0)));
+                    -38},{80,-18}})));
         equation
           connect(b.y,Adder. b) annotation (Line(
               points={{-60,-28},{-40,-28}},
@@ -364,20 +362,19 @@ The simulation stop time should be 5 seconds.
           extends Modelica.Icons.Example;
 
           D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
-                transformation(extent={{0,-30},{60,30}}, rotation=0)));
+                transformation(extent={{0,-30},{60,30}})));
           D.Converters.LogicToReal s(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1)
                                    annotation (Placement(transformation(extent={{70,
-                    12},{90,32}}, rotation=0)));
+                    12},{90,32}})));
           D.Converters.LogicToReal c_out(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1)
                                        annotation (Placement(transformation(extent=
-                    {{70,-32},{90,-12}}, rotation=0)));
+                    {{70,-32},{90,-12}})));
           D.Examples.Utilities.Counter3 Counter
-            annotation (Placement(transformation(extent={{-60,-18},{-20,22}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-18},{-20,22}})));
           D.Sources.Set Enable(x=L.'1')       annotation (Placement(transformation(
-                  extent={{-90,6},{-70,26}}, rotation=0)));
+                  extent={{-90,6},{-70,26}})));
           D.Sources.Clock CLK(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={{
-                    -90,-22},{-70,-2}}, rotation=0)));
+                    -90,-22},{-70,-2}})));
         equation
           connect(Adder1.s, s.x[1])
                                    annotation (Line(points={{60.3,21},{68,21},{68,
@@ -434,43 +431,37 @@ The simulation stop time should be 10 seconds.
           Modelica.Electrical.Digital.Sources.Table b4(
             y0=L.'0',
             x={L.'1',L.'0'},
-            t={1,3}) annotation (Placement(transformation(extent={{70,-20},{110,20}},
-                  rotation=0)));
+            t={1,3}) annotation (Placement(transformation(extent={{70,-20},{110,20}})));
           Modelica.Electrical.Digital.Sources.Table b1(
             x={L.'1',L.'0',L.'1'},
             y0=L.'0',
             t={1,2,3}) annotation (Placement(transformation(extent={{-170,-20},{
-                    -130,20}}, rotation=0)));
+                    -130,20}})));
           Modelica.Electrical.Digital.Sources.Table b2(
             y0=L.'0',
             x={L.'1'},
-            t={4}) annotation (Placement(transformation(extent={{-90,-20},{-50,20}},
-                  rotation=0)));
+            t={4}) annotation (Placement(transformation(extent={{-90,-20},{-50,20}})));
           Modelica.Electrical.Digital.Sources.Table b3(
             y0=L.'0',
             x={L.'1'},
-            t={1}) annotation (Placement(transformation(extent={{-10,-20},{30,20}},
-                  rotation=0)));
+            t={1}) annotation (Placement(transformation(extent={{-10,-20},{30,20}})));
           Modelica.Electrical.Digital.Sources.Table a1(
             y0=L.'0',
             x={L.'1',L.'0',L.'1'},
             t={1,2,3}) annotation (Placement(transformation(extent={{-170,40},{-130,
-                    80}}, rotation=0)));
+                    80}})));
           Modelica.Electrical.Digital.Sources.Table a2(
             y0=L.'0',
             x={L.'1'},
-            t={1}) annotation (Placement(transformation(extent={{-90,40},{-50,80}},
-                  rotation=0)));
+            t={1}) annotation (Placement(transformation(extent={{-90,40},{-50,80}})));
           Modelica.Electrical.Digital.Sources.Table a3(
             y0=L.'0',
             x={L.'1',L.'0'},
-            t={1,4}) annotation (Placement(transformation(extent={{-8,40},{30,80}},
-                  rotation=0)));
+            t={1,4}) annotation (Placement(transformation(extent={{-8,40},{30,80}})));
           Modelica.Electrical.Digital.Sources.Table a4(
             y0=L.'0',
             x={L.'0'},
-            t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
-                  rotation=0)));
+            t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}})));
           Modelica.Electrical.Digital.Sources.Set Set(x=L.'0')
             annotation (Placement(transformation(
                 origin={-150,-74},
@@ -480,22 +471,22 @@ The simulation stop time should be 10 seconds.
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                        annotation (Placement(transformation(extent=
-                    {{-100,-80},{-60,-40}}, rotation=0)));
+                    {{-100,-80},{-60,-40}})));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder2(Adder1(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                       annotation (Placement(transformation(extent={
-                    {-20,-80},{20,-40}}, rotation=0)));
+                    {-20,-80},{20,-40}})));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder3(Adder1(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                       annotation (Placement(transformation(extent={
-                    {60,-80},{100,-40}}, rotation=0)));
+                    {60,-80},{100,-40}})));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder4(Adder1(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
                                                                           y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                       annotation (Placement(transformation(extent={
-                    {140,-80},{180,-40}}, rotation=0)));
+                    {140,-80},{180,-40}})));
         equation
           connect(b1.y, Adder1.b)  annotation (Line(
               points={{-130,0},{-120,0},{-120,-54},{-100,-54}},
@@ -578,12 +569,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           extends Modelica.Icons.Example;
 
           D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1)       annotation (Placement(transformation(extent={
-                    {-90,8},{-50,48}}, rotation=0)));
+                    {-90,8},{-50,48}})));
           D.Sources.Clock Clock(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={
-                    {-90,-48},{-50,-8}}, rotation=0)));
+                    {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter3 Counter
-            annotation (Placement(transformation(extent={{-30,-40},{50,40}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
               points={{-50,28},{-30,28}},
@@ -604,20 +594,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           extends Modelica.Icons.Example;
 
           D.Sources.Step Enable(after=D.Interfaces.Logic.'1', before=D.Interfaces.Logic.'0', stepTime=1)       annotation (Placement(transformation(extent={
-                    {-90,8},{-50,48}}, rotation=0)));
+                    {-90,8},{-50,48}})));
           D.Sources.Clock Clock(period=1, startTime=0, width=50)       annotation (Placement(transformation(extent={
-                    {-90,-48},{-50,-8}}, rotation=0)));
+                    {-90,-48},{-50,-8}})));
           D.Examples.Utilities.Counter Counter(n=4)
-            annotation (Placement(transformation(extent={{-30,-40},{50,40}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-30,-40},{50,40}})));
           D.Converters.LogicToReal Q0(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
-                    {66,-40},{86,-20}}, rotation=0)));
+                    {66,-40},{86,-20}})));
           D.Converters.LogicToReal Q1(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
-                    {66,-20},{86,0}}, rotation=0)));
+                    {66,-20},{86,0}})));
           D.Converters.LogicToReal Q2(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
-                    {66,0},{86,20}}, rotation=0)));
+                    {66,0},{86,20}})));
           D.Converters.LogicToReal Q3(value_0=0, value_1=1, value_H=1, value_L=0, value_m=0.5, value_U=0.5, value_W=0.5, value_X=0.5, value_Z=0.5, n=1) annotation (Placement(transformation(extent={
-                    {66,20},{86,40}}, rotation=0)));
+                    {66,20},{86,40}})));
         equation
           connect(Enable.y, Counter.enable) annotation (Line(
               points={{-50,28},{-30,28}},
@@ -660,16 +649,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(table.y, delay.x[1]) annotation (Line(
               points={{-76,50},{-30.68,50},{-30.68,6.13667}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(table1.y, delay.x[2]) annotation (Line(
               points={{-76,10},{-30.68,10},{-30.68,9.81}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(table2.y, delay.x[3]) annotation (Line(
               points={{-76,-40},{-30.68,-40},{-30.68,13.4833}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (        Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
 </html>"),
@@ -699,20 +685,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(clock.y, dFFREG.clock) annotation (Line(
               points={{-66,-22},{-46,-22},{-46,11.6},{-20.24,11.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(reset.y, dFFREG.reset) annotation (Line(
               points={{-66,-60},{-20.24,-60},{-20.24,-7.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dFFREG.dataIn[1]) annotation (Line(
               points={{-66,18},{-44,18},{-44,37.92},{-20.24,37.92}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dFFREG.dataIn[2]) annotation (Line(
               points={{-66,50},{-44,50},{-44,41.68},{-20.24,41.68}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREG component.</p>
@@ -741,20 +723,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(reset.y, dFFREGL.reset) annotation (Line(
               points={{-66,-60},{-36.88,-60},{-36.88,-18.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(clock.y, dFFREGL.clock) annotation (Line(
               points={{-66,-20},{-62,-20},{-62,2.6},{-36.88,2.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dFFREGL.dataIn[1]) annotation (Line(
               points={{-68,20},{-52,20},{-52,31.72},{-36.88,31.72}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dFFREGL.dataIn[2]) annotation (Line(
               points={{-66,50},{-52,50},{-52,35.88},{-36.88,35.88}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGL component.</p>
@@ -785,24 +763,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(clock.y, dFFREGSRH.clock) annotation (Line(
               points={{-66,-22},{-50,-22},{-50,6.2},{-29.72,6.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(set.y, dFFREGSRH.set) annotation (Line(
               points={{-66,84},{-48,84},{-48,60.2},{-29.72,60.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(reset.y, dFFREGSRH.reset) annotation (Line(
               points={{-66,-60},{-29.72,-60},{-29.72,-15.4}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dFFREGSRH.dataIn[1]) annotation (Line(
               points={{-66,18},{-48,18},{-48,36.44},{-29.72,36.44}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dFFREGSRH.dataIn[2]) annotation (Line(
               points={{-66,50},{-48,50},{-48,40.76},{-29.72,40.76}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRH component.</p>
@@ -831,24 +804,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(reset.y, dFFREGSRL.reset) annotation (Line(
               points={{-66,-60},{-39.96,-60},{-39.96,-28.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(clock.y, dFFREGSRL.clock) annotation (Line(
               points={{-66,-22},{-56,-22},{-56,-3.6},{-39.96,-3.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(set.y, dFFREGSRL.set) annotation (Line(
               points={{-66,84},{-39.96,84},{-39.96,59.4}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dFFREGSRL.dataIn[1]) annotation (Line(
               points={{-66,18},{-56,18},{-56,31.68},{-39.96,31.68}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dFFREGSRL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,36.72},{-39.96,36.72}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRL component.</p>
@@ -876,20 +844,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(reset.y, dLATREG.reset) annotation (Line(
               points={{-66,-60},{-39.84,-60},{-39.84,-24.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(enable.y, dLATREG.enable) annotation (Line(
               points={{-66,-22},{-56,-22},{-56,1.6},{-39.84,1.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dLATREG.dataIn[1]) annotation (Line(
               points={{-66,18},{-56,18},{-56,37.72},{-39.84,37.72}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dLATREG.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREG component.</p>
@@ -916,20 +880,16 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(reset.y, dLATREGL.reset) annotation (Line(
               points={{-66,-60},{-39.84,-60},{-39.84,-24.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(enable.y, dLATREGL.enable) annotation (Line(
               points={{-66,-22},{-54,-22},{-54,1.6},{-39.84,1.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dLATREGL.dataIn[1]) annotation (Line(
               points={{-66,18},{-56,18},{-56,37.72},{-39.84,37.72}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dLATREGL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,42.88},{-39.84,42.88}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGL component.</p>
@@ -959,24 +919,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(reset.y, dLATREGSRH.reset) annotation (Line(
               points={{-66,-60},{-40.44,-60},{-40.44,-19.4}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(enable.y, dLATREGSRH.enable) annotation (Line(
               points={{-66,-22},{-52,-22},{-52,3.2},{-40.44,3.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dLATREGSRH.dataIn[1]) annotation (Line(
               points={{-66,18},{-52,18},{-52,34.84},{-40.44,34.84}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dLATREGSRH.dataIn[2]) annotation (Line(
               points={{-66,50},{-52,50},{-52,39.36},{-40.44,39.36}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(set.y, dLATREGSRH.set) annotation (Line(
               points={{-66,84},{-40.44,84},{-40.44,59.7}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
 
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
@@ -1007,24 +962,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(reset.y, dLATREGSRL.reset) annotation (Line(
               points={{-66,-60},{-40.44,-60},{-40.44,-20.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(enable.y, dLATREGSRL.enable) annotation (Line(
               points={{-66,-22},{-56,-22},{-56,2.6},{-40.44,2.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y, dLATREGSRL.dataIn[1]) annotation (Line(
               points={{-66,18},{-56,18},{-56,34.52},{-40.44,34.52}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y, dLATREGSRL.dataIn[2]) annotation (Line(
               points={{-66,50},{-56,50},{-56,39.08},{-40.44,39.08}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(set.y, dLATREGSRL.set) annotation (Line(
               points={{-66,84},{-40.44,84},{-40.44,59.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRL component.</p>
@@ -1051,12 +1001,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           connect(x_table.y, nXFERGATE.x) annotation (Line(
               points={{-55,-10},{-45.2,-10},{-45.2,-10.15},{-35.4,-10.15}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(e_table.y, nXFERGATE.enable) annotation (Line(
               points={{-55,40},{-35.4,40},{-35.4,27.05}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NXFERGATE component.</p>
@@ -1083,12 +1031,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(x_table.y, nRXFERGATE.x) annotation (Line(
               points={{-55,-10},{-45.05,-10},{-45.05,-9.9},{-35.1,-9.9}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(e_table.y, nRXFERGATE.enable) annotation (Line(
               points={{-55,40},{-35.1,40},{-35.1,29.3}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
@@ -1116,12 +1062,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(x_table.y, bUF3S.x) annotation (Line(
               points={{-55,-10},{-35.6,-10.4}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(e_table.y, bUF3S.enable) annotation (Line(
               points={{-55,40},{-35.6,40},{-35.6,24.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the <code>bUF3S</code> component. To verify the result compare to the truth table Buf3sTable.</p>
@@ -1147,12 +1091,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(x_table.y, iNV3S.x) annotation (Line(
               points={{-55,-10},{-42.6,-10},{-42.6,-9.8},{-30.2,-9.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(e_table.y, iNV3S.enable) annotation (Line(
               points={{-55,40},{-30.2,40},{-30.2,20.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the <code>iNV3S</code> component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
@@ -1198,31 +1140,25 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           connect(x_table2.y, bUF3S2.x)
                                       annotation (Line(
               points={{-65,28},{-44.8,27.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(e_table2.y, bUF3S2.enable)
                                            annotation (Line(
               points={{-65,78},{-44.8,78},{-44.8,53.4}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(x_table1.y, bUF3S1.x)
                                       annotation (Line(
               points={{-65,-64},{-48.7,-64.3}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(e_table1.y, bUF3S1.enable)
                                            annotation (Line(
               points={{-65,-14},{-48.7,-14},{-48.7,-37.9}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(bUF3S1.y, wiredX.x[1]) annotation (Line(
               points={{10.7,-64.3},{24,-64.3},{24,-21.8},{36.8,-21.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(bUF3S2.y, wiredX.x[2]) annotation (Line(
               points={{12.8,27.8},{26,27.8},{26,-0.2},{36.8,-0.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
@@ -1253,16 +1189,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(Select.y, Mux2x1.sel) annotation (Line(
               points={{-70,68},{11,68},{11,43.2}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(Input0.y, Mux2x1.in0) annotation (Line(
               points={{-70,-24},{-29.5,-24}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(Input1.y, Mux2x1.in1) annotation (Line(
               points={{-70,24},{-29.5,24}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=15),
             Documentation(info="<html>
 <p>This example is a simple test of a single multiplexer component with 2 inputs prescribed by sources, one select input, and one output. After simulation until 15 s plot Mux2x1.in0, Mux2x1.in1, Mux2x1.sel, and Mux2x1.out. Compare the output signal with the input signals. If the select signal changes, the output switches to the other input.</p>
@@ -1316,28 +1249,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(RE.y,dLATRAM. RE) annotation (Line(
               points={{-58,-28},{-28,-28},{-28,4.6},{-6.44,4.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(WE.y,dLATRAM. WE) annotation (Line(
               points={{-58,-60},{-24,-60},{-24,-12.5},{-6.44,-12.5}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(addr_0.y,dLATRAM. addr[1]) annotation (Line(
               points={{-58,58},{-34,58},{-34,47.35},{-5.3,47.35}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(addr_1.y,dLATRAM. addr[2]) annotation (Line(
               points={{-58,86},{-32,86},{-32,53.05},{-5.3,53.05}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_1.y,dLATRAM. dataIn[2]) annotation (Line(
               points={{-58,30},{-32,30},{-32,30.25},{-5.3,30.25}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(data_0.y,dLATRAM. dataIn[1]) annotation (Line(
               points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (experiment(StopTime=400),
             Documentation(info="<html>
 <p>This example is a simple and uncomplete test of a single DLATRAM component . After simulation until 400 s plot dLATRAM.addr[1], dLATRAM.addr[2], and dLATRAM.dataOUT[1], dLATRAM.dataOut[2]. The address inputs are  prescribed with all possible combinations of logic values. It can be checked in which cases of address values the output is 'X' or '0'. </p>
@@ -1354,33 +1281,33 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
             D.Interfaces.DigitalInput d0 annotation (Placement(transformation(
-                    extent={{-110,60},{-90,80}}, rotation=0)));
+                    extent={{-110,60},{-90,80}})));
             D.Interfaces.DigitalInput d1 annotation (Placement(transformation(
-                    extent={{-110,34},{-90,54}}, rotation=0)));
+                    extent={{-110,34},{-90,54}})));
             D.Interfaces.DigitalInput d2 annotation (Placement(transformation(
-                    extent={{-110,8},{-90,28}}, rotation=0)));
+                    extent={{-110,8},{-90,28}})));
             D.Interfaces.DigitalInput d3 annotation (Placement(transformation(
-                    extent={{-110,-18},{-90,2}}, rotation=0)));
+                    extent={{-110,-18},{-90,2}})));
             D.Interfaces.DigitalInput a0 annotation (Placement(transformation(
-                    extent={{-110,-54},{-90,-34}}, rotation=0)));
+                    extent={{-110,-54},{-90,-34}})));
             D.Interfaces.DigitalInput a1 annotation (Placement(transformation(
-                    extent={{-110,-80},{-90,-60}}, rotation=0)));
+                    extent={{-110,-80},{-90,-60}})));
             D.Interfaces.DigitalOutput d annotation (Placement(transformation(
-                    extent={{90,-10},{110,10}}, rotation=0)));
+                    extent={{90,-10},{110,10}})));
             D.Basic.Or Or1(n=4) annotation (Placement(transformation(extent={{50,20},
-                      {70,40}}, rotation=0)));
+                      {70,40}})));
             D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-20,
-                      60},{0,80}}, rotation=0)));
+                      60},{0,80}})));
             D.Basic.And And2(n=3) annotation (Placement(transformation(extent={{-20,
-                      34},{0,54}}, rotation=0)));
+                      34},{0,54}})));
             D.Basic.And And3(n=3) annotation (Placement(transformation(extent={{-20,
-                      8},{0,28}}, rotation=0)));
+                      8},{0,28}})));
             D.Basic.And And4(n=3) annotation (Placement(transformation(extent={{-20,
-                      -18},{0,2}}, rotation=0)));
+                      -18},{0,2}})));
             D.Basic.Not Not1 annotation (Placement(transformation(extent={{-76,-54},
-                      {-56,-34}}, rotation=0)));
+                      {-56,-34}})));
             D.Basic.Not Not2 annotation (Placement(transformation(extent={{-76,-80},
-                      {-56,-60}}, rotation=0)));
+                      {-56,-60}})));
         equation
             connect(a0, Not1.x) annotation (Line(
                 points={{-100,-44},{-72,-44}},
@@ -1455,11 +1382,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,100},{-60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Text(
                 extent={{-86,80},{-64,60}},
@@ -1527,20 +1452,19 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter Modelica.SIunits.Time delayTime=0 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value of output";
           D.Basic.Nor Nor1   annotation (Placement(transformation(extent={{-40,42},
-                      {0,82}}, rotation=0)));
+                      {0,82}})));
           D.Basic.Nor Nor2   annotation (Placement(transformation(extent={{-40,-82},
-                      {0,-42}}, rotation=0)));
+                      {0,-42}})));
           D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
-                     {{-110,60},{-90,80}}, rotation=0)));
+                     {{-110,60},{-90,80}})));
           D.Interfaces.DigitalInput r    annotation (Placement(transformation(
-                    extent={{-110,-80},{-90,-60}}, rotation=0)));
+                    extent={{-110,-80},{-90,-60}})));
           D.Interfaces.DigitalOutput q   annotation (Placement(transformation(
-                    extent={{90,60},{110,80}}, rotation=0)));
+                    extent={{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn   annotation (Placement(transformation(
-                    extent={{90,-80},{110,-60}}, rotation=0)));
+                    extent={{90,-80},{110,-60}})));
           D.Delay.TransportDelay TD1(delayTime=delayTime,y0=q0)
-              annotation (Placement(transformation(extent={{-60,-64},{-40,-44}},
-                    rotation=0)));
+              annotation (Placement(transformation(extent={{-60,-64},{-40,-44}})));
         equation
           connect(s, Nor1.x[2])   annotation (Line(points={{-100,70},{-32,70}},
                   color={127,0,127}));
@@ -1575,11 +1499,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="RS"),
               Line(
                 points={{-60,100},{-60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Text(
                 extent={{-86,-60},{-64,-80}},
@@ -1622,23 +1544,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter Modelica.SIunits.Time delayTime=0.01 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value";
           D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
-                     {{-110,60},{-90,80}}, rotation=0)));
+                     {{-110,60},{-90,80}})));
           D.Interfaces.DigitalInput r     annotation (Placement(transformation(
-                    extent={{-110,-80},{-90,-60}}, rotation=0)));
+                    extent={{-110,-80},{-90,-60}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
-                      {{90,60},{110,80}}, rotation=0)));
+                      {{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn "not Q"
-            annotation (Placement(transformation(extent={{90,-80},{110,-60}},
-                    rotation=0)));
+            annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
           D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
-                    extent={{-110,-10},{-90,10}}, rotation=0)));
+                    extent={{-110,-10},{-90,10}})));
           D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                             annotation (Placement(transformation(
-                    extent={{-10,-40},{70,40}}, rotation=0)));
+                    extent={{-10,-40},{70,40}})));
           D.Basic.And And1       annotation (Placement(transformation(extent={{-70,
-                      8},{-30,48}}, rotation=0)));
+                      8},{-30,48}})));
           D.Basic.And And2       annotation (Placement(transformation(extent={{-70,
-                      -48},{-30,-8}}, rotation=0)));
+                      -48},{-30,-8}})));
         equation
           connect(And2.y, RS1.r)
                                 annotation (Line(
@@ -1683,11 +1604,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="RS"),
               Line(
                 points={{-60,100},{-60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Text(
                 extent={{-86,-60},{-64,-80}},
@@ -1717,7 +1636,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+              Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
@@ -1731,18 +1650,17 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter Modelica.SIunits.Time Tdel=0.01 "Delay time";
           parameter L QInit=L.'U' "Initial value";
           D.Interfaces.DigitalInput d   annotation (Placement(transformation(extent=
-                     {{-110,60},{-90,80}}, rotation=0)));
+                     {{-110,60},{-90,80}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
-                      {{90,60},{110,80}}, rotation=0)));
+                      {{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn "not Q"
-            annotation (Placement(transformation(extent={{90,-80},{110,-60}},
-                    rotation=0)));
+            annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
           D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
-                    extent={{-110,-10},{-90,10}}, rotation=0)));
+                    extent={{-110,-10},{-90,10}})));
           D.Examples.Utilities.RSFF RSFF1   annotation (Placement(transformation(
-                    extent={{-10,-40},{70,40}}, rotation=0)));
+                    extent={{-10,-40},{70,40}})));
           D.Basic.Not Not1      annotation (Placement(transformation(extent={{-70,
-                      -48},{-30,-8}}, rotation=0)));
+                      -48},{-30,-8}})));
         equation
           connect(RSFF1.q,q)
                            annotation (Line(
@@ -1764,8 +1682,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 color={127,0,127}));
         connect(clk, RSFF1.clk) annotation (Line(
             points={{-100,0},{-10,0}},
-            color={127,0,127},
-            smooth=Smooth.None));
+            color={127,0,127}));
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
@@ -1779,11 +1696,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,100},{-60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Text(
                 extent={{-86,80},{-64,60}},
@@ -1806,7 +1721,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+              Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
@@ -1824,32 +1739,31 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
           D.Interfaces.DigitalInput j   annotation (Placement(transformation(extent=
-                     {{-110,60},{-90,80}}, rotation=0)));
+                     {{-110,60},{-90,80}})));
           D.Interfaces.DigitalOutput q annotation (Placement(transformation(extent=
-                      {{90,60},{110,80}}, rotation=0)));
+                      {{90,60},{110,80}})));
           D.Interfaces.DigitalOutput qn "not Q"
-            annotation (Placement(transformation(extent={{90,-80},{110,-60}},
-                    rotation=0)));
+            annotation (Placement(transformation(extent={{90,-80},{110,-60}})));
           D.Interfaces.DigitalInput clk       annotation (Placement(transformation(
-                    extent={{-110,-10},{-90,10}}, rotation=0)));
+                    extent={{-110,-10},{-90,10}})));
           D.Interfaces.DigitalInput k   annotation (Placement(transformation(extent=
-                     {{-110,-80},{-90,-60}}, rotation=0)));
+                     {{-110,-80},{-90,-60}})));
             D.Examples.Utilities.RS RS1(delayTime=delayTime,q0=q0)
                                          annotation (Placement(transformation(
-                    extent={{30,-24},{70,16}}, rotation=0)));
+                    extent={{30,-24},{70,16}})));
             D.Examples.Utilities.RS RS2(delayTime=delayTime,q0=q0)
                                          annotation (Placement(transformation(
-                    extent={{-44,-20},{-4,20}}, rotation=0)));
+                    extent={{-44,-20},{-4,20}})));
             D.Basic.And And1(n=3) annotation (Placement(transformation(extent={{-70,
-                      4},{-50,24}}, rotation=0)));
+                      4},{-50,24}})));
             D.Basic.And And2(n=3) annotation (Placement(transformation(extent={{-70,
-                      -24},{-50,-4}}, rotation=0)));
+                      -24},{-50,-4}})));
             D.Basic.And And3 annotation (Placement(transformation(extent={{4,0},{24,
-                      20}}, rotation=0)));
+                      20}})));
             D.Basic.And And4 annotation (Placement(transformation(extent={{4,-28},{
-                      24,-8}}, rotation=0)));
+                      24,-8}})));
             D.Basic.Not Not1 annotation (Placement(transformation(extent={{-34,-66},
-                      {-14,-46}}, rotation=0)));
+                      {-14,-46}})));
         equation
             connect(And2.y, RS2.r) annotation (Line(points={{-50,-14},{-44,-14}},
                   color={127,0,127}));
@@ -1899,11 +1813,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-60,100},{-60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Text(
                 extent={{-86,80},{-64,60}},
@@ -1926,7 +1838,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
                 textString="QN"),
-              Line(points={{-90,20},{-60,0},{-90,-20}}, color={0,0,0}),
+              Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
@@ -1949,22 +1861,21 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                     parameter Real delayTime=0 "Delay time";
                     Modelica.Electrical.Digital.Interfaces.DigitalInput b
                       annotation (Placement(transformation(extent={{-110,-80},{-90,
-                      -60}}, rotation=0)));
+                      -60}})));
                     Modelica.Electrical.Digital.Interfaces.DigitalOutput s
                                          annotation (Placement(transformation(
-                    extent={{90,60},{110,80}}, rotation=0)));
+                    extent={{90,60},{110,80}})));
                     Modelica.Electrical.Digital.Interfaces.DigitalInput a
                       annotation (Placement(transformation(extent={{-110,60},{-90,
-                      80}}, rotation=0)));
+                      80}})));
                     Modelica.Electrical.Digital.Interfaces.DigitalOutput c
                                          annotation (Placement(transformation(
-                    extent={{90,-80},{110,-60}}, rotation=0)));
+                    extent={{90,-80},{110,-60}})));
                     Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime, G2(y(start=L.'U',fixed=true)))
                       annotation (Placement(transformation(extent={{-20,-82},{20,
-                      -42}}, rotation=0)));
+                      -42}})));
                     Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime, G2(y(start=L.'U', fixed=true)))
-                      annotation (Placement(transformation(extent={{-20,42},{20,82}},
-                    rotation=0)));
+                      annotation (Placement(transformation(extent={{-20,42},{20,82}})));
 
                   equation
                     connect(AND.y, c)
@@ -2011,10 +1922,8 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                                   lineColor={0,0,0},
                                   textString="+"),Line(
                                   points={{-60,100},{-60,-100}},
-                                  color={0,0,0},
                                   thickness=0.5),Line(
                                   points={{60,100},{60,-100}},
-                                  color={0,0,0},
                                   thickness=0.5)}),
                       Documentation(info="<html>
 <p>HalfAdder is a two bit adder which is composed by Gates components.</p>
@@ -2060,10 +1969,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           HalfAdder Adder2(delayTime=0.001)
                                           annotation (Placement(transformation(
-                    extent={{10,36},{50,76}}, rotation=0)));
+                    extent={{10,36},{50,76}})));
           HalfAdder Adder1(delayTime=0.001)
                                            annotation (Placement(transformation(
-                    extent={{-60,36},{-20,76}}, rotation=0)));
+                    extent={{-60,36},{-20,76}})));
           Modelica.Electrical.Digital.Interfaces.DigitalInput a
             annotation (Placement(transformation(
                   origin={-100,70},
@@ -2091,7 +2000,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                   rotation=180)));
           Modelica.Electrical.Digital.Basic.Or OR
                        annotation (Placement(transformation(extent={{10,-90},{50,
-                      -50}}, rotation=0)));
+                      -50}})));
         equation
 
           connect(c_out, OR.y)   annotation (Line(
@@ -2236,11 +2145,9 @@ The result can be seen in the output signals of the FullAdders according to:</p>
                 textString="+"),
               Line(
                 points={{-60,100},{-60,-100}},
-                color={0,0,0},
                 thickness=0.5),
               Line(
                 points={{60,100},{60,-100}},
-                color={0,0,0},
                 thickness=0.5)}));
         end FullAdder;
 
@@ -2250,22 +2157,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter Integer n=2 "Number of single adders";
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder[n]
                                        annotation (Placement(transformation(extent=
-                      {{-20,-20},{20,20}}, rotation=0)));
+                      {{-20,-20},{20,20}})));
           Modelica.Electrical.Digital.Interfaces.DigitalInput a[n]
                                                annotation (Placement(transformation(
-                    extent={{-110,60},{-90,80}}, rotation=0)));
+                    extent={{-110,60},{-90,80}})));
           Modelica.Electrical.Digital.Interfaces.DigitalInput b[n]
                                                annotation (Placement(transformation(
-                    extent={{-110,20},{-90,40}}, rotation=0)));
+                    extent={{-110,20},{-90,40}})));
           Modelica.Electrical.Digital.Interfaces.DigitalInput c_in
                                                annotation (Placement(transformation(
-                    extent={{-110,-80},{-90,-60}}, rotation=0)));
+                    extent={{-110,-80},{-90,-60}})));
           Modelica.Electrical.Digital.Interfaces.DigitalOutput s[n]
                                                 annotation (Placement(
-                  transformation(extent={{90,60},{110,80}}, rotation=0)));
+                  transformation(extent={{90,60},{110,80}})));
           Modelica.Electrical.Digital.Interfaces.DigitalOutput c_out
                                                  annotation (Placement(
-                  transformation(extent={{90,-80},{110,-60}}, rotation=0)));
+                  transformation(extent={{90,-80},{110,-60}})));
         equation
           connect(c_in,Adder[1].c_in);
           for i in 1:n loop
@@ -2340,25 +2247,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           D.Interfaces.DigitalInput enable
                                          annotation (Placement(transformation(
-                    extent={{-110,60},{-90,80}}, rotation=0)));
+                    extent={{-110,60},{-90,80}})));
           D.Interfaces.DigitalOutput q2 annotation (Placement(transformation(extent=
-                     {{90,60},{110,80}}, rotation=0)));
+                     {{90,60},{110,80}})));
           D.Interfaces.DigitalInput count
                                          annotation (Placement(transformation(
-                    extent={{-110,-80},{-90,-60}}, rotation=0)));
+                    extent={{-110,-80},{-90,-60}})));
           D.Examples.Utilities.JKFF FF1
-               annotation (Placement(transformation(extent={{-74,-20},{-34,20}},
-                    rotation=0)));
+               annotation (Placement(transformation(extent={{-74,-20},{-34,20}})));
           D.Examples.Utilities.JKFF FF2
-               annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-                    rotation=0)));
+               annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
           D.Examples.Utilities.JKFF FF3
-               annotation (Placement(transformation(extent={{34,-20},{74,20}},
-                    rotation=0)));
+               annotation (Placement(transformation(extent={{34,-20},{74,20}})));
           D.Interfaces.DigitalOutput q1 annotation (Placement(transformation(extent=
-                     {{90,-10},{110,10}}, rotation=0)));
+                     {{90,-10},{110,10}})));
           D.Interfaces.DigitalOutput q0 annotation (Placement(transformation(extent=
-                     {{90,-80},{110,-60}}, rotation=0)));
+                     {{90,-80},{110,-60}})));
         equation
           connect(enable, FF1.j)       annotation (Line(
                 points={{-100,70},{-80,70},{-80,14},{-74,14}},
@@ -2469,13 +2373,13 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
           D.Interfaces.DigitalInput enable
                                         annotation (Placement(transformation(extent=
-                     {{-110,60},{-90,80}}, rotation=0)));
+                     {{-110,60},{-90,80}})));
           D.Interfaces.DigitalInput count
                                         annotation (Placement(transformation(extent=
-                     {{-110,-80},{-90,-60}}, rotation=0)));
+                     {{-110,-80},{-90,-60}})));
           D.Examples.Utilities.JKFF FF[n](each delayTime=delayTime,each q0=q0);
           D.Interfaces.DigitalOutput q[n] annotation (Placement(transformation(
-                    extent={{90,-80},{110,80}}, rotation=0)));
+                    extent={{90,-80},{110,80}})));
         equation
           connect(enable,FF[1].j);
           connect(enable,FF[1].k);
@@ -2694,10 +2598,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
       import D = Modelica.Electrical.Digital;
           D.Interfaces.DigitalInput x "Connector of Digital input signal"
                        annotation (Placement(transformation(extent={{-70,-10},{-50,
-                    10}}, rotation=0)));
+                    10}})));
           D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
           annotation (                                        Icon(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -2719,10 +2623,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Interfaces.DigitalInput x[n]
         "Connector of Digital input signal vector"
                                          annotation (Placement(transformation(
-                  extent={{-70,-80},{-50,80}}, rotation=0)));
+                  extent={{-70,-80},{-50,80}})));
           D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}},
@@ -2744,11 +2648,11 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           D.Interfaces.DigitalInput x[n]
         "Connector of Digital input signal vector"
                                          annotation (Placement(transformation(
-                  extent={{-70,-80},{-50,80}}, rotation=0)));
+                  extent={{-70,-80},{-50,80}})));
           D.Interfaces.DigitalOutput y[n]
         "Connector of Digital output signal vector"
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Rectangle(
@@ -3023,8 +2927,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
-            Line(points={{0,60},{20,60}}, color={0,0,0}),
-            Line(points={{10,60},{10,40}}, color={0,0,0}),
+            Line(points={{0,60},{20,60}}),
+            Line(points={{10,60},{10,40}}),
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
@@ -3084,8 +2988,8 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
-            Line(points={{10,60},{10,40}}, color={0,0,0}),
-            Line(points={{0,60},{20,60}}, color={0,0,0}),
+            Line(points={{10,60},{10,40}}),
+            Line(points={{0,60},{20,60}}),
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
@@ -3190,8 +3094,8 @@ is used, if it is zero, the input is not delayed.
               lineThickness=0.5,
               textString="sensitive"),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
-            Line(points={{10,60},{10,40}}, color={0,0,0}),
-            Line(points={{0,60},{20,60}}, color={0,0,0})}));
+            Line(points={{10,60},{10,40}}),
+            Line(points={{0,60},{20,60}})}));
         end InertialDelaySensitive;
 
         model InertialDelaySensitiveVector
@@ -3227,13 +3131,11 @@ is used, if it is zero, the input is not delayed.
             Line(
               points={{-80,0},{-50,0}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{48,0},{80,0}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Text(
               extent={{-40,52},{38,-20}},
               lineColor={127,33,107},
@@ -3581,10 +3483,9 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
           D.Basic.Not G1         annotation (Placement(transformation(extent={{-60,
-                    -20},{-20,20}}, rotation=0)));
+                    -20},{-20,20}})));
           D.Delay.InertialDelaySensitive G2(tLH=tLH, tHL=tHL)
-            annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(G2.y, y)                      annotation (Line(points={{60,0},{
                   100,0}}, color={127,0,127}));
@@ -3637,12 +3538,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Interfaces.MISO;
           extends D.Delay.DelayParams;
           D.Basic.And G1(final n=n)     annotation (Placement(transformation(extent={
-                    {-40,-20},{0,20}}, rotation=0)));
+                    {-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3692,12 +3592,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Nand G1(final n=n)      annotation (Placement(transformation(extent=
-                   {{-40,-20},{0,20}}, rotation=0)));
+                   {{-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3752,12 +3651,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Or G1(final n=n)    annotation (Placement(transformation(extent={{
-                    -40,-20},{0,20}}, rotation=0)));
+                    -40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(G1.y, G2.x)
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
@@ -3807,12 +3705,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Nor G1(final n=n)     annotation (Placement(transformation(extent={
-                    {-40,-20},{0,20}}, rotation=0)));
+                    {-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(G1.y, G2.x)
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
@@ -3868,12 +3765,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Xor G1(final n=n)     annotation (Placement(transformation(extent={
-                    {-40,-20},{0,20}}, rotation=0)));
+                    {-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3923,12 +3819,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Xnor G1(final n=n)      annotation (Placement(transformation(extent=
-                   {{-40,-20},{0,20}}, rotation=0)));
+                   {{-40,-20},{0,20}})));
           D.Delay.InertialDelaySensitive G2(
             tLH=tLH,
             tHL=tHL,
-            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}},
-                  rotation=0)));
+            y0=y0)     annotation (Placement(transformation(extent={{20,-20},{60,20}})));
         equation
           connect(x, G1.x)
             annotation (Line(points={{-60,0},{-32,0}}, color={127,0,127}));
@@ -3979,8 +3874,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
           D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL)
-            annotation (Placement(transformation(extent={{-30,-20},{10,20}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-30,-20},{10,20}})));
         equation
           connect(G1.y, y)                      annotation (Line(points={{10,0},{
                   100,0}}, color={127,0,127}));
@@ -4033,7 +3927,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
           parameter D.Interfaces.Logic x(start=L.'1') "Logic value to be set";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
         algorithm
           y := x;
           annotation (Documentation(info="<HTML>
@@ -4103,7 +3997,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           parameter Real stepTime(start=1) "step time";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
         algorithm
           // assert(before >= L.min and before <= L.max, "Parameter is no logic value");
           // assert(after >= L.min and after <= L.max, "Parameter is no logic value");
@@ -4160,7 +4054,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
               textString="%name"),
-            Line(points={{-30,40},{0,40},{0,80},{30,80}}, color={0,0,0}),
+            Line(points={{-30,40},{0,40},{0,80},{30,80}}),
             Line(points={{50,0},{90,0}}, color={127,0,127})}));
         end Step;
 
@@ -4174,7 +4068,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           final parameter Integer n=size(x, 1) "table size";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
         algorithm
           if initial() then
             // assert(y0 >= L.min and y0 <= L.max, "Parameter y0 is not of type Logic");
@@ -4247,9 +4141,9 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,80},{0,40}}, color={0,0,0}),
-            Line(points={{-30,60},{32,60}}, color={0,0,0}),
-            Line(points={{-30,50},{32,50}}, color={0,0,0})}));
+            Line(points={{0,80},{0,40}}),
+            Line(points={{-30,60},{32,60}}),
+            Line(points={{-30,50},{32,50}})}));
         end Table;
 
         model Pulse "Digital Pulse Source"
@@ -4271,7 +4165,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           Integer np(start=0, fixed=true);
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
     protected
           Boolean sampling;
 
@@ -4341,7 +4235,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(points={{-36,40},{-30,40},{-30,40},{-18,40},{-18,40},{-14,40},
                   {-14,80},{14,80},{14,40},{14,40},{14,40},{28,40},{30,40},{36,
-                  40}}, color={0,0,0})}));
+                  40}})}));
         end Pulse;
 
         model Clock "Digital Clock Source"
@@ -4356,7 +4250,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
             final max=100, start=50) "Width of pulses in % of period";
           D.Interfaces.DigitalOutput y "Connector of Digital output signal"
                         annotation (Placement(transformation(extent={{90,-10},{110,
-                    10}}, rotation=0)));
+                    10}})));
     protected
           Modelica.SIunits.Time t_i(final start=startTime, fixed=true)
         "Start time of current period";
@@ -4394,8 +4288,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
               textString="%name"),
             Line(points={{50,0},{90,0}}, color={127,0,127}),
             Line(points={{-36,40},{-30,40},{-30,80},{-18,80},{-18,40},{-6,40},{
-                  -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}},
-                color={0,0,0})}));
+                  -6,80},{6,80},{6,40},{18,40},{18,80},{30,80},{30,40},{36,40}})}));
         end Clock;
         annotation (                                Documentation(info="<html>
 <p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
@@ -4410,10 +4303,10 @@ The number of periods is unlimited. The first pulse starts at startTime.
       import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
-                    {-40,10}}, rotation=0)));
+                    {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
-                    {60,10}}, rotation=0)));
+                    {60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
         algorithm
           for i in 1:n loop
@@ -4483,10 +4376,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
       import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
-                    {-40,10}}, rotation=0)));
+                    {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
-                    {60,10}}, rotation=0)));
+                    {60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
         algorithm
           for i in 1:n loop
@@ -4556,10 +4449,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
-                    {-40,10}}, rotation=0)));
+                    {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
-                    {60,10}}, rotation=0)));
+                    {60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
         algorithm
           for i in 1:n loop
@@ -4627,12 +4520,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
         block BooleanToLogic "Boolean to Logic converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Blocks.Interfaces.BooleanInput x[n]
-            annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
           Modelica.Electrical.Digital.Interfaces.DigitalOutput y[n]
-            annotation (Placement(transformation(extent={{40,-10},{60,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-10},{60,10}})));
         equation
           for i in 1:n loop
             y[i] = if x[i] then L.'1' else L.'0';
@@ -4684,11 +4575,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
         block LogicToBoolean "Logic to Boolean converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
-            annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Blocks.Interfaces.BooleanOutput y[n]
-            annotation (Placement(transformation(extent={{40,-10},{60,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-10},{60,10}})));
           parameter Integer n(final min=1, start=2) "signal width";
         equation
           for i in 1:n loop
@@ -4748,11 +4637,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
         block RealToLogic "Real to Logic converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Blocks.Interfaces.RealInput x[n]
-            annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Digital.Interfaces.DigitalOutput y[n]
-            annotation (Placement(transformation(extent={{40,-10},{60,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-10},{60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
           parameter Real upper_limit(start=1) "upper limit";
           parameter Real lower_limit(start=0) "lower limit";
@@ -4809,11 +4696,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
         block LogicToReal "Logic to Real converter"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
-            annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
           Modelica.Blocks.Interfaces.RealOutput y[n]
-            annotation (Placement(transformation(extent={{40,-10},{60,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-10},{60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
           parameter Real value_U(start=0.5)
         "value for digital U (uninitialized)";
@@ -4894,10 +4779,10 @@ The values val... are given by parameters.</P>
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
-                    {-40,10}}, rotation=0)));
+                    {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
-                    {60,10}}, rotation=0)));
+                    {60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
         algorithm
           for i in 1:n loop
@@ -4972,10 +4857,10 @@ If the signal width is greater than 1 this conversion is done for each signal.
           import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
-                    {-40,10}}, rotation=0)));
+                    {-40,10}})));
           D.Interfaces.DigitalOutput y[n]
                              annotation (Placement(transformation(extent={{40,-10},
-                    {60,10}}, rotation=0)));
+                    {60,10}})));
           parameter Integer n(final min=1, start=1) "signal width";
         algorithm
           for i in 1:n loop
@@ -5149,25 +5034,20 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Line(
               points={{-70,30},{-50,30}},
               color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{50,30},{76,30}},
               color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-20},{-50,-20}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{0,-84},{0,-60}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{-50,-8},{-34,-20},{-50,-32}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Text(
               extent={{-30,54},{20,8}},
               lineColor={127,33,107},
@@ -5283,26 +5163,21 @@ Clock transition definitions:
           connect(delay.y, dataOut) annotation (Line(
               points={{75.01,40},{92,40}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1));
           connect(dataIn, dFFR.dataIn) annotation (Line(
               points={{-92,40},{-68.4,40},{-68.4,40.05}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(dFFR.dataOut, delay.x) annotation (Line(
               points={{7.92,40.05},{25.99,39.855}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(clock, dFFR.clock) annotation (Line(
               points={{-92,-20},{-68.4,-20},{-68.4,15.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(reset, dFFR.reset) annotation (Line(
               points={{-92,-60},{-30,-60},{-30,-18.15}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           annotation (   Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
@@ -5315,25 +5190,20 @@ Clock transition definitions:
             Line(
               points={{-86,40},{-50,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-84,-20},{-50,-20}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{-84,-60},{0,-60},{0,-50}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{50,40},{84,40}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{-50,-10},{-36,-20},{-50,-30}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-32,70},{30,10}},
               lineColor={127,33,107},
@@ -5584,25 +5454,20 @@ Clock transition definitions:
             Line(
               points={{-80,30},{-50,30}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{50,30},{80,30}},
               color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-20},{-50,-20}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{0,-84},{0,-60}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{-50,-8},{-34,-20},{-50,-32}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Text(
               extent={{-36,66},{34,-8}},
               lineColor={127,33,107},
@@ -5617,8 +5482,7 @@ Clock transition definitions:
               textString="reset"),
             Line(
               points={{0,80},{0,60}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-13,56},{13,44}},
               lineColor={127,33,107},
@@ -5748,30 +5612,24 @@ Clock transition definitions:
           connect(dFFSR.dataOut, delay.x) annotation (Line(
               points={{9.5,40},{26.92,40},{26.92,39.86}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(set, dFFSR.set) annotation (Line(
               points={{-92,80},{-30,80},{-30,70}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(reset, dFFSR.reset) annotation (Line(
               points={{-92,-60},{-30,-60},{-30,-20}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(clock, dFFSR.clock) annotation (Line(
               points={{-92,-20},{-70,-20},{-70,15}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(dataIn, dFFSR.dataIn) annotation (Line(
               points={{-92,40},{-70,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(delay.y, dataOut) annotation (Line(
               points={{75.08,40},{92,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           annotation (   Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
@@ -5784,21 +5642,17 @@ Clock transition definitions:
             Line(
               points={{-86,40},{-50,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-84,-20},{-50,-20}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{52,40},{84,40}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{-50,-10},{-36,-20},{-50,-30}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-44,94},{38,-14}},
               lineColor={127,33,107},
@@ -5813,12 +5667,10 @@ Clock transition definitions:
               textString="clock"),
             Line(
               points={{-84,80},{0,80},{0,70}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{-84,-60},{0,-60},{0,-50}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-14,66},{12,54}},
               lineColor={127,33,107},
@@ -6097,25 +5949,20 @@ Clock transition definitions:
             Line(
               points={{-80,30},{-50,30}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{50,30},{80,30}},
               color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-20},{-50,-20}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{0,-84},{0,-60}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{-50,-8},{-34,-20},{-50,-32}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Text(
               extent={{-30,58},{26,2}},
               lineColor={127,33,107},
@@ -6174,26 +6021,21 @@ Clock transition definitions:
           connect(delay.y, dataOut) annotation (Line(
               points={{72.08,40},{92,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(dLATR.dataOut, delay.x) annotation (Line(
               points={{7.92,40.05},{15.96,39.86},{23.92,39.86}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(dataIn, dLATR.dataIn) annotation (Line(
               points={{-92,40},{-80.2,40},{-80.2,40.05},{-68.4,40.05}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(enable, dLATR.enable) annotation (Line(
               points={{-92,-20},{-68.4,-20},{-68.4,15.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(reset, dLATR.reset) annotation (Line(
               points={{-92,-60},{-30,-60},{-30,-18.15}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
@@ -6241,21 +6083,17 @@ Clock transition definitions:
             Line(
               points={{-86,40},{-50,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-84,-20},{-50,-20}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{52,40},{84,40}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{-50,-10},{-36,-20},{-50,-30}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-32,82},{32,-2}},
               lineColor={127,0,127},
@@ -6270,8 +6108,7 @@ Clock transition definitions:
               textString="enable"),
             Line(
               points={{-84,-60},{0,-60},{0,-50}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-26,44},{26,2}},
               lineColor={127,33,107},
@@ -6547,25 +6384,20 @@ Clock transition definitions:
             Line(
               points={{-80,30},{-50,30}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{50,30},{80,30}},
               color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-20},{-50,-20}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{0,-84},{0,-60}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Line(
               points={{-50,-8},{-34,-20},{-50,-32}},
-              color={127,33,107},
-              smooth=Smooth.None),
+              color={127,33,107}),
             Text(
               extent={{-34,60},{32,-6}},
               lineColor={127,33,107},
@@ -6580,8 +6412,7 @@ Clock transition definitions:
               textString="reset"),
             Line(
               points={{0,80},{0,60}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-13,56},{13,44}},
               lineColor={127,33,107},
@@ -6640,30 +6471,24 @@ Clock transition definitions:
           connect(delay.y, dataOut) annotation (Line(
               points={{72.08,40},{92,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(set, dLATSR.set) annotation (Line(
               points={{-92,80},{-30,80},{-30,69.15}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(reset, dLATSR.reset) annotation (Line(
               points={{-92,-60},{-30,-60},{-30,-18.15}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(enable, dLATSR.enable) annotation (Line(
               points={{-92,-20},{-68.4,-20},{-68.4,15.8}},
-              color={127,0,127},
-              smooth=Smooth.None));
+              color={127,0,127}));
           connect(dataIn, dLATSR.dataIn) annotation (Line(
               points={{-92,40},{-80.2,40},{-80.2,40.05},{-68.4,40.05}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
           connect(dLATSR.dataOut, delay.x) annotation (Line(
               points={{7.92,40.05},{23.92,40.05},{23.92,39.86}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None));
+              thickness=1));
            annotation (
             Documentation(info="<html>
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
@@ -6718,21 +6543,17 @@ Clock transition definitions:
             Line(
               points={{-86,40},{-50,40}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-84,-20},{-50,-20}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{52,40},{84,40}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{-50,-10},{-36,-20},{-50,-30}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-46,96},{46,-18}},
               lineColor={127,0,127},
@@ -6747,12 +6568,10 @@ Clock transition definitions:
               textString="enable"),
             Line(
               points={{-84,80},{0,80},{0,70}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{-84,-60},{0,-60},{0,-50}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-14,67},{12,53}},
               lineColor={127,33,107},
@@ -6868,12 +6687,10 @@ Clock transition definitions:
             Line(
               points={{-33,16},{31,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Text(
               extent={{-7,46},{39,18}},
@@ -6883,8 +6700,7 @@ Clock transition definitions:
             Line(
               points={{-82,70},{0,70},{0,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Text(
               extent={{-44,-24},{30,-46}},
               lineColor={0,0,255},
@@ -6956,12 +6772,10 @@ Clock transition definitions:
             Line(
               points={{-33,16},{31,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Text(
               extent={{-2,46},{44,18}},
@@ -6971,8 +6785,7 @@ Clock transition definitions:
             Line(
               points={{-82,70},{0,70},{0,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Text(
               extent={{-36,-24},{38,-46}},
               lineColor={0,0,255},
@@ -7044,12 +6857,10 @@ Clock transition definitions:
             Line(
               points={{-33,16},{31,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Text(
               extent={{-7,46},{39,18}},
@@ -7059,8 +6870,7 @@ Clock transition definitions:
             Line(
               points={{-82,70},{0,70},{0,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Text(
               extent={{-36,-24},{38,-46}},
               lineColor={0,0,255},
@@ -7132,12 +6942,10 @@ Clock transition definitions:
             Line(
               points={{-33,16},{31,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-10},{-32,-10},{-32,10},{30,10},{30,-10},{80,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Text(
               extent={{-2,46},{44,18}},
@@ -7147,8 +6955,7 @@ Clock transition definitions:
             Line(
               points={{-82,70},{0,70},{0,16}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Text(
               extent={{-40,-24},{34,-46}},
               lineColor={0,0,255},
@@ -7214,23 +7021,19 @@ Clock transition definitions:
             Line(
               points={{-80,70},{0,70},{0,14}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Polygon(
               points={{-40,40},{-40,-60},{40,-10},{-40,40}},
               lineColor={127,0,127},
-              smooth=Smooth.None,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-80,-10},{-40,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{40,-10},{82,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Text(
               extent={{-54,-62},{20,-84}},
@@ -7299,23 +7102,19 @@ Clock transition definitions:
             Line(
               points={{-80,70},{0,70},{0,14}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Polygon(
               points={{-40,40},{-40,-60},{40,-10},{-40,40}},
               lineColor={127,0,127},
-              smooth=Smooth.None,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-80,-10},{-40,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{40,-10},{82,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Text(
               extent={{-54,-62},{20,-84}},
@@ -7384,23 +7183,19 @@ Clock transition definitions:
             Line(
               points={{-80,70},{0,70},{0,14}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Polygon(
               points={{-40,40},{-40,-60},{40,-10},{-40,40}},
               lineColor={127,0,127},
-              smooth=Smooth.None,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-80,-10},{-40,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{40,-10},{82,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Ellipse(
               extent={{40,-3},{54,-17}},
@@ -7474,23 +7269,19 @@ Clock transition definitions:
             Polygon(
               points={{-40,40},{-40,-60},{40,-10},{-40,40}},
               lineColor={127,0,127},
-              smooth=Smooth.None,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Line(
               points={{-80,70},{0,70},{0,14}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-80,-10},{-40,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{40,-10},{82,-10}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Ellipse(
               extent={{40,-3},{54,-17}},
@@ -7795,41 +7586,34 @@ Firstly Write is carried out, then Read.</b></p>
             Line(
               points={{-84,60},{-60,60}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{60,20},{84,20}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-84,-20},{-60,-20}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{-60,-10},{-46,-20},{-60,-30}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-41,-5},{-24,-34}},
               lineColor={127,33,107},
               textString="RE"),
             Line(
               points={{-60,-40},{-46,-50},{-60,-60}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-41,-35},{-24,-62}},
               lineColor={127,33,107},
               textString="WE"),
             Line(
               points={{-84,-50},{-60,-50}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{-80,20},{-60,20}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1)}));
     end DLATRAM;
 
@@ -7991,21 +7775,17 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
             Line(
               points={{-84,60},{-60,60}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{60,20},{84,20}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{-88,-20},{-60,-20}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Line(
               points={{-60,-10},{-46,-20},{-60,-30}},
-              color={127,0,127},
-              smooth=Smooth.None),
+              color={127,0,127}),
             Text(
               extent={{-41,-5},{-24,-34}},
               lineColor={127,33,107},
@@ -8015,8 +7795,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 
   package Multiplexers
     extends Modelica.Icons.Package;
-    model MUX2x1 "A two inputs MULTIPLEXER for multiple value logic
-(2 data inputs, 1 select input, 1 output)"
+    model MUX2x1 "A two inputs MULTIPLEXER for multiple value logic (2 data inputs, 1 select input, 1 output)"
 
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
@@ -8057,33 +7836,27 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
             Line(
               points={{-80,50},{-40,50}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{-62,-50},{-62,-50}},
               color={127,0,127},
-              smooth=Smooth.None,
               thickness=1),
             Line(
               points={{-80,-50},{-40,-50}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{0,60},{0,80}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Line(
               points={{40,0},{80,0}},
               color={127,0,127},
-              thickness=1,
-              smooth=Smooth.None),
+              thickness=1),
             Polygon(
               points={{-40,80},{-40,-80},{40,-40},{40,40},{-40,80}},
               lineColor={213,170,255},
               lineThickness=1,
-              smooth=Smooth.None,
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Text(
@@ -8243,7 +8016,5 @@ Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
             origin={79,30},
             points={{-84,-6},{-37,-6}}),
         Line(
-          points={{42,-12},{17,-12},{17,-54},{-71,-54}},
-          color={0,0,0},
-          smooth=Smooth.None)})));
+          points={{42,-12},{17,-12},{17,-54},{-71,-54}})})));
 end Digital;

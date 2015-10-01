@@ -60,49 +60,40 @@ equation
   connect(world.frame_b, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-38,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(position.flange, prismatic.axis) annotation (Line(
       points={{-46,80},{-24,80},{-24,36},{-20,36}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(sine.y, position.s_ref) annotation (Line(
       points={{-77,80},{-68,80}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(prismatic.frame_b, fixedTranslation1.frame_a)
                                                        annotation (Line(
       points={{-18,30},{-4,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b, torus.frame_a)
                                                    annotation (Line(
       points={{16,30},{32,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_b, fixedTranslation2.frame_a) annotation (Line(
       points={{-18,30},{-14,30},{-14,60},{-4,60}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation2.frame_b, wheel.frame_a) annotation (Line(
       points={{16,60},{32,60}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(world.frame_b, fixedTranslation3.frame_a) annotation (Line(
       points={{-60,30},{-46,30},{-46,-20},{-20,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation3.frame_b, pipeWithScalarField.frame_a) annotation (
       Line(
       points={{0,-20},{14,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (
     experiment(StopTime=5),
     Documentation(info="<html>

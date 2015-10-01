@@ -659,20 +659,12 @@ as well as functions operating on vectors of complex numbers.
         Line(points={{32,-86},{32,88}}, color={175,175,175}),
         Line(points={{-84,2},{88,2}}, color={175,175,175}),
         Line(
-          points={{-50,75},{-5,30}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-50,75},{-5,30}}),
         Line(
-          points={{-50,30},{-5,75}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-50,30},{-5,75}}),
         Line(
-          points={{-50,-30},{-5,-75}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-50,-30},{-5,-75}}),
         Line(
-          points={{-50,-75},{-5,-30}},
-          color={0,0,0},
-          smooth=Smooth.None)}));
+          points={{-50,-75},{-5,-30}})}));
 
 end ComplexMath;

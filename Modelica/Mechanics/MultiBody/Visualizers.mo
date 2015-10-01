@@ -198,11 +198,9 @@ definition of the colors used in the MultiBody library together with a color edi
 
     Interfaces.Frame_a frame_a
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
-       annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+       annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b "Coordinate system b"
-       annotation (Placement(transformation(extent={{84,-16},{116,16}},
-            rotation=0)));
+       annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Types.ShapeType shapeType="box" "Type of shape"
@@ -593,7 +591,6 @@ vector <b>r</b>.
             fillPattern=FillPattern.Solid),
           Line(
             points={{-2,-18},{72,-54}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{-72,-54},{-2,-18}},
@@ -835,14 +832,12 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       connect(fixed.frame_b, ground.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Polygon(
               points={{-20,60},{-100,-32},{20,-92},{100,8},{-20,60}},
               lineColor={0,0,0},
-              smooth=Smooth.None,
               fillColor={0,255,0},
               fillPattern=FillPattern.Solid),
             Text(
@@ -852,13 +847,11 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
             Polygon(
               points={{100,8},{100,-4},{20,-104},{20,-92},{100,8}},
               lineColor={0,0,0},
-              smooth=Smooth.None,
               fillColor={0,255,0},
               fillPattern=FillPattern.Solid),
             Polygon(
               points={{-100,-32},{-100,-44},{20,-104},{20,-92},{-100,-32}},
               lineColor={0,0,0},
-              smooth=Smooth.None,
               fillColor={0,255,0},
               fillPattern=FillPattern.Solid),
             Ellipse(
@@ -867,13 +860,10 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),
             Line(
-              points={{-6,-10},{-6,88}},
-              color={0,0,0},
-              smooth=Smooth.None),
+              points={{-6,-10},{-6,88}}),
             Polygon(
               points={{-6,102},{-14,72},{2,72},{-6,102}},
               lineColor={0,0,0},
-              smooth=Smooth.None,
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid),
             Text(
@@ -2811,13 +2801,11 @@ respectively.
         Polygon(
           points={{-80,26},{-16,70},{80,70},{26,26},{-80,26}},
           lineColor={95,95,95},
-          smooth=Smooth.None,
           fillColor={245,245,245},
           fillPattern=FillPattern.Solid),
         Polygon(
           points={{80,70},{26,26},{26,-70},{80,-32},{80,70}},
           lineColor={95,95,95},
-          smooth=Smooth.None,
           fillColor={245,245,245},
           fillPattern=FillPattern.Solid)}));
 end Visualizers;

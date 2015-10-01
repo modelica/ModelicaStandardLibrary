@@ -14,10 +14,10 @@ model EngineV6_analytic
 
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
       animateGravity =                                                              false)
-    annotation (Placement(transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Utilities.EngineV6_analytic engine(redeclare model Cylinder =
         Modelica.Mechanics.MultiBody.Examples.Loops.Utilities.Cylinder_analytic_CAD)
-    annotation (Placement(transformation(extent={{-40,0},{0,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,0},{0,40}})));
   Modelica.Mechanics.Rotational.Components.Inertia load(
                                              phi(
       start=0,
@@ -26,20 +26,18 @@ model EngineV6_analytic
       fixed=true),
     stateSelect=StateSelect.always,
     J=1)                               annotation (Placement(transformation(
-          extent={{40,10},{60,30}}, rotation=0)));
+          extent={{40,10},{60,30}})));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
         200,
     useSupport=false)
-             annotation (Placement(transformation(extent={{90,10},{70,30}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{90,10},{70,30}})));
   Rotational.Sensors.TorqueSensor torqueSensor
-    annotation (Placement(transformation(extent={{12,10},{32,30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{12,10},{32,30}})));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    f=5) annotation (Placement(transformation(extent={{30,-20},{50,0}},
-          rotation=0)));
+    f=5) annotation (Placement(transformation(extent={{30,-20},{50,0}})));
 equation
 
   connect(world.frame_b, engine.frame_a)
@@ -48,11 +46,11 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(load2.flange, load.flange_b)
-    annotation (Line(points={{70,20},{60,20}}, color={0,0,0}));
+    annotation (Line(points={{70,20},{60,20}}));
   connect(torqueSensor.flange_a, engine.flange_b)
-    annotation (Line(points={{12,20},{2,20}}, color={0,0,0}));
+    annotation (Line(points={{12,20},{2,20}}));
   connect(torqueSensor.flange_b, load.flange_a)
-    annotation (Line(points={{32,20},{40,20}}, color={0,0,0}));
+    annotation (Line(points={{32,20},{40,20}}));
   connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
           {28,-10}}, color={0,0,127}));
   annotation (

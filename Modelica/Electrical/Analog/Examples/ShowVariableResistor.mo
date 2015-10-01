@@ -3,23 +3,21 @@ model ShowVariableResistor "Simple demo of a VariableResistor model"
    extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Basic.VariableResistor VariableResistor
-                    annotation (Placement(transformation(extent={{-20,-20},{0,0}},
-          rotation=0)));
+                    annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
   Modelica.Electrical.Analog.Basic.Ground Ground1
-  annotation (Placement(transformation(extent={{-100,-80},{-80,-60}}, rotation=
-            0)));
+  annotation (Placement(transformation(extent={{-100,-80},{-80,-60}})));
   Modelica.Electrical.Analog.Basic.Ground Ground2
-  annotation (Placement(transformation(extent={{60,-40},{80,-20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1)
-  annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
   Modelica.Electrical.Analog.Basic.Resistor R2(R=1)
-  annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   Modelica.Electrical.Analog.Basic.Resistor R3(R=1)
-  annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
+  annotation (Placement(transformation(extent={{20,40},{40,60}})));
   Modelica.Electrical.Analog.Basic.Resistor R4(R=1)
-  annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
   Modelica.Electrical.Analog.Basic.Resistor R5(R=1)
-  annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
+  annotation (Placement(transformation(extent={{20,-20},{40,0}})));
 
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, freqHz=1)
   annotation (Placement(transformation(

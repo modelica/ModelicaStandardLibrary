@@ -10,8 +10,7 @@ package Sensors
                                             final unit="Pa",
                                             displayUnit="bar",
                                             min=0) "Pressure at port"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     p = port.p;
     annotation (
@@ -43,8 +42,7 @@ ideal, i.e., it does not influence the fluid.
                                             final unit="kg/m3",
                                             displayUnit="g/cm3",
                                             min=0) "Density in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     d = Medium.density(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
@@ -121,8 +119,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature",
                                             final unit = "K", displayUnit = "degC", min=0)
       "Temperature in port medium"
-      annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
-              0)));
+      annotation (Placement(transformation(extent={{60,-10},{80,10}})));
 
   equation
     T = Medium.temperature(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
@@ -153,15 +150,13 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineThickness=0.5),
           Line(
             points={{-12,40},{-12,-64}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{12,40},{12,-64}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
-          Line(points={{-40,20},{-12,20}}, color={0,0,0}),
-          Line(points={{-40,60},{-12,60}}, color={0,0,0}),
+          Line(points={{-40,-20},{-12,-20}}),
+          Line(points={{-40,20},{-12,20}}),
+          Line(points={{-40,60},{-12,60}}),
           Line(points={{12,0},{60,0}}, color={0,0,127})}),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
@@ -183,15 +178,13 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-54}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{12,50},{12,-54}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-40,-10},{-12,-10}}, color={0,0,0}),
-          Line(points={{-40,30},{-12,30}}, color={0,0,0}),
-          Line(points={{-40,70},{-12,70}}, color={0,0,0}),
+          Line(points={{-40,-10},{-12,-10}}),
+          Line(points={{-40,30},{-12,30}}),
+          Line(points={{-40,70},{-12,70}}),
           Text(
             extent={{126,-30},{6,-60}},
             lineColor={0,0,0},
@@ -253,15 +246,13 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-35}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{12,50},{12,-34}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-40,-10},{-12,-10}}, color={0,0,0}),
-          Line(points={{-40,20},{-12,20}}, color={0,0,0}),
-          Line(points={{-40,50},{-12,50}}, color={0,0,0}),
+          Line(points={{-40,-10},{-12,-10}}),
+          Line(points={{-40,20},{-12,20}}),
+          Line(points={{-40,50},{-12,50}}),
           Text(
             extent={{94,122},{0,92}},
             lineColor={0,0,0},
@@ -280,8 +271,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput h_out(final quantity="SpecificEnergy",
                                                 final unit="J/kg")
       "Specific enthalpy in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     h_out = inStream(port.h_outflow);
@@ -348,8 +338,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput s(final quantity="SpecificEntropy",
                                             final unit="J/(kg.K)")
       "Specific entropy in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     s = Medium.specificEntropy(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
@@ -424,8 +413,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     parameter String substanceName = "water" "Name of mass fraction";
 
     Modelica.Blocks.Interfaces.RealOutput Xi "Mass fraction in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
     parameter Integer ind(fixed=false)
@@ -528,8 +516,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     parameter String substanceName = "CO2" "Name of trace substance";
 
     Modelica.Blocks.Interfaces.RealOutput C "Trace substance in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
     parameter Integer ind(fixed=false)
@@ -797,12 +784,10 @@ as signal.
 
       Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
                                     redeclare package Medium = Medium)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
                                     redeclare package Medium = Medium)
-        annotation (Placement(transformation(extent={{110,-12},{90,8}}, rotation=
-                0), iconTransformation(extent={{110,-10},{90,10}})));
+        annotation (Placement(transformation(extent={{110,-12},{90,8}}), iconTransformation(extent={{110,-10},{90,10}})));
 
     equation
       // Zero flow equations for connectors
@@ -827,12 +812,10 @@ as signal.
               lineColor={0,0,255}),
             Line(
               points={{32,3},{-58,3}},
-              color={0,128,255},
-              smooth=Smooth.None),
+              color={0,128,255}),
             Polygon(
               points={{22,18},{62,3},{22,-12},{22,18}},
               lineColor={0,128,255},
-              smooth=Smooth.None,
               fillColor={0,128,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<HTML>

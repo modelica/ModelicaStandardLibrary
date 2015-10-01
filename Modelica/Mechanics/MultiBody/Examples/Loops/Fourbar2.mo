@@ -9,7 +9,7 @@ model Fourbar2
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-80,-80},{-60,-60}}, rotation=0)));
+        transformation(extent={{-80,-80},{-60,-60}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute j1(useAxisFlange=true,
     n={1,0,0},
     stateSelect=StateSelect.always,
@@ -18,12 +18,12 @@ model Fourbar2
       start=5.235987755982989,
       fixed=true))
                  annotation (Placement(transformation(extent={{-54,-40},{-34,
-            -20}}, rotation=0)));
+            -20}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     boxWidth=0.05,
     s(fixed=true, start=-0.2))
-    annotation (Placement(transformation(extent={{12,-80},{32,-60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{12,-80},{32,-60}})));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (Placement(transformation(
         origin={-30,0},
@@ -38,10 +38,9 @@ model Fourbar2
     n1_a={0,1,0},
     computeRodLength=true,
     rRod_ia={-1,0.3,0.1}) annotation (Placement(transformation(extent={{0,18},{
-            -20,38}}, rotation=0)));
+            -20,38}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(r={1.2,0,0}, animation=false)
-    annotation (Placement(transformation(extent={{-32,-80},{-12,-60}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-32,-80},{-12,-60}})));
   Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={0,0,255})
     annotation (Placement(transformation(
         origin={-6,70},

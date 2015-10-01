@@ -4,26 +4,26 @@ model DoublePendulum
 
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-88,0},{-68,20}}, rotation=0)));
+        transformation(extent={{-88,0},{-68,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(useAxisFlange=true,phi(fixed=true),
       w(fixed=true))                                             annotation (Placement(transformation(extent={{-48,0},
-            {-28,20}}, rotation=0)));
+            {-28,20}})));
   Modelica.Mechanics.Rotational.Components.Damper damper(
                                               d=0.1)
-    annotation (Placement(transformation(extent={{-48,40},{-28,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-48,40},{-28,60}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody1(r={0.5,0,0}, width=0.06)
-    annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-10,0},{10,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
         fixed=true))                                     annotation (Placement(transformation(extent={{32,0},{
-            52,20}}, rotation=0)));
+            52,20}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox boxBody2(r={0.5,0,0}, width=0.06)
-    annotation (Placement(transformation(extent={{74,0},{94,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{74,0},{94,20}})));
 equation
 
   connect(damper.flange_b, revolute1.axis) annotation (Line(points={{-28,50},{
-          -24,50},{-24,28},{-38,28},{-38,20}}, color={0,0,0}));
+          -24,50},{-24,28},{-38,28},{-38,20}}));
   connect(revolute1.support, damper.flange_a) annotation (Line(points={{-44,20},
-          {-44,28},{-58,28},{-58,50},{-48,50}}, color={0,0,0}));
+          {-44,28},{-58,28},{-58,50},{-48,50}}));
   connect(revolute1.frame_b, boxBody1.frame_a)
     annotation (Line(
       points={{-28,10},{-10,10}},

@@ -9,8 +9,7 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     K2=0.41,
     K5=0.8385,
     dW=-2.5e-6,
-    dL=-2.1e-6) annotation (Placement(transformation(extent={{10,60},{30,80}},
-          rotation=0)));
+    dL=-2.1e-6) annotation (Placement(transformation(extent={{10,60},{30,80}})));
   Semiconductors.PMOS TP2(
     W=6.5e-6,
     L=3.1e-6,
@@ -19,8 +18,7 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     K2=0.41,
     K5=0.8385,
     dW=-2.5e-6,
-    dL=-2.1e-6) annotation (Placement(transformation(extent={{-40,45},{-20,65}},
-          rotation=0)));
+    dL=-2.1e-6) annotation (Placement(transformation(extent={{-40,45},{-20,65}})));
   Semiconductors.NMOS TN1(
     W=6.5e-6,
     L=3.1e-6,
@@ -29,8 +27,7 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     K2=1.144,
     K5=0.7311,
     dW=-2.5e-6,
-    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,15},{30,35}},
-          rotation=0)));
+    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,15},{30,35}})));
   Semiconductors.NMOS TN2(
     W=6.5e-6,
     L=3.1e-6,
@@ -39,8 +36,7 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     K2=1.144,
     K5=0.7311,
     dW=-2.5e-6,
-    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,-25},{30,-5}},
-          rotation=0)));
+    dL=-1.5e-6) annotation (Placement(transformation(extent={{10,-25},{30,-5}})));
   Basic.Capacitor C4(C=0.4e-13) annotation (Placement(transformation(
         origin={60,30},
         extent={{-10,-10},{10,10}},
@@ -50,25 +46,22 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Basic.Ground Gnd annotation (Placement(transformation(extent={{40,-25},{50,
-            -15}}, rotation=0)));
-  Basic.Ground Gnd2 annotation (Placement(transformation(extent={{55,0},{65,10}},
-          rotation=0)));
+            -15}})));
+  Basic.Ground Gnd2 annotation (Placement(transformation(extent={{55,0},{65,10}})));
   Basic.Ground Gnd3 annotation (Placement(transformation(extent={{50,-80},{60,
-            -70}}, rotation=0)));
+            -70}})));
   Basic.Ground Gnd6 annotation (Placement(transformation(extent={{-15,30},{-5,
-            40}}, rotation=0)));
-  Basic.Ground Gnd7 annotation (Placement(transformation(extent={{40,15},{50,25}},
-          rotation=0)));
-  Basic.Ground Gnd8 annotation (Placement(transformation(extent={{40,60},{50,70}},
-          rotation=0)));
+            40}})));
+  Basic.Ground Gnd7 annotation (Placement(transformation(extent={{40,15},{50,25}})));
+  Basic.Ground Gnd8 annotation (Placement(transformation(extent={{40,60},{50,70}})));
   Interfaces.Pin x1 annotation (Placement(transformation(extent={{-110,40},{-90,
-            60}}, rotation=0)));
+            60}})));
   Interfaces.Pin x2 annotation (Placement(transformation(extent={{-110,-60},{
-            -90,-40}}, rotation=0)));
+            -90,-40}})));
   Interfaces.Pin Vdd annotation (Placement(transformation(extent={{-10,90},{10,
-            110}}, rotation=0)));
+            110}})));
   Interfaces.Pin y annotation (Placement(transformation(extent={{90,-10},{110,
-            10}}, rotation=0)));
+            10}})));
 equation
   connect(TN1.S, TN2.D) annotation (Line(points={{30,20},{30,-10}}));
   connect(TN2.B, Gnd.p) annotation (Line(points={{30,-15},{38,-15},{38,-15},{45,

@@ -41,18 +41,18 @@ package HeatExchanger "Demo of a heat exchanger model"
       dT=10,
       T_start_1=304,
       T_start_2=300)       annotation (Placement(transformation(extent={{
-              -26,-14},{34,46}}, rotation=0)));
+              -26,-14},{34,46}})));
 
     Modelica.Fluid.Sources.Boundary_pT ambient2(nPorts=1,
       p=1e5,
       T=280,
       redeclare package Medium = Medium)                              annotation (Placement(
-          transformation(extent={{82,-28},{62,-8}}, rotation=0)));
+          transformation(extent={{82,-28},{62,-8}})));
     Modelica.Fluid.Sources.Boundary_pT ambient1(nPorts=1,
       p=1e5,
       T=300,
       redeclare package Medium = Medium)                              annotation (Placement(
-          transformation(extent={{82,24},{62,44}}, rotation=0)));
+          transformation(extent={{82,24},{62,44}})));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate2(nPorts=1,
       m_flow=0.2,
       T=360,
@@ -60,22 +60,20 @@ package HeatExchanger "Demo of a heat exchanger model"
       use_m_flow_in=true,
       use_T_in=false,
       use_X_in=false)
-                  annotation (Placement(transformation(extent={{-66,24},{-46,44}},
-            rotation=0)));
+                  annotation (Placement(transformation(extent={{-66,24},{-46,44}})));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
       redeclare package Medium = Medium,
       m_flow=0.2,
-      T=300)       annotation (Placement(transformation(extent={{-66,-10},{-46,10}},
-            rotation=0)));
+      T=300)       annotation (Placement(transformation(extent={{-66,-10},{-46,10}})));
     Modelica.Blocks.Sources.Ramp Ramp1(
       startTime=50,
       duration=5,
       height=0.4,
       offset=-0.2)  annotation (Placement(transformation(extent={{-98,24},{-78,
-              44}}, rotation=0)));
+              44}})));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
         use_eps_Re=true)             annotation (Placement(transformation(extent=
-              {{60,70},{80,90}}, rotation=0)));
+              {{60,70},{80,90}})));
   equation
     connect(massFlowRate1.ports[1], HEX.port_a1)        annotation (Line(points={
             {-46,0},{-40,0},{-40,15.4},{-29,15.4}}, color={0,127,255}));
@@ -86,13 +84,11 @@ package HeatExchanger "Demo of a heat exchanger model"
     connect(massFlowRate2.ports[1], HEX.port_b2)
                                              annotation (Line(
         points={{-46,34},{-40,34},{-40,29.8},{-29,29.8}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(HEX.port_a2, ambient2.ports[1])
                                         annotation (Line(
         points={{37,2.2},{42,2},{50,2},{50,-18},{62,-18}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     annotation (                         experiment(StopTime=200, Tolerance=
             1e-005),
       Documentation(info="<html>
@@ -259,8 +255,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         energyDynamics=energyDynamics,
         n=nNodes,
         area_h=area_h)
-        annotation (Placement(transformation(extent={{-29,-23},{9,35}},  rotation=
-               0)));
+        annotation (Placement(transformation(extent={{-29,-23},{9,35}})));
 
       Pipes.DynamicPipe pipe_1(
         redeclare final package Medium = Medium_1,
@@ -286,7 +281,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         final roughness=roughness_1,
         redeclare final model FlowModel = FlowModel_1,
         final modelStructure=modelStructure_1)              annotation (Placement(transformation(extent={{-40,-80},
-                {20,-20}},        rotation=0)));
+                {20,-20}})));
 
       Pipes.DynamicPipe pipe_2(
         redeclare final package Medium = Medium_2,
@@ -312,25 +307,24 @@ package HeatExchanger "Demo of a heat exchanger model"
         final roughness=roughness_2,
         redeclare final model FlowModel = FlowModel_2,
         final modelStructure=modelStructure_2)
-                  annotation (Placement(transformation(extent={{20,88},{-40,28}},
-              rotation=0)));
+                  annotation (Placement(transformation(extent={{20,88},{-40,28}})));
 
       Modelica.Fluid.Interfaces.FluidPort_b port_b1(redeclare final package
           Medium =
             Medium_1) annotation (Placement(transformation(extent={{100,-12},{120,
-                8}}, rotation=0)));
+                8}})));
       Modelica.Fluid.Interfaces.FluidPort_a port_a1(redeclare final package
           Medium =
             Medium_1) annotation (Placement(transformation(extent={{-120,-12},{
-                -100,8}}, rotation=0)));
+                -100,8}})));
       Modelica.Fluid.Interfaces.FluidPort_b port_b2(redeclare final package
           Medium =
             Medium_2) annotation (Placement(transformation(extent={{-120,36},{
-                -100,56}}, rotation=0)));
+                -100,56}})));
       Modelica.Fluid.Interfaces.FluidPort_a port_a2(redeclare final package
           Medium =
             Medium_2) annotation (Placement(transformation(extent={{100,-56},{120,
-                -36}}, rotation=0)));
+                -36}})));
 
     equation
       Q_flow_1 = sum(pipe_1.heatTransfer.Q_flows);
@@ -353,13 +347,11 @@ package HeatExchanger "Demo of a heat exchanger model"
           thickness=0.5));
       connect(wall.heatPort_b, pipe_1.heatPorts) annotation (Line(
           points={{-10,-8.5},{-10,-36.8},{-9.7,-36.8}},
-          color={191,0,0},
-          smooth=Smooth.None));
+          color={191,0,0}));
       connect(pipe_2.heatPorts[nNodes:-1:1], wall.heatPort_a[1:nNodes])
         annotation (Line(
           points={{-10.3,44.8},{-10.3,31.7},{-10,31.7},{-10,20.5}},
-          color={127,0,0},
-          smooth=Smooth.None));
+          color={127,0,0}));
       annotation (   Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
             Rectangle(
@@ -393,22 +385,18 @@ package HeatExchanger "Demo of a heat exchanger model"
               textString="%name"),
             Line(
               points={{30,-85},{-60,-85}},
-              color={0,128,255},
-              smooth=Smooth.None),
+              color={0,128,255}),
             Polygon(
               points={{20,-70},{60,-85},{20,-100},{20,-70}},
               lineColor={0,128,255},
-              smooth=Smooth.None,
               fillColor={0,128,255},
               fillPattern=FillPattern.Solid),
             Line(
               points={{30,77},{-60,77}},
-              color={0,128,255},
-              smooth=Smooth.None),
+              color={0,128,255}),
             Polygon(
               points={{-50,92},{-90,77},{-50,62},{-50,92}},
               lineColor={0,128,255},
-              smooth=Smooth.None,
               fillColor={0,128,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
@@ -448,11 +436,10 @@ The design flow direction with positive m_flow variables is counterflow.</p>
         "Wall temperature";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a[n] heatPort_a
         "Thermal port"
-        annotation (Placement(transformation(extent={{-20,40},{20,60}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-20,40},{20,60}})));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a[n] heatPort_b
         "Thermal port"
-        annotation (Placement(transformation(extent={{-20,-40},{20,-60}}, rotation=
-                  0)));
+        annotation (Placement(transformation(extent={{-20,-40},{20,-60}})));
 
     initial equation
       if energyDynamics == Modelica.Fluid.Types.Dynamics.SteadyStateInitial then

@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model HeatLosses "Demonstrate the modeling of heat losses"
    extends Modelica.Icons.Example;
   inner World                              world annotation (Placement(
-        transformation(extent={{-100,40},{-80,60}},rotation=0)));
+        transformation(extent={{-100,40},{-80,60}})));
   Parts.Body                              body1(
     m=1,
     r_CM={0,-0.2,0},
@@ -21,9 +21,9 @@ model HeatLosses "Demonstrate the modeling of heat losses"
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Parts.FixedTranslation                              bar1(                     r={0.3,0,0})
-    annotation (Placement(transformation(extent={{-66,40},{-46,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-66,40},{-46,60}})));
   Parts.FixedTranslation                              bar2(r={0.3,0,0})
-    annotation (Placement(transformation(extent={{-20,40},{0,60}},rotation=0)));
+    annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   Forces.Spring                              spring1(
     s_unstretched=0.1,
     coilWidth=0.01,
@@ -68,7 +68,7 @@ model HeatLosses "Demonstrate the modeling of heat losses"
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Parts.FixedTranslation                              bar3(r={0.3,0,0})
-    annotation (Placement(transformation(extent={{34,40},{54,60}},rotation=0)));
+    annotation (Placement(transformation(extent={{34,40},{54,60}})));
   Forces.SpringDamperSeries springDamperSeries(
     d=2,
     c=30,
@@ -140,60 +140,48 @@ equation
   connect(bar2.frame_b, springDamper.frame_a)  annotation (Line(
       points={{0,50},{26,50},{26,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(springDamper.frame_b, body2.frame_a)  annotation (Line(
       points={{26,0},{26,-5},{26,-5},{26,-10},{26,-20},{26,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bar3.frame_b, springDamperSeries.frame_a)
                                                annotation (Line(
       points={{54,50},{80,50},{80,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(springDamperSeries.frame_b, body3.frame_a)
                                                 annotation (Line(
       points={{80,0},{80,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bar3.frame_a, bar2.frame_b) annotation (Line(
       points={{34,50},{0,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bar3.frame_b, spring.frame_a) annotation (Line(
       points={{54,50},{60,50},{60,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(spring.frame_b, body3.frame_a) annotation (Line(
       points={{60,0},{60,-12},{80,-12},{80,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(const.y,convection. Gc) annotation (Line(
       points={{13,-90},{36,-90},{36,-72}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(TAmbient.port,convection. fluid) annotation (Line(
       points={{60,-62},{46,-62}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   connect(damper1.heatPort, convection.solid) annotation (Line(
       points={{-60,20},{-60,-62},{26,-62}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   connect(springDamper.heatPort, convection.solid) annotation (Line(
       points={{16,20},{4,20},{4,-62},{26,-62}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   connect(springDamperSeries.heatPort, convection.solid) annotation (Line(
       points={{90,20},{96,20},{96,-46},{4,-46},{4,-62},{26,-62}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   annotation (
     experiment(StopTime=3),
     Documentation(info="<html>

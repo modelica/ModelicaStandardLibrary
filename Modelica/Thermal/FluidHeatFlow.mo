@@ -175,16 +175,14 @@ This library provides simple components for 1-dimensional incompressible thermo-
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-60,-10},{-80,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe(
         medium=medium,
         m=0.1,
@@ -195,12 +193,10 @@ This library provides simple components for 1-dimensional incompressible thermo-
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(
                        C=0.1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(
@@ -209,22 +205,18 @@ This library provides simple components for 1-dimensional incompressible thermo-
             rotation=90)));
       Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow
         prescribedHeatFlow
-        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}})));
       Modelica.Blocks.Sources.Constant volumeFlow(k=1)
-        annotation (Placement(transformation(extent={{-60,10},{-40,30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
       Modelica.Blocks.Sources.Constant heatFlow(k=10)
-        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
       Modelica.Thermal.HeatTransfer.Components.Convection convection
         annotation (Placement(transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant thermalConductance(k=1)
-        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
     equation
       connect(ambient1.flowPort, pump.flowPort_a)
         annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
@@ -245,8 +237,7 @@ This library provides simple components for 1-dimensional incompressible thermo-
             color={0,0,127}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 1st test example: SimpleCooling
@@ -305,16 +296,14 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-60,-10},{-80,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe1(
         medium=medium,
         m=0.1,
@@ -326,8 +315,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         h_g=0,
         V_flow(start=0),
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{0,-20},{20,0}})));
       FluidHeatFlow.Components.HeatedPipe pipe2(
         medium=medium,
         m=0.1,
@@ -339,7 +327,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         h_g=0,
         V_flow(start=0),
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,20},{20,0}}, rotation=0)));
+        annotation (Placement(transformation(extent={{0,20},{20,0}})));
       FluidHeatFlow.Components.IsolatedPipe pipe3(
         medium=medium,
         m=0.1,
@@ -350,12 +338,10 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{80,-10},{100,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{80,-10},{100,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor1(
                        C=0.1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(
@@ -391,20 +377,15 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
             extent={{10,-10},{-10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant volumeFlow(k=1)
-        annotation (Placement(transformation(extent={{-60,10},{-40,30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
       Modelica.Blocks.Sources.Constant heatFlow1(k=5)
-        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
       Modelica.Blocks.Sources.Constant heatFlow2(k=10)
-        annotation (Placement(transformation(extent={{-60,50},{-40,70}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
       Modelica.Blocks.Sources.Constant thermalConductance1(k=1)
-        annotation (Placement(transformation(extent={{-30,-50},{-10,-30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
       Modelica.Blocks.Sources.Constant thermalConductance2(k=1)
-        annotation (Placement(transformation(extent={{-30,30},{-10,50}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
     equation
       connect(ambient1.flowPort, pump.flowPort_a)
         annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
@@ -443,8 +424,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
         annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 2nd test example: ParallelCooling
@@ -527,19 +507,18 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=outerMedium,
         constantAmbientPressure=0)
                             annotation (Placement(transformation(extent={{-60,
-                60},{-80,80}}, rotation=0)));
+                60},{-80,80}})));
       Sources.VolumeFlow outerPump(
         medium=outerMedium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,60},{-20,80}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=outerMedium,
         constantAmbientPressure=0)
                             annotation (Placement(transformation(extent={{40,60},
-                {60,80}}, rotation=0)));
+                {60,80}})));
       Modelica.Thermal.HeatTransfer.Components.ThermalConductor
         thermalConductor(                                                        G=1)
         annotation (Placement(transformation(
@@ -568,11 +547,10 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         T0fixed=true,
         dpLaminar=1000,
         dpNominal=2000)
-        annotation (Placement(transformation(extent={{20,-50},{0,-30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{20,-50},{0,-30}})));
       FluidHeatFlow.Sources.AbsolutePressure absolutePressure(p=10000, medium=innerMedium)
                             annotation (Placement(transformation(extent={{40,
-                -40},{60,-20}}, rotation=0)));
+                -40},{60,-20}})));
       Sources.VolumeFlow innerPump(
         medium=innerMedium,
         m=0,
@@ -584,20 +562,15 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant heatFlow(k=10)
-        annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
       Modelica.Blocks.Sources.Constant outerVolumeFlow(k=1)
-        annotation (Placement(transformation(extent={{-60,80},{-40,100}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,80},{-40,100}})));
       Modelica.Blocks.Sources.Constant innerVolumeFlow(k=1)
-        annotation (Placement(transformation(extent={{-60,-40},{-40,-20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
       Modelica.Blocks.Sources.Constant outerGc(k=2)
-        annotation (Placement(transformation(extent={{-40,30},{-20,50}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
       Modelica.Blocks.Sources.Constant innerGc(k=2)
-        annotation (Placement(transformation(extent={{-40,20},{-20,0}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,20},{-20,0}})));
       FluidHeatFlow.Components.HeatedPipe outerPipe(
         medium=outerMedium,
         m=0.1,
@@ -608,8 +581,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{0,60},{20,80}})));
       FluidHeatFlow.Components.HeatedPipe innerPipe(
         medium=innerMedium,
         m=0.1,
@@ -620,8 +592,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-10},{20,-30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{0,-10},{20,-30}})));
       Modelica.Thermal.HeatTransfer.Components.Convection innerConvection
         annotation (Placement(transformation(
             origin={10,10},
@@ -671,12 +642,10 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
         annotation (Line(points={{-19,40},{0,40}},  color={0,0,127}));
       connect(outerVolumeFlow.y, outerPump.volumeFlow) annotation (Line(
           points={{-39,90},{-30,90},{-30,80}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(innerVolumeFlow.y, innerPump.volumeFlow) annotation (Line(
           points={{-39,-30},{-30,-30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 3rd test example: IndirectCooling
@@ -740,8 +709,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-70,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-70,-10},{-90,10}})));
       FluidHeatFlow.Sources.IdealPump idealPump(
         medium=medium,
         m=0,
@@ -750,8 +718,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         V_flow(start=0),
         wNominal(displayUnit="rad/s") = 1,
         dp0(displayUnit="Pa") = 2)
-        annotation (Placement(transformation(extent={{-60,10},{-40,-10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
       FluidHeatFlow.Components.Valve valve(
         medium=medium,
         m=0,
@@ -763,8 +730,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         dp0(displayUnit="Pa") = 1,
         rho0=10,
         frictionLoss=0)
-        annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe(
         medium=medium,
         T0=TAmb,
@@ -775,12 +741,10 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(
                        C=0.1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(
@@ -789,19 +753,16 @@ Inner coolant's temperature rise near the source is the same as temperature drop
             rotation=90)));
       Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow
         prescribedHeatFlow
-        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}})));
       Modelica.Blocks.Sources.Constant heatFlow(k=10)
-        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
       Modelica.Thermal.HeatTransfer.Components.Convection convection
         annotation (Placement(transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant thermalConductance(k=1)
-        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
       Modelica.Mechanics.Rotational.Sources.Speed speed(exact=true, useSupport=
             false)
         annotation (Placement(transformation(
@@ -813,13 +774,13 @@ Inner coolant's temperature rise near the source is the same as temperature drop
         offset=0.5,
         duration=0.1,
         startTime=0.4) annotation (Placement(transformation(extent={{-80,40},{
-                -60,60}}, rotation=0)));
+                -60,60}})));
       Modelica.Blocks.Sources.Ramp valveRamp(
         height=0.5,
         offset=0.5,
         duration=0.1,
         startTime=0.9) annotation (Placement(transformation(extent={{12,40},{-8,
-                60}}, rotation=0)));
+                60}})));
     equation
       connect(pipe.flowPort_b, ambient2.flowPort)
         annotation (Line(points={{20,0},{40,0}}, color={255,0,0}));
@@ -847,9 +808,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
                                  annotation (Line(points={{-9,50},{-20,50},{-20,
               9}}, color={0,0,127}));
       connect(speed.flange, idealPump.flange_a) annotation (Line(
-          points={{-50,20},{-50,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,20},{-50,10}}));
     annotation (Documentation(info="<HTML>
 <p>
 4th test example: PumpAndValve
@@ -882,16 +841,14 @@ You may try to:
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-60,-10},{-80,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe(
         medium=medium,
         T0=TAmb,
@@ -902,12 +859,10 @@ You may try to:
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(
                        C=0.1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(
@@ -916,22 +871,18 @@ You may try to:
             rotation=90)));
       Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow
         prescribedHeatFlow
-        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-60}})));
       Utilities.DoubleRamp volumeFlow
-        annotation (Placement(transformation(extent={{-60,10},{-40,30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
       Modelica.Blocks.Sources.Constant heatFlow(k=10)
-        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
       Modelica.Thermal.HeatTransfer.Components.Convection convection
         annotation (Placement(transformation(
             origin={10,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant thermalConductance(k=1)
-        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
     equation
       connect(ambient1.flowPort, pump.flowPort_a)
         annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
@@ -952,8 +903,7 @@ You may try to:
             color={0,0,127}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 5th test example: PumpDropOut
@@ -988,16 +938,14 @@ then started again (using a ramp of 0.2 s).
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-60,-10},{-80,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe1(
         medium=medium,
         m=0.1,
@@ -1009,8 +957,7 @@ then started again (using a ramp of 0.2 s).
         h_g=0,
         V_flow(start=0),
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{0,-20},{20,0}})));
       FluidHeatFlow.Components.HeatedPipe pipe2(
         medium=medium,
         m=0.1,
@@ -1022,7 +969,7 @@ then started again (using a ramp of 0.2 s).
         h_g=0,
         V_flow(start=0),
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,20},{20,0}}, rotation=0)));
+        annotation (Placement(transformation(extent={{0,20},{20,0}})));
       FluidHeatFlow.Components.IsolatedPipe pipe3(
         medium=medium,
         T0=TAmb,
@@ -1033,12 +980,10 @@ then started again (using a ramp of 0.2 s).
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{80,-10},{100,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{80,-10},{100,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor1(
                        C=0.1, T(start=TAmb, fixed=true))
         annotation (Placement(transformation(
@@ -1074,20 +1019,15 @@ then started again (using a ramp of 0.2 s).
             extent={{10,-10},{-10,10}},
             rotation=90)));
       Utilities.DoubleRamp volumeFlow
-        annotation (Placement(transformation(extent={{-60,10},{-40,30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
       Modelica.Blocks.Sources.Constant heatFlow1(k=5)
-        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
       Modelica.Blocks.Sources.Constant heatFlow2(k=10)
-        annotation (Placement(transformation(extent={{-60,50},{-40,70}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
       Modelica.Blocks.Sources.Constant thermalConductance1(k=1)
-        annotation (Placement(transformation(extent={{-30,-50},{-10,-30}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-50},{-10,-30}})));
       Modelica.Blocks.Sources.Constant thermalConductance2(k=1)
-        annotation (Placement(transformation(extent={{-30,30},{-10,50}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,30},{-10,50}})));
     equation
       connect(ambient1.flowPort, pump.flowPort_a)
         annotation (Line(points={{-60,0},{-60,0},{-40,0}},
@@ -1127,8 +1067,7 @@ then started again (using a ramp of 0.2 s).
         annotation (Line(points={{60,0},{80,0}}, color={255,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 6th test example: ParallelPumpDropOut
@@ -1156,16 +1095,14 @@ then started again (using a ramp of 0.2 s).
         "Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-60,-10},{-80,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe(
         medium=medium,
         m=0.1,
@@ -1176,12 +1113,10 @@ then started again (using a ramp of 0.2 s).
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(
         C=0.1, T(start=TMass, fixed=true))
         annotation (Placement(transformation(
@@ -1198,7 +1133,7 @@ then started again (using a ramp of 0.2 s).
         offset=0,
         height_1=1,
         height_2=-2) annotation (Placement(transformation(extent={{-60,10},{-40,
-                30}}, rotation=0)));
+                30}})));
     equation
       connect(ambient1.flowPort, pump.flowPort_a)
         annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
@@ -1212,8 +1147,7 @@ then started again (using a ramp of 0.2 s).
         annotation (Line(points={{10,-10},{10,-20}}, color={191,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 7th test example: OneMass
@@ -1251,16 +1185,14 @@ the time behaviour depending on coolant flow.
         "mixed Coolant's temperature increase";
       FluidHeatFlow.Sources.Ambient ambient1(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{-60,-10},{-80,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-80,10}})));
       Sources.VolumeFlow pump(
         medium=medium,
         m=0,
         T0=TAmb,
         useVolumeFlowInput=true,
         constantVolumeFlow=1)
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       FluidHeatFlow.Components.HeatedPipe pipe1(
         medium=medium,
         m=0.1,
@@ -1272,8 +1204,7 @@ the time behaviour depending on coolant flow.
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{0,-20},{20,0}})));
       FluidHeatFlow.Components.HeatedPipe pipe2(
         medium=medium,
         m=0.1,
@@ -1285,7 +1216,7 @@ the time behaviour depending on coolant flow.
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{0,20},{20,0}}, rotation=0)));
+        annotation (Placement(transformation(extent={{0,20},{20,0}})));
       FluidHeatFlow.Components.IsolatedPipe pipe3(
         medium=medium,
         m=0.1,
@@ -1296,12 +1227,10 @@ the time behaviour depending on coolant flow.
         dpNominal(displayUnit="Pa") = 1,
         h_g=0,
         T0fixed=true)
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
       FluidHeatFlow.Sources.Ambient ambient2(constantAmbientTemperature=TAmb, medium=medium,
         constantAmbientPressure=0)
-        annotation (Placement(transformation(extent={{80,-10},{100,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{80,-10},{100,10}})));
       Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor1(
         C=0.1, T(start=TMass1, fixed=true))
         annotation (Placement(transformation(
@@ -1330,7 +1259,7 @@ the time behaviour depending on coolant flow.
         offset=0,
         height_1=1,
         height_2=-2) annotation (Placement(transformation(extent={{-60,10},{-40,
-                30}}, rotation=0)));
+                30}})));
     equation
       connect(ambient1.flowPort, pump.flowPort_a)
         annotation (Line(points={{-60,0},{-40,0}}, color={255,0,0}));
@@ -1356,8 +1285,7 @@ the time behaviour depending on coolant flow.
             points={{10,-50},{10,-55},{10,-60}},          color={191,0,0}));
       connect(volumeFlow.y, pump.volumeFlow) annotation (Line(
           points={{-39,20},{-30,20},{-30,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
     annotation (Documentation(info="<HTML>
 <p>
 8th test example: TwoMass
@@ -1389,21 +1317,20 @@ the time behaviour depending on coolant flow.
           annotation(Dialog(group="Ramp 2"));
 
         Modelica.Blocks.Math.Add add  annotation (Placement(transformation(
-                extent={{10,-10},{30,10}}, rotation=0)));
+                extent={{10,-10},{30,10}})));
         Modelica.Blocks.Sources.Ramp ramp1(
           final height=height_1,
           final duration=duration_1,
           final startTime=startTime,
           final offset=offset)
                          annotation (Placement(transformation(extent={{-30,10},
-                  {-10,30}}, rotation=0)));
+                  {-10,30}})));
         Modelica.Blocks.Sources.Ramp ramp2(
           final height=height_2,
           final duration=duration_2,
           final startTime=startTime + duration_1 + interval,
           final offset=0)
-          annotation (Placement(transformation(extent={{-30,-30},{-10,-10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-30,-30},{-10,-10}})));
       equation
         connect(ramp1.y, add.u1)  annotation (Line(points={{-9,20},{0,20},{0,6},
                 {8,6}}, color={0,0,127}));
@@ -1428,8 +1355,7 @@ Block generating the sum of two ramps.
                 fillColor={192,192,192},
                 fillPattern=FillPattern.Solid),
               Line(
-                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}},
-                color={0,0,0})}));
+                points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}})}));
       end DoubleRamp;
       annotation (Documentation(info="<html>
 This package contains utility components used for the test examples.<br>
@@ -1532,8 +1458,7 @@ leads to neglection of temperature transient cv*m*der(T).
       parameter Modelica.SIunits.Length h_g(start=0)
         "Geodetic height (heigth difference from flowPort_a to flowPort_b)";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
       // coupling with FrictionModel
       volumeFlow = V_flow;
@@ -1916,11 +1841,9 @@ All sensors are considered massless, they do not change mass flow or enthalpy fl
         "Ambient temperature"
         annotation(Dialog(enable=not useTemperatureInput));
       Modelica.Blocks.Interfaces.RealInput ambientPressure=pAmbient if usePressureInput
-        annotation (Placement(transformation(extent={{110,60},{90,80}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{110,60},{90,80}})));
       Modelica.Blocks.Interfaces.RealInput ambientTemperature=TAmbient if useTemperatureInput
-        annotation (Placement(transformation(extent={{110,-60},{90,-80}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{110,-60},{90,-80}})));
     protected
       Modelica.SIunits.Pressure pAmbient;
       Modelica.SIunits.Temperature TAmbient;
@@ -1953,8 +1876,7 @@ Thermodynamic equations are defined by Partials.Ambient.
         annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
       Interfaces.FlowPort_a flowPort(final medium=medium)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     equation
       // defining pressure
       flowPort.p = p;
@@ -2093,8 +2015,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
       Modelica.SIunits.VolumeFlowRate V_flow1;
     public
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
-        annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
       // pump characteristic
       dp1 = dp0*sign(w/wNominal)*(w/wNominal)^2;
@@ -2367,11 +2288,9 @@ See also sketch at diagram layer.
           "Temperature relevant for heat exchange with ambient";
       public
         Interfaces.FlowPort_a flowPort_a(final medium=medium)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Interfaces.FlowPort_b flowPort_b(final medium=medium)
-          annotation (Placement(transformation(extent={{90,-10},{110,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       equation
         dp=flowPort_a.p - flowPort_b.p;
         V_flow=flowPort_a.m_flow/medium.rho;
@@ -2413,8 +2332,7 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
         Modelica.SIunits.SpecificEnthalpy h;
       public
         Interfaces.FlowPort_a flowPort(final medium=medium)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       equation
         T_port=flowPort.h/medium.cp;
         h = medium.cp*T;
@@ -2443,11 +2361,9 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
           "Sensor's medium"
           annotation(choicesAllMatching=true);
         Interfaces.FlowPort_a flowPort(final medium=medium)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.Blocks.Interfaces.RealOutput y
-          annotation (Placement(transformation(extent={{100,-10},{120,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
       equation
         // no mass exchange
         flowPort.m_flow = 0;
@@ -2458,7 +2374,7 @@ Partial model for an absolute sensor (pressure/temperature).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
 </HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+              Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{100,0}}),
               Text(
                 extent={{-150,130},{150,70}},
@@ -2473,11 +2389,9 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
           "Sensor's medium"
           annotation(choicesAllMatching=true);
         Interfaces.FlowPort_a flowPort_a(final medium=medium)
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Interfaces.FlowPort_b flowPort_b(final medium=medium)
-          annotation (Placement(transformation(extent={{90,-10},{110,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.Blocks.Interfaces.RealOutput y
           annotation (Placement(transformation(
               origin={0,-110},
@@ -2495,8 +2409,8 @@ Partial model for a relative sensor (pressure drop/temperature difference).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
 </HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-              Line(points={{70,0},{90,0}}, color={0,0,0}),
+              Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),
               Line(points={{0,-100},{0,-70}}),
               Text(
                 extent={{-150,130},{150,70}},
@@ -2522,8 +2436,8 @@ Partial model for a flow sensor (mass flow/heat flow).<br>
 Pressure, mass flow, temperature and enthalpy flow of medium are not affected, but mixing rule is applied.
 </HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={
-              Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-              Line(points={{70,0},{90,0}}, color={0,0,0}),
+              Line(points={{-70,0},{-90,0}}),
+              Line(points={{70,0},{90,0}}),
               Line(points={{0,-100},{0,-70}}),
               Text(
                 extent={{-150,130},{150,70}},

@@ -8,27 +8,25 @@ model Rn "Negative resistance"
   parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock)
-    annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-10,50},{10,70}})));
 
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R)
-    annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1
     annotation (Placement(transformation(
           origin={-50,0},
           extent={{-10,-10},{10,10}},
           rotation=180)));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch2
-    annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
+    annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Modelica.Electrical.Analog.Basic.Ground Ground1
-    annotation (Placement(transformation(extent={{-66,-32},{-54,-20}}, rotation=
-             0)));
+    annotation (Placement(transformation(extent={{-66,-32},{-54,-20}})));
   Modelica.Electrical.Analog.Basic.Ground Ground2
-    annotation (Placement(transformation(extent={{54,-32},{66,-20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{54,-32},{66,-20}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin n1
-    annotation (Placement(transformation(extent={{-112,-10},{-92,10}}, rotation=
-             0)));
+    annotation (Placement(transformation(extent={{-112,-10},{-92,10}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin n2
-    annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
+    annotation (Placement(transformation(extent={{90,-8},{110,12}})));
 equation
   connect(IdealCommutingSwitch1.p,Capacitor1. p) annotation (Line(points={{-40,0},
             {-42,0},{-44,0},{-20,0}},                            color={0,0,255}));
@@ -87,28 +85,27 @@ model Rp "Positive resistance"
   parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock)
-    annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-10,50},{10,70}})));
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R)
-    annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1
     annotation (Placement(transformation(
           origin={-50,0},
           extent={{-10,-10},{10,10}},
           rotation=180)));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch2
-    annotation (Placement(transformation(extent={{40,-10},{60,10}}, rotation=0)));
+    annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Modelica.Electrical.Analog.Basic.Ground Ground1
     annotation (Placement(transformation(
           origin={-60,46},
           extent={{-6,-6},{6,6}},
           rotation=180)));
   Modelica.Electrical.Analog.Basic.Ground Ground2
-    annotation (Placement(transformation(extent={{54,-44},{66,-32}}, rotation=0)));
+    annotation (Placement(transformation(extent={{54,-44},{66,-32}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin n1
-    annotation (Placement(transformation(extent={{-112,-10},{-92,10}}, rotation=
-             0)));
+    annotation (Placement(transformation(extent={{-112,-10},{-92,10}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin n2
-    annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
+    annotation (Placement(transformation(extent={{90,-8},{110,12}})));
 equation
   connect(IdealCommutingSwitch1.p, Capacitor1.p) annotation (Line(points={{-40,0},
             {-42,0},{-44,0},{-20,0}},                            color={0,0,255}));
@@ -169,59 +166,46 @@ end Rp;
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2,v(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{-193,30},{-173,50}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-193,30},{-173,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2,v(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{-241,-70},{-221,-50}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-241,-70},{-221,-50}})));
   Modelica.Electrical.Analog.Basic.Capacitor C3(C=l1,v(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{-91,30},{-71,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-91,30},{-71,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4,v(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{-31,50},{-11,70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-31,50},{-11,70}})));
   Modelica.Electrical.Analog.Basic.Capacitor C5(C=c2)
-    annotation (Placement(transformation(extent={{-31,-100},{-11,-80}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-31,-100},{-11,-80}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op1
-    annotation (Placement(transformation(extent={{-201,-50},{-161,-10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-201,-50},{-161,-10}})));
   Modelica.Electrical.Analog.Basic.Ground G
-    annotation (Placement(transformation(extent={{-189,-76},{-175,-60}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-189,-76},{-175,-60}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op2
-    annotation (Placement(transformation(extent={{-101,-50},{-61,-10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-101,-50},{-61,-10}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op3
-    annotation (Placement(transformation(extent={{5,-50},{45,-10}}, rotation=0)));
+    annotation (Placement(transformation(extent={{5,-50},{45,-10}})));
   Modelica.Electrical.Analog.Basic.Ground G1
-    annotation (Placement(transformation(extent={{-88,-76},{-74,-60}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-88,-76},{-74,-60}})));
   Modelica.Electrical.Analog.Basic.Capacitor C6(C=c2 + c3 + c4)
-    annotation (Placement(transformation(extent={{8,30},{28,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{8,30},{28,50}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op4
-    annotation (Placement(transformation(extent={{99,-50},{139,-10}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{99,-50},{139,-10}})));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op5
-    annotation (Placement(transformation(extent={{199,-50},{239,-10}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{199,-50},{239,-10}})));
   Modelica.Electrical.Analog.Basic.Capacitor C7(C=l2,v(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{109,30},{129,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{109,30},{129,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor C8(C=c4)
-    annotation (Placement(transformation(extent={{159,-130},{179,-110}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{159,-130},{179,-110}})));
   Modelica.Electrical.Analog.Basic.Capacitor C9(C=c4 + c5)
-    annotation (Placement(transformation(extent={{207,10},{227,30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{207,10},{227,30}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n1
-    annotation (Placement(transformation(extent={{-215,-22},{-211,-18}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-215,-22},{-211,-18}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n2
-    annotation (Placement(transformation(extent={{-215,18},{-211,22}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-215,18},{-211,22}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n3
-    annotation (Placement(transformation(extent={{-215,38},{-211,42}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-215,38},{-211,42}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n4
     annotation (Placement(transformation(
@@ -230,93 +214,85 @@ protected
         rotation=180)));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n5
-    annotation (Placement(transformation(extent={{-115,-32},{-111,-28}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-115,-32},{-111,-28}})));
 protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p1
-    annotation (Placement(transformation(extent={{-155,-122},{-149,-118}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-155,-122},{-149,-118}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n6
-    annotation (Placement(transformation(extent={{-63,38},{-59,42}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-63,38},{-59,42}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n7
-    annotation (Placement(transformation(extent={{-7,-32},{-3,-28}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-7,-32},{-3,-28}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n8
-    annotation (Placement(transformation(extent={{-7,18},{-3,22}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-7,18},{-3,22}})));
 protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p2
-    annotation (Placement(transformation(extent={{-7,38},{-3,42}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-7,38},{-3,42}})));
 protected
   Modelica.Electrical.Analog.Interfaces.PositivePin out1
-    annotation (Placement(transformation(extent={{43,-122},{47,-118}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{43,-122},{47,-118}})));
 protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p3
-    annotation (Placement(transformation(extent={{57,78},{61,82}}, rotation=0)));
+    annotation (Placement(transformation(extent={{57,78},{61,82}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n9
-    annotation (Placement(transformation(extent={{85,18},{89,22}}, rotation=0)));
+    annotation (Placement(transformation(extent={{85,18},{89,22}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n10
-    annotation (Placement(transformation(extent={{85,-32},{89,-28}}, rotation=0)));
+    annotation (Placement(transformation(extent={{85,-32},{89,-28}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n11
-    annotation (Placement(transformation(extent={{137,38},{141,42}}, rotation=0)));
+    annotation (Placement(transformation(extent={{137,38},{141,42}})));
 public
   Modelica.Electrical.Analog.Basic.Ground G2
-    annotation (Placement(transformation(extent={{11,-76},{25,-60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{11,-76},{25,-60}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n12
-    annotation (Placement(transformation(extent={{237,58},{241,62}}, rotation=0)));
+    annotation (Placement(transformation(extent={{237,58},{241,62}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n13
-    annotation (Placement(transformation(extent={{237,18},{241,22}}, rotation=0)));
+    annotation (Placement(transformation(extent={{237,18},{241,22}})));
 protected
   Modelica.Electrical.Analog.Interfaces.PositivePin p4
-    annotation (Placement(transformation(extent={{187,18},{193,22}}, rotation=0)));
+    annotation (Placement(transformation(extent={{187,18},{193,22}})));
 protected
   Modelica.Electrical.Analog.Interfaces.NegativePin n14
-    annotation (Placement(transformation(extent={{187,-32},{193,-28}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{187,-32},{193,-28}})));
 public
   Modelica.Electrical.Analog.Basic.Ground G3
-    annotation (Placement(transformation(extent={{112,-76},{126,-60}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{112,-76},{126,-60}})));
   Modelica.Electrical.Analog.Basic.Ground G4
-    annotation (Placement(transformation(extent={{212,-76},{226,-60}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{212,-76},{226,-60}})));
   Modelica.Electrical.Analog.Sources.StepVoltage V(startTime=1, V=1)
     annotation (Placement(transformation(
         origin={-241,-150},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Electrical.Analog.Basic.Ground Ground1
-    annotation (Placement(transformation(extent={{-247,-182},{-235,-170}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-247,-182},{-235,-170}})));
   Rn R4(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-140,-40},{
-            -120,-20}}, rotation=0)));
+            -120,-20}})));
   Rn R5(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-140,-80},{
-            -120,-60}}, rotation=0)));
-  Rn R8(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{60,10},{80,30}},
-          rotation=0)));
+            -120,-60}})));
+  Rn R8(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{60,10},{80,30}})));
   Rn R9(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{60,-40},{80,
-            -20}}, rotation=0)));
+            -20}})));
   Rp R1(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-240,-30},{
-            -220,-10}}, rotation=0)));
+            -220,-10}})));
   Rp R2(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-240,10},{-220,
-            30}}, rotation=0)));
+            30}})));
   Rp R3(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-200,70},{-180,
-            90}}, rotation=0)));
+            90}})));
   Rp Rp1(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-32,10},{-12,
-            30}}, rotation=0)));
+            30}})));
   Rp R7(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{-32,-40},{-12,
-            -20}}, rotation=0)));
+            -20}})));
   Rp R10(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{160,-40},{180,
-            -20}}, rotation=0)));
+            -20}})));
   Rp R11(clock=0.1, Capacitor1(v(start=0, fixed=true))) annotation (Placement(transformation(extent={{208,50},{228,
-            70}}, rotation=0)));
+            70}})));
 equation
   connect(Op1.in_p,G. p) annotation (Line(points={{-201,-40},{-201,-50},{-181,
           -50},{-181,-60},{-182,-60}}, color={0,0,255}));

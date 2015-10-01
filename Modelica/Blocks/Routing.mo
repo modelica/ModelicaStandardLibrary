@@ -31,10 +31,10 @@ This block replicates the input signal to an array of <code>nout</code> identica
     parameter Integer nout=1 "Number of outputs";
     Modelica.Blocks.Interfaces.IntegerInput u
       "Connector of Integer input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.IntegerOutput y[nout]
       "Connector of Integer output signals"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
 
     y = fill(u, nout);
@@ -63,10 +63,10 @@ This block replicates the Integer input signal to an array of <code>nout</code> 
     parameter Integer nout=1 "Number of outputs";
     Modelica.Blocks.Interfaces.BooleanInput u
       "Connector of Boolean input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.BooleanOutput y[nout]
       "Connector of Boolean output signals"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
 
     y = fill(u, nout);
@@ -406,13 +406,13 @@ end Extractor;
     parameter Integer n2=1 "dimension of input signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
-            extent={{-140,40},{-100,80}}, rotation=0)));
+            extent={{-140,40},{-100,80}})));
     Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (Placement(transformation(
-            extent={{-140,-80},{-100,-40}}, rotation=0)));
+            extent={{-140,-80},{-100,-40}})));
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2]
       "Connector of Real output signals" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
 
   equation
     [y] = [u1; u2];
@@ -454,16 +454,16 @@ explicitly defined via parameters n1 and n2.
     parameter Integer n3=1 "dimension of input signal connector 3";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
-            extent={{-140,50},{-100,90}}, rotation=0)));
+            extent={{-140,50},{-100,90}})));
     Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (Placement(transformation(
-            extent={{-140,-90},{-100,-50}}, rotation=0)));
+            extent={{-140,-90},{-100,-50}})));
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3]
       "Connector of Real output signals" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
 
   equation
     [y] = [u1; u2; u3];
@@ -507,19 +507,19 @@ explicitly defined via parameters n1, n2 and n3.
     parameter Integer n4=1 "dimension of input signal connector 4";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
-            extent={{-140,70},{-100,110}}, rotation=0)));
+            extent={{-140,70},{-100,110}})));
     Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (Placement(transformation(
-            extent={{-140,10},{-100,50}}, rotation=0)));
+            extent={{-140,10},{-100,50}})));
     Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (Placement(transformation(
-            extent={{-140,-50},{-100,-10}}, rotation=0)));
+            extent={{-140,-50},{-100,-10}})));
     Modelica.Blocks.Interfaces.RealInput u4[n4]
       "Connector of Real input signals 4" annotation (Placement(transformation(
-            extent={{-140,-110},{-100,-70}}, rotation=0)));
+            extent={{-140,-110},{-100,-70}})));
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4]
       "Connector of Real output signals" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
 
   equation
     [y] = [u1; u2; u3; u4];
@@ -567,22 +567,22 @@ explicitly defined via parameters n1, n2, n3 and n4.
     parameter Integer n5=1 "dimension of input signal connector 5";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
-            extent={{-140,80},{-100,120}}, rotation=0)));
+            extent={{-140,80},{-100,120}})));
     Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (Placement(transformation(
-            extent={{-140,30},{-100,70}}, rotation=0)));
+            extent={{-140,30},{-100,70}})));
     Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealInput u4[n4]
       "Connector of Real input signals 4" annotation (Placement(transformation(
-            extent={{-140,-70},{-100,-30}}, rotation=0)));
+            extent={{-140,-70},{-100,-30}})));
     Modelica.Blocks.Interfaces.RealInput u5[n5]
       "Connector of Real input signals 5" annotation (Placement(transformation(
-            extent={{-140,-120},{-100,-80}}, rotation=0)));
+            extent={{-140,-120},{-100,-80}})));
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5]
       "Connector of Real output signals" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
 
   equation
     [y] = [u1; u2; u3; u4; u5];
@@ -633,26 +633,26 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     parameter Integer n6=1 "dimension of input signal connector 6";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
       "Connector of Real input signals 1" annotation (Placement(transformation(
-            extent={{-124,73},{-100,97}}, rotation=0)));
+            extent={{-124,73},{-100,97}})));
     Modelica.Blocks.Interfaces.RealInput u2[n2]
       "Connector of Real input signals 2" annotation (Placement(transformation(
-            extent={{-124,39},{-100,63}}, rotation=0)));
+            extent={{-124,39},{-100,63}})));
     Modelica.Blocks.Interfaces.RealInput u3[n3]
       "Connector of Real input signals 3" annotation (Placement(transformation(
-            extent={{-124,5},{-100,29}}, rotation=0)));
+            extent={{-124,5},{-100,29}})));
 
     Modelica.Blocks.Interfaces.RealInput u4[n4]
       "Connector of Real input signals 4" annotation (Placement(transformation(
-            extent={{-124,-29},{-100,-5}}, rotation=0)));
+            extent={{-124,-29},{-100,-5}})));
     Modelica.Blocks.Interfaces.RealInput u5[n5]
       "Connector of Real input signals 5" annotation (Placement(transformation(
-            extent={{-124,-63},{-100,-39}}, rotation=0)));
+            extent={{-124,-63},{-100,-39}})));
     Modelica.Blocks.Interfaces.RealInput u6[n6]
       "Connector of Real input signals 6" annotation (Placement(transformation(
-            extent={{-124,-97},{-100,-73}}, rotation=0)));
+            extent={{-124,-97},{-100,-73}})));
     Modelica.Blocks.Interfaces.RealOutput y[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real output signals" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
 
   equation
     [y] = [u1; u2; u3; u4; u5; u6];
@@ -701,13 +701,13 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     parameter Integer n2=1 "dimension of output signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2]
       "Connector of Real input signals" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (Placement(transformation(
-            extent={{100,50},{120,70}}, rotation=0)));
+            extent={{100,50},{120,70}})));
     Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (Placement(transformation(
-            extent={{100,-70},{120,-50}}, rotation=0)));
+            extent={{100,-70},{120,-50}})));
 
   equation
     [u] = [y1; y2];
@@ -750,16 +750,16 @@ explicitly defined via parameters n1 and n2.
     parameter Integer n3=1 "dimension of output signal connector 3";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3]
       "Connector of Real input signals" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (Placement(transformation(
-            extent={{100,60},{120,80}}, rotation=0)));
+            extent={{100,60},{120,80}})));
     Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
     Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (Placement(transformation(
-            extent={{100,-80},{120,-60}}, rotation=0)));
+            extent={{100,-80},{120,-60}})));
 
   equation
     [u] = [y1; y2; y3];
@@ -805,19 +805,19 @@ explicitly defined via parameters n1, n2 and n3.
     parameter Integer n4=1 "dimension of output signal connector 4";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4]
       "Connector of Real input signals" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (Placement(transformation(
-            extent={{100,80},{120,100}}, rotation=0)));
+            extent={{100,80},{120,100}})));
     Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (Placement(transformation(
-            extent={{100,20},{120,40}}, rotation=0)));
+            extent={{100,20},{120,40}})));
     Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (Placement(transformation(
-            extent={{100,-40},{120,-20}}, rotation=0)));
+            extent={{100,-40},{120,-20}})));
     Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (Placement(transformation(
-            extent={{100,-100},{120,-80}}, rotation=0)));
+            extent={{100,-100},{120,-80}})));
 
   equation
     [u] = [y1; y2; y3; y4];
@@ -865,22 +865,22 @@ explicitly defined via parameters n1, n2, n3 and n4.
     parameter Integer n5=1 "dimension of output signal connector 5";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5]
       "Connector of Real input signals" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (Placement(transformation(
-            extent={{100,70},{120,90}}, rotation=0)));
+            extent={{100,70},{120,90}})));
     Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (Placement(transformation(
-            extent={{100,30},{120,50}}, rotation=0)));
+            extent={{100,30},{120,50}})));
     Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
     Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (Placement(transformation(
-            extent={{100,-50},{120,-30}}, rotation=0)));
+            extent={{100,-50},{120,-30}})));
     Modelica.Blocks.Interfaces.RealOutput y5[n5]
       "Connector of Real output signals 5" annotation (Placement(transformation(
-            extent={{100,-90},{120,-70}}, rotation=0)));
+            extent={{100,-90},{120,-70}})));
 
   equation
     [u] = [y1; y2; y3; y4; y5];
@@ -930,25 +930,25 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
     parameter Integer n6=1 "dimension of output signal connector 6";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2 + n3 + n4 + n5 + n6]
       "Connector of Real input signals" annotation (Placement(transformation(
-            extent={{-140,-20},{-100,20}}, rotation=0)));
+            extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1[n1]
       "Connector of Real output signals 1" annotation (Placement(transformation(
-            extent={{100,80},{120,100}}, rotation=0)));
+            extent={{100,80},{120,100}})));
     Modelica.Blocks.Interfaces.RealOutput y2[n2]
       "Connector of Real output signals 2" annotation (Placement(transformation(
-            extent={{100,44},{120,64}}, rotation=0)));
+            extent={{100,44},{120,64}})));
     Modelica.Blocks.Interfaces.RealOutput y3[n3]
       "Connector of Real output signals 3" annotation (Placement(transformation(
-            extent={{100,8},{120,28}}, rotation=0)));
+            extent={{100,8},{120,28}})));
     Modelica.Blocks.Interfaces.RealOutput y4[n4]
       "Connector of Real output signals 4" annotation (Placement(transformation(
-            extent={{100,-28},{120,-8}}, rotation=0)));
+            extent={{100,-28},{120,-8}})));
     Modelica.Blocks.Interfaces.RealOutput y5[n5]
       "Connector of Real output signals 5" annotation (Placement(transformation(
-            extent={{100,-64},{120,-44}}, rotation=0)));
+            extent={{100,-64},{120,-44}})));
     Modelica.Blocks.Interfaces.RealOutput y6[n6]
       "Connector of Real output signals 6" annotation (Placement(transformation(
-            extent={{100,-100},{120,-80}}, rotation=0)));
+            extent={{100,-100},{120,-80}})));
 
   equation
     [u] = [y1; y2; y3; y4; y5; y6];
@@ -996,10 +996,9 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 
     Modelica.Blocks.Interfaces.RealInput u "Input signal"
       annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
-              20}}, rotation=0)));
+              20}})));
     Modelica.Blocks.Interfaces.RealOutput y "Output signal"
-      annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     y = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1016,11 +1015,9 @@ Passes a Real signal through without modification.  Enables signals to be read o
     extends Modelica.Blocks.Icons.IntegerBlock;
 
     Modelica.Blocks.Interfaces.IntegerInput u "Input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.IntegerOutput y "Output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     y = u;
 
@@ -1036,11 +1033,9 @@ Passes a Real signal through without modification.  Enables signals to be read o
     extends Modelica.Blocks.Icons.BooleanBlock;
 
     Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Modelica.Blocks.Interfaces.BooleanOutput y "Output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     y = u;
     annotation (                         Documentation(info="<html>
@@ -1048,8 +1043,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
 </html>"),
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-            extent={{-100.0,-100.0},{100.0,100.0}},
-            initialScale=0.1),
+            extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
         Line(
           points={{-100.0,0.0},{100.0,0.0}},

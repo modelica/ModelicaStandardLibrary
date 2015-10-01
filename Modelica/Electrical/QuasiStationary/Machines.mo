@@ -23,13 +23,11 @@ package Machines "Quasistationary machine models"
             extent={{-10,-10},{10,10}},
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundS annotation (Placement(
-            transformation(extent={{-100,-80},{-80,-60}}, rotation=0)));
+            transformation(extent={{-100,-80},{-80,-60}})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorS(m=m)
-        annotation (Placement(transformation(extent={{-90,0},{-70,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
       QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorS(m=m)
-        annotation (Placement(transformation(extent={{-60,20},{-40,0}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,20},{-40,0}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarIS[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
@@ -48,20 +46,18 @@ package Machines "Quasistationary machine models"
       QuasiStationary.MultiPhase.Basic.Delta deltaS(m=m) annotation (Placement(
             transformation(
             origin={-50,-10},
-            extent={{-10,-10},{10,10}},
-            rotation=0)));
+            extent={{-10,-10},{10,10}})));
       QuasiStationary.SinglePhase.Basic.Resistor earth(R_ref=1e6) annotation (
           Placement(transformation(
             origin={0,-40},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundT annotation (Placement(
-            transformation(extent={{-10,-80},{10,-60}}, rotation=0)));
+            transformation(extent={{-10,-80},{10,-60}})));
       QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorL(m=m)
         annotation (Placement(transformation(
             origin={50,-30},
-            extent={{-10,-10},{10,10}},
-            rotation=0)));
+            extent={{-10,-10},{10,10}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarVL[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
@@ -73,16 +69,14 @@ package Machines "Quasistationary machine models"
             extent={{-10,10},{10,-10}},
             rotation=180)));
       QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorL(m=m)
-        annotation (Placement(transformation(extent={{40,20},{60,0}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{40,20},{60,0}})));
       ComplexBlocks.ComplexMath.ComplexToPolar polarIL[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,40})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
-        annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{70,0},{90,20}})));
       QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation (
          Placement(transformation(
             origin={90,-10},
@@ -94,7 +88,7 @@ package Machines "Quasistationary machine models"
             extent={{-10,10},{10,-10}},
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundL annotation (Placement(
-            transformation(extent={{80,-80},{100,-60}}, rotation=0)));
+            transformation(extent={{80,-80},{100,-60}})));
       Modelica.Electrical.Machines.Utilities.TransformerData transformerData(
         C1=Modelica.Utilities.Strings.substring(
                 transformer.VectorGroup,
@@ -109,8 +103,7 @@ package Machines "Quasistationary machine models"
         V2=100,
         SNominal=30E3,
         v_sc=0.05,
-        P_sc=300) annotation (Placement(transformation(extent={{-10,40},{10,60}},
-              rotation=0)));
+        P_sc=300) annotation (Placement(transformation(extent={{-10,40},{10,60}})));
       QuasiStationary.Machines.BasicMachines.Transformers.Yd.Yd01 transformer(
         n=transformerData.n,
         R1=transformerData.R1,
@@ -123,7 +116,7 @@ package Machines "Quasistationary machine models"
         alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
         T1Operational=293.15,
         T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
-                -10},{20,30}}, rotation=0)));
+                -10},{20,30}})));
 
     initial equation
       source.plug_p.reference.gamma = 0;
@@ -131,108 +124,83 @@ package Machines "Quasistationary machine models"
     equation
       connect(starS.pin_n, groundS.pin) annotation (Line(
           points={{-90,-50},{-90,-60}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(source.plug_n, starS.plug_p) annotation (Line(
           points={{-90,-20},{-90,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(starL.pin_n, groundL.pin) annotation (Line(
           points={{90,-50},{90,-60}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(load.plug_n, starL.plug_p) annotation (Line(
           points={{90,-20},{90,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(source.plug_p, electricalPowerSensorS.currentP) annotation (Line(
           points={{-90,0},{-90,10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(electricalPowerSensorS.currentP, electricalPowerSensorS.voltageP)
         annotation (Line(
           points={{-90,10},{-90,20},{-80,20}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(electricalPowerSensorS.currentN, currentSensorS.plug_p)
         annotation (Line(
           points={{-70,10},{-60,10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorS.plug_n, transformer.plug1) annotation (Line(
           points={{-40,10},{-20,10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(transformer.plug2, currentSensorL.plug_p) annotation (Line(
           points={{20,10},{40,10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorL.plug_n, electricalPowerSensorL.currentP)
         annotation (Line(
           points={{60,10},{70,10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(electricalPowerSensorL.currentP, electricalPowerSensorL.voltageP)
         annotation (Line(
           points={{70,10},{70,20},{80,20}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(electricalPowerSensorL.currentN, load.plug_p) annotation (Line(
           points={{90,10},{90,0}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(electricalPowerSensorL.voltageN, starL.plug_p) annotation (Line(
           points={{80,0},{80,-30},{90,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(electricalPowerSensorS.voltageN, starS.plug_p) annotation (Line(
           points={{-80,0},{-80,-30},{-90,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(earth.pin_n, groundT.pin) annotation (Line(
           points={{0,-50},{0,-60}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(deltaS.plug_p, voltageSensorS.plug_n) annotation (Line(
           points={{-60,-10},{-60,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(deltaS.plug_n, voltageSensorS.plug_p) annotation (Line(
           points={{-40,-10},{-40,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorS.plug_n, deltaS.plug_n) annotation (Line(
           points={{-40,10},{-40,-10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(deltaL.plug_p, voltageSensorL.plug_n) annotation (Line(
           points={{60,-10},{60,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(deltaL.plug_n, voltageSensorL.plug_p) annotation (Line(
           points={{40,-10},{40,-30}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(currentSensorL.plug_p, deltaL.plug_n) annotation (Line(
           points={{40,10},{40,-10}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(polarIS.u, currentSensorS.y) annotation (Line(
           points={{-50,28},{-50,21}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(polarIL.u, currentSensorL.y) annotation (Line(
           points={{50,28},{50,21}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(voltageSensorS.y, polarVS.u) annotation (Line(
           points={{-50,-41},{-50,-48}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       connect(voltageSensorL.y, polarVL.u) annotation (Line(
           points={{50,-41},{50,-48}},
-          color={85,170,255},
-          smooth=Smooth.None));
+          color={85,170,255}));
       annotation (Documentation(info="<HTML>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
@@ -266,16 +234,14 @@ Examples to demonstrate the usage of quasistationary electric components.
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -308,18 +274,16 @@ Transformer Yy0
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,-30},{30,-10}}, rotation=0)));
+              Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -354,18 +318,16 @@ Transformer Yy2
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
+              Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -400,16 +362,14 @@ Transformer Yy4
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -442,18 +402,16 @@ Transformer Yy6
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,10},{30,30}}, rotation=0)));
+              Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -488,18 +446,16 @@ Transformer Yy8
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+              Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -560,10 +516,9 @@ This package contains transformers primary Y connected / secondary y connected i
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{50,-30},{30,-10}}, rotation=0)));
+              Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -596,12 +551,11 @@ Transformer Yd1
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
+              Placement(transformation(extent={{30,10},{50,30}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,-30},{30,-10}}, rotation=0)));
+              Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -636,10 +590,9 @@ Transformer Yd3
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
+              Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -672,10 +625,9 @@ Transformer Yd5
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{50,10},{30,30}}, rotation=0)));
+              Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -708,12 +660,11 @@ Transformer Yd7
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+              Placement(transformation(extent={{30,-30},{50,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,10},{30,30}}, rotation=0)));
+              Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -748,10 +699,9 @@ Transformer Yd9
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+              Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star1.pin_n, starpoint1) annotation (Line(points={{-10,-90},{
                   -10,-100},{-50,-100}}, color={85,170,255}));
@@ -810,16 +760,14 @@ This package contains transformers primary Y connected / secondary d connected i
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -866,16 +814,14 @@ Transformer Yz1
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -922,16 +868,14 @@ Transformer Yz3
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -971,16 +915,14 @@ Transformer Yz5
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1020,16 +962,14 @@ Transformer Yz7
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1076,16 +1016,14 @@ Transformer Yz9
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint1
-            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-60,-110},{-40,-90}})));
           QuasiStationary.MultiPhase.Basic.Star star2(final m=m) annotation (
               Placement(transformation(
                 origin={10,-80},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1158,12 +1096,11 @@ This package contains transformers primary Y connected / secondary zig-zag conne
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,-30},{30,-10}}, rotation=0)));
+              Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1198,12 +1135,11 @@ Transformer Dy1
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
+              Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1238,10 +1174,9 @@ Transformer Dy3
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1274,12 +1209,11 @@ Transformer Dy5
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,10},{30,30}}, rotation=0)));
+              Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1314,12 +1248,11 @@ Transformer Dy7
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+              Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1354,10 +1287,9 @@ Transformer Dy9
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1411,9 +1343,9 @@ This package contains transformers primary D connected / secondary y connected i
           extends QuasiStationary.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd00");
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{50,-30},{30,-10}}, rotation=0)));
+              Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
@@ -1441,11 +1373,11 @@ Transformer Dd0
           extends QuasiStationary.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd02");
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
+              Placement(transformation(extent={{30,10},{50,30}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,-30},{30,-10}}, rotation=0)));
+              Placement(transformation(extent={{50,-30},{30,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
@@ -1475,9 +1407,9 @@ Transformer Dd2
           extends QuasiStationary.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd04");
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
+              Placement(transformation(extent={{30,10},{50,30}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,25}));
@@ -1505,9 +1437,9 @@ Transformer Dd4
           extends QuasiStationary.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd06");
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{50,10},{30,30}}, rotation=0)));
+              Placement(transformation(extent={{50,10},{30,30}})));
         equation
           connect(Delta2.plug_p, r2.plug_n) annotation (Line(points={{50,20},{
                   90,20},{90,0}}, color={85,170,255}));
@@ -1535,11 +1467,11 @@ Transformer Dd6
           extends QuasiStationary.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd08");
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot2(final m=m) annotation (
-              Placement(transformation(extent={{50,10},{30,30}}, rotation=0)));
+              Placement(transformation(extent={{50,10},{30,30}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+              Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,25}));
@@ -1569,9 +1501,9 @@ Transformer Dd8
           extends QuasiStationary.Machines.Interfaces.PartialBasicTransformer(
               final VectorGroup="Dd10");
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
           QuasiStationary.MultiPhase.Basic.Delta Delta2(final m=m) annotation (
-              Placement(transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+              Placement(transformation(extent={{30,-30},{50,-10}})));
         equation
           connect(r1.plug_p, Delta1.plug_p) annotation (Line(points={{-90,0},{-90,
                   -20},{-50,-20}}, color={85,170,255}));
@@ -1630,8 +1562,7 @@ This package contains transformers primary D connected / secondary d connected i
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1643,7 +1574,7 @@ This package contains transformers primary D connected / secondary d connected i
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1680,8 +1611,7 @@ Transformer Dz0
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1693,7 +1623,7 @@ Transformer Dz0
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1730,15 +1660,14 @@ Transformer Dz2
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{-10,10},{10,-10}},
                 rotation=90)));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1773,15 +1702,14 @@ Transformer Dz4
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1816,8 +1744,7 @@ Transformer Dz6
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1829,7 +1756,7 @@ Transformer Dz6
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -1866,8 +1793,7 @@ Transformer Dz8
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           QuasiStationary.SinglePhase.Interfaces.NegativePin starpoint2
-            annotation (Placement(transformation(extent={{40,-110},{60,-90}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{40,-110},{60,-90}})));
           QuasiStationary.MultiPhase.Basic.Delta Rot21(final m=m) annotation (
               Placement(transformation(
                 origin={30,0},
@@ -1879,7 +1805,7 @@ Transformer Dz8
                 extent={{10,10},{-10,-10}},
                 rotation=180)));
           QuasiStationary.MultiPhase.Basic.Delta Delta1(final m=m) annotation (
-              Placement(transformation(extent={{-50,-30},{-30,-10}}, rotation=0)));
+              Placement(transformation(extent={{-50,-30},{-30,-10}})));
         equation
           connect(star2.pin_n, starpoint2) annotation (Line(points={{10,-90},{
                   10,-100},{50,-100}}, color={85,170,255}));
@@ -2086,23 +2012,17 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
         Modelica.SIunits.ComplexCurrent i3[m];
         Modelica.SIunits.ComplexCurrent im[m] "Magnetizing current";
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p1(final m=m)
-          annotation (Placement(transformation(extent={{-110,40},{-90,60}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m)
-          annotation (Placement(transformation(extent={{-110,-60},{-90,-40}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-110,-60},{-90,-40}})));
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p2(final m=m)
-          annotation (Placement(transformation(extent={{90,90},{110,110}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{90,90},{110,110}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n2(final m=m)
-          annotation (Placement(transformation(extent={{90,30},{110,50}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{90,30},{110,50}})));
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p3(final m=m)
-          annotation (Placement(transformation(extent={{90,-30},{110,-50}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{90,-30},{110,-50}})));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n3(final m=m)
-          annotation (Placement(transformation(extent={{90,-90},{110,-110}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{90,-90},{110,-110}})));
       equation
         v1 = plug_p1.pin.v - plug_n1.pin.v;
         i1 = plug_p1.pin.i;
@@ -2303,10 +2223,10 @@ This package contains components for modeling quasi stationary electrical induct
     public
       QuasiStationary.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
         "Primary plug" annotation (Placement(transformation(extent={{-110,-10},
-                {-90,10}}, rotation=0)));
+                {-90,10}})));
       QuasiStationary.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
         "Secondary plug" annotation (Placement(transformation(extent={{90,-10},
-                {110,10}}, rotation=0)));
+                {110,10}})));
       QuasiStationary.MultiPhase.Basic.Resistor r1(
         final m=m,
         final R_ref=fill(R1, m),
@@ -2315,10 +2235,10 @@ This package contains components for modeling quasi stationary electrical induct
             alpha20_1, T1Ref), m),
         final useHeatPort=true,
         final T=fill(T1Ref, m)) annotation (Placement(transformation(extent={{-90,
-                10},{-70,-10}}, rotation=0)));
+                10},{-70,-10}})));
       QuasiStationary.MultiPhase.Basic.Inductor l1sigma(final m=m, final L=fill(
             L1sigma, m)) annotation (Placement(transformation(extent={{-70,-10},
-                {-50,10}}, rotation=0)));
+                {-50,10}})));
       QuasiStationary.MultiPhase.Basic.Resistor r2(
         final m=m,
         final R_ref=fill(R2, m),
@@ -2327,15 +2247,15 @@ This package contains components for modeling quasi stationary electrical induct
             alpha20_2, T2Ref), m),
         final useHeatPort=true,
         final T=fill(T2Ref, m)) annotation (Placement(transformation(extent={{
-                70,10},{90,-10}}, rotation=0)));
+                70,10},{90,-10}})));
       QuasiStationary.MultiPhase.Basic.Inductor l2sigma(final m=m, final L=fill(
             L2sigma, m)) annotation (Placement(transformation(extent={{50,-10},
-                {70,10}}, rotation=0)));
+                {70,10}})));
       QuasiStationary.Machines.BasicMachines.Components.IdealCore core(
         final m=m,
         final n12=ni,
         final n13=ni) annotation (Placement(transformation(extent={{-10,-10},{
-                10,10}}, rotation=0)));
+                10,10}})));
       Modelica.Electrical.Machines.Interfaces.ThermalPortTransformer
         thermalPort if useThermalPort
         annotation (Placement(transformation(extent={{-10,90},{10,110}})));
@@ -2363,20 +2283,16 @@ This package contains components for modeling quasi stationary electrical induct
         annotation (Line(points={{90,0},{100,0}}, color={85,170,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
           points={{0,100},{0,80}},
-          color={199,0,0},
-          smooth=Smooth.None));
+          color={199,0,0}));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
           points={{-20,80},{0,80}},
-          color={199,0,0},
-          smooth=Smooth.None));
+          color={199,0,0}));
       connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
           points={{-80,10},{-80,60},{0,60},{0,80}},
-          color={191,0,0},
-          smooth=Smooth.None));
+          color={191,0,0}));
       connect(r2.heatPort, internalThermalPort.heatPort2) annotation (Line(
           points={{80,10},{80,60},{0,60},{0,80}},
-          color={191,0,0},
-          smooth=Smooth.None));
+          color={191,0,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{0,-60},{0,-100}},

@@ -78,7 +78,6 @@ behavior is <b>not</b> modelled.
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-156,101},{144,61}},
@@ -103,7 +102,6 @@ behavior is <b>not</b> modelled.
               lineColor={128,128,128},
               textString="v"),Line(
               points={{-80,-40},{-20,-10},{20,10},{40,70}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{20,9},{20,0}},
               color={128,128,128},
@@ -207,7 +205,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
@@ -228,7 +225,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
               lineColor={128,128,128},
               textString="v"),Line(
               points={{-80,-40},{-20,-10},{20,10},{40,70}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{20,9},{20,0}},
               color={128,128,128},
@@ -249,7 +245,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
               pattern=LinePattern.Dot,
               lineColor={0,0,255}),Line(
               points={{20,10},{70,40}},
-              color={0,0,0},
               thickness=0.5)}));
   end IdealThyristor;
 
@@ -331,7 +326,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-149,-43},{151,-83}},
@@ -339,18 +333,15 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             lineColor={0,0,255}),
           Line(
             points={{30,22},{70,62}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Polygon(
             points={{44,43},{44,36},{51,36},{44,43}},
             lineColor={0,0,255},
-            smooth=Smooth.None,
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
           Polygon(
             points={{46,33},{53,33},{53,26},{46,33}},
             lineColor={0,0,255},
-            smooth=Smooth.None,
             fillPattern=FillPattern.Solid,
             fillColor={0,0,255}),
           Text(
@@ -378,7 +369,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
               lineColor={128,128,128},
               textString="v"),Line(
               points={{-80,-40},{-20,-10},{20,10},{40,70}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{20,9},{20,0}},
               color={128,128,128},
@@ -399,7 +389,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
               pattern=LinePattern.Dot,
               lineColor={0,0,255}),Line(
               points={{20,10},{70,40}},
-              color={0,0,0},
               thickness=0.5)}));
   end IdealGTOThyristor;
 
@@ -410,11 +399,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
+              -10},{110,10}})));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}}, rotation=0)));
+              40},{110,60}})));
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n2 connected, false => p--n1 connected" annotation (Placement(
           transformation(
@@ -489,7 +478,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-148,-22},{152,-62}},
@@ -510,13 +498,13 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,
-              40},{-90,60}}, rotation=0)));
+              40},{-90,60}})));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}}, rotation=0)));
+              40},{110,60}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
+              -10},{110,10}})));
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
       annotation (Placement(transformation(
@@ -622,11 +610,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
+              -10},{110,10}})));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}}, rotation=0)));
+              40},{110,60}})));
     Interfaces.Pin control
       "Control pin: if control.v > level p--n2 connected, otherwise p--n1 connected"
       annotation (Placement(transformation(
@@ -703,7 +691,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-99},{0,25}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-145,-21},{155,-61}},
@@ -726,13 +713,13 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{-110,
-              40},{-90,60}}, rotation=0)));
+              40},{-90,60}})));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n1 annotation (Placement(transformation(extent={{90,
-              40},{110,60}}, rotation=0)));
+              40},{110,60}})));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
-              -10},{110,10}}, rotation=0)));
+              -10},{110,10}})));
     Interfaces.Pin control "Control pin: if control.v > level p1--n2, p2--n1 connected,
          otherwise p1--n1, p2--n2  connected" annotation (Placement(
           transformation(
@@ -826,7 +813,6 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
             visible=useHeatPort,
             points={{0,-100},{0,22}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,-23},{150,-63}},
@@ -848,11 +834,11 @@ The limiting case is also allowed, i.e., the resistance Ron of the closed switch
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
     Interfaces.PositivePin p1 "Positive pin of the left port" annotation (
-        Placement(transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+        Placement(transformation(extent={{-110,-60},{-90,-40}})));
     Interfaces.NegativePin n1 "Negative pin of the left port" annotation (
-        Placement(transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+        Placement(transformation(extent={{-110,40},{-90,60}})));
     Interfaces.PositivePin p2 "Positive pin of the right port" annotation (
-        Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
+        Placement(transformation(extent={{90,-10},{110,10}})));
     Interfaces.NegativePin n2 "Negative pin of the right port" annotation (
         Placement(transformation(
           origin={0,-100},
@@ -937,11 +923,11 @@ are possible (norator).
   model IdealOpAmp3Pin
     "Ideal operational amplifier (norator-nullator pair), but 3 pins"
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
-        Placement(transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+        Placement(transformation(extent={{-110,-60},{-90,-40}})));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
-        Placement(transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+        Placement(transformation(extent={{-110,40},{-90,60}})));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
   equation
     in_p.v = in_n.v;
     in_p.i = 0;
@@ -1007,17 +993,15 @@ are possible.
 
   model IdealOpAmpLimited "Ideal operational amplifier with limitation"
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (
-        Placement(transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
+        Placement(transformation(extent={{-110,-60},{-90,-40}})));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (
-        Placement(transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+        Placement(transformation(extent={{-110,40},{-90,60}})));
     Interfaces.PositivePin out "Output pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Interfaces.PositivePin VMax "Positive output voltage limitation"
-      annotation (Placement(transformation(extent={{-10,60},{10,80}}, rotation=
-              0)));
+      annotation (Placement(transformation(extent={{-10,60},{10,80}})));
     Interfaces.NegativePin VMin "Negative output voltage limitation"
-      annotation (Placement(transformation(extent={{-10,-80},{10,-60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
     SI.Voltage vin "input voltage";
   protected
     Real s(final unit="1") "Auxiliary variable";
@@ -1094,7 +1078,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
             lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164}),
-          Line(points={{111,0},{136,0}}, color={0,0,0}),
+          Line(points={{111,0},{136,0}}),
           Text(
             extent={{118,2},{135,17}},
             lineColor={0,0,0},
@@ -1123,21 +1107,21 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     Modelica.SIunits.Current i_s=p_s/(vps - vns) "Supply current";
     Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
-            extent={{-90,-70},{-110,-50}}, rotation=0)));
+            extent={{-90,-70},{-110,-50}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin in_n
       "Negative pin of the input port" annotation (Placement(transformation(
-            extent={{-110,50},{-90,70}}, rotation=0)));
+            extent={{-110,50},{-90,70}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin out
       "Pin of the output port" annotation (Placement(transformation(extent={{
-              110,-10},{90,10}}, rotation=0), iconTransformation(extent={{110,-10},
+              110,-10},{90,10}}), iconTransformation(extent={{110,-10},
               {90,10}})));
     //optional supply pins
     Modelica.Electrical.Analog.Interfaces.PositivePin s_p(final i=+i_s, final v=
          vps) if useSupply "Optional positive supply pin" annotation (Placement(
-          transformation(extent={{10,90},{-10,110}}, rotation=0)));
+          transformation(extent={{10,90},{-10,110}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin s_n(final i=-i_s, final v=
          vns) if useSupply "Optional negative supply pin" annotation (Placement(
-          transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
+          transformation(extent={{-10,-110},{10,-90}})));
   equation
     if not useSupply then
       vps = Vps;
@@ -1504,7 +1488,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-151,-21},{149,-61}},
@@ -1585,7 +1568,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-152,-28},{148,-68}},
@@ -1610,9 +1592,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,-10},
-              {110,10}}, rotation=0)));
+              {110,10}})));
     Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (Placement(transformation(
@@ -1673,7 +1655,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-150,-34},{150,-74}},
@@ -1696,9 +1677,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open"
       annotation (Placement(transformation(
@@ -1758,7 +1739,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-149,-32},{151,-72}},
@@ -1825,8 +1805,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
-            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}},
-            color={0,0,0}),Text(
+            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
               extent={{30,-60},{50,-70}},
               lineColor={0,0,0},
               textString="time"),Text(
@@ -1955,8 +1934,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
-            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}},
-            color={0,0,0}),Text(
+            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
               extent={{30,-60},{50,-70}},
               lineColor={0,0,0},
               textString="time"),Text(
@@ -2044,9 +2022,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (Placement(transformation(
@@ -2169,9 +2147,9 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open"
       annotation (Placement(transformation(
@@ -2298,7 +2276,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
       Goff=Goff,
       Vknee=Vknee) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
-          rotation=0,
           origin={-10,32})));
     Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor1(
       Ron=Ron,
@@ -2321,70 +2298,49 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
     connect(idealThyristor.n, capacitor.n) annotation (Line(
         points={{0,32},{40,32},{40,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(capacitor.n, idealThyristor1.p) annotation (Line(
         points={{40,0},{40,-32},{0,-32}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(idealThyristor1.n, resistor.p) annotation (Line(
         points={{-20,-32},{-60,-32},{-60,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(resistor.p, idealThyristor.p) annotation (Line(
         points={{-60,0},{-60,32},{-20,32}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(resistor.n, capacitor.p) annotation (Line(
         points={{-40,0},{20,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(idealThyristor1.fire, fire1) annotation (Line(
         points={{-17,-43},{-17,-92},{-60,-92}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(idealThyristor.fire, fire1) annotation (Line(
         points={{-3,43},{-3,60},{-80,60},{-80,-92},{-60,-92}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(n, idealThyristor.p) annotation (Line(
         points={{-100,0},{-90,0},{-90,40},{-20,40},{-20,32}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(idealThyristor1.p, p) annotation (Line(
         points={{0,-32},{0,-40},{80,-40},{80,0},{104,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,0},
-            smooth=Smooth.None),
+            lineColor={0,0,0}),
           Polygon(
             points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,0},
-            smooth=Smooth.None),
+            lineColor={0,0,0}),
           Line(
-            points={{70,0},{70,-100}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{70,0},{70,-100}}),
           Line(
-            points={{-30,0},{-30,100}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-30,0},{-30,100}}),
           Line(
-            points={{-30,0},{-90,0}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-30,0},{-90,0}}),
           Line(
-            points={{70,0},{110,0}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{70,0},{110,0}}),
           Line(
-            points={{-62,-86},{-62,-56},{-30,-44}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-62,-86},{-62,-56},{-30,-44}}),
           Text(
             extent={{-102,130},{98,100}},
             textString="%name",
@@ -2427,15 +2383,14 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     import L = Modelica.Electrical.Digital.Interfaces.Logic;
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive electrical pin (input)" annotation (Placement(transformation(
-            extent={{-80,60},{-60,80}}, rotation=0), iconTransformation(extent=
+            extent={{-80,60},{-60,80}}), iconTransformation(extent=
               {{-80,60},{-60,80}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n
       "Negative electrical pin (input)" annotation (Placement(transformation(
-            extent={{-80,-80},{-60,-60}}, rotation=0), iconTransformation(
+            extent={{-80,-80},{-60,-60}}), iconTransformation(
             extent={{-80,-80},{-60,-60}})));
     Modelica.Electrical.Digital.Interfaces.DigitalOutput y[N] "Digital output"
-      annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
-              0), iconTransformation(extent={{60,-10},{80,10}})));
+      annotation (Placement(transformation(extent={{60,-10},{80,10}}), iconTransformation(extent={{60,-10},{80,10}})));
     Modelica.Electrical.Digital.Interfaces.DigitalInput trig "Trigger input"
       annotation (Placement(transformation(extent={{-10,60},{10,80}}),
           iconTransformation(
@@ -2505,7 +2460,6 @@ Hence the output will change instantaneously when the trigger signal rises.
           Polygon(
             points={{-60,-80},{60,80},{60,-80},{-60,-80}},
             lineColor={0,0,255},
-            smooth=Smooth.None,
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid),
           Text(
@@ -2527,15 +2481,14 @@ Hence the output will change instantaneously when the trigger signal rises.
           rotation=-90,
           origin={0,90})));
     Modelica.Electrical.Digital.Interfaces.DigitalInput x[N] "Digital input"
-      annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin p
       "Positive electrical pin (output)" annotation (Placement(transformation(
-            extent={{60,60},{80,80}}, rotation=0), iconTransformation(extent={{
+            extent={{60,60},{80,80}}), iconTransformation(extent={{
               60,60},{80,80}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n
       "Negative electrical pin (output)" annotation (Placement(transformation(
-            extent={{60,-80},{80,-60}}, rotation=0), iconTransformation(extent=
+            extent={{60,-80},{80,-60}}), iconTransformation(extent=
               {{60,-80},{80,-60}})));
 
     Modelica.SIunits.Voltage vout(start=0, fixed=true);
@@ -2577,7 +2530,6 @@ Hence the output will change instantaneously when the trigger signal rises.
           Polygon(
             points={{-60,-80},{60,80},{-60,80},{-60,-80}},
             lineColor={0,0,255},
-            smooth=Smooth.None,
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid),
           Text(
@@ -2618,7 +2570,7 @@ Modelica in file \"Modelica/package.mo\".</i>
 </dd>
 </dl>
 </html>"), Icon(graphics={
-        Line(points={{-90,0},{-40,0}}, color={0,0,0}),
-        Line(points={{-40,0},{32,60}}, color={0,0,0}),
-        Line(points={{40,0},{90,0}}, color={0,0,0})}));
+        Line(points={{-90,0},{-40,0}}),
+        Line(points={{-40,0},{32,60}}),
+        Line(points={{40,0},{90,0}})}));
 end Ideal;

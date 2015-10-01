@@ -3,7 +3,7 @@ model PendulumWithSpringDamper "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   inner Modelica.Mechanics.MultiBody.World world(axisLength=0.6)
-    annotation (Placement(transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     animation=animation,
@@ -17,28 +17,27 @@ model PendulumWithSpringDamper "Simple spring/damper/mass system"
         extent={{10,-10},{-10,10}},
         rotation=180)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     coilWidth=0.01,
     numberOfWindings=5,
     c=20,
     s_unstretched=0.2) annotation (Placement(transformation(extent={{0,-46},{20,
-            -26}}, rotation=0)));
+            -26}})));
   Modelica.Mechanics.MultiBody.Forces.Damper damper1(
     d=1,
     length_a=0.1,
     diameter_a=0.08,
-    animation=false) annotation (Placement(transformation(extent={{0,-20},{20,0}},
-          rotation=0)));
+    animation=false) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute revolute(phi(fixed=true), w(
         fixed=true))      annotation (Placement(transformation(extent={{-12,20},
-            {8,40}}, rotation=0)));
+            {8,40}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
     boxWidth=0.04,
     boxColor={255,65,65},
     s(fixed=true, start=0.5),
     v(fixed=true))
-    annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,20},{40,40}})));
 equation
   connect(world.frame_b, bar1.frame_a)
     annotation (Line(

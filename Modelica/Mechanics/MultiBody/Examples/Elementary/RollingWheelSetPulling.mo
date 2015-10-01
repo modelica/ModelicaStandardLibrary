@@ -45,33 +45,27 @@ model RollingWheelSetPulling "Rolling wheel set that is pulled by a force"
     final color={0,128,255},
     final extra=0.8)        annotation (Placement(transformation(extent={{-10,-10},
             {10,10}},
-        rotation=0,
         origin={52,54})));
 equation
   connect(combiTimeTable.y, force.force) annotation (Line(
       points={{-59,80},{-42,80},{-42,70},{-22,70}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(fixedTranslation.frame_a, wheelSet.frameMiddle) annotation (Line(
       points={{0,30},{-6,30},{-6,14},{-10,14},{-10,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{20,30},{42,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(force.frame_b, fixedTranslation.frame_b) annotation (Line(
       points={{0,70},{34,70},{34,30},{20,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(shape.frame_a, fixedTranslation.frame_b) annotation (Line(
       points={{42,54},{34,54},{34,30},{20,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (    experiment(StopTime=3),
     Documentation(info="<html>
 

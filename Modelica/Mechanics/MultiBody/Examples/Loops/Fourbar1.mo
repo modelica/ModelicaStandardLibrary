@@ -9,7 +9,7 @@ model Fourbar1
   output SI.Velocity j2_v "axis velocity of prismatic joint j2";
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-100,-80},{-80,-60}}, rotation=0)));
+        transformation(extent={{-100,-80},{-80,-60}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute j1(
     n={1,0,0},
     stateSelect=StateSelect.always,
@@ -18,12 +18,12 @@ model Fourbar1
       start=5.235987755982989,
       fixed=true))
                  annotation (Placement(transformation(extent={{-54,-40},{-34,
-            -20}}, rotation=0)));
+            -20}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
     n={1,0,0},
     s(start=-0.2),
     boxWidth=0.05) annotation (Placement(transformation(extent={{10,-80},{30,
-            -60}}, rotation=0)));
+            -60}})));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(r={0,0.5,0.1}, diameter=0.05)
     annotation (Placement(transformation(
         origin={-30,2},
@@ -35,23 +35,22 @@ model Fourbar1
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder b3(r={-1,0.3,0.1}, diameter=0.05)
-    annotation (Placement(transformation(extent={{38,20},{18,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{38,20},{18,40}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute rev(n={0,1,0})
     annotation (Placement(transformation(
         origin={50,-22},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Joints.Revolute rev1 annotation (Placement(
-        transformation(extent={{60,0},{80,20}}, rotation=0)));
+        transformation(extent={{60,0},{80,20}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute j3(n={1,0,0}) annotation (Placement(
-        transformation(extent={{-60,40},{-40,60}}, rotation=0)));
+        transformation(extent={{-60,40},{-40,60}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute j4(n={0,1,0}) annotation (Placement(
-        transformation(extent={{-32,60},{-12,80}}, rotation=0)));
+        transformation(extent={{-32,60},{-12,80}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute j5(n={0,0,1}) annotation (Placement(
-        transformation(extent={{0,70},{20,90}}, rotation=0)));
+        transformation(extent={{0,70},{20,90}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation b0(animation=false, r={1.2,0,0})
-    annotation (Placement(transformation(extent={{-40,-80},{-20,-60}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
 equation
   connect(j2.frame_b, b2.frame_a) annotation (Line(
       points={{30,-70},{50,-70},{50,-60}},

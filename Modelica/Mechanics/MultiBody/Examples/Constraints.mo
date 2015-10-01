@@ -61,8 +61,7 @@ extends Modelica.Icons.ExamplesPackage;
       coilWidth=0.005,
       numberOfWindings=5) annotation (Placement(transformation(
           origin={-50,-20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
       width=0.1,
       coilWidth=0.005,
@@ -71,11 +70,9 @@ extends Modelica.Icons.ExamplesPackage;
       numberOfWindings=springOfJoint.numberOfWindings)
                           annotation (Placement(transformation(
           origin={-50,20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-          transformation(extent={{-100,-100},{-80,-80}},
-                                                     rotation=0)));
+          transformation(extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
       r={0.2,-0.3,0.2},
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
@@ -113,81 +110,67 @@ extends Modelica.Icons.ExamplesPackage;
                                            annotation (Line(
         points={{-20,20},{-40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
         points={{-80,-90},{90,-90},{90,-60}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
         points={{90,-40},{90,20},{60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
         points={{60,20},{70,20},{70,50},{60,50}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
                                            annotation (Line(
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
         Line(
         points={{40,50},{30,50},{30,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfJoint.frame_a)
                                                 annotation (Line(
         points={{-70,-40},{-70,-20},{-60,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
                                                      annotation (Line(
         points={{-70,-40},{-70,20},{-60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
         points={{0,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(jointPrismatic_x.frame_b, jointPrismatic_y.frame_a)
                                                     annotation (Line(
         points={{60,-20},{40,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedRotation.frame_b, jointPrismatic_x.frame_a) annotation (Line(
         points={{90,-40},{90,-20},{80,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfJoint.frame_a, jointPrismatic_y.frame_b) annotation (Line(
         points={{0,-20},{20,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
         Line(
         points={{40,70},{90,70},{90,-40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(freeMotionScalarInit.frame_b, bodyOfConstraint.frame_a) annotation (
        Line(
         points={{20,70},{10,70},{10,20},{0,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
@@ -253,8 +236,7 @@ extends Modelica.Icons.ExamplesPackage;
       coilWidth=0.005,
       numberOfWindings=5) annotation (Placement(transformation(
           origin={-50,-20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
       width=0.1,
       coilWidth=0.005,
@@ -263,11 +245,9 @@ extends Modelica.Icons.ExamplesPackage;
       numberOfWindings=springOfJoint.numberOfWindings)
                           annotation (Placement(transformation(
           origin={-50,20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-          transformation(extent={{-100,-100},{-80,-80}},
-                                                     rotation=0)));
+          transformation(extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
       r={0.2,-0.3,0.2},
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
@@ -297,76 +277,63 @@ extends Modelica.Icons.ExamplesPackage;
                                            annotation (Line(
         points={{-20,20},{-40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
         points={{-80,-90},{80,-90},{80,-60}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
         points={{80,-40},{80,20},{60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
         points={{60,20},{80,20},{80,50},{60,50}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
                                            annotation (Line(
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
         Line(
         points={{40,-20},{0,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
         Line(
         points={{40,50},{30,50},{30,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfJoint.frame_a)
                                                 annotation (Line(
         points={{-70,-40},{-70,-20},{-60,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
                                                      annotation (Line(
         points={{-70,-40},{-70,20},{-60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
         points={{0,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
         points={{60,-20},{80,-20},{80,-40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
         Line(
         points={{40,70},{80,70},{80,-40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
        Line(
         points={{0,20},{8,20},{8,70},{20,70}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
@@ -432,8 +399,7 @@ extends Modelica.Icons.ExamplesPackage;
       coilWidth=0.005,
       numberOfWindings=5) annotation (Placement(transformation(
           origin={-50,-20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
       width=0.1,
       coilWidth=0.005,
@@ -442,11 +408,9 @@ extends Modelica.Icons.ExamplesPackage;
       numberOfWindings=springOfJoint.numberOfWindings)
                           annotation (Placement(transformation(
           origin={-50,20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-          transformation(extent={{-100,-100},{-80,-80}},
-                                                     rotation=0)));
+          transformation(extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
       r={0.2,-0.3,0.2},
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
@@ -480,76 +444,63 @@ extends Modelica.Icons.ExamplesPackage;
                                            annotation (Line(
         points={{-20,20},{-40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
         points={{-80,-90},{80,-90},{80,-60}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
         points={{80,-40},{80,20},{60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
         points={{60,20},{80,20},{80,50},{60,50}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
                                            annotation (Line(
         points={{-20,-20},{-40,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
         Line(
         points={{40,-20},{0,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
         Line(
         points={{40,50},{30,50},{30,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfJoint.frame_a)
                                                 annotation (Line(
         points={{-70,-40},{-70,-20},{-60,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
                                                      annotation (Line(
         points={{-70,-40},{-70,20},{-60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
         points={{0,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
         points={{60,-20},{80,-20},{80,-40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
        Line(
         points={{0,20},{8,20},{8,70},{18,70}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
         Line(
         points={{38,70},{80,70},{80,-40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>
@@ -620,8 +571,7 @@ extends Modelica.Icons.ExamplesPackage;
       coilWidth=0.005,
       numberOfWindings=5) annotation (Placement(transformation(
           origin={-50,-20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
       width=0.1,
       coilWidth=0.005,
@@ -630,11 +580,9 @@ extends Modelica.Icons.ExamplesPackage;
       numberOfWindings=springOfJoint.numberOfWindings)
                           annotation (Placement(transformation(
           origin={-50,20},
-          extent={{-10,-10},{10,10}},
-          rotation=0)));
+          extent={{-10,-10},{10,10}})));
     inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-          transformation(extent={{-100,-100},{-80,-80}},
-                                                     rotation=0)));
+          transformation(extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
       r={0.2,-0.3,0.2},
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
@@ -670,89 +618,74 @@ extends Modelica.Icons.ExamplesPackage;
     connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
         points={{-80,-90},{80,-90},{80,-60}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
         points={{80,-40},{80,20},{60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(constraint.frame_a,sensorConstraintRelative. frame_a)
                                                         annotation (Line(
         points={{60,20},{80,20},{80,50},{60,50}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
         Line(
         points={{40,-20},{20,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
         Line(
         points={{40,50},{30,50},{30,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfJoint.frame_a)
                                                 annotation (Line(
         points={{-70,-40},{-70,-20},{-60,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
                                                      annotation (Line(
         points={{-70,-40},{-70,20},{-60,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
         points={{20,20},{40,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
         points={{60,-20},{80,-20},{80,-40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfJoint.frame_b, fixedTranslationOfJoint.frame_a) annotation (
         Line(
         points={{0,-20},{-10,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_b, fixedTranslationOfConstraint.frame_a)
       annotation (Line(
         points={{0,20},{-10,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(springOfJoint.frame_b, fixedTranslationOfJoint.frame_b) annotation (
         Line(
         points={{-40,-20},{-30,-20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(springOfConstraint.frame_b, fixedTranslationOfConstraint.frame_b)
       annotation (Line(
         points={{-40,20},{-30,20}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedRotation.frame_b, freeMotionScalarInit.frame_a) annotation (
         Line(
         points={{80,-40},{80,80},{60,80}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
        Line(
         points={{20,20},{30,20},{30,80},{40,80}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (
       experiment(StopTime=10),
       Documentation(info="<html>

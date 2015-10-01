@@ -3,18 +3,18 @@ model DoublePendulumInitTip
   "Demonstrate how to initialize a double pendulum so that its tip starts at a predefined position"
   extends Modelica.Icons.Example;
   inner World world                              annotation (Placement(
-        transformation(extent={{-100,0},{-80,20}},rotation=0)));
+        transformation(extent={{-100,0},{-80,20}})));
   Joints.Revolute revolute1(                             useAxisFlange=true)
                                                                  annotation (Placement(transformation(extent={{-60,0},
-            {-40,20}}, rotation=0)));
+            {-40,20}})));
   Rotational.Components.Damper damper(        d=0.1)
-    annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
   Parts.BodyBox boxBody1(                             r={0.5,0,0}, width=0.06)
-    annotation (Placement(transformation(extent={{-22,0},{-2,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-22,0},{-2,20}})));
   Joints.Revolute revolute2                              annotation (Placement(transformation(extent={{20,0},{
-            40,20}}, rotation=0)));
+            40,20}})));
   Parts.BodyBox boxBody2(                             r={0.5,0,0}, width=0.06)
-    annotation (Placement(transformation(extent={{62,0},{82,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{62,0},{82,20}})));
   Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit(
     use_r=true,
     r_rel_a_1(start=0.7, fixed=true),
@@ -25,9 +25,9 @@ model DoublePendulumInitTip
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
   connect(damper.flange_b,revolute1. axis) annotation (Line(points={{-40,50},{
-          -36,50},{-36,28},{-50,28},{-50,20}}, color={0,0,0}));
+          -36,50},{-36,28},{-50,28},{-50,20}}));
   connect(revolute1.support,damper. flange_a) annotation (Line(points={{-56,20},
-          {-56,28},{-70,28},{-70,50},{-60,50}}, color={0,0,0}));
+          {-56,28},{-70,28},{-70,50},{-60,50}}));
   connect(revolute1.frame_b,boxBody1. frame_a)
     annotation (Line(
       points={{-40,10},{-22,10}},
@@ -51,13 +51,11 @@ equation
   connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
       points={{-80,10},{-66,10},{-66,-30},{-20,-30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(freeMotionScalarInit.frame_b, boxBody2.frame_b) annotation (Line(
       points={{0,-30},{88,-30},{88,10},{82,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (
     experiment(StopTime=5),
     Documentation(info="<html>

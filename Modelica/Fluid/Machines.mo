@@ -18,7 +18,7 @@ package Machines
 
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange
       "translation flange for piston" annotation (Placement(transformation(
-            extent={{-10,90},{10,110}},   rotation=0)));
+            extent={{-10,90},{10,110}})));
 
   equation
     assert(flange.s >= 0, "Piston stroke (given by flange.s) must not be smaller than zero!");
@@ -48,13 +48,11 @@ package Machines
           Polygon(
             points={{-52,62},{-48,62},{-48,-30},{-52,-30},{-52,62}},
             lineColor={95,95,95},
-            smooth=Smooth.None,
             fillColor={135,135,135},
             fillPattern=FillPattern.Backward),
           Polygon(
             points={{48,60},{52,60},{52,-34},{48,-34},{48,60}},
             lineColor={95,95,95},
-            smooth=Smooth.None,
             fillColor={135,135,135},
             fillPattern=FillPattern.Backward),
           Rectangle(
@@ -71,13 +69,11 @@ package Machines
             points={{-48,-90},{48,-90},{48,70},{52,70},{52,-94},{-52,-94},{-52,
                 70},{-48,70},{-48,-90}},
             lineColor={95,95,95},
-            smooth=Smooth.None,
             fillColor={135,135,135},
             fillPattern=FillPattern.Backward),
           Line(
             visible=use_HeatTransfer,
             points={{-100,0},{-52,0}},
-            smooth=Smooth.None,
             color={198,0,0})}),
       Documentation(info="<html>
 <p> Mixing volume with varying size. The size of the volume is given by:</p>
@@ -106,8 +102,7 @@ package Machines
     SI.Angle phi "Shaft angle";
     SI.AngularVelocity omega "Shaft angular velocity";
     Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft
-    annotation (Placement(transformation(extent={{-10,90},{10,110}},
-                                                                   rotation=0)));
+    annotation (Placement(transformation(extent={{-10,90},{10,110}})));
   equation
     phi = shaft.phi;
     omega = der(phi);
@@ -421,7 +416,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             redeclare final package Medium = Medium,
             final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
             final state = medium.state) "Monitoring model"
-       annotation (Placement(transformation(extent={{-64,-42},{-20,0}}, rotation=0)));
+       annotation (Placement(transformation(extent={{-64,-42},{-20,0}})));
     protected
     constant SI.Height unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
@@ -483,8 +478,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
     connect(heatTransfer.heatPorts[1], heatPort) annotation (Line(
         points={{40,-34},{40,-60}},
-        color={127,0,0},
-        smooth=Smooth.None));
+        color={127,0,0}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
                 100}}), graphics={

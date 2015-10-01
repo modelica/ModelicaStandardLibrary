@@ -38,7 +38,7 @@ package Valves "Components for the regulation and control of fluid flow"
         m_flow = homotopy(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
                                Utilities.regRoot2(dp,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
-        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
+        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
                   (if dp>=0 then Utilities.regRoot(dp, dp_turbulent) else 0);
     */
@@ -50,7 +50,7 @@ package Valves "Components for the regulation and control of fluid flow"
         m_flow = homotopy(relativeFlowCoefficient*Av*
                                Utilities.regRoot2(dp,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
-        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
+        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and instead of smooth=2)
     m_flow = smooth(0, Utilities.regRoot(dp, dp_turbulent)*(if dp>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
     */
       end if;
@@ -139,7 +139,7 @@ explained in detail in the
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
                              Utilities.regRoot2(dpEff,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
-     /* In Modelica 3.1 (Disadvantage: Unnecessary event at dpEff=0, and smooth=0, instead of smooth=2)
+     /* In Modelica 3.1 (Disadvantage: Unnecessary event at dpEff=0, and instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
                   (if dpEff>=0 then Utilities.regRoot(dpEff, dp_turbulent) else 0);
    */
@@ -151,7 +151,7 @@ explained in detail in the
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*
                              Utilities.regRoot2(dpEff,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
-      /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
+      /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and instead of smooth=2)
      m_flow = valveCharacteristic(opening)*Av*
       smooth(0, Utilities.regRoot(dpEff, dp_turbulent)*(if dpEff>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
    */
@@ -327,7 +327,7 @@ explained in detail in the
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,50},{0,0}}, color={0,0,0}),
+          Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
             lineColor={0,0,0},
@@ -388,7 +388,7 @@ a simple model of a variable pressure loss is needed.</p>
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,50},{0,0}}, color={0,0,0}),
+          Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
             lineColor={0,0,0},
@@ -535,7 +535,7 @@ y=uMin is passed as output.
           lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}, color={0,0,0}),
+        Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}),
         Text(
           extent={{-150,-150},{150,-110}},
           lineColor={0,0,0},
@@ -559,7 +559,7 @@ y=uMin is passed as output.
           lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}),
+        Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
         Text(
           extent={{46,-6},{68,-18}},
           lineColor={128,128,128},
@@ -594,8 +594,7 @@ y=uMin is passed as output.
 
       connect(filter.y, opening_filtered) annotation (Line(
           points={{48.7,51},{60,51},{60,50},{70,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
 
       if filteredOpening then
          connect(filter.y, opening_actual);
@@ -605,17 +604,15 @@ y=uMin is passed as output.
 
       connect(minLimiter.y, filter.u) annotation (Line(
           points={{24.7,51},{32.6,51}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(minLimiter.u, opening) annotation (Line(
           points={{8.6,51},{0,51},{0,90}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{0,52},{0,0}}, color={0,0,0}),
+            Line(points={{0,52},{0,0}}),
             Rectangle(
               extent={{-20,60},{20,52}},
               lineColor={0,0,0},
@@ -642,13 +639,10 @@ y=uMin is passed as output.
               fillPattern=FillPattern.Solid),
             Line(visible=filteredOpening,
               points={{-20,25},{-20,63},{0,41},{20,63},{20,25}},
-              color={0,0,0},
-              smooth=Smooth.None,
               thickness=0.5),
             Line(visible=filteredOpening,
               points={{40,60},{60,60}},
-              color={0,0,127},
-              smooth=Smooth.None)}),
+              color={0,0,127})}),
         Documentation(info="<HTML>
 <p>This is the base model for the <code>ValveIncompressible</code>, <code>ValveVaporizing</code>, and <code>ValveCompressible</code> valve models. The model is based on the IEC 534 / ISA S.75 standards for valve sizing.</p>
 <p>The model optionally supports reverse flow conditions (assuming symmetrical behaviour) or check valve operation, and has been suitably regularized, compared to the equations in the standard, in order to avoid numerical singularities around zero pressure drop operating conditions.</p>

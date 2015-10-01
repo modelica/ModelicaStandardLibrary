@@ -3,7 +3,7 @@ model SpringMassSystem "Mass attached with a spring to the world frame"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+        transformation(extent={{-80,20},{-60,40}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic p1(useAxisFlange=true,
     n={0,-1,0},
     animation=animation,
@@ -28,9 +28,9 @@ model SpringMassSystem "Mass attached with a spring to the world frame"
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.3,0,0})
-    annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,20},{20,40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     sphereDiameter=0.2,
@@ -99,8 +99,7 @@ equation
       thickness=0.5));
   connect(spring1.flange_a, p1.support) annotation (Line(
       points={{10,0},{-8,0},{-8,-6},{-14,-6}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   annotation (
     experiment(StopTime=5),
     Documentation(info="<html>

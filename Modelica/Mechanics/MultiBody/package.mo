@@ -1157,7 +1157,7 @@ model World
     Interfaces.Frame_b frame_b
     "Coordinate system fixed in the origin of the world frame"
                                annotation (Placement(transformation(extent={{84,
-            -16},{116,16}}, rotation=0)));
+            -16},{116,16}})));
 
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";
@@ -1470,7 +1470,6 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           fillPattern=FillPattern.Solid),
         Line(
           points={{-100,-118},{-100,61}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
@@ -1479,7 +1478,6 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           fillPattern=FillPattern.Solid),
         Line(
           points={{-119,-100},{59,-100}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{99,-100},{59,-80},{59,-120},{99,-100}},
@@ -1616,13 +1614,10 @@ Copyright &copy; 1998-2013, Modelica Association and DLR.
         Polygon(
           points={{-58,76},{6,76},{-26,50},{-58,76}},
           lineColor={95,95,95},
-          smooth=Smooth.None,
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(
-          points={{-26,50},{28,-50}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-26,50},{28,-50}}),
         Ellipse(
           extent={{-4,-14},{60,-78}},
           lineColor={135,135,135},

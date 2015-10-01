@@ -7,35 +7,35 @@ model PointGravityWithPointMasses
     gravitySphereDiameter=0.1,
     gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity)
                                annotation (Placement(transformation(extent={{-80,-20},
-            {-60,0}},        rotation=0)));
+            {-60,0}})));
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0,0.6,0}, each fixed=true),
     v_0(start={1,0,0}, each fixed=true))
-    annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-20,20},{0,40}})));
   Modelica.Mechanics.MultiBody.Parts.PointMass body2(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0.6,0.6,0}, each fixed=true),
     v_0(start={0.6,0,0}, each fixed=true))
-    annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,20},{40,40}})));
   Modelica.Mechanics.MultiBody.Parts.PointMass body3(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0,0.8,0}, each fixed=true),
     v_0(start={0.6,0,0}, each fixed=true))
-    annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-20,60},{0,80}})));
   Modelica.Mechanics.MultiBody.Parts.PointMass body4(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0.3,0.8,0}, each fixed=true),
     v_0(start={0.6,0,0}, each fixed=true))
-    annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Forces.Spring spring(showMass=false, c=10,
     fixedRotationAtFrame_b=true,
     fixedRotationAtFrame_a=true)             annotation (Placement(
-        transformation(extent={{0,60},{20,80}}, rotation=0)));
+        transformation(extent={{0,60},{20,80}})));
 equation
 
   connect(spring.frame_a, body3.frame_a) annotation (Line(

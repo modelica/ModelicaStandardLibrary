@@ -3,10 +3,9 @@ model HeatingRectifier "Heating rectifier"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Semiconductors.HeatingDiode HeatingDiode1(
       useHeatPort=true)
-                annotation (Placement(transformation(extent={{-20,40},{0,60}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   Modelica.Electrical.Analog.Basic.Ground G
-  annotation (Placement(transformation(extent={{-80,0},{-60,20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=1, freqHz=1)
   annotation (Placement(transformation(
         origin={-70,40},
@@ -14,7 +13,7 @@ model HeatingRectifier "Heating rectifier"
         rotation=270)));
 
   Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=1, v(start=0, fixed=true))
-  annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
+  annotation (Placement(transformation(extent={{20,40},{40,60}})));
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=1)
   annotation (Placement(transformation(
         origin={-20,-50},
@@ -26,7 +25,7 @@ model HeatingRectifier "Heating rectifier"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R(R=1)
-  annotation (Placement(transformation(extent={{20,70},{40,90}}, rotation=0)));
+  annotation (Placement(transformation(extent={{20,70},{40,90}})));
 initial equation
   HeatCapacitor1.T = 293.15;
 

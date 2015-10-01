@@ -8,8 +8,7 @@ package Parts
     import Modelica.SIunits.Conversions.to_unit1;
 
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0}
@@ -102,12 +101,12 @@ package Parts
             extent={{150,145},{-150,105}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{0,100},{0,-100}}, color={0,0,0}),
-          Line(points={{0,-80},{-100,-20}}, color={0,0,0}),
-          Line(points={{0,-40},{-100,20}}, color={0,0,0}),
-          Line(points={{0,0},{-100,60}}, color={0,0,0}),
-          Line(points={{0,40},{-100,100}}, color={0,0,0}),
-          Line(points={{0,0},{100,0}}, color={0,0,0}),
+          Line(points={{0,100},{0,-100}}),
+          Line(points={{0,-80},{-100,-20}}),
+          Line(points={{0,-40},{-100,20}}),
+          Line(points={{0,0},{-100,60}}),
+          Line(points={{0,40},{-100,100}}),
+          Line(points={{0,0},{100,0}}),
           Text(
             extent={{-150,-105},{150,-135}},
             lineColor={0,0,0},
@@ -135,12 +134,12 @@ animation = <b>false</b>.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,100},{0,-100}}, color={0,0,0}),
-          Line(points={{0,-80},{-100,-20}}, color={0,0,0}),
-          Line(points={{0,-40},{-100,20}}, color={0,0,0}),
-          Line(points={{0,0},{-100,60}}, color={0,0,0}),
-          Line(points={{0,40},{-100,100}}, color={0,0,0}),
-          Line(points={{0,0},{100,0}}, color={0,0,0})}));
+          Line(points={{0,100},{0,-100}}),
+          Line(points={{0,-80},{-100,-20}}),
+          Line(points={{0,-40},{-100,20}}),
+          Line(points={{0,0},{-100,60}}),
+          Line(points={{0,40},{-100,100}}),
+          Line(points={{0,0},{100,0}})}));
   end Fixed;
 
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
@@ -149,12 +148,10 @@ animation = <b>false</b>.
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3](start={0,0,0})
@@ -345,12 +342,10 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Position r[3]={0,0,0}
@@ -566,8 +561,8 @@ the animation may be switched off via parameter animation = <b>false</b>.
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{80,20},{129,50}}, color={0,0,0}),
-          Line(points={{80,20},{57,59}}, color={0,0,0}),
+          Line(points={{80,20},{129,50}}),
+          Line(points={{80,20},{57,59}}),
           Polygon(
             points={{144,60},{117,59},{132,37},{144,60}},
             lineColor={0,0,0},
@@ -653,7 +648,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Coordinate system fixed at body" annotation (Placement(transformation(
-            extent={{-116,-16},{-84,16}}, rotation=0)));
+            extent={{-116,-16},{-84,16}})));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder and sphere)";
     parameter SI.Position r_CM[3](start={0,0,0})
@@ -1031,12 +1026,10 @@ to the setting of parameters \"useQuaternions\" and
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show shape between frame_a and frame_b and optionally a sphere at the center of mass)";
@@ -1189,7 +1182,7 @@ to the setting of parameters \"useQuaternions\" and
             useQuaternions));
 
     FixedTranslation frameTranslation(r=r, animation=false) annotation (
-        Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
+        Placement(transformation(extent={{-20,-20},{20,20}})));
     Body body(
       r_CM=r_CM,
       m=m,
@@ -1210,7 +1203,7 @@ to the setting of parameters \"useQuaternions\" and
       useQuaternions=useQuaternions,
       sequence_angleStates=sequence_angleStates,
       enforceStates=false) annotation (Placement(transformation(extent={{-27.3333,
-              -70.3333},{13,-30}}, rotation=0)));
+              -70.3333},{13,-30}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
     Visualizers.Advanced.Shape shape1(
@@ -1360,12 +1353,10 @@ states and of the \"Advanced\" menu parameters, see model
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show box between frame_a and frame_b)";
     parameter SI.Position r[3](start={0.1,0,0})
@@ -1488,7 +1479,7 @@ states and of the \"Advanced\" menu parameters, see model
       useQuaternions=useQuaternions,
       sequence_angleStates=sequence_angleStates,
       enforceStates=false) annotation (Placement(transformation(extent={{-30,-80},
-              {10,-40}}, rotation=0)));
+              {10,-40}})));
     FixedTranslation frameTranslation(
       r=r,
       animation=animation,
@@ -1501,7 +1492,7 @@ states and of the \"Advanced\" menu parameters, see model
       height=height,
       color=color,
       specularCoefficient=specularCoefficient) annotation (Placement(
-          transformation(extent={{-30,-20},{10,20}}, rotation=0)));
+          transformation(extent={{-30,-20},{10,20}})));
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -1595,12 +1586,10 @@ states and of the \"Advanced\" menu parameters, see model
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder between frame_a and frame_b)";
     parameter SI.Position r[3](start={0.1,0,0})
@@ -1723,7 +1712,7 @@ states and of the \"Advanced\" menu parameters, see model
       useQuaternions=useQuaternions,
       sequence_angleStates=sequence_angleStates,
       enforceStates=false) annotation (Placement(transformation(extent={{-30,-80},
-              {10,-40}}, rotation=0)));
+              {10,-40}})));
     FixedTranslation frameTranslation(
       r=r,
       animation=animation,
@@ -1737,7 +1726,7 @@ states and of the \"Advanced\" menu parameters, see model
       color=color,
       specularCoefficient=specularCoefficient,
       widthDirection={0,1,0}) annotation (Placement(transformation(extent={{-30,
-              -20},{10,20}}, rotation=0)));
+              -20},{10,20}})));
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -1814,7 +1803,7 @@ states and of the \"Advanced\" menu parameters, see model
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a
       "Coordinate system fixed at center of mass point" annotation (Placement(
-          transformation(extent={{-16,-16},{16,16}}, rotation=0)));
+          transformation(extent={{-16,-16},{16,16}})));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show sphere)";
     parameter SI.Mass m(min=0) "Mass of mass point";
@@ -1950,7 +1939,7 @@ are forced to be used as states.
        annotation (Evaluate=true);
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) flange fixed in housing" annotation (Placement(transformation(
-            extent={{110,10},{90,-10}}, rotation=0)));
+            extent={{110,10},{90,-10}})));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Frame in which housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (Placement(transformation(
@@ -1964,7 +1953,7 @@ are forced to be used as states.
       import Modelica;
       input Modelica.SIunits.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a annotation (
-          Placement(transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+          Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation
       frame_a.f = zeros(3);
       frame_a.t = t;
@@ -1979,15 +1968,13 @@ are forced to be used as states.
                   textString="%name")}));
     end Housing;
     Housing housing(t=-n*flange_b.tau) if world.driveTrainMechanics3D
-      annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
   equation
     flange_b.phi = phi0;
     connect(housing.frame_a, frame_a) annotation (Line(
         points={{20,-50},{0,-50},{0,-100}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Rectangle(
@@ -1999,12 +1986,12 @@ are forced to be used as states.
             extent={{-150,60},{150,20}},
             lineColor={0,0,255},
             textString="%name"),
-          Line(points={{80,-60},{40,-100}}, color={0,0,0}),
-          Line(points={{40,-60},{0,-100}}, color={0,0,0}),
-          Line(points={{0,-60},{-40,-100}}, color={0,0,0}),
-          Line(points={{-40,-60},{-80,-100}}, color={0,0,0}),
-          Line(points={{0,-60},{0,0}}, color={0,0,0}),
-          Line(points={{0,0},{90,0}}, color={0,0,0})}), Documentation(info="<html>
+          Line(points={{80,-60},{40,-100}}),
+          Line(points={{40,-60},{0,-100}}),
+          Line(points={{0,-60},{-40,-100}}),
+          Line(points={{-40,-60},{-80,-100}}),
+          Line(points={{0,-60},{0,0}}),
+          Line(points={{0,0},{90,0}})}), Documentation(info="<html>
 <p>This component is used to acquire support torques from a 1-dim.-rotational
 mechanical system (e.g., components from Modelica.Mechanics.Rotational)
 and to propagate them to a carrier body.</p>
@@ -2083,11 +2070,10 @@ November 3-4, 2003, pp. 149-158</p>
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
       "(left) driving flange (flange axis directed INTO cut plane)" annotation (
-       Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+       Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
       "(right) driven flange (flange axis directed OUT OF cut plane)"
-      annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{90,-10},{110,10}})));
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a if world.driveTrainMechanics3D
       "Frame in which rotor housing is fixed (connector is removed, if world.driveTrainMechanics3D=false)"
       annotation (Placement(transformation(
@@ -2159,12 +2145,10 @@ November 3-4, 2003, pp. 149-158</p>
 
       Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
         "(left) driving flange (flange axis directed INTO cut plane)"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
         "(right) driven flange (flange axis directed OUT OF cut plane)"
-        annotation (Placement(transformation(extent={{90,-10},{110,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Frame in which rotor housing is fixed" annotation (Placement(
             transformation(
@@ -2254,15 +2238,15 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
-            Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
-            Line(points={{60,-25},{80,-25}}, color={0,0,0}),
-            Line(points={{-70,-25},{-70,-70}}, color={0,0,0}),
-            Line(points={{70,-25},{70,-70}}, color={0,0,0}),
-            Line(points={{-80,25},{-60,25}}, color={0,0,0}),
-            Line(points={{60,25},{80,25}}, color={0,0,0}),
-            Line(points={{-70,45},{-70,25}}, color={0,0,0}),
-            Line(points={{70,45},{70,25}}, color={0,0,0}),
-            Line(points={{-70,-70},{70,-70}}, color={0,0,0}),
+            Line(points={{-80,-25},{-60,-25}}),
+            Line(points={{60,-25},{80,-25}}),
+            Line(points={{-70,-25},{-70,-70}}),
+            Line(points={{70,-25},{70,-70}}),
+            Line(points={{-80,25},{-60,25}}),
+            Line(points={{60,25},{80,25}}),
+            Line(points={{-70,45},{-70,25}}),
+            Line(points={{70,45},{70,25}}),
+            Line(points={{-70,-70},{70,-70}}),
             Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={64,64,64},
@@ -2288,7 +2272,7 @@ November 3-4, 2003, pp. 149-158</p>
               extent={{-148,112},{152,72}},
               textString="%name=%J",
               lineColor={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0})}));
+            Line(points={{0,-70},{0,-100}})}));
     end RotorWith3DEffects;
 
   protected
@@ -2315,7 +2299,7 @@ November 3-4, 2003, pp. 149-158</p>
 
     Modelica.Mechanics.Rotational.Components.Inertia inertia(J=J, stateSelect=
           StateSelect.never) if not world.driveTrainMechanics3D annotation (
-        Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
+        Placement(transformation(extent={{-20,-20},{20,20}})));
     RotorWith3DEffects rotorWith3DEffects(
       animation=animation,
       J=J,
@@ -2327,33 +2311,24 @@ November 3-4, 2003, pp. 149-158</p>
       specularCoefficient=specularCoefficient,
       exact=exact,
       stateSelect=StateSelect.never) if world.driveTrainMechanics3D annotation (
-       Placement(transformation(extent={{-20,-80},{20,-40}}, rotation=0)));
+       Placement(transformation(extent={{-20,-80},{20,-40}})));
   equation
     phi = flange_a.phi;
     w = der(phi);
     a = der(w);
 
     connect(inertia.flange_a, flange_a) annotation (Line(
-        points={{-20,0},{-100,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-20,0},{-100,0}}));
     connect(inertia.flange_b, flange_b) annotation (Line(
-        points={{20,0},{100,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,0},{100,0}}));
     connect(rotorWith3DEffects.flange_b, flange_b) annotation (Line(
-        points={{20,-60},{60,-60},{60,0},{100,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,-60},{60,-60},{60,0},{100,0}}));
     connect(rotorWith3DEffects.flange_a, flange_a) annotation (Line(
-        points={{-20,-60},{-60,-60},{-60,0},{-100,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-20,-60},{-60,-60},{-60,0},{-100,0}}));
     connect(rotorWith3DEffects.frame_a, frame_a) annotation (Line(
         points={{0,-80},{0,-100}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (Documentation(info="<html>
 <p>This component is used to model the gyroscopic torques exerted by a 1-dim.
 inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
@@ -2386,15 +2361,15 @@ Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml
 November 3-4, 2003, pp. 149-158</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
-          Line(points={{60,-25},{80,-25}}, color={0,0,0}),
-          Line(points={{-70,-25},{-70,-70}}, color={0,0,0}),
-          Line(points={{70,-25},{70,-70}}, color={0,0,0}),
-          Line(points={{-80,25},{-60,25}}, color={0,0,0}),
-          Line(points={{60,25},{80,25}}, color={0,0,0}),
-          Line(points={{-70,45},{-70,25}}, color={0,0,0}),
-          Line(points={{70,45},{70,25}}, color={0,0,0}),
-          Line(points={{-70,-70},{70,-70}}, color={0,0,0}),
+          Line(points={{-80,-25},{-60,-25}}),
+          Line(points={{60,-25},{80,-25}}),
+          Line(points={{-70,-25},{-70,-70}}),
+          Line(points={{70,-25},{70,-70}}),
+          Line(points={{-80,25},{-60,25}}),
+          Line(points={{60,25},{80,25}}),
+          Line(points={{-70,45},{-70,25}}),
+          Line(points={{70,45},{70,25}}),
+          Line(points={{-70,-70},{70,-70}}),
           Rectangle(
             extent={{-50,50},{50,-50}},
             lineColor={64,64,64},
@@ -2420,7 +2395,7 @@ November 3-4, 2003, pp. 149-158</p>
             extent={{-150,125},{150,85}},
             lineColor={0,0,255},
             textString="%name"),
-          Line(points={{0,-70},{0,-100}}, color={0,0,0}),
+          Line(points={{0,-70},{0,-100}}),
           Text(
             extent={{-150,80},{150,50}},
             lineColor={0,0,0},
@@ -2456,7 +2431,7 @@ November 3-4, 2003, pp. 149-158</p>
       import Modelica;
       input Modelica.SIunits.Torque t[3];
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a annotation (
-          Placement(transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+          Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation
       frame_a.f = zeros(3);
       frame_a.t = t;
@@ -2471,8 +2446,7 @@ November 3-4, 2003, pp. 149-158</p>
                   textString="%name")}));
     end Housing;
     Housing housing(t=-flange_a.tau*e_a - flange_b.tau*e_b) if world.driveTrainMechanics3D
-      annotation (Placement(transformation(extent={{20,-60},{40,-40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
 
   equation
     flange_a.phi = ratio*flange_b.phi;
@@ -2480,10 +2454,9 @@ November 3-4, 2003, pp. 149-158</p>
     connect(housing.frame_a, frame_a) annotation (Line(
         points={{20,-50},{0,-50},{0,-100}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}, initialScale = 0.1), graphics={
+      Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Text(origin = {0,-40},
           lineColor={0,0,255},
           extent = {{-150,150},{150,180}},
@@ -2735,18 +2708,15 @@ November 3-4, 2003, pp. 149-158
     connect(body.frame_a, frame_a) annotation (Line(
         points={{20,0},{0,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(rollingWheel.frame_a, frame_a) annotation (Line(
         points={{-50,-50},{-25,-50},{-25,0},{0,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(fixedShape.frame_a, frame_a) annotation (Line(
         points={{20,30},{0,30},{0,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (defaultComponentName="wheel", Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -2926,50 +2896,37 @@ November 3-4, 2003, pp. 149-158
     connect(body2.frame_a, frame2) annotation (Line(
         points={{60,20},{60,0},{80,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(body1.frame_a, frame1) annotation (Line(
         points={{-60,20},{-60,0},{-80,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(shape1.frame_a, frame1) annotation (Line(
         points={{-60,-30},{-60,0},{-80,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(shape2.frame_a, frame2) annotation (Line(
         points={{60,-28},{60,0},{80,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(wheelSetJoint.frame2, frame2) annotation (Line(
         points={{8,-32},{40,-32},{40,0},{80,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(wheelSetJoint.frame1, frame1) annotation (Line(
         points={{-8,-32},{-40,-32},{-40,0},{-80,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     connect(wheelSetJoint.axis1, axis1) annotation (Line(
-        points={{-10,-22},{-20,-22},{-20,50},{-80,50},{-80,100},{-100,100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-10,-22},{-20,-22},{-20,50},{-80,50},{-80,100},{-100,100}}));
     connect(wheelSetJoint.axis2, axis2) annotation (Line(
-        points={{10,-22},{24,-22},{24,50},{80,50},{80,100},{100,100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{10,-22},{24,-22},{24,50},{80,50},{80,100},{100,100}}));
     connect(wheelSetJoint.support, support) annotation (Line(
-        points={{0,-24},{0,-14},{16,-14},{16,58},{0,58},{0,80}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{0,-24},{0,-14},{16,-14},{16,58},{0,58},{0,80}}));
     connect(wheelSetJoint.frameMiddle, frameMiddle) annotation (Line(
         points={{0,-32},{-4,-32},{-4,0},{0,0}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (
       defaultComponentName="wheelSet",
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2999,48 +2956,32 @@ November 3-4, 2003, pp. 149-158
             fillColor={215,215,215},
             fillPattern=FillPattern.Sphere),
           Line(
-            points={{86,24},{64,24},{64,10},{56,10}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{86,24},{64,24},{64,10},{56,10}}),
           Line(
-            points={{86,-24},{64,-24},{64,-12},{56,-12}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{86,-24},{64,-24},{64,-12},{56,-12}}),
           Line(
-            points={{-96,100},{-80,100},{-80,4}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-96,100},{-80,100},{-80,4}}),
           Line(
-            points={{100,100},{80,100},{80,-2}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{100,100},{80,100},{80,-2}}),
           Line(
-            points={{0,72},{0,40},{-20,40},{-20,2}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{0,72},{0,40},{-20,40},{-20,2}}),
           Line(
-            points={{0,40},{20,40},{20,2}},
-            color={0,0,0},
-            smooth=Smooth.None)}),
+            points={{0,40},{20,40},{20,2}})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(
               points={{0,-106},{0,-78}},
-              color={0,0,255},
-              smooth=Smooth.None),Polygon(
+              color={0,0,255}),Polygon(
               points={{0,-60},{-6,-78},{6,-78},{0,-60}},
               lineColor={0,0,255},
-              smooth=Smooth.None,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{12,-68},{30,-80}},
               lineColor={0,0,255},
               textString="x"),Line(
               points={{6,-100},{-26,-100}},
-              color={0,0,255},
-              smooth=Smooth.None),Polygon(
+              color={0,0,255}),Polygon(
               points={{-22,-94},{-22,-106},{-40,-100},{-22,-94}},
               lineColor={0,0,255},
-              smooth=Smooth.None,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Text(
               extent={{-46,-80},{-28,-92}},

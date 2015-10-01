@@ -52,48 +52,34 @@ model RollingWheelSetDriving
     final color={0,128,255},
     final extra=0.8)        annotation (Placement(transformation(extent={{-10,-10},
             {10,10}},
-        rotation=0,
         origin={50,90})));
 equation
   connect(fixedTranslation.frame_a, wheelSet.frameMiddle) annotation (Line(
       points={{0,66},{-8,66},{-8,-6},{-10,-6},{-10,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{20,66},{40,66}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(wheelSet.axis1, torque1.flange_a) annotation (Line(
-      points={{-20,0},{-40,0},{-40,14}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-20,0},{-40,0},{-40,14}}));
   connect(torque1.flange_b, wheelSet.support) annotation (Line(
-      points={{-20,14},{-10,14},{-10,-1.8}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-20,14},{-10,14},{-10,-1.8}}));
   connect(wheelSet.axis2, torque2.flange_a) annotation (Line(
-      points={{0,0},{24,0},{24,14}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{0,0},{24,0},{24,14}}));
   connect(wheelSet.support, torque2.flange_b) annotation (Line(
-      points={{-10,-1.8},{-10,14},{4,14}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-10,-1.8},{-10,14},{4,14}}));
   connect(sine1.y, torque1.tau) annotation (Line(
       points={{-59,30},{-30,30},{-30,18}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(sine2.y, torque2.tau) annotation (Line(
       points={{39,30},{14,30},{14,18}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(shape.frame_a, fixedTranslation.frame_b) annotation (Line(
       points={{40,90},{28,90},{28,66},{20,66}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (    experiment(StopTime=3),
     Documentation(info="<html>
 

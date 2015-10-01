@@ -2,9 +2,9 @@ within Modelica.Electrical.Analog.Examples.Utilities;
 model Transistor "Transistor with resistance an capacitance"
 
   Basic.Resistor rtb(R=0.05) annotation (Placement(transformation(extent={{-80,
-            -10},{-60,10}}, rotation=0)));
+            -10},{-60,10}})));
   Basic.Resistor rtc(R=0.1) annotation (Placement(transformation(extent={{40,0},
-            {60,20}}, rotation=0)));
+            {60,20}})));
   Basic.Capacitor ct(C=1e-10) annotation (Placement(transformation(
         origin={-40,-30},
         extent={{-10,-10},{10,10}},
@@ -26,16 +26,14 @@ model Transistor "Transistor with resistance an capacitance"
     Gbc=1e-15,
     Gbe=1e-15,
     Vt=0.02585,
-    UIC=true)   annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-          rotation=0)));
+    UIC=true)   annotation (Placement(transformation(extent={{-20,-20},{20,20}})));
   Basic.Ground Ground1 annotation (Placement(transformation(extent={{-50,-80},{
-            -30,-60}}, rotation=0)));
-  Interfaces.Pin c annotation (Placement(transformation(extent={{90,50},{110,70}},
-          rotation=0)));
+            -30,-60}})));
+  Interfaces.Pin c annotation (Placement(transformation(extent={{90,50},{110,70}})));
   Interfaces.Pin b annotation (Placement(transformation(extent={{-110,-10},{-90,
-            10}}, rotation=0)));
+            10}})));
   Interfaces.Pin e annotation (Placement(transformation(extent={{90,-70},{110,
-            -50}}, rotation=0)));
+            -50}})));
 equation
   connect(rtb.n, Tr.B) annotation (Line(points={{-60,0},{-20,0}}));
   connect(rtb.n, ct.p) annotation (Line(points={{-60,0},{-40,0},{-40,-20}}));

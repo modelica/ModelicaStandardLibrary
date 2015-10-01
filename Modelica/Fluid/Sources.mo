@@ -158,20 +158,16 @@ with exception of boundary pressure, do not have an effect.
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
       "Prescribed boundary pressure"
-      annotation (Placement(transformation(extent={{-140,60},{-100,100}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
     Modelica.Blocks.Interfaces.RealInput T_in if use_T_in
       "Prescribed boundary temperature"
-      annotation (Placement(transformation(extent={{-140,20},{-100,60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
     Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if use_X_in
       "Prescribed boundary composition"
-      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
     Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
-      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
   protected
     Modelica.Blocks.Interfaces.RealInput p_in_internal
       "Needed to connect to conditional connector";
@@ -315,20 +311,16 @@ with exception of boundary pressure, do not have an effect.
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput p_in if use_p_in
       "Prescribed boundary pressure"
-      annotation (Placement(transformation(extent={{-140,60},{-100,100}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
     Modelica.Blocks.Interfaces.RealInput h_in if use_h_in
       "Prescribed boundary specific enthalpy"
-      annotation (Placement(transformation(extent={{-140,20},{-100,60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,20},{-100,60}})));
     Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if use_X_in
       "Prescribed boundary composition"
-      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
     Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if use_C_in
       "Prescribed boundary trace substances"
-      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
   protected
     Modelica.Blocks.Interfaces.RealInput p_in_internal
       "Needed to connect to conditional connector";
@@ -472,22 +464,18 @@ with exception of boundary pressure, do not have an effect.
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput m_flow_in if     use_m_flow_in
       "Prescribed mass flow rate"
-      annotation (Placement(transformation(extent={{-120,60},{-80,100}},
-            rotation=0), iconTransformation(extent={{-120,60},{-80,100}})));
+      annotation (Placement(transformation(extent={{-120,60},{-80,100}}), iconTransformation(extent={{-120,60},{-80,100}})));
     Modelica.Blocks.Interfaces.RealInput T_in if         use_T_in
       "Prescribed fluid temperature"
-      annotation (Placement(transformation(extent={{-140,20},{-100,60}},
-            rotation=0), iconTransformation(extent={{-140,20},{-100,60}})));
+      annotation (Placement(transformation(extent={{-140,20},{-100,60}}), iconTransformation(extent={{-140,20},{-100,60}})));
     Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if
                                                           use_X_in
       "Prescribed fluid composition"
-      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
     Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if
                                                           use_C_in
       "Prescribed boundary trace substances"
-      annotation (Placement(transformation(extent={{-120,-100},{-80,-60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-120,-100},{-80,-60}})));
   protected
     Modelica.Blocks.Interfaces.RealInput m_flow_in_internal
       "Needed to connect to conditional connector";
@@ -634,22 +622,18 @@ with exception of boundary flow rate, do not have an effect.
                   Dialog(enable = (not use_C_in) and Medium.nC > 0));
     Modelica.Blocks.Interfaces.RealInput m_flow_in if     use_m_flow_in
       "Prescribed mass flow rate"
-      annotation (Placement(transformation(extent={{-120,60},{-80,100}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-120,60},{-80,100}})));
     Modelica.Blocks.Interfaces.RealInput h_in if              use_h_in
       "Prescribed fluid specific enthalpy"
-      annotation (Placement(transformation(extent={{-140,20},{-100,60}},
-            rotation=0), iconTransformation(extent={{-140,20},{-100,60}})));
+      annotation (Placement(transformation(extent={{-140,20},{-100,60}}), iconTransformation(extent={{-140,20},{-100,60}})));
     Modelica.Blocks.Interfaces.RealInput X_in[Medium.nX] if
                                                           use_X_in
       "Prescribed fluid composition"
-      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-60},{-100,-20}})));
     Modelica.Blocks.Interfaces.RealInput C_in[Medium.nC] if
                                                           use_C_in
       "Prescribed boundary trace substances"
-      annotation (Placement(transformation(extent={{-120,-100},{-80,-60}},
-            rotation=0), iconTransformation(extent={{-120,-100},{-80,-60}})));
+      annotation (Placement(transformation(extent={{-120,-100},{-80,-60}}), iconTransformation(extent={{-120,-100},{-80,-60}})));
   protected
     Modelica.Blocks.Interfaces.RealInput m_flow_in_internal
       "Needed to connect to conditional connector";

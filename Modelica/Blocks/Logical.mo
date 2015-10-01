@@ -302,8 +302,6 @@ the output is <b>false</b>.
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-54,22},{-8,2},{-54,-18}},
-            color={0,0,0},
-            smooth=Smooth.None,
             thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is greater than
@@ -324,14 +322,10 @@ Real input u2, otherwise the output is <b>false</b>.
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-54,22},{-8,2},{-54,-18}},
-            color={0,0,0},
-            smooth=Smooth.None,
             thickness=0.5),
           Line(
             points={{-52,-36},{-6,-14}},
-            color={0,0,0},
-            thickness=0.5,
-            smooth=Smooth.None)}), Documentation(info="<html>
+            thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is greater than or equal to
 Real input u2, otherwise the output is <b>false</b>.
@@ -350,9 +344,7 @@ Real input u2, otherwise the output is <b>false</b>.
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-6,18},{-50,-2},{-6,-20}},
-            color={0,0,0},
-            thickness=0.5,
-            smooth=Smooth.None)}), Documentation(info="<html>
+            thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is less than
 Real input u2, otherwise the output is <b>false</b>.
@@ -371,14 +363,10 @@ Real input u2, otherwise the output is <b>false</b>.
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,127}),
           Line(
             points={{-10,20},{-54,0},{-10,-18}},
-            color={0,0,0},
-            thickness=0.5,
-            smooth=Smooth.None),
+            thickness=0.5),
           Line(
             points={{-54,-18},{-14,-34}},
-            color={0,0,0},
-            thickness=0.5,
-            smooth=Smooth.None)}), Documentation(info="<html>
+            thickness=0.5)}), Documentation(info="<html>
 <p>
 The output is <b>true</b> if Real input u1 is less than or equal to
 Real input u2, otherwise the output is <b>false</b>.
@@ -389,7 +377,7 @@ Real input u2, otherwise the output is <b>false</b>.
   block ZeroCrossing "Trigger zero crossing of input u"
     extends Blocks.Interfaces.partialBooleanSO;
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
-              {-140,-20},{-100,20}}, rotation=0)));
+              {-140,-20},{-100,20}})));
     Blocks.Interfaces.BooleanInput enable
       "Zero input crossing is triggered if the enable input signal is true"
       annotation (Placement(transformation(
@@ -465,8 +453,7 @@ u1 (upper connector) and u3 (lower connector).</p>
 u1, else it is set equal to u3.</p>
 </html>"), Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-            initialScale=0.1),
+          extent={{-100,-100},{100,100}}),
             graphics={
           Line(
             points={{12,0},{100,0}},
@@ -483,8 +470,7 @@ u1, else it is set equal to u3.</p>
             points={{-40,80},{8,2}},
             color={255,0,255},
             thickness=1),
-          Ellipse(visible=true,
-            lineColor={0,0,127},
+          Ellipse(lineColor={0,0,127},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
             extent={{2.0,-6.0},{18.0,8.0}})}));
@@ -493,17 +479,13 @@ u1, else it is set equal to u3.</p>
   block Switch "Switch between two Real signals"
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
-      annotation (Placement(transformation(extent={{-140,60},{-100,100}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,60},{-100,100}})));
     Blocks.Interfaces.BooleanInput u2 "Connector of Boolean input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.RealInput u3 "Connector of second Real input signal"
-      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
     Blocks.Interfaces.RealOutput y "Connector of Real output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     y = if u2 then u1 else u3;
@@ -519,8 +501,7 @@ u1, else it is set equal to u3.</p>
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{12.0,0.0},{100.0,0.0}},
             color={0,0,127}),
           Line(points={{-100.0,0.0},{-40.0,0.0}},
@@ -548,9 +529,9 @@ u1, else it is set equal to u3.</p>
     parameter Boolean pre_y_start=false "Value of pre(y) at initial time";
 
     Blocks.Interfaces.RealInput u annotation (Placement(transformation(extent={
-              {-140,-20},{-100,20}}, rotation=0)));
+              {-140,-20},{-100,20}})));
     Blocks.Interfaces.BooleanOutput y annotation (Placement(transformation(
-            extent={{100,-10},{120,10}}, rotation=0)));
+            extent={{100,-10},{120,10}})));
 
   initial equation
     pre(y) = pre_y_start;
@@ -576,28 +557,20 @@ u1, else it is set equal to u3.</p>
               lineColor={160,160,164},
               textString="y"),Line(
               points={{-80,-70},{30,-70}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-50,10},{80,10}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-50,10},{-50,-70}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{30,10},{30,-70}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-10,-65},{0,-70},{-10,-75}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-10,15},{-20,10},{-10,5}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-55,-20},{-50,-30},{-44,-20}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{25,-30},{30,-19},{35,-30}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-99,2},{-70,18}},
               lineColor={160,160,164},
@@ -626,14 +599,14 @@ u1, else it is set equal to u3.</p>
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
           Line(points={{-79,-29},{84,-29}}, color={192,192,192}),
-          Line(points={{-79,-29},{41,-29}}, color={0,0,0}),
-          Line(points={{-15,-21},{1,-29},{-15,-36}}, color={0,0,0}),
-          Line(points={{41,51},{41,-29}}, color={0,0,0}),
-          Line(points={{33,3},{41,22},{50,3}}, color={0,0,0}),
-          Line(points={{-49,51},{81,51}}, color={0,0,0}),
-          Line(points={{-4,59},{-19,51},{-4,43}}, color={0,0,0}),
-          Line(points={{-59,29},{-49,11},{-39,29}}, color={0,0,0}),
-          Line(points={{-49,51},{-49,-29}}, color={0,0,0}),
+          Line(points={{-79,-29},{41,-29}}),
+          Line(points={{-15,-21},{1,-29},{-15,-36}}),
+          Line(points={{41,51},{41,-29}}),
+          Line(points={{33,3},{41,22},{50,3}}),
+          Line(points={{-49,51},{81,51}}),
+          Line(points={{-4,59},{-19,51},{-4,43}}),
+          Line(points={{-59,29},{-49,11},{-39,29}}),
+          Line(points={{-49,51},{-49,-29}}),
           Text(
             extent={{-92,-49},{-9,-92}},
             lineColor={192,192,192},
@@ -671,13 +644,13 @@ The default value of this parameter is <b>false</b>.
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.RealInput reference
       "Connector of Real input signal used as reference signal" annotation (
-        Placement(transformation(extent={{-140,80},{-100,40}}, rotation=0)));
+        Placement(transformation(extent={{-140,80},{-100,40}})));
     Blocks.Interfaces.RealInput u
       "Connector of Real input signal used as measurement signal" annotation (
-        Placement(transformation(extent={{-140,-40},{-100,-80}}, rotation=0)));
+        Placement(transformation(extent={{-140,-40},{-100,-80}})));
     Blocks.Interfaces.BooleanOutput y
       "Connector of Real output signal used as actuator signal" annotation (
-        Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+        Placement(transformation(extent={{100,-10},{120,10}})));
 
     parameter Real bandwidth(start=0.1) "Bandwidth around reference signal";
     parameter Boolean pre_y_start=false "Value of pre(y) at initial time";
@@ -688,7 +661,7 @@ The default value of this parameter is <b>false</b>.
     y = pre(y) and (u < reference + bandwidth/2) or (u < reference - bandwidth/
       2);
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}, initialScale=0.1), graphics={
+              -100},{100,100}}), graphics={
           Text(
             extent={{-92,74},{44,44}},
             lineThickness=0.5,
@@ -722,11 +695,9 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
     parameter Real offset=0 "Offset of output signal";
 
     Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.RealOutput y "Connector of Real output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
     discrete Real endValue "Value of y at time of recent edge";
@@ -747,35 +718,28 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Line(visible=true,
-          points={{-60.0,-70.0},{-60.0,-70.0},{-30.0,40.0},{8.0,40.0},{40.0,-70.0},{40.0,-70.0}},
+        Line(points={{-60.0,-70.0},{-60.0,-70.0},{-30.0,40.0},{8.0,40.0},{40.0,-70.0},{40.0,-70.0}},
           color={0,0,127}),
-        Line(visible=true,
-          points={{-90.0,-70.0},{82.0,-70.0}},
+        Line(points={{-90.0,-70.0},{82.0,-70.0}},
           color={192,192,192}),
-        Line(visible=true,
-          points={{-80.0,68.0},{-80.0,-80.0}},
+        Line(points={{-80.0,68.0},{-80.0,-80.0}},
           color={192,192,192}),
-        Polygon(visible=true,
-          lineColor={192,192,192},
+        Polygon(lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
-        Polygon(visible=true,
-          lineColor={192,192,192},
+        Polygon(lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
-        Line(visible=true,
-          points={{-80.0,-70.0},{-60.0,-70.0},{-60.0,24.0},{8.0,24.0},{8.0,-70.0},{60.0,-70.0}},
+        Line(points={{-80.0,-70.0},{-60.0,-70.0},{-60.0,24.0},{8.0,24.0},{8.0,-70.0},{60.0,-70.0}},
           color={255,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-80,-20},{-60,-20},{-30,40},{
             8,40},{40,-20},{60,-20}}, color={0,0,255}),Line(points={{-90,-70},{
-            82,-70}}, color={0,0,0}),Line(points={{-80,68},{-80,-80}}, color={0,
+            82,-70}}),Line(points={{-80,68},{-80,-80}}, color={0,
             0,0}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={0,0,0},
@@ -787,14 +751,11 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
               fillPattern=FillPattern.Solid),Line(points={{-80,-68},{-60,-68},{
             -60,-42},{8,-42},{8,-68},{60,-68}}, color={255,0,255}),Line(
               points={{-60,40},{-60,-42}},
-              color={0,0,0},
               pattern=LinePattern.Dot),Line(
               points={{8,-42},{8,40}},
-              color={0,0,0},
               pattern=LinePattern.Dot),Line(points={{-60,40},{-30,40}}, color={
-            0,0,0}),Line(points={{8,-20},{40,-20}}, color={0,0,0}),Line(points=
-            {{-20,40},{-20,-20}}, color={0,0,0}),Line(points={{-20,-20},{-20,-70}},
-            color={0,0,0}),Text(
+            0,0,0}),Line(points={{8,-20},{40,-20}}),Line(points=
+            {{-20,40},{-20,-20}}),Line(points={{-20,-20},{-20,-70}}),Text(
               extent={{-44,50},{-44,40}},
               lineColor={0,0,0},
               textString="rising"),Text(
@@ -880,11 +841,9 @@ handled properly.</p>
 
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.RealOutput y "Connector of Real output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
     discrete Modelica.SIunits.Time entryTime "Time instant when u became true";
@@ -898,34 +857,27 @@ handled properly.</p>
     annotation (
       Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
-        Line(visible=true,
-          points={{-90.0,-70.0},{82.0,-70.0}},
+        Line(points={{-90.0,-70.0},{82.0,-70.0}},
           color={192,192,192}),
-        Line(visible=true,
-          points={{-80.0,68.0},{-80.0,-80.0}},
+        Line(points={{-80.0,68.0},{-80.0,-80.0}},
           color={192,192,192}),
-        Polygon(visible=true,
-          lineColor={192,192,192},
+        Polygon(lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           points={{90.0,-70.0},{68.0,-62.0},{68.0,-78.0},{90.0,-70.0}}),
-        Polygon(visible=true,
-          lineColor={192,192,192},
+        Polygon(lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid,
           points={{-80.0,90.0},{-88.0,68.0},{-72.0,68.0},{-80.0,90.0}}),
-        Line(visible=true,
-          points={{-80.0,-70.0},{-60.0,-70.0},{-60.0,-26.0},{38.0,-26.0},{38.0,-70.0},{66.0,-70.0}},
+        Line(points={{-80.0,-70.0},{-60.0,-70.0},{-60.0,-26.0},{38.0,-26.0},{38.0,-70.0},{66.0,-70.0}},
           color={255,0,255}),
-        Line(visible=true,
-          points={{-80.0,0.0},{-62.0,0.0},{40.0,90.0},{40.0,0.0},{68.0,0.0}},
+        Line(points={{-80.0,0.0},{-62.0,0.0},{40.0,90.0},{40.0,0.0},{68.0,0.0}},
           color={0,0,127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Line(points={{-90,-70},{82,-70}}, color={0,
-            0,0}),Line(points={{-80,68},{-80,-80}}, color={0,0,0}),Polygon(
+            0,0}),Line(points={{-80,68},{-80,-80}}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
               lineColor={0,0,0},
               fillColor={255,255,255},
@@ -959,15 +911,15 @@ input becomes false.
     extends Modelica.Blocks.Icons.PartialBooleanBlock;
     parameter Boolean Qini=false "Start value of Q at initial time";
     Modelica.Blocks.Interfaces.BooleanOutput Q annotation (Placement(
-          transformation(extent={{100,50},{120,70}}, rotation=0)));
+          transformation(extent={{100,50},{120,70}})));
     Modelica.Blocks.Interfaces.BooleanOutput QI annotation (Placement(
-          transformation(extent={{100,-70},{120,-50}}, rotation=0)));
+          transformation(extent={{100,-70},{120,-50}})));
     Modelica.Blocks.Logical.Nor nor annotation (Placement(transformation(extent=
-             {{-20,20},{0,40}}, rotation=0)));
+             {{-20,20},{0,40}})));
     Modelica.Blocks.Logical.Nor nor1 annotation (Placement(transformation(
-            extent={{-20,-20},{0,0}}, rotation=0)));
+            extent={{-20,-20},{0,0}})));
     Modelica.Blocks.Logical.Pre pre(pre_u_start=not (Qini)) annotation (
-        Placement(transformation(extent={{10,20},{30,40}}, rotation=0)));
+        Placement(transformation(extent={{10,20},{30,40}})));
     Modelica.Blocks.Interfaces.BooleanInput S
       annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
     Modelica.Blocks.Interfaces.BooleanInput R
@@ -985,12 +937,10 @@ input becomes false.
           color={255,0,255}));
     connect(S, nor.u1) annotation (Line(
         points={{-120,60},{-40,60},{-40,30},{-22,30}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(R, nor1.u2) annotation (Line(
         points={{-120,-60},{-40,-60},{-40,-18},{-22,-18}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
   annotation (
     Icon(graphics={
         Text(
@@ -1048,7 +998,7 @@ The output <code>Q</code> is set by the input <code>S</code> and reset by the in
 
     Modelica.Blocks.Interfaces.BooleanOutput condition=false
       "Terminate simulation when condition becomes true" annotation (Dialog,
-        Placement(transformation(extent={{200,-10},{220,10}}, rotation=0)));
+        Placement(transformation(extent={{200,-10},{220,10}})));
     parameter String terminationText="... End condition reached"
       "Text that will be displayed when simulation is terminated";
 
@@ -1061,22 +1011,18 @@ The output <code>Q</code> is set by the input <code>S</code> and reset by the in
           extent={{-200.0,-20.0},{200.0,20.0}},
           initialScale=0.2),
           graphics={
-        Rectangle(visible=true,
-          fillColor={235,235,235},
+        Rectangle(fillColor={235,235,235},
           fillPattern=FillPattern.Solid,
           lineThickness=5.0,
           borderPattern=BorderPattern.Raised,
           extent={{-200.0,-20.0},{200.0,20.0}}),
-        Text(visible=true,
-          extent={{-166.0,-15.0},{194.0,15.0}},
+        Text(extent={{-166.0,-15.0},{194.0,15.0}},
           textString="%condition"),
-        Rectangle(visible=true,
-          fillColor={161,35,41},
+        Rectangle(fillColor={161,35,41},
           fillPattern=FillPattern.Solid,
           borderPattern=BorderPattern.Raised,
           extent={{-194.0,-14.0},{-168.0,14.0}}),
-        Text(visible=true,
-          lineColor={0,0,255},
+        Text(lineColor={0,0,255},
           extent={{-200.0,22.0},{200.0,46.0}},
           textString="%name")}), Documentation(info="<html>
 <p>
@@ -1111,7 +1057,6 @@ value <b>false</b> and \"green\" color means value <b>true</b>. These
 values are visualized in a diagram animation.
 </p>
 </html>"), Icon(graphics={Line(
-          visible=true,
           points={{-86,-22},{-50,-22},{-50,22},{48,22},{48,-22},{88,-24}},
           color={255,0,255})}));
 end Logical;

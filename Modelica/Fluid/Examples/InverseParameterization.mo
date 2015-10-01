@@ -16,7 +16,7 @@ model InverseParameterization
     nPorts=1,
     use_p_in=false,
     p=100000)
-    annotation (Placement(transformation(extent={{-76,14},{-64,26}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-76,14},{-64,26}})));
   Modelica.Fluid.Machines.ControlledPump pump(
     m_flow_nominal=1,
     control_m_flow=false,
@@ -32,16 +32,15 @@ model InverseParameterization
     zeta=0,
     dp_nominal=100000,
     m_flow_nominal=1) annotation (Placement(transformation(extent={{20,10},{40,
-            30}}, rotation=0)));
+            30}})));
 
   Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,redeclare package Medium = Medium, p=
         100000)
-             annotation (Placement(transformation(extent={{76,14},{64,26}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{76,14},{64,26}})));
 
   inner Modelica.Fluid.System system
                         annotation (Placement(transformation(extent={{-90,50},{
-            -70,70}},  rotation=0)));
+            -70,70}})));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     redeclare package Medium = Medium,
     diameter=2.54e-2,
@@ -53,11 +52,10 @@ model InverseParameterization
         m_flow_turbulent=eps_m_flow_turbulent*1,
         dp_nominal=100000))
                       annotation (Placement(transformation(extent={{20,-30},{40,
-            -10}},rotation=0)));
+            -10}})));
   Modelica.Fluid.Sources.Boundary_pT sink1(nPorts=1,
     redeclare package Medium = Medium, p=200000)
-             annotation (Placement(transformation(extent={{76,-26},{64,-14}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{76,-26},{64,-14}})));
   Modelica.Blocks.Sources.Ramp p_set(
     height=0.2e5,
     offset=1.9e5,
@@ -74,47 +72,38 @@ model InverseParameterization
         dp_nominal=100000,
         m_flow_nominal=1))
                       annotation (Placement(transformation(extent={{20,-70},{40,
-            -50}},rotation=0)));
+            -50}})));
   Modelica.Fluid.Sources.Boundary_pT sink2(nPorts=1,
     redeclare package Medium = Medium, p=200000)
-             annotation (Placement(transformation(extent={{76,-66},{64,-54}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{76,-66},{64,-54}})));
 equation
   connect(orifice.port_b, sink.ports[1])
                                        annotation (Line(
       points={{40,20},{64,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source.ports[1], pump.port_a) annotation (Line(
       points={{-64,20},{-40,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pump.port_b, orifice.port_a)
                                     annotation (Line(
       points={{-20,20},{20,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe1.port_b, sink1.ports[1]) annotation (Line(
       points={{40,-20},{64,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe1.port_a, pump.port_b) annotation (Line(
       points={{20,-20},{0,-20},{0,20},{-20,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(p_set.y, pump.p_set) annotation (Line(
       points={{-29,50},{-25,50},{-25,28.2}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(pipe2.port_b, sink2.ports[1]) annotation (Line(
       points={{40,-60},{64,-60}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
 
   connect(pump.port_b, pipe2.port_a) annotation (Line(
       points={{-20,20},{0,20},{0,-60},{20,-60}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (
     __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),

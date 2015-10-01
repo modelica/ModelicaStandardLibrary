@@ -230,14 +230,12 @@ package Interfaces
                                   redeclare package Medium = Medium,
                        m_flow(min=if allowFlowReversal then -Constants.inf else 0))
       "Fluid connector a (positive design flow direction is from port_a to port_b)"
-      annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+      annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Fluid.Interfaces.FluidPort_b port_b(
                                   redeclare package Medium = Medium,
                        m_flow(max=if allowFlowReversal then +Constants.inf else 0))
       "Fluid connector b (positive design flow direction is from port_a to port_b)"
-      annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
-               0), iconTransformation(extent={{110,-10},{90,10}})));
+      annotation (Placement(transformation(extent={{110,-10},{90,10}}), iconTransformation(extent={{110,-10},{90,10}})));
     // Model structure, e.g., used for visualization
   protected
     parameter Boolean port_a_exposesState = false
@@ -266,21 +264,18 @@ This will be visualized at the port icons, in order to improve the understanding
           Polygon(
             points={{20,-70},{60,-85},{20,-100},{20,-70}},
             lineColor={0,128,255},
-            smooth=Smooth.None,
             fillColor={0,128,255},
             fillPattern=FillPattern.Solid,
             visible=showDesignFlowDirection),
           Polygon(
             points={{20,-75},{50,-85},{20,-95},{20,-75}},
             lineColor={255,255,255},
-            smooth=Smooth.None,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid,
             visible=allowFlowReversal),
           Line(
             points={{55,-85},{-60,-85}},
             color={0,128,255},
-            smooth=Smooth.None,
             visible=showDesignFlowDirection),
           Text(
             extent={{-149,-114},{151,-154}},
@@ -496,8 +491,7 @@ end PartialTwoPortTransport;
     // Heat ports
     Modelica.Fluid.Interfaces.HeatPorts_a[n] heatPorts
       "Heat port to component boundary"
-      annotation (Placement(transformation(extent={{-10,60},{10,80}},
-              rotation=0), iconTransformation(extent={{-20,60},{20,80}})));
+      annotation (Placement(transformation(extent={{-10,60},{10,80}}), iconTransformation(extent={{-20,60},{20,80}})));
 
     // Variables
     SI.Temperature[n] Ts = Medium.temperature(states)

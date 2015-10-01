@@ -53,7 +53,7 @@ as output.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}, color={0,0,0}),
+          Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={0,0,0},
@@ -65,13 +65,11 @@ as output.
           Line(
             visible=strict,
             points={{50,70},{80,70}},
-            color={255,0,0},
-            smooth=Smooth.None),
+            color={255,0,0}),
           Line(
             visible=strict,
             points={{-80,-70},{-50,-70}},
-            color={255,0,0},
-            smooth=Smooth.None)}),
+            color={255,0,0})}),
           Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -87,7 +85,7 @@ as output.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}),
+          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
           Text(
             extent={{46,-6},{68,-18}},
             lineColor={128,128,128},
@@ -116,11 +114,11 @@ as output.
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
                                 annotation (Placement(transformation(extent={{
-              -140,60},{-100,100}}, rotation=0)));
+              -140,60},{-100,100}})));
     Interfaces.RealInput limit2
       "Connector of Real input signal used as minimum of input u"
                                 annotation (Placement(transformation(extent={{
-              -140,-100},{-100,-60}}, rotation=0)));
+              -140,-100},{-100,-60}})));
   protected
     Real uMax;
     Real uMin;
@@ -164,7 +162,7 @@ is passed as output.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}, color={0,0,0}),
+          Line(points={{-80,-70},{-50,-70},{50,70},{80,70}}),
           Text(
             extent={{-150,150},{150,110}},
             textString="%name",
@@ -182,13 +180,11 @@ is passed as output.
           Line(
             visible=strict,
             points={{50,70},{80,70}},
-            color={255,0,0},
-            smooth=Smooth.None),
+            color={255,0,0}),
           Line(
             visible=strict,
             points={{-80,-70},{-50,-70}},
-            color={255,0,0},
-            smooth=Smooth.None)}),
+            color={255,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{0,-60},{0,50}}, color={192,192,192}),
@@ -203,7 +199,7 @@ is passed as output.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}),
+          Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
           Text(
             extent={{46,-6},{68,-18}},
             lineColor={128,128,128},
@@ -260,14 +256,11 @@ is passed as output.
         fillColor={192,192,192},
         fillPattern=FillPattern.Solid),
       Line(
-        points={{-50,-70},{50,70}},
-        color={0,0,0},
-        smooth=Smooth.None),
+        points={{-50,-70},{50,70}}),
       Line(
         visible=strict,
         points={{50,70},{-50,-70}},
-        color={255,0,0},
-        smooth=Smooth.None)}),
+        color={255,0,0})}),
   Documentation(info="<html>
 <p>The <code>SlewRateLimiter</code> block limits the slew rate of its input signal in the range of <code>[Falling, Rising]</code>.</p>
 <p>To ensure this for arbitrary inputs and in order to produce a differential output, the input is numerically differentiated
@@ -332,7 +325,7 @@ function of the input with a slope of 1.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-60},{-20,0},{20,0},{80,60}}, color={0,0,0}),
+          Line(points={{-80,-60},{-20,0},{20,0},{80,60}}),
           Text(
             extent={{-150,-150},{150,-110}},
             lineColor={160,160,164},
@@ -356,7 +349,7 @@ function of the input with a slope of 1.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-81,-40},{-38,0},{40,0},{80,40}}, color={0,0,0}),
+          Line(points={{-81,-40},{-38,0},{40,0},{80,40}}),
           Text(
             extent={{62,-7},{88,-25}},
             lineColor={128,128,128},
@@ -393,8 +386,7 @@ The Input signal is delayed by a given time instant, or more precisely:
 </pre>
 </html>"),   Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
       Text(
         extent={{8.0,-142.0},{8.0,-102.0}},
@@ -442,8 +434,7 @@ The Input signal is delayed by a given time instant, or more precisely:
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
                 59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
                 {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,0},
-                smooth=Smooth.Bezier),
+                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{67,22},{96,6}},
             lineColor={160,160,164},
@@ -645,8 +636,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </table>
 </html>"),   Icon(
       coordinateSystem(preserveAspectRatio=false,
-        extent={{-100,-100},{100,100}},
-        initialScale=0.1),
+        extent={{-100,-100},{100,100}}),
         graphics={
       Text(extent={{8.0,-142.0},{8.0,-102.0}},
         textString="delayTime=%delayTime"),
@@ -700,8 +690,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
                 59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
                 {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,0},
-                smooth=Smooth.Bezier),
+                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{67,22},{96,6}},
             lineColor={160,160,164},
@@ -730,7 +719,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     parameter Real delayMax(min=0, start=1) "maximum delay time";
 
     Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
-          transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
+          transformation(extent={{-140,-80},{-100,-40}})));
   equation
     y = delay(u, delayTime, delayMax);
     annotation (
@@ -749,7 +738,7 @@ the following relationship:
 <pre>  0 &le; delayTime &le; delayMax
 </pre>
 </html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Text(extent={{-100.0,-148.0},{100.0,-108.0}},
         textString="delayMax=%delayMax"),
       Line(points={{-92.0,0.0},{-80.7,34.2},{-73.5,53.1},{-67.1,66.4},{-61.4,74.6},{-55.8,79.1},{-50.2,79.8},{-44.6,76.6},{-38.9,69.7},{-33.3,59.4},{-26.9,44.1},{-18.83,21.2},{-1.9,-30.8},{5.3,-50.2},{11.7,-64.2},{17.3,-73.1},{23.0,-78.4},{28.6,-80.0},{34.2,-77.6},{39.9,-71.5},{45.5,-61.9},{51.9,-47.2},{60.0,-24.8},{68.0,0.0}},
@@ -782,8 +771,7 @@ the following relationship:
             74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
             59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
             {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-            73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,0},
-            smooth=Smooth.Bezier),
+            73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
       Line(points={{-80,0},{-68.7,34.2},{-61.5,53.1},{-55.1,66.4},{-49.4,
             74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,76.6},{-26.9,69.7},{-21.3,
             59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,

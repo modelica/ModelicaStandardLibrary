@@ -15,17 +15,17 @@ model UserDefinedGravityField
         (phi=geodeticLatitude),
     axisLength=10,
     nominalLength=10)              annotation (Placement(transformation(extent={{-80,-20},
-            {-60,0}},        rotation=0)));
+            {-60,0}})));
   Joints.Revolute rev(n={0,0,1},useAxisFlange=true,
     phi(fixed=true),
     w(fixed=true))             annotation (Placement(transformation(extent={{-14,20},
-            {6,40}},        rotation=0)));
+            {6,40}})));
   Rotational.Components.Damper damper(d=0.1)
-    annotation (Placement(transformation(extent={{-14,60},{6,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-14,60},{6,80}})));
   Parts.Body body(r_CM={10,0,0},
     m=1000.0,
     sphereDiameter=1)
-    annotation (Placement(transformation(extent={{26,20},{46,40}},rotation=0)));
+    annotation (Placement(transformation(extent={{26,20},{46,40}})));
   Parts.FixedTranslation fixedTranslation(r={0,height,0}, width=0.3)
                                                      annotation (Placement(
         transformation(
@@ -34,9 +34,9 @@ model UserDefinedGravityField
         origin={-40,8})));
 equation
   connect(damper.flange_b,rev. axis) annotation (Line(points={{6,70},{10,70},{10,
-          46},{-4,46},{-4,40}},   color={0,0,0}));
+          46},{-4,46},{-4,40}}));
   connect(rev.support,damper. flange_a) annotation (Line(points={{-10,40},{-10,46},
-          {-22,46},{-22,70},{-14,70}},     color={0,0,0}));
+          {-22,46},{-22,70},{-14,70}}));
   connect(body.frame_a,rev. frame_b) annotation (Line(
       points={{26,30},{6,30}},
       color={95,95,95},
@@ -44,13 +44,11 @@ equation
   connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-60,-10},{-40,-10},{-40,-2}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, rev.frame_a) annotation (Line(
       points={{-40,18},{-40,30},{-14,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=10, Tolerance=1e-008),
     Documentation(info="<html>
 <p>

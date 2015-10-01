@@ -104,36 +104,36 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
 </html>"));
   end Frame_b;
 
-connector Frame_resolve "Coordinate system fixed to the component used to express in which
-coordinate system a vector is resolved (non-filled rectangular icon)"
-  extends Frame;
-
-  annotation (defaultComponentName="frame_resolve",
-    Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.16), graphics={Rectangle(
-            extent={{-10,10},{10,-10}},
-            lineColor={95,95,95},
-            pattern=LinePattern.Dot), Rectangle(
-            extent={{-30,100},{30,-100}},
-            lineColor={95,95,95},
-            pattern=LinePattern.Dot,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.16), graphics={Text(
-            extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
-            textString="%name"), Rectangle(
-            extent={{-12,40},{12,-40}},
-            lineColor={95,95,95},
-            pattern=LinePattern.Dot,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid)}),
-    Documentation(info="<html>
+  connector Frame_resolve
+    "Coordinate system fixed to the component used to express in which coordinate system a vector is resolved (non-filled rectangular icon)"
+    extends Frame;
+  
+    annotation (defaultComponentName="frame_resolve",
+      Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            initialScale=0.16), graphics={Rectangle(
+              extent={{-10,10},{10,-10}},
+              lineColor={95,95,95},
+              pattern=LinePattern.Dot), Rectangle(
+              extent={{-30,100},{30,-100}},
+              lineColor={95,95,95},
+              pattern=LinePattern.Dot,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+      Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            initialScale=0.16), graphics={Text(
+              extent={{-140,-50},{140,-88}},
+              lineColor={0,0,0},
+              textString="%name"), Rectangle(
+              extent={{-12,40},{12,-40}},
+              lineColor={95,95,95},
+              pattern=LinePattern.Dot,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
 component. In the origin of the coordinate system the cut-force
@@ -146,7 +146,7 @@ by default the connecting line has line style \"dotted\".
 This component has a non-filled rectangular icon.
 </p>
 </html>"));
-end Frame_resolve;
+  end Frame_resolve;
 
   connector FlangeWithBearing
     "Connector consisting of 1-dim. rotational flange and its bearing frame"
@@ -177,10 +177,10 @@ end Frame_resolve;
             lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
-          Line(points={{-80,60},{80,60}}, color={0,0,0}),
-          Line(points={{-80,-60},{80,-60}}, color={0,0,0}),
-          Line(points={{0,100},{0,60}}, color={0,0,0}),
-          Line(points={{0,-60},{0,-100}}, color={0,0,0}),
+          Line(points={{-80,60},{80,60}}),
+          Line(points={{-80,-60},{80,-60}}),
+          Line(points={{0,100},{0,60}}),
+          Line(points={{0,-60},{0,-100}}),
           Rectangle(extent={{-100,100},{100,-100}}, lineColor={135,135,135}),
           Rectangle(extent={{-100,25},{100,-25}}, lineColor={64,64,64})}),
       Diagram(coordinateSystem(
@@ -188,11 +188,9 @@ end Frame_resolve;
           extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-50,-40},{50,-40}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{-50,40},{50,40}},
-            color={0,0,0},
             thickness=0.5),
           Text(
             extent={{-158,-66},{158,-124}},
@@ -210,10 +208,10 @@ end Frame_resolve;
             lineColor={64,64,64},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={192,192,192}),
-          Line(points={{0,60},{0,40}}, color={0,0,0}),
-          Line(points={{0,-40},{0,-60}}, color={0,0,0}),
-          Line(points={{-50,40},{50,40}}, color={0,0,0}),
-          Line(points={{-50,-40},{50,-40}}, color={0,0,0}),
+          Line(points={{0,60},{0,40}}),
+          Line(points={{0,-40},{0,-60}}),
+          Line(points={{-50,40},{50,40}}),
+          Line(points={{-50,-40},{50,-40}}),
           Rectangle(extent={{-60,60},{60,-60}}, lineColor={135,135,135}),
           Rectangle(extent={{-60,15},{60,-15}}, lineColor={64,64,64})}),
       Documentation(info="<html>
@@ -238,11 +236,10 @@ to the FlangeWithBearing connector.
         includeBearingConnector=includeBearingConnector)
       "Compound connector consisting of 1-dim. rotational flange and 3-dim. frame mounting"
                                    annotation (Placement(transformation(extent=
-              {{-130,-30},{-70,30}}, rotation=0)));
+              {{-130,-30},{-70,30}})));
     Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
       "1-dim. rotational flange"
-      annotation (Placement(transformation(extent={{-10,-10},{10,10}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     Frame_a frame if includeBearingConnector
       "3-dim. frame in which the 1-dim. shaft is mounted"             annotation (Placement(
           transformation(
@@ -252,11 +249,9 @@ to the FlangeWithBearing connector.
 
   equation
     connect(flange, flangeAndFrame.flange) annotation (Line(
-        points={{0,0},{-100,0}},
-        color={0,0,0}));
+        points={{0,0},{-100,0}}));
     connect(frame, flangeAndFrame.bearingFrame) annotation (Line(
         points={{0,-100},{0,-40},{-100,-40},{-100,0}},
-        color={0,0,0},
         thickness=0.5));
     annotation (
       defaultComponentName="adaptor",
@@ -270,9 +265,8 @@ to the FlangeWithBearing connector.
             fillPattern=FillPattern.Solid),
           Line(
             points={{-100,-10},{-100,-40},{0,-40},{0,-100}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-90,0},{0,0}}, color={0,0,0}),
+          Line(points={{-90,0},{0,0}}),
           Text(
             extent={{-216,88},{86,36}},
             lineColor={0,0,255},
@@ -293,11 +287,11 @@ connector.
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}}, rotation=0)));
+              -116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
-              -16},{116,16}}, rotation=0)));
+              -16},{116,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
@@ -374,7 +368,7 @@ joint aggregation models.
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                                                                                           annotation (Placement(
-          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+          transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
@@ -395,8 +389,7 @@ needed and if this connector should be connected for a correct model.
 
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the component with one cut-force and cut-torque"
-      annotation (Placement(transformation(extent={{84,-16},{116,16}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{84,-16},{116,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
@@ -425,11 +418,11 @@ needed and if this connector should be connected for a correct model.
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the joint with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}}, rotation=0)));
+              -116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the joint with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
-              -16},{116,16}}, rotation=0)));
+              -16},{116,16}})));
 
   protected
     outer Modelica.Mechanics.MultiBody.World world;
@@ -465,11 +458,11 @@ object and an assert to check that both frame connectors are connected.
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the joint with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}}, rotation=0)));
+              -116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the joint with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
-              -16},{116,16}}, rotation=0)));
+              -16},{116,16}})));
 
     SI.Position r_rel_b[3]
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_b";
@@ -551,11 +544,11 @@ to which this force element is connected.
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
-              -116,-16},{-84,16}}, rotation=0)));
+              -116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{84,
-              -16},{116,16}}, rotation=0)));
+              -16},{116,16}})));
     SI.Force f
       "Line force acting on frame_a and on frame_b (positive, if acting on frame_b and directed from frame_a to frame_b)";
     SI.Position s
@@ -644,13 +637,11 @@ has to be defined. Example:
     parameter Integer n_out = 1 "Number of output signals";
     Interfaces.Frame_a frame_a
       "Coordinate system from which absolute quantities are provided as output signals"
-      annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
     Modelica.Blocks.Interfaces.RealOutput y[n_out]
       "Measured data as signal vector"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
 
@@ -668,7 +659,7 @@ with the blocks of package Modelica.Blocks.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-100,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-100,0}}),
           Line(points={{70,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-132,-125},{131,-79}},
@@ -681,9 +672,9 @@ with the blocks of package Modelica.Blocks.
     extends Modelica.Icons.RotationalSensor;
     parameter Integer n_out = 1 "Number of output signals";
     Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
-          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+          transformation(extent={{-116,-16},{-84,16}})));
     Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
-          transformation(extent={{84,-16},{116,16}}, rotation=0)));
+          transformation(extent={{84,-16},{116,16}})));
 
     Modelica.Blocks.Interfaces.RealOutput y[n_out]
       "Measured data as signal vector"
@@ -712,8 +703,8 @@ with the blocks of package Modelica.Blocks.
 </html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-          Line(points={{70,0},{100,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-101,0}}),
+          Line(points={{70,0},{100,0}}),
           Line(points={{0,-100},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-132,76},{129,124}},
@@ -734,7 +725,7 @@ with the blocks of package Modelica.Blocks.
 
     Interfaces.Frame_a frame_a
       "Coordinate system in which visualization data is resolved"                          annotation (Placement(
-          transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+          transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation

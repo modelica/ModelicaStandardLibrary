@@ -8,8 +8,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
 
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
       momentumDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-    annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-90,70},{-70,90}})));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
     redeclare package Medium = Medium,
     p=150000)                                                       annotation (Placement(
@@ -86,13 +85,11 @@ replaceable package Medium=Modelica.Media.Air.MoistAir constrainedby
     offset=1e5,
     startTime=2,
     height=1e5,
-    duration=0) annotation (Placement(transformation(extent={{-40,70},{-20,90}},
-          rotation=0)));
+    duration=0) annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.nNodes] heat2(Q_flow=200*
         pipe2.dxs, alpha=-1e-2*ones(pipe2.n))
-    annotation (Placement(transformation(extent={{-60,-20},{-40,0}},  rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
 equation
   connect(ramp1.y, boundary4.p_in) annotation (Line(
       points={{-19,80},{-8,80},{-8,72}},

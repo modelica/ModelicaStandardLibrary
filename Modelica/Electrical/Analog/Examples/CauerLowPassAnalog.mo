@@ -12,8 +12,7 @@ model CauerLowPassAnalog "Cauer low pass filter with analog components"
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Ground G
-    annotation (Placement(transformation(extent={{-10,-90},{10,-70}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-10,-90},{10,-70}})));
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1, v(start=0, fixed=true))
     annotation (Placement(transformation(
         origin={-60,-20},
@@ -21,26 +20,25 @@ model CauerLowPassAnalog "Cauer low pass filter with analog components"
         rotation=270)));
 
 Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2)
-    annotation (Placement(transformation(extent={{-40,20},{-20,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   Modelica.Electrical.Analog.Basic.Capacitor C3(C=c3,v(start=0, fixed=true))
     annotation (Placement(transformation(
         origin={0,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4)
-    annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,20},{40,40}})));
   Modelica.Electrical.Analog.Basic.Capacitor C5(C=c5,v(start=0, fixed=true))
     annotation (Placement(transformation(
         origin={60,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Inductor L1(L=l1,i(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{-40,60},{-20,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
   Modelica.Electrical.Analog.Basic.Inductor L2(L=l2,i(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1)
-    annotation (Placement(transformation(extent={{-100,20},{-80,40}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
   Modelica.Electrical.Analog.Basic.Resistor R2(R=1)
     annotation (Placement(transformation(
         origin={100,-20},

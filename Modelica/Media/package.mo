@@ -3289,7 +3289,7 @@ is given to compare the approximation.
                 "Only for multi-substance flow", enable=Medium.nX > 0));
 
         FluidPort_a port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+            Placement(transformation(extent={{-10,-10},{10,10}})));
         Medium.BaseProperties medium(preferredMediumStates=true);
         SI.Energy U "Internal energy of port volume";
         SI.Mass m "Mass of junction volume";
@@ -3381,7 +3381,7 @@ transport.
 
         Medium.BaseProperties medium "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+            Placement(transformation(extent={{100,-10},{120,10}})));
       equation
         if use_T_ambient then
           medium.T = T_ambient;
@@ -3469,7 +3469,7 @@ transport.
 
         Medium.BaseProperties medium "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+            Placement(transformation(extent={{100,-10},{120,10}})));
 
       equation
         if use_p_ambient or Medium.singleState then
@@ -3534,9 +3534,9 @@ with exception of ambient pressure, do not have an effect.
           "Nominal mass flow rate at nominal pressure drop";
 
         FluidPort_a port_a(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
+            Placement(transformation(extent={{-120,-10},{-100,10}})));
         FluidPort_b port_b(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{120,-10},{100,10}}, rotation=0)));
+            Placement(transformation(extent={{120,-10},{100,10}})));
         // Medium.BaseProperties medium_a(p=port_a.p, h=port_a.h, Xi=port_a.Xi)
         //   "Medium properties in port_a";
         // Medium.BaseProperties medium_b(p=port_b.p, h=port_b.h, Xi=port_b.Xi)
@@ -3619,27 +3619,26 @@ no mass or energy is stored in the pipe.
           T_start=T_start,
           h_start=h_start,
           X_start=X_start,
-          V=0.1) annotation (Placement(transformation(extent={{-40,0},{-20,20}},
-                rotation=0)));
+          V=0.1) annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
         FixedMassFlowRate fixedMassFlowRate(
           redeclare package Medium = Medium,
           T_ambient=1.2*T_start,
           h_ambient=1.2*h_start,
           m_flow=1,
           X_ambient=0.5*X_start) annotation (Placement(transformation(extent={{
-                  -80,0},{-60,20}}, rotation=0)));
+                  -80,0},{-60,20}})));
         FixedAmbient ambient(
           redeclare package Medium = Medium,
           T_ambient=T_start,
           h_ambient=h_start,
           X_ambient=X_start,
           p_ambient=p_start) annotation (Placement(transformation(extent={{60,0},
-                  {40,20}}, rotation=0)));
+                  {40,20}})));
         ShortPipe shortPipe(
           redeclare package Medium = Medium,
           m_flow_nominal=1,
           dp_nominal=0.1e5) annotation (Placement(transformation(extent={{0,0},
-                  {20,20}}, rotation=0)));
+                  {20,20}})));
       equation
         connect(fixedMassFlowRate.port, volume.port)
           annotation (Line(points={{-59,10},{-30,10}}, color={0,127,255}));
@@ -3670,40 +3669,38 @@ no mass or energy is stored in the pipe.
           T_start=T_start,
           h_start=h_start,
           X_start=X_start,
-          V=0.1) annotation (Placement(transformation(extent={{-60,0},{-40,20}},
-                rotation=0)));
+          V=0.1) annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
         FixedMassFlowRate fixedMassFlowRate(
           redeclare package Medium = Medium,
           T_ambient=1.2*T_start,
           h_ambient=1.2*h_start,
           m_flow=1,
           X_ambient=0.5*X_start) annotation (Placement(transformation(extent={{
-                  -100,0},{-80,20}}, rotation=0)));
+                  -100,0},{-80,20}})));
         FixedAmbient ambient(
           redeclare package Medium = Medium,
           T_ambient=T_start,
           h_ambient=h_start,
           X_ambient=X_start,
           p_ambient=p_start) annotation (Placement(transformation(extent={{92,0},
-                  {72,20}}, rotation=0)));
+                  {72,20}})));
         ShortPipe shortPipe(
           redeclare package Medium = Medium,
           m_flow_nominal=1,
           dp_nominal=0.1e5) annotation (Placement(transformation(extent={{-30,0},
-                  {-10,20}}, rotation=0)));
+                  {-10,20}})));
         PortVolume volume1(
           redeclare package Medium = Medium,
           p_start=p_start,
           T_start=T_start,
           h_start=h_start,
           X_start=X_start,
-          V=0.1) annotation (Placement(transformation(extent={{0,0},{20,20}},
-                rotation=0)));
+          V=0.1) annotation (Placement(transformation(extent={{0,0},{20,20}})));
         ShortPipe shortPipe1(
           redeclare package Medium = Medium,
           m_flow_nominal=1,
           dp_nominal=0.1e5) annotation (Placement(transformation(extent={{36,0},
-                  {56,20}}, rotation=0)));
+                  {56,20}})));
       equation
         connect(fixedMassFlowRate.port, volume.port)
           annotation (Line(points={{-79,10},{-50,10}}, color={0,127,255}));
@@ -9246,34 +9243,26 @@ Copyright &copy; 1998-2013, Modelica Association.
           smooth=Smooth.Bezier),
         Line(
           points={{-40,20},{68,20}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{-40,20},{-44,88},{-44,88}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{68,20},{86,-58}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{-60,-28},{56,-28}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{-60,-28},{-74,84},{-74,84}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{56,-28},{70,-80}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{-76,-80},{38,-80}},
-          color={175,175,175},
-          smooth=Smooth.None),
+          color={175,175,175}),
         Line(
           points={{-76,-80},{-94,-16},{-94,-16}},
-          color={175,175,175},
-          smooth=Smooth.None)}));
+          color={175,175,175})}));
 end Media;

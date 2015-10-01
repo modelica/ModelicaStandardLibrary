@@ -5,23 +5,23 @@ model NonCircularPipes "Comparing a circular with a non-circular pipe"
   constant Real odim = 0.015;
   constant Real idim = 0.005;
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-                                     annotation(Placement(visible = true, transformation(origin = {-80, 80}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+                                     annotation(Placement(transformation(origin = {-80, 80}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Fluid.Sources.Boundary_pT boundary(
     redeclare package Medium = Medium,
     nPorts = 2,
     p = 10.0e5,
     T = 293.15)
-    annotation(Placement(visible = true, transformation(origin = {-80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    annotation(Placement(transformation(origin = {-80, 0}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Fluid.Sources.MassFlowSource_T massflowsink1(redeclare package
-      Medium =                                                                     Medium, nPorts = 1, m_flow = -0.1, T = 293.15) annotation(Placement(visible = true, transformation(origin = {40, 40}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+      Medium =                                                                     Medium, nPorts = 1, m_flow = -0.1, T = 293.15) annotation(Placement(transformation(origin = {40, 40}, extent = {{10, -10}, {-10, 10}})));
   Modelica.Fluid.Sources.MassFlowSource_T massflowsink2(redeclare package
-      Medium =                                                                     Medium, nPorts = 1, m_flow = -0.1, T = 293.15) annotation(Placement(visible = true, transformation(origin = {40, -40}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+      Medium =                                                                     Medium, nPorts = 1, m_flow = -0.1, T = 293.15) annotation(Placement(transformation(origin = {40, -40}, extent = {{10, -10}, {-10, 10}})));
   Modelica.Fluid.Pipes.DynamicPipe circular_pipe(
     redeclare package Medium = Medium,
     length = 100, diameter = 0.01,
     T_start = 293.15,
     p_a_start = 10.0e5, p_b_start = 10.0e5)
-    annotation(Placement(visible = true, transformation(origin = {-20, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    annotation(Placement(transformation(origin = {-20, 40}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Fluid.Pipes.DynamicPipe annulus_pipe(
     redeclare package Medium = Medium,
     length = 100,
@@ -32,7 +32,7 @@ model NonCircularPipes "Comparing a circular with a non-circular pipe"
     p_a_start=1000000,
     p_b_start=1000000,
     T_start=293.15)
-    annotation(Placement(visible = true, transformation(origin = {-20, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    annotation(Placement(transformation(origin = {-20, -40}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(boundary.ports[1], circular_pipe.port_a) annotation(Line(points={{-70,2},
           {-60,2},{-60,40},{-30,40}},                                                                                   color = {0, 127, 255}));

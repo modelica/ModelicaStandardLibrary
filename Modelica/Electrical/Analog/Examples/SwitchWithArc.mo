@@ -3,36 +3,32 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
 
   extends Modelica.Icons.Example;
   Modelica.Blocks.Sources.BooleanPulse booleanPulse(period=1)
-    annotation (Placement(transformation(extent={{-80,-30},{-60,-10}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
   Modelica.Electrical.Analog.Basic.Ground ground1
-    annotation (Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,-20},{40,0}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=50)
     annotation (Placement(transformation(
         origin={-20,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1, i(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{40,30},{60,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{40,30},{60,50}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1)
     annotation (Placement(transformation(
         origin={80,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Ideal.IdealClosingSwitch switch1
-                   annotation (Placement(transformation(extent={{0,30},{20,50}},
-          rotation=0)));
+                   annotation (Placement(transformation(extent={{0,30},{20,50}})));
   Modelica.Electrical.Analog.Basic.Ground ground2
-    annotation (Placement(transformation(extent={{20,-100},{40,-80}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{20,-100},{40,-80}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage2(V=50)
     annotation (Placement(transformation(
         origin={-20,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1, i(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{40,-50},{60,-30}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1)
     annotation (Placement(transformation(
         origin={80,-60},
@@ -42,7 +38,7 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
     dVdt=10000,
     V0=30,
     Vmax=60)       annotation (Placement(transformation(extent={{0,-50},{20,
-            -30}}, rotation=0)));
+            -30}})));
 
 equation
   connect(inductor1.n,resistor1. p) annotation (Line(points={{60,40},{80,40},

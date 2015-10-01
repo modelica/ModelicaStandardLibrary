@@ -4,7 +4,7 @@ extends Modelica.Icons.Package;
 
 
 annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}, initialScale=0.1), graphics={
+  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
       Rectangle(
         origin={8.6,63.3333},
         lineColor={64,64,64},

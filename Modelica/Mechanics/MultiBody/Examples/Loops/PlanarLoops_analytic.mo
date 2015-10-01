@@ -23,7 +23,7 @@ model PlanarLoops_analytic
     "Position vector from 'upper left' revolute to 'upper right' revolute joint in the third loop";
 
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-94,-90},{-74,-70}}, rotation=0)));
+        transformation(extent={{-94,-90},{-74,-70}})));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR jointRRR1(
     rRod1_ia=r1a,
     rRod2_ib=r1b,
@@ -42,8 +42,7 @@ model PlanarLoops_analytic
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(r=rh)
-    annotation (Placement(transformation(extent={{-50,-60},{-30,-40}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     cylinderColor={155,155,155},
@@ -53,7 +52,7 @@ model PlanarLoops_analytic
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true)
-    annotation (Placement(transformation(extent={{-90,-20},{-70,0}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
   Modelica.Blocks.Sources.Sine sine(amplitude=0.7, freqHz=1)
     annotation (Placement(transformation(
         origin={-96,30},
@@ -67,7 +66,7 @@ model PlanarLoops_analytic
         extent={{-20,-20},{20,20}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(r=rh)
-    annotation (Placement(transformation(extent={{0,-60},{20,-40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     cylinderColor={155,155,155},
@@ -83,7 +82,7 @@ model PlanarLoops_analytic
         extent={{-20,-20},{20,20}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(r=rh)
-    annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body3(
     m=1,
     cylinderColor={155,155,155},
@@ -101,7 +100,6 @@ equation
   connect(rod1.frame_a, rev.frame_b)
     annotation (Line(
       points={{-56,20},{-56,0}},
-      color={0,0,0},
       thickness=0.5));
   connect(rod1.frame_b, jointRRR1.frame_a) annotation (Line(
       points={{-56,40},{-56,50},{-20,50},{-20,20}},
@@ -157,18 +155,13 @@ equation
   connect(sine.y, position.phi_ref) annotation (Line(points={{-96,19},{-96,-10},
           {-92,-10}}, color={0,0,127}));
   connect(mounting1D.flange_b, position.support) annotation (Line(
-      points={{-80,-40},{-80,-20}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-80,-40},{-80,-20}}));
   connect(mounting1D.frame_a, world.frame_b) annotation (Line(
       points={{-90,-50},{-90,-57},{-70,-57},{-70,-80},{-74,-80}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(position.flange, rev.axis) annotation (Line(
-      points={{-70,-10},{-66,-10}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-70,-10},{-66,-10}}));
   annotation (
     experiment(StopTime=5),
     Documentation(info="<html>

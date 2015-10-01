@@ -3,9 +3,9 @@ model FreeBody "Free flying body attached by two springs to environment"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-60,20},{-40,40}}, rotation=0)));
+        transformation(extent={{-60,20},{-40,40}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(r={0.8,0,0}, animation=false)
-    annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,20},{20,40}})));
   Modelica.Mechanics.MultiBody.Forces.Spring spring1(
     width=0.1,
     coilWidth=0.005,
@@ -28,7 +28,7 @@ model FreeBody "Free flying body attached by two springs to environment"
     angles_fixed=true,
     w_0_fixed=true,
     angles_start={0.174532925199433,0.174532925199433,0.174532925199433})
-    annotation (Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   Modelica.Mechanics.MultiBody.Forces.Spring spring2(
     c=20,
     s_unstretched=0,
@@ -60,8 +60,7 @@ equation
   connect(body.frame_b, spring2.frame_b) annotation (Line(
       points={{20,-30},{40,-30},{40,-4}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (
     experiment(StopTime=10),
     Documentation(info="<html>

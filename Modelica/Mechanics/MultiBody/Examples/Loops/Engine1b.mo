@@ -7,12 +7,12 @@ model Engine1b
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{40,20},
-            {60,40}}, rotation=0)));
+            {60,40}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute B1(
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{40,-20},
-            {60,0}}, rotation=0)));
+            {60,0}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
     useAxisFlange=true,
     boxWidth=0.02,

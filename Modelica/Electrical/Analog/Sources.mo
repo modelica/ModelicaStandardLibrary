@@ -7,9 +7,9 @@ package Sources "Time-dependent and controlled voltage and current sources"
     "Generic voltage source using the input signal as source voltage"
 
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
-              -10},{90,10}}, rotation=0)));
+              -10},{90,10}})));
     Modelica.Blocks.Interfaces.RealInput v(unit="V")
       "Voltage between pin p and n (= p.v - n.v) as input signal" annotation (
         Placement(transformation(
@@ -138,7 +138,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-18},{0,-18},{0,50},{80,50}},
-              color={0,0,0},
               thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
             192}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -218,7 +217,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-20},{-20,-20},{50,50}},
-              color={0,0,0},
               thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
             192}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -259,7 +257,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               thickness=0.25,
               arrow={Arrow.None,Arrow.None}),Line(
               points={{50,50},{101,50}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{50,50},{50,-20}},
               color={192,192,192},
@@ -336,10 +333,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               {7.84,42.1},{13.9,19.2},{26.5,-32.8},{32,-52.2},{36.8,-66.2},{41,
               -75.1},{45.2,-80.4},{49.5,-82},{53.7,-79.6},{57.9,-73.5},{62.1,-63.9},
               {66.9,-49.2},{73,-26.8},{79,-2}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-41,-2},{-80,-2}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
               lineColor={160,160,164},
@@ -427,10 +422,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               {11,-75.1},{15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{
               32.1,-63.9},{36.9,-49.2},{43,-26.8},{49,-2},{49,-2},{57.4,32.2},{
               62.9,51.1},{67.7,64.4},{71.9,72.6},{76.1,77.1},{80,78}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-41,-2},{-80,-2}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
               lineColor={160,160,164},
@@ -470,7 +463,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               lineColor={160,160,164},
               textString="v = p.v - n.v"),Line(
               points={{-41,78},{-41,-2}},
-              color={0,0,0},
               thickness=0.5)}),
       Documentation(revisions="<html>
 <ul>
@@ -522,7 +514,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               25.8,23.1},{29.7,30.5},{33,33.3},{36.9,32.5},{40.8,27.8},{46,16.9},
               {56.5,-9.2},{61.7,-18.6},{66.3,-22.7},{70.9,-22.6},{76.1,-18},{80,
               -12.1}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-78,1},{-55,-19}},
               lineColor={160,160,164},
@@ -537,7 +528,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               color={192,192,192},
               pattern=LinePattern.Dash),Line(
               points={{-50,0},{-80,0}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-50,77},{-50,0}},
               color={192,192,192},
@@ -626,7 +616,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               32.12,87.5},{34.95,72.7},{37.78,59.8},{40.606,48.45},{44.14,36.3},
               {47.68,26},{51.9,15.8},{56.2,7.4},{61.1,-0.5},{66.8,-7.4},{73.1,-13.3},
               {80.9,-18.5},{90.8,-22.8},{100,-25.4}},
-              color={0,0,0},
               thickness=0.5),Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
               lineColor={192,192,192},
@@ -653,7 +642,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{-39,-30},{-80,-30}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-59,-71},{-13,-89}},
               lineColor={160,160,164},
@@ -683,10 +671,8 @@ package Sources "Time-dependent and controlled voltage and current sources"
               32.12,87.5},{34.95,72.7},{37.78,59.8},{40.606,48.45},{44.14,36.3},
               {47.68,26},{51.9,15.8},{56.2,7.4},{61.1,-0.5},{66.8,-7.4},{73.1,-13.3},
               {80.9,-18.5},{90.8,-22.8},{100,-25.4}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-40,-30},{-80,-30}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{30,100},{30,-34}},
               color={192,192,192},
@@ -758,7 +744,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               pattern=LinePattern.Dash),Line(
               points={{-80,0},{-20,0},{-20,50},{21,50},{21,0},{41,0},{41,50},{
               79,50}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-20,89},{-20,50}},
               color={192,192,192},
@@ -797,7 +782,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{79,50},{79,0},{90,0}},
-              color={0,0,0},
               thickness=0.5),Polygon(
               points={{-20,69},{-11,71},{-11,67},{-20,69}},
               lineColor={192,192,192},
@@ -913,7 +897,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-77,100},{-27,88}},
               lineColor={160,160,164},
@@ -1024,7 +1007,6 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillPattern=FillPattern.Solid),Line(
               points={{-80,-30},{-30,-30},{-10,40},{20,40},{40,-30},{60,-30},{
               80,46},{100,46}},
-              color={0,0,0},
               thickness=0.5),Polygon(
               points={{-39,40},{-41,29},{-37,29},{-39,40}},
               lineColor={192,192,192},
@@ -1112,7 +1094,7 @@ package Sources "Time-dependent and controlled voltage and current sources"
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-20,-30},{-20,90},{
             80,90},{80,-30},{-20,-30},{-20,0},{80,0},{80,30},{-20,30},{-20,60},
-            {80,60},{80,90},{30,90},{30,-31}}, color={0,0,0}),Text(
+            {80,60},{80,90},{30,90},{30,-31}}),Text(
               extent={{-77,-42},{-38,-58}},
               lineColor={160,160,164},
               textString="offset"),Polygon(
@@ -1187,9 +1169,9 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     "Generic current source using the input signal as source current"
 
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}}, rotation=0)));
+              -10},{-90,10}})));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{110,
-              -10},{90,10}}, rotation=0)));
+              -10},{90,10}})));
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     Modelica.Blocks.Interfaces.RealInput i(unit="A")
       "Current flowing from pin p to pin n as input signal" annotation (
@@ -1300,7 +1282,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-18},{0,-18},{0,50},{80,50}},
-              color={0,0,0},
               thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
             192}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -1380,7 +1361,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(points={{-80,68},{-80,-80}},
             color={192,192,192}),Line(
               points={{-80,-20},{-20,-20},{50,50}},
-              color={0,0,0},
               thickness=0.5),Line(points={{-90,-70},{82,-70}}, color={192,192,
             192}),Polygon(
               points={{90,-70},{68,-62},{68,-78},{90,-70}},
@@ -1418,7 +1398,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               thickness=0.25,
               arrow={Arrow.None,Arrow.None}),Line(
               points={{50,50},{100,50}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{50,50},{50,-20}},
               color={192,192,192},
@@ -1498,10 +1477,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               {7.84,42.1},{13.9,19.2},{26.5,-32.8},{32,-52.2},{36.8,-66.2},{41,
               -75.1},{45.2,-80.4},{49.5,-82},{53.7,-79.6},{57.9,-73.5},{62.1,-63.9},
               {66.9,-49.2},{73,-26.8},{79,-2}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-41,-2},{-80,-2}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
               lineColor={160,160,164},
@@ -1585,7 +1562,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{-41,-2},{-80,-2}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-106,-11},{-60,-29}},
               lineColor={160,160,164},
@@ -1625,17 +1601,14 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={192,192,192},
               textString="i"),Line(
               points={{-41,78},{-41,-2}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-41,78},{-38,78},{-35.42,74.6},{-31.201,67.7},{-26.98,
               57.4},{-22.16,42.1},{-16.1,19.2},{-3.5,-32.8},{2,-52.2},{6.8,-66.2},
               {11,-75.1},{15.2,-80.4},{19.5,-82},{23.7,-79.6},{27.9,-73.5},{
               32.1,-63.9},{36.9,-49.2},{43,-26.8},{49,-2}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{49,-2},{57.4,32.2},{62.9,51.1},{67.7,64.4},{71.9,72.6},{
               76.1,77.1},{80,78}},
-              color={0,0,0},
               thickness=0.5)}),
       Documentation(revisions="<html>
 <ul>
@@ -1687,7 +1660,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               25.8,23.1},{29.7,30.5},{33,33.3},{36.9,32.5},{40.8,27.8},{46,16.9},
               {56.5,-9.2},{61.7,-18.6},{66.3,-22.7},{70.9,-22.6},{76.1,-18},{80,
               -12.1}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-78,1},{-55,-19}},
               lineColor={160,160,164},
@@ -1702,7 +1674,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               color={192,192,192},
               pattern=LinePattern.Dash),Line(
               points={{-50,0},{-80,0}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-50,77},{-50,0}},
               color={192,192,192},
@@ -1791,7 +1762,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               32.12,87.5},{34.95,72.7},{37.78,59.8},{40.606,48.45},{44.14,36.3},
               {47.68,26},{51.9,15.8},{56.2,7.4},{61.1,-0.5},{66.8,-7.4},{73.1,-13.3},
               {80.9,-18.5},{90.8,-22.8},{100,-25.4}},
-              color={0,0,0},
               thickness=0.5),Polygon(
               points={{-80,90},{-88,68},{-72,68},{-80,90}},
               lineColor={192,192,192},
@@ -1812,7 +1782,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{-39,-30},{-80,-30}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-59,-71},{-13,-89}},
               lineColor={160,160,164},
@@ -1834,7 +1803,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={160,160,164},
               textString="riseTime"),Line(
               points={{-40,-30},{-80,-30}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{30,100},{30,-34}},
               color={192,192,192},
@@ -1910,7 +1878,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               pattern=LinePattern.Dash),Line(
               points={{-80,0},{-19,0},{-19,50},{21,50},{21,0},{41,0},{41,51},{
               80,51}},
-              color={0,0,0},
               thickness=0.5),Line(
               points={{-19,88},{-19,49}},
               color={192,192,192},
@@ -1949,7 +1916,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{80,51},{80,0},{90,0}},
-              color={0,0,0},
               thickness=0.5),Polygon(
               points={{-19,69},{-10,71},{-10,67},{-19,69}},
               lineColor={192,192,192},
@@ -2065,7 +2031,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(
               points={{-80,-20},{-10,-20},{30,60},{30,-20},{72,60},{72,-20}},
-              color={0,0,0},
               thickness=0.5),Text(
               extent={{-73,75},{-53,95}},
               lineColor={192,192,192},
@@ -2188,7 +2153,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillPattern=FillPattern.Solid),Line(
               points={{-80,-30},{-30,-30},{-10,40},{20,40},{40,-30},{60,-30},{
               80,40},{100,40}},
-              color={0,0,0},
               thickness=0.5),Polygon(
               points={{-39,40},{-41,30},{-37,30},{-39,40}},
               lineColor={192,192,192},
@@ -2264,7 +2228,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-20,-30},{-20,90},{
             80,90},{80,-30},{-20,-30},{-20,0},{80,0},{80,30},{-20,30},{-20,60},
-            {80,60},{80,90},{30,90},{30,-31}}, color={0,0,0}),Text(
+            {80,60},{80,90},{30,90},{30,-31}}),Text(
               extent={{-77,-42},{-38,-58}},
               lineColor={160,160,164},
               textString="offset"),Polygon(
@@ -2352,59 +2316,47 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
   equation
     connect(pin_p, positiveSupply.p) annotation (Line(
         points={{-100,0},{-60,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(negativeSupply.n, pin_n) annotation (Line(
         points={{60,0},{100,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(positiveSupply.n, ground) annotation (Line(
         points={{-40,0},{0,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(ground, negativeSupply.p) annotation (Line(
         points={{0,0},{40,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(
             points={{-60,40},{-60,-40}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{40,40},{40,-40}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{-40,20},{-40,-20}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{60,20},{60,-20}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{-90,0},{-60,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{60,0},{90,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Text(
             extent={{-100,100},{100,80}},
             lineColor={0,0,255},
             textString="%name"),
           Line(
             points={{-40,0},{-10,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{10,0},{40,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Text(
             extent={{-100,40},{-80,20}},
             lineColor={0,0,255},

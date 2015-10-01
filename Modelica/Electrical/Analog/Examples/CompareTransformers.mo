@@ -51,20 +51,18 @@ model CompareTransformers
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground11
-    annotation (Placement(transformation(extent={{-90,0},{-70,20}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor11(R=R1)
-    annotation (Placement(transformation(extent={{-80,50},{-60,70}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor12(R=R2)
-    annotation (Placement(transformation(extent={{60,50},{80,70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,50},{80,70}})));
   Modelica.Electrical.Analog.Basic.Resistor load1(R=RL)
     annotation (Placement(transformation(
         origin={80,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground12
-    annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{70,0},{90,20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage2(
     V=Vpeak,
     phase=phi0,
@@ -75,38 +73,30 @@ model CompareTransformers
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground21
-    annotation (Placement(transformation(extent={{-90,-90},{-70,-70}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor21(R=R1)
-    annotation (Placement(transformation(extent={{-80,-40},{-60,-20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor21(L=L1sigma)
-    annotation (Placement(transformation(extent={{-50,-40},{-30,-20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
   Modelica.Electrical.Analog.Basic.Inductor inductor22(L=L2sigma, i(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{30,-40},{50,-20}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor22(R=R2)
-    annotation (Placement(transformation(extent={{60,-40},{80,-20}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{60,-40},{80,-20}})));
   Modelica.Electrical.Analog.Basic.Resistor load2(R=RL)
     annotation (Placement(transformation(
         origin={80,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground ground22
-    annotation (Placement(transformation(extent={{70,-90},{90,-70}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{70,-90},{90,-70}})));
   Modelica.Electrical.Analog.Basic.Transformer basicTransformer(
     L1=L1,
     L2=L2,
-    M=M)      annotation (Placement(transformation(extent={{-10,40},{10,60}},
-          rotation=0)));
+    M=M)      annotation (Placement(transformation(extent={{-10,40},{10,60}})));
   Modelica.Electrical.Analog.Ideal.IdealTransformer idealTransformer(n=n,
       Lm1=Lm1,
     considerMagnetization=false)
-    annotation (Placement(transformation(extent={{-10,-50},{10,-30}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
 
 initial equation
  basicTransformer.i1=0;

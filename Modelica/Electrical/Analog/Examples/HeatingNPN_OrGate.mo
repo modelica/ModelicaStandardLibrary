@@ -50,21 +50,21 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1800)
-  annotation (Placement(transformation(extent={{-90,48},{-70,68}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-90,48},{-70,68}})));
   Modelica.Electrical.Analog.Basic.Resistor R2(R=1800)
-  annotation (Placement(transformation(extent={{-36,-22},{-16,-2}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-36,-22},{-16,-2}})));
   Modelica.Electrical.Analog.Basic.Resistor RI(R=40)
-  annotation (Placement(transformation(extent={{60,58},{80,78}}, rotation=0)));
+  annotation (Placement(transformation(extent={{60,58},{80,78}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd
-  annotation (Placement(transformation(extent={{80,0},{100,20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{80,0},{100,20}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd1
-  annotation (Placement(transformation(extent={{-100,-22},{-80,-2}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-100,-22},{-80,-2}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd2
-  annotation (Placement(transformation(extent={{-60,-82},{-40,-62}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-60,-82},{-40,-62}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd3
-  annotation (Placement(transformation(extent={{-10,16},{10,36}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-10,16},{10,36}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd4
-  annotation (Placement(transformation(extent={{30,-52},{50,-32}}, rotation=0)));
+  annotation (Placement(transformation(extent={{30,-52},{50,-32}})));
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal)
   annotation (Placement(transformation(
         origin={-70,38},
@@ -81,11 +81,11 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Gnd5
-  annotation (Placement(transformation(extent={{-26,-76},{-6,-56}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-26,-76},{-6,-56}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd6
-  annotation (Placement(transformation(extent={{50,6},{70,26}}, rotation=0)));
+  annotation (Placement(transformation(extent={{50,6},{70,26}})));
   Modelica.Electrical.Analog.Basic.Ground Gnd7
-  annotation (Placement(transformation(extent={{-80,2},{-60,22}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-80,2},{-60,22}})));
   Semiconductors.HeatingNPN T1(
     Bf=100,
     Br=1,
@@ -105,8 +105,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     EMax=40,
     vt_t(start=0.01, fixed=false),
     useHeatPort=true, ibe(start=0), vbc(start=0))
-           annotation (Placement(transformation(extent={{-20,48},{0,68}},
-          rotation=0)));
+           annotation (Placement(transformation(extent={{-20,48},{0,68}})));
   Semiconductors.HeatingNPN T2(
     Bf=100,
     Br=1,
@@ -126,8 +125,7 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     EMax=40,
     vt_t(start=0.01, fixed=false),
     useHeatPort=true, ibe(start=0), vbc(start=0))
-           annotation (Placement(transformation(extent={{20,-22},{40,-2}},
-          rotation=0)));
+           annotation (Placement(transformation(extent={{20,-22},{40,-2}})));
 initial equation
   HeatCapacitor1.T= 293.15;
 

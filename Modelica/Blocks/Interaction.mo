@@ -29,18 +29,15 @@ package Interaction
 
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=false,
-            extent={{-100.0,-100.0},{100.0,100.0}},
-            initialScale=0.1),
+            extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
-          Rectangle(visible=true,
-            lineColor={0,0,127},
+          Rectangle(lineColor={0,0,127},
             fillColor={236,233,216},
             fillPattern=FillPattern.Solid,
             lineThickness=5.0,
             borderPattern=BorderPattern.Raised,
             extent={{-100.0,-40.0},{100.0,40.0}}),
-          Text(visible=true,
-            extent={{-94.0,-34.0},{96.0,34.0}},
+          Text(extent={{-94.0,-34.0},{96.0,34.0}},
             textString=DynamicSelect("0.0", String(showNumber, significantDigits=significantDigits))),
           Text(visible=not use_numberPort,
             extent={{-150.0,-70.0},{150.0,-50.0}},
@@ -96,18 +93,15 @@ The usage is demonstrated, e.g., in example
 
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=false,
-            extent={{-100.0,-100.0},{100.0,100.0}},
-            initialScale=0.1),
+            extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
-          Rectangle(visible=true,
-            lineColor={0,0,127},
+          Rectangle(lineColor={0,0,127},
             fillColor={236,233,216},
             fillPattern=FillPattern.Solid,
             lineThickness=5.0,
             borderPattern=BorderPattern.Raised,
             extent={{-100.0,-40.0},{100.0,40.0}}),
-          Text(visible=true,
-            extent={{-94.0,-34.0},{96.0,34.0}},
+          Text(extent={{-94.0,-34.0},{96.0,34.0}},
             textString=DynamicSelect("0", String(showNumber))),
           Text(visible=not use_numberPort,
             extent={{-150.0,-70.0},{150.0,-50.0}},
@@ -164,14 +158,12 @@ The usage is demonstrated, e.g., in example
 
       annotation (Icon(
           coordinateSystem(preserveAspectRatio=false,
-            extent={{-100.0,-100.0},{100.0,100.0}},
-            initialScale=0.1),
+            extent={{-100.0,-100.0},{100.0,100.0}}),
             graphics={
           Text(visible=not use_activePort,
             extent={{-188.0,-80.0},{62.0,-60.0}},
             textString="%active"),
-          Ellipse(visible=true,
-            lineColor={64,64,64},
+          Ellipse(lineColor={64,64,64},
             fillColor=DynamicSelect({192,192,192}, if showActive > 0.5 then {0,255,0} else {235,235,235}),
             pattern=LinePattern.None,
             fillPattern=FillPattern.Sphere,

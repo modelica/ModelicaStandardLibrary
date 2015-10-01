@@ -2,7 +2,7 @@ within Modelica.Electrical.Analog.Examples;
 model HeatingMOSInverter "Heating MOS Inverter"
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground G
-  annotation (Placement(transformation(extent={{-80,-40},{-60,-20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage Sin(V=5, freqHz=1)
   annotation (Placement(transformation(
         origin={-70,0},
@@ -20,18 +20,18 @@ model HeatingMOSInverter "Heating MOS Inverter"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC1(G=0.01)
-  annotation (Placement(transformation(extent={{0,-50},{20,-30}}, rotation=0)));
+  annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
   Semiconductors.HeatingPMOS H_PMOS(useHeatPort=true)
-  annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Semiconductors.HeatingNMOS H_NMOS(useHeatPort=true)
-  annotation (Placement(transformation(extent={{-40,0},{-20,20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
   Modelica.Electrical.Analog.Sources.RampVoltage V(V=5, duration=1.e-2)
   annotation (Placement(transformation(
         origin={50,50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC2(G=0.01)
-  annotation (Placement(transformation(extent={{0,-90},{20,-70}}, rotation=0)));
+  annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedTemperature FixedTemperature1(T=
         300)
            annotation (Placement(transformation(
@@ -39,7 +39,7 @@ model HeatingMOSInverter "Heating MOS Inverter"
         extent={{-10,-10},{10,10}},
         rotation=180)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC3(G=0.01)
-  annotation (Placement(transformation(extent={{50,-40},{70,-20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
 
 initial equation
   HeatCapacitor1.T= 293.15;
@@ -83,12 +83,10 @@ equation
           -30},{40,-60},{60,-60}}, color={191,0,0}));
   connect(Sin.p, H_NMOS.G) annotation (Line(
       points={{-70,10},{-54,10},{-54,5},{-40,5}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(H_PMOS.G, Sin.p) annotation (Line(
       points={{-40,45},{-48,45},{-48,44},{-54,44},{-54,10},{-70,10}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-100,100},{-6,72}},

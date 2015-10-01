@@ -545,18 +545,14 @@ with a specific unit to an output signal in another unit
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
 
     Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)"
-      annotation (Placement(transformation(extent={{-240,-20},{-200,20}},
-            rotation=0), iconTransformation(extent={{-240,-20},{-200,20}})));
+      annotation (Placement(transformation(extent={{-240,-20},{-200,20}}), iconTransformation(extent={{-240,-20},{-200,20}})));
     Modelica.Blocks.Interfaces.RealInput u2 "Input signal 2 (u1 = u2)"
-      annotation (Placement(transformation(extent={{-140,-20},{-180,20}},
-            rotation=0), iconTransformation(extent={{-140,-20},{-180,20}})));
+      annotation (Placement(transformation(extent={{-140,-20},{-180,20}}), iconTransformation(extent={{-140,-20},{-180,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)"
-      annotation (Placement(transformation(extent={{200,-10},{220,10}},
-            rotation=0), iconTransformation(extent={{200,-10},{220,10}})));
+      annotation (Placement(transformation(extent={{200,-10},{220,10}}), iconTransformation(extent={{200,-10},{220,10}})));
     Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)"
       annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
-          rotation=0,
           origin={170,0}), iconTransformation(extent={{180,-10},{160,10}})));
 
   equation
@@ -569,12 +565,10 @@ with a specific unit to an output signal in another unit
               120}}), graphics={
           Line(
             points={{180,0},{200,0}},
-            color={0,0,127},
-            smooth=Smooth.None),
+            color={0,0,127}),
           Line(
             points={{-200,0},{-180,0}},
-            color={0,0,127},
-            smooth=Smooth.None),
+            color={0,0,127}),
           Rectangle(extent={{-190,120},{190,-120}}, lineColor={135,135,135})}),
       Documentation(info="<html>
 <p>
@@ -603,9 +597,9 @@ instances:
       "Gain value multiplied with input signal";
   public
     Interfaces.RealInput u "Input signal connector" annotation (Placement(
-          transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+          transformation(extent={{-140,-20},{-100,20}})));
     Interfaces.RealOutput y "Output signal connector" annotation (Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
 
   equation
     y = k*u;
@@ -911,7 +905,6 @@ Example:
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Line(
             points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
-            color={0,0,0},
             thickness=0.25), Text(
             extent={{-150,150},{150,110}},
             textString="%name",
@@ -923,20 +916,19 @@ Example:
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(
               points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
-              color={0,0,0},
               thickness=0.25)}));
   end Sum;
 
   block Feedback "Output difference between commanded and feedback input"
 
     Interfaces.RealInput u1 annotation (Placement(transformation(extent={{-100,
-              -20},{-60,20}}, rotation=0)));
+              -20},{-60,20}})));
     Interfaces.RealInput u2 annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
           rotation=90)));
     Interfaces.RealOutput y annotation (Placement(transformation(extent={{80,-10},
-              {100,10}}, rotation=0)));
+              {100,10}})));
 
   equation
     y = u1 - u2;
@@ -964,8 +956,7 @@ Example:
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Ellipse(
             lineColor={0,0,127},
             fillColor={235,235,235},
@@ -1025,8 +1016,7 @@ Example:
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Text(
             lineColor={0,0,255},
             extent={{-150,110},{150,150}},
@@ -1066,13 +1056,13 @@ Example:
     parameter Real k2=+1 "Gain of middle input";
     parameter Real k3=+1 "Gain of lower input";
     Interfaces.RealInput u1 "Connector 1 of Real input signals" annotation (
-        Placement(transformation(extent={{-140,60},{-100,100}}, rotation=0)));
+        Placement(transformation(extent={{-140,60},{-100,100}})));
     Interfaces.RealInput u2 "Connector 2 of Real input signals" annotation (
-        Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        Placement(transformation(extent={{-140,-20},{-100,20}})));
     Interfaces.RealInput u3 "Connector 3 of Real input signals" annotation (
-        Placement(transformation(extent={{-140,-100},{-100,-60}}, rotation=0)));
+        Placement(transformation(extent={{-140,-100},{-100,-60}})));
     Interfaces.RealOutput y "Connector of Real output signals" annotation (
-        Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+        Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     y = k1*u1 + k2*u2 + k3*u3;
@@ -1154,8 +1144,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,127}),
           Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,127}),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
@@ -1171,9 +1160,9 @@ the two inputs <b>u1</b> and <b>u2</b>:
               fillPattern=FillPattern.Solid),Line(points={{-100,60},{-40,60},{-30,
             40}}, color={0,0,255}),Line(points={{-100,-60},{-40,-60},{-30,-40}},
             color={0,0,255}),Line(points={{50,0},{100,0}}, color={0,0,255}),
-            Line(points={{-30,0},{30,0}}, color={0,0,0}),Line(points={{-15,
-            25.99},{15,-25.99}}, color={0,0,0}),Line(points={{-15,-25.99},{15,
-            25.99}}, color={0,0,0}),Ellipse(extent={{-50,50},{50,-50}},
+            Line(points={{-30,0},{30,0}}),Line(points={{-15,
+            25.99},{15,-25.99}}),Line(points={{-15,-25.99},{15,
+            25.99}}),Ellipse(extent={{-50,50},{50,-50}},
             lineColor={0,0,255})}));
   end Product;
 
@@ -1196,8 +1185,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Line(points={{50,0},{100,0}}, color={0,0,127}),
           Line(points={{-30,0},{30,0}}),
           Ellipse(fillPattern=FillPattern.Solid, extent={{-5,20},{5,30}}),
@@ -1215,7 +1203,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-            color={0,0,255}),Line(points={{-30,0},{30,0}}, color={0,0,0}),
+            color={0,0,255}),Line(points={{-30,0},{30,0}}),
             Ellipse(
               extent={{-5,20},{5,30}},
               lineColor={0,0,0},
@@ -1247,7 +1235,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,80},{0,0},{80,80}}, color={0,0,0}),
+          Line(points={{-80,80},{0,0},{80,80}}),
           Line(points={{0,-14},{0,68}}, color={192,192,192}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
@@ -1265,8 +1253,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
               points={{92,0},{76,6},{76,-6},{92,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-80,80},{0,0},{80,80}},
-            color={0,0,0}),Line(points={{0,-80},{0,68}}, color={192,192,192}),
+              fillPattern=FillPattern.Solid),Line(points={{-80,80},{0,0},{80,80}}),Line(points={{0,-80},{0,68}}, color={192,192,192}),
             Polygon(
               points={{0,90},{-8,68},{8,68},{0,90}},
               lineColor={192,192,192},
@@ -1324,7 +1311,7 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{0,-80}}, color={0,0,0}),
+          Line(points={{-80,-80},{0,-80}}),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
             lineColor={192,192,192},
@@ -1335,7 +1322,7 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
             extent={{-90,72},{-18,24}},
             lineColor={192,192,192},
             textString="sign"),
-          Line(points={{0,80},{80,80}}, color={0,0,0}),
+          Line(points={{0,80},{80,80}}),
           Rectangle(
             extent={{-2,2},{2,-4}},
             lineColor={0,0,0},
@@ -1347,9 +1334,8 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               points={{90,0},{68,8},{68,-8},{90,0}},
               lineColor={192,192,192},
               fillColor={192,192,192},
-              fillPattern=FillPattern.Solid),Line(points={{-80,-80},{0,-80}},
-            color={0,0,0}),Line(points={{-0.01,0},{0.01,0}}, color={0,0,0}),
-            Line(points={{0,80},{80,80}}, color={0,0,0}),Rectangle(
+              fillPattern=FillPattern.Solid),Line(points={{-80,-80},{0,-80}}),Line(points={{-0.01,0},{0.01,0}}),
+            Line(points={{0,80},{80,80}}),Rectangle(
               extent={{-2,2},{2,-4}},
               lineColor={0,0,0},
               fillColor={0,0,0},
@@ -1406,7 +1392,6 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
             points={{-80,-80},{-79.2,-68.7},{-78.4,-64},{-76.8,-57.3},{-73.6,-47.9},
                 {-67.9,-36.1},{-59.1,-22.2},{-46.2,-6.49},{-28.5,10.7},{-4.42,
                 30},{27.7,51.3},{69.5,74.7},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -1427,7 +1412,7 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,-68.7},
             {-78.4,-64},{-76.8,-57.3},{-73.6,-47.9},{-67.9,-36.1},{-59.1,-22.2},
             {-46.2,-6.49},{-28.5,10.7},{-4.42,30},{27.7,51.3},{69.5,74.7},{80,
-            80}}, color={0,0,0}),Polygon(
+            80}}),Polygon(
               points={{-80,98},{-86,82},{-74,82},{-80,98}},
               lineColor={192,192,192},
               fillColor={192,192,192},
@@ -1475,7 +1460,6 @@ Otherwise an error occurs.
                 {-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,-50.2},{23.7,-64.2},
                 {29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},{51.9,-71.5},{
                 57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Polygon(
             points={{90,0},{68,8},{68,-8},{90,0}},
@@ -1505,8 +1489,7 @@ Otherwise an error occurs.
             {-61.5,53.1},{-55.1,66.4},{-49.4,74.6},{-43.8,79.1},{-38.2,79.8},{-32.6,
             76.6},{-26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},
             {17.3,-50.2},{23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,
-            -77.6},{51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}},
-            color={0,0,0}),Text(
+            -77.6},{51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}),Text(
               extent={{-105,72},{-85,88}},
               textString="1",
               lineColor={0,0,255}),Text(
@@ -1562,7 +1545,6 @@ as <b>sine</b> of the input <b>u</b>:
                 {-4.42,-78.8},{1.21,-79.9},{6.83,-77.1},{12.5,-70.6},{18.1,-60.6},
                 {24.5,-45.7},{32.6,-23},{50.3,31.3},{57.5,50.7},{63.9,64.6},{
                 69.5,73.4},{75.2,78.6},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Text(
             extent={{-36,82},{36,34}},
@@ -1637,7 +1619,6 @@ as <b>cos</b> of the input <b>u</b>:
                 {-67.1,-33},{-60.7,-24.8},{-51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},
                 {33.4,9.12},{49.4,16.2},{59.1,23.2},{65.5,30.6},{70.4,39.1},{
                 73.6,47.4},{76,56.1},{77.6,63.8},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -1677,7 +1658,7 @@ as <b>cos</b> of the input <b>u</b>:
             {-76.8,-59.7},{-74.4,-50},{-71.2,-40.9},{-67.1,-33},{-60.7,-24.8},{
             -51.1,-17.2},{-35.8,-9.98},{-4.42,-1.07},{33.4,9.12},{49.4,16.2},{
             59.1,23.2},{65.5,30.6},{70.4,39.1},{73.6,47.4},{76,56.1},{77.6,63.8},
-            {80,80}}, color={0,0,0}),Text(
+            {80,80}}),Text(
               extent={{70,-6},{94,-26}},
               lineColor={160,160,164},
               textString="u")}),
@@ -1716,7 +1697,6 @@ as <b>tan</b> of the input <b>u</b>:
             points={{-80,-80},{-79.2,-72.8},{-77.6,-67.5},{-73.6,-59.4},{-66.3,
                 -49.8},{-53.5,-37.3},{-30.2,-19.7},{37.4,24.8},{57.5,40.8},{
                 68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -1757,8 +1737,7 @@ as <b>tan</b> of the input <b>u</b>:
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,-72.8},
             {-77.6,-67.5},{-73.6,-59.4},{-66.3,-49.8},{-53.5,-37.3},{-30.2,-19.7},
-            {37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}},
-            color={0,0,0}),Text(
+            {37.4,24.8},{57.5,40.8},{68.7,52.7},{75.2,62.2},{77.6,67.5},{80,80}}),Text(
               extent={{74,-4},{100,-26}},
               lineColor={160,160,164},
               textString="u")}),
@@ -1800,7 +1779,6 @@ Otherwise an error occurs.
             points={{-80,80},{-79.2,72.8},{-77.6,67.5},{-73.6,59.4},{-66.3,49.8},
                 {-53.5,37.3},{-30.2,19.7},{37.4,-24.8},{57.5,-40.8},{68.7,-52.7},
                 {75.2,-62.2},{77.6,-67.5},{80,-80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{0,-88},{0,68}}, color={192,192,192}),
           Line(points={{-90,-80},{68,-80}}, color={192,192,192}),
@@ -1831,7 +1809,7 @@ Otherwise an error occurs.
               fillPattern=FillPattern.Solid),Line(points={{-80,80},{-79.2,72.8},
             {-77.6,67.5},{-73.6,59.4},{-66.3,49.8},{-53.5,37.3},{-30.2,19.7},{
             37.4,-24.8},{57.5,-40.8},{68.7,-52.7},{75.2,-62.2},{77.6,-67.5},{80,
-            -80}}, color={0,0,0}),Text(
+            -80}}),Text(
               extent={{-30,88},{-5,72}},
               textString=" pi",
               lineColor={0,0,255}),Text(
@@ -1884,7 +1862,6 @@ Otherwise an error occurs.
                 {-14.1,-45.8},{-10.1,-36.4},{-6.03,-23.9},{-1.21,-5.06},{5.23,
                 21},{9.25,34.1},{13.3,44.2},{18.1,52.9},{24.5,60.8},{33.4,67.6},
                 {47,73.6},{69.5,78.6},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -1914,8 +1891,7 @@ Otherwise an error occurs.
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-52.7,-75.2},
             {-37.4,-69.7},{-26.9,-63},{-19.7,-55.2},{-14.1,-45.8},{-10.1,-36.4},
             {-6.03,-23.9},{-1.21,-5.06},{5.23,21},{9.25,34.1},{13.3,44.2},{18.1,
-            52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}, color=
-             {0,0,0}),Text(
+            52.9},{24.5,60.8},{33.4,67.6},{47,73.6},{69.5,78.6},{80,80}}),Text(
               extent={{-32,91},{-12,71}},
               textString="1.4",
               lineColor={0,0,255}),Text(
@@ -1975,17 +1951,14 @@ This blocks computes the output <b>y</b> as the
             points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},{-18.3,-21.5},{-10.3,
                 -14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{24.3,25},{39,30},
                 {62.1,33.5},{80,34.9}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(
             points={{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,
                 65.8},{-1.82,77.2},{0,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(
             points={{0,-80},{8.93,-67.2},{17.1,-59.3},{27.3,-53.6},{42.1,-49.4},
                 {69.9,-45.8},{80,-45.1}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Text(
             extent={{-90,-46},{-18,-94}},
@@ -2007,12 +1980,11 @@ This blocks computes the output <b>y</b> as the
               lineColor={192,192,192},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{0,-80},{8.93,-67.2},
-            {17.1,-59.3},{27.3,-53.6},{42.1,-49.4},{69.9,-45.8},{80,-45.1}},
-            color={0,0,0}),Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},
+            {17.1,-59.3},{27.3,-53.6},{42.1,-49.4},{69.9,-45.8},{80,-45.1}}),Line(points={{-80,-34.9},{-46.1,-31.4},{-29.4,-27.1},
             {-18.3,-21.5},{-10.3,-14.5},{-2.03,-3.17},{7.97,11.6},{15.5,19.4},{
-            24.3,25},{39,30},{62.1,33.5},{80,34.9}}, color={0,0,0}),Line(points=
+            24.3,25},{39,30},{62.1,33.5},{80,34.9}}),Line(points=
              {{-80,45.1},{-45.9,48.7},{-29.1,52.9},{-18.1,58.6},{-10.2,65.8},{-1.82,
-            77.2},{0,80}}, color={0,0,0}),Text(
+            77.2},{0,80}}),Text(
               extent={{-30,89},{-10,70}},
               textString="pi",
               lineColor={0,0,255}),Text(
@@ -2078,7 +2050,6 @@ block <b>Atan</b> gives a solution in the range
                 {-51.1,-18.7},{-41.4,-11.4},{-27.7,-5.5},{-4.42,-0.653},{24.5,
                 4.57},{39,10.1},{49.4,17.2},{57.5,25.9},{63.9,35.8},{69.5,47.4},
                 {74.4,60.4},{78.4,73.8},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Polygon(
             points={{90,0},{68,8},{68,-8},{90,0}},
@@ -2103,8 +2074,7 @@ block <b>Atan</b> gives a solution in the range
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-76,-65.4},
             {-71.2,-51.4},{-65.5,-38.8},{-59.1,-28.1},{-51.1,-18.7},{-41.4,-11.4},
             {-27.7,-5.5},{-4.42,-0.653},{24.5,4.57},{39,10.1},{49.4,17.2},{57.5,
-            25.9},{63.9,35.8},{69.5,47.4},{74.4,60.4},{78.4,73.8},{80,80}},
-            color={0,0,0}),Text(
+            25.9},{63.9,35.8},{69.5,47.4},{74.4,60.4},{78.4,73.8},{80,80}}),Text(
               extent={{-31,72},{-11,88}},
               textString="27",
               lineColor={0,0,255}),Text(
@@ -2161,7 +2131,6 @@ This blocks computes the output <b>y</b> as the
                 {34.2,-68.7},{42.2,-60.6},{48.6,-51.2},{54.3,-40},{59.1,-27.5},
                 {63.1,-14.6},{67.1,1.29},{71.2,20.7},{74.4,39.3},{77.6,61.1},{
                 80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{-90,-86.083},{68,-86.083}}, color={192,192,192}),
           Polygon(
@@ -2189,7 +2158,7 @@ This blocks computes the output <b>y</b> as the
             {-52.7,-43.5},{-46.2,-55.1},{-39,-64.3},{-30.2,-71.7},{-18.9,-77.1},
             {-4.42,-79.9},{10.9,-79.1},{23.7,-75.2},{34.2,-68.7},{42.2,-60.6},{
             48.6,-51.2},{54.3,-40},{59.1,-27.5},{63.1,-14.6},{67.1,1.29},{71.2,
-            20.7},{74.4,39.3},{77.6,61.1},{80,80}}, color={0,0,0}),Text(
+            20.7},{74.4,39.3},{77.6,61.1},{80,80}}),Text(
               extent={{-31,72},{-11,88}},
               textString="27",
               lineColor={0,0,255}),Text(
@@ -2233,7 +2202,6 @@ This blocks computes the output <b>y</b> as the
                 -64.2},{-17.3,-55.9},{-12.5,-44.3},{-7.64,-29.2},{-1.21,-4.82},
                 {6.83,26.3},{11.7,42},{16.5,54.2},{21.3,63.1},{26.9,69.9},{34.2,
                 75},{45.4,78.4},{72,79.9},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Polygon(
             points={{0,90},{-8,68},{8,68},{0,90}},
@@ -2321,7 +2289,7 @@ This blocks computes the output <b>y</b> as the
             textString="exp"),
           Line(points={{-80,-80},{-31,-77.9},{-6.03,-74},{10.9,-68.4},{23.7,-61},
                 {34.2,-51.6},{43,-40.3},{50.3,-27.8},{56.7,-13.5},{62.3,2.23},{
-                67.1,18.6},{72,38.2},{76,57.6},{80,80}}, color={0,0,0}),
+                67.1,18.6},{72,38.2},{76,57.6},{80,80}}),
           Line(
             points={{-90,-80.3976},{68,-80.3976}},
             color={192,192,192},
@@ -2348,8 +2316,7 @@ This blocks computes the output <b>y</b> as the
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-31,-77.9},
             {-6.03,-74},{10.9,-68.4},{23.7,-61},{34.2,-51.6},{43,-40.3},{50.3,-27.8},
-            {56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}},
-            color={0,0,0}),Text(
+            {56.7,-13.5},{62.3,2.23},{67.1,18.6},{72,38.2},{76,57.6},{80,80}}),Text(
               extent={{-31,72},{-11,88}},
               textString="20",
               lineColor={0,0,255}),Text(
@@ -2401,7 +2368,6 @@ This blocks computes the output <b>y</b> as the
             points={{-80,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
                 {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
           Polygon(
@@ -2431,7 +2397,7 @@ This blocks computes the output <b>y</b> as the
               fillPattern=FillPattern.Solid),Line(points={{-80,-80},{-79.2,-50.6},
             {-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,-1.31},{
             -69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,
-            58},{22.1,68},{68.7,78.1},{80,80}}, color={0,0,0}),Text(
+            58},{22.1,68},{68.7,78.1},{80,80}}),Text(
               extent={{-105,72},{-85,88}},
               textString="3",
               lineColor={0,0,255}),Text(
@@ -2486,7 +2452,6 @@ zero or negative.
             points={{-79.8,-80},{-79.2,-50.6},{-78.4,-37},{-77.6,-28},{-76.8,-21.3},
                 {-75.2,-11.4},{-72.8,-1.31},{-69.5,8.08},{-64.7,17.9},{-57.5,28},
                 {-47,38.1},{-31.8,48.1},{-10.1,58},{22.1,68},{68.7,78.1},{80,80}},
-            color={0,0,0},
             smooth=Smooth.Bezier),
           Polygon(
             points={{-80,90},{-88,68},{-72,68},{-80,90}},
@@ -2516,7 +2481,7 @@ zero or negative.
               fillPattern=FillPattern.Solid),Line(points={{-79.8,-80},{-79.2,-50.6},
             {-78.4,-37},{-77.6,-28},{-76.8,-21.3},{-75.2,-11.4},{-72.8,-1.31},{
             -69.5,8.08},{-64.7,17.9},{-57.5,28},{-47,38.1},{-31.8,48.1},{-10.1,
-            58},{22.1,68},{68.7,78.1},{80,80}}, color={0,0,0}),Text(
+            58},{22.1,68},{68.7,78.1},{80,80}}),Text(
               extent={{70,-3},{90,-23}},
               textString="20",
               lineColor={0,0,255}),Text(
@@ -2557,15 +2522,14 @@ zero or negative.
     extends Modelica.Blocks.Icons.IntegerBlock;
   public
     Interfaces.RealInput u "Connector of Real input signal" annotation (
-        Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        Placement(transformation(extent={{-140,-20},{-100,20}})));
     Interfaces.IntegerOutput y "Connector of Integer output signal" annotation (
-       Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+       Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     y = if (u > 0) then integer(floor(u + 0.5)) else integer(ceil(u - 0.5));
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1), graphics={
+          extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
           Text(
             lineColor={0,0,127},
             extent={{-100.0,-40.0},{0.0,40.0}},
@@ -2593,15 +2557,14 @@ as <i>nearest integer value</i> of the input <b>u</b>:
   block IntegerToReal "Convert Integer to Real signals"
     extends Modelica.Blocks.Icons.Block;
     Interfaces.IntegerInput u "Connector of Integer input signal" annotation (
-        Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        Placement(transformation(extent={{-140,-20},{-100,20}})));
     Interfaces.RealOutput y "Connector of Real output signal" annotation (
-        Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+        Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     y = u;
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1), graphics={
+          extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
           Text(
             lineColor={255,127,0},
             extent={{-120.0,-40.0},{-20.0,40.0}},
@@ -2633,8 +2596,7 @@ as <i>Real equivalent</i> of the Integer input <b>u</b>:
     parameter Real realFalse=0.0 "Output signal for false Boolean input";
 
     Blocks.Interfaces.RealOutput y "Connector of Real output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     y = if u then realTrue else realFalse;
@@ -2672,8 +2634,7 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
     parameter Integer integerFalse=0 "Output signal for false Boolean input";
 
     Blocks.Interfaces.IntegerOutput y "Connector of Integer output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     y = if u then integerTrue else integerFalse;
@@ -2708,7 +2669,7 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
   block RealToBoolean "Convert Real to Boolean signal"
 
     Blocks.Interfaces.RealInput u "Connector of Real input signal" annotation (
-        Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        Placement(transformation(extent={{-140,-20},{-100,20}})));
     extends Interfaces.partialBooleanSO;
     parameter Real threshold=0.5
       "Output signal y is true, if input u >= threshold";
@@ -2748,8 +2709,7 @@ where <b>threshold</b> is a parameter.
   block IntegerToBoolean "Convert Integer to Boolean signal"
 
     Blocks.Interfaces.IntegerInput u "Connector of Integer input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     extends Interfaces.partialBooleanSO;
     parameter Integer threshold=1
       "Output signal y is true, if input u >= threshold";
@@ -2791,16 +2751,15 @@ where <b>threshold</b> is a parameter.
     extends Modelica.Blocks.Icons.Block;
     Modelica.Blocks.Interfaces.RealInput u_re
       "Real part of rectangular representation" annotation (Placement(
-          transformation(extent={{-140,40},{-100,80}}, rotation=0)));
+          transformation(extent={{-140,40},{-100,80}})));
     Modelica.Blocks.Interfaces.RealInput u_im
       "Imaginary part of rectangular representation" annotation (Placement(
-          transformation(extent={{-140,-80},{-100,-40}}, rotation=0)));
+          transformation(extent={{-140,-80},{-100,-40}})));
     Modelica.Blocks.Interfaces.RealOutput y_abs
       "Length of polar representation" annotation (Placement(transformation(
-            extent={{100,50},{120,70}}, rotation=0)));
+            extent={{100,50},{120,70}})));
     Modelica.Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
-      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
 
   equation
     y_abs = sqrt(u_re*u_re + u_im*u_im);
@@ -2840,17 +2799,15 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     "Convert polar coordinates to rectangular coordinates"
     extends Modelica.Blocks.Icons.Block;
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
-      annotation (Placement(transformation(extent={{-140,40},{-100,80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
     Modelica.Blocks.Interfaces.RealInput u_arg "Angle of polar representation"
-      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
     Modelica.Blocks.Interfaces.RealOutput y_re
       "Real part of rectangular representation" annotation (Placement(
-          transformation(extent={{100,50},{120,70}}, rotation=0)));
+          transformation(extent={{100,50},{120,70}})));
     Modelica.Blocks.Interfaces.RealOutput y_im
       "Imaginary part of rectangular representation" annotation (Placement(
-          transformation(extent={{100,-70},{120,-50}}, rotation=0)));
+          transformation(extent={{100,-70},{120,-50}})));
 
   equation
     y_re = u_abs*Modelica.Math.cos(u_arg);
@@ -2943,16 +2900,13 @@ explicitly set to 0.0, if the mean value results in a negative value.
   equation
     connect(u, abs1.u) annotation (Line(
         points={{-120,0},{-62,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(abs1.y, mean.u) annotation (Line(
         points={{-39,0},{-2,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(mean.y, y) annotation (Line(
         points={{21,0},{110,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the rectified mean of the input signal u over the given period 1/f, using the
@@ -2987,24 +2941,19 @@ Note: The output is updated after each period defined by 1/f.
 
     connect(product.y, mean.u) annotation (Line(
         points={{-18.3,0},{-2,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(mean.y, sqrt1.u) annotation (Line(
         points={{21,0},{38,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sqrt1.y, y) annotation (Line(
         points={{61,0},{110,0}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(u, product.u[1]) annotation (Line(
         points={{-120,0},{-60,0},{-60,3.5},{-40,3.5}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(u, product.u[2]) annotation (Line(
         points={{-120,0},{-60,0},{-60,-3.5},{-40,-3.5}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square of the input signal u over the given period 1/f, using the
@@ -3054,54 +3003,43 @@ Note: The output is updated after each period defined by 1/f.
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.RealOutput y_rms
       "Root mean square of polar representation" annotation (Placement(
-          transformation(extent={{100,50},{120,70}}, rotation=0)));
+          transformation(extent={{100,50},{120,70}})));
     Blocks.Interfaces.RealOutput y_arg "Angle of polar representation"
-      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Blocks.Math.RectangularToPolar rectangularToPolar
       annotation (Placement(transformation(extent={{40,-12},{60,8}})));
   equation
 
     connect(product2.y, mean2.u) annotation (Line(
         points={{-38.3,-40},{-22,-40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(product1.y, mean1.u) annotation (Line(
         points={{-38.3,40},{-22,40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(mean1.y, rectangularToPolar.u_re) annotation (Line(
         points={{1,40},{20,40},{20,4},{38,4}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(mean2.y, rectangularToPolar.u_im) annotation (Line(
         points={{1,-40},{20,-40},{20,-8},{38,-8}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(rectangularToPolar.y_abs, y_rms) annotation (Line(
         points={{61,4},{80,4},{80,60},{110,60}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(rectangularToPolar.y_arg, y_arg) annotation (Line(
         points={{61,-8},{80,-8},{80,-60},{110,-60}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sin1.y, product1.u[1]) annotation (Line(
         points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(u, product1.u[2]) annotation (Line(
         points={{-120,0},{-80,0},{-80,36.5},{-60,36.5}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(u, product2.u[1]) annotation (Line(
         points={{-120,0},{-80,0},{-80,-36.5},{-60,-36.5}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sin2.y, product2.u[2]) annotation (Line(
         points={{-80,-59},{-80,-43.5},{-60,-43.5}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
@@ -3175,16 +3113,15 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
     Modelica.Blocks.Interfaces.RealVectorInput u[nu]
       annotation (Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.RealOutput yMax annotation (Placement(
-          transformation(extent={{100,50},{120,70}}, rotation=0)));
+          transformation(extent={{100,50},{120,70}})));
     Modelica.Blocks.Interfaces.RealOutput yMin annotation (Placement(
-          transformation(extent={{100,-70},{120,-50}}, rotation=0)));
+          transformation(extent={{100,-70},{120,-50}})));
   equation
     yMax = max(u);
     yMin = min(u);
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={Text(
             extent={{-12,80},{100,40}},
             lineColor={0,0,0},
             textString="yMax"), Text(
@@ -3209,8 +3146,7 @@ provide both values as output.
               -100},{100,100}}), graphics={
           Line(
             points={{-100,60},{100,0},{-100,-60}},
-            color={0,0,127},
-            smooth=Smooth.None),
+            color={0,0,127}),
           Text(
             extent={{-14,88},{94,32}},
             lineColor={0,0,0},

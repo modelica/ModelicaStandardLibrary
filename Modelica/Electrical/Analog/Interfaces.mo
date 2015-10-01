@@ -128,9 +128,9 @@ The reason could be that
     PositivePin p
       "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
                                                                                     annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
-              90,-10},{110,10}}, rotation=0)));
+              90,-10},{110,10}})));
   equation
     v = p.v - n.v;
     annotation (
@@ -175,9 +175,9 @@ The reason could be that
     SI.Current i "Current flowing from pin p to pin n";
     PositivePin p
       "Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
-              110,-10},{90,10}}, rotation=0)));
+              110,-10},{90,10}})));
   equation
     v = p.v - n.v;
     0 = p.i + n.i;
@@ -230,15 +230,15 @@ The reason could be that
     PositivePin p1
       "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
                                                                                            annotation (Placement(
-          transformation(extent={{-110,40},{-90,60}}, rotation=0)));
+          transformation(extent={{-110,40},{-90,60}})));
     NegativePin n1 "Negative pin of the left port" annotation (Placement(
-          transformation(extent={{-90,-60},{-110,-40}}, rotation=0)));
+          transformation(extent={{-90,-60},{-110,-40}})));
     PositivePin p2
       "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
                                                                                             annotation (Placement(
-          transformation(extent={{110,40},{90,60}}, rotation=0)));
+          transformation(extent={{110,40},{90,60}})));
     NegativePin n2 "Negative pin of the right port" annotation (Placement(
-          transformation(extent={{90,-60},{110,-40}}, rotation=0)));
+          transformation(extent={{90,-60},{110,-40}})));
   equation
     v1 = p1.v - n1.v;
     v2 = p2.v - n2.v;
@@ -275,7 +275,7 @@ The reason could be that
             lineColor={0,0,0},
             fillPattern=FillPattern.HorizontalCylinder,
             fillColor={160,160,164}),
-          Line(points={{111,50},{136,50}}, color={0,0,0}),
+          Line(points={{111,50},{136,50}}),
           Line(points={{-136,-49},{-111,-49}}, color={160,160,164}),
           Polygon(
             points={{-126,-46},{-136,-49},{-126,-52},{-126,-46}},
@@ -351,15 +351,15 @@ on the model behaviour.
     extends Modelica.Icons.RotationalSensor;
 
     Interfaces.PositivePin p "Pin to be measured" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal" annotation (Placement(
-          transformation(extent={{100,-10},{120,10}}, rotation=0)));
+          transformation(extent={{100,-10},{120,10}})));
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-90,0}}),
           Line(points={{70,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{-150,80},{150,120}},
@@ -367,7 +367,7 @@ on the model behaviour.
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-96,0}}),
             Line(points={{70,0},{100,0}}, color={0,0,255})}),
       Documentation(revisions="<html>
 <ul>
@@ -386,9 +386,9 @@ on the model behaviour.
     extends Modelica.Icons.RotationalSensor;
 
     Interfaces.PositivePin p "Positive pin" annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Interfaces.NegativePin n "Negative pin" annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Blocks.Interfaces.RealOutput y
       "Measured quantity as Real output signal" annotation (Placement(
           transformation(
@@ -399,8 +399,8 @@ on the model behaviour.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-          Line(points={{70,0},{90,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-90,0}}),
+          Line(points={{70,0},{90,0}}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255}),
           Text(
             extent={{-150,80},{150,120}},
@@ -409,9 +409,9 @@ on the model behaviour.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{-70,0},{-96,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-96,0}}),
           Line(points={{0,-90},{0,-70}}, color={0,0,255}),
-          Line(points={{70,0},{96,0}}, color={0,0,0})}),
+          Line(points={{70,0},{96,0}})}),
       Documentation(revisions="<html>
 <ul>
 <li><i> 1998   </i>
@@ -430,7 +430,7 @@ on the model behaviour.
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime)
-    annotation (Placement(transformation(extent={{70,70},{90,90}}, rotation=0)));
+    annotation (Placement(transformation(extent={{70,70},{90,90}})));
   equation
     v = signalSource.y;
     annotation (
@@ -472,7 +472,7 @@ on the model behaviour.
     parameter SI.Time startTime=0 "Time offset";
     replaceable Modelica.Blocks.Interfaces.SignalSource signalSource(
         final offset = offset, final startTime=startTime) annotation (Placement(
-          transformation(extent={{70,69},{91,89}}, rotation=0)));
+          transformation(extent={{70,69},{91,89}})));
   equation
     i = signalSource.y;
     annotation (

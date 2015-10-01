@@ -61,7 +61,6 @@ package Semiconductors
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -134,7 +133,6 @@ package Semiconductors
             visible=useHeatPort,
             points={{0,-101},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -151,13 +149,13 @@ package Semiconductors
 model PMOS "Simple MOS Transistor"
 
   Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
-            40},{110,60}}, rotation=0)));
+            40},{110,60}})));
   Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
-            -40},{-110,-60}}, rotation=0)));
+            -40},{-110,-60}})));
   Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
-            -40},{110,-60}}, rotation=0)));
+            -40},{110,-60}})));
   Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-            -10},{110,10}}, rotation=0)));
+            -10},{110,10}})));
   parameter SIunits.Length W=20.0e-6 "Width";
   parameter SIunits.Length L=6.0e-6 "Length";
   parameter SIunits.Transconductance Beta=0.0105e-3
@@ -270,7 +268,6 @@ Some typical parameter sets are:
             visible=useHeatPort,
             points={{0,-90},{0,0}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -293,13 +290,13 @@ end PMOS;
 model NMOS "Simple MOS Transistor"
 
   Interfaces.Pin D "Drain" annotation (Placement(transformation(extent={{90,
-            40},{110,60}}, rotation=0)));
+            40},{110,60}})));
   Interfaces.Pin G "Gate" annotation (Placement(transformation(extent={{-90,
-            -40},{-110,-60}}, rotation=0)));
+            -40},{-110,-60}})));
   Interfaces.Pin S "Source" annotation (Placement(transformation(extent={{90,
-            -40},{110,-60}}, rotation=0)));
+            -40},{110,-60}})));
   Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
-            -10},{110,10}}, rotation=0)));
+            -10},{110,10}})));
   parameter SIunits.Length W=20.e-6 "Width";
   parameter SIunits.Length L=6.e-6 "Length";
   parameter SIunits.Transconductance Beta=0.041e-3 "Transconductance parameter";
@@ -418,7 +415,6 @@ Muenchen Wien 1990.</DD>
             visible=useHeatPort,
             points={{0,-100},{0,0}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -486,11 +482,11 @@ model NPN "Simple BJT according to Ebers-Moll"
   end pow;
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
-        transformation(extent={{90,40},{110,60}}, rotation=0)));
+        transformation(extent={{90,40},{110,60}})));
   Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
-        transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+        transformation(extent={{-90,-10},{-110,10}})));
   Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-        transformation(extent={{90,-40},{110,-60}}, rotation=0)));
+        transformation(extent={{90,-40},{110,-60}})));
 initial equation
   if UIC then
     C.v = IC;
@@ -582,7 +578,6 @@ on page 317 ff.</DD>
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -644,11 +639,11 @@ model PNP "Simple BJT according to Ebers-Moll"
   end pow;
   public
   Modelica.Electrical.Analog.Interfaces.Pin C "Collector" annotation (Placement(
-        transformation(extent={{90,40},{110,60}}, rotation=0)));
+        transformation(extent={{90,40},{110,60}})));
   Modelica.Electrical.Analog.Interfaces.Pin B "Base" annotation (Placement(
-        transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
+        transformation(extent={{-90,-10},{-110,10}})));
   Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
-        transformation(extent={{90,-40},{110,-60}}, rotation=0)));
+        transformation(extent={{90,-40},{110,-60}})));
 equation
   ExMin = exp(EMin);
   ExMax = exp(EMax);
@@ -736,7 +731,6 @@ on page 317 ff.</DD>
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -840,7 +834,6 @@ The thermal power is calculated by <i>i*v</i>.
             visible=useHeatPort,
             points={{0,-101},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
   preserveAspectRatio=true,
@@ -857,17 +850,13 @@ end HeatingDiode;
         model HeatingNMOS "Simple MOS Transistor with heating port"
 
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,40},{110,60}})));
           Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
-            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}})));
           Modelica.Electrical.Analog.Interfaces.Pin S "Source"
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
           parameter Modelica.SIunits.Length W=20.e-6 "Width";
           parameter Modelica.SIunits.Length L=6.e-6 "Length";
           parameter Modelica.SIunits.Transconductance Beta=0.041e-3
@@ -987,7 +976,6 @@ end HeatingDiode;
             visible=useHeatPort,
             points={{0,-100},{0,0}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1010,17 +998,13 @@ end HeatingDiode;
         model HeatingPMOS "Simple PMOS Transistor with heating port"
 
           Modelica.Electrical.Analog.Interfaces.Pin D "Drain"
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,40},{110,60}})));
           Modelica.Electrical.Analog.Interfaces.Pin G "Gate"
-            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{-90,-40},{-110,-60}})));
           Modelica.Electrical.Analog.Interfaces.Pin S "Source"
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
           parameter Modelica.SIunits.Length W=20.0e-6 "Width";
           parameter Modelica.SIunits.Length L=6.0e-6 "Length";
           parameter Modelica.SIunits.Transconductance Beta=0.0105e-3
@@ -1129,7 +1113,6 @@ end HeatingDiode;
             visible=useHeatPort,
             points={{0,-100},{0,0}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1212,14 +1195,11 @@ end HeatingDiode;
           Real htempexp;
   public
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,40},{110,60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
-            annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
         equation
           assert( T_heatPort > 0,"temperature must be positive");
           ExMin = exp(EMin);
@@ -1303,7 +1283,6 @@ end HeatingDiode;
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1384,14 +1363,11 @@ end HeatingDiode;
           Real htempexp;
   public
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
-            annotation (Placement(transformation(extent={{90,40},{110,60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,40},{110,60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
-            annotation (Placement(transformation(extent={{-90,-10},{-110,10}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
           Modelica.Electrical.Analog.Interfaces.Pin E "Emitter"
-            annotation (Placement(transformation(extent={{90,-40},{110,-60}},
-            rotation=0)));
+            annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
         equation
           assert( T_heatPort > 0,"temperature must be positive");
           ExMin = exp(EMin);
@@ -1477,7 +1453,6 @@ end HeatingDiode;
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
             Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1649,18 +1624,13 @@ public
             textString="Ron"),
           Line(
             points={{14,20},{25,73}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{-57,-11},{55,9}},
-            color={0,0,0},
-            smooth=Smooth.None,
             thickness=0.5),
           Line(
             points={{-57,-11},{-59,-13},{-60,-18},{-63,-65}},
-            color={0,0,0},
-            thickness=0.5,
-            smooth=Smooth.None),
+            thickness=0.5),
           Text(
             extent={{-67,11},{-47,1}},
             lineColor={128,128,128},
@@ -1672,17 +1642,11 @@ public
             pattern=LinePattern.Dot,
             textString="VDRM"),
           Line(
-            points={{-57,1},{-57,-1}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{-57,1},{-57,-1}}),
           Line(
-            points={{54,1},{54,-1}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{54,1},{54,-1}}),
           Line(
             points={{55,9},{54,11},{50,13},{17,17},{15,18},{14,20}},
-            color={0,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot),
           Text(
             extent={{-28,-9},{-8,-19}},
@@ -1690,9 +1654,7 @@ public
             pattern=LinePattern.Dot,
             textString="Roff"),
           Line(
-            points={{2,20},{-2,20}},
-            color={0,0,0},
-            smooth=Smooth.None),
+            points={{2,20},{-2,20}}),
           Text(
             extent={{-14,23},{-2,16}},
             lineColor={128,128,128},
@@ -1758,67 +1720,52 @@ public
    end if;
     connect(thyristor.Anode, n) annotation (Line(
         points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(thyristor1.Anode, p) annotation (Line(
         points={{-3,-40},{-2,-40},{-2,-60},{80,-60},{80,0},{104,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(thyristor1.Anode, thyristor.Cathode) annotation (Line(
         points={{-3,-40},{-2,-40},{-2,40},{-1,40}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(thyristor1.Cathode, thyristor.Anode) annotation (Line(
         points={{-21,-40},{-22,-40},{-22,40},{-19,40}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(thyristor.Gate, idealDiode.n) annotation (Line(
         points={{-3,49},{-3,59.5},{-20,59.5},{-20,68}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(idealDiode.p, g) annotation (Line(
         points={{-40,68},{-82,68},{-82,-96},{-62,-96}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(idealDiode1.n, thyristor1.Gate) annotation (Line(
         points={{-20,-62},{-20,-49},{-19,-49}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(idealDiode1.p, g) annotation (Line(
         points={{-20,-82},{-42,-82},{-42,-96},{-62,-96}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,255},
-            smooth=Smooth.None),
+            lineColor={0,0,255}),
           Polygon(
             points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,255},
-            smooth=Smooth.None),
+            lineColor={0,0,255}),
           Line(
             points={{70,0},{70,-100}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{-30,0},{-30,100}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{-30,0},{-90,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{70,0},{110,0}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Line(
             points={{-62,-86},{-62,-56},{-30,-44}},
-            color={0,0,255},
-            smooth=Smooth.None),
+            color={0,0,255}),
           Text(
             extent={{-102,130},{98,100}},
             textString="%name",
@@ -1922,7 +1869,6 @@ public
             visible=useHeatPort,
             points={{0,-100},{0,-20}},
             color={127,0,0},
-            smooth=Smooth.None,
             pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1963,10 +1909,10 @@ Christoph Clau&szlig;
     D-01069 Dresden
 </dl>
 </html>"), Icon(graphics={
-          Line(points={{-20,0},{-90,0}}, color={0,0,0}),
-          Line(points={{-20,60},{-20,-60}}, color={0,0,0}),
-          Line(points={{20,68},{-20,28}}, color={0,0,0}),
-          Line(points={{80,68},{20,68}}, color={0,0,0}),
-          Line(points={{-20,-30},{20,-70}}, color={0,0,0}),
-          Line(points={{20,-70},{80,-70}}, color={0,0,0})}));
+          Line(points={{-20,0},{-90,0}}),
+          Line(points={{-20,60},{-20,-60}}),
+          Line(points={{20,68},{-20,28}}),
+          Line(points={{80,68},{20,68}}),
+          Line(points={{-20,-30},{20,-70}}),
+          Line(points={{20,-70},{80,-70}})}));
 end Semiconductors;

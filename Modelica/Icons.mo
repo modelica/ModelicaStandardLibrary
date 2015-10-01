@@ -38,19 +38,16 @@ package Icons "Library of icons"
           Polygon(
             points={{-100,-72},{100,-72},{0,20},{-100,-72}},
             lineColor={0,0,0},
-            smooth=Smooth.None,
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{22,0},{100,70},{100,-72},{22,0}},
             lineColor={0,0,0},
-            smooth=Smooth.None,
             fillColor={235,235,235},
             fillPattern=FillPattern.Solid),
           Polygon(
             points={{-100,70},{100,70},{0,-20},{-100,70}},
             lineColor={0,0,0},
-            smooth=Smooth.None,
             fillColor={241,241,241},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
@@ -73,13 +70,13 @@ package Icons "Library of icons"
             lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
-          Line(points={{2,-12},{50,-12}}, color={0,0,0}),
+          Line(points={{2,-12},{50,-12}}),
           Ellipse(
             extent={{-56,2},{-28,-26}},
             lineColor={0,0,0},
             fillColor={215,215,215},
             fillPattern=FillPattern.Solid),
-          Line(points={{2,-60},{50,-60}}, color={0,0,0}),
+          Line(points={{2,-60},{50,-60}}),
           Ellipse(
             extent={{-56,-46},{-28,-74}},
             lineColor={0,0,0},
@@ -103,15 +100,14 @@ package Icons "Library of icons"
             fillPattern=FillPattern.Solid),
           Polygon(points={{-20,-100},{-10,-80},{90,-80},{100,-100},{-20,-100}},
               lineColor={0,0,0}),
-          Line(points={{90,-80},{90,60},{100,40},{100,-100}}, color={0,0,0}),
-          Line(points={{90,60},{-10,60},{-10,-80}}, color={0,0,0}),
-          Line(points={{-10,60},{-40,100},{-40,-40},{-10,-80},{-10,60}}, color=
-                {0,0,0}),
-          Line(points={{-20,-88},{-80,-60},{-80,80},{-40,58}}, color={0,0,0}),
-          Line(points={{-20,-100},{-100,-80},{-100,60},{-80,54}}, color={0,0,0}),
-          Line(points={{10,30},{72,30}}, color={0,0,0}),
-          Line(points={{10,-10},{70,-10}}, color={0,0,0}),
-          Line(points={{10,-50},{70,-50}}, color={0,0,0})}), Documentation(info=
+          Line(points={{90,-80},{90,60},{100,40},{100,-100}}),
+          Line(points={{90,60},{-10,60},{-10,-80}}),
+          Line(points={{-10,60},{-40,100},{-40,-40},{-10,-80},{-10,60}}),
+          Line(points={{-20,-88},{-80,-60},{-80,80},{-40,58}}),
+          Line(points={{-20,-100},{-100,-80},{-100,60},{-80,54}}),
+          Line(points={{10,30},{72,30}}),
+          Line(points={{10,-10},{70,-10}}),
+          Line(points={{10,-50},{70,-50}})}), Documentation(info=
            "<html>
 <p>This icon indicates a documentation class containing references to external documentation and literature.</p>
 </html>"));
@@ -381,7 +377,6 @@ package Icons "Library of icons"
           lineColor={215,215,215},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid,
-          origin={0,0},
           rotation=45)}),
     Documentation(info="<html>
 
@@ -439,7 +434,6 @@ directly utilized by a user.
             fillColor={255,255,255},
             extent={{-12.0,-12.0},{12.0,12.0}}),
           Polygon(
-            origin={0,0},
             rotation=-17.5,
             fillColor={64,64,64},
             pattern=LinePattern.None,
@@ -710,7 +704,7 @@ This icon is designed for a <b>signal bus</b> connector.
   expandable connector SignalSubBus "Icon for signal sub-bus"
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}, initialScale=0.1), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
             Line(
               points={{-16.0,2.0},{16.0,2.0}},
               color={255,204,51},
@@ -739,8 +733,7 @@ This icon is designed for a <b>signal bus</b> connector.
               extent={{-20.0,0.0},{20.0,4.0}})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.1), graphics={
+          extent={{-100,-100},{100,100}}), graphics={
           Polygon(
             points={{-40,25},{40,25},{50,15},{40,-20},{30,-25},{-30,-25},{-40,-20},{-50,15}},
             lineColor={0,0,0},

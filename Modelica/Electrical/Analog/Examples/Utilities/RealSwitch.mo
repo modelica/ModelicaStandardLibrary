@@ -2,18 +2,17 @@ within Modelica.Electrical.Analog.Examples.Utilities;
 model RealSwitch "Ideal switch with resistance"
 
   Ideal.ControlledIdealCommutingSwitch S(level=2.5) annotation (Placement(
-        transformation(extent={{11.3333,-46},{58,0.6667}}, rotation=0)));
+        transformation(extent={{11.3333,-46},{58,0.6667}})));
   Basic.Resistor R(R=0.01) annotation (Placement(transformation(extent={{-66,-48},
-            {-19.3333,-1.3333}}, rotation=0)));
+            {-19.3333,-1.3333}})));
   Interfaces.Pin p annotation (Placement(transformation(extent={{-110,-34},{-90,
-            -14}},rotation=0)));
+            -14}})));
   Interfaces.Pin n1 annotation (Placement(transformation(extent={{90,-14},{110,
-            6}},  rotation=0)));
+            6}})));
   Interfaces.Pin n2 annotation (Placement(transformation(extent={{90,-60},{110,
-            -40}},
-          rotation=0)));
+            -40}})));
   Interfaces.Pin control annotation (Placement(transformation(extent={{24,26},{
-            44,46}},  rotation=0)));
+            44,46}})));
 equation
   connect(p, R.p) annotation (Line(points={{-100,-24},{-66,-24.6667}}));
   connect(R.n, S.p) annotation (Line(points={{-19.3333,-24.6667},{11.3333,

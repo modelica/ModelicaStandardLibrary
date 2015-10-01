@@ -17,45 +17,44 @@ model EngineV6
     cylinderLength=0.02,
     cylinderDiameter=0.06,
     animation=animation) annotation (Placement(transformation(extent={{-90,20},
-            {-70,0}}, rotation=0)));
+            {-70,0}})));
   inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
       animateGravity =                                                              false)
-    annotation (Placement(transformation(extent={{-120,20},{-100,40}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-120,20},{-100,40}})));
   Utilities.Cylinder cylinder1(
     crankAngleOffset=Cv.from_deg(-30),
     cylinderInclination=Cv.from_deg(-30),
     animation=animation) annotation (Placement(transformation(extent={{-50,4},{
-            -30,34}}, rotation=0)));
+            -30,34}})));
   Utilities.Cylinder cylinder2(
     crankAngleOffset=Cv.from_deg(90),
     cylinderInclination=Cv.from_deg(30),
     animation=animation) annotation (Placement(transformation(extent={{-20,4},{
-            0,34}}, rotation=0)));
+            0,34}})));
   Utilities.Cylinder cylinder3(
     cylinderInclination=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210))
                          annotation (Placement(transformation(extent={{10,4},{
-            30,34}}, rotation=0)));
+            30,34}})));
   Utilities.Cylinder cylinder4(
     cylinderInclination=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(210))
                          annotation (Placement(transformation(extent={{39,4},{
-            59,34}}, rotation=0)));
+            59,34}})));
   Utilities.Cylinder cylinder5(
     cylinderInclination=Cv.from_deg(-30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(90))
                          annotation (Placement(transformation(extent={{70,4},{
-            90,34}}, rotation=0)));
+            90,34}})));
   Utilities.Cylinder cylinder6(
     cylinderInclination=Cv.from_deg(30),
     animation=animation,
     crankAngleOffset=Cv.from_deg(-30))
                          annotation (Placement(transformation(extent={{100,4},{
-            120,34}}, rotation=0)));
+            120,34}})));
   Modelica.Mechanics.Rotational.Components.Inertia load(
                           phi(
       start=0,
@@ -64,21 +63,18 @@ model EngineV6
       fixed=true),
     stateSelect=StateSelect.always,
     J=1)                               annotation (Placement(transformation(
-          extent={{-44,-30},{-24,-10}}, rotation=0)));
+          extent={{-44,-30},{-24,-10}})));
   Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque load2(
                                                  tau_nominal=-100, w_nominal=
         200,
     useSupport=false)
-             annotation (Placement(transformation(extent={{6,-30},{-14,-10}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{6,-30},{-14,-10}})));
   Rotational.Sensors.TorqueSensor torqueSensor
-    annotation (Placement(transformation(extent={{-72,-30},{-52,-10}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-72,-30},{-52,-10}})));
   Blocks.Continuous.CriticalDamping filter(
     n=2,
     initType=Modelica.Blocks.Types.Init.SteadyState,
-    f=5) annotation (Placement(transformation(extent={{-54,-60},{-34,-40}},
-          rotation=0)));
+    f=5) annotation (Placement(transformation(extent={{-54,-60},{-34,-40}})));
 equation
 
   connect(bearing.frame_b, cylinder1.crank_a)
@@ -145,13 +141,13 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(load2.flange, load.flange_b)
-    annotation (Line(points={{-14,-20},{-24,-20}}, color={0,0,0}));
+    annotation (Line(points={{-14,-20},{-24,-20}}));
   connect(torqueSensor.flange_b, load.flange_a)
-    annotation (Line(points={{-52,-20},{-44,-20}}, color={0,0,0}));
+    annotation (Line(points={{-52,-20},{-44,-20}}));
   connect(torqueSensor.tau,filter. u) annotation (Line(points={{-70,-31},{-70,
           -50},{-56,-50}}, color={0,0,127}));
   connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-72,
-          -20},{-80,-20},{-80,0}}, color={0,0,0}));
+          -20},{-80,-20},{-80,0}}));
   annotation (
     Documentation(info="<HTML>
 <p>

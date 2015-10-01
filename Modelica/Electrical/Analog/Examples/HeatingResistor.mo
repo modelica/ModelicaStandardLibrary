@@ -9,7 +9,7 @@ model HeatingResistor "Heating resistor"
           rotation=-90,
         origin={-32,34})));
   Modelica.Electrical.Analog.Basic.Ground G
-  annotation (Placement(transformation(extent={{-80,0},{-60,20}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=220, freqHz=1)
   annotation (Placement(transformation(
         origin={-70,40},
@@ -20,8 +20,7 @@ model HeatingResistor "Heating resistor"
         50)
   annotation (Placement(transformation(
         origin={4,34},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
   Thermal.HeatTransfer.Celsius.FixedTemperature fixedTemperature(T=20)
     annotation (Placement(transformation(extent={{52,24},{32,44}})));
 equation
@@ -33,17 +32,14 @@ equation
 
   connect(SineVoltage1.p, heatingResistor.p) annotation (Line(
       points={{-70,50},{-32,50},{-32,44}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
 
   connect(G.p, heatingResistor.n) annotation (Line(
       points={{-70,20},{-32,20},{-32,24}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(thermalConductor.port_b, fixedTemperature.port) annotation (Line(
       points={{14,34},{32,34}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
 annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-94,102},{0,74}},

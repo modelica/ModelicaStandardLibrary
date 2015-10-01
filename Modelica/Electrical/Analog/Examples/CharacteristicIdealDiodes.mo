@@ -6,17 +6,16 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
     Ron=0,
     Goff=0,
     Vknee=0)
-    annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,40},{20,60}})));
   Modelica.Electrical.Analog.Ideal.IdealDiode With_Ron_Goff(
     Ron=0.1,
     Goff=0.1,
     Vknee=0)
-    annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,0},{20,20}})));
   Modelica.Electrical.Analog.Ideal.IdealDiode With_Ron_Goff_Vknee(
     Ron=0.2,
     Goff=0.2,
-    Vknee=5) annotation (Placement(transformation(extent={{0,-40},{20,-20}},
-          rotation=0)));
+    Vknee=5) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=10,
     offset=-9,
@@ -25,14 +24,14 @@ model CharacteristicIdealDiodes "Characteristic of ideal diodes"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1 annotation (Placement(
-        transformation(extent={{-50,-80},{-30,-60}}, rotation=0)));
+        transformation(extent={{-50,-80},{-30,-60}})));
 
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3) annotation (Placement(
-        transformation(extent={{60,40},{80,60}}, rotation=0)));
+        transformation(extent={{60,40},{80,60}})));
   Modelica.Electrical.Analog.Basic.Resistor R2(R=1.e-3)
-    annotation (Placement(transformation(extent={{60,0},{80,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,0},{80,20}})));
   Modelica.Electrical.Analog.Basic.Resistor R3(R=1.e-3) annotation (Placement(
-        transformation(extent={{60,-40},{80,-20}}, rotation=0)));
+        transformation(extent={{60,-40},{80,-20}})));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage2(
     V=10,
     offset=0,

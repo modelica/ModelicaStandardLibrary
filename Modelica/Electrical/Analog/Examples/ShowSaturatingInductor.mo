@@ -23,8 +23,7 @@ model ShowSaturatingInductor
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Ground Ground1
-    annotation (Placement(transformation(extent={{-70,-36},{-50,-16}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-70,-36},{-50,-16}})));
   Modelica.Electrical.Analog.Basic.SaturatingInductor SaturatingInductance1(
     Lzer=Lzer,
     Lnom=Lnom,
@@ -50,12 +49,10 @@ equation
           {-20,20},{-60,20},{-60,4}},     color={0,0,255}));
   connect(Inductance1.p, SineVoltage1.p) annotation (Line(
       points={{20,10},{20,20},{-60,20},{-60,4}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(Inductance1.n, SineVoltage1.n) annotation (Line(
       points={{20,-10},{20,-16},{-60,-16}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(

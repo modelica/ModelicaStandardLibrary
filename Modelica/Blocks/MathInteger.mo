@@ -247,22 +247,17 @@ the output is set to zero: y=0.
             Line(
               points={{-100,0},{32,76}},
               color={255,128,0},
-              smooth=Smooth.None,
               pattern=LinePattern.Dot),
             Line(
               points={{-100,0},{32,-20}},
               color={255,128,0},
-              pattern=LinePattern.Dot,
-              smooth=Smooth.None),
+              pattern=LinePattern.Dot),
             Line(
-              points={{-54,-56},{-26,-56},{-26,-20},{32,-20},{32,76}},
-              color={0,0,0},
-              smooth=Smooth.None),
+              points={{-54,-56},{-26,-56},{-26,-20},{32,-20},{32,76}}),
             Line(
               points={{-60,-100},{32,-20}},
               color={255,0,255},
-              pattern=LinePattern.Dot,
-              smooth=Smooth.None),
+              pattern=LinePattern.Dot),
             Text(
               visible=use_reset,
               extent={{-28,-62},{94,-86}},

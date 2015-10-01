@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model SpringWithMass "Point mass hanging on a spring"
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(animateGravity=false)
-    annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Modelica.Mechanics.MultiBody.Forces.Spring spring(
     s_unstretched=0.2,
     m=0.5,

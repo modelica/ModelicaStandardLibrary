@@ -31,40 +31,31 @@ model AD_DA_conversion "Conversion circuit"
 equation
   connect(pulse.y, aD_Converter.trig) annotation (Line(
       points={{-12,42},{-1,42},{-1,14.7}},
-      color={127,0,127},
-      smooth=Smooth.None));
+      color={127,0,127}));
   connect(sineVoltage.p, aD_Converter.p) annotation (Line(
       points={{-80,14},{-38.5,14},{-38.5,12.1},{-10.1,12.1}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(sineVoltage.n, aD_Converter.n) annotation (Line(
       points={{-80,-6},{-38,-6},{-38,-6.1},{-10.1,-6.1}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(ground.p, sineVoltage.n) annotation (Line(
       points={{54,-20},{-80,-20},{-80,-6}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(sineVoltage.p, resistor.p) annotation (Line(
       points={{-80,14},{-80,78},{-28,78}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(dA_Converter.trig, pulse.y) annotation (Line(
       points={{31,14.7},{31,42},{-12,42}},
-      color={127,0,127},
-      smooth=Smooth.None));
+      color={127,0,127}));
   connect(aD_Converter.y, dA_Converter.x) annotation (Line(
       points={{8.1,3},{21.9,3}},
-      color={127,0,127},
-      smooth=Smooth.None));
+      color={127,0,127}));
   connect(dA_Converter.p, resistor.n) annotation (Line(
       points={{40.1,12.1},{40.1,78},{-8,78}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(dA_Converter.n, ground.p) annotation (Line(
       points={{40.1,-6.1},{54,-6.1},{54,-20}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   annotation (    experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>

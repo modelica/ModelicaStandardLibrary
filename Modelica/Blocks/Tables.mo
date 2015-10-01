@@ -231,8 +231,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
       Line(points={{-60.0,40.0},{-60.0,-40.0},{60.0,-40.0},{60.0,40.0},{30.0,40.0},{30.0,-40.0},{-30.0,-40.0},{-30.0,40.0},{-60.0,40.0},{-60.0,20.0},{60.0,20.0},{60.0,0.0},{-60.0,0.0},{-60.0,-20.0},{60.0,-20.0},{60.0,-40.0},{-60.0,-40.0},{-60.0,40.0},{60.0,40.0},{60.0,-40.0}}),
       Line(points={{0.0,40.0},{0.0,-40.0}}),
@@ -265,7 +264,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
                 0,0,0}),
-          Line(points={{0,40},{0,-40}}, color={0,0,0}),
+          Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,40},{-28,20}},
             lineColor={0,0,0},
@@ -533,8 +532,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
       Line(points={{-60.0,40.0},{-60.0,-40.0},{60.0,-40.0},{60.0,40.0},{30.0,40.0},{30.0,-40.0},{-30.0,-40.0},{-30.0,40.0},{-60.0,40.0},{-60.0,20.0},{60.0,20.0},{60.0,0.0},{-60.0,0.0},{-60.0,-20.0},{60.0,-20.0},{60.0,-40.0},{-60.0,-40.0},{-60.0,40.0},{60.0,40.0},{60.0,-40.0}}),
       Line(points={{0.0,40.0},{0.0,-40.0}}),
@@ -567,7 +565,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
                 0,0,0}),
-          Line(points={{0,40},{0,-40}}, color={0,0,0}),
+          Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,40},{-28,20}},
             lineColor={0,0,0},
@@ -836,8 +834,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 </html>"),
       Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
       Line(points={{-60.0,40.0},{-60.0,-40.0},{60.0,-40.0},{60.0,40.0},{30.0,40.0},{30.0,-40.0},{-30.0,-40.0},{-30.0,40.0},{-60.0,40.0},{-60.0,20.0},{60.0,20.0},{60.0,0.0},{-60.0,0.0},{-60.0,-20.0},{60.0,-20.0},{60.0,-40.0},{-60.0,-40.0},{-60.0,40.0},{60.0,40.0},{60.0,-40.0}}),
       Line(points={{0.0,40.0},{0.0,-40.0}}),
@@ -881,7 +878,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
                 -40},{-28,40},{-54,40},{-54,20},{54,20},{54,0},{-54,0},{-54,-20},
                 {54,-20},{54,-40},{-54,-40},{-54,40},{54,40},{54,-40}}, color={
                 0,0,0}),
-          Line(points={{0,40},{0,-40}}, color={0,0,0}),
+          Line(points={{0,40},{0,-40}}),
           Rectangle(
             extent={{-54,20},{-28,0}},
             lineColor={0,0,0},
@@ -912,8 +909,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             lineColor={0,0,0},
             fillColor={255,255,0},
             fillPattern=FillPattern.Solid),
-          Line(points={{-54,40},{-28,20}}, color={0,0,0}),
-          Line(points={{-28,40},{-54,20}}, color={0,0,0}),
+          Line(points={{-54,40},{-28,20}}),
+          Line(points={{-28,40},{-54,20}}),
           Text(
             extent={{-54,-40},{-30,-56}},
             textString="u1",
@@ -966,8 +963,7 @@ protected
 equation
   connect(clock.y,t_new. u[1]) annotation (Line(
       points={{-59,10},{-42,10}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.1\")));
 end Test25_usertab;
 </pre>

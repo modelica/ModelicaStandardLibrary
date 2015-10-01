@@ -3,7 +3,7 @@ model SpringDamperSystem "Simple spring/damper/mass system"
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+        transformation(extent={{-80,20},{-60,40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body1(
     m=1,
     animation=animation,
@@ -23,9 +23,9 @@ model SpringDamperSystem "Simple spring/damper/mass system"
         extent={{-10,10},{10,-10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar1(animation=animation, r={0.3,0,0})
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(animation=animation, r={0.6,0,0})
-    annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{0,20},{20,40}})));
   Modelica.Mechanics.MultiBody.Parts.Body body2(
     m=1,
     animation=animation,

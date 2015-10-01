@@ -19,21 +19,20 @@ model Engine1a "Model of one cylinder engine"
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{80,22},
-            {100,42}}, rotation=0)));
+            {100,42}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute Bearing(
     useAxisFlange=true,
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{-10,-80},
-            {10,-100}}, rotation=0)));
+            {10,-100}})));
   inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
-        transformation(extent={{-50,-100},{-30,-80}}, rotation=0)));
+        transformation(extent={{-50,-100},{-30,-80}})));
   Modelica.Mechanics.Rotational.Components.Inertia Inertia(
     stateSelect=StateSelect.always,
     phi(fixed=true, start=0),
     w(fixed=true, start=10),
-    J=1) annotation (Placement(transformation(extent={{-28,-120},{-8,-100}},
-          rotation=0)));
+    J=1) annotation (Placement(transformation(extent={{-28,-120},{-8,-100}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Crank4(
     height=0.05,
     widthDirection={1,0,0},
@@ -43,11 +42,9 @@ model Engine1a "Model of one cylinder engine"
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank3(r={0.1,0,0}, diameter=
-        0.03) annotation (Placement(transformation(extent={{81.5,-71},{101.5,-51}},
-          rotation=0)));
+        0.03) annotation (Placement(transformation(extent={{81.5,-71},{101.5,-51}})));
   Modelica.Mechanics.MultiBody.Parts.BodyCylinder Crank1(diameter=0.05, r={0.1,
-        0,0}) annotation (Placement(transformation(extent={{24,-100},{44,-80}},
-          rotation=0)));
+        0,0}) annotation (Placement(transformation(extent={{24,-100},{44,-80}})));
   Modelica.Mechanics.MultiBody.Parts.BodyBox Crank2(
     r={0,0.1,0},
     height=0.05,
@@ -60,9 +57,9 @@ model Engine1a "Model of one cylinder engine"
     n={1,0,0},
     cylinderLength=0.02,
     cylinderDiameter=0.05) annotation (Placement(transformation(extent={{80,-30},
-            {100,-10}}, rotation=0)));
+            {100,-10}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation Mid(r={0.05,0,0})
-    annotation (Placement(transformation(extent={{70,-53},{90,-33}}, rotation=0)));
+    annotation (Placement(transformation(extent={{70,-53},{90,-33}})));
   Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
     boxWidth=0.02,
     n={0,-1,0},
@@ -72,7 +69,7 @@ model Engine1a "Model of one cylinder engine"
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation cylPosition(animation=
         false, r={0.15,0.45,0}) annotation (Placement(transformation(extent={{-0.5,
-            100},{19.5,120}}, rotation=0)));
+            100},{19.5,120}})));
 equation
   connect(world.frame_b, Bearing.frame_a) annotation (Line(
       points={{-30,-90},{-10,-90}},
@@ -119,7 +116,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(Inertia.flange_b, Bearing.axis)
-    annotation (Line(points={{-8,-110},{0,-110},{0,-100}}, color={0,0,0}));
+    annotation (Line(points={{-8,-110},{0,-110},{0,-100}}));
   connect(Mid.frame_a, Crank2.frame_b) annotation (Line(
       points={{70,-43},{63,-43},{63,-61},{70,-61},{70,-66}},
       color={95,95,95},

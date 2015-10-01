@@ -6,11 +6,11 @@ package Lines
   model OLine "Lossy Transmission Line"
     //extends Interfaces.ThreePol;
     Modelica.Electrical.Analog.Interfaces.Pin p1 annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin p2 annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin p3 annotation (Placement(
-          transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
+          transformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Voltage v13;
     Modelica.SIunits.Voltage v23;
     Modelica.SIunits.Current i1;
@@ -194,11 +194,9 @@ package Lines
       parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
       Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-        annotation (Placement(transformation(extent={{40,-10},{60,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
 
       parameter Real Cl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Capacitance matrix";
@@ -298,11 +296,9 @@ package Lines
     model segment_last "Multiple line last segment model"
 
       Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-        annotation (Placement(transformation(extent={{20,-10},{40,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
       parameter Integer lines(final min=1) = 3 "Number of lines";
       parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
@@ -389,11 +385,9 @@ package Lines
       useHeatPort=useHeatPort,
       T=T);
     Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-      annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-100,-80},{-80,80}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-      annotation (Placement(transformation(extent={{80,-80},{100,80}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{80,-80},{100,80}})));
 
   equation
     connect(p, s_first.p);
@@ -517,11 +511,11 @@ package Lines
   model ULine "Lossy RC Line"
     //extends Interfaces.ThreePol;
     Modelica.Electrical.Analog.Interfaces.Pin p1 annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+          transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin p2 annotation (Placement(
-          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+          transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin p3 annotation (Placement(
-          transformation(extent={{-10,-110},{10,-90}}, rotation=0),
+          transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Voltage v13;
     Modelica.SIunits.Voltage v23;
@@ -875,14 +869,14 @@ Modelica in file \"Modelica/package.mo\".</i>
 </dd>
 </dl>
 </html>"), Icon(graphics={
-        Line(points={{-60,50},{-90,50}}, color={0,0,0}),
+        Line(points={{-60,50},{-90,50}}),
         Rectangle(
           extent={{-60,60},{60,-60}},
           lineColor={0,0,0}),
-        Line(points={{-60,-50},{-90,-50}}, color={0,0,0}),
-        Line(points={{36,20},{-36,20}}, color={0,0,0}),
-        Line(points={{-36,40},{-36,0}},  color={0,0,0}),
-        Line(points={{36,40},{36,0}},  color={0,0,0}),
-        Line(points={{60,50},{90,50}}, color={0,0,0}),
-        Line(points={{60,-50},{90,-50}}, color={0,0,0})}));
+        Line(points={{-60,-50},{-90,-50}}),
+        Line(points={{36,20},{-36,20}}),
+        Line(points={{-36,40},{-36,0}}),
+        Line(points={{36,40},{36,0}}),
+        Line(points={{60,50},{90,50}}),
+        Line(points={{60,-50},{90,-50}})}));
 end Lines;

@@ -321,8 +321,7 @@ The usage is demonstrated, e.g., in example
   equation
     y = edge(u);
         annotation (defaultComponentName="rising1", Icon(graphics={Line(points=
-                  {{-80,-68},{-36,-68},{-36,-24},{22,-24},{22,-68},{66,-68}},
-                color={0,0,0}), Line(points={{-80,32},{-36,32},{-36,76},{-36,76},
+                  {{-80,-68},{-36,-68},{-36,-24},{22,-24},{22,-68},{66,-68}}), Line(points={{-80,32},{-36,32},{-36,76},{-36,76},
                   {-36,32},{66,32}}, color={255,0,255})}),
                                    Documentation(info="<html>
 <p>
@@ -349,8 +348,7 @@ The usage is demonstrated, e.g., in example
   equation
     y = edge(not_u);
         annotation (defaultComponentName="falling1", Icon(graphics={Line(points=
-                 {{-80,-68},{-36,-68},{-36,-24},{22,-24},{22,-68},{66,-68}},
-                color={0,0,0}), Line(points={{-80,32},{24,32},{24,76},{24,76},{
+                 {{-80,-68},{-36,-68},{-36,-24},{22,-24},{22,-68},{66,-68}}), Line(points={{-80,32},{24,32},{24,76},{24,76},{
                   24,32},{66,32}}, color={255,0,255})}),
                                    Documentation(info="<html>
 <p>
@@ -375,14 +373,12 @@ The usage is demonstrated, e.g., in example
   equation
     y = change(u);
         annotation (defaultComponentName="changing1", Icon(graphics={
-            Line(points={{-80,-68},{-36,-68},{-36,-24},{22,-24},{22,-68},{66,-68}},
-                color={0,0,0}),
+            Line(points={{-80,-68},{-36,-68},{-36,-24},{22,-24},{22,-68},{66,-68}}),
             Line(points={{-80,32},{-36,32},{-36,76},{-36,76},{-36,32},{66,32}},
                 color={255,0,255}),
             Line(
               points={{24,32},{24,76}},
-              color={255,0,255},
-              smooth=Smooth.None)}),
+              color={255,0,255})}),
                                    Documentation(info="<html>
 <p>
 A changing edge, i.e., either rising or falling,
@@ -431,8 +427,7 @@ The usage is demonstrated, e.g., in example
               extent={{-250,-120},{250,-150}},
               lineColor={0,0,0},
               textString="%delayTime s"),
-            Line(points={{-80,-66},{-60,-66},{-60,-22},{38,-22},{38,-66},{66,-66}},
-                color={0,0,0}),
+            Line(points={{-80,-66},{-60,-66},{-60,-22},{38,-22},{38,-66},{66,-66}}),
             Line(points={{-80,32},{-4,32},{-4,76},{38,76},{38,32},{66,32}},
                 color={255,0,255})}),
                                    Documentation(info="<html>
