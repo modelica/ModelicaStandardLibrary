@@ -1196,112 +1196,6 @@ algorithm
 </html>"));
 end thermalConductivity;
 
-    package Utilities "Utility functions"
-      extends Modelica.Icons.UtilitiesPackage;
-      function spliceFunction "Spline interpolation of two functions"
-        extends Modelica.Icons.Function;
-        input Real pos "Returned value for x-deltax >= 0";
-        input Real neg "Returned value for x+deltax <= 0";
-        input Real x "Function argument";
-        input Real deltax=1 "Region around x with spline interpolation";
-        output Real out;
-    protected
-        Real scaledX;
-        Real scaledX1;
-        Real y;
-      algorithm
-        scaledX1 := x/deltax;
-        scaledX := scaledX1*Modelica.Math.asin(1);
-        if scaledX1 <= -0.999999999 then
-          y := 0;
-        elseif scaledX1 >= 0.999999999 then
-          y := 1;
-        else
-          y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
-        end if;
-        out := pos*y + (1 - y)*neg;
-        annotation (derivative=spliceFunction_der);
-      end spliceFunction;
-
-      function spliceFunction_der "Derivative of spliceFunction"
-        extends Modelica.Icons.Function;
-        input Real pos;
-        input Real neg;
-        input Real x;
-        input Real deltax=1;
-        input Real dpos;
-        input Real dneg;
-        input Real dx;
-        input Real ddeltax=0;
-        output Real out;
-    protected
-        Real scaledX;
-        Real scaledX1;
-        Real dscaledX1;
-        Real y;
-      algorithm
-        scaledX1 := x/deltax;
-        scaledX := scaledX1*Modelica.Math.asin(1);
-        dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
-        if scaledX1 <= -0.99999999999 then
-          y := 0;
-        elseif scaledX1 >= 0.9999999999 then
-          y := 1;
-        else
-          y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
-        end if;
-        out := dpos*y + (1 - y)*dneg;
-        if (abs(scaledX1) < 1) then
-          out := out + (pos - neg)*dscaledX1*Modelica.Math.asin(1)/2/(
-            Modelica.Math.cosh(Modelica.Math.tan(scaledX))*Modelica.Math.cos(
-            scaledX))^2;
-        end if;
-      end spliceFunction_der;
-
-      function smoothMax
-        extends Modelica.Icons.Function;
-        import Modelica.Math;
-
-        input Real x1 "First argument of smooth max operator";
-        input Real x2 "Second argument of smooth max operator";
-        input Real dx
-        "Approximate difference between x1 and x2, below which regularization starts";
-        output Real y "Result of smooth max operator";
-      algorithm
-        y := max(x1, x2) + Math.log((exp((4/dx)*(x1 - max(x1, x2)))) + (exp((4/
-          dx)*(x2 - max(x1, x2)))))/(4/dx);
-        annotation (smoothOrder=2, Documentation(info="<html>
-<p>An implementation of Kreisselmeier Steinhauser smooth maximum</p>
-</html>"));
-      end smoothMax;
-
-      function smoothMax_der
-        extends Modelica.Icons.Function;
-
-        import Modelica.Math.exp;
-        import Modelica.Math.log;
-
-        input Real x1 "First argument of smooth max operator";
-        input Real x2 "Second argument of smooth max operator";
-        input Real dx
-        "Approximate difference between x1 and x2, below which regularization starts";
-        input Real dx1;
-        input Real dx2;
-        input Real ddx;
-        output Real dy "Derivative of smooth max operator";
-      algorithm
-        dy := (if x1 > x2 then dx1 else dx2) + 0.25*(((4*(dx1 - (if x1 > x2
-           then dx1 else dx2))/dx - 4*(x1 - max(x1, x2))*ddx/dx^2)*exp(4*(x1 -
-          max(x1, x2))/dx) + (4*(dx2 - (if x1 > x2 then dx1 else dx2))/dx - 4*(
-          x2 - max(x1, x2))*ddx/dx^2)*exp(4*(x2 - max(x1, x2))/dx))*dx/(exp(4*(
-          x1 - max(x1, x2))/dx) + exp(4*(x2 - max(x1, x2))/dx)) + log(exp(4*(x1
-           - max(x1, x2))/dx) + exp(4*(x2 - max(x1, x2))/dx))*ddx);
-
-        annotation (Documentation(info="<html>
-<p>An implementation of Kreisselmeier Steinhauser smooth maximum</p>
-</html>"));
-      end smoothMax_der;
-    end Utilities;
 
     redeclare function extends velocityOfSound
     algorithm
@@ -1576,6 +1470,115 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 <p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isentropicEnthalpy;
+
+    package Utilities "Utility functions"
+      extends Modelica.Icons.UtilitiesPackage;
+      function spliceFunction "Spline interpolation of two functions"
+        extends Modelica.Icons.Function;
+        input Real pos "Returned value for x-deltax >= 0";
+        input Real neg "Returned value for x+deltax <= 0";
+        input Real x "Function argument";
+        input Real deltax=1 "Region around x with spline interpolation";
+        output Real out;
+    protected
+        Real scaledX;
+        Real scaledX1;
+        Real y;
+      algorithm
+        scaledX1 := x/deltax;
+        scaledX := scaledX1*Modelica.Math.asin(1);
+        if scaledX1 <= -0.999999999 then
+          y := 0;
+        elseif scaledX1 >= 0.999999999 then
+          y := 1;
+        else
+          y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+        end if;
+        out := pos*y + (1 - y)*neg;
+        annotation (derivative=spliceFunction_der);
+      end spliceFunction;
+
+      function spliceFunction_der "Derivative of spliceFunction"
+        extends Modelica.Icons.Function;
+        input Real pos;
+        input Real neg;
+        input Real x;
+        input Real deltax=1;
+        input Real dpos;
+        input Real dneg;
+        input Real dx;
+        input Real ddeltax=0;
+        output Real out;
+    protected
+        Real scaledX;
+        Real scaledX1;
+        Real dscaledX1;
+        Real y;
+      algorithm
+        scaledX1 := x/deltax;
+        scaledX := scaledX1*Modelica.Math.asin(1);
+        dscaledX1 := (dx - scaledX1*ddeltax)/deltax;
+        if scaledX1 <= -0.99999999999 then
+          y := 0;
+        elseif scaledX1 >= 0.9999999999 then
+          y := 1;
+        else
+          y := (Modelica.Math.tanh(Modelica.Math.tan(scaledX)) + 1)/2;
+        end if;
+        out := dpos*y + (1 - y)*dneg;
+        if (abs(scaledX1) < 1) then
+          out := out + (pos - neg)*dscaledX1*Modelica.Math.asin(1)/2/(
+            Modelica.Math.cosh(Modelica.Math.tan(scaledX))*Modelica.Math.cos(
+            scaledX))^2;
+        end if;
+      end spliceFunction_der;
+
+      function smoothMax
+        extends Modelica.Icons.Function;
+        import Modelica.Math;
+
+        input Real x1 "First argument of smooth max operator";
+        input Real x2 "Second argument of smooth max operator";
+        input Real dx
+        "Approximate difference between x1 and x2, below which regularization starts";
+        output Real y "Result of smooth max operator";
+      algorithm
+        y := max(x1, x2) + Math.log((exp((4/dx)*(x1 - max(x1, x2)))) + (exp((4/
+          dx)*(x2 - max(x1, x2)))))/(4/dx);
+        annotation (smoothOrder=2, Documentation(info="<html>
+<p>An implementation of Kreisselmeier Steinhauser smooth maximum</p>
+</html>"));
+      end smoothMax;
+
+      function smoothMax_der
+        extends Modelica.Icons.Function;
+
+        import Modelica.Math.exp;
+        import Modelica.Math.log;
+
+        input Real x1 "First argument of smooth max operator";
+        input Real x2 "Second argument of smooth max operator";
+        input Real dx
+        "Approximate difference between x1 and x2, below which regularization starts";
+        input Real dx1;
+        input Real dx2;
+        input Real ddx;
+        output Real dy "Derivative of smooth max operator";
+      algorithm
+        dy := (if x1 > x2 then dx1 else dx2) + 0.25*(((4*(dx1 - (if x1 > x2
+           then dx1 else dx2))/dx - 4*(x1 - max(x1, x2))*ddx/dx^2)*exp(4*(x1 -
+          max(x1, x2))/dx) + (4*(dx2 - (if x1 > x2 then dx1 else dx2))/dx - 4*(
+          x2 - max(x1, x2))*ddx/dx^2)*exp(4*(x2 - max(x1, x2))/dx))*dx/(exp(4*(
+          x1 - max(x1, x2))/dx) + exp(4*(x2 - max(x1, x2))/dx)) + log(exp(4*(x1
+           - max(x1, x2))/dx) + exp(4*(x2 - max(x1, x2))/dx))*ddx);
+
+        annotation (Documentation(info="<html>
+<p>An implementation of Kreisselmeier Steinhauser smooth maximum</p>
+</html>"));
+      end smoothMax_der;
+    end Utilities;
+
+
     annotation (Documentation(info="<html>
 <h4>Thermodynamic Model</h4>
 <p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.

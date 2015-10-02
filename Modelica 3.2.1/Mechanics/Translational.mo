@@ -312,11 +312,11 @@ combination). In this case the system is not at rest.
             Text(
               extent={{-60,-84},{-40,-94}},
               lineColor={255,0,0},
-              textString=" 0.5 m 
+              textString=" 0.5 m
  (1 m) "),  Text(
               extent={{20,-84},{40,-94}},
               lineColor={255,0,0},
-              textString=" 1 m  
+              textString=" 1 m
  (1 m) "),  Text(
               extent={{-20,-84},{0,-94}},
               lineColor={0,0,0},

@@ -2494,7 +2494,8 @@ is given to compare the approximation.
     SIunits.MassFraction x(start=x_start)
       "Absolute humidity in kg water/kg dry air";
     SIunits.SpecificEnthalpy[n_T] hx_T "h_1+x for const T";
-    SIunits.SpecificEnthalpy[n_h] hx_h(start=h_const) "Const h_1+x";
+    SIunits.SpecificEnthalpy[n_h] hx_h(start=h_const, each fixed=true)
+      "Const h_1+x";
     SIunits.SpecificEnthalpy[n_phi] hx_phi "h_1+x for const phi";
     SIunits.SpecificEnthalpy[n_T] y_T "Chart enthalpy for const T";
     SIunits.SpecificEnthalpy[n_h] y_h "Chart enthalpy for const h";
@@ -9182,11 +9183,6 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
-
-
-
-
-
 
 
 annotation (preferredView="info",Documentation(info="<HTML>

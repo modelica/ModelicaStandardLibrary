@@ -12,7 +12,7 @@ package Fittings
           annotation (Placement(transformation(extent={{-20,0},{0,20}})));
 
     protected
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small(min=0)=
                  Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP(
                     geometry,
                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var(
@@ -55,7 +55,7 @@ The details of the model are described in the
           annotation (Placement(transformation(extent={{-20,0},{0,20}})));
 
     protected
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small(min=0)=
                  Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
                    Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con(
                        d_hyd=geometry.d_hyd,
@@ -115,7 +115,7 @@ The details of the model are described in the
           choice=Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.general()));
 
     protected
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small(min=0)=
                  Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP(
                  Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con(
                        A_0=geometry.venaCrossArea,
@@ -183,7 +183,7 @@ The details of the model are described in the
                            Medium.reference_T,
                            Medium.reference_X)
         "Medium state to compute dp_small"                                        annotation(HideResult=true);
-      parameter Medium.AbsolutePressure dp_small=
+      parameter Medium.AbsolutePressure dp_small(min=0)=
                  Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                    Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
                        a=a,
@@ -311,13 +311,13 @@ model SimpleGenericOrifice
     annotation (Evaluate=true, Dialog(tab="Advanced"));
 
   protected
-  parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
+  parameter Medium.AbsolutePressure dp_small(min=0) = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
       "Regularization of zero flow if |dp| < dp_small"
     annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
 
   // Variables
   public
-  Real zeta_nominal(start = zeta);
+  Real zeta_nominal;
   Medium.Density d = 0.5*(Medium.density(state_a) + Medium.density(state_b));
   Modelica.SIunits.Pressure dp_fg(start=dp_start)
       "pressure loss due to friction and gravity";
@@ -334,7 +334,7 @@ equation
   if use_zeta then
     zeta_nominal = zeta;
   else
-    dp_nominal = BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/d*m_flow_nominal^2;
+    zeta_nominal = 2*A_mean^2*d*dp_nominal/m_flow_nominal^2;
   end if;
 
   Ib_flow = 0;
@@ -1604,7 +1604,7 @@ The used sufficient criteria for monotonicity follows from:
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
-        parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
+        parameter Medium.AbsolutePressure dp_small(min=0) = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
           "Regularization of zero flow if |dp| < dp_small"
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         //parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
@@ -1835,7 +1835,7 @@ The used sufficient criteria for monotonicity follows from:
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
-        parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
+        parameter Medium.AbsolutePressure dp_small(min=0) = if system.use_eps_Re then dp_nominal/m_flow_nominal*m_flow_small else system.dp_small
           "Regularization of zero flow if |dp| < dp_small"
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         //parameter Medium.MassFlowRate m_flow_small = system.m_flow_small

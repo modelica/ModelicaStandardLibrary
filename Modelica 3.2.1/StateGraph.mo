@@ -1044,8 +1044,7 @@ has a higher priority to fire as alternative.split[2]).
 </p>
 </html>"),      experiment(StopTime=15),
         Diagram(coordinateSystem(extent={{-200,-200},{200,200}}, initialScale=
-                0.1)),
-        Icon(coordinateSystem(initialScale=0.1)));
+                0.1)));
   end ExecutionPaths;
 
   model ShowCompositeStep
@@ -1990,9 +1989,7 @@ package Interfaces "Connectors and partial models"
               points={{-100,100},{100,0},{-100,-100},{-100,100}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-                                            Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})));
+              fillPattern=FillPattern.Solid)}));
   end CompositeStep_resume;
 
   connector CompositeStep_suspend
@@ -2008,9 +2005,7 @@ package Interfaces "Connectors and partial models"
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-                              Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}})));
+              fillPattern=FillPattern.Solid)}));
   end CompositeStep_suspend;
 
   connector CompositeStepStatePort_in

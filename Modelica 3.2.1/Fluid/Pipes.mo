@@ -1422,7 +1422,7 @@ simulation and/or might give a more robust simulation.
             Real[n-1] zetas "coefficient for quadratic flow";
 
             // Reynolds Number
-            Medium.AbsolutePressure[n-1] dps_fg_turbulent=
+            Medium.AbsolutePressure[n-1] dps_fg_turbulent(each min=0)=
                 {(mus_act[i]*diameters[i]*pi/4)^2*Re_turbulent^2/(ks_inv[i]*rhos_act[i]) for i in 1:n-1} if
                    show_Res "Start of turbulent flow in circular tubes";
 
@@ -3547,7 +3547,7 @@ b has the same sign of the change of density.</p>
           "= true, use m_flow = f(dp), otherwise dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
       protected
-        parameter Medium.AbsolutePressure dp_fric_nominal=
+        parameter Medium.AbsolutePressure dp_fric_nominal(min=0)=
           WallFriction.pressureLoss_m_flow(
                          m_flow_nominal,
                          rho_nominal,
@@ -3560,7 +3560,7 @@ b has the same sign of the change of density.</p>
                          roughness,
                          m_flow_small)
           "Nominal pressure loss (excluding static head)";
-        parameter Medium.AbsolutePressure dp_small = if system.use_eps_Re then dp_fric_nominal/m_flow_nominal*m_flow_small else system.dp_small
+        parameter Medium.AbsolutePressure dp_small(min=0) = if system.use_eps_Re then dp_fric_nominal/m_flow_nominal*m_flow_small else system.dp_small
           "Within regularization if |dp| < dp_small (may be wider for large discontinuities in static head)"
           annotation(Dialog(tab="Advanced", enable=from_dp and WallFriction.use_dp_small));
 

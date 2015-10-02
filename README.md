@@ -13,17 +13,36 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-Download [Modelica Standard Library v3.2.1+build.3 (2015-07-30)](../../archive/v3.2.1+build.3.zip)
+Download [Modelica Standard Library v3.2.1+build.4 (2015-09-30)](../../archive/v3.2.1+build.4.zip)
 
 #### Release notes
 
+* [Version v3.2.1+build.4 (2015-09-30)](../../archive/v3.2.1+build.4.zip)
+    * Summary:
+        * Version 3.2.1 (Build 4) is backward compatible to version 3.2.1 build 3, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 4 (see also issue (4) below, ticket <a href="https://trac.modelica.org/Modelica/ticket/1757">1757</a>).
+        * This version is a bug-fix release.
+    * Short Overview:
+        1. This version of the Modelica package is compatible to Modelica Specification **3.2 revision 2** (with exception of issue (3) reported below and in [ticket 1758](https://trac.modelica.org/Modelica/ticket/1758)
+        2. [10 tickets](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html") have been fixed for this release. In particular the following **critical bug** has been fixed: Ticket [1768](https://trac.modelica.org/Modelica/ticket/1768) fixes an
+issue with block `CombiTimeTable`(wrong output when using fixed time step integrator with time step
+greater than table resolution).
+        3. Ticket [1758](https://trac.modelica.org/Modelica/ticket/1758) states that simulation of `Modelica.Fluid.Examples.HeatingSystem` fails in Dymola 2016 if option "pedantic mode for checking Modelica semantics" is set. This issue was not fixed in the library.
+        4. In ticket [1757](https://trac.modelica.org/Modelica/ticket/1757) it is
+(correctly) stated that the example model `PsychrometricData` was moved to another location and that this is a non-backwards compatible change. This non-backwards compatible change is
+accepted, because it fixes a circular depedency (a model references
+a package in which it resides), for details see ticket [1679](https://trac.modelica.org/Modelica/ticket/1679). Fixing this ticket is seen as of much higher priority, as the small
+drawback that an example model is moved (and the probability is very high that this moved model is not used in any user model).
+        5. In the release notes of build 3 it is stated that no models, blocks, or functions have been newly introduced. This is not correct.
+    * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_4.html)
+
+
 * [Version v3.2.1+build.3 (2015-07-30)](../../archive/v3.2.1+build.3.zip)
-  * Summary: Version 3.2.1 (Build 3) is backward compatible to version 3.2.1 (Build 2), that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release.
-  * Short Overview:
-    * This version of the Modelica package is **fully compatible** to Modelica Specification **3.2 revision 2**.
-    * About [103 tickets](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html) have been fixed for this release.
-    * **No** models and blocks and functions are newly included.
-  * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3.html)
+    * Summary: Version 3.2.1 (Build 3) is backward compatible to version 3.2.1 (Build 2), that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release.
+    * Short Overview:
+        * This version of the Modelica package is **fully compatible** to Modelica Specification **3.2 revision 2**.
+        * About [103 tickets](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html) have been fixed for this release.
+        * **No** models and blocks and functions are newly included.
+    * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3.html)
 </ul>
 
 * [Version v3.2.1 (2013-08-14)](../../archive/v3.2.1+build.2.zip)

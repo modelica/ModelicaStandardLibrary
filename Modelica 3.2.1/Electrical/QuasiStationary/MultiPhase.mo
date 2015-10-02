@@ -1798,9 +1798,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>
 </p>
 
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
     end PowerSensor;
     annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.

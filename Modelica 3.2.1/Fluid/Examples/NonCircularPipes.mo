@@ -41,7 +41,6 @@ equation
   connect(circular_pipe.port_b, massflowsink1.ports[1]) annotation(Line(points = {{-10, 40}, {30, 40}}, color = {0, 127, 255}));
   connect(annulus_pipe.port_b, massflowsink2.ports[1]) annotation(Line(points = {{-10, -40}, {30, -40}}, color = {0, 127, 255}));
   annotation(experiment(StopTime=1),
-  Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})), Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})),
   Documentation(info="<html>
 <p>
 In this example two pipes are used to demonstrate the use of circular (default) and non-circular pipes,

@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.1 (Build 3)"
+package Modelica "Modelica Standard Library - Version 3.2.1 (Build 4)"
 extends Modelica.Icons.Package;
 
 
@@ -2422,6 +2422,112 @@ more of the following changes.
 </ul>
 </html>"));
 end VersionManagement;
+
+class Version_3_2_1_build_4 "Version 3.2.1 build 4 (Sept. 30, 2015)"
+    extends Modelica.Icons.ReleaseNotes;
+annotation (Documentation(info="<html>
+<p>
+Version 3.2.1 build 4 is backward compatible to version 3.2.1 build 3,
+that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will
+work without any changes also with version 3.2.1 build 4
+(see also issue (4) below, ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a>).
+This version is a bug-fix release. Short Overview:
+</p>
+
+<ol>
+<li> This version of the Modelica package is <b>fully compatible</b> to
+     Modelica Specification <b>3.2 revision 2</b>
+     (with exception of issue (3) reported below and in
+      ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>).
+     </li>
+
+<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
+     have been fixed for this release. In particular the following <b>critical bug</b> has been fixed:<br>
+     Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a>
+     fixes an issue with block <a href=\"modelica://Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
+     (wrong output when using fixed time step integrator with time step greater than table resolution).
+      </li>
+
+<li> Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>
+     states that simulation of
+     <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Modelica.Fluid.Examples.HeatingSystem</a>
+     fails in Dymola 2016 if option \"pedantic mode for checking Modelica semantics\" is set.
+     This issue was not fixed in the library due to the following reasons:<br>
+     The Modelica.Fluid library uses a particular pattern to define some parameters resulting
+     in a cyclic dependency of parameters if only incident information is taken into account.
+     According to Modelica Specification 3.2 revision 2 this is not allowed
+     (and therefore Dymola 2016 correctly reports errors if the pedantic flag is set).
+     In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1320\">1320</a>
+     this issue was resolved for Modelica Specification 3.3 revision 1 by allowing
+     cyclic parameter definitions if the cycles disappear when evaluating parameters
+     that have annotation Evaluate=true. Modelica.Fluid is correct with respect
+     to Modelica Specification 3.3 revision 1.
+     Changing the Modelica.Fluid library for build 4 so that no cyclic parameter dependencies
+     would be present anymore would (a) result in a non-backwards compatible
+     change and (b) make the usage of Modelica.Fluid less convenient. For this
+     reason Modelica.Fluid is not changed. (Practically, this means for example that
+     the pedantic flag in Dymola 2016 needs to be switched off, when using the
+     Modelica.Fluid library in version 3.2.1 build 4 and any previous version).
+     </li>
+
+<li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
+     that the example model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a>
+     was moved to another location and that this is a non-backwards compatible change.
+     This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
+     a package in which it resides), for details see ticket
+     <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
+     Fixing this ticket is seen as of much higher priority, as the small drawback that
+     an example model is moved (and the probability is very high that this moved model is not
+     used in any user model).
+     </li>
+
+<li> In the release notes of build 3 it is stated that no models, blocks, or functions have been
+     newly introduced. This is not correct.<br>
+     In package Modelica the following models have been newly introduced:<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates
+     (to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1375\">1375</a>).<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Fluid.Examples.NonCircularPipes
+     (to check the fix of ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">1681</a>)<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Media.Examples.PsychrometricData
+     (to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>).<br>
+     In package ModelicaTest the following models have been newly introduced:<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Tables.CombiTable2D.Test19<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test20<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test21<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test22<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test23<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test68<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test69<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test70<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test71<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test72<br>
+     &nbsp;&nbsp;&nbsp;MultiBody.PlanarLoopWithMove
+     </li>
+</ol>
+
+<p>
+This release of package Modelica, and the accompanying ModelicaTest,
+has been tested with the following tools (the tools are listed alphabetically.
+At the time of the test, some of the tools might not yet support the complete Modelica package):
+</p>
+
+<ul>
+<li> Dymola 2016<br>
+     Regression test results with regards to Modelica 3.2.1 build 3 are available
+     <a href=\"https://trac.modelica.org/Modelica/ticket/1681\">here</a>.</li>
+
+<li> Maplesim Parser</li>
+<li> OpenModelica(Windows, Linux, Mac)<br>
+     Test reports for the daily builds are available
+     <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.</li>
+</ul>
+
+<p>
+The exact difference between package Modelica version 3.2.1 build 3 and version 3.2.1 build 4 is summarized in
+a <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/DifferencesTo3.2.1+build.3.html\">comparison table</a>.
+</p>
+</html>"));
+end Version_3_2_1_build_4;
 
 class Version_3_2_1_build_3 "Version 3.2.1 build 3 (July 30, 2015)"
     extends Modelica.Icons.ReleaseNotes;
@@ -7782,27 +7888,13 @@ User's Guides that can be accessed by the following links:
 end UsersGuide;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 annotation (
 preferredView="info",
 version="3.2.1",
-versionBuild=3,
+versionBuild=4,
 versionDate="2013-08-14",
-dateModified = "2015-07-30 09:15:00Z",
-revisionId="$Id::                                       $",
+dateModified = "2015-09-30 09:15:00Z",
+revisionId="$Id:: package.mo 8512 2015-09-30 14:11:39Z #$",
 uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
 conversion(
  noneFromVersion="3.2",
