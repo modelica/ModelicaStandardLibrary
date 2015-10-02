@@ -1,58 +1,90 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.UsersGuide.BuildingSystemModels</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.UsersGuide.BuildingSystemModels</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Building system models&quot;">
+<meta name="description" content="&quot;Building system models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BuildingSystemModels<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels"></A><A HREF="Modelica_Fluid_UsersGuide.html#Modelica.Fluid.UsersGuide"
->Modelica.Fluid.UsersGuide</A>.BuildingSystemModels</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BuildingSystemModels<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.UsersGuide.BuildingSystemModels"></a><a href="Modelica_Fluid_UsersGuide.html#Modelica.Fluid.UsersGuide"
+>Modelica.Fluid.UsersGuide</a>.BuildingSystemModels</h2>
+<p>
+</p>
+
 
 <p>
 This section is a quick primer explaining how to build a system model using Modelica.Fluid.
 It covers some key issues, such as the System component, the definition of medium models in the
 system, and the typical customizations available in the Modelica.Fluid models.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent"
->SystemComponent</A>
-</TD><TD>System component</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition"
->MediumDefinition</A>
-</TD><TD>Definition of the medium models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel"
->CustomizingModel</A>
-</TD><TD>Customizing a system model</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SystemComponent<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent"></A><A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
->Modelica.Fluid.UsersGuide.BuildingSystemModels</A>.SystemComponent</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent"
+>SystemComponent</a>
+</td>
+<td>System component</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition"
+>MediumDefinition</a>
+</td>
+<td>Definition of the medium models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.UsersGuidef8ea72e40148cbbbctorsS.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel"
+>CustomizingModel</a>
+</td>
+<td>Customizing a system model</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SystemComponent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.UsersGuide.BuildingSystemModels.SystemComponent"></a><a href="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
+>Modelica.Fluid.UsersGuide.BuildingSystemModels</a>.SystemComponent</h2>
+
 <p>
 The Modelica.Fluid library is designed so that each model of a system must
 include an instance <code>system</code> of the <code>System</code> component at the top level, in the same way as the <code>World</code> model of the MultiBody Library. The System component contains the parameters that
@@ -82,16 +114,16 @@ Remember to <b>always add a System component</b> at the top level of
 your system model, otherwise you will get errors when compiling the model. The tool will automatically name it <code>system</code>, so that it
 is recognized by all other components.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MediumDefinition<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition"></A><A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
->Modelica.Fluid.UsersGuide.BuildingSystemModels</A>.MediumDefinition</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MediumDefinition<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.UsersGuide.BuildingSystemModels.MediumDefinition"></a><a href="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
+>Modelica.Fluid.UsersGuide.BuildingSystemModels</a>.MediumDefinition</h2>
+
 
 <p>
 All the models in Modelica.Fluid compute fluid properties by using medium
@@ -109,16 +141,16 @@ all named Medium).
 </li>
 <li>It is also possible to declare one or more (possibly replaceable) medium packages in the model, and then use them to set up the individual components.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CustomizingModel<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" ALT="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel"></A><A HREF="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
->Modelica.Fluid.UsersGuide.BuildingSystemModels</A>.CustomizingModel</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CustomizingModel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.UsersGuide9238b92614bc287aitionI.png" alt="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.UsersGuide.BuildingSystemModels.CustomizingModel"></a><a href="Modelica_Fluid_UsersGuide_BuildingSystemModels.html#Modelica.Fluid.UsersGuide.BuildingSystemModels"
+>Modelica.Fluid.UsersGuide.BuildingSystemModels</a>.CustomizingModel</h2>
+
 <p>
 Once a system model has been built, it is possible to obtain different approximations by
 appropriately setting the defaults in the System component (and/or the settings of specific
@@ -155,9 +187,11 @@ It is then possible to neglect the storage of mass, momentum, and energy in the 
 initialization when considering dynamic models. Please note that some combinations of the
 options might be contradictory, and will therefore trigger compilation errors.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:44 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

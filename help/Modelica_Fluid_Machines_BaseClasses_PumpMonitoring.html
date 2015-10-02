@@ -1,105 +1,142 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Monitoring of pump operation&quot;">
+<meta name="description" content="&quot;Monitoring of pump operation&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PumpMonitoring<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"></A><A HREF="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses"
->Modelica.Fluid.Machines.BaseClasses</A>.PumpMonitoring</H2>
-<B>Monitoring of pump operation</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase"
->PumpMonitoringBase</A>
-</TD><TD>Interface for pump monitoring</TD></TR>
-<TR><TD><A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH"
->PumpMonitoringNPSH</A>
-</TD><TD>Monitor Net Positive Suction Head (NPSH)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Machines.Ba9b11ec72cb7879brenceS.png" ALT="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference"
->assertPositiveDifference</A>
-</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PumpMonitoringBase<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase"></A><A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
->Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</A>.PumpMonitoringBase</H2>
-<B>Interface for pump monitoring</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PumpMonitoringNPSH<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH"></A><A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
->Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</A>.PumpMonitoringNPSH</H2>
-<B>Monitor Net Positive Suction Head (NPSH)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase"
->PumpMonitoringBase</A> (Interface for pump monitoring).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE assertPositiveDifference<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Machines.Ba9b11ec72cb7879brenceI.png" ALT="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference"></A><A HREF="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
->Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</A>.assertPositiveDifference</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>[Pa]</TD></TR>
-<TR><TD>p_sat</TD><TD>[Pa]</TD></TR>
-<TR><TD>message</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dp</TD><TD>[Pa]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:47 2013.
-</address></BODY>
-</HTML>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PumpMonitoring<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"></a><a href="Modelica_Fluid_Machines_BaseClasses.html#Modelica.Fluid.Machines.BaseClasses"
+>Modelica.Fluid.Machines.BaseClasses</a>.PumpMonitoring</h2>
+<p>
+<span class="ModelicaDescription">Monitoring of pump operation</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase"
+>PumpMonitoringBase</a>
+</td>
+<td>Interface for pump monitoring</td>
+</tr>
+<tr>
+<td><a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH"
+>PumpMonitoringNPSH</a>
+</td>
+<td>Monitor Net Positive Suction Head (NPSH)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Machines.Ba9b11ec72cb7879brenceS.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference"
+>assertPositiveDifference</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PumpMonitoringBase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
+>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</a>.PumpMonitoringBase</h2>
+<p>
+<span class="ModelicaDescription">Interface for pump monitoring</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PumpMonitoringNPSH<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringNPSH"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
+>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</a>.PumpMonitoringNPSH</h2>
+<p>
+<span class="ModelicaDescription">Monitor Net Positive Suction Head (NPSH)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.PumpMonitoringBase"
+>PumpMonitoringBase</a> (Interface for pump monitoring).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE assertPositiveDifference<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Machines.Ba9b11ec72cb7879brenceI.png" alt="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Machines.BaseClasses.PumpMonitoring.assertPositiveDifference"></a><a href="Modelica_Fluid_Machines_BaseClasses_PumpMonitoring.html#Modelica.Fluid.Machines.BaseClasses.PumpMonitoring"
+>Modelica.Fluid.Machines.BaseClasses.PumpMonitoring</a>.assertPositiveDifference</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>[Pa]</td></tr>
+<tr><td>p_sat</td><td>[Pa]</td></tr>
+<tr><td>message</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dp</td><td>[Pa]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

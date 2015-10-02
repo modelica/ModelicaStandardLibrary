@@ -1,313 +1,395 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Utility functions from IAPWS09 required for ice in air&quot;">
+<meta name="description" content="&quot;Utility functions from IAPWS09 required for ice in air&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Ice09_Utilities<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities</A>.Ice09_Utilities</H2>
-<B>Utility functions from IAPWS09 required for ice in air</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
->Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refereaf0b1eec50036845BasicS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities_Basic.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic"
->Basic</A>
-</TD><TD>Fundamental equation of state</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT"
->ice09BaseProp_pT</A>
-</TD><TD>Intermediate property record for water (p and T prefered states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT"
->rho_props_pT</A>
-</TD><TD>Density as function or pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT"
->rho_pT</A>
-</TD><TD>Density as function or pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der"
->rho_pT_der</A>
-</TD><TD>Derivative function of rho_pT</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT"
->h_props_pT</A>
-</TD><TD>Specific enthalpy as function or pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT"
->h_pT</A>
-</TD><TD>Specific enthalpy as function or pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der"
->h_pT_der</A>
-</TD><TD>Derivative function of h_pT</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT"
->s_props_pT</A>
-</TD><TD>Specific entropy as function of pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT"
->s_pT</A>
-</TD><TD>Temperature as function of pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT"
->kappa_props_pT</A>
-</TD><TD>Isothermal compressibility factor as function of pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT"
->kappa_pT</A>
-</TD><TD>Isothermal compressibility factor as function of pressure and temperature</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ice09BaseProp_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.ice09BaseProp_pT</H2>
-<B>Intermediate property record for water (p and T prefered states)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rho_props_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.rho_props_pT</H2>
-<B>Density as function or pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rho_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.rho_pT</H2>
-<B>Density as function or pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rho_pT_der<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.rho_pT_der</H2>
-<B>Derivative function of rho_pT</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
-<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho_der</TD><TD>Derivative of density</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE h_props_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.h_props_pT</H2>
-<B>Specific enthalpy as function or pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE h_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.h_pT</H2>
-<B>Specific enthalpy as function or pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE h_pT_der<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.h_pT_der</H2>
-<B>Derivative function of h_pT</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
-<TR><TD>T_der</TD><TD>Derivative of temperature</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h_der</TD><TD>Derivative of specific enthalpy</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE s_props_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.s_props_pT</H2>
-<B>Specific entropy as function of pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE s_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.s_pT</H2>
-<B>Temperature as function of pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE kappa_props_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.kappa_props_pT</H2>
-<B>Isothermal compressibility factor as function of pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>aux</TD><TD>Auxiliary record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE kappa_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" ALT="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT"></A><A HREF="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
->Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</A>.kappa_pT</H2>
-<B>Isothermal compressibility factor as function of pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>kappa</TD><TD>Isothermal compressibility factor [1/Pa]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:01 2013.
-</address></BODY>
-</HTML>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Ice09_Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities</a>.Ice09_Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility functions from IAPWS09 required for ice in air</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</a> (Icon for packages containing base classes).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refereaf0b1eec50036845BasicS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities_Basic.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.Basic"
+>Basic</a>
+</td>
+<td>Fundamental equation of state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT"
+>ice09BaseProp_pT</a>
+</td>
+<td>Intermediate property record for water (p and T prefered states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT"
+>rho_props_pT</a>
+</td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT"
+>rho_pT</a>
+</td>
+<td>Density as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der"
+>rho_pT_der</a>
+</td>
+<td>Derivative function of rho_pT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT"
+>h_props_pT</a>
+</td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT"
+>h_pT</a>
+</td>
+<td>Specific enthalpy as function or pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der"
+>h_pT_der</a>
+</td>
+<td>Derivative function of h_pT</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT"
+>s_props_pT</a>
+</td>
+<td>Specific entropy as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT"
+>s_pT</a>
+</td>
+<td>Temperature as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT"
+>kappa_props_pT</a>
+</td>
+<td>Isothermal compressibility factor as function of pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTS.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT"
+>kappa_pT</a>
+</td>
+<td>Isothermal compressibility factor as function of pressure and temperature</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ice09BaseProp_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.ice09BaseProp_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.ice09BaseProp_pT</h2>
+<p>
+<span class="ModelicaDescription">Intermediate property record for water (p and T prefered states)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_props_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.rho_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Density as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.rho_pT</h2>
+<p>
+<span class="ModelicaDescription">Density as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rho_pT_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.rho_pT_der"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.rho_pT_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of rho_pT</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho_der</td><td>Derivative of density</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_props_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.h_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.h_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy as function or pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE h_pT_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.h_pT_der"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.h_pT_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function of h_pT</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+<tr><td>T_der</td><td>Derivative of temperature</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_der</td><td>Derivative of specific enthalpy</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_props_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.s_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Specific entropy as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE s_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.s_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.s_pT</h2>
+<p>
+<span class="ModelicaDescription">Temperature as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_props_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_props_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.kappa_props_pT</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>aux</td><td>Auxiliary record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kappa_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Air.Refere1a6785717c642375op_pTI.png" alt="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities.kappa_pT"></a><a href="Modelica_Media_Air_ReferenceMoistAir_Utilities_Ice09_Utilities.html#Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities"
+>Modelica.Media.Air.ReferenceMoistAir.Utilities.Ice09_Utilities</a>.kappa_pT</h2>
+<p>
+<span class="ModelicaDescription">Isothermal compressibility factor as function of pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kappa</td><td>Isothermal compressibility factor [1/Pa]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:21 2015.
+</address>
+</body>
+</html>

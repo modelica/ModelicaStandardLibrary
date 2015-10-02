@@ -1,124 +1,198 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Blocks.Routing</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Routing</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of blocks to combine and extract signals&quot;">
+<meta name="description" content="&quot;Library of blocks to combine and extract signals&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Routing<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Blocks.Routing"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
->Modelica.Blocks</A>.Routing</H2>
-<B>Library of blocks to combine and extract signals</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Routing<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Routing"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.Routing</h2>
+<p>
+<span class="ModelicaDescription">Library of blocks to combine and extract signals</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains blocks to combine and extract signals.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.ReplicatorS.png" ALT="Modelica.Blocks.Routing.Replicator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Replicator"
->Replicator</A>
-</TD><TD>Signal replicator</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.ExtractSignalS.png" ALT="Modelica.Blocks.Routing.ExtractSignal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.ExtractSignal"
->ExtractSignal</A>
-</TD><TD>Extract signals from an input signal vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.ExtractorS.png" ALT="Modelica.Blocks.Routing.Extractor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Extractor"
->Extractor</A>
-</TD><TD>Extract scalar signal out of signal vector dependent on IntegerRealInput index</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.Multiplex2S.png" ALT="Modelica.Blocks.Routing.Multiplex2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex2"
->Multiplex2</A>
-</TD><TD>Multiplexer block for two input connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.Multiplex3S.png" ALT="Modelica.Blocks.Routing.Multiplex3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex3"
->Multiplex3</A>
-</TD><TD>Multiplexer block for three input connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.Multiplex4S.png" ALT="Modelica.Blocks.Routing.Multiplex4" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex4"
->Multiplex4</A>
-</TD><TD>Multiplexer block for four input connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.Multiplex5S.png" ALT="Modelica.Blocks.Routing.Multiplex5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex5"
->Multiplex5</A>
-</TD><TD>Multiplexer block for five input connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.Multiplex6S.png" ALT="Modelica.Blocks.Routing.Multiplex6" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex6"
->Multiplex6</A>
-</TD><TD>Multiplexer block for six input connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.DeMultiplex2S.png" ALT="Modelica.Blocks.Routing.DeMultiplex2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex2"
->DeMultiplex2</A>
-</TD><TD>DeMultiplexer block for two output connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.DeMultiplex3S.png" ALT="Modelica.Blocks.Routing.DeMultiplex3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex3"
->DeMultiplex3</A>
-</TD><TD>DeMultiplexer block for three output connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.DeMultiplex4S.png" ALT="Modelica.Blocks.Routing.DeMultiplex4" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex4"
->DeMultiplex4</A>
-</TD><TD>DeMultiplexer block for four output connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.DeMultiplex5S.png" ALT="Modelica.Blocks.Routing.DeMultiplex5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex5"
->DeMultiplex5</A>
-</TD><TD>DeMultiplexer block for five output connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.DeMultiplex6S.png" ALT="Modelica.Blocks.Routing.DeMultiplex6" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex6"
->DeMultiplex6</A>
-</TD><TD>DeMultiplexer block for six output connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.RealPassThroughS.png" ALT="Modelica.Blocks.Routing.RealPassThrough" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.RealPassThrough"
->RealPassThrough</A>
-</TD><TD>Pass a Real signal through without modification</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.Iac19964a47a321d4roughS.png" ALT="Modelica.Blocks.Routing.IntegerPassThrough" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.IntegerPassThrough"
->IntegerPassThrough</A>
-</TD><TD>Pass a Integer signal through without modification</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Routing.B1dc61d1808c2fb90roughS.png" ALT="Modelica.Blocks.Routing.BooleanPassThrough" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.BooleanPassThrough"
->BooleanPassThrough</A>
-</TD><TD>Pass a Boolean signal through without modification</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Replicator<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.ReplicatorI.png" ALT="Modelica.Blocks.Routing.Replicator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Replicator"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Replicator</H2>
-<B>Signal replicator</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.ReplicatorS.png" alt="Modelica.Blocks.Routing.Replicator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Replicator"
+>Replicator</a>
+</td>
+<td>Signal replicator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.ExtractSignalS.png" alt="Modelica.Blocks.Routing.ExtractSignal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.ExtractSignal"
+>ExtractSignal</a>
+</td>
+<td>Extract signals from an input signal vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.ExtractorS.png" alt="Modelica.Blocks.Routing.Extractor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Extractor"
+>Extractor</a>
+</td>
+<td>Extract scalar signal out of signal vector dependent on IntegerRealInput index</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.Multiplex2S.png" alt="Modelica.Blocks.Routing.Multiplex2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex2"
+>Multiplex2</a>
+</td>
+<td>Multiplexer block for two input connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.Multiplex3S.png" alt="Modelica.Blocks.Routing.Multiplex3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex3"
+>Multiplex3</a>
+</td>
+<td>Multiplexer block for three input connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.Multiplex4S.png" alt="Modelica.Blocks.Routing.Multiplex4" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex4"
+>Multiplex4</a>
+</td>
+<td>Multiplexer block for four input connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.Multiplex5S.png" alt="Modelica.Blocks.Routing.Multiplex5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex5"
+>Multiplex5</a>
+</td>
+<td>Multiplexer block for five input connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.Multiplex6S.png" alt="Modelica.Blocks.Routing.Multiplex6" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.Multiplex6"
+>Multiplex6</a>
+</td>
+<td>Multiplexer block for six input connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.DeMultiplex2S.png" alt="Modelica.Blocks.Routing.DeMultiplex2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex2"
+>DeMultiplex2</a>
+</td>
+<td>DeMultiplexer block for two output connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.DeMultiplex3S.png" alt="Modelica.Blocks.Routing.DeMultiplex3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex3"
+>DeMultiplex3</a>
+</td>
+<td>DeMultiplexer block for three output connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.DeMultiplex4S.png" alt="Modelica.Blocks.Routing.DeMultiplex4" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex4"
+>DeMultiplex4</a>
+</td>
+<td>DeMultiplexer block for four output connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.DeMultiplex5S.png" alt="Modelica.Blocks.Routing.DeMultiplex5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex5"
+>DeMultiplex5</a>
+</td>
+<td>DeMultiplexer block for five output connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.DeMultiplex6S.png" alt="Modelica.Blocks.Routing.DeMultiplex6" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex6"
+>DeMultiplex6</a>
+</td>
+<td>DeMultiplexer block for six output connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.RealPassThroughS.png" alt="Modelica.Blocks.Routing.RealPassThrough" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.RealPassThrough"
+>RealPassThrough</a>
+</td>
+<td>Pass a Real signal through without modification</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.Iac19964a47a321d4roughS.png" alt="Modelica.Blocks.Routing.IntegerPassThrough" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.IntegerPassThrough"
+>IntegerPassThrough</a>
+</td>
+<td>Pass a Integer signal through without modification</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Routing.B1dc61d1808c2fb90roughS.png" alt="Modelica.Blocks.Routing.BooleanPassThrough" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.BooleanPassThrough"
+>BooleanPassThrough</a>
+</td>
+<td>Pass a Boolean signal through without modification</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Replicator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.ReplicatorI.png" alt="Modelica.Blocks.Routing.Replicator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Replicator"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Replicator</h2>
+<p>
+<span class="ModelicaDescription">Signal replicator</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block replicates the input signal to an array of <code>nout</code> identical output signals.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SIMO"
->Modelica.Blocks.Interfaces.SIMO</A> (Single Input Multiple Output continuous control block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Connector of Real input signal</TD></TR>
-<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ExtractSignal<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.ExtractSignalI.png" ALT="Modelica.Blocks.Routing.ExtractSignal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.ExtractSignal"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.ExtractSignal</H2>
-<B>Extract signals from an input signal vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SIMO"
+>Modelica.Blocks.Interfaces.SIMO</a> (Single Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Real input signal</td></tr>
+<tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExtractSignal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.ExtractSignalI.png" alt="Modelica.Blocks.Routing.ExtractSignal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.ExtractSignal"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.ExtractSignal</h2>
+<p>
+<span class="ModelicaDescription">Extract signals from an input signal vector</span>
+</p>
+<h3>Information</h3>
+
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
 <p>The extracting scheme is given by the integer vector 'extract'.
@@ -140,449 +214,479 @@ input vector (nin=7):</p>
    output no. 3 is set equal to input no. 3
    output no. 4 is set equal to input no. 2
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
->Modelica.Blocks.Interfaces.MIMO</A> (Multiple Input Multiple Output continuous control block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nin</TD><TD>Number of inputs</TD></TR>
-<TR><TD>nout</TD><TD>Number of outputs</TD></TR>
-<TR><TD>extract[nout]</TD><TD>Extracting vector</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y[nout]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Extractor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.ExtractorI.png" ALT="Modelica.Blocks.Routing.Extractor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Extractor"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Extractor</H2>
-<B>Extract scalar signal out of signal vector dependent on IntegerRealInput index</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Modelica.Blocks.Interfaces.MIMO</a> (Multiple Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+<tr><td>extract[nout]</td><td>Extracting vector</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Extractor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.ExtractorI.png" alt="Modelica.Blocks.Routing.Extractor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Extractor"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Extractor</h2>
+<p>
+<span class="ModelicaDescription">Extract scalar signal out of signal vector dependent on IntegerRealInput index</span>
+</p>
+<h3>Information</h3>
+
 <p>This block extracts a scalar output signal out the
 vector of input signals dependent on the Integer
 value of the additional u index:</p>
 <pre>    y = u [ index ] ;
 </pre>
 <p>where index is an additional Integer input signal.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MISO"
->Modelica.Blocks.Interfaces.MISO</A> (Multiple Input Single Output continuous control block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nin</TD><TD>Number of inputs</TD></TR>
-<TR><TD>allowOutOfRange</TD><TD>Index may be out of range</TD></TR>
-<TR><TD>outOfRangeValue</TD><TD>Output signal if index is out of range</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nin]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y</TD><TD>Connector of Real output signal</TD></TR>
-<TR><TD>index</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Multiplex2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.Multiplex2I.png" ALT="Modelica.Blocks.Routing.Multiplex2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Multiplex2"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Multiplex2</H2>
-<B>Multiplexer block for two input connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MISO"
+>Modelica.Blocks.Interfaces.MISO</a> (Multiple Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>allowOutOfRange</td><td>Index may be out of range</td></tr>
+<tr><td>outOfRangeValue</td><td>Output signal if index is out of range</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+<tr><td>index</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Multiplex2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.Multiplex2I.png" alt="Modelica.Blocks.Routing.Multiplex2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Multiplex2"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Multiplex2</h2>
+<p>
+<span class="ModelicaDescription">Multiplexer block for two input connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output connector is the <b>concatenation</b> of the two input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of input signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of input signal connector 2</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1[n1]</TD><TD>Connector of Real input signals 1</TD></TR>
-<TR><TD>u2[n2]</TD><TD>Connector of Real input signals 2</TD></TR>
-<TR><TD>y[n1 + n2]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Multiplex3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.Multiplex3I.png" ALT="Modelica.Blocks.Routing.Multiplex3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Multiplex3"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Multiplex3</H2>
-<B>Multiplexer block for three input connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of input signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of input signal connector 2</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1[n1]</td><td>Connector of Real input signals 1</td></tr>
+<tr><td>u2[n2]</td><td>Connector of Real input signals 2</td></tr>
+<tr><td>y[n1 + n2]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Multiplex3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.Multiplex3I.png" alt="Modelica.Blocks.Routing.Multiplex3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Multiplex3"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Multiplex3</h2>
+<p>
+<span class="ModelicaDescription">Multiplexer block for three input connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output connector is the <b>concatenation</b> of the three input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of input signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of input signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of input signal connector 3</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1[n1]</TD><TD>Connector of Real input signals 1</TD></TR>
-<TR><TD>u2[n2]</TD><TD>Connector of Real input signals 2</TD></TR>
-<TR><TD>u3[n3]</TD><TD>Connector of Real input signals 3</TD></TR>
-<TR><TD>y[n1 + n2 + n3]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Multiplex4<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.Multiplex4I.png" ALT="Modelica.Blocks.Routing.Multiplex4" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Multiplex4"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Multiplex4</H2>
-<B>Multiplexer block for four input connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of input signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of input signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of input signal connector 3</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1[n1]</td><td>Connector of Real input signals 1</td></tr>
+<tr><td>u2[n2]</td><td>Connector of Real input signals 2</td></tr>
+<tr><td>u3[n3]</td><td>Connector of Real input signals 3</td></tr>
+<tr><td>y[n1 + n2 + n3]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Multiplex4<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.Multiplex4I.png" alt="Modelica.Blocks.Routing.Multiplex4" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Multiplex4"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Multiplex4</h2>
+<p>
+<span class="ModelicaDescription">Multiplexer block for four input connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output connector is the <b>concatenation</b> of the four input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of input signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of input signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of input signal connector 3</TD></TR>
-<TR><TD>n4</TD><TD>dimension of input signal connector 4</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1[n1]</TD><TD>Connector of Real input signals 1</TD></TR>
-<TR><TD>u2[n2]</TD><TD>Connector of Real input signals 2</TD></TR>
-<TR><TD>u3[n3]</TD><TD>Connector of Real input signals 3</TD></TR>
-<TR><TD>u4[n4]</TD><TD>Connector of Real input signals 4</TD></TR>
-<TR><TD>y[n1 + n2 + n3 + n4]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Multiplex5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.Multiplex5I.png" ALT="Modelica.Blocks.Routing.Multiplex5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Multiplex5"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Multiplex5</H2>
-<B>Multiplexer block for five input connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of input signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of input signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of input signal connector 3</td></tr>
+<tr><td>n4</td><td>dimension of input signal connector 4</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1[n1]</td><td>Connector of Real input signals 1</td></tr>
+<tr><td>u2[n2]</td><td>Connector of Real input signals 2</td></tr>
+<tr><td>u3[n3]</td><td>Connector of Real input signals 3</td></tr>
+<tr><td>u4[n4]</td><td>Connector of Real input signals 4</td></tr>
+<tr><td>y[n1 + n2 + n3 + n4]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Multiplex5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.Multiplex5I.png" alt="Modelica.Blocks.Routing.Multiplex5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Multiplex5"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Multiplex5</h2>
+<p>
+<span class="ModelicaDescription">Multiplexer block for five input connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output connector is the <b>concatenation</b> of the five input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of input signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of input signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of input signal connector 3</TD></TR>
-<TR><TD>n4</TD><TD>dimension of input signal connector 4</TD></TR>
-<TR><TD>n5</TD><TD>dimension of input signal connector 5</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1[n1]</TD><TD>Connector of Real input signals 1</TD></TR>
-<TR><TD>u2[n2]</TD><TD>Connector of Real input signals 2</TD></TR>
-<TR><TD>u3[n3]</TD><TD>Connector of Real input signals 3</TD></TR>
-<TR><TD>u4[n4]</TD><TD>Connector of Real input signals 4</TD></TR>
-<TR><TD>u5[n5]</TD><TD>Connector of Real input signals 5</TD></TR>
-<TR><TD>y[n1 + n2 + n3 + n4 + n5]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Multiplex6<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.Multiplex6I.png" ALT="Modelica.Blocks.Routing.Multiplex6" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.Multiplex6"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.Multiplex6</H2>
-<B>Multiplexer block for six input connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of input signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of input signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of input signal connector 3</td></tr>
+<tr><td>n4</td><td>dimension of input signal connector 4</td></tr>
+<tr><td>n5</td><td>dimension of input signal connector 5</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1[n1]</td><td>Connector of Real input signals 1</td></tr>
+<tr><td>u2[n2]</td><td>Connector of Real input signals 2</td></tr>
+<tr><td>u3[n3]</td><td>Connector of Real input signals 3</td></tr>
+<tr><td>u4[n4]</td><td>Connector of Real input signals 4</td></tr>
+<tr><td>u5[n5]</td><td>Connector of Real input signals 5</td></tr>
+<tr><td>y[n1 + n2 + n3 + n4 + n5]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Multiplex6<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.Multiplex6I.png" alt="Modelica.Blocks.Routing.Multiplex6" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.Multiplex6"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.Multiplex6</h2>
+<p>
+<span class="ModelicaDescription">Multiplexer block for six input connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output connector is the <b>concatenation</b> of the six input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of input signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of input signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of input signal connector 3</TD></TR>
-<TR><TD>n4</TD><TD>dimension of input signal connector 4</TD></TR>
-<TR><TD>n5</TD><TD>dimension of input signal connector 5</TD></TR>
-<TR><TD>n6</TD><TD>dimension of input signal connector 6</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1[n1]</TD><TD>Connector of Real input signals 1</TD></TR>
-<TR><TD>u2[n2]</TD><TD>Connector of Real input signals 2</TD></TR>
-<TR><TD>u3[n3]</TD><TD>Connector of Real input signals 3</TD></TR>
-<TR><TD>u4[n4]</TD><TD>Connector of Real input signals 4</TD></TR>
-<TR><TD>u5[n5]</TD><TD>Connector of Real input signals 5</TD></TR>
-<TR><TD>u6[n6]</TD><TD>Connector of Real input signals 6</TD></TR>
-<TR><TD>y[n1 + n2 + n3 + n4 + n5 + n6]</TD><TD>Connector of Real output signals</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DeMultiplex2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.DeMultiplex2I.png" ALT="Modelica.Blocks.Routing.DeMultiplex2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.DeMultiplex2"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.DeMultiplex2</H2>
-<B>DeMultiplexer block for two output connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of input signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of input signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of input signal connector 3</td></tr>
+<tr><td>n4</td><td>dimension of input signal connector 4</td></tr>
+<tr><td>n5</td><td>dimension of input signal connector 5</td></tr>
+<tr><td>n6</td><td>dimension of input signal connector 6</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1[n1]</td><td>Connector of Real input signals 1</td></tr>
+<tr><td>u2[n2]</td><td>Connector of Real input signals 2</td></tr>
+<tr><td>u3[n3]</td><td>Connector of Real input signals 3</td></tr>
+<tr><td>u4[n4]</td><td>Connector of Real input signals 4</td></tr>
+<tr><td>u5[n5]</td><td>Connector of Real input signals 5</td></tr>
+<tr><td>u6[n6]</td><td>Connector of Real input signals 6</td></tr>
+<tr><td>y[n1 + n2 + n3 + n4 + n5 + n6]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DeMultiplex2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.DeMultiplex2I.png" alt="Modelica.Blocks.Routing.DeMultiplex2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.DeMultiplex2"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.DeMultiplex2</h2>
+<p>
+<span class="ModelicaDescription">DeMultiplexer block for two output connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The input connector is <b>split</b> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of output signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of output signal connector 2</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[n1 + n2]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y1[n1]</TD><TD>Connector of Real output signals 1</TD></TR>
-<TR><TD>y2[n2]</TD><TD>Connector of Real output signals 2</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DeMultiplex3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.DeMultiplex3I.png" ALT="Modelica.Blocks.Routing.DeMultiplex3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.DeMultiplex3"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.DeMultiplex3</H2>
-<B>DeMultiplexer block for three output connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of output signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of output signal connector 2</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[n1 + n2]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y1[n1]</td><td>Connector of Real output signals 1</td></tr>
+<tr><td>y2[n2]</td><td>Connector of Real output signals 2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DeMultiplex3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.DeMultiplex3I.png" alt="Modelica.Blocks.Routing.DeMultiplex3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.DeMultiplex3"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.DeMultiplex3</h2>
+<p>
+<span class="ModelicaDescription">DeMultiplexer block for three output connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The input connector is <b>split</b> into three output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of output signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of output signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of output signal connector 3</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[n1 + n2 + n3]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y1[n1]</TD><TD>Connector of Real output signals 1</TD></TR>
-<TR><TD>y2[n2]</TD><TD>Connector of Real output signals 2</TD></TR>
-<TR><TD>y3[n3]</TD><TD>Connector of Real output signals 3</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DeMultiplex4<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.DeMultiplex4I.png" ALT="Modelica.Blocks.Routing.DeMultiplex4" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.DeMultiplex4"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.DeMultiplex4</H2>
-<B>DeMultiplexer block for four output connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of output signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of output signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of output signal connector 3</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[n1 + n2 + n3]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y1[n1]</td><td>Connector of Real output signals 1</td></tr>
+<tr><td>y2[n2]</td><td>Connector of Real output signals 2</td></tr>
+<tr><td>y3[n3]</td><td>Connector of Real output signals 3</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DeMultiplex4<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.DeMultiplex4I.png" alt="Modelica.Blocks.Routing.DeMultiplex4" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.DeMultiplex4"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.DeMultiplex4</h2>
+<p>
+<span class="ModelicaDescription">DeMultiplexer block for four output connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The input connector is <b>split</b> into four output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of output signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of output signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of output signal connector 3</TD></TR>
-<TR><TD>n4</TD><TD>dimension of output signal connector 4</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[n1 + n2 + n3 + n4]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y1[n1]</TD><TD>Connector of Real output signals 1</TD></TR>
-<TR><TD>y2[n2]</TD><TD>Connector of Real output signals 2</TD></TR>
-<TR><TD>y3[n3]</TD><TD>Connector of Real output signals 3</TD></TR>
-<TR><TD>y4[n4]</TD><TD>Connector of Real output signals 4</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DeMultiplex5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.DeMultiplex5I.png" ALT="Modelica.Blocks.Routing.DeMultiplex5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.DeMultiplex5"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.DeMultiplex5</H2>
-<B>DeMultiplexer block for five output connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of output signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of output signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of output signal connector 3</td></tr>
+<tr><td>n4</td><td>dimension of output signal connector 4</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[n1 + n2 + n3 + n4]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y1[n1]</td><td>Connector of Real output signals 1</td></tr>
+<tr><td>y2[n2]</td><td>Connector of Real output signals 2</td></tr>
+<tr><td>y3[n3]</td><td>Connector of Real output signals 3</td></tr>
+<tr><td>y4[n4]</td><td>Connector of Real output signals 4</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DeMultiplex5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.DeMultiplex5I.png" alt="Modelica.Blocks.Routing.DeMultiplex5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.DeMultiplex5"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.DeMultiplex5</h2>
+<p>
+<span class="ModelicaDescription">DeMultiplexer block for five output connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The input connector is <b>split</b> into five output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of output signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of output signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of output signal connector 3</TD></TR>
-<TR><TD>n4</TD><TD>dimension of output signal connector 4</TD></TR>
-<TR><TD>n5</TD><TD>dimension of output signal connector 5</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[n1 + n2 + n3 + n4 + n5]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y1[n1]</TD><TD>Connector of Real output signals 1</TD></TR>
-<TR><TD>y2[n2]</TD><TD>Connector of Real output signals 2</TD></TR>
-<TR><TD>y3[n3]</TD><TD>Connector of Real output signals 3</TD></TR>
-<TR><TD>y4[n4]</TD><TD>Connector of Real output signals 4</TD></TR>
-<TR><TD>y5[n5]</TD><TD>Connector of Real output signals 5</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DeMultiplex6<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.DeMultiplex6I.png" ALT="Modelica.Blocks.Routing.DeMultiplex6" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.DeMultiplex6"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.DeMultiplex6</H2>
-<B>DeMultiplexer block for six output connectors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of output signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of output signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of output signal connector 3</td></tr>
+<tr><td>n4</td><td>dimension of output signal connector 4</td></tr>
+<tr><td>n5</td><td>dimension of output signal connector 5</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[n1 + n2 + n3 + n4 + n5]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y1[n1]</td><td>Connector of Real output signals 1</td></tr>
+<tr><td>y2[n2]</td><td>Connector of Real output signals 2</td></tr>
+<tr><td>y3[n3]</td><td>Connector of Real output signals 3</td></tr>
+<tr><td>y4[n4]</td><td>Connector of Real output signals 4</td></tr>
+<tr><td>y5[n5]</td><td>Connector of Real output signals 5</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DeMultiplex6<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.DeMultiplex6I.png" alt="Modelica.Blocks.Routing.DeMultiplex6" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.DeMultiplex6"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.DeMultiplex6</h2>
+<p>
+<span class="ModelicaDescription">DeMultiplexer block for six output connectors</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The input connector is <b>split</b> into six output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n1</TD><TD>dimension of output signal connector 1</TD></TR>
-<TR><TD>n2</TD><TD>dimension of output signal connector 2</TD></TR>
-<TR><TD>n3</TD><TD>dimension of output signal connector 3</TD></TR>
-<TR><TD>n4</TD><TD>dimension of output signal connector 4</TD></TR>
-<TR><TD>n5</TD><TD>dimension of output signal connector 5</TD></TR>
-<TR><TD>n6</TD><TD>dimension of output signal connector 6</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[n1 + n2 + n3 + n4 + n5 + n6]</TD><TD>Connector of Real input signals</TD></TR>
-<TR><TD>y1[n1]</TD><TD>Connector of Real output signals 1</TD></TR>
-<TR><TD>y2[n2]</TD><TD>Connector of Real output signals 2</TD></TR>
-<TR><TD>y3[n3]</TD><TD>Connector of Real output signals 3</TD></TR>
-<TR><TD>y4[n4]</TD><TD>Connector of Real output signals 4</TD></TR>
-<TR><TD>y5[n5]</TD><TD>Connector of Real output signals 5</TD></TR>
-<TR><TD>y6[n6]</TD><TD>Connector of Real output signals 6</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RealPassThrough<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.RealPassThroughI.png" ALT="Modelica.Blocks.Routing.RealPassThrough" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.RealPassThrough"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.RealPassThrough</H2>
-<B>Pass a Real signal through without modification</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n1</td><td>dimension of output signal connector 1</td></tr>
+<tr><td>n2</td><td>dimension of output signal connector 2</td></tr>
+<tr><td>n3</td><td>dimension of output signal connector 3</td></tr>
+<tr><td>n4</td><td>dimension of output signal connector 4</td></tr>
+<tr><td>n5</td><td>dimension of output signal connector 5</td></tr>
+<tr><td>n6</td><td>dimension of output signal connector 6</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[n1 + n2 + n3 + n4 + n5 + n6]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y1[n1]</td><td>Connector of Real output signals 1</td></tr>
+<tr><td>y2[n2]</td><td>Connector of Real output signals 2</td></tr>
+<tr><td>y3[n3]</td><td>Connector of Real output signals 3</td></tr>
+<tr><td>y4[n4]</td><td>Connector of Real output signals 4</td></tr>
+<tr><td>y5[n5]</td><td>Connector of Real output signals 5</td></tr>
+<tr><td>y6[n6]</td><td>Connector of Real output signals 6</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RealPassThrough<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.RealPassThroughI.png" alt="Modelica.Blocks.Routing.RealPassThrough" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.RealPassThrough"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.RealPassThrough</h2>
+<p>
+<span class="ModelicaDescription">Pass a Real signal through without modification</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Passes a Real signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Input signal</TD></TR>
-<TR><TD>y</TD><TD>Output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IntegerPassThrough<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.Iac19964a47a321d4roughI.png" ALT="Modelica.Blocks.Routing.IntegerPassThrough" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.IntegerPassThrough"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.IntegerPassThrough</H2>
-<B>Pass a Integer signal through without modification</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input signal</td></tr>
+<tr><td>y</td><td>Output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IntegerPassThrough<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.Iac19964a47a321d4roughI.png" alt="Modelica.Blocks.Routing.IntegerPassThrough" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.IntegerPassThrough"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.IntegerPassThrough</h2>
+<p>
+<span class="ModelicaDescription">Pass a Integer signal through without modification</span>
+</p>
+<h3>Information</h3>
+
 <p>Passes a Integer signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.IntegerBlock"
->Modelica.Blocks.Icons.IntegerBlock</A> (Basic graphical layout of Integer block).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Input signal</TD></TR>
-<TR><TD>y</TD><TD>Output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BooleanPassThrough<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Routing.B1dc61d1808c2fb90roughI.png" ALT="Modelica.Blocks.Routing.BooleanPassThrough" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Routing.BooleanPassThrough"></A><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Modelica.Blocks.Routing</A>.BooleanPassThrough</H2>
-<B>Pass a Boolean signal through without modification</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.IntegerBlock"
+>Modelica.Blocks.Icons.IntegerBlock</a> (Basic graphical layout of Integer block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input signal</td></tr>
+<tr><td>y</td><td>Output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BooleanPassThrough<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Routing.B1dc61d1808c2fb90roughI.png" alt="Modelica.Blocks.Routing.BooleanPassThrough" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Routing.BooleanPassThrough"></a><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Modelica.Blocks.Routing</a>.BooleanPassThrough</h2>
+<p>
+<span class="ModelicaDescription">Pass a Boolean signal through without modification</span>
+</p>
+<h3>Information</h3>
+
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.BooleanBlock"
->Modelica.Blocks.Icons.BooleanBlock</A> (Basic graphical layout of Boolean block).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Input signal</TD></TR>
-<TR><TD>y</TD><TD>Output signal</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:25 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.BooleanBlock"
+>Modelica.Blocks.Icons.BooleanBlock</a> (Basic graphical layout of Boolean block).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Input signal</td></tr>
+<tr><td>y</td><td>Output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+</address>
+</body>
+</html>

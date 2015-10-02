@@ -1,38 +1,58 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.UsersGuide.Conventions</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.UsersGuide.Conventions</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Conventions&quot;">
+<meta name="description" content="&quot;Conventions&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Conventions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.ConventionsI.png" ALT="Modelica.UsersGuide.Conventions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.Conventions"></A><A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide"
->Modelica.UsersGuide</A>.Conventions</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conventions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.ConventionsI.png" alt="Modelica.UsersGuide.Conventions" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.Conventions"></a><a href="Modelica_UsersGuide.html#Modelica.UsersGuide"
+>Modelica.UsersGuide</a>.Conventions</h2>
+<p>
+</p>
+
 <p>A Modelica main package should be compliant with the UsersGuide stated in this documentation:</p>
 <ol>
-<li> Conventions of the <A HREF="Modelica_UsersGuide_Conventions_ModelicaCode.html#Modelica.UsersGuide.Conventions.ModelicaCode"
+<li> Conventions of the <a href="Modelica_UsersGuide_Conventions_ModelicaCode.html#Modelica.UsersGuide.Conventions.ModelicaCode"
 >Modelica code</a> </li>
-<li> Consistent HTML documentation <A HREF="Modelica_UsersGuide_Conventions_Documentation.html#Modelica.UsersGuide.Conventions.Documentation"
+<li> Consistent HTML documentation <a href="Modelica_UsersGuide_Conventions_Documentation.html#Modelica.UsersGuide.Conventions.Documentation"
 >UsersGuide</a> </li>
 <li> Structure to be provided by a main package
 <ul>
-     <li> <A HREF="Modelica_UsersGuide_Conventions_UsersGuide.html#Modelica.UsersGuide.Conventions.UsersGuide"
+     <li> <a href="Modelica_UsersGuide_Conventions_UsersGuide.html#Modelica.UsersGuide.Conventions.UsersGuide"
 >User's Guide</a></li>
      <li> <b>Examples</b> containing models demonstrating the usage of the library.</li>
      <li> <b>Components</b> -- in case of a complex library a more detailed structure can be established.</li>
@@ -43,22 +63,36 @@ table   { solid #000; border-collapse: collapse;}
 </ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Conve4d765d2c2afd4d0dationS.png" ALT="Modelica.UsersGuide.Conventions.Documentation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_Conventions_Documentation.html#Modelica.UsersGuide.Conventions.Documentation"
->Documentation</A>
-</TD><TD>HTML documentation</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Conve4d765d2c2afd4d0dationS.png" ALT="Modelica.UsersGuide.Conventions.ModelicaCode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_Conventions_ModelicaCode.html#Modelica.UsersGuide.Conventions.ModelicaCode"
->ModelicaCode</A>
-</TD><TD>Modelica code</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Conve4d765d2c2afd4d0dationS.png" ALT="Modelica.UsersGuide.Conventions.UsersGuide" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_Conventions_UsersGuide.html#Modelica.UsersGuide.Conventions.UsersGuide"
->UsersGuide</A>
-</TD><TD>User&#39;s Guide</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:22 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Conve4d765d2c2afd4d0dationS.png" alt="Modelica.UsersGuide.Conventions.Documentation" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_Conventions_Documentation.html#Modelica.UsersGuide.Conventions.Documentation"
+>Documentation</a>
+</td>
+<td>HTML documentation</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Conve4d765d2c2afd4d0dationS.png" alt="Modelica.UsersGuide.Conventions.ModelicaCode" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_Conventions_ModelicaCode.html#Modelica.UsersGuide.Conventions.ModelicaCode"
+>ModelicaCode</a>
+</td>
+<td>Modelica code</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Conve4d765d2c2afd4d0dationS.png" alt="Modelica.UsersGuide.Conventions.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_Conventions_UsersGuide.html#Modelica.UsersGuide.Conventions.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:07 2015.
+</address>
+</body>
+</html>

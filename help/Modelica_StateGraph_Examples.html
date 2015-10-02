@@ -1,99 +1,153 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.StateGraph.Examples</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.StateGraph.Examples</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Examples to demonstrate the usage of the components of the StateGraph library&quot;">
+<meta name="description" content="&quot;Examples to demonstrate the usage of the components of the StateGraph library&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.StateGraph.Examples"></A><A HREF="Modelica_StateGraph.html#Modelica.StateGraph"
->Modelica.StateGraph</A>.Examples</H2>
-<B>Examples to demonstrate the usage of the components of the StateGraph library</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.FirstExample" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample"
->FirstExample</A>
-</TD><TD>A first simple StateGraph example</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample_Variant2"
->FirstExample_Variant2</A>
-</TD><TD>A variant of the first simple StateGraph example</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample_Variant3"
->FirstExample_Variant3</A>
-</TD><TD>A variant of the first simple StateGraph example</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.ExecutionPaths" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ExecutionPaths"
->ExecutionPaths</A>
-</TD><TD>Example to demonstrate parallel and alternative execution paths</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.ShowCompositeStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ShowCompositeStep"
->ShowCompositeStep</A>
-</TD><TD>Example to demonstrate parallel activities described by a StateGraph</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.ShowExceptions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ShowExceptions"
->ShowExceptions</A>
-</TD><TD>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" ALT="Modelica.StateGraph.Examples.ControlledTanks" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ControlledTanks"
->ControlledTanks</A>
-</TD><TD>Demonstrating the controller of a tank filling/emptying system</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examples.UtilitiesS.png" ALT="Modelica.StateGraph.Examples.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Utilities</A>
-</TD><TD>Utility components for the examples</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FirstExample<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.FirstExample" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.FirstExample"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.FirstExample</H2>
-<B>A first simple StateGraph example</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FirstExample_Variant2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.FirstExample_Variant2"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.FirstExample_Variant2</H2>
-<B>A variant of the first simple StateGraph example</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FirstExample_Variant3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.FirstExample_Variant3"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.FirstExample_Variant3</H2>
-<B>A variant of the first simple StateGraph example</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ExecutionPaths<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.ExecutionPaths" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.ExecutionPaths"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.ExecutionPaths</H2>
-<B>Example to demonstrate parallel and alternative execution paths</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.StateGraph.Examples"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.Examples</h2>
+<p>
+<span class="ModelicaDescription">Examples to demonstrate the usage of the components of the StateGraph library</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.FirstExample" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample"
+>FirstExample</a>
+</td>
+<td>A first simple StateGraph example</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.FirstExample_Variant2" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample_Variant2"
+>FirstExample_Variant2</a>
+</td>
+<td>A variant of the first simple StateGraph example</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.FirstExample_Variant3" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample_Variant3"
+>FirstExample_Variant3</a>
+</td>
+<td>A variant of the first simple StateGraph example</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.ExecutionPaths" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ExecutionPaths"
+>ExecutionPaths</a>
+</td>
+<td>Example to demonstrate parallel and alternative execution paths</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.ShowCompositeStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ShowCompositeStep"
+>ShowCompositeStep</a>
+</td>
+<td>Example to demonstrate parallel activities described by a StateGraph</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.ShowExceptions" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ShowExceptions"
+>ShowExceptions</a>
+</td>
+<td>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleS.png" alt="Modelica.StateGraph.Examples.ControlledTanks" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ControlledTanks"
+>ControlledTanks</a>
+</td>
+<td>Demonstrating the controller of a tank filling/emptying system</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examples.UtilitiesS.png" alt="Modelica.StateGraph.Examples.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Utilities</a>
+</td>
+<td>Utility components for the examples</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FirstExample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.FirstExample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.FirstExample"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.FirstExample</h2>
+<p>
+<span class="ModelicaDescription">A first simple StateGraph example</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FirstExample_Variant2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.FirstExample_Variant2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.FirstExample_Variant2"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.FirstExample_Variant2</h2>
+<p>
+<span class="ModelicaDescription">A variant of the first simple StateGraph example</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FirstExample_Variant3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.FirstExample_Variant3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.FirstExample_Variant3"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.FirstExample_Variant3</h2>
+<p>
+<span class="ModelicaDescription">A variant of the first simple StateGraph example</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExecutionPaths<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.ExecutionPaths" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.ExecutionPaths"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.ExecutionPaths</h2>
+<p>
+<span class="ModelicaDescription">Example to demonstrate parallel and alternative execution paths</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This is an example to demonstrate in which way <b>parallel</b> activities
 can be modelled by a StateGraph. When transition1 fires
@@ -107,34 +161,38 @@ of the alternative sequence is executed. Note, that alternatives
 have priorities according to the port index (alternative.split[1]
 has a higher priority to fire as alternative.split[2]).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ShowCompositeStep<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.ShowCompositeStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.ShowCompositeStep"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.ShowCompositeStep</H2>
-<B>Example to demonstrate parallel activities described by a StateGraph</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ShowCompositeStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.ShowCompositeStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.ShowCompositeStep"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.ShowCompositeStep</h2>
+<p>
+<span class="ModelicaDescription">Example to demonstrate parallel activities described by a StateGraph</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This is the same example as "ExecutionPaths". The only difference
 is that the alternative paths are included in a "CompositeStep".
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ShowExceptions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.ShowExceptions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.ShowExceptions"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.ShowExceptions</H2>
-<B>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ShowExceptions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.ShowExceptions" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.ShowExceptions"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.ShowExceptions</h2>
+<p>
+<span class="ModelicaDescription">Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</span>
+</p>
+<h3>Information</h3>
+
 <p>
 CompositeStep "compositeStep" is a hierarchical StateGraph consisting of
 two other subgraphs. Whenever component "compositeStep" is suspended,
@@ -143,22 +201,24 @@ via its "resume" port, all steps within "compositeStep" are activated
 according to their setting before leaving the "compositeStep" via its
 "suspend" port.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledTanks<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" ALT="Modelica.StateGraph.Examples.ControlledTanks" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.ControlledTanks"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.ControlledTanks</H2>
-<B>Demonstrating the controller of a tank filling/emptying system</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledTanks<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp4edbabc696f14162ampleI.png" alt="Modelica.StateGraph.Examples.ControlledTanks" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.ControlledTanks"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.ControlledTanks</h2>
+<p>
+<span class="ModelicaDescription">Demonstrating the controller of a tank filling/emptying system</span>
+</p>
+<h3>Information</h3>
+
 <p>
 With this example the controller of a tank filling/emptying system
 is demonstrated. This example is from Dressler (2004),
-see <A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+see <a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
 >Literature</a>.
 The basic operation is to fill and empty the two tanks:
 </p>
@@ -191,9 +251,11 @@ buttons:
      Clicking on "start", restarts the process.</li>
 </ul>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:26 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+</address>
+</body>
+</html>

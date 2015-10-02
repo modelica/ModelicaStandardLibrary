@@ -1,237 +1,296 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Digital.Basic</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Digital.Basic</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Basic logic blocks without delays&quot;">
+<meta name="description" content="&quot;Basic logic blocks without delays&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Basic"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
->Modelica.Electrical.Digital</A>.Basic</H2>
-<B>Basic logic blocks without delays</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Basic"></a><a href="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</a>.Basic</h2>
+<p>
+<span class="ModelicaDescription">Basic logic blocks without delays</span><br>
+</p>
+<h3>Information</h3>
+
 <p>Basic contains the basic gates according to standard logic. The components of Basic calculate their results using the corresponding truth tables. They do not contain any delay components.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.NotS.png" ALT="Modelica.Electrical.Digital.Basic.Not" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Not"
->Not</A>
-</TD><TD>Not logic component without delay</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.AndS.png" ALT="Modelica.Electrical.Digital.Basic.And" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.And"
->And</A>
-</TD><TD>And logic component with multiple input and one output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.NandS.png" ALT="Modelica.Electrical.Digital.Basic.Nand" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nand"
->Nand</A>
-</TD><TD>Nand logic component with multiple input and one output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.OrS.png" ALT="Modelica.Electrical.Digital.Basic.Or" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Or"
->Or</A>
-</TD><TD>Or logic component with multiple input and one output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.NorS.png" ALT="Modelica.Electrical.Digital.Basic.Nor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nor"
->Nor</A>
-</TD><TD>Nor logic component with multiple input and one output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.XorS.png" ALT="Modelica.Electrical.Digital.Basic.Xor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xor"
->Xor</A>
-</TD><TD>Xor logic component with multiple input and one output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.Basic.XnorS.png" ALT="Modelica.Electrical.Digital.Basic.Xnor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xnor"
->Xnor</A>
-</TD><TD>Xnor logic component with multiple input and one output</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Not<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.NotI.png" ALT="Modelica.Electrical.Digital.Basic.Not" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.Not"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.Not</H2>
-<B>Not logic component without delay</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.NotS.png" alt="Modelica.Electrical.Digital.Basic.Not" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Not"
+>Not</a>
+</td>
+<td>Not logic component without delay</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.AndS.png" alt="Modelica.Electrical.Digital.Basic.And" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.And"
+>And</a>
+</td>
+<td>And logic component with multiple input and one output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.NandS.png" alt="Modelica.Electrical.Digital.Basic.Nand" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nand"
+>Nand</a>
+</td>
+<td>Nand logic component with multiple input and one output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.OrS.png" alt="Modelica.Electrical.Digital.Basic.Or" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Or"
+>Or</a>
+</td>
+<td>Or logic component with multiple input and one output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.NorS.png" alt="Modelica.Electrical.Digital.Basic.Nor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Nor"
+>Nor</a>
+</td>
+<td>Nor logic component with multiple input and one output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.XorS.png" alt="Modelica.Electrical.Digital.Basic.Xor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xor"
+>Xor</a>
+</td>
+<td>Xor logic component with multiple input and one output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.Basic.XnorS.png" alt="Modelica.Electrical.Digital.Basic.Xnor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic.Xnor"
+>Xnor</a>
+</td>
+<td>Xnor logic component with multiple input and one output</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Not<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.NotI.png" alt="Modelica.Electrical.Digital.Basic.Not" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.Not"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.Not</h2>
+<p>
+<span class="ModelicaDescription">Not logic component without delay</span>
+</p>
+<h3>Information</h3>
+
 <p>Not component with 1 input value, without delay.</p>
 <p>According to the standard logic not table (Tables.NotTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
->D.Interfaces.SISO</A> (Single input, single output).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Connector of Digital input signal</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE And<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.AndI.png" ALT="Modelica.Electrical.Digital.Basic.And" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.And"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.And</H2>
-<B>And logic component with multiple input and one output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>D.Interfaces.SISO</a> (Single input, single output).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Connector of Digital input signal</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE And<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.AndI.png" alt="Modelica.Electrical.Digital.Basic.And" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.And"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.And</h2>
+<p>
+<span class="ModelicaDescription">And logic component with multiple input and one output</span>
+</p>
+<h3>Information</h3>
+
 <p>And component with multiple input values and one output.</p>
 <p>According to the standard logic and table (Tables.AndTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->D.Interfaces.MISO</A> (Multiple input - single output).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Nand<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.NandI.png" ALT="Modelica.Electrical.Digital.Basic.Nand" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.Nand"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.Nand</H2>
-<B>Nand logic component with multiple input and one output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</a> (Multiple input - single output).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nand<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.NandI.png" alt="Modelica.Electrical.Digital.Basic.Nand" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.Nand"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.Nand</h2>
+<p>
+<span class="ModelicaDescription">Nand logic component with multiple input and one output</span>
+</p>
+<h3>Information</h3>
+
 <p>Nand component with multiple input values and one output.</p>
 <p>According to the standard logic and table (Tables.AndTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->D.Interfaces.MISO</A> (Multiple input - single output).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Or<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.OrI.png" ALT="Modelica.Electrical.Digital.Basic.Or" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.Or"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.Or</H2>
-<B>Or logic component with multiple input and one output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</a> (Multiple input - single output).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Or<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.OrI.png" alt="Modelica.Electrical.Digital.Basic.Or" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.Or"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.Or</h2>
+<p>
+<span class="ModelicaDescription">Or logic component with multiple input and one output</span>
+</p>
+<h3>Information</h3>
+
 <p>Or component with multiple input values and one output.</p>
 <p>According to the standard logic or table (Tables.OrTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->D.Interfaces.MISO</A> (Multiple input - single output).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Nor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.NorI.png" ALT="Modelica.Electrical.Digital.Basic.Nor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.Nor"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.Nor</H2>
-<B>Nor logic component with multiple input and one output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</a> (Multiple input - single output).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.NorI.png" alt="Modelica.Electrical.Digital.Basic.Nor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.Nor"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.Nor</h2>
+<p>
+<span class="ModelicaDescription">Nor logic component with multiple input and one output</span>
+</p>
+<h3>Information</h3>
+
 <p>Nor component with multiple input values and one output.</p>
 <p>According to the standard logic or table (Tables.OrTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->D.Interfaces.MISO</A> (Multiple input - single output).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Xor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.XorI.png" ALT="Modelica.Electrical.Digital.Basic.Xor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.Xor"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.Xor</H2>
-<B>Xor logic component with multiple input and one output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</a> (Multiple input - single output).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Xor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.XorI.png" alt="Modelica.Electrical.Digital.Basic.Xor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.Xor"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.Xor</h2>
+<p>
+<span class="ModelicaDescription">Xor logic component with multiple input and one output</span>
+</p>
+<h3>Information</h3>
+
 <p>Xor component with multiple input values and one output.</p>
 <p>According to the standard logic xor table (Tables.XorTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->D.Interfaces.MISO</A> (Multiple input - single output).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Xnor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digital.Basic.XnorI.png" ALT="Modelica.Electrical.Digital.Basic.Xnor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Basic.Xnor"></A><A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Modelica.Electrical.Digital.Basic</A>.Xnor</H2>
-<B>Xnor logic component with multiple input and one output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</a> (Multiple input - single output).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Xnor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digital.Basic.XnorI.png" alt="Modelica.Electrical.Digital.Basic.Xnor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Basic.Xnor"></a><a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Modelica.Electrical.Digital.Basic</a>.Xnor</h2>
+<p>
+<span class="ModelicaDescription">Xnor logic component with multiple input and one output</span>
+</p>
+<h3>Information</h3>
+
 <p>Xnor component with multiple input values and one output.</p>
 <p>According to the standard logic xor table (Tables.XorTable)an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->D.Interfaces.MISO</A> (Multiple input - single output).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>D.Interfaces.MISO</a> (Multiple input - single output).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+</address>
+</body>
+</html>

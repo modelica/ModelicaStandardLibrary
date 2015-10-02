@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Math.Matrices.LAPACK</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Matrices.LAPACK</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)&quot;">
+<meta name="description" content="&quot;Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LAPACK<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Math.Matrices.LAPACK"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
->Modelica.Math.Matrices</A>.LAPACK</H2>
-<B>Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LAPACK<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Matrices.LAPACK"></a><a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</a>.LAPACK</h2>
+<p>
+<span class="ModelicaDescription">Interface to LAPACK library (should usually not directly be used but only indirectly via Modelica.Math.Matrices)</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains external Modelica functions as interface to the
 LAPACK library
@@ -33,7 +52,7 @@ LAPACK library
 that provides FORTRAN subroutines to solve linear algebra
 tasks. Usually, these functions are not directly called, but only via
 the much more convenient interface of
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
 >Modelica.Math.Matrices</a>.
 The documentation of the LAPACK functions is a copy of the original
 FORTRAN code. The details of LAPACK are described in:
@@ -54,145 +73,273 @@ See also <a href="http://en.wikipedia.org/wiki/Lapack">http://en.wikipedia.org/w
 This package contains a direct interface to the LAPACK subroutines
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeev"
->dgeev</A>
-</TD><TD>Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeev_eigenValues"
->dgeev_eigenValues</A>
-</TD><TD>Compute eigenvalues for real nonsymmetric matrix A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgegv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgegv"
->dgegv</A>
-</TD><TD>Compute generalized eigenvalues for a (A,B) system</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgelsx" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgelsx"
->dgelsx</A>
-</TD><TD>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgelsx_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgelsx_vec"
->dgelsx_vec</A>
-</TD><TD>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgels_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgels_vec"
->dgels_vec</A>
-</TD><TD>Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesv"
->dgesv</A>
-</TD><TD>Solve real system of linear equations A*X=B with a B matrix</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesv_vec"
->dgesv_vec</A>
-</TD><TD>Solve real system of linear equations A*x=b with a b vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgglse_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgglse_vec"
->dgglse_vec</A>
-</TD><TD>Solve a linear equality constrained least squares problem</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgtsv"
->dgtsv</A>
-</TD><TD>Solve real system of linear equations A*X=B with B matrix and tridiagonal A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgtsv_vec"
->dgtsv_vec</A>
-</TD><TD>Solve real system of linear equations A*x=b with b vector and tridiagonal A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgbsv"
->dgbsv</A>
-</TD><TD>Solve real system of linear equations A*X=B with a B matrix</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgbsv_vec"
->dgbsv_vec</A>
-</TD><TD>Solve real system of linear equations A*x=b with a b vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvd"
->dgesvd</A>
-</TD><TD>Determine singular value decomposition</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd_sigma" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvd_sigma"
->dgesvd_sigma</A>
-</TD><TD>Determine singular values</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrf" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrf"
->dgetrf</A>
-</TD><TD>Compute LU factorization of square or rectangular matrix A (A = P*L*U)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrs"
->dgetrs</A>
-</TD><TD>Solves a system of linear equations with the LU decomposition from dgetrf(..)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs_vec" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrs_vec"
->dgetrs_vec</A>
-</TD><TD>Solves a system of linear equations with the LU decomposition from dgetrf(..)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgetri" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetri"
->dgetri</A>
-</TD><TD>Computes the inverse of a matrix using the LU factorization from dgetrf(..)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeqpf" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeqpf"
->dgeqpf</A>
-</TD><TD>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dorgqr" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dorgqr"
->dorgqr</A>
-</TD><TD>Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgees" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgees"
->dgees</A>
-</TD><TD>Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dtrsen" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsen"
->dtrsen</A>
-</TD><TD>Reorder the real Schur factorization of a real matrix</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvx" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvx"
->dgesvx</A>
-</TD><TD>Solve real system of linear equations op(A)*X=B, op(A) is A or A&#39; according to the Boolean input transposed</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dtrsyl" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsyl"
->dtrsyl</A>
-</TD><TD>Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dhseqr" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dhseqr"
->dhseqr</A>
-</TD><TD>Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dlange" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dlange"
->dlange</A>
-</TD><TD>Norm of a matrix</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgecon" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgecon"
->dgecon</A>
-</TD><TD>Estimates the reciprocal of the condition number of a general real matrix A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgehrd" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgehrd"
->dgehrd</A>
-</TD><TD>reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q&#39; * A * Q = H</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeqrf" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeqrf"
->dgeqrf</A>
-</TD><TD>computes a QR factorization without pivoting</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgeevx" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeevx"
->dgeevx</A>
-</TD><TD>Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dgesdd" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesdd"
->dgesdd</A>
-</TD><TD>Determine singular value decomposition</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dggev" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dggev"
->dggev</A>
-</TD><TD>Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dggevx" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dggevx"
->dggevx</A>
-</TD><TD>Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dhgeqz" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dhgeqz"
->dhgeqz</A>
-</TD><TD>Compute generalized eigenvalues for a (A,B) system</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dormhr" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dormhr"
->dormhr</A>
-</TD><TD>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix as returned by dgehrd</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dormqr" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dormqr"
->dormqr</A>
-</TD><TD>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dtrevc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrevc"
->dtrevc</A>
-</TD><TD>Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dpotrf" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dpotrf"
->dpotrf</A>
-</TD><TD>Computes the Cholesky factorization of a real symmetric positive definite matrix A</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dtrsm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsm"
->dtrsm</A>
-</TD><TD>Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" ALT="Modelica.Math.Matrices.LAPACK.dorghr" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dorghr"
->dorghr</A>
-</TD><TD>Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgeev<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgeev"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgeev</H2>
-<B>Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>This function is not a full interface to the LAPACK function DGEEV,
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgeev" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeev"
+>dgeev</a>
+</td>
+<td>Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeev_eigenValues"
+>dgeev_eigenValues</a>
+</td>
+<td>Compute eigenvalues for real nonsymmetric matrix A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgegv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgegv"
+>dgegv</a>
+</td>
+<td>Compute generalized eigenvalues for a (A,B) system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgelsx" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgelsx"
+>dgelsx</a>
+</td>
+<td>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgelsx_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgelsx_vec"
+>dgelsx_vec</a>
+</td>
+<td>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgels_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgels_vec"
+>dgels_vec</a>
+</td>
+<td>Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgesv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesv"
+>dgesv</a>
+</td>
+<td>Solve real system of linear equations A*X=B with a B matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgesv_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesv_vec"
+>dgesv_vec</a>
+</td>
+<td>Solve real system of linear equations A*x=b with a b vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgglse_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgglse_vec"
+>dgglse_vec</a>
+</td>
+<td>Solve a linear equality constrained least squares problem</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgtsv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgtsv"
+>dgtsv</a>
+</td>
+<td>Solve real system of linear equations A*X=B with B matrix and tridiagonal A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgtsv_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgtsv_vec"
+>dgtsv_vec</a>
+</td>
+<td>Solve real system of linear equations A*x=b with b vector and tridiagonal A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgbsv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgbsv"
+>dgbsv</a>
+</td>
+<td>Solve real system of linear equations A*X=B with a B matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgbsv_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgbsv_vec"
+>dgbsv_vec</a>
+</td>
+<td>Solve real system of linear equations A*x=b with a b vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgesvd" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvd"
+>dgesvd</a>
+</td>
+<td>Determine singular value decomposition</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgesvd_sigma" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvd_sigma"
+>dgesvd_sigma</a>
+</td>
+<td>Determine singular values</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgetrf" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrf"
+>dgetrf</a>
+</td>
+<td>Compute LU factorization of square or rectangular matrix A (A = P*L*U)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgetrs" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrs"
+>dgetrs</a>
+</td>
+<td>Solves a system of linear equations with the LU decomposition from dgetrf(..)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgetrs_vec" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetrs_vec"
+>dgetrs_vec</a>
+</td>
+<td>Solves a system of linear equations with the LU decomposition from dgetrf(..)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgetri" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgetri"
+>dgetri</a>
+</td>
+<td>Computes the inverse of a matrix using the LU factorization from dgetrf(..)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgeqpf" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeqpf"
+>dgeqpf</a>
+</td>
+<td>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dorgqr" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dorgqr"
+>dorgqr</a>
+</td>
+<td>Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgees" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgees"
+>dgees</a>
+</td>
+<td>Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dtrsen" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsen"
+>dtrsen</a>
+</td>
+<td>Reorder the real Schur factorization of a real matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgesvx" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesvx"
+>dgesvx</a>
+</td>
+<td>Solve real system of linear equations op(A)*X=B, op(A) is A or A&#39; according to the Boolean input transposed</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dtrsyl" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsyl"
+>dtrsyl</a>
+</td>
+<td>Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dhseqr" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dhseqr"
+>dhseqr</a>
+</td>
+<td>Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dlange" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dlange"
+>dlange</a>
+</td>
+<td>Norm of a matrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgecon" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgecon"
+>dgecon</a>
+</td>
+<td>Estimates the reciprocal of the condition number of a general real matrix A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgehrd" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgehrd"
+>dgehrd</a>
+</td>
+<td>reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q&#39; * A * Q = H</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgeqrf" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeqrf"
+>dgeqrf</a>
+</td>
+<td>computes a QR factorization without pivoting</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgeevx" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgeevx"
+>dgeevx</a>
+</td>
+<td>Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dgesdd" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dgesdd"
+>dgesdd</a>
+</td>
+<td>Determine singular value decomposition</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dggev" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dggev"
+>dggev</a>
+</td>
+<td>Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dggevx" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dggevx"
+>dggevx</a>
+</td>
+<td>Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dhgeqz" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dhgeqz"
+>dhgeqz</a>
+</td>
+<td>Compute generalized eigenvalues for a (A,B) system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dormhr" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dormhr"
+>dormhr</a>
+</td>
+<td>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix as returned by dgehrd</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dormqr" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dormqr"
+>dormqr</a>
+</td>
+<td>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dtrevc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrevc"
+>dtrevc</a>
+</td>
+<td>Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dpotrf" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dpotrf"
+>dpotrf</a>
+</td>
+<td>Computes the Cholesky factorization of a real symmetric positive definite matrix A</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dtrsm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dtrsm"
+>dtrsm</a>
+</td>
+<td>Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Matrices.Ex317ffc06aa9e2e4ftionsS.png" alt="Modelica.Math.Matrices.LAPACK.dorghr" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK.dorghr"
+>dorghr</a>
+</td>
+<td>Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgeev<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgeev" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgeev"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgeev</h2>
+<p>
+<span class="ModelicaDescription">Compute eigenvalues and (right) eigenvectors for real nonsymmetric matrix A</span>
+</p>
+<h3>Information</h3>
+<pre>This function is not a full interface to the LAPACK function DGEEV,
 but calls it in such a way that only eigenvalues and right eigenvectors
 are computed.
 
@@ -292,31 +439,33 @@ Lapack documentation
                   eigenvalues, and no eigenvectors have been computed;
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>eigenReal[size(A, 1)]</TD><TD>Real part of eigen values</TD></TR>
-<TR><TD>eigenImag[size(A, 1)]</TD><TD>Imaginary part of eigen values</TD></TR>
-<TR><TD>eigenVectors[size(A, 1), size(A, 1)]</TD><TD>Right eigen vectors</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgeev_eigenValues<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgeev_eigenValues</H2>
-<B>Compute eigenvalues for real nonsymmetric matrix A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>eigenReal[size(A, 1)]</td><td>Real part of eigen values</td></tr>
+<tr><td>eigenImag[size(A, 1)]</td><td>Imaginary part of eigen values</td></tr>
+<tr><td>eigenVectors[size(A, 1), size(A, 1)]</td><td>Right eigen vectors</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgeev_eigenValues<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgeev_eigenValues"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgeev_eigenValues</h2>
+<p>
+<span class="ModelicaDescription">Compute eigenvalues for real nonsymmetric matrix A</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -412,30 +561,32 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   eigenvalues, and no eigenvectors have been computed;
                   elements i+1:N of WR and WI contain eigenvalues which
                   have converged.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>EigenReal[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>EigenImag[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgegv<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgegv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgegv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgegv</H2>
-<B>Compute generalized eigenvalues for a (A,B) system</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>EigenReal[size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>EigenImag[size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgegv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgegv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgegv"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgegv</h2>
+<p>
+<span class="ModelicaDescription">Compute generalized eigenvalues for a (A,B) system</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -637,32 +788,34 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
 
     [*] See DHGEQZ, DGEGS, or read the book &quot;Matrix Computations&quot;,
         by Golub &amp; van Loan, pub. by Johns Hopkins U. Press.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alphaReal[size(A, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</TD></TR>
-<TR><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of alpha</TD></TR>
-<TR><TD>beta[size(A, 1)]</TD><TD>Denominator of eigenvalue</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgelsx<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgelsx" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgelsx"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgelsx</H2>
-<B>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(A, 1), size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alphaReal[size(A, 1)]</td><td>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</td></tr>
+<tr><td>alphaImag[size(A, 1)]</td><td>Imaginary part of alpha</td></tr>
+<tr><td>beta[size(A, 1)]</td><td>Denominator of eigenvalue</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgelsx<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgelsx" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgelsx"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgelsx</h2>
+<p>
+<span class="ModelicaDescription">Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -754,153 +907,153 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(A, 1), :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>rcond</TD><TD>Reciprocal condition number to estimate rank</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[max(size(A, 1), size(A, 2)), size(B, 2)]</TD><TD>Solution is in first size(A,2) rows</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-<TR><TD>rank</TD><TD>Effective rank of A</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgelsx_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgelsx_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgelsx_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgelsx_vec</H2>
-<B>Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(A, 1), :]</td><td>&nbsp;</td></tr>
+<tr><td>rcond</td><td>Reciprocal condition number to estimate rank</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[max(size(A, 1), size(A, 2)), size(B, 2)]</td><td>Solution is in first size(A,2) rows</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+<tr><td>rank</td><td>Effective rank of A</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgelsx_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgelsx_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgelsx_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgelsx_vec</h2>
+<p>
+<span class="ModelicaDescription">Computes the minimum-norm solution to a real linear least squares problem with rank deficient A</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
-    DGEEV computes for an N-by-N real nonsymmetric matrix A, the
-    eigenvalues and, optionally, the left and/or right eigenvectors.
+    This routine is deprecated and has been replaced by routine DGELSY.
 
-    The right eigenvector v(j) of A satisfies
-                     A * v(j) = lambda(j) * v(j)
-    where lambda(j) is its eigenvalue.
-    The left eigenvector u(j) of A satisfies
-                  u(j)**H * A = lambda(j) * u(j)**H
-    where u(j)**H denotes the conjugate transpose of u(j).
+    DGELSX computes the minimum-norm solution to a real linear least
+    squares problem:
+        minimize || A * X - B ||
+    using a complete orthogonal factorization of A.  A is an M-by-N
+    matrix which may be rank-deficient.
 
-    The computed eigenvectors are normalized to have Euclidean norm
-    equal to 1 and largest component real.
+    Several right hand side vectors b and solution vectors x can be
+    handled in a single call; they are stored as the columns of the
+    M-by-NRHS right hand side matrix B and the N-by-NRHS solution
+    matrix X.
+
+    The routine first computes a QR factorization with column pivoting:
+        A * P = Q * [ R11 R12 ]
+                    [  0  R22 ]
+    with R11 defined as the largest leading submatrix whose estimated
+    condition number is less than 1/RCOND.  The order of R11, RANK,
+    is the effective rank of A.
+
+    Then, R22 is considered to be negligible, and R12 is annihilated
+    by orthogonal transformations from the right, arriving at the
+    complete orthogonal factorization:
+       A * P = Q * [ T11 0 ] * Z
+                   [  0  0 ]
+    The minimum-norm solution is then
+       X = P * Z&#39; [ inv(T11)*Q1&#39;*B ]
+                  [        0       ]
+    where Q1 consists of the first RANK columns of Q.
 
     Arguments
     =========
 
-    JOBVL   (input) CHARACTER*1
-            = &#39;N&#39;: left eigenvectors of A are not computed;
-            = &#39;V&#39;: left eigenvectors of A are computed.
-
-    JOBVR   (input) CHARACTER*1
-            = &#39;N&#39;: right eigenvectors of A are not computed;
-            = &#39;V&#39;: right eigenvectors of A are computed.
+    M       (input) INTEGER
+            The number of rows of the matrix A.  M &gt;= 0.
 
     N       (input) INTEGER
-            The order of the matrix A. N &gt;= 0.
+            The number of columns of the matrix A.  N &gt;= 0.
+
+    NRHS    (input) INTEGER
+            The number of right hand sides, i.e., the number of
+            columns of matrices B and X. NRHS &gt;= 0.
 
     A       (input/output) DOUBLE PRECISION array, dimension (LDA,N)
-            On entry, the N-by-N matrix A.
-            On exit, A has been overwritten.
+            On entry, the M-by-N matrix A.
+            On exit, A has been overwritten by details of its
+            complete orthogonal factorization.
 
     LDA     (input) INTEGER
-            The leading dimension of the array A.  LDA &gt;= max(1,N).
+            The leading dimension of the array A.  LDA &gt;= max(1,M).
 
-    WR      (output) DOUBLE PRECISION array, dimension (N)
-    WI      (output) DOUBLE PRECISION array, dimension (N)
-            WR and WI contain the real and imaginary parts,
-            respectively, of the computed eigenvalues.  Complex
-            conjugate pairs of eigenvalues appear consecutively
-            with the eigenvalue having the positive imaginary part
-            first.
+    B       (input/output) DOUBLE PRECISION array, dimension (LDB,NRHS)
+            On entry, the M-by-NRHS right hand side matrix B.
+            On exit, the N-by-NRHS solution matrix X.
+            If m &gt;= n and RANK = n, the residual sum-of-squares for
+            the solution in the i-th column is given by the sum of
+            squares of elements N+1:M in that column.
 
-    VL      (output) DOUBLE PRECISION array, dimension (LDVL,N)
-            If JOBVL = &#39;V&#39;, the left eigenvectors u(j) are stored one
-            after another in the columns of VL, in the same order
-            as their eigenvalues.
-            If JOBVL = &#39;N&#39;, VL is not referenced.
-            If the j-th eigenvalue is real, then u(j) = VL(:,j),
-            the j-th column of VL.
-            If the j-th and (j+1)-st eigenvalues form a complex
-            conjugate pair, then u(j) = VL(:,j) + i*VL(:,j+1) and
-            u(j+1) = VL(:,j) - i*VL(:,j+1).
+    LDB     (input) INTEGER
+            The leading dimension of the array B. LDB &gt;= max(1,M,N).
 
-    LDVL    (input) INTEGER
-            The leading dimension of the array VL.  LDVL &gt;= 1; if
-            JOBVL = &#39;V&#39;, LDVL &gt;= N.
+    JPVT    (input/output) INTEGER array, dimension (N)
+            On entry, if JPVT(i) .ne. 0, the i-th column of A is an
+            initial column, otherwise it is a free column.  Before
+            the QR factorization of A, all initial columns are
+            permuted to the leading positions; only the remaining
+            free columns are moved as a result of column pivoting
+            during the factorization.
+            On exit, if JPVT(i) = k, then the i-th column of A*P
+            was the k-th column of A.
 
-    VR      (output) DOUBLE PRECISION array, dimension (LDVR,N)
-            If JOBVR = &#39;V&#39;, the right eigenvectors v(j) are stored one
-            after another in the columns of VR, in the same order
-            as their eigenvalues.
-            If JOBVR = &#39;N&#39;, VR is not referenced.
-            If the j-th eigenvalue is real, then v(j) = VR(:,j),
-            the j-th column of VR.
-            If the j-th and (j+1)-st eigenvalues form a complex
-            conjugate pair, then v(j) = VR(:,j) + i*VR(:,j+1) and
-            v(j+1) = VR(:,j) - i*VR(:,j+1).
+    RCOND   (input) DOUBLE PRECISION
+            RCOND is used to determine the effective rank of A, which
+            is defined as the order of the largest leading triangular
+            submatrix R11 in the QR factorization with pivoting of A,
+            whose estimated condition number &lt; 1/RCOND.
 
-    LDVR    (input) INTEGER
-            The leading dimension of the array VR.  LDVR &gt;= 1; if
-            JOBVR = &#39;V&#39;, LDVR &gt;= N.
+    RANK    (output) INTEGER
+            The effective rank of A, i.e., the order of the submatrix
+            R11.  This is the same as the order of the submatrix T11
+            in the complete orthogonal factorization of A.
 
-    WORK    (workspace/output) DOUBLE PRECISION array, dimension (MAX(1,LWORK))
-            On exit, if INFO = 0, WORK(1) returns the optimal LWORK.
-
-    LWORK   (input) INTEGER
-            The dimension of the array WORK.  LWORK &gt;= max(1,3*N), and
-            if JOBVL = &#39;V&#39; or JOBVR = &#39;V&#39;, LWORK &gt;= 4*N.  For good
-            performance, LWORK must generally be larger.
-
-            If LWORK = -1, then a workspace query is assumed; the routine
-            only calculates the optimal size of the WORK array, returns
-            this value as the first entry of the WORK array, and no error
-            message related to LWORK is issued by XERBLA.
+    WORK    (workspace) DOUBLE PRECISION array, dimension
+                        (max( min(M,N)+3*N, 2*min(M,N)+NRHS )),
 
     INFO    (output) INTEGER
             = 0:  successful exit
-            &lt; 0:  if INFO = -i, the i-th argument had an illegal value.
-            &gt; 0:  if INFO = i, the QR algorithm failed to compute all the
-                  eigenvalues, and no eigenvectors have been computed;
-                  elements i+1:N of WR and WI contain eigenvalues which
-                  have converged.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>b[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>rcond</TD><TD>Reciprocal condition number to estimate rank</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[max(size(A, 1), size(A, 2))]</TD><TD>solution is in first size(A,2) rows</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-<TR><TD>rank</TD><TD>Effective rank of A</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgels_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgels_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgels_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgels_vec</H2>
-<B>Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+            &lt; 0:  if INFO = -i, the i-th argument had an illegal value
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>b[size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>rcond</td><td>Reciprocal condition number to estimate rank</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[max(size(A, 1), size(A, 2))]</td><td>solution is in first size(A,2) rows</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+<tr><td>rank</td><td>Effective rank of A</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgels_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgels_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgels_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgels_vec</h2>
+<p>
+<span class="ModelicaDescription">Solves overdetermined or underdetermined real linear equations A*x=b with a b vector</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1001,30 +1154,32 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   triangular factor of A is zero, so that A does not have
                   full rank; the least squares solution could not be
                   computed.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>b[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[max(size(A, 1), size(A, 2))]</TD><TD>solution is in first size(A,2) rows</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgesv<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgesv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgesv</H2>
-<B>Solve real system of linear equations A*X=B with a B matrix</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>b[size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[max(size(A, 1), size(A, 2))]</td><td>solution is in first size(A,2) rows</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgesv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgesv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgesv"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgesv</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations A*X=B with a B matrix</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1075,56 +1230,60 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
             &gt; 0:  if INFO = i, U(i,i) is exactly zero.  The factorization
                   has been completed, but the factor U is exactly
                   singular, so the solution could not be computed.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(A, 1), :]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[size(A, 1), size(B, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgesv_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesv_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgesv_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgesv_vec</H2>
-<B>Solve real system of linear equations A*x=b with a b vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(A, 1), :]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[size(A, 1), size(B, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgesv_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgesv_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgesv_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgesv_vec</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations A*x=b with a b vector</span>
+</p>
+<h3>Information</h3>
+<pre>
 Same as function LAPACK.dgesv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgesv.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>b[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgglse_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgglse_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgglse_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgglse_vec</H2>
-<B>Solve a linear equality constrained least squares problem</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>b[size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgglse_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgglse_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgglse_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgglse_vec</h2>
+<p>
+<span class="ModelicaDescription">Solve a linear equality constrained least squares problem</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1216,32 +1375,34 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   rank( (A) ) &lt; N; the least squares solution could not
                       ( (B) )
                   be computed.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Minimize |A*x - c|^2</TD></TR>
-<TR><TD>c[size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[:, size(A, 2)]</TD><TD>subject to B*x=d</TD></TR>
-<TR><TD>d[size(B, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[size(A, 2)]</TD><TD>solution vector</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgtsv<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgtsv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgtsv</H2>
-<B>Solve real system of linear equations A*X=B with B matrix and tridiagonal A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Minimize |A*x - c|^2</td></tr>
+<tr><td>c[size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[:, size(A, 2)]</td><td>subject to B*x=d</td></tr>
+<tr><td>d[size(B, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[size(A, 2)]</td><td>solution vector</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgtsv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgtsv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgtsv"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgtsv</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations A*X=B with B matrix and tridiagonal A</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1298,60 +1459,64 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
             &gt; 0: if INFO = i, U(i,i) is exactly zero, and the solution
                  has not been computed.  The factorization has not been
                  completed unless i = N.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>superdiag[:]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>diag[size(superdiag, 1) + 1]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>subdiag[size(superdiag, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(diag, 1), :]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[size(B, 1), size(B, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgtsv_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgtsv_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgtsv_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgtsv_vec</H2>
-<B>Solve real system of linear equations A*x=b with b vector and tridiagonal A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>superdiag[:]</td><td>&nbsp;</td></tr>
+<tr><td>diag[size(superdiag, 1) + 1]</td><td>&nbsp;</td></tr>
+<tr><td>subdiag[size(superdiag, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(diag, 1), :]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[size(B, 1), size(B, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgtsv_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgtsv_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgtsv_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgtsv_vec</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations A*x=b with b vector and tridiagonal A</span>
+</p>
+<h3>Information</h3>
+<pre>
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgtsv.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>superdiag[:]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>diag[size(superdiag, 1) + 1]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>subdiag[size(superdiag, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>b[size(diag, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[size(b, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgbsv<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgbsv"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgbsv</H2>
-<B>Solve real system of linear equations A*X=B with a B matrix</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>superdiag[:]</td><td>&nbsp;</td></tr>
+<tr><td>diag[size(superdiag, 1) + 1]</td><td>&nbsp;</td></tr>
+<tr><td>subdiag[size(superdiag, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>b[size(diag, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[size(b, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgbsv<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgbsv" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgbsv"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgbsv</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations A*X=B with a B matrix</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1433,62 +1598,66 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     Array elements marked * are not used by the routine; elements marked
     + need not be set on entry, but are required by the routine to store
     elements of U because of fill-in resulting from the row interchanges.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of equations</TD></TR>
-<TR><TD>kLower</TD><TD>Number of lower bands</TD></TR>
-<TR><TD>kUpper</TD><TD>Number of upper bands</TD></TR>
-<TR><TD>A[2*kLower + kUpper + 1, n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[n, :]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[n, size(B, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgbsv_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgbsv_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgbsv_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgbsv_vec</H2>
-<B>Solve real system of linear equations A*x=b with a b vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of equations</td></tr>
+<tr><td>kLower</td><td>Number of lower bands</td></tr>
+<tr><td>kUpper</td><td>Number of upper bands</td></tr>
+<tr><td>A[2*kLower + kUpper + 1, n]</td><td>&nbsp;</td></tr>
+<tr><td>B[n, :]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[n, size(B, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgbsv_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgbsv_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgbsv_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgbsv_vec</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations A*x=b with a b vector</span>
+</p>
+<h3>Information</h3>
+<pre>
 Same as function LAPACK.dgbsv, but right hand side is a vector and not a matrix.
 For details of the arguments, see documentation of dgbsv.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of equations</TD></TR>
-<TR><TD>kLower</TD><TD>Number of lower bands</TD></TR>
-<TR><TD>kUpper</TD><TD>Number of upper bands</TD></TR>
-<TR><TD>A[2*kLower + kUpper + 1, n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>b[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgesvd<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgesvd"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgesvd</H2>
-<B>Determine singular value decomposition</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of equations</td></tr>
+<tr><td>kLower</td><td>Number of lower bands</td></tr>
+<tr><td>kUpper</td><td>Number of upper bands</td></tr>
+<tr><td>A[2*kLower + kUpper + 1, n]</td><td>&nbsp;</td></tr>
+<tr><td>b[n]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgesvd<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgesvd" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgesvd"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgesvd</h2>
+<p>
+<span class="ModelicaDescription">Determine singular value decomposition</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1604,31 +1773,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   superdiagonals of an intermediate bidiagonal form B
                   did not converge to zero. See the description of WORK
                   above for details.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sigma[min(size(A, 1), size(A, 2))]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>U[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>VT[size(A, 2), size(A, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgesvd_sigma<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvd_sigma" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgesvd_sigma"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgesvd_sigma</H2>
-<B>Determine singular values</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sigma[min(size(A, 1), size(A, 2))]</td><td>&nbsp;</td></tr>
+<tr><td>U[size(A, 1), size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>VT[size(A, 2), size(A, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgesvd_sigma<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgesvd_sigma" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgesvd_sigma"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgesvd_sigma</h2>
+<p>
+<span class="ModelicaDescription">Determine singular values</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1744,29 +1915,31 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   superdiagonals of an intermediate bidiagonal form B
                   did not converge to zero. See the description of WORK
                   above for details.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sigma[min(size(A, 1), size(A, 2))]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgetrf<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrf" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgetrf"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgetrf</H2>
-<B>Compute LU factorization of square or rectangular matrix A (A = P*L*U)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sigma[min(size(A, 1), size(A, 2))]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgetrf<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgetrf" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgetrf"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgetrf</h2>
+<p>
+<span class="ModelicaDescription">Compute LU factorization of square or rectangular matrix A (A = P*L*U)</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1809,30 +1982,32 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   has been completed, but the factor U is exactly
                   singular, and division by zero will occur if it is used
                   to solve a system of equations.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Square or rectangular matrix</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>LU[size(A, 1), size(A, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>pivots[min(size(A, 1), size(A, 2))]</TD><TD>Pivot vector</TD></TR>
-<TR><TD>info</TD><TD>Information</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgetrs<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgetrs"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgetrs</H2>
-<B>Solves a system of linear equations with the LU decomposition from dgetrf(..)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Square or rectangular matrix</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>LU[size(A, 1), size(A, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>pivots[min(size(A, 1), size(A, 2))]</td><td>Pivot vector</td></tr>
+<tr><td>info</td><td>Information</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgetrs<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgetrs" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgetrs"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgetrs</h2>
+<p>
+<span class="ModelicaDescription">Solves a system of linear equations with the LU decomposition from dgetrf(..)</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1878,31 +2053,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>LU[:, size(LU, 1)]</TD><TD>LU factorization of dgetrf of a square matrix</TD></TR>
-<TR><TD>pivots[size(LU, 1)]</TD><TD>Pivot vector of dgetrf</TD></TR>
-<TR><TD>B[size(LU, 1), :]</TD><TD>Right hand side matrix B</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[size(B, 1), size(B, 2)]</TD><TD>Solution matrix X</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgetrs_vec<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetrs_vec" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgetrs_vec"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgetrs_vec</H2>
-<B>Solves a system of linear equations with the LU decomposition from dgetrf(..)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>LU[:, size(LU, 1)]</td><td>LU factorization of dgetrf of a square matrix</td></tr>
+<tr><td>pivots[size(LU, 1)]</td><td>Pivot vector of dgetrf</td></tr>
+<tr><td>B[size(LU, 1), :]</td><td>Right hand side matrix B</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[size(B, 1), size(B, 2)]</td><td>Solution matrix X</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgetrs_vec<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgetrs_vec" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgetrs_vec"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgetrs_vec</h2>
+<p>
+<span class="ModelicaDescription">Solves a system of linear equations with the LU decomposition from dgetrf(..)</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -1948,31 +2125,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>LU[:, size(LU, 1)]</TD><TD>LU factorization of dgetrf of a square matrix</TD></TR>
-<TR><TD>pivots[size(LU, 1)]</TD><TD>Pivot vector of dgetrf</TD></TR>
-<TR><TD>b[size(LU, 1)]</TD><TD>Right hand side vector b</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[size(b, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgetri<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgetri" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgetri"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgetri</H2>
-<B>Computes the inverse of a matrix using the LU factorization from dgetrf(..)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>LU[:, size(LU, 1)]</td><td>LU factorization of dgetrf of a square matrix</td></tr>
+<tr><td>pivots[size(LU, 1)]</td><td>Pivot vector of dgetrf</td></tr>
+<tr><td>b[size(LU, 1)]</td><td>Right hand side vector b</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[size(b, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgetri<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgetri" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgetri"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgetri</h2>
+<p>
+<span class="ModelicaDescription">Computes the inverse of a matrix using the LU factorization from dgetrf(..)</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2018,30 +2197,32 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
             &gt; 0:  if INFO = i, U(i,i) is exactly zero; the matrix is
                   singular and its inverse could not be computed.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>LU[:, size(LU, 1)]</TD><TD>LU factorization of dgetrf of a square matrix</TD></TR>
-<TR><TD>pivots[size(LU, 1)]</TD><TD>Pivot vector of dgetrf</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>inv[size(LU, 1), size(LU, 2)]</TD><TD>Inverse of matrix P*L*U</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgeqpf<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeqpf" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgeqpf"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgeqpf</H2>
-<B>Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>LU[:, size(LU, 1)]</td><td>LU factorization of dgetrf of a square matrix</td></tr>
+<tr><td>pivots[size(LU, 1)]</td><td>Pivot vector of dgetrf</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inv[size(LU, 1), size(LU, 2)]</td><td>Inverse of matrix P*L*U</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgeqpf<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgeqpf" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgeqpf"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgeqpf</h2>
+<p>
+<span class="ModelicaDescription">Compute QR factorization of square or rectangular matrix A with column pivoting (A(:,p) = Q*R)</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2103,31 +2284,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     The matrix P is represented in jpvt as follows: If
        jpvt(j) = i
     then the jth column of P is the ith canonical unit vector.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Square or rectangular matrix</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>QR[size(A, 1), size(A, 2)]</TD><TD>QR factorization in packed format</TD></TR>
-<TR><TD>tau[min(size(A, 1), size(A, 2))]</TD><TD>The scalar factors of the elementary reflectors of Q</TD></TR>
-<TR><TD>p[size(A, 2)]</TD><TD>Pivot vector</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dorgqr<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dorgqr" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dorgqr"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dorgqr</H2>
-<B>Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Square or rectangular matrix</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>QR[size(A, 1), size(A, 2)]</td><td>QR factorization in packed format</td></tr>
+<tr><td>tau[min(size(A, 1), size(A, 2))]</td><td>The scalar factors of the elementary reflectors of Q</td></tr>
+<tr><td>p[size(A, 2)]</td><td>Pivot vector</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dorgqr<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dorgqr" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dorgqr"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dorgqr</h2>
+<p>
+<span class="ModelicaDescription">Generates a Real orthogonal matrix Q which is defined as the product of elementary reflectors as returned from dgeqpf</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2182,30 +2365,32 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument has an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>QR[:, :]</TD><TD>QR from dgeqpf</TD></TR>
-<TR><TD>tau[min(size(QR, 1), size(QR, 2))]</TD><TD>The scalar factors of the elementary reflectors of Q</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Q[size(QR, 1), size(QR, 2)]</TD><TD>Orthogonal matrix Q</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgees<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgees" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgees"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgees</H2>
-<B>Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>QR[:, :]</td><td>QR from dgeqpf</td></tr>
+<tr><td>tau[min(size(QR, 1), size(QR, 2))]</td><td>The scalar factors of the elementary reflectors of Q</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Q[size(QR, 1), size(QR, 2)]</td><td>Orthogonal matrix Q</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgees<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgees" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgees"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgees</h2>
+<p>
+<span class="ModelicaDescription">Computes real Schur form T of real nonsymmetric matrix A, and, optionally, the matrix of Schur vectors Z as well as the eigenvalues</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2320,32 +2505,34 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                      complex eigenvalues so that leading eigenvalues in
                      the Schur form no longer satisfy SELECT=.TRUE.  This
                      could also be caused by underflow due to scaling.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T[size(A, 1), size(A, 2)]</TD><TD>Real Schur form with A = Z*T*Z&#39;</TD></TR>
-<TR><TD>Z[size(A, 1), size(A, 1)]</TD><TD>orthogonal matrix Z of Schur vectors</TD></TR>
-<TR><TD>eval_real[size(A, 1)]</TD><TD>real part of the eigenvectors of A</TD></TR>
-<TR><TD>eval_imag[size(A, 1)]</TD><TD>imaginary part of the eigenvectors of A</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtrsen<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dtrsen" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dtrsen"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dtrsen</H2>
-<B>Reorder the real Schur factorization of a real matrix</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>Square matrix</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T[size(A, 1), size(A, 2)]</td><td>Real Schur form with A = Z*T*Z&#39;</td></tr>
+<tr><td>Z[size(A, 1), size(A, 1)]</td><td>orthogonal matrix Z of Schur vectors</td></tr>
+<tr><td>eval_real[size(A, 1)]</td><td>real part of the eigenvectors of A</td></tr>
+<tr><td>eval_imag[size(A, 1)]</td><td>imaginary part of the eigenvectors of A</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtrsen<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dtrsen" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dtrsen"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dtrsen</h2>
+<p>
+<span class="ModelicaDescription">Reorder the real Schur factorization of a real matrix</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2547,39 +2734,41 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     error in the computed right invariant subspace is
 
                         EPS * norm(T) / SEP
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>job</TD><TD>Specifies the usage of a condition number</TD></TR>
-<TR><TD>compq</TD><TD>Is &quot;V&quot; if Schur vector matrix is to be updated</TD></TR>
-<TR><TD>select[:]</TD><TD>Specifies the eigenvalues to reorder</TD></TR>
-<TR><TD>T[:, :]</TD><TD>Real Schur form to be reordered</TD></TR>
-<TR><TD>Q[:, size(T, 2)]</TD><TD>Matrix of the Schur vectors</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>To[:, :]</TD><TD>Reordered Schur form</TD></TR>
-<TR><TD>Qo[:, :]</TD><TD>Reordered Schur vectors</TD></TR>
-<TR><TD>wr[size(T, 2)]</TD><TD>Reordered eigenvalues, real part</TD></TR>
-<TR><TD>wi[size(T, 2)]</TD><TD>Reordered eigenvalues, imaginary part</TD></TR>
-<TR><TD>m</TD><TD>Dimension of the invariant sub space spanned bei the selected eigenvalues</TD></TR>
-<TR><TD>s</TD><TD>Lower bound of the reciprocal condition number. Not referenced for job==V</TD></TR>
-<TR><TD>sep</TD><TD>Estimated reciprocal condition number of the specified invariant subspace</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgesvx<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesvx" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgesvx"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgesvx</H2>
-<B>Solve real system of linear equations op(A)*X=B, op(A) is A or A&#39; according to the Boolean input transposed</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>job</td><td>Specifies the usage of a condition number</td></tr>
+<tr><td>compq</td><td>Is &quot;V&quot; if Schur vector matrix is to be updated</td></tr>
+<tr><td>select[:]</td><td>Specifies the eigenvalues to reorder</td></tr>
+<tr><td>T[:, :]</td><td>Real Schur form to be reordered</td></tr>
+<tr><td>Q[:, size(T, 2)]</td><td>Matrix of the Schur vectors</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>To[:, :]</td><td>Reordered Schur form</td></tr>
+<tr><td>Qo[:, :]</td><td>Reordered Schur vectors</td></tr>
+<tr><td>wr[size(T, 2)]</td><td>Reordered eigenvalues, real part</td></tr>
+<tr><td>wi[size(T, 2)]</td><td>Reordered eigenvalues, imaginary part</td></tr>
+<tr><td>m</td><td>Dimension of the invariant sub space spanned bei the selected eigenvalues</td></tr>
+<tr><td>s</td><td>Lower bound of the reciprocal condition number. Not referenced for job==V</td></tr>
+<tr><td>sep</td><td>Estimated reciprocal condition number of the specified invariant subspace</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgesvx<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgesvx" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgesvx"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgesvx</h2>
+<p>
+<span class="ModelicaDescription">Solve real system of linear equations op(A)*X=B, op(A) is A or A&#39; according to the Boolean input transposed</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2804,32 +2993,34 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                          there are a number of situations where the
                          computed solution can be more accurate than the
                          value of RCOND would suggest.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>Real square matrix A</TD></TR>
-<TR><TD>B[size(A, 1), :]</TD><TD>Real matrix B</TD></TR>
-<TR><TD>transposed</TD><TD>True if the equation to be solved is A&#39;*X=B</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[size(A, 1), size(B, 2)]</TD><TD>Solution matrix</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-<TR><TD>rcond</TD><TD>reciprocal condition number of the matrix A</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtrsyl<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dtrsyl" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dtrsyl"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dtrsyl</H2>
-<B>Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>Real square matrix A</td></tr>
+<tr><td>B[size(A, 1), :]</td><td>Real matrix B</td></tr>
+<tr><td>transposed</td><td>True if the equation to be solved is A&#39;*X=B</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[size(A, 1), size(B, 2)]</td><td>Solution matrix</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+<tr><td>rcond</td><td>reciprocal condition number of the matrix A</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtrsyl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dtrsyl" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dtrsyl"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dtrsyl</h2>
+<p>
+<span class="ModelicaDescription">Solve the real Sylvester matrix equation op(A)*X + X*op(B) = scale*C or op(A)*X - X*op(B) = scale*C</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -2904,35 +3095,37 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
             = 1: A and B have common or very close eigenvalues; perturbed
                  values were used to solve the equation (but the matrices
                  A and B are unchanged).
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Upper quais-triangular matrix</TD></TR>
-<TR><TD>B[:, :]</TD><TD>Upper quais-triangular matrix</TD></TR>
-<TR><TD>C[if tranA then size(A, 1) else size(A, 2), if tranB then size(B, 1) else size(B, 2)]</TD><TD>Right side of the Sylvester equation</TD></TR>
-<TR><TD>tranA</TD><TD>True if op(A)=A&#39;</TD></TR>
-<TR><TD>tranB</TD><TD>True if op(B)=B&#39;</TD></TR>
-<TR><TD>isgn</TD><TD>Specifies the sign in the equation, +1 or -1</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[size(C, 1), size(C, 2)]</TD><TD>Solution of the Sylvester equation</TD></TR>
-<TR><TD>scale</TD><TD>Scale factor</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dhseqr<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dhseqr" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dhseqr"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dhseqr</H2>
-<B>Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Upper quais-triangular matrix</td></tr>
+<tr><td>B[:, :]</td><td>Upper quais-triangular matrix</td></tr>
+<tr><td>C[if tranA then size(A, 1) else size(A, 2), if tranB then size(B, 1) else size(B, 2)]</td><td>Right side of the Sylvester equation</td></tr>
+<tr><td>tranA</td><td>True if op(A)=A&#39;</td></tr>
+<tr><td>tranB</td><td>True if op(B)=B&#39;</td></tr>
+<tr><td>isgn</td><td>Specifies the sign in the equation, +1 or -1</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[size(C, 1), size(C, 2)]</td><td>Solution of the Sylvester equation</td></tr>
+<tr><td>scale</td><td>Scale factor</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dhseqr<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dhseqr" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dhseqr"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dhseqr</h2>
+<p>
+<span class="ModelicaDescription">Compute eigenvalues of a matrix H using lapack routine DHSEQR for Hessenberg form matrix</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3078,36 +3271,38 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
 
                If INFO &gt; 0 and COMPZ = &#39;N&#39;, then Z is not
                accessed.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>H[:, size(H, 1)]</TD><TD>Matrix H with Hessenberg form</TD></TR>
-<TR><TD>eigenValuesOnly</TD><TD>True to compute the eigenvalues. False to compute the Schur form too</TD></TR>
-<TR><TD>compz</TD><TD>Specifies the computation of the Schur vectors</TD></TR>
-<TR><TD>Z[:, :]</TD><TD>Matrix Z</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alphaReal[size(H, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))</TD></TR>
-<TR><TD>alphaImag[size(H, 1)]</TD><TD>Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-<TR><TD>Ho[:, :]</TD><TD>Schur decomposition (if eigenValuesOnly==false, unspecified else)</TD></TR>
-<TR><TD>Zo[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>work[3*max(1, size(H, 1))]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dlange<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dlange" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dlange"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dlange</H2>
-<B>Norm of a matrix</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>H[:, size(H, 1)]</td><td>Matrix H with Hessenberg form</td></tr>
+<tr><td>eigenValuesOnly</td><td>True to compute the eigenvalues. False to compute the Schur form too</td></tr>
+<tr><td>compz</td><td>Specifies the computation of the Schur vectors</td></tr>
+<tr><td>Z[:, :]</td><td>Matrix Z</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alphaReal[size(H, 1)]</td><td>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))</td></tr>
+<tr><td>alphaImag[size(H, 1)]</td><td>Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+<tr><td>Ho[:, :]</td><td>Schur decomposition (if eigenValuesOnly==false, unspecified else)</td></tr>
+<tr><td>Zo[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>work[3*max(1, size(H, 1))]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dlange<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dlange" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dlange"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dlange</h2>
+<p>
+<span class="ModelicaDescription">Norm of a matrix</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3157,29 +3352,31 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     WORK    (workspace) DOUBLE PRECISION array, dimension (MAX(1,LWORK)),
             where LWORK &gt;= M when NORM = &#39;I&#39;; otherwise, WORK is not
             referenced.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Real matrix A</TD></TR>
-<TR><TD>norm</TD><TD>specifies the norm, i.e., 1, I, F, M</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>anorm</TD><TD>norm of A</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgecon<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgecon" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgecon"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgecon</H2>
-<B>Estimates the reciprocal of the condition number of a general real matrix A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Real matrix A</td></tr>
+<tr><td>norm</td><td>specifies the norm, i.e., 1, I, F, M</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>anorm</td><td>norm of A</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgecon<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgecon" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgecon"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgecon</h2>
+<p>
+<span class="ModelicaDescription">Estimates the reciprocal of the condition number of a general real matrix A</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3225,31 +3422,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>LU_of_A[:, :]</TD><TD>LU factorization of a real matrix A</TD></TR>
-<TR><TD>inf</TD><TD>Is true if infinity norm is used and false for 1-norm</TD></TR>
-<TR><TD>anorm</TD><TD>norm of A</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rcond</TD><TD>Reciprocal condition number of A</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgehrd<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgehrd" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgehrd"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgehrd</H2>
-<B>reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q&#39; * A * Q = H</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>LU_of_A[:, :]</td><td>LU factorization of a real matrix A</td></tr>
+<tr><td>inf</td><td>Is true if infinity norm is used and false for 1-norm</td></tr>
+<tr><td>anorm</td><td>norm of A</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rcond</td><td>Reciprocal condition number of A</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgehrd<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgehrd" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgehrd"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgehrd</h2>
+<p>
+<span class="ModelicaDescription">reduces a real general matrix A to upper Hessenberg form H by an orthogonal similarity transformation:  Q&#39; * A * Q = H</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3335,32 +3534,34 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     where a denotes an element of the original matrix A, h denotes a
     modified element of the upper Hessenberg matrix H, and vi denotes an
     element of the vector defining H(i).
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>ilo</TD><TD>lowest index where the original matrix had been Hessenbergform</TD></TR>
-<TR><TD>ihi</TD><TD>highest index where the original matrix had been Hessenbergform</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Aout[size(A, 1), size(A, 2)]</TD><TD>contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q</TD></TR>
-<TR><TD>tau[max(size(A, 1), 1) - 1]</TD><TD>scalar factors of the elementary reflectors</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgeqrf<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeqrf" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgeqrf"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgeqrf</H2>
-<B>computes a QR factorization without pivoting</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>ilo</td><td>lowest index where the original matrix had been Hessenbergform</td></tr>
+<tr><td>ihi</td><td>highest index where the original matrix had been Hessenbergform</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Aout[size(A, 1), size(A, 2)]</td><td>contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q</td></tr>
+<tr><td>tau[max(size(A, 1), 1) - 1]</td><td>scalar factors of the elementary reflectors</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgeqrf<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgeqrf" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgeqrf"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgeqrf</h2>
+<p>
+<span class="ModelicaDescription">computes a QR factorization without pivoting</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3423,31 +3624,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     where tau is a real scalar, and v is a real vector with
     v(1:i-1) = 0 and v(i) = 1; v(i+1:m) is stored on exit in A(i+1:m,i),
     and tau in TAU(i).
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Square or rectangular matrix</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Aout[size(A, 1), size(A, 2)]</TD><TD>the upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors</TD></TR>
-<TR><TD>tau[min(size(A, 1), size(A, 2))]</TD><TD>scalar factors of the elementary reflectors</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-<TR><TD>work[3*max(1, size(A, 2))]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgeevx<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgeevx" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgeevx"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgeevx</H2>
-<B>Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Square or rectangular matrix</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Aout[size(A, 1), size(A, 2)]</td><td>the upper triangle of the array contains the upper trapezoidal matrix R; the elements below the diagonal, together with the array TAU, represent the orthogonal matrix Q as a product of elementary reflectors</td></tr>
+<tr><td>tau[min(size(A, 1), size(A, 2))]</td><td>scalar factors of the elementary reflectors</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+<tr><td>work[3*max(1, size(A, 2))]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgeevx<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgeevx" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgeevx"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgeevx</h2>
+<p>
+<span class="ModelicaDescription">Compute the eigenvalues and the (real) left and right eigenvectors of matrix A, using lapack routine dgeevx</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3624,33 +3827,35 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   eigenvalues, and no eigenvectors or condition numbers
                   have been computed; elements 1:ILO-1 and i+1:N of WR
                   and WI contain eigenvalues which have converged.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alphaReal[size(A, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))</TD></TR>
-<TR><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))</TD></TR>
-<TR><TD>lEigenVectors[size(A, 1), size(A, 1)]</TD><TD>left eigenvectors of matrix A</TD></TR>
-<TR><TD>rEigenVectors[size(A, 1), size(A, 1)]</TD><TD>right eigenvectors of matrix A</TD></TR>
-<TR><TD>AS[size(A, 1), size(A, 2)]</TD><TD>AS iss the real Schur form of the balanced version of the input matrix A</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dgesdd<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dgesdd" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dgesdd"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dgesdd</H2>
-<B>Determine singular value decomposition</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alphaReal[size(A, 1)]</td><td>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))</td></tr>
+<tr><td>alphaImag[size(A, 1)]</td><td>Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))</td></tr>
+<tr><td>lEigenVectors[size(A, 1), size(A, 1)]</td><td>left eigenvectors of matrix A</td></tr>
+<tr><td>rEigenVectors[size(A, 1), size(A, 1)]</td><td>right eigenvectors of matrix A</td></tr>
+<tr><td>AS[size(A, 1), size(A, 2)]</td><td>AS iss the real Schur form of the balanced version of the input matrix A</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dgesdd<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dgesdd" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dgesdd"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dgesdd</h2>
+<p>
+<span class="ModelicaDescription">Determine singular value decomposition</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3775,31 +3980,33 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     Based on contributions by
        Ming Gu and Huan Ren, Computer Science Division, University of
        California at Berkeley, USA
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sigma[min(size(A, 1), size(A, 2))]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>U[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>VT[size(A, 2), size(A, 2)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dggev<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dggev" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dggev"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dggev</H2>
-<B>Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sigma[min(size(A, 1), size(A, 2))]</td><td>&nbsp;</td></tr>
+<tr><td>U[size(A, 1), size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>VT[size(A, 2), size(A, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dggev<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dggev" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dggev"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dggev</h2>
+<p>
+<span class="ModelicaDescription">Compute generalized eigenvalues, as well as the left and right eigenvectors for a (A,B) system</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -3921,35 +4128,37 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
                   should be correct for j=INFO+1,...,N.
             &gt; N:  =N+1: other than QZ iteration failed in DHGEQZ.
                   =N+2: error return from DTGEVC.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nA</TD><TD>The actual dimensions of matrices A and B (the computation is performed for A[1:nA,1:nA], B[1:nA,1:nA])</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alphaReal[size(A, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</TD></TR>
-<TR><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of alpha</TD></TR>
-<TR><TD>beta[size(A, 1)]</TD><TD>Denominator of eigenvalue</TD></TR>
-<TR><TD>lEigenVectors[size(A, 1), size(A, 1)]</TD><TD>left eigenvectors of matrix A</TD></TR>
-<TR><TD>rEigenVectors[size(A, 1), size(A, 1)]</TD><TD>right eigenvectors of matrix A</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dggevx<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dggevx" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dggevx"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dggevx</H2>
-<B>Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(A, 1), size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>nA</td><td>The actual dimensions of matrices A and B (the computation is performed for A[1:nA,1:nA], B[1:nA,1:nA])</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alphaReal[size(A, 1)]</td><td>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</td></tr>
+<tr><td>alphaImag[size(A, 1)]</td><td>Imaginary part of alpha</td></tr>
+<tr><td>beta[size(A, 1)]</td><td>Denominator of eigenvalue</td></tr>
+<tr><td>lEigenVectors[size(A, 1), size(A, 1)]</td><td>left eigenvectors of matrix A</td></tr>
+<tr><td>rEigenVectors[size(A, 1), size(A, 1)]</td><td>right eigenvectors of matrix A</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dggevx<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dggevx" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dggevx"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dggevx</h2>
+<p>
+<span class="ModelicaDescription">Compute generalized eigenvalues for a (A,B) system, using lapack routine dggevx</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4188,34 +4397,36 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
 
     For further explanation of the reciprocal condition numbers RCONDE
     and RCONDV, see section 4.11 of LAPACK User&#39;s Guide.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alphaReal[size(A, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</TD></TR>
-<TR><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of alpha</TD></TR>
-<TR><TD>beta[size(A, 1)]</TD><TD>Denominator of eigenvalue</TD></TR>
-<TR><TD>lEigenVectors[size(A, 1), size(A, 1)]</TD><TD>left eigenvectors of matrix A</TD></TR>
-<TR><TD>rEigenVectors[size(A, 1), size(A, 1)]</TD><TD>right eigenvectors of matrix A</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dhgeqz<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dhgeqz" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dhgeqz"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dhgeqz</H2>
-<B>Compute generalized eigenvalues for a (A,B) system</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(A, 1), size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alphaReal[size(A, 1)]</td><td>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</td></tr>
+<tr><td>alphaImag[size(A, 1)]</td><td>Imaginary part of alpha</td></tr>
+<tr><td>beta[size(A, 1)]</td><td>Denominator of eigenvalue</td></tr>
+<tr><td>lEigenVectors[size(A, 1), size(A, 1)]</td><td>left eigenvectors of matrix A</td></tr>
+<tr><td>rEigenVectors[size(A, 1), size(A, 1)]</td><td>right eigenvectors of matrix A</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dhgeqz<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dhgeqz" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dhgeqz"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dhgeqz</h2>
+<p>
+<span class="ModelicaDescription">Compute generalized eigenvalues for a (A,B) system</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4405,32 +4616,34 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     IITER  -- counts iterations run since ILAST was last
               changed.  This is therefore reset only when a 1-by-1 or
               2-by-2 block deflates off the bottom.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>B[size(A, 1), size(A, 1)]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alphaReal[size(A, 1)]</TD><TD>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</TD></TR>
-<TR><TD>alphaImag[size(A, 1)]</TD><TD>Imaginary part of alpha</TD></TR>
-<TR><TD>beta[size(A, 1)]</TD><TD>Denominator of eigenvalue</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dormhr<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dormhr" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dormhr"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dormhr</H2>
-<B>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix as returned by dgehrd</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>&nbsp;</td></tr>
+<tr><td>B[size(A, 1), size(A, 1)]</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alphaReal[size(A, 1)]</td><td>Real part of alpha (eigenvalue=(alphaReal+i*alphaImag)/beta)</td></tr>
+<tr><td>alphaImag[size(A, 1)]</td><td>Imaginary part of alpha</td></tr>
+<tr><td>beta[size(A, 1)]</td><td>Denominator of eigenvalue</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dormhr<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dormhr" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dormhr"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dormhr</h2>
+<p>
+<span class="ModelicaDescription">overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix as returned by dgehrd</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4515,35 +4728,37 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>C[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>tau[if side == &quot;L&quot; then size(C, 2) - 1 else size(C, 1) - 1]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>side</TD><TD>&nbsp;</TD></TR>
-<TR><TD>trans</TD><TD>&nbsp;</TD></TR>
-<TR><TD>ilo</TD><TD>lowest index where the original matrix had been Hessenbergform</TD></TR>
-<TR><TD>ihi</TD><TD>highest index where the original matrix had been Hessenbergform</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Cout[size(C, 1), size(C, 2)]</TD><TD>contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dormqr<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dormqr" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dormqr"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dormqr</H2>
-<B>overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>C[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>tau[if side == &quot;L&quot; then size(C, 2) - 1 else size(C, 1) - 1]</td><td>&nbsp;</td></tr>
+<tr><td>side</td><td>&nbsp;</td></tr>
+<tr><td>trans</td><td>&nbsp;</td></tr>
+<tr><td>ilo</td><td>lowest index where the original matrix had been Hessenbergform</td></tr>
+<tr><td>ihi</td><td>highest index where the original matrix had been Hessenbergform</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Cout[size(C, 1), size(C, 2)]</td><td>contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dormqr<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dormqr" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dormqr"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dormqr</h2>
+<p>
+<span class="ModelicaDescription">overwrites the general real M-by-N matrix C with Q * C or C * Q or Q&#39; * C or C * Q&#39;, where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4625,33 +4840,35 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>C[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>A[:, :]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>tau[:]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>side</TD><TD>&nbsp;</TD></TR>
-<TR><TD>trans</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Cout[size(C, 1), size(C, 2)]</TD><TD>contains Q*C or Q**T*C or C*Q**T or C*Q</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtrevc<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dtrevc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dtrevc"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dtrevc</H2>
-<B>Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>C[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>A[:, :]</td><td>&nbsp;</td></tr>
+<tr><td>tau[:]</td><td>&nbsp;</td></tr>
+<tr><td>side</td><td>&nbsp;</td></tr>
+<tr><td>trans</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Cout[size(C, 1), size(C, 2)]</td><td>contains Q*C or Q**T*C or C*Q**T or C*Q</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtrevc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dtrevc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dtrevc"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dtrevc</h2>
+<p>
+<span class="ModelicaDescription">Compute the right and/or left eigenvectors of a real upper quasi-triangular matrix T</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4777,33 +4994,35 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     Each eigenvector is normalized so that the element of largest
     magnitude has magnitude 1; here the magnitude of a complex number
     (x,y) is taken to be |x| + |y|.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T[:, size(T, 1)]</TD><TD>Upper quasi triangular matrix</TD></TR>
-<TR><TD>side</TD><TD>Specify which eigenvectors</TD></TR>
-<TR><TD>howmny</TD><TD>Specify how many eigenvectors</TD></TR>
-<TR><TD>Q[size(T, 1), size(T, 1)]</TD><TD>Orthogonal matrix Q of Schur vectors returned by DHSEQR</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>lEigenVectors[size(T, 1), size(T, 1)]</TD><TD>left eigenvectors of matrix T</TD></TR>
-<TR><TD>rEigenVectors[size(T, 1), size(T, 1)]</TD><TD>right eigenvectors of matrix T</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dpotrf<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dpotrf" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dpotrf"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dpotrf</H2>
-<B>Computes the Cholesky factorization of a real symmetric positive definite matrix A</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T[:, size(T, 1)]</td><td>Upper quasi triangular matrix</td></tr>
+<tr><td>side</td><td>Specify which eigenvectors</td></tr>
+<tr><td>howmny</td><td>Specify how many eigenvectors</td></tr>
+<tr><td>Q[size(T, 1), size(T, 1)]</td><td>Orthogonal matrix Q of Schur vectors returned by DHSEQR</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>lEigenVectors[size(T, 1), size(T, 1)]</td><td>left eigenvectors of matrix T</td></tr>
+<tr><td>rEigenVectors[size(T, 1), size(T, 1)]</td><td>right eigenvectors of matrix T</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dpotrf<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dpotrf" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dpotrf"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dpotrf</h2>
+<p>
+<span class="ModelicaDescription">Computes the Cholesky factorization of a real symmetric positive definite matrix A</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4848,30 +5067,32 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
             &gt; 0:  if INFO = i, the leading minor of order i is not
                   positive definite, and the factorization could not be
                   completed.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>Real symmetric positive definite matrix A</TD></TR>
-<TR><TD>upper</TD><TD>True if the upper triangle of A is provided</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Acholesky[size(A, 1), size(A, 1)]</TD><TD>Cholesky factor</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtrsm<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dtrsm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dtrsm"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dtrsm</H2>
-<B>Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>Real symmetric positive definite matrix A</td></tr>
+<tr><td>upper</td><td>True if the upper triangle of A is provided</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Acholesky[size(A, 1), size(A, 1)]</td><td>Cholesky factor</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtrsm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dtrsm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dtrsm"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dtrsm</h2>
+<p>
+<span class="ModelicaDescription">Solve one of the matrix equations op( A )*X = alpha*B, or X*op( A ) = alpha*B, where A is triangular matrix. BLAS routine</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -4981,34 +5202,36 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
              Unchanged on exit.
 
     Level 3 Blas routine.
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, :]</TD><TD>Input matrix A</TD></TR>
-<TR><TD>B[:, :]</TD><TD>Input matrix B</TD></TR>
-<TR><TD>alpha</TD><TD>Factor alpha</TD></TR>
-<TR><TD>right</TD><TD>True if A is right multiplication</TD></TR>
-<TR><TD>upper</TD><TD>True if A is upper triangular</TD></TR>
-<TR><TD>trans</TD><TD>True if op(A) means transposed(A)</TD></TR>
-<TR><TD>unitTriangular</TD><TD>True if A is unit triangular, i.e., all diagonal elements of A are equal to 1</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>X[size(B, 1), size(B, 2)]</TD><TD>Matrix Bout=alpha*op( A )*B, or B := alpha*B*op( A )</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dorghr<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Matrices.LAPACK.dgeevI.png" ALT="Modelica.Math.Matrices.LAPACK.dorghr" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Matrices.LAPACK.dorghr"></A><A HREF="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
->Modelica.Math.Matrices.LAPACK</A>.dorghr</H2>
-<B>Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD</B><p></P>
-<P></P><H3>Information</H3>
-<PRE>Lapack documentation
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, :]</td><td>Input matrix A</td></tr>
+<tr><td>B[:, :]</td><td>Input matrix B</td></tr>
+<tr><td>alpha</td><td>Factor alpha</td></tr>
+<tr><td>right</td><td>True if A is right multiplication</td></tr>
+<tr><td>upper</td><td>True if A is upper triangular</td></tr>
+<tr><td>trans</td><td>True if op(A) means transposed(A)</td></tr>
+<tr><td>unitTriangular</td><td>True if A is unit triangular, i.e., all diagonal elements of A are equal to 1</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>X[size(B, 1), size(B, 2)]</td><td>Matrix Bout=alpha*op( A )*B, or B := alpha*B*op( A )</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dorghr<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.LAPACK.dgeevI.png" alt="Modelica.Math.Matrices.LAPACK.dorghr" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.LAPACK.dorghr"></a><a href="Modelica_Math_Matrices_LAPACK.html#Modelica.Math.Matrices.LAPACK"
+>Modelica.Math.Matrices.LAPACK</a>.dorghr</h2>
+<p>
+<span class="ModelicaDescription">Generates a real orthogonal matrix Q which is defined as the product of IHI-ILO elementary reflectors of order N, as returned by DGEHRD</span>
+</p>
+<h3>Information</h3>
+<pre>Lapack documentation
     Purpose
     =======
 
@@ -5059,23 +5282,25 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
     INFO    (output) INTEGER
             = 0:  successful exit
             &lt; 0:  if INFO = -i, the i-th argument had an illegal value
-</PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A[:, size(A, 1)]</TD><TD>Square matrix with the elementary reflectors</TD></TR>
-<TR><TD>ilo</TD><TD>lowest index where the original matrix had been Hessenbergform - ilo must have the same value as in the previous call of DGEHRD</TD></TR>
-<TR><TD>ihi</TD><TD>highest index where the original matrix had been Hessenbergform - ihi must have the same value as in the previous call of DGEHRD</TD></TR>
-<TR><TD>tau[max(0, size(A, 1) - 1)]</TD><TD>scalar factors of the elementary reflectors</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Aout[size(A, 1), size(A, 2)]</TD><TD>Orthogonal matrix as a result of elementary reflectors</TD></TR>
-<TR><TD>info</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+</pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>Square matrix with the elementary reflectors</td></tr>
+<tr><td>ilo</td><td>lowest index where the original matrix had been Hessenbergform - ilo must have the same value as in the previous call of DGEHRD</td></tr>
+<tr><td>ihi</td><td>highest index where the original matrix had been Hessenbergform - ihi must have the same value as in the previous call of DGEHRD</td></tr>
+<tr><td>tau[max(0, size(A, 1) - 1)]</td><td>scalar factors of the elementary reflectors</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Aout[size(A, 1), size(A, 2)]</td><td>Orthogonal matrix as a result of elementary reflectors</td></tr>
+<tr><td>info</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

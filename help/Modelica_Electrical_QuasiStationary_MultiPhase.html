@@ -1,68 +1,110 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.QuasiStationary.MultiPhase</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStationary.MultiPhase</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Multiphase AC components&quot;">
+<meta name="description" content="&quot;Multiphase AC components&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MultiPhase<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary.MultiPhase"></A><A HREF="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
->Modelica.Electrical.QuasiStationary</A>.MultiPhase</H2>
-<B>Multiphase AC components</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiPhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary.MultiPhase"></a><a href="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
+>Modelica.Electrical.QuasiStationary</a>.MultiPhase</h2>
+<p>
+<span class="ModelicaDescription">Multiphase AC components</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package hosts models for quasi stationary multi phase circuits.
 Quasi stationary theory can be found in
-[<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
+[<a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
 >Vaske1973</a>]
 and other
-<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
+<a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
 >references</a>.
 </p>
 <h4>See also</h4>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
 >SinglePhase</a>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasifda745a44ad07835mplesS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Examples.html#Modelica.Electrical.QuasiStationary.MultiPhase.Examples"
->Examples</A>
-</TD><TD>Test examples</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi439b4c2b89b05d00BasicS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Basic</A>
-</TD><TD>Basic components for AC multiphase models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasibede82a68902840fIdealS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Ideal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Ideal.html#Modelica.Electrical.QuasiStationary.MultiPhase.Ideal"
->Ideal</A>
-</TD><TD>Ideal components for AC multiphase models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi9ce84d6688a9bc11nsorsS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors"
->Sensors</A>
-</TD><TD>AC multiphase sensors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasieacdc36d9d190ef1urcesS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
->Sources</A>
-</TD><TD>AC multiphase sources</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasicaeaac3585430f53facesS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Interfaces</A>
-</TD><TD>Interfaces for AC multiphase models</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:36 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasifda745a44ad07835mplesS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Examples.html#Modelica.Electrical.QuasiStationary.MultiPhase.Examples"
+>Examples</a>
+</td>
+<td>Test examples</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi439b4c2b89b05d00BasicS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Basic</a>
+</td>
+<td>Basic components for AC multiphase models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasibede82a68902840fIdealS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Ideal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Ideal.html#Modelica.Electrical.QuasiStationary.MultiPhase.Ideal"
+>Ideal</a>
+</td>
+<td>Ideal components for AC multiphase models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi9ce84d6688a9bc11nsorsS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors"
+>Sensors</a>
+</td>
+<td>AC multiphase sensors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasieacdc36d9d190ef1urcesS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Sources</a>
+</td>
+<td>AC multiphase sources</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasicaeaac3585430f53facesS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Interfaces</a>
+</td>
+<td>Interfaces for AC multiphase models</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+</address>
+</body>
+</html>

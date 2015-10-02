@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Utilities.Streams</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Utilities.Streams</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Read from files and write to files&quot;">
+<meta name="description" content="&quot;Read from files and write to files&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Streams<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Utilities.Streams"></A><A HREF="Modelica_Utilities.html#Modelica.Utilities"
->Modelica.Utilities</A>.Streams</H2>
-<B>Read from files and write to files</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Streams<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.Streams"></a><a href="Modelica_Utilities.html#Modelica.Utilities"
+>Modelica.Utilities</a>.Streams</h2>
+<p>
+<span class="ModelicaDescription">Read from files and write to files</span><br>
+</p>
+<h3>Information</h3>
+
 <h4>Library content</h4>
 <p>
 Package <b>Streams</b> contains functions to input and output strings
@@ -46,34 +65,34 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
+  <tr><td valign="top"><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
 >print</a>(string)<br>
-          <A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
+          <a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
 >print</a>(string,fileName)</td>
       <td valign="top"> Print string "string" or vector of strings to message window or on
            file "fileName".</td>
   </tr>
   <tr><td valign="top">stringVector =
-         <A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readFile"
+         <a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readFile"
 >readFile</a>(fileName)</td>
       <td valign="top"> Read complete text file and return it as a vector of strings.</td>
   </tr>
   <tr><td valign="top">(string, endOfFile) =
-         <A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readLine"
+         <a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readLine"
 >readLine</a>(fileName, lineNumber)</td>
       <td valign="top">Returns from the file the content of line lineNumber.</td>
   </tr>
   <tr><td valign="top">lines =
-         <A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.countLines"
+         <a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.countLines"
 >countLines</a>(fileName)</td>
       <td valign="top">Returns the number of lines in a file.</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
+  <tr><td valign="top"><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
 >error</a>(string)</td>
       <td valign="top"> Print error message "string" to message window
            and cancel all actions</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.close"
+  <tr><td valign="top"><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.close"
 >close</a>(fileName)</td>
       <td valign="top"> Close file if it is still open. Ignore call if
            file is already closed or does not exist. </td>
@@ -81,7 +100,7 @@ In the table below an example call to every function is given:
 </table>
 <p>
 Use functions <b>scanXXX</b> from package
-<A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
+<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Strings</a>
 to parse a string.
 </p>
@@ -97,40 +116,63 @@ Example:
      Streams.error("x (= " + String(x) + ") has to be in the range 0 .. 1");
   <b>end if</b>;
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Streams.print" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
->print</A>
-</TD><TD>Print string to terminal or file</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Streams.readFile" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readFile"
->readFile</A>
-</TD><TD>Read content of a file and return it in a vector of strings</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Streams.readLine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readLine"
->readLine</A>
-</TD><TD>Reads a line of text from a file and returns it in a string</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Streams.countLines" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.countLines"
->countLines</A>
-</TD><TD>Returns the number of lines in a file</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Streams.error" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
->error</A>
-</TD><TD>Print error message and cancel all actions</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Streams.close" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.close"
->close</A>
-</TD><TD>Close file</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE print<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Streams.printI.png" ALT="Modelica.Utilities.Streams.print" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Streams.print"></A><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
->Modelica.Utilities.Streams</A>.print</H2>
-<B>Print string to terminal or file</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Streams.print" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
+>print</a>
+</td>
+<td>Print string to terminal or file</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Streams.readFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readFile"
+>readFile</a>
+</td>
+<td>Read content of a file and return it in a vector of strings</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Streams.readLine" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readLine"
+>readLine</a>
+</td>
+<td>Reads a line of text from a file and returns it in a string</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Streams.countLines" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.countLines"
+>countLines</a>
+</td>
+<td>Returns the number of lines in a file</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Streams.error" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
+>error</a>
+</td>
+<td>Print error message and cancel all actions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Streams.close" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.close"
+>close</a>
+</td>
+<td>Close file</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE print<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Streams.printI.png" alt="Modelica.Utilities.Streams.print" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Streams.print"></a><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</a>.print</h2>
+<p>
+<span class="ModelicaDescription">Print string to terminal or file</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>print</b>(string);
@@ -155,30 +197,32 @@ After every call of "print(..)" a "new line" is printed automatically.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
 >Streams</a>,
-<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
 >Streams.error</a>,
 ModelicaReference.Operators.'String()'</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>string</TD><TD>String to be printed</TD></TR>
-<TR><TD>fileName</TD><TD>File where to print (empty string is the terminal)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE readFile<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Streams.printI.png" ALT="Modelica.Utilities.Streams.readFile" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Streams.readFile"></A><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
->Modelica.Utilities.Streams</A>.readFile</H2>
-<B>Read content of a file and return it in a vector of strings</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>string</td><td>String to be printed</td></tr>
+<tr><td>fileName</td><td>File where to print (empty string is the terminal)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE readFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Streams.printI.png" alt="Modelica.Utilities.Streams.readFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Streams.readFile"></a><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</a>.readFile</h2>
+<p>
+<span class="ModelicaDescription">Read content of a file and return it in a vector of strings</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 stringVector = Streams.<b>readFile</b>(fileName)
@@ -188,31 +232,33 @@ stringVector = Streams.<b>readFile</b>(fileName)
 Function <b>readFile</b>(..) opens the given file, reads the complete
 content, closes the file and returns the content as a vector of strings. Lines are separated by LF or CR-LF; the returned strings do not contain the line separators.
 Note, a fileName can be defined as URI by using the helper function
-<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
 >loadResource</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Name of the file that shall be read</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>stringVector[countLines(fileName)]</TD><TD>Content of file</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE readLine<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Streams.printI.png" ALT="Modelica.Utilities.Streams.readLine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Streams.readLine"></A><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
->Modelica.Utilities.Streams</A>.readLine</H2>
-<B>Reads a line of text from a file and returns it in a string</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Name of the file that shall be read</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>stringVector[countLines(fileName)]</td><td>Content of file</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE readLine<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Streams.printI.png" alt="Modelica.Utilities.Streams.readLine" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Streams.readLine"></a><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</a>.readLine</h2>
+<p>
+<span class="ModelicaDescription">Reads a line of text from a file and returns it in a string</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
@@ -229,30 +275,32 @@ the call.
 If lineNumber > countLines(fileName), an empty string is returned
 and endOfFile=true. Otherwise endOfFile=false.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Name of the file that shall be read</TD></TR>
-<TR><TD>lineNumber</TD><TD>Number of line to read</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>string</TD><TD>Line of text</TD></TR>
-<TR><TD>endOfFile</TD><TD>If true, end-of-file was reached when trying to read line</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE countLines<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Streams.printI.png" ALT="Modelica.Utilities.Streams.countLines" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Streams.countLines"></A><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
->Modelica.Utilities.Streams</A>.countLines</H2>
-<B>Returns the number of lines in a file</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Name of the file that shall be read</td></tr>
+<tr><td>lineNumber</td><td>Number of line to read</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>string</td><td>Line of text</td></tr>
+<tr><td>endOfFile</td><td>If true, end-of-file was reached when trying to read line</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE countLines<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Streams.printI.png" alt="Modelica.Utilities.Streams.countLines" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Streams.countLines"></a><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</a>.countLines</h2>
+<p>
+<span class="ModelicaDescription">Returns the number of lines in a file</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<b>countLines</b>(fileName)
@@ -263,28 +311,30 @@ Function <b>countLines</b>(..) opens the given file, reads the complete
 content, closes the file and returns the number of lines. Lines are
 separated by LF or CR-LF.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Name of the file that shall be read</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>numberOfLines</TD><TD>Number of lines in file</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE error<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Streams.printI.png" ALT="Modelica.Utilities.Streams.error" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Streams.error"></A><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
->Modelica.Utilities.Streams</A>.error</H2>
-<B>Print error message and cancel all actions</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Name of the file that shall be read</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>numberOfLines</td><td>Number of lines in file</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE error<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Streams.printI.png" alt="Modelica.Utilities.Streams.error" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Streams.error"></a><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</a>.error</h2>
+<p>
+<span class="ModelicaDescription">Print error message and cancel all actions</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>error</b>(string);
@@ -301,29 +351,31 @@ by "\n" in the string.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
 >Streams</a>,
-<A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
 >Streams.print</a>,
 ModelicaReference.Operators.'String()'</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>string</TD><TD>String to be printed to error message window</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE close<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Streams.printI.png" ALT="Modelica.Utilities.Streams.close" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Streams.close"></A><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
->Modelica.Utilities.Streams</A>.close</H2>
-<B>Close file</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>string</td><td>String to be printed to error message window</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE close<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Streams.printI.png" alt="Modelica.Utilities.Streams.close" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Streams.close"></a><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</a>.close</h2>
+<p>
+<span class="ModelicaDescription">Close file</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>close</b>(fileName)
@@ -333,14 +385,16 @@ Streams.<b>close</b>(fileName)
 Close file if it is open. Ignore call if
 file is already closed or does not exist.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Name of the file that shall be closed</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Name of the file that shall be closed</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

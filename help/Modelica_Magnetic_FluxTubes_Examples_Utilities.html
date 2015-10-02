@@ -1,82 +1,113 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Magnetic.FluxTubes.Examples.Utilities</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.FluxTubes.Examples.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Utilities to be used in examples&quot;">
+<meta name="description" content="&quot;Utilities to be used in examples&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.Utilities"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
->Modelica.Magnetic.FluxTubes.Examples</A>.Utilities</H2>
-<B>Utilities to be used in examples</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
->Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub2a263bf5529cb929opperS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper"
->TranslatoryArmatureAndStopper</A>
-</TD><TD>Mass with free travel between two stoppers</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub2734cb60bfab1891esignS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign"
->CoilDesign</A>
-</TD><TD>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TranslatoryArmatureAndStopper<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub2a263bf5529cb929opperI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
->Modelica.Magnetic.FluxTubes.Examples.Utilities</A>.TranslatoryArmatureAndStopper</H2>
-<B>Mass with free travel between two stoppers</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FluxTubes.Examples.Utilities"></a><a href="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utilities to be used in examples</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub2a263bf5529cb929opperS.png" alt="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper"
+>TranslatoryArmatureAndStopper</a>
+</td>
+<td>Mass with free travel between two stoppers</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub2734cb60bfab1891esignS.png" alt="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign"
+>CoilDesign</a>
+</td>
+<td>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TranslatoryArmatureAndStopper<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub2a263bf5529cb929opperI.png" alt="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper"></a><a href="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
+>Modelica.Magnetic.FluxTubes.Examples.Utilities</a>.TranslatoryArmatureAndStopper</h2>
+<p>
+<span class="ModelicaDescription">Mass with free travel between two stoppers</span>
+</p>
+<h3>Information</h3>
+
 <p>
 In translatory actuators with limited stroke, the armature with its inertia can travel between two stoppers.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>L</TD><TD>Length of component from left flange to right flange (= flange_b.s - flange_a.s) [m]</TD></TR>
-<TR><TD>m</TD><TD>Armature mass [kg]</TD></TR>
-<TR><TD>c</TD><TD>Spring stiffness between impact partners [N/m]</TD></TR>
-<TR><TD>d</TD><TD>Damping coefficient between impact partners [N.s/m]</TD></TR>
-<TR><TD>n</TD><TD>Exponent of spring forces (f_c = c*|s_rel|^n)</TD></TR>
-<TR><TD>x_max</TD><TD>Position of stopper at maximum armature position [m]</TD></TR>
-<TR><TD>x_min</TD><TD>Position of stopper at minimum armature position [m]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>&nbsp;</TD></TR>
-<TR><TD>flange_b</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CoilDesign<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub2734cb60bfab1891esignI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
->Modelica.Magnetic.FluxTubes.Examples.Utilities</A>.CoilDesign</H2>
-<B>Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>L</td><td>Length of component from left flange to right flange (= flange_b.s - flange_a.s) [m]</td></tr>
+<tr><td>m</td><td>Armature mass [kg]</td></tr>
+<tr><td>c</td><td>Spring stiffness between impact partners [N/m]</td></tr>
+<tr><td>d</td><td>Damping coefficient between impact partners [N.s/m]</td></tr>
+<tr><td>n</td><td>Exponent of spring forces (f_c = c*|s_rel|^n)</td></tr>
+<tr><td>x_max</td><td>Position of stopper at maximum armature position [m]</td></tr>
+<tr><td>x_min</td><td>Position of stopper at minimum armature position [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>&nbsp;</td></tr>
+<tr><td>flange_b</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CoilDesign<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub2734cb60bfab1891esignI.png" alt="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.Utilities.CoilDesign"></a><a href="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
+>Modelica.Magnetic.FluxTubes.Examples.Utilities</a>.CoilDesign</h2>
+<p>
+<span class="ModelicaDescription">Calculation of winding parameters (wire diameter, number of turns et al.) and recalculation with optionally chosen parameters; to be adapted to particular design tasks</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This model example shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
 </p>
@@ -89,25 +120,27 @@ of a device to be modelled. Operating voltage V_op can be minimum, nominal and m
 <p>
 For manufacturing of a winding, the obtained wire diameter d_wireCalculated must be rounded to that of an available wire. In order to analyse the influence of this rounding, one can enter the chosen wire diameter d_wireChosen and number of turns N_chosen as optional input. Calculation of the resulting winding parameters enables for comparison with the ones obtained otherwise.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho_20</TD><TD>Resistivity of conductor material at 20 degC (default: Copper) [Ohm.m]</TD></TR>
-<TR><TD>alpha_20</TD><TD>Temperature coefficient of conductor material&#39;s resistivity at 20 degC (default: Copper) [1/K]</TD></TR>
-<TR><TD>T_op</TD><TD>Operating temperature of winding [K]</TD></TR>
-<TR><TD>h_w</TD><TD>Height of winding cross-section [m]</TD></TR>
-<TR><TD>b_w</TD><TD>Width of winding cross-section [m]</TD></TR>
-<TR><TD>l_avg</TD><TD>Average length of one turn [m]</TD></TR>
-<TR><TD>V_op</TD><TD>Operating voltage (nominal/ minimum/ maximum voltage depending on design objective) [V]</TD></TR>
-<TR><TD>J_desired</TD><TD>DESIRED current density at operating temperature and voltage resp. [A/m2]</TD></TR>
-<TR><TD>c_condFillChosen</TD><TD>CHOSEN conductor filling factor = total conductor area without insulation/ total winding area</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Chosen feasible parameters (optional)</TD></TR>
-<TR><TD>d_wireChosen</TD><TD>CHOSEN available wire diameter (without insulation) [m]</TD></TR>
-<TR><TD>N_chosen</TD><TD>CHOSEN number of turns</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho_20</td><td>Resistivity of conductor material at 20 degC (default: Copper) [Ohm.m]</td></tr>
+<tr><td>alpha_20</td><td>Temperature coefficient of conductor material&#39;s resistivity at 20 degC (default: Copper) [1/K]</td></tr>
+<tr><td>T_op</td><td>Operating temperature of winding [K]</td></tr>
+<tr><td>h_w</td><td>Height of winding cross-section [m]</td></tr>
+<tr><td>b_w</td><td>Width of winding cross-section [m]</td></tr>
+<tr><td>l_avg</td><td>Average length of one turn [m]</td></tr>
+<tr><td>V_op</td><td>Operating voltage (nominal/ minimum/ maximum voltage depending on design objective) [V]</td></tr>
+<tr><td>J_desired</td><td>DESIRED current density at operating temperature and voltage resp. [A/m2]</td></tr>
+<tr><td>c_condFillChosen</td><td>CHOSEN conductor filling factor = total conductor area without insulation/ total winding area</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Chosen feasible parameters (optional)</td></tr>
+<tr><td>d_wireChosen</td><td>CHOSEN available wire diameter (without insulation) [m]</td></tr>
+<tr><td>N_chosen</td><td>CHOSEN number of turns</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+</address>
+</body>
+</html>

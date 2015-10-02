@@ -1,111 +1,147 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Sensors.BaseClasses</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Sensors.BaseClasses</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Base classes used in the Sensors package (only of interest to build new component models)&quot;">
+<meta name="description" content="&quot;Base classes used in the Sensors package (only of interest to build new component models)&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Sensors.BaseClasses"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.BaseClasses</H2>
-<B>Base classes used in the Sensors package (only of interest to build new component models)</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
->Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Ba0ce455942d298c9eensorS.png" ALT="Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->PartialAbsoluteSensor</A>
-</TD><TD>Partial component to model a sensor that measures a potential variable</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Ba8f5a68f1529290a8ensorS.png" ALT="Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"
->PartialRelativeSensor</A>
-</TD><TD>Partial component to model a sensor that measures the difference between two potential variables</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Ba53fa81778bdd7360ensorS.png" ALT="Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->PartialFlowSensor</A>
-</TD><TD>Partial component to model sensors that measure flow properties</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialAbsoluteSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Ba0ce455942d298c9eensorI.png" ALT="Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"></A><A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
->Modelica.Fluid.Sensors.BaseClasses</A>.PartialAbsoluteSensor</H2>
-<B>Partial component to model a sensor that measures a potential variable</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Sensors.BaseClasses"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.BaseClasses</h2>
+<p>
+<span class="ModelicaDescription">Base classes used in the Sensors package (only of interest to build new component models)</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</a> (Icon for packages containing base classes).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Ba0ce455942d298c9eensorS.png" alt="Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>PartialAbsoluteSensor</a>
+</td>
+<td>Partial component to model a sensor that measures a potential variable</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Ba8f5a68f1529290a8ensorS.png" alt="Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"
+>PartialRelativeSensor</a>
+</td>
+<td>Partial component to model a sensor that measures the difference between two potential variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Ba53fa81778bdd7360ensorS.png" alt="Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>PartialFlowSensor</a>
+</td>
+<td>Partial component to model sensors that measure flow properties</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialAbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Ba0ce455942d298c9eensorI.png" alt="Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"></a><a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
+>Modelica.Fluid.Sensors.BaseClasses</a>.PartialAbsoluteSensor</h2>
+<p>
+<span class="ModelicaDescription">Partial component to model a sensor that measures a potential variable</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Partial component to model an <b>absolute sensor</b>. Can be used for pressure sensor models.
 Use for other properties such as temperature or density is discouraged, because the enthalpy at the connector can have different meanings, depending on the connection topology. Use <code>PartialFlowSensor</code> instead.
 as signal.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialRelativeSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Ba8f5a68f1529290a8ensorI.png" ALT="Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"></A><A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
->Modelica.Fluid.Sensors.BaseClasses</A>.PartialRelativeSensor</H2>
-<B>Partial component to model a sensor that measures the difference between two potential variables</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialRelativeSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Ba8f5a68f1529290a8ensorI.png" alt="Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"></a><a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
+>Modelica.Fluid.Sensors.BaseClasses</a>.PartialRelativeSensor</h2>
+<p>
+<span class="ModelicaDescription">Partial component to model a sensor that measures the difference between two potential variables</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The relative pressure "port_a.p - port_b.p" is determined between
 the two ports of this component and is provided as output signal. The
 sensor should be connected in parallel with other equipment, no flow
 through the sensor is allowed.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
->Modelica.Icons.TranslationalSensor</A> (Icon representing a linear measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-<TR><TD>port_a</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port_b</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialFlowSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Ba53fa81778bdd7360ensorI.png" ALT="Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"></A><A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
->Modelica.Fluid.Sensors.BaseClasses</A>.PartialFlowSensor</H2>
-<B>Partial component to model sensors that measure flow properties</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</a> (Icon representing a linear measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+<tr><td>port_a</td><td>&nbsp;</td></tr>
+<tr><td>port_b</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialFlowSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Ba53fa81778bdd7360ensorI.png" alt="Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"></a><a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
+>Modelica.Fluid.Sensors.BaseClasses</a>.PartialFlowSensor</h2>
+<p>
+<span class="ModelicaDescription">Partial component to model sensors that measure flow properties</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Partial component to model a <b>sensor</b> that measures any intensive properties
 of a flow, e.g., to get temperature or density in the flow
@@ -113,25 +149,27 @@ between fluid connectors.<br>
 The model includes zero-volume balance equations. Sensor models inheriting from
 this partial class should add a medium instance to calculate the measured property.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
->Modelica.Fluid.Interfaces.PartialTwoPort</A> (Partial component with two ports).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:49 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>Modelica.Fluid.Interfaces.PartialTwoPort</a> (Partial component with two ports).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:18 2015.
+</address>
+</body>
+</html>

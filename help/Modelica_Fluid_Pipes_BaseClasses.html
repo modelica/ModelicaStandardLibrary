@@ -1,111 +1,155 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Pipes.BaseClasses</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Pipes.BaseClasses</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Base classes used in the Pipes package (only of interest to build new component models)&quot;">
+<meta name="description" content="&quot;Base classes used in the Pipes package (only of interest to build new component models)&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses"></A><A HREF="Modelica_Fluid_Pipes.html#Modelica.Fluid.Pipes"
->Modelica.Fluid.Pipes</A>.BaseClasses</H2>
-<B>Base classes used in the Pipes package (only of interest to build new component models)</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
->Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base0637ce075e61ff73tPipeS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe"
->PartialStraightPipe</A>
-</TD><TD>Base class for straight pipe models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base945aa578993683b5tFlowS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow"
->PartialTwoPortFlow</A>
-</TD><TD>Base class for distributed flow models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.FlowModels" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_FlowModels.html#Modelica.Fluid.Pipes.BaseClasses.FlowModels"
->FlowModels</A>
-</TD><TD>Flow models for pipes, including wall friction, static head and momentum flow</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
->HeatTransfer</A>
-</TD><TD>Heat transfer for flow models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_CharacteristicNumbers.html#Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers"
->CharacteristicNumbers</A>
-</TD><TD>Functions to compute characteristic numbers</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction"
->WallFriction</A>
-</TD><TD>Different variants for pressure drops due to pipe wall friction</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialStraightPipe<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base0637ce075e61ff73tPipeI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses"
->Modelica.Fluid.Pipes.BaseClasses</A>.PartialStraightPipe</H2>
-<B>Base class for straight pipe models</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Pipes.BaseClasses"></a><a href="Modelica_Fluid_Pipes.html#Modelica.Fluid.Pipes"
+>Modelica.Fluid.Pipes</a>.BaseClasses</h2>
+<p>
+<span class="ModelicaDescription">Base classes used in the Pipes package (only of interest to build new component models)</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</a> (Icon for packages containing base classes).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base0637ce075e61ff73tPipeS.png" alt="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe"
+>PartialStraightPipe</a>
+</td>
+<td>Base class for straight pipe models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base945aa578993683b5tFlowS.png" alt="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow"
+>PartialTwoPortFlow</a>
+</td>
+<td>Base class for distributed flow models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" alt="Modelica.Fluid.Pipes.BaseClasses.FlowModels" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_FlowModels.html#Modelica.Fluid.Pipes.BaseClasses.FlowModels"
+>FlowModels</a>
+</td>
+<td>Flow models for pipes, including wall friction, static head and momentum flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
+>HeatTransfer</a>
+</td>
+<td>Heat transfer for flow models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" alt="Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_CharacteristicNumbers.html#Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers"
+>CharacteristicNumbers</a>
+</td>
+<td>Functions to compute characteristic numbers</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base6eb929ea3d5c5ea8odelsS.png" alt="Modelica.Fluid.Pipes.BaseClasses.WallFriction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_WallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction"
+>WallFriction</a>
+</td>
+<td>Different variants for pressure drops due to pipe wall friction</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialStraightPipe<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base0637ce075e61ff73tPipeI.png" alt="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.PartialStraightPipe"></a><a href="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses"
+>Modelica.Fluid.Pipes.BaseClasses</a>.PartialStraightPipe</h2>
+<p>
+<span class="ModelicaDescription">Base class for straight pipe models</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Base class for one dimensional flow models. It specializes a PartialTwoPort with a parameter interface and icon graphics.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
->Modelica.Fluid.Interfaces.PartialTwoPort</A> (Partial component with two ports).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>Number of identical parallel pipes</TD></TR>
-<TR><TD>length</TD><TD>Length [m]</TD></TR>
-<TR><TD>isCircular</TD><TD>= true if cross sectional area is circular</TD></TR>
-<TR><TD>diameter</TD><TD>Diameter of circular pipe [m]</TD></TR>
-<TR><TD>crossArea</TD><TD>Inner cross section area [m2]</TD></TR>
-<TR><TD>perimeter</TD><TD>Inner perimeter [m]</TD></TR>
-<TR><TD>roughness</TD><TD>Average height of surface asperities (default: smooth steel pipe) [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Static head</TD></TR>
-<TR><TD>height_ab</TD><TD>Height(port_b) - Height(port_a) [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Pressure loss</TD></TR>
-<TR><TD>replaceable model FlowModel</TD><TD>Wall friction, gravity, momentum flow</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Pressure loss</TD></TR>
-<TR><TD>replaceable model FlowModel</TD><TD>Wall friction, gravity, momentum flow</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialTwoPortFlow<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base945aa578993683b5tFlowI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses"
->Modelica.Fluid.Pipes.BaseClasses</A>.PartialTwoPortFlow</H2>
-<B>Base class for distributed flow models</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>Modelica.Fluid.Interfaces.PartialTwoPort</a> (Partial component with two ports).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>Number of identical parallel pipes</td></tr>
+<tr><td>length</td><td>Length [m]</td></tr>
+<tr><td>isCircular</td><td>= true if cross sectional area is circular</td></tr>
+<tr><td>diameter</td><td>Diameter of circular pipe [m]</td></tr>
+<tr><td>crossArea</td><td>Inner cross section area [m2]</td></tr>
+<tr><td>perimeter</td><td>Inner perimeter [m]</td></tr>
+<tr><td>roughness</td><td>Average height of surface asperities (default: smooth steel pipe) [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Static head</td></tr>
+<tr><td>height_ab</td><td>Height(port_b) - Height(port_a) [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Pressure loss</td></tr>
+<tr><td>replaceable model FlowModel</td><td>Wall friction, gravity, momentum flow</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Pressure loss</td></tr>
+<tr><td>replaceable model FlowModel</td><td>Wall friction, gravity, momentum flow</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialTwoPortFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base945aa578993683b5tFlowI.png" alt="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow"></a><a href="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses"
+>Modelica.Fluid.Pipes.BaseClasses</a>.PartialTwoPortFlow</h2>
+<p>
+<span class="ModelicaDescription">Base class for distributed flow models</span>
+</p>
+<h3>Information</h3>
+
 <p>Base class for distributed flow models. The total volume is split into nNodes segments along the flow path.
 The default value is nNodes=2.
 </p>
 <h4>Mass and Energy balances</h4>
 <p>
-The mass and energy balances are inherited from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
+The mass and energy balances are inherited from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
 >Interfaces.PartialDistributedVolume</a>.
 One total mass and one energy balance is formed across each segment according to the finite volume approach.
 Substance mass balances are added if the medium contains more than one component.
@@ -122,9 +166,9 @@ Moreover it needs to define two vectors of source terms for the distributed ener
 <h4>Momentum balance</h4>
 <p>
 The momentum balance is determined by the <b><code>FlowModel</code></b> component, which can be replaced with any model extended from
-<A HREF="Modelica_Fluid_Pipes_BaseClasses_FlowModels.html#Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel"
+<a href="Modelica_Fluid_Pipes_BaseClasses_FlowModels.html#Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel"
 >BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
-The default setting is <A HREF="Modelica_Fluid_Pipes_BaseClasses_FlowModels.html#Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow"
+The default setting is <a href="Modelica_Fluid_Pipes_BaseClasses_FlowModels.html#Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow"
 >DetailedPipeFlow</a>.
 </p>
 <p>
@@ -164,55 +208,57 @@ Consider using a fitting for any significant change in diameter or fluid density
 such as change in kinetic energy, cannot be neglected.
 This also allows for taking into account friction losses with respect to the actual geometry of the connection point.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
->Modelica.Fluid.Interfaces.PartialTwoPort</A> (Partial component with two ports), <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
->Modelica.Fluid.Interfaces.PartialDistributedVolume</A> (Base class for distributed volume models).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of discrete volumes</TD></TR>
-<TR><TD>fluidVolumes[n]</TD><TD>Discretized volume, determine in inheriting class [m3]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>Number of identical parallel flow devices</TD></TR>
-<TR><TD>lengths[n]</TD><TD>lengths of flow segments [m]</TD></TR>
-<TR><TD>crossAreas[n]</TD><TD>cross flow areas of flow segments [m2]</TD></TR>
-<TR><TD>dimensions[n]</TD><TD>hydraulic diameters of flow segments [m]</TD></TR>
-<TR><TD>roughnesses[n]</TD><TD>Average heights of surface asperities [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Static head</TD></TR>
-<TR><TD>dheights[n]</TD><TD>Differences in heights of flow segments [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Pressure loss</TD></TR>
-<TR><TD>replaceable model FlowModel</TD><TD>Wall friction, gravity, momentum flow</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>energyDynamics</TD><TD>Formulation of energy balances</TD></TR>
-<TR><TD>massDynamics</TD><TD>Formulation of mass balances</TD></TR>
-<TR><TD>momentumDynamics</TD><TD>Formulation of momentum balances</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
-<TR><TD>p_a_start</TD><TD>Start value of pressure at port a [Pa]</TD></TR>
-<TR><TD>p_b_start</TD><TD>Start value of pressure at port b [Pa]</TD></TR>
-<TR><TD>use_T_start</TD><TD>Use T_start if true, otherwise h_start</TD></TR>
-<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
-<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
-<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
-<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
-<TR><TD>m_flow_start</TD><TD>Start value for mass flow rate [kg/s]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>nNodes</TD><TD>Number of discrete flow volumes</TD></TR>
-<TR><TD>modelStructure</TD><TD>Determines whether flow or volume models are present at the ports</TD></TR>
-<TR><TD>useLumpedPressure</TD><TD>=true to lump pressure states together</TD></TR>
-<TR><TD>useInnerPortProperties</TD><TD>=true to take port properties for flow models from internal control volumes</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Pressure loss</TD></TR>
-<TR><TD>replaceable model FlowModel</TD><TD>Wall friction, gravity, momentum flow</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:45 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>Modelica.Fluid.Interfaces.PartialTwoPort</a> (Partial component with two ports), <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
+>Modelica.Fluid.Interfaces.PartialDistributedVolume</a> (Base class for distributed volume models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of discrete volumes</td></tr>
+<tr><td>fluidVolumes[n]</td><td>Discretized volume, determine in inheriting class [m3]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>Number of identical parallel flow devices</td></tr>
+<tr><td>lengths[n]</td><td>lengths of flow segments [m]</td></tr>
+<tr><td>crossAreas[n]</td><td>cross flow areas of flow segments [m2]</td></tr>
+<tr><td>dimensions[n]</td><td>hydraulic diameters of flow segments [m]</td></tr>
+<tr><td>roughnesses[n]</td><td>Average heights of surface asperities [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Static head</td></tr>
+<tr><td>dheights[n]</td><td>Differences in heights of flow segments [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Pressure loss</td></tr>
+<tr><td>replaceable model FlowModel</td><td>Wall friction, gravity, momentum flow</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>energyDynamics</td><td>Formulation of energy balances</td></tr>
+<tr><td>massDynamics</td><td>Formulation of mass balances</td></tr>
+<tr><td>momentumDynamics</td><td>Formulation of momentum balances</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>p_a_start</td><td>Start value of pressure at port a [Pa]</td></tr>
+<tr><td>p_b_start</td><td>Start value of pressure at port b [Pa]</td></tr>
+<tr><td>use_T_start</td><td>Use T_start if true, otherwise h_start</td></tr>
+<tr><td>T_start</td><td>Start value of temperature [K]</td></tr>
+<tr><td>h_start</td><td>Start value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Start value of mass fractions m_i/m [kg/kg]</td></tr>
+<tr><td>C_start[Medium.nC]</td><td>Start value of trace substances</td></tr>
+<tr><td>m_flow_start</td><td>Start value for mass flow rate [kg/s]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>nNodes</td><td>Number of discrete flow volumes</td></tr>
+<tr><td>modelStructure</td><td>Determines whether flow or volume models are present at the ports</td></tr>
+<tr><td>useLumpedPressure</td><td>=true to lump pressure states together</td></tr>
+<tr><td>useInnerPortProperties</td><td>=true to take port properties for flow models from internal control volumes</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Pressure loss</td></tr>
+<tr><td>replaceable model FlowModel</td><td>Wall friction, gravity, momentum flow</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Mechanics.MultiBody.Joints.Assemblies</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.Joints.Assemblies</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Components that aggregate several joints for analytic loop handling&quot;">
+<meta name="description" content="&quot;Components that aggregate several joints for analytic loop handling&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Assemblies<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies"></A><A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
->Modelica.Mechanics.MultiBody.Joints</A>.Assemblies</H2>
-<B>Components that aggregate several joints for analytic loop handling</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Assemblies<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody.Joints.Assemblies"></a><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Modelica.Mechanics.MultiBody.Joints</a>.Assemblies</h2>
+<p>
+<span class="ModelicaDescription">Components that aggregate several joints for analytic loop handling</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 The joints in this package are mainly designed to be used
 in <b>kinematic loop</b> structures. Every component consists of
@@ -37,7 +56,7 @@ This requires to solve a <b>non-linear system of equations</b> which
 is performed <b>analytically</b> (i.e., when a mathematical
 solution exists, it is computed efficiently and reliably).
 A detailed description how to use these joints is provided in
-<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
 >MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling</a>.
 </p>
 <p>
@@ -60,25 +79,25 @@ of a universal, a spherical and a revolute joint.
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Model</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"
 >JointUPS</a></td>
       <td valign="top"> Universal - prismatic - spherical joint aggregation<br>
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointUPS.png">
       </td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR"
 >JointUSR</a></td>
       <td valign="top"> Universal - spherical - revolute joint aggregation<br>
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointUSR.png">
       </td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP"
 >JointUSP</a></td>
       <td valign="top"> Universal - spherical - prismatic joint aggregation<br>
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointUSP.png">
       </td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR"
 >JointSSR</a></td>
       <td valign="top"> Spherical - spherical - revolute joint aggregation
            with an optional mass point at the rod connecting
@@ -86,7 +105,7 @@ of a universal, a spherical and a revolute joint.
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointSSR.png">
       </td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"
 >JointSSP</a></td>
       <td valign="top"> Spherical - spherical - prismatic joint aggregation
            with an optional mass point at the rod connecting
@@ -94,13 +113,13 @@ of a universal, a spherical and a revolute joint.
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointSSP.png">
       </td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR"
 >JointRRR</a></td>
       <td valign="top"> Revolute - revolute - revolute joint aggregation for planar loops<br>
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointRRR.png">
       </td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"
+  <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"
 >JointRRP</a></td>
       <td valign="top"> Revolute - revolute - prismatic joint aggregation for planar loops<br>
      <img src="../Resources/Images/Mechanics/MultiBody/Joints/JointRRP.png">
@@ -142,43 +161,69 @@ pair of joints" from Woernle and Hiller is described in:
     Problem of Robot Manipulators</b>.<br>
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
 </dl>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB98838cf1e7dabd45ntUPSS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"
->JointUPS</A>
-</TD><TD>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB98838e79e7dabd24ntUSRS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR"
->JointUSR</A>
-</TD><TD>Universal - spherical - revolute joint aggregation (no constraints, no potential states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB98838e77e7dabd26ntUSPS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP"
->JointUSP</A>
-</TD><TD>Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB98830867e7daa524ntSSRS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR"
->JointSSR</A>
-</TD><TD>Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB98830865e7daa526ntSSPS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"
->JointSSP</A>
-</TD><TD>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB9882c4dbe7daa104ntRRRS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR"
->JointRRR</A>
-</TD><TD>Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB9882c4d9e7daa106ntRRPS.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"
->JointRRP</A>
-</TD><TD>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointUPS<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB98838cf1e7dabd45ntUPSI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointUPS</H2>
-<B>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB98838cf1e7dabd45ntUPSS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"
+>JointUPS</a>
+</td>
+<td>Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB98838e79e7dabd24ntUSRS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR"
+>JointUSR</a>
+</td>
+<td>Universal - spherical - revolute joint aggregation (no constraints, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB98838e77e7dabd26ntUSPS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP"
+>JointUSP</a>
+</td>
+<td>Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB98830867e7daa524ntSSRS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR"
+>JointSSR</a>
+</td>
+<td>Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB98830865e7daa526ntSSPS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"
+>JointSSP</a>
+</td>
+<td>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB9882c4dbe7daa104ntRRRS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR"
+>JointRRR</a>
+</td>
+<td>Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB9882c4d9e7daa106ntRRPS.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"
+>JointRRP</a>
+</td>
+<td>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointUPS<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB98838cf1e7dabd45ntUPSI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointUPS</h2>
+<p>
+<span class="ModelicaDescription">Universal - prismatic - spherical joint aggregation (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of a <b>universal</b> joint at frame_a,
 a <b>spherical</b> joint at frame_b and a <b>prismatic</b> joint along the
@@ -252,50 +297,52 @@ at least frame_a, frame_ia and frame_ib of the JointUSP joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>showUniversalAxes</TD><TD>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</TD></TR>
-<TR><TD>n1_a</TD><TD>Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint) [1]</TD></TR>
-<TR><TD>nAxis_ia[3]</TD><TD>Axis vector along line from origin of frame_a to origin of frame_b, resolved in frame_ia [m]</TD></TR>
-<TR><TD>s_offset</TD><TD>Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset) [m]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>sphereDiameter</TD><TD>Diameter of spheres representing the spherical joints [m]</TD></TR>
-<TR><TD>sphereColor</TD><TD>Color of spheres representing the spherical joints</TD></TR>
-<TR><TD>axisDiameter</TD><TD>Diameter of cylinder on the connecting line from frame_a to frame_b [m]</TD></TR>
-<TR><TD>axisColor</TD><TD>Color of cylinder on the connecting line from frame_a to frame_b</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true and showUniversalAxes</TD></TR>
-<TR><TD>cylinderLength</TD><TD>Length of cylinders representing the two universal joint axes [m]</TD></TR>
-<TR><TD>cylinderDiameter</TD><TD>Diameter of cylinders representing the two universal joint axes [m]</TD></TR>
-<TR><TD>cylinderColor</TD><TD>Color of cylinders representing the two universal joint axes</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ia</TD><TD>Coordinate system at origin of frame_a fixed at prismatic joint</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at prismatic joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. translational flange that drives the prismatic joint</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. translational flange of the drive bearing of the prismatic joint</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointUSR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB98838e79e7dabd24ntUSRI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointUSR</H2>
-<B>Universal - spherical - revolute joint aggregation (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showUniversalAxes</td><td>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</td></tr>
+<tr><td>n1_a</td><td>Axis 1 of universal joint resolved in frame_a (axis 2 is orthogonal to axis 1 and to line from universal to spherical joint) [1]</td></tr>
+<tr><td>nAxis_ia[3]</td><td>Axis vector along line from origin of frame_a to origin of frame_b, resolved in frame_ia [m]</td></tr>
+<tr><td>s_offset</td><td>Relative distance offset (distance between frame_a and frame_b = s(t) + s_offset) [m]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of spheres representing the spherical joints [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of spheres representing the spherical joints</td></tr>
+<tr><td>axisDiameter</td><td>Diameter of cylinder on the connecting line from frame_a to frame_b [m]</td></tr>
+<tr><td>axisColor</td><td>Color of cylinder on the connecting line from frame_a to frame_b</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true and showUniversalAxes</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the two universal joint axes</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ia</td><td>Coordinate system at origin of frame_a fixed at prismatic joint</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at prismatic joint</td></tr>
+<tr><td>axis</td><td>1-dim. translational flange that drives the prismatic joint</td></tr>
+<tr><td>bearing</td><td>1-dim. translational flange of the drive bearing of the prismatic joint</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointUSR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB98838e79e7dabd24ntUSRI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointUSR</h2>
+<p>
+<span class="ModelicaDescription">Universal - spherical - revolute joint aggregation (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of a <b>universal</b> joint at frame_a, a <b>revolute</b>
 joint at frame_b and a <b>spherical</b> joint which is connected via <b>rod1</b>
@@ -411,59 +458,61 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
   <b>equation</b>
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>showUniversalAxes</TD><TD>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</TD></TR>
-<TR><TD>n1_a</TD><TD>Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1) [1]</TD></TR>
-<TR><TD>n_b</TD><TD>Axis of revolute joint fixed and resolved in frame_b [1]</TD></TR>
-<TR><TD>rRod1_ia[3]</TD><TD>Vector from origin of frame_a to spherical joint, resolved in frame_ia [m]</TD></TR>
-<TR><TD>rRod2_ib[3]</TD><TD>Vector from origin of frame_ib to spherical joint, resolved in frame_ib [m]</TD></TR>
-<TR><TD>phi_offset</TD><TD>Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset)) [deg]</TD></TR>
-<TR><TD>phi_guess</TD><TD>Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal [deg]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>sphereDiameter</TD><TD>Diameter of the spheres representing the universal and the spherical joint [m]</TD></TR>
-<TR><TD>sphereColor</TD><TD>Color of the spheres representing the universal and the spherical joint</TD></TR>
-<TR><TD>rod1Diameter</TD><TD>Diameter of rod 1 connecting the universal and the spherical joint [m]</TD></TR>
-<TR><TD>rod1Color</TD><TD>Color of rod 1 connecting the universal and the spherical joint</TD></TR>
-<TR><TD>rod2Diameter</TD><TD>Diameter of rod 2 connecting the revolute and the spherical joint [m]</TD></TR>
-<TR><TD>rod2Color</TD><TD>Color of rod 2 connecting the revolute and the spherical joint</TD></TR>
-<TR><TD>revoluteDiameter</TD><TD>Diameter of cylinder representing the revolute joint [m]</TD></TR>
-<TR><TD>revoluteLength</TD><TD>Length of cylinder representing the revolute joint [m]</TD></TR>
-<TR><TD>revoluteColor</TD><TD>Color of cylinder representing the revolute joint</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true and showUniversalAxes</TD></TR>
-<TR><TD>cylinderLength</TD><TD>Length of cylinders representing the two universal joint axes [m]</TD></TR>
-<TR><TD>cylinderDiameter</TD><TD>Diameter of cylinders representing the two universal joint axes [m]</TD></TR>
-<TR><TD>cylinderColor</TD><TD>Color of cylinders representing the two universal joint axes</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ia</TD><TD>Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint</TD></TR>
-<TR><TD>frame_im</TD><TD>Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. rotational flange that drives the revolute joint</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. rotational flange of the drive bearing of the revolute joint</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointUSP<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB98838e77e7dabd26ntUSPI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointUSP</H2>
-<B>Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showUniversalAxes</td><td>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</td></tr>
+<tr><td>n1_a</td><td>Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1) [1]</td></tr>
+<tr><td>n_b</td><td>Axis of revolute joint fixed and resolved in frame_b [1]</td></tr>
+<tr><td>rRod1_ia[3]</td><td>Vector from origin of frame_a to spherical joint, resolved in frame_ia [m]</td></tr>
+<tr><td>rRod2_ib[3]</td><td>Vector from origin of frame_ib to spherical joint, resolved in frame_ib [m]</td></tr>
+<tr><td>phi_offset</td><td>Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset)) [deg]</td></tr>
+<tr><td>phi_guess</td><td>Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal [deg]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of the spheres representing the universal and the spherical joint [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of the spheres representing the universal and the spherical joint</td></tr>
+<tr><td>rod1Diameter</td><td>Diameter of rod 1 connecting the universal and the spherical joint [m]</td></tr>
+<tr><td>rod1Color</td><td>Color of rod 1 connecting the universal and the spherical joint</td></tr>
+<tr><td>rod2Diameter</td><td>Diameter of rod 2 connecting the revolute and the spherical joint [m]</td></tr>
+<tr><td>rod2Color</td><td>Color of rod 2 connecting the revolute and the spherical joint</td></tr>
+<tr><td>revoluteDiameter</td><td>Diameter of cylinder representing the revolute joint [m]</td></tr>
+<tr><td>revoluteLength</td><td>Length of cylinder representing the revolute joint [m]</td></tr>
+<tr><td>revoluteColor</td><td>Color of cylinder representing the revolute joint</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true and showUniversalAxes</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the two universal joint axes</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ia</td><td>Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint</td></tr>
+<tr><td>frame_im</td><td>Coordinate system at origin of spherical joint fixed at connecting rod of spherical and revolute joint</td></tr>
+<tr><td>axis</td><td>1-dim. rotational flange that drives the revolute joint</td></tr>
+<tr><td>bearing</td><td>1-dim. rotational flange of the drive bearing of the revolute joint</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointUSP<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB98838e77e7dabd26ntUSPI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointUSP</h2>
+<p>
+<span class="ModelicaDescription">Universal - spherical - prismatic joint aggregation (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of a <b>universal</b> joint at frame_a, a <b>prismatic</b>
 joint at frame_b and a <b>spherical</b> joint which is connected via <b>rod1</b>
@@ -587,60 +636,62 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
   <b>equation</b>
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>showUniversalAxes</TD><TD>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</TD></TR>
-<TR><TD>n1_a</TD><TD>Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1) [1]</TD></TR>
-<TR><TD>n_b</TD><TD>Axis of prismatic joint fixed and resolved in frame_b [1]</TD></TR>
-<TR><TD>rRod1_ia[3]</TD><TD>Vector from origin of frame_a to spherical joint, resolved in frame_ia [m]</TD></TR>
-<TR><TD>rRod2_ib[3]</TD><TD>Vector from origin of frame_ib to spherical joint, resolved in frame_ib (frame_ib is parallel to frame_b) [m]</TD></TR>
-<TR><TD>s_offset</TD><TD>Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset) [m]</TD></TR>
-<TR><TD>s_guess</TD><TD>Select the configuration such that at initial time |s(t0)-s_guess| is minimal [m]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>sphereDiameter</TD><TD>Diameter of the spheres representing the universal and the spherical joint [m]</TD></TR>
-<TR><TD>sphereColor</TD><TD>Color of the spheres representing the universal and the spherical joint</TD></TR>
-<TR><TD>rod1Diameter</TD><TD>Diameter of rod 1 connecting the universal and the spherical joint [m]</TD></TR>
-<TR><TD>rod1Color</TD><TD>Color of rod 1 connecting the universal and the spherical joint</TD></TR>
-<TR><TD>rod2Diameter</TD><TD>Diameter of rod 2 connecting the prismatic and the spherical joint [m]</TD></TR>
-<TR><TD>rod2Color</TD><TD>Color of rod 2 connecting the prismatic and the spherical joint</TD></TR>
-<TR><TD>boxWidthDirection</TD><TD>Vector in width direction of prismatic joint, resolved in frame_b [1]</TD></TR>
-<TR><TD>boxWidth</TD><TD>Width of prismatic joint box [m]</TD></TR>
-<TR><TD>boxHeight</TD><TD>Height of prismatic joint box [m]</TD></TR>
-<TR><TD>boxColor</TD><TD>Color of prismatic joint box</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true and showUniversalAxes</TD></TR>
-<TR><TD>cylinderLength</TD><TD>Length of cylinders representing the two universal joint axes [m]</TD></TR>
-<TR><TD>cylinderDiameter</TD><TD>Diameter of cylinders representing the two universal joint axes [m]</TD></TR>
-<TR><TD>cylinderColor</TD><TD>Color of cylinders representing the two universal joint axes</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ia</TD><TD>Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint</TD></TR>
-<TR><TD>frame_im</TD><TD>Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. translational flange that drives the prismatic joint</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. translational flange of the drive bearing of the prismatic joint</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointSSR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB98830867e7daa524ntSSRI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointSSR</H2>
-<B>Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showUniversalAxes</td><td>= true, if universal joint shall be visualized with two cylinders, otherwise with a sphere (provided animation=true)</td></tr>
+<tr><td>n1_a</td><td>Axis 1 of universal joint fixed and resolved in frame_a (axis 2 is orthogonal to axis 1 and to rod 1) [1]</td></tr>
+<tr><td>n_b</td><td>Axis of prismatic joint fixed and resolved in frame_b [1]</td></tr>
+<tr><td>rRod1_ia[3]</td><td>Vector from origin of frame_a to spherical joint, resolved in frame_ia [m]</td></tr>
+<tr><td>rRod2_ib[3]</td><td>Vector from origin of frame_ib to spherical joint, resolved in frame_ib (frame_ib is parallel to frame_b) [m]</td></tr>
+<tr><td>s_offset</td><td>Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset) [m]</td></tr>
+<tr><td>s_guess</td><td>Select the configuration such that at initial time |s(t0)-s_guess| is minimal [m]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of the spheres representing the universal and the spherical joint [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of the spheres representing the universal and the spherical joint</td></tr>
+<tr><td>rod1Diameter</td><td>Diameter of rod 1 connecting the universal and the spherical joint [m]</td></tr>
+<tr><td>rod1Color</td><td>Color of rod 1 connecting the universal and the spherical joint</td></tr>
+<tr><td>rod2Diameter</td><td>Diameter of rod 2 connecting the prismatic and the spherical joint [m]</td></tr>
+<tr><td>rod2Color</td><td>Color of rod 2 connecting the prismatic and the spherical joint</td></tr>
+<tr><td>boxWidthDirection</td><td>Vector in width direction of prismatic joint, resolved in frame_b [1]</td></tr>
+<tr><td>boxWidth</td><td>Width of prismatic joint box [m]</td></tr>
+<tr><td>boxHeight</td><td>Height of prismatic joint box [m]</td></tr>
+<tr><td>boxColor</td><td>Color of prismatic joint box</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true and showUniversalAxes</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the two universal joint axes [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the two universal joint axes</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ia</td><td>Coordinate system at origin of frame_a fixed at connecting rod of universal and spherical joint</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint</td></tr>
+<tr><td>frame_im</td><td>Coordinate system at origin of spherical joint fixed at connecting rod of spherical and prismatic joint</td></tr>
+<tr><td>axis</td><td>1-dim. translational flange that drives the prismatic joint</td></tr>
+<tr><td>bearing</td><td>1-dim. translational flange of the drive bearing of the prismatic joint</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointSSR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB98830867e7daa524ntSSRI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointSSR</h2>
+<p>
+<span class="ModelicaDescription">Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of a <b>spherical</b> joint 1 at frame_a, a <b>revolute</b>
 joint at frame_b and a <b>spherical</b> joint 2 which is connected via rod 1
@@ -681,54 +732,56 @@ at least frame_b and frame_ib of the JointSSR joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>showMass</TD><TD>= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass &gt; 0)</TD></TR>
-<TR><TD>rod1Length</TD><TD>Distance between the origins of the two spherical joints [m]</TD></TR>
-<TR><TD>rod1Mass</TD><TD>Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints) [kg]</TD></TR>
-<TR><TD>n_b</TD><TD>Axis of revolute joint fixed and resolved in frame_b [1]</TD></TR>
-<TR><TD>rRod2_ib[3]</TD><TD>Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib [m]</TD></TR>
-<TR><TD>phi_offset</TD><TD>Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset)) [deg]</TD></TR>
-<TR><TD>phi_guess</TD><TD>Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal [deg]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>sphereDiameter</TD><TD>Diameter of the spheres representing the two spherical joints [m]</TD></TR>
-<TR><TD>sphereColor</TD><TD>Color of the spheres representing the two spherical joints</TD></TR>
-<TR><TD>rod1Diameter</TD><TD>Diameter of rod 1 connecting the two spherical joints [m]</TD></TR>
-<TR><TD>rod1Color</TD><TD>Color of rod 1 connecting the two spherical joint</TD></TR>
-<TR><TD>rod2Diameter</TD><TD>Diameter of rod 2 connecting the revolute joint and spherical joint 2 [m]</TD></TR>
-<TR><TD>rod2Color</TD><TD>Color of rod 2 connecting the revolute joint and spherical joint 2</TD></TR>
-<TR><TD>revoluteDiameter</TD><TD>Diameter of cylinder representing the revolute joint [m]</TD></TR>
-<TR><TD>revoluteLength</TD><TD>Length of cylinder representing the revolute joint [m]</TD></TR>
-<TR><TD>revoluteColor</TD><TD>Color of cylinder representing the revolute joint</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint</TD></TR>
-<TR><TD>frame_im</TD><TD>Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. rotational flange that drives the revolute joint</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. rotational flange of the drive bearing of the revolute joint</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointSSP<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB98830865e7daa526ntSSPI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointSSP</H2>
-<B>Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showMass</td><td>= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass &gt; 0)</td></tr>
+<tr><td>rod1Length</td><td>Distance between the origins of the two spherical joints [m]</td></tr>
+<tr><td>rod1Mass</td><td>Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints) [kg]</td></tr>
+<tr><td>n_b</td><td>Axis of revolute joint fixed and resolved in frame_b [1]</td></tr>
+<tr><td>rRod2_ib[3]</td><td>Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib [m]</td></tr>
+<tr><td>phi_offset</td><td>Relative angle offset of revolute joint (angle = phi(t) + from_deg(phi_offset)) [deg]</td></tr>
+<tr><td>phi_guess</td><td>Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal [deg]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of the spheres representing the two spherical joints [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of the spheres representing the two spherical joints</td></tr>
+<tr><td>rod1Diameter</td><td>Diameter of rod 1 connecting the two spherical joints [m]</td></tr>
+<tr><td>rod1Color</td><td>Color of rod 1 connecting the two spherical joint</td></tr>
+<tr><td>rod2Diameter</td><td>Diameter of rod 2 connecting the revolute joint and spherical joint 2 [m]</td></tr>
+<tr><td>rod2Color</td><td>Color of rod 2 connecting the revolute joint and spherical joint 2</td></tr>
+<tr><td>revoluteDiameter</td><td>Diameter of cylinder representing the revolute joint [m]</td></tr>
+<tr><td>revoluteLength</td><td>Length of cylinder representing the revolute joint [m]</td></tr>
+<tr><td>revoluteColor</td><td>Color of cylinder representing the revolute joint</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at connecting rod of spherical and revolute joint</td></tr>
+<tr><td>frame_im</td><td>Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and revolute joint</td></tr>
+<tr><td>axis</td><td>1-dim. rotational flange that drives the revolute joint</td></tr>
+<tr><td>bearing</td><td>1-dim. rotational flange of the drive bearing of the revolute joint</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointSSP<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB98830865e7daa526ntSSPI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointSSP</h2>
+<p>
+<span class="ModelicaDescription">Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of a <b>spherical</b> joint 1 at frame_a, a <b>prismatic</b>
 joint at frame_b and a <b>spherical</b> joint 2 which is connected via rod 1
@@ -769,55 +822,57 @@ at least frame_b and frame_ib of the JointSSP joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>showMass</TD><TD>= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass &gt; 0)</TD></TR>
-<TR><TD>rod1Length</TD><TD>Distance between the origins of the two spherical joints [m]</TD></TR>
-<TR><TD>rod1Mass</TD><TD>Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints) [kg]</TD></TR>
-<TR><TD>n_b</TD><TD>Axis of prismatic joint fixed and resolved in frame_b [1]</TD></TR>
-<TR><TD>rRod2_ib[3]</TD><TD>Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib [m]</TD></TR>
-<TR><TD>s_offset</TD><TD>Relative distance offset of prismatic joint (distance between frame_b and frame_ib = s(t) + s_offset) [m]</TD></TR>
-<TR><TD>s_guess</TD><TD>Select the configuration such that at initial time |s(t0)-s_guess| is minimal [m]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>sphereDiameter</TD><TD>Diameter of the spheres representing the two spherical joints [m]</TD></TR>
-<TR><TD>sphereColor</TD><TD>Color of the spheres representing the two spherical joints</TD></TR>
-<TR><TD>rod1Diameter</TD><TD>Diameter of rod 1 connecting the two spherical joints [m]</TD></TR>
-<TR><TD>rod1Color</TD><TD>Color of rod 1 connecting the two spherical joint</TD></TR>
-<TR><TD>rod2Diameter</TD><TD>Diameter of rod 2 connecting the revolute joint and spherical joint 2 [m]</TD></TR>
-<TR><TD>rod2Color</TD><TD>Color of rod 2 connecting the revolute joint and spherical joint 2</TD></TR>
-<TR><TD>boxWidthDirection</TD><TD>Vector in width direction of prismatic joint box, resolved in frame_b [1]</TD></TR>
-<TR><TD>boxWidth</TD><TD>Width of prismatic joint box [m]</TD></TR>
-<TR><TD>boxHeight</TD><TD>Height of prismatic joint box [m]</TD></TR>
-<TR><TD>boxColor</TD><TD>Color of prismatic joint box</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint</TD></TR>
-<TR><TD>frame_im</TD><TD>Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. translational flange that drives the prismatic joint</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. translational flange of the drive bearing of the prismatic joint</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointRRR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB9882c4dbe7daa104ntRRRI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointRRR</H2>
-<B>Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>showMass</td><td>= true, if point mass on rod 1 shall be shown (provided animation = true and rod1Mass &gt; 0)</td></tr>
+<tr><td>rod1Length</td><td>Distance between the origins of the two spherical joints [m]</td></tr>
+<tr><td>rod1Mass</td><td>Mass of rod 1 (= point mass located in middle of rod connecting the two spherical joints) [kg]</td></tr>
+<tr><td>n_b</td><td>Axis of prismatic joint fixed and resolved in frame_b [1]</td></tr>
+<tr><td>rRod2_ib[3]</td><td>Vector from origin of frame_ib to spherical joint in the middle, resolved in frame_ib [m]</td></tr>
+<tr><td>s_offset</td><td>Relative distance offset of prismatic joint (distance between frame_b and frame_ib = s(t) + s_offset) [m]</td></tr>
+<tr><td>s_guess</td><td>Select the configuration such that at initial time |s(t0)-s_guess| is minimal [m]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>sphereDiameter</td><td>Diameter of the spheres representing the two spherical joints [m]</td></tr>
+<tr><td>sphereColor</td><td>Color of the spheres representing the two spherical joints</td></tr>
+<tr><td>rod1Diameter</td><td>Diameter of rod 1 connecting the two spherical joints [m]</td></tr>
+<tr><td>rod1Color</td><td>Color of rod 1 connecting the two spherical joint</td></tr>
+<tr><td>rod2Diameter</td><td>Diameter of rod 2 connecting the revolute joint and spherical joint 2 [m]</td></tr>
+<tr><td>rod2Color</td><td>Color of rod 2 connecting the revolute joint and spherical joint 2</td></tr>
+<tr><td>boxWidthDirection</td><td>Vector in width direction of prismatic joint box, resolved in frame_b [1]</td></tr>
+<tr><td>boxWidth</td><td>Width of prismatic joint box [m]</td></tr>
+<tr><td>boxHeight</td><td>Height of prismatic joint box [m]</td></tr>
+<tr><td>boxColor</td><td>Color of prismatic joint box</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at connecting rod of spherical and prismatic joint</td></tr>
+<tr><td>frame_im</td><td>Coordinate system at origin of spherical joint in the middle fixed at connecting rod of spherical and prismatic joint</td></tr>
+<tr><td>axis</td><td>1-dim. translational flange that drives the prismatic joint</td></tr>
+<tr><td>bearing</td><td>1-dim. translational flange of the drive bearing of the prismatic joint</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointRRR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB9882c4dbe7daa104ntRRRI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointRRR</h2>
+<p>
+<span class="ModelicaDescription">Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of <b>3 revolute</b> joints with parallel
 axes of rotation that are connected together by two rods, see the default
@@ -860,49 +915,51 @@ spherical - revolute joint aggregation (= JointUSR). In a planar
 loop this will behave as if 3 revolute joints with parallel axes
 are connected by rigid rods.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>n_a</TD><TD>Axes of revolute joints resolved in frame_a (all axes are parallel to each other) [1]</TD></TR>
-<TR><TD>rRod1_ia[3]</TD><TD>Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia [m]</TD></TR>
-<TR><TD>rRod2_ib[3]</TD><TD>Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib [m]</TD></TR>
-<TR><TD>phi_offset</TD><TD>Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset)) [deg]</TD></TR>
-<TR><TD>phi_guess</TD><TD>Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal [deg]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>cylinderLength</TD><TD>Length of cylinders representing the revolute joints [m]</TD></TR>
-<TR><TD>cylinderDiameter</TD><TD>Diameter of cylinders representing the revolute joints [m]</TD></TR>
-<TR><TD>cylinderColor</TD><TD>Color of cylinders representing the revolute joints</TD></TR>
-<TR><TD>rodDiameter</TD><TD>Diameter of the two rods connecting the revolute joints [m]</TD></TR>
-<TR><TD>rodColor</TD><TD>Color of the two rods connecting the revolute joint</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ia</TD><TD>Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint</TD></TR>
-<TR><TD>frame_im</TD><TD>Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. rotational flange that drives the right revolute joint at frame_b</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. rotational flange of the drive bearing of the right revolute joint at frame_b</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE JointRRP<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiB9882c4d9e7daa106ntRRPI.png" ALT="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"></A><A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
->Modelica.Mechanics.MultiBody.Joints.Assemblies</A>.JointRRP</H2>
-<B>Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>n_a</td><td>Axes of revolute joints resolved in frame_a (all axes are parallel to each other) [1]</td></tr>
+<tr><td>rRod1_ia[3]</td><td>Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia [m]</td></tr>
+<tr><td>rRod2_ib[3]</td><td>Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib [m]</td></tr>
+<tr><td>phi_offset</td><td>Relative angle offset of revolute joint at frame_b (angle = phi(t) + from_deg(phi_offset)) [deg]</td></tr>
+<tr><td>phi_guess</td><td>Select the configuration such that at initial time |phi(t0) - from_deg(phi_guess)| is minimal [deg]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the revolute joints [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the revolute joints [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the revolute joints</td></tr>
+<tr><td>rodDiameter</td><td>Diameter of the two rods connecting the revolute joints [m]</td></tr>
+<tr><td>rodColor</td><td>Color of the two rods connecting the revolute joint</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ia</td><td>Coordinate system at origin of frame_a fixed at connecting rod of left and middle revolute joint</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at connecting rod of middle and right revolute joint</td></tr>
+<tr><td>frame_im</td><td>Coordinate system at origin of revolute joint in the middle fixed at connecting rod of middle and right revolute joint</td></tr>
+<tr><td>axis</td><td>1-dim. rotational flange that drives the right revolute joint at frame_b</td></tr>
+<tr><td>bearing</td><td>1-dim. rotational flange of the drive bearing of the right revolute joint at frame_b</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE JointRRP<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB9882c4d9e7daa106ntRRPI.png" alt="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRP"></a><a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+>Modelica.Mechanics.MultiBody.Joints.Assemblies</a>.JointRRP</h2>
+<p>
+<span class="ModelicaDescription">Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component consists of <b>2 revolute</b> joints with parallel
 axes of rotation that and a <b>prismatic</b> joint with a translational
@@ -947,45 +1004,47 @@ spherical - prismatic joint aggregation (= JointUSP). In a planar
 loop this will behave as if 2 revolute joints with parallel axes
 and 1 prismatic joint are connected by rigid rods.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
->Interfaces.PartialTwoFramesDoubleSize</A> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>animation</TD><TD>= true, if animation shall be enabled</TD></TR>
-<TR><TD>n_a</TD><TD>Axes of the two revolute joints resolved in frame_a (both axes are parallel to each other) [1]</TD></TR>
-<TR><TD>n_b</TD><TD>Axis of prismatic joint fixed and resolved in frame_b (must be orthogonal to revolute joint axes) [1]</TD></TR>
-<TR><TD>rRod1_ia[3]</TD><TD>Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia [m]</TD></TR>
-<TR><TD>rRod2_ib[3]</TD><TD>Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib (frame_ib is parallel to frame_b) [m]</TD></TR>
-<TR><TD>s_offset</TD><TD>Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset) [m]</TD></TR>
-<TR><TD>s_guess</TD><TD>Select the configuration such that at initial time |s(t0)-s_guess| is minimal [m]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animation = true</TD></TR>
-<TR><TD>cylinderLength</TD><TD>Length of cylinders representing the revolute joints [m]</TD></TR>
-<TR><TD>cylinderDiameter</TD><TD>Diameter of cylinders representing the revolute joints [m]</TD></TR>
-<TR><TD>cylinderColor</TD><TD>Color of cylinders representing the revolute joints</TD></TR>
-<TR><TD>boxWidthDirection</TD><TD>Vector in width direction of prismatic joint, resolved in frame_b [1]</TD></TR>
-<TR><TD>boxWidth</TD><TD>Width of prismatic joint box [m]</TD></TR>
-<TR><TD>boxHeight</TD><TD>Height of prismatic joint box [m]</TD></TR>
-<TR><TD>boxColor</TD><TD>Color of prismatic joint box</TD></TR>
-<TR><TD>rodDiameter</TD><TD>Diameter of the two rods connecting the joints [m]</TD></TR>
-<TR><TD>rodColor</TD><TD>Color of the two rods connecting the joints</TD></TR>
-<TR><TD>specularCoefficient</TD><TD>Reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>checkTotalPower</TD><TD>= true, if total power flowing into this component shall be determined (must be zero)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_a</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed to the component with one cut-force and cut-torque</TD></TR>
-<TR><TD>frame_ia</TD><TD>Coordinate system at origin of frame_a fixed at connecting rod of revolute joints</TD></TR>
-<TR><TD>frame_ib</TD><TD>Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint</TD></TR>
-<TR><TD>frame_im</TD><TD>Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint</TD></TR>
-<TR><TD>axis</TD><TD>1-dim. translational flange that drives the prismatic joint</TD></TR>
-<TR><TD>bearing</TD><TD>1-dim. translational flange of the drive bearing of the prismatic joint</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:42 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFramesDoubleSize"
+>Interfaces.PartialTwoFramesDoubleSize</a> (Base model for components providing two frame connectors + outer world + assert to guarantee that the component is connected (default icon size is factor 2 larger as usual)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>animation</td><td>= true, if animation shall be enabled</td></tr>
+<tr><td>n_a</td><td>Axes of the two revolute joints resolved in frame_a (both axes are parallel to each other) [1]</td></tr>
+<tr><td>n_b</td><td>Axis of prismatic joint fixed and resolved in frame_b (must be orthogonal to revolute joint axes) [1]</td></tr>
+<tr><td>rRod1_ia[3]</td><td>Vector from origin of frame_a to revolute joint in the middle, resolved in frame_ia [m]</td></tr>
+<tr><td>rRod2_ib[3]</td><td>Vector from origin of frame_ib to revolute joint in the middle, resolved in frame_ib (frame_ib is parallel to frame_b) [m]</td></tr>
+<tr><td>s_offset</td><td>Relative distance offset of prismatic joint (distance between the prismatic joint frames = s(t) + s_offset) [m]</td></tr>
+<tr><td>s_guess</td><td>Select the configuration such that at initial time |s(t0)-s_guess| is minimal [m]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animation = true</td></tr>
+<tr><td>cylinderLength</td><td>Length of cylinders representing the revolute joints [m]</td></tr>
+<tr><td>cylinderDiameter</td><td>Diameter of cylinders representing the revolute joints [m]</td></tr>
+<tr><td>cylinderColor</td><td>Color of cylinders representing the revolute joints</td></tr>
+<tr><td>boxWidthDirection</td><td>Vector in width direction of prismatic joint, resolved in frame_b [1]</td></tr>
+<tr><td>boxWidth</td><td>Width of prismatic joint box [m]</td></tr>
+<tr><td>boxHeight</td><td>Height of prismatic joint box [m]</td></tr>
+<tr><td>boxColor</td><td>Color of prismatic joint box</td></tr>
+<tr><td>rodDiameter</td><td>Diameter of the two rods connecting the joints [m]</td></tr>
+<tr><td>rodColor</td><td>Color of the two rods connecting the joints</td></tr>
+<tr><td>specularCoefficient</td><td>Reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_a</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed to the component with one cut-force and cut-torque</td></tr>
+<tr><td>frame_ia</td><td>Coordinate system at origin of frame_a fixed at connecting rod of revolute joints</td></tr>
+<tr><td>frame_ib</td><td>Coordinate system at origin of frame_b fixed at connecting rod of revolute and prismatic joint</td></tr>
+<tr><td>frame_im</td><td>Coordinate system at origin of revolute joint in the middle fixed at connecting rod of revolute and prismatic joint</td></tr>
+<tr><td>axis</td><td>1-dim. translational flange that drives the prismatic joint</td></tr>
+<tr><td>bearing</td><td>1-dim. translational flange of the drive bearing of the prismatic joint</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+</address>
+</body>
+</html>

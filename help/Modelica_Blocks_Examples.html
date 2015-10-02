@@ -1,90 +1,153 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Blocks.Examples</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Examples</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of examples to demonstrate the usage of package Blocks&quot;">
+<meta name="description" content="&quot;Library of examples to demonstrate the usage of package Blocks&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Blocks.Examples"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
->Modelica.Blocks</A>.Examples</H2>
-<B>Library of examples to demonstrate the usage of package Blocks</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Examples"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.Examples</h2>
+<p>
+<span class="ModelicaDescription">Library of examples to demonstrate the usage of package Blocks</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains example models to demonstrate the
 usage of package blocks.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.PID_Controller" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.PID_Controller"
->PID_Controller</A>
-</TD><TD>Demonstrates the usage of a Continuous.LimPID controller</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.Filter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.Filter"
->Filter</A>
-</TD><TD>Demonstrates the Continuous.Filter block with various options</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.FilterWithDifferentiation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.FilterWithDifferentiation"
->FilterWithDifferentiation</A>
-</TD><TD>Demonstrates the use of low pass filters to determine derivatives of filters</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.FilterWithRiseTime" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.FilterWithRiseTime"
->FilterWithRiseTime</A>
-</TD><TD>Demonstrates to use the rise time instead of the cut-off frequency to define a filter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.InverseModel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.InverseModel"
->InverseModel</A>
-</TD><TD>Demonstrates the construction of an inverse model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.ShowLogicalSources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.ShowLogicalSources"
->ShowLogicalSources</A>
-</TD><TD>Demonstrates the usage of logical sources together with their diagram animation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.LogicalNetwork1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.LogicalNetwork1"
->LogicalNetwork1</A>
-</TD><TD>Demonstrates the usage of logical blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.RealNetwork1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.RealNetwork1"
->RealNetwork1</A>
-</TD><TD>Demonstrates the usage of blocks from Modelica.Blocks.Math</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.IntegerNetwork1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
->IntegerNetwork1</A>
-</TD><TD>Demonstrates the usage of blocks from Modelica.Blocks.MathInteger</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.BooleanNetwork1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
->BooleanNetwork1</A>
-</TD><TD>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.Interaction1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.Interaction1"
->Interaction1</A>
-</TD><TD>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.PID_ControllerS.png" ALT="Modelica.Blocks.Examples.BusUsage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
->BusUsage</A>
-</TD><TD>Demonstrates the usage of a signal bus</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Examples.77e9f5d54e5edca7itiesS.png" ALT="Modelica.Blocks.Examples.BusUsage_Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples_BusUsage_Utilities.html#Modelica.Blocks.Examples.BusUsage_Utilities"
->BusUsage_Utilities</A>
-</TD><TD>Utility models and connectors for example Modelica.Blocks.Examples.BusUsage</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PID_Controller<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.PID_Controller" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.PID_Controller"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.PID_Controller</H2>
-<B>Demonstrates the usage of a Continuous.LimPID controller</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.PID_Controller" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.PID_Controller"
+>PID_Controller</a>
+</td>
+<td>Demonstrates the usage of a Continuous.LimPID controller</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.Filter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.Filter"
+>Filter</a>
+</td>
+<td>Demonstrates the Continuous.Filter block with various options</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.FilterWithDifferentiation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.FilterWithDifferentiation"
+>FilterWithDifferentiation</a>
+</td>
+<td>Demonstrates the use of low pass filters to determine derivatives of filters</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.FilterWithRiseTime" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.FilterWithRiseTime"
+>FilterWithRiseTime</a>
+</td>
+<td>Demonstrates to use the rise time instead of the cut-off frequency to define a filter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.InverseModel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.InverseModel"
+>InverseModel</a>
+</td>
+<td>Demonstrates the construction of an inverse model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.ShowLogicalSources" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.ShowLogicalSources"
+>ShowLogicalSources</a>
+</td>
+<td>Demonstrates the usage of logical sources together with their diagram animation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.LogicalNetwork1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.LogicalNetwork1"
+>LogicalNetwork1</a>
+</td>
+<td>Demonstrates the usage of logical blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.RealNetwork1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.RealNetwork1"
+>RealNetwork1</a>
+</td>
+<td>Demonstrates the usage of blocks from Modelica.Blocks.Math</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.IntegerNetwork1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+>IntegerNetwork1</a>
+</td>
+<td>Demonstrates the usage of blocks from Modelica.Blocks.MathInteger</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.BooleanNetwork1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+>BooleanNetwork1</a>
+</td>
+<td>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.Interaction1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.Interaction1"
+>Interaction1</a>
+</td>
+<td>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.PID_ControllerS.png" alt="Modelica.Blocks.Examples.BusUsage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BusUsage"
+>BusUsage</a>
+</td>
+<td>Demonstrates the usage of a signal bus</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Examples.77e9f5d54e5edca7itiesS.png" alt="Modelica.Blocks.Examples.BusUsage_Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples_BusUsage_Utilities.html#Modelica.Blocks.Examples.BusUsage_Utilities"
+>BusUsage_Utilities</a>
+</td>
+<td>Utility models and connectors for example Modelica.Blocks.Examples.BusUsage</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PID_Controller<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.PID_Controller" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.PID_Controller"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.PID_Controller</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of a Continuous.LimPID controller</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This is a simple drive train controlled by a PID controller:
@@ -148,27 +211,29 @@ works reasonably, since the input to the limiter (PI.limiter.u)
 is forced back to its limit after a transient phase.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>driveAngle</TD><TD>Reference distance to move [rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Filter<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.Filter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.Filter"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.Filter</H2>
-<B>Demonstrates the Continuous.Filter block with various options</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>driveAngle</td><td>Reference distance to move [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Filter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.Filter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.Filter"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.Filter</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the Continuous.Filter block with various options</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This example demonstrates various options of the
-<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Filter"
+<a href="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Filter"
 >Filter</a> block.
 A step input starts at 0.1 s with an offset of 0.1, in order to demonstrate
 the initialization options. This step input drives 4 filter blocks that
@@ -181,54 +246,58 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 
 <img src="../Resources/Images/Blocks/Filter1.png"
      alt="Filter1.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>order</TD><TD>&nbsp;</TD></TR>
-<TR><TD>f_cut</TD><TD>[Hz]</TD></TR>
-<TR><TD>filterType</TD><TD>Type of filter (LowPass/HighPass)</TD></TR>
-<TR><TD>init</TD><TD>Type of initialization (no init/steady state/initial state/initial output)</TD></TR>
-<TR><TD>normalized</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FilterWithDifferentiation<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.FilterWithDifferentiation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.FilterWithDifferentiation"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.FilterWithDifferentiation</H2>
-<B>Demonstrates the use of low pass filters to determine derivatives of filters</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>order</td><td>&nbsp;</td></tr>
+<tr><td>f_cut</td><td>[Hz]</td></tr>
+<tr><td>filterType</td><td>Type of filter (LowPass/HighPass)</td></tr>
+<tr><td>init</td><td>Type of initialization (no init/steady state/initial state/initial output)</td></tr>
+<tr><td>normalized</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FilterWithDifferentiation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.FilterWithDifferentiation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.FilterWithDifferentiation"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.FilterWithDifferentiation</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the use of low pass filters to determine derivatives of filters</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This example demonstrates that the output of the
-<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Filter"
+<a href="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.Filter"
 >Filter</a> block
 can be differentiated up to the order of the filter. This feature can be
 used in order to make an inverse model realizable or to "smooth" a potential
 discontinuous control signal.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>f_cut</TD><TD>[Hz]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FilterWithRiseTime<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.FilterWithRiseTime" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.FilterWithRiseTime"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.FilterWithRiseTime</H2>
-<B>Demonstrates to use the rise time instead of the cut-off frequency to define a filter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f_cut</td><td>[Hz]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FilterWithRiseTime<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.FilterWithRiseTime" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.FilterWithRiseTime"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.FilterWithRiseTime</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates to use the rise time instead of the cut-off frequency to define a filter</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Filters are usually parameterized with the cut-off frequency.
 Sometimes, it is more meaningful to parameterize a filter with its
@@ -294,24 +363,26 @@ reached with different precisions. This is summarized in the following table:
 </tr>
 </table></blockquote>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>order</TD><TD>Filter order</TD></TR>
-<TR><TD>riseTime</TD><TD>Time to reach the step input [s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE InverseModel<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.InverseModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.InverseModel"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.InverseModel</H2>
-<B>Demonstrates the construction of an inverse model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>order</td><td>Filter order</td></tr>
+<tr><td>riseTime</td><td>Time to reach the step input [s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InverseModel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.InverseModel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.InverseModel"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.InverseModel</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the construction of an inverse model</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates how to construct an inverse model in Modelica
 (for more details see <a href="https://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf">Looye, Th&uuml;mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
@@ -380,21 +451,23 @@ agreement. A typical simulation result is shown in the next figure:
 
 <img src="../Resources/Images/Blocks/InverseModel.png"
      alt="InverseModel.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ShowLogicalSources<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.ShowLogicalSources" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.ShowLogicalSources"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.ShowLogicalSources</H2>
-<B>Demonstrates the usage of logical sources together with their diagram animation</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ShowLogicalSources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.ShowLogicalSources" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.ShowLogicalSources"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.ShowLogicalSources</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of logical sources together with their diagram animation</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This simple example demonstrates the logical sources in
-<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+<a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
 >Modelica.Blocks.Sources</a> and demonstrate
 their diagram animation (see "small circle" close to the output connector).
 The "booleanExpression" source shows how a logical expression can be defined
@@ -402,18 +475,20 @@ in its parameter menu referring to variables available on this level of the
 model.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicalNetwork1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.LogicalNetwork1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.LogicalNetwork1"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.LogicalNetwork1</H2>
-<B>Demonstrates the usage of logical blocks</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicalNetwork1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.LogicalNetwork1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.LogicalNetwork1"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.LogicalNetwork1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of logical blocks</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates a network of logical blocks. Note, that
 the Boolean values of the input and output signals are visualized
@@ -421,21 +496,23 @@ in the diagram animation, by the small "circles" close to the connectors.
 If a "circle" is "white", the signal is <b>false</b>. It a
 "circle" is "green", the signal is <b>true</b>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RealNetwork1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.RealNetwork1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.RealNetwork1"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.RealNetwork1</H2>
-<B>Demonstrates the usage of blocks from Modelica.Blocks.Math</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RealNetwork1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.RealNetwork1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.RealNetwork1"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.RealNetwork1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of blocks from Modelica.Blocks.Math</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates a network of mathematical Real blocks.
-from package <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+from package <a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
 >Modelica.Blocks.Math</a>.
 Note, that
 </p>
@@ -451,21 +528,23 @@ Note, that
      "circle" is "green", the signal is <b>true</b>.</li>
 </ul>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IntegerNetwork1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.IntegerNetwork1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.IntegerNetwork1"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.IntegerNetwork1</H2>
-<B>Demonstrates the usage of blocks from Modelica.Blocks.MathInteger</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IntegerNetwork1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.IntegerNetwork1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.IntegerNetwork1"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.IntegerNetwork1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of blocks from Modelica.Blocks.MathInteger</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates a network of Integer blocks.
-from package <A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+from package <a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
 >Modelica.Blocks.MathInteger</a>.
 Note, that
 </p>
@@ -482,21 +561,23 @@ Note, that
 
 </ul>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BooleanNetwork1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.BooleanNetwork1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.BooleanNetwork1"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.BooleanNetwork1</H2>
-<B>Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BooleanNetwork1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.BooleanNetwork1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.BooleanNetwork1"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.BooleanNetwork1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates a network of Boolean blocks
-from package <A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+from package <a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
 >Modelica.Blocks.MathBoolean</a>.
 Note, that
 </p>
@@ -513,37 +594,41 @@ Note, that
 
 </ul>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Interaction1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.Interaction1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.Interaction1"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.Interaction1</H2>
-<B>Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Interaction1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.Interaction1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.Interaction1"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.Interaction1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates a network of blocks
-from package <A HREF="Modelica_Blocks_Interaction.html#Modelica.Blocks.Interaction"
+from package <a href="Modelica_Blocks_Interaction.html#Modelica.Blocks.Interaction"
 >Modelica.Blocks.Interaction</a>
 to show how diagram animations can be constructed.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BusUsage<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Examples.PID_ControllerI.png" ALT="Modelica.Blocks.Examples.BusUsage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Examples.BusUsage"></A><A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Modelica.Blocks.Examples</A>.BusUsage</H2>
-<B>Demonstrates the usage of a signal bus</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BusUsage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Examples.PID_ControllerI.png" alt="Modelica.Blocks.Examples.BusUsage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Examples.BusUsage"></a><a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Modelica.Blocks.Examples</a>.BusUsage</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of a signal bus</span>
+</p>
+<h3>Information</h3>
+
 <p><b>Signal bus concept</b></p>
 <p>
 In technical systems, such as vehicles, robots or satellites, many signals
@@ -578,7 +663,7 @@ at hand of this model (Modelica.Blocks.Examples.BusUsage):
 
 <p>
 The control and sub-control bus icons are provided within Modelica.Icons.
-In <A HREF="Modelica_Blocks_Examples_BusUsage_Utilities_Interfaces.html#Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces"
+In <a href="Modelica_Blocks_Examples_BusUsage_Utilities_Interfaces.html#Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces"
 >Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces</a>
 the buses for this example are defined. Both the "ControlBus" and the "SubControlBus" are
 <b>expandable</b> connectors that do not define any variable. For example,
@@ -623,7 +708,7 @@ is generated and the "controlBus" contains the new signal "realSignal1". Modelic
 may give more support in order to list potential signals for a connection.
 For example, in Dymola all variables are listed in the menu that are contained in
 connectors which are derived by inheritance from "controlBus". Therefore, in
-<A HREF="Modelica_Blocks_Examples_BusUsage_Utilities_Interfaces.html#Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces"
+<a href="Modelica_Blocks_Examples_BusUsage_Utilities_Interfaces.html#Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces"
 >BusUsage_Utilities.Interfaces</a>
 the expected implementation of the "ControlBus" and of the "SubControlBus" are given.
 For example "Internal.ControlBus" is defined as:
@@ -654,9 +739,11 @@ Note, even if the signals from "Internal.StandardControlBus" are listed, these a
 just potential signals. The user might still add different signal names.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:24 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:08 2015.
+</address>
+</body>
+</html>

@@ -1,146 +1,244 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Mechanics.Rotational.Examples.Utilities</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Rotational.Examples.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Utility components used by the example models&quot;">
+<meta name="description" content="&quot;Utility components used by the example models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Mechanics.Rotational.Examples.Utilities"></A><A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
->Modelica.Mechanics.Rotational.Examples</A>.Utilities</H2>
-<B>Utility components used by the example models</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
->Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati88e37016b79ac132ertiaS.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia"
->DirectInertia</A>
-</TD><TD>Input/output block of a direct inertia model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati649ebc195e297544ertiaS.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia"
->InverseInertia</A>
-</TD><TD>Input/output block of an inverse inertia model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati7b9253f94caad05damperS.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper"
->SpringDamper</A>
-</TD><TD>Input/output block of a spring/damper model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati475c3f8c0a66723fpringS.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.Spring" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.Spring"
->Spring</A>
-</TD><TD>Input/output block of a spring model</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DirectInertia<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati88e37016b79ac132ertiaI.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia"></A><A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
->Modelica.Mechanics.Rotational.Examples.Utilities</A>.DirectInertia</H2>
-<B>Input/output block of a direct inertia model</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>J</TD><TD>Moment of inertia [kg.m2]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tauDrive</TD><TD>Accelerating torque acting at flange (= -flange.tau) [N.m]</TD></TR>
-<TR><TD>phi</TD><TD>Inertia moves with angle phi due to torque tau [rad]</TD></TR>
-<TR><TD>w</TD><TD>Inertia moves with speed w due to torque tau [rad/s]</TD></TR>
-<TR><TD>a</TD><TD>Inertia moves with angular acceleration a due to torque tau [rad/s2]</TD></TR>
-<TR><TD>tau</TD><TD>Torque to drive the inertia [N.m]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE InverseInertia<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati649ebc195e297544ertiaI.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia"></A><A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
->Modelica.Mechanics.Rotational.Examples.Utilities</A>.InverseInertia</H2>
-<B>Input/output block of an inverse inertia model</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>J</TD><TD>Moment of inertia [kg.m2]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>phi</TD><TD>Angle to drive the inertia [rad]</TD></TR>
-<TR><TD>w</TD><TD>Speed to drive the inertia [rad/s]</TD></TR>
-<TR><TD>a</TD><TD>Angular acceleration to drive the inertia [rad/s2]</TD></TR>
-<TR><TD>tau</TD><TD>Torque needed to drive the flange according to phi, w, a [N.m]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpringDamper<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati7b9253f94caad05damperI.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper"></A><A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
->Modelica.Mechanics.Rotational.Examples.Utilities</A>.SpringDamper</H2>
-<B>Input/output block of a spring/damper model</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>c</TD><TD>Spring constant [N.m/rad]</TD></TR>
-<TR><TD>d</TD><TD>Damping constant [N.m.s/rad]</TD></TR>
-<TR><TD>phi_rel0</TD><TD>Unstretched spring angle [rad]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>phi1</TD><TD>Angle of left flange of force element [rad]</TD></TR>
-<TR><TD>w1</TD><TD>Speed to left flange of force element [rad/s]</TD></TR>
-<TR><TD>tau1</TD><TD>Torque generated by the force element [N.m]</TD></TR>
-<TR><TD>phi2</TD><TD>Angle of left flange of force element [rad]</TD></TR>
-<TR><TD>w2</TD><TD>Speed to left flange of force element [rad/s]</TD></TR>
-<TR><TD>tau2</TD><TD>Torque generated by the force element [N.m]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Spring<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati475c3f8c0a66723fpringI.png" ALT="Modelica.Mechanics.Rotational.Examples.Utilities.Spring" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Examples.Utilities.Spring"></A><A HREF="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
->Modelica.Mechanics.Rotational.Examples.Utilities</A>.Spring</H2>
-<B>Input/output block of a spring model</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</A> (Basic graphical layout of input/output block).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>c</TD><TD>Spring constant [N.m/rad]</TD></TR>
-<TR><TD>phi_rel0</TD><TD>Unstretched spring angle [rad]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>phi1</TD><TD>Angle of left flange of force element [rad]</TD></TR>
-<TR><TD>tau1</TD><TD>Torque generated by the force element [N.m]</TD></TR>
-<TR><TD>phi2</TD><TD>Angle of left flange of force element [rad]</TD></TR>
-<TR><TD>tau2</TD><TD>Torque generated by the force element [N.m]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:43 2013.
-</address></BODY>
-</HTML>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.Rotational.Examples.Utilities"></a><a href="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
+>Modelica.Mechanics.Rotational.Examples</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility components used by the example models</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati88e37016b79ac132ertiaS.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia"
+>DirectInertia</a>
+</td>
+<td>Input/output block of a direct inertia model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati649ebc195e297544ertiaS.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia"
+>InverseInertia</a>
+</td>
+<td>Input/output block of an inverse inertia model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati7b9253f94caad05damperS.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper"
+>SpringDamper</a>
+</td>
+<td>Input/output block of a spring/damper model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati475c3f8c0a66723fpringS.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.Spring" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.Spring"
+>Spring</a>
+</td>
+<td>Input/output block of a spring model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5fdd6f6456a49152tatesS.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates"
+>SpringDamperNoRelativeStates</a>
+</td>
+<td>Linear 1D rotational spring and damper in parallel (phi and w are not used as states)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DirectInertia<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati88e37016b79ac132ertiaI.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Examples.Utilities.DirectInertia"></a><a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
+>Modelica.Mechanics.Rotational.Examples.Utilities</a>.DirectInertia</h2>
+<p>
+<span class="ModelicaDescription">Input/output block of a direct inertia model</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>J</td><td>Moment of inertia [kg.m2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tauDrive</td><td>Accelerating torque acting at flange (= -flange.tau) [N.m]</td></tr>
+<tr><td>phi</td><td>Inertia moves with angle phi due to torque tau [rad]</td></tr>
+<tr><td>w</td><td>Inertia moves with speed w due to torque tau [rad/s]</td></tr>
+<tr><td>a</td><td>Inertia moves with angular acceleration a due to torque tau [rad/s2]</td></tr>
+<tr><td>tau</td><td>Torque to drive the inertia [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InverseInertia<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati649ebc195e297544ertiaI.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Examples.Utilities.InverseInertia"></a><a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
+>Modelica.Mechanics.Rotational.Examples.Utilities</a>.InverseInertia</h2>
+<p>
+<span class="ModelicaDescription">Input/output block of an inverse inertia model</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>J</td><td>Moment of inertia [kg.m2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi</td><td>Angle to drive the inertia [rad]</td></tr>
+<tr><td>w</td><td>Speed to drive the inertia [rad/s]</td></tr>
+<tr><td>a</td><td>Angular acceleration to drive the inertia [rad/s2]</td></tr>
+<tr><td>tau</td><td>Torque needed to drive the flange according to phi, w, a [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpringDamper<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati7b9253f94caad05damperI.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamper"></a><a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
+>Modelica.Mechanics.Rotational.Examples.Utilities</a>.SpringDamper</h2>
+<p>
+<span class="ModelicaDescription">Input/output block of a spring/damper model</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant [N.m/rad]</td></tr>
+<tr><td>d</td><td>Damping constant [N.m.s/rad]</td></tr>
+<tr><td>phi_rel0</td><td>Unstretched spring angle [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi1</td><td>Angle of left flange of force element [rad]</td></tr>
+<tr><td>w1</td><td>Speed to left flange of force element [rad/s]</td></tr>
+<tr><td>tau1</td><td>Torque generated by the force element [N.m]</td></tr>
+<tr><td>phi2</td><td>Angle of left flange of force element [rad]</td></tr>
+<tr><td>w2</td><td>Speed to left flange of force element [rad/s]</td></tr>
+<tr><td>tau2</td><td>Torque generated by the force element [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Spring<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati475c3f8c0a66723fpringI.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.Spring" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Examples.Utilities.Spring"></a><a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
+>Modelica.Mechanics.Rotational.Examples.Utilities</a>.Spring</h2>
+<p>
+<span class="ModelicaDescription">Input/output block of a spring model</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant [N.m/rad]</td></tr>
+<tr><td>phi_rel0</td><td>Unstretched spring angle [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>phi1</td><td>Angle of left flange of force element [rad]</td></tr>
+<tr><td>tau1</td><td>Torque generated by the force element [N.m]</td></tr>
+<tr><td>phi2</td><td>Angle of left flange of force element [rad]</td></tr>
+<tr><td>tau2</td><td>Torque generated by the force element [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpringDamperNoRelativeStates<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati5fdd6f6456a49152tatesI.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates"></a><a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
+>Modelica.Mechanics.Rotational.Examples.Utilities</a>.SpringDamperNoRelativeStates</h2>
+<p>
+<span class="ModelicaDescription">Linear 1D rotational spring and damper in parallel (phi and w are not used as states)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A <b>spring</b> and <b>damper</b> element <b>connected in parallel</b>.
+The component can be
+connected either between two inertias/gears to describe the shaft elasticity
+and damping, or between an inertia/gear and the housing (component Fixed),
+to describe a coupling of the element with the housing via a spring/damper.
+</p>
+
+<p>
+This is the same element as <a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.SpringDamper"
+>Rotational.Components.SpringDamper</a>
+but with the only difference, that the relative quantities are not used as states. If the relative
+states are potentially used as states, "a_rel = der(w_rel)" is present, and then exporting this model
+as FMU requires to also have the accelerations in the flanges as inputs, which is usually not
+desired for a force element.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliant"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliant</a> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant [N.m/rad]</td></tr>
+<tr><td>d</td><td>Damping constant [N.m.s/rad]</td></tr>
+<tr><td>phi_rel0</td><td>Unstretched spring angle [rad]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>phi_rel</td><td>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of compliant 1-dim. rotational component</td></tr>
+<tr><td>flange_b</td><td>Right flange of compliant 1-dim. rotational component</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+</address>
+</body>
+</html>

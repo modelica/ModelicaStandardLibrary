@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Digital</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Digital</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic&quot;">
+<meta name="description" content="&quot;Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Digital<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital"></A><A HREF="Modelica_Electrical.html#Modelica.Electrical"
->Modelica.Electrical</A>.Digital</H2>
-<B>Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Digital<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital"></a><a href="Modelica_Electrical.html#Modelica.Electrical"
+>Modelica.Electrical</a>.Digital</h2>
+<p>
+<span class="ModelicaDescription">Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This library contains packages for digital electrical components. Both, type system
 and models are based on the VHDL standard (IEEE Std 1076-1987 VHDL, IEEE Std 1076-1993 VHDL,
@@ -80,59 +99,103 @@ the library is implemented and released for public use.
 </p>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and Fraunhofer-Gesellschaft.
+Copyright &copy; 1998-2015, Modelica Association and Fraunhofer-Gesellschaft.
 </p>
 
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
 >Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.UsersGuideS.png" ALT="Modelica.Electrical.Digital.UsersGuide" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_UsersGuide.html#Modelica.Electrical.Digital.UsersGuide"
->UsersGuide</A>
-</TD><TD>User&#39;s Guide</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.ExamplesS.png" ALT="Modelica.Electrical.Digital.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Examples.html#Modelica.Electrical.Digital.Examples"
->Examples</A>
-</TD><TD>Examples that demonstrate the usage of the Digital electrical components</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.InterfacesS.png" ALT="Modelica.Electrical.Digital.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Interfaces</A>
-</TD><TD>Basic definitions</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.TablesS.png" ALT="Modelica.Electrical.Digital.Tables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Tables.html#Modelica.Electrical.Digital.Tables"
->Tables</A>
-</TD><TD>Truth tables for all components of package Digital</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.TablesS.png" ALT="Modelica.Electrical.Digital.Delay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay"
->Delay</A>
-</TD><TD>Delay blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.TablesS.png" ALT="Modelica.Electrical.Digital.Basic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
->Basic</A>
-</TD><TD>Basic logic blocks without delays</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.TablesS.png" ALT="Modelica.Electrical.Digital.Gates" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
->Gates</A>
-</TD><TD>Logic gates including delays</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.SourcesS.png" ALT="Modelica.Electrical.Digital.Sources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
->Sources</A>
-</TD><TD>Time-dependent digital signal sources</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.ConvertersS.png" ALT="Modelica.Electrical.Digital.Converters" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Converters</A>
-</TD><TD>Converters between 2-,3-,4- and 9-valued logic</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.ConvertersS.png" ALT="Modelica.Electrical.Digital.Registers" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Registers</A>
-</TD><TD>Registers with N-bit input data and output data</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.ConvertersS.png" ALT="Modelica.Electrical.Digital.Tristates" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Tristates.html#Modelica.Electrical.Digital.Tristates"
->Tristates</A>
-</TD><TD>Transfergates, Buffers, Inverters, and WiredX</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.ConvertersS.png" ALT="Modelica.Electrical.Digital.Memories" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Memories.html#Modelica.Electrical.Digital.Memories"
->Memories</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digital.ConvertersS.png" ALT="Modelica.Electrical.Digital.Multiplexers" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Multiplexers.html#Modelica.Electrical.Digital.Multiplexers"
->Multiplexers</A>
-</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:27 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.UsersGuideS.png" alt="Modelica.Electrical.Digital.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_UsersGuide.html#Modelica.Electrical.Digital.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.ExamplesS.png" alt="Modelica.Electrical.Digital.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Examples.html#Modelica.Electrical.Digital.Examples"
+>Examples</a>
+</td>
+<td>Examples that demonstrate the usage of the Digital electrical components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.InterfacesS.png" alt="Modelica.Electrical.Digital.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Interfaces</a>
+</td>
+<td>Basic definitions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.TablesS.png" alt="Modelica.Electrical.Digital.Tables" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Tables.html#Modelica.Electrical.Digital.Tables"
+>Tables</a>
+</td>
+<td>Truth tables for all components of package Digital</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.TablesS.png" alt="Modelica.Electrical.Digital.Delay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Delay.html#Modelica.Electrical.Digital.Delay"
+>Delay</a>
+</td>
+<td>Delay blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.TablesS.png" alt="Modelica.Electrical.Digital.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Basic.html#Modelica.Electrical.Digital.Basic"
+>Basic</a>
+</td>
+<td>Basic logic blocks without delays</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.TablesS.png" alt="Modelica.Electrical.Digital.Gates" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Gates.html#Modelica.Electrical.Digital.Gates"
+>Gates</a>
+</td>
+<td>Logic gates including delays</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.SourcesS.png" alt="Modelica.Electrical.Digital.Sources" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Sources.html#Modelica.Electrical.Digital.Sources"
+>Sources</a>
+</td>
+<td>Time-dependent digital signal sources</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.ConvertersS.png" alt="Modelica.Electrical.Digital.Converters" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Converters</a>
+</td>
+<td>Converters between 2-,3-,4- and 9-valued logic</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.ConvertersS.png" alt="Modelica.Electrical.Digital.Registers" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Registers</a>
+</td>
+<td>Registers with N-bit input data and output data</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.ConvertersS.png" alt="Modelica.Electrical.Digital.Tristates" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Tristates.html#Modelica.Electrical.Digital.Tristates"
+>Tristates</a>
+</td>
+<td>Transfergates, Buffers, Inverters, and WiredX</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.ConvertersS.png" alt="Modelica.Electrical.Digital.Memories" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Memories.html#Modelica.Electrical.Digital.Memories"
+>Memories</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digital.ConvertersS.png" alt="Modelica.Electrical.Digital.Multiplexers" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Multiplexers.html#Modelica.Electrical.Digital.Multiplexers"
+>Multiplexers</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+</address>
+</body>
+</html>

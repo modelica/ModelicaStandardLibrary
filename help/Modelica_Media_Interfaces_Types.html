@@ -1,521 +1,714 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Interfaces.Types</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Interfaces.Types</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Types to be used in fluid models&quot;">
+<meta name="description" content="&quot;Types to be used in fluid models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Types<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types"></A><A HREF="Modelica_Media_Interfaces.html#Modelica.Media.Interfaces"
->Modelica.Media.Interfaces</A>.Types</H2>
-<B>Types to be used in fluid models</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.AbsolutePressure"
->AbsolutePressure</A>
-</TD><TD>Type for absolute pressure with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Density"
->Density</A>
-</TD><TD>Type for density with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DynamicViscosity"
->DynamicViscosity</A>
-</TD><TD>Type for dynamic viscosity with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.EnthalpyFlowRate"
->EnthalpyFlowRate</A>
-</TD><TD>Type for enthalpy flow rate with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MassFraction"
->MassFraction</A>
-</TD><TD>Type for mass fraction with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MoleFraction"
->MoleFraction</A>
-</TD><TD>Type for mole fraction with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarMass"
->MolarMass</A>
-</TD><TD>Type for molar mass with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarVolume"
->MolarVolume</A>
-</TD><TD>Type for molar volume with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsentropicExponent"
->IsentropicExponent</A>
-</TD><TD>Type for isentropic exponent with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnergy"
->SpecificEnergy</A>
-</TD><TD>Type for specific energy with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificInternalEnergy"
->SpecificInternalEnergy</A>
-</TD><TD>Type for specific internal energy with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnthalpy"
->SpecificEnthalpy</A>
-</TD><TD>Type for specific enthalpy with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEntropy"
->SpecificEntropy</A>
-</TD><TD>Type for specific entropy with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificHeatCapacity"
->SpecificHeatCapacity</A>
-</TD><TD>Type for specific heat capacity with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SurfaceTension"
->SurfaceTension</A>
-</TD><TD>Type for surface tension with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Temperature"
->Temperature</A>
-</TD><TD>Type for temperature with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ThermalConductivity"
->ThermalConductivity</A>
-</TD><TD>Type for thermal conductivity with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.PrandtlNumber"
->PrandtlNumber</A>
-</TD><TD>Type for Prandtl number with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.VelocityOfSound"
->VelocityOfSound</A>
-</TD><TD>Type for velocity of sound with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraProperty"
->ExtraProperty</A>
-</TD><TD>Type for unspecified, mass-specific property transported by flow</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.CumulativeExtraProperty"
->CumulativeExtraProperty</A>
-</TD><TD>Type for conserved integral of unspecified, mass specific property</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate"
->ExtraPropertyFlowRate</A>
-</TD><TD>Type for flow rate of unspecified, mass-specific property</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient"
->IsobaricExpansionCoefficient</A>
-</TD><TD>Type for isobaric expansion coefficient with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DipoleMoment"
->DipoleMoment</A>
-</TD><TD>Type for dipole moment with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByPressure"
->DerDensityByPressure</A>
-</TD><TD>Type for partial derivative of density with respect to pressure with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByEnthalpy"
->DerDensityByEnthalpy</A>
-</TD><TD>Type for partial derivative of density with respect to enthalpy with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerEnthalpyByPressure"
->DerEnthalpyByPressure</A>
-</TD><TD>Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByTemperature"
->DerDensityByTemperature</A>
-</TD><TD>Type for partial derivative of density with respect to temperature with medium specific attributes</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerTemperatureByPressure"
->DerTemperatureByPressure</A>
-</TD><TD>Type for partial derivative of temperature with respect to pressure with medium specific attributes</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesS.png" ALT="Modelica.Media.Interfaces.Types.SaturationProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SaturationProperties"
->SaturationProperties</A>
-</TD><TD>Saturation properties of two phase medium</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesS.png" ALT="Modelica.Media.Interfaces.Types.FluidLimits" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FluidLimits"
->FluidLimits</A>
-</TD><TD>Validity limits for fluid model</TD></TR>
-<TR><TD><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FixedPhase"
->FixedPhase</A>
-</TD><TD>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Interfaces.Types.BasicS.png" ALT="Modelica.Media.Interfaces.Types.Basic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_Types_Basic.html#Modelica.Media.Interfaces.Types.Basic"
->Basic</A>
-</TD><TD>The most basic version of a record used in several degrees of detail</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Interfaces.Types.BasicS.png" ALT="Modelica.Media.Interfaces.Types.IdealGas" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_Types_IdealGas.html#Modelica.Media.Interfaces.Types.IdealGas"
->IdealGas</A>
-</TD><TD>The ideal gas version of a record used in several degrees of detail</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Interfaces.Types.BasicS.png" ALT="Modelica.Media.Interfaces.Types.TwoPhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Interfaces_Types_TwoPhase.html#Modelica.Media.Interfaces.Types.TwoPhase"
->TwoPhase</A>
-</TD><TD>The two phase fluid version of a record used in several degrees of detail</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AbsolutePressure<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.AbsolutePressure"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.AbsolutePressure</H2>
-<B>Type for absolute pressure with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Density<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.Density"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.Density</H2>
-<B>Type for density with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DynamicViscosity<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DynamicViscosity"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DynamicViscosity</H2>
-<B>Type for dynamic viscosity with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE EnthalpyFlowRate<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.EnthalpyFlowRate"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.EnthalpyFlowRate</H2>
-<B>Type for enthalpy flow rate with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MassFraction<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.MassFraction"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.MassFraction</H2>
-<B>Type for mass fraction with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
-<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MoleFraction<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.MoleFraction"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.MoleFraction</H2>
-<B>Type for mole fraction with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
-<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MolarMass<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.MolarMass"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.MolarMass</H2>
-<B>Type for molar mass with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MolarVolume<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.MolarVolume"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.MolarVolume</H2>
-<B>Type for molar volume with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IsentropicExponent<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.IsentropicExponent"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.IsentropicExponent</H2>
-<B>Type for isentropic exponent with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEnergy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.SpecificEnergy"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SpecificEnergy</H2>
-<B>Type for specific energy with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificInternalEnergy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.SpecificInternalEnergy"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SpecificInternalEnergy</H2>
-<B>Type for specific internal energy with medium specific attributes</B><p></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEnthalpy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.SpecificEnthalpy"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SpecificEnthalpy</H2>
-<B>Type for specific enthalpy with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEntropy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.SpecificEntropy"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SpecificEntropy</H2>
-<B>Type for specific entropy with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificHeatCapacity<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.SpecificHeatCapacity"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SpecificHeatCapacity</H2>
-<B>Type for specific heat capacity with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SurfaceTension<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.SurfaceTension"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SurfaceTension</H2>
-<B>Type for surface tension with medium specific attributes</B><p></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Temperature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.Temperature"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.Temperature</H2>
-<B>Type for temperature with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermalConductivity<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.ThermalConductivity"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.ThermalConductivity</H2>
-<B>Type for thermal conductivity with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PrandtlNumber<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.PrandtlNumber"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.PrandtlNumber</H2>
-<B>Type for Prandtl number with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VelocityOfSound<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.VelocityOfSound"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.VelocityOfSound</H2>
-<B>Type for velocity of sound with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>nominal</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ExtraProperty<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.ExtraProperty"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.ExtraProperty</H2>
-<B>Type for unspecified, mass-specific property transported by flow</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CumulativeExtraProperty<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.CumulativeExtraProperty"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.CumulativeExtraProperty</H2>
-<B>Type for conserved integral of unspecified, mass specific property</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ExtraPropertyFlowRate<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.ExtraPropertyFlowRate</H2>
-<B>Type for flow rate of unspecified, mass-specific property</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IsobaricExpansionCoefficient<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.IsobaricExpansionCoefficient</H2>
-<B>Type for isobaric expansion coefficient with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DipoleMoment<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DipoleMoment"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DipoleMoment</H2>
-<B>Type for dipole moment with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>quantity</TD><TD>&nbsp;</TD></TR>
-<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DerDensityByPressure<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DerDensityByPressure"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DerDensityByPressure</H2>
-<B>Type for partial derivative of density with respect to pressure with medium specific attributes</B><p></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DerDensityByEnthalpy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DerDensityByEnthalpy"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DerDensityByEnthalpy</H2>
-<B>Type for partial derivative of density with respect to enthalpy with medium specific attributes</B><p></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DerEnthalpyByPressure<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DerEnthalpyByPressure"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DerEnthalpyByPressure</H2>
-<B>Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</B><p></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DerDensityByTemperature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DerDensityByTemperature"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DerDensityByTemperature</H2>
-<B>Type for partial derivative of density with respect to temperature with medium specific attributes</B><p></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DerTemperatureByPressure<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.DerTemperatureByPressure"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.DerTemperatureByPressure</H2>
-<B>Type for partial derivative of temperature with respect to pressure with medium specific attributes</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>unit</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SaturationProperties<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesI.png" ALT="Modelica.Media.Interfaces.Types.SaturationProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Interfaces.Types.SaturationProperties"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.SaturationProperties</H2>
-<B>Saturation properties of two phase medium</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FluidLimits<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesI.png" ALT="Modelica.Media.Interfaces.Types.FluidLimits" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Interfaces.Types.FluidLimits"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.FluidLimits</H2>
-<B>Validity limits for fluid model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Types<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types"></a><a href="Modelica_Media_Interfaces.html#Modelica.Media.Interfaces"
+>Modelica.Media.Interfaces</a>.Types</h2>
+<p>
+<span class="ModelicaDescription">Types to be used in fluid models</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.AbsolutePressure"
+>AbsolutePressure</a>
+</td>
+<td>Type for absolute pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Density"
+>Density</a>
+</td>
+<td>Type for density with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DynamicViscosity"
+>DynamicViscosity</a>
+</td>
+<td>Type for dynamic viscosity with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.EnthalpyFlowRate"
+>EnthalpyFlowRate</a>
+</td>
+<td>Type for enthalpy flow rate with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MassFraction"
+>MassFraction</a>
+</td>
+<td>Type for mass fraction with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MoleFraction"
+>MoleFraction</a>
+</td>
+<td>Type for mole fraction with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarMass"
+>MolarMass</a>
+</td>
+<td>Type for molar mass with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.MolarVolume"
+>MolarVolume</a>
+</td>
+<td>Type for molar volume with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsentropicExponent"
+>IsentropicExponent</a>
+</td>
+<td>Type for isentropic exponent with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnergy"
+>SpecificEnergy</a>
+</td>
+<td>Type for specific energy with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificInternalEnergy"
+>SpecificInternalEnergy</a>
+</td>
+<td>Type for specific internal energy with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEnthalpy"
+>SpecificEnthalpy</a>
+</td>
+<td>Type for specific enthalpy with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificEntropy"
+>SpecificEntropy</a>
+</td>
+<td>Type for specific entropy with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SpecificHeatCapacity"
+>SpecificHeatCapacity</a>
+</td>
+<td>Type for specific heat capacity with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SurfaceTension"
+>SurfaceTension</a>
+</td>
+<td>Type for surface tension with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.Temperature"
+>Temperature</a>
+</td>
+<td>Type for temperature with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ThermalConductivity"
+>ThermalConductivity</a>
+</td>
+<td>Type for thermal conductivity with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.PrandtlNumber"
+>PrandtlNumber</a>
+</td>
+<td>Type for Prandtl number with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.VelocityOfSound"
+>VelocityOfSound</a>
+</td>
+<td>Type for velocity of sound with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraProperty"
+>ExtraProperty</a>
+</td>
+<td>Type for unspecified, mass-specific property transported by flow</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.CumulativeExtraProperty"
+>CumulativeExtraProperty</a>
+</td>
+<td>Type for conserved integral of unspecified, mass specific property</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate"
+>ExtraPropertyFlowRate</a>
+</td>
+<td>Type for flow rate of unspecified, mass-specific property</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient"
+>IsobaricExpansionCoefficient</a>
+</td>
+<td>Type for isobaric expansion coefficient with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DipoleMoment"
+>DipoleMoment</a>
+</td>
+<td>Type for dipole moment with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByPressure"
+>DerDensityByPressure</a>
+</td>
+<td>Type for partial derivative of density with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByEnthalpy"
+>DerDensityByEnthalpy</a>
+</td>
+<td>Type for partial derivative of density with respect to enthalpy with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerEnthalpyByPressure"
+>DerEnthalpyByPressure</a>
+</td>
+<td>Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerDensityByTemperature"
+>DerDensityByTemperature</a>
+</td>
+<td>Type for partial derivative of density with respect to temperature with medium specific attributes</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.DerTemperatureByPressure"
+>DerTemperatureByPressure</a>
+</td>
+<td>Type for partial derivative of temperature with respect to pressure with medium specific attributes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesS.png" alt="Modelica.Media.Interfaces.Types.SaturationProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.SaturationProperties"
+>SaturationProperties</a>
+</td>
+<td>Saturation properties of two phase medium</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesS.png" alt="Modelica.Media.Interfaces.Types.FluidLimits" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FluidLimits"
+>FluidLimits</a>
+</td>
+<td>Validity limits for fluid model</td>
+</tr>
+<tr>
+<td><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types.FixedPhase"
+>FixedPhase</a>
+</td>
+<td>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Interfaces.Types.BasicS.png" alt="Modelica.Media.Interfaces.Types.Basic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_Basic.html#Modelica.Media.Interfaces.Types.Basic"
+>Basic</a>
+</td>
+<td>The most basic version of a record used in several degrees of detail</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Interfaces.Types.BasicS.png" alt="Modelica.Media.Interfaces.Types.IdealGas" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_IdealGas.html#Modelica.Media.Interfaces.Types.IdealGas"
+>IdealGas</a>
+</td>
+<td>The ideal gas version of a record used in several degrees of detail</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Interfaces.Types.BasicS.png" alt="Modelica.Media.Interfaces.Types.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Interfaces_Types_TwoPhase.html#Modelica.Media.Interfaces.Types.TwoPhase"
+>TwoPhase</a>
+</td>
+<td>The two phase fluid version of a record used in several degrees of detail</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsolutePressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.AbsolutePressure"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.AbsolutePressure</h2>
+<p>
+<span class="ModelicaDescription">Type for absolute pressure with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Density<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.Density"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.Density</h2>
+<p>
+<span class="ModelicaDescription">Type for density with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DynamicViscosity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DynamicViscosity"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DynamicViscosity</h2>
+<p>
+<span class="ModelicaDescription">Type for dynamic viscosity with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EnthalpyFlowRate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.EnthalpyFlowRate"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.EnthalpyFlowRate</h2>
+<p>
+<span class="ModelicaDescription">Type for enthalpy flow rate with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MassFraction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.MassFraction"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.MassFraction</h2>
+<p>
+<span class="ModelicaDescription">Type for mass fraction with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>quantity</td><td>&nbsp;</td></tr>
+<tr><td>unit</td><td>&nbsp;</td></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MoleFraction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.MoleFraction"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.MoleFraction</h2>
+<p>
+<span class="ModelicaDescription">Type for mole fraction with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>quantity</td><td>&nbsp;</td></tr>
+<tr><td>unit</td><td>&nbsp;</td></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MolarMass<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.MolarMass"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.MolarMass</h2>
+<p>
+<span class="ModelicaDescription">Type for molar mass with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MolarVolume<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.MolarVolume"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.MolarVolume</h2>
+<p>
+<span class="ModelicaDescription">Type for molar volume with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IsentropicExponent<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.IsentropicExponent"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.IsentropicExponent</h2>
+<p>
+<span class="ModelicaDescription">Type for isentropic exponent with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.SpecificEnergy"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SpecificEnergy</h2>
+<p>
+<span class="ModelicaDescription">Type for specific energy with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificInternalEnergy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.SpecificInternalEnergy"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SpecificInternalEnergy</h2>
+<p>
+<span class="ModelicaDescription">Type for specific internal energy with medium specific attributes</span>
+</p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.SpecificEnthalpy"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SpecificEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Type for specific enthalpy with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEntropy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.SpecificEntropy"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SpecificEntropy</h2>
+<p>
+<span class="ModelicaDescription">Type for specific entropy with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificHeatCapacity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.SpecificHeatCapacity"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SpecificHeatCapacity</h2>
+<p>
+<span class="ModelicaDescription">Type for specific heat capacity with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SurfaceTension<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.SurfaceTension"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SurfaceTension</h2>
+<p>
+<span class="ModelicaDescription">Type for surface tension with medium specific attributes</span>
+</p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Temperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.Temperature"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.Temperature</h2>
+<p>
+<span class="ModelicaDescription">Type for temperature with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermalConductivity<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.ThermalConductivity"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.ThermalConductivity</h2>
+<p>
+<span class="ModelicaDescription">Type for thermal conductivity with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PrandtlNumber<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.PrandtlNumber"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.PrandtlNumber</h2>
+<p>
+<span class="ModelicaDescription">Type for Prandtl number with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VelocityOfSound<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.VelocityOfSound"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.VelocityOfSound</h2>
+<p>
+<span class="ModelicaDescription">Type for velocity of sound with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>nominal</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExtraProperty<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.ExtraProperty"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.ExtraProperty</h2>
+<p>
+<span class="ModelicaDescription">Type for unspecified, mass-specific property transported by flow</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CumulativeExtraProperty<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.CumulativeExtraProperty"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.CumulativeExtraProperty</h2>
+<p>
+<span class="ModelicaDescription">Type for conserved integral of unspecified, mass specific property</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ExtraPropertyFlowRate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.ExtraPropertyFlowRate"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.ExtraPropertyFlowRate</h2>
+<p>
+<span class="ModelicaDescription">Type for flow rate of unspecified, mass-specific property</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>unit</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IsobaricExpansionCoefficient<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.IsobaricExpansionCoefficient"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.IsobaricExpansionCoefficient</h2>
+<p>
+<span class="ModelicaDescription">Type for isobaric expansion coefficient with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>unit</td><td>&nbsp;</td></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DipoleMoment<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DipoleMoment"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DipoleMoment</h2>
+<p>
+<span class="ModelicaDescription">Type for dipole moment with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>quantity</td><td>&nbsp;</td></tr>
+<tr><td>unit</td><td>&nbsp;</td></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DerDensityByPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DerDensityByPressure"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DerDensityByPressure</h2>
+<p>
+<span class="ModelicaDescription">Type for partial derivative of density with respect to pressure with medium specific attributes</span>
+</p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DerDensityByEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DerDensityByEnthalpy"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DerDensityByEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Type for partial derivative of density with respect to enthalpy with medium specific attributes</span>
+</p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DerEnthalpyByPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DerEnthalpyByPressure"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DerEnthalpyByPressure</h2>
+<p>
+<span class="ModelicaDescription">Type for partial derivative of enthalpy with respect to pressure with medium specific attributes</span>
+</p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DerDensityByTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DerDensityByTemperature"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DerDensityByTemperature</h2>
+<p>
+<span class="ModelicaDescription">Type for partial derivative of density with respect to temperature with medium specific attributes</span>
+</p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DerTemperatureByPressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.DerTemperatureByPressure"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.DerTemperatureByPressure</h2>
+<p>
+<span class="ModelicaDescription">Type for partial derivative of temperature with respect to pressure with medium specific attributes</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>unit</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SaturationProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesI.png" alt="Modelica.Media.Interfaces.Types.SaturationProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Interfaces.Types.SaturationProperties"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.SaturationProperties</h2>
+<p>
+<span class="ModelicaDescription">Saturation properties of two phase medium</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidLimits<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Interfaces31ea5bf09dbefe85rtiesI.png" alt="Modelica.Media.Interfaces.Types.FluidLimits" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Interfaces.Types.FluidLimits"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.FluidLimits</h2>
+<p>
+<span class="ModelicaDescription">Validity limits for fluid model</span>
+</p>
+<h3>Information</h3>
+
           <p>The minimum pressure mostly applies to the liquid state only.
           The minimum density is also arbitrary, but is reasonable for technical
           applications to limit iterations in non-linear systems. The limits in
           enthalpy and entropy are used as safeguards in inverse iterations.</p>
-          <pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FixedPhase<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Interfaces.Types.FixedPhase"></A><A HREF="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
->Modelica.Media.Interfaces.Types</A>.FixedPhase</H2>
-<B>Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>min</TD><TD>&nbsp;</TD></TR>
-<TR><TD>max</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:56 2013.
-</address></BODY>
-</HTML>
+          
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedPhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Interfaces.Types.FixedPhase"></a><a href="Modelica_Media_Interfaces_Types.html#Modelica.Media.Interfaces.Types"
+>Modelica.Media.Interfaces.Types</a>.FixedPhase</h2>
+<p>
+<span class="ModelicaDescription">Phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>min</td><td>&nbsp;</td></tr>
+<tr><td>max</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:20 2015.
+</address>
+</body>
+</html>

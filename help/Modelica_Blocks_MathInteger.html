@@ -1,63 +1,99 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Blocks.MathInteger</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.MathInteger</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of Integer mathematical functions as input/output blocks&quot;">
+<meta name="description" content="&quot;Library of Integer mathematical functions as input/output blocks&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MathInteger<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Blocks.MathInteger"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
->Modelica.Blocks</A>.MathInteger</H2>
-<B>Library of Integer mathematical functions as input/output blocks</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MathInteger<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.MathInteger"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.MathInteger</h2>
+<p>
+<span class="ModelicaDescription">Library of Integer mathematical functions as input/output blocks</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains basic <b>mathematical operations</b>
 on <b>Integer</b> signals.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.MultiSwitchS.png" ALT="Modelica.Blocks.MathInteger.MultiSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.MultiSwitch"
->MultiSwitch</A>
-</TD><TD>Set Integer expression that is associated with the first active input signal</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.SumS.png" ALT="Modelica.Blocks.MathInteger.Sum" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.Sum"
->Sum</A>
-</TD><TD>Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.ProductS.png" ALT="Modelica.Blocks.MathInteger.Product" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.Product"
->Product</A>
-</TD><TD>Product of Integer: y = u[1]*u[2]* ... *u[n]</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.TriggeredAddS.png" ALT="Modelica.Blocks.MathInteger.TriggeredAdd" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.TriggeredAdd"
->TriggeredAdd</A>
-</TD><TD>Add input to previous value of output, if rising edge of trigger port</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MultiSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathInteger.MultiSwitchI.png" ALT="Modelica.Blocks.MathInteger.MultiSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathInteger.MultiSwitch"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
->Modelica.Blocks.MathInteger</A>.MultiSwitch</H2>
-<B>Set Integer expression that is associated with the first active input signal</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathInteger.MultiSwitchS.png" alt="Modelica.Blocks.MathInteger.MultiSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.MultiSwitch"
+>MultiSwitch</a>
+</td>
+<td>Set Integer expression that is associated with the first active input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathInteger.SumS.png" alt="Modelica.Blocks.MathInteger.Sum" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.Sum"
+>Sum</a>
+</td>
+<td>Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathInteger.ProductS.png" alt="Modelica.Blocks.MathInteger.Product" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.Product"
+>Product</a>
+</td>
+<td>Product of Integer: y = u[1]*u[2]* ... *u[n]</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathInteger.TriggeredAddS.png" alt="Modelica.Blocks.MathInteger.TriggeredAdd" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.TriggeredAdd"
+>TriggeredAdd</a>
+</td>
+<td>Add input to previous value of output, if rising edge of trigger port</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathInteger.MultiSwitchI.png" alt="Modelica.Blocks.MathInteger.MultiSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathInteger.MultiSwitch"></a><a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</a>.MultiSwitch</h2>
+<p>
+<span class="ModelicaDescription">Set Integer expression that is associated with the first active input signal</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block has a vector of Boolean input signals u[nu] and a vector of
 (time varying) Integer expressions expr[nu]. The output signal y is
@@ -83,34 +119,35 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
 >Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>expr[nu]</TD><TD>y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default</TD></TR>
-<TR><TD>y_default</TD><TD>Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time</TD></TR>
-<TR><TD>use_pre_as_default</TD><TD>= true, y holds its last value if all u[i]=false, otherwise y=y_default</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Set y = expr[i], if u[i] = true</TD></TR>
-<TR><TD>y</TD><TD>Output depending on expression</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Sum<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathInteger.SumI.png" ALT="Modelica.Blocks.MathInteger.Sum" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathInteger.Sum"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
->Modelica.Blocks.MathInteger</A>.Sum</H2>
-<B>Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>expr[nu]</td><td>y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default</td></tr>
+<tr><td>y_default</td><td>Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time</td></tr>
+<tr><td>use_pre_as_default</td><td>= true, y holds its last value if all u[i]=false, otherwise y=y_default</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Set y = expr[i], if u[i] = true</td></tr>
+<tr><td>y</td><td>Output depending on expression</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sum<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathInteger.SumI.png" alt="Modelica.Blocks.MathInteger.Sum" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathInteger.Sum"></a><a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</a>.Sum</h2>
+<p>
+<span class="ModelicaDescription">Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This blocks computes the scalar Integer output "y" as sum of the elements of the
 Integer input signal vector u:
@@ -129,7 +166,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
 >Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
@@ -137,29 +174,31 @@ The usage is demonstrated, e.g., in example
 If no connection to the input connector "u" is present,
 the output is set to zero: y=0.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
->Modelica.Blocks.Interfaces.PartialIntegerMISO</A> (Partial block with an IntegerVectorInput and an IntegerOutput signal).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>k[nu]</TD><TD>Input gains</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Integer input signals</TD></TR>
-<TR><TD>y</TD><TD>Integer output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Product<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathInteger.ProductI.png" ALT="Modelica.Blocks.MathInteger.Product" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathInteger.Product"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
->Modelica.Blocks.MathInteger</A>.Product</H2>
-<B>Product of Integer: y = u[1]*u[2]* ... *u[n]</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
+>Modelica.Blocks.Interfaces.PartialIntegerMISO</a> (Partial block with an IntegerVectorInput and an IntegerOutput signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>k[nu]</td><td>Input gains</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Integer input signals</td></tr>
+<tr><td>y</td><td>Integer output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Product<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathInteger.ProductI.png" alt="Modelica.Blocks.MathInteger.Product" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathInteger.Product"></a><a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</a>.Product</h2>
+<p>
+<span class="ModelicaDescription">Product of Integer: y = u[1]*u[2]* ... *u[n]</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This blocks computes the scalar Integer output "y" as product of the elements of the
 Integer input signal vector u:
@@ -178,7 +217,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
 >Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
@@ -186,24 +225,26 @@ The usage is demonstrated, e.g., in example
 If no connection to the input connector "u" is present,
 the output is set to zero: y=0.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
->Modelica.Blocks.Interfaces.PartialIntegerMISO</A> (Partial block with an IntegerVectorInput and an IntegerOutput signal).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Integer input signals</TD></TR>
-<TR><TD>y</TD><TD>Integer output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TriggeredAdd<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathInteger.TriggeredAddI.png" ALT="Modelica.Blocks.MathInteger.TriggeredAdd" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathInteger.TriggeredAdd"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
->Modelica.Blocks.MathInteger</A>.TriggeredAdd</H2>
-<B>Add input to previous value of output, if rising edge of trigger port</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
+>Modelica.Blocks.Interfaces.PartialIntegerMISO</a> (Partial block with an IntegerVectorInput and an IntegerOutput signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Integer input signals</td></tr>
+<tr><td>y</td><td>Integer output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TriggeredAdd<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathInteger.TriggeredAddI.png" alt="Modelica.Blocks.MathInteger.TriggeredAdd" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathInteger.TriggeredAdd"></a><a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</a>.TriggeredAdd</h2>
+<p>
+<span class="ModelicaDescription">Add input to previous value of output, if rising edge of trigger port</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Add input to previous value of output, if rising edge of trigger port
 
@@ -229,29 +270,31 @@ port has a rising edge.
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
 >Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerSISO"
->Modelica.Blocks.Interfaces.PartialIntegerSISO</A> (Partial block with a IntegerInput and an IntegerOutput signal).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>use_reset</TD><TD>=true, if reset port enabled</TD></TR>
-<TR><TD>use_set</TD><TD>=true, if set port enabled and used as default value when reset</TD></TR>
-<TR><TD>y_start</TD><TD>Initial and reset value of y if set port is not used</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Integer input signal</TD></TR>
-<TR><TD>y</TD><TD>Integer output signal</TD></TR>
-<TR><TD>trigger</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:25 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerSISO"
+>Modelica.Blocks.Interfaces.PartialIntegerSISO</a> (Partial block with a IntegerInput and an IntegerOutput signal).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>use_reset</td><td>=true, if reset port enabled</td></tr>
+<tr><td>use_set</td><td>=true, if set port enabled and used as default value when reset</td></tr>
+<tr><td>y_start</td><td>Initial and reset value of y if set port is not used</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Integer input signal</td></tr>
+<tr><td>y</td><td>Integer output signal</td></tr>
+<tr><td>trigger</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+</address>
+</body>
+</html>

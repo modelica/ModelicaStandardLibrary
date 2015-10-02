@@ -1,538 +1,692 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Blocks.Math.UnitConversions</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.Math.UnitConversions</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Conversion blocks to convert between SI and non-SI unit signals&quot;">
+<meta name="description" content="&quot;Conversion blocks to convert between SI and non-SI unit signals&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UnitConversions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Blocks.Math.UnitConversions"></A><A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
->Modelica.Blocks.Math</A>.UnitConversions</H2>
-<B>Conversion blocks to convert between SI and non-SI unit signals</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UnitConversions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.Math.UnitConversions"></a><a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</a>.UnitConversions</h2>
+<p>
+<span class="ModelicaDescription">Conversion blocks to convert between SI and non-SI unit signals</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package consists of blocks that convert an input signal
 with a specific unit to an output signal in another unit
 (e.g., conversion of an angle signal from "deg" to "rad").
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit687f8b4253083d50_degCS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_degC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_degC"
->To_degC</A>
-</TD><TD>Convert from Kelvin to degCelsius</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitce4deeb33154478b_degCS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_degC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_degC"
->From_degC</A>
-</TD><TD>Convert from degCelsius to Kelvin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit687f8b4553083d55_degFS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_degF" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_degF"
->To_degF</A>
-</TD><TD>Convert from Kelvin to degFahrenheit</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitce4deeb63154478e_degFS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_degF" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_degF"
->From_degF</A>
-</TD><TD>Convert from degFahrenheit to Kelvin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit79444ade6107a843degRkS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_degRk" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_degRk"
->To_degRk</A>
-</TD><TD>Convert from Kelvin to degRankine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit91e12db12a88fb2ddegRkS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_degRk" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_degRk"
->From_degRk</A>
-</TD><TD>Convert from degRankine to Kelvin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_deg" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_deg"
->To_deg</A>
-</TD><TD>Convert from radian to degree</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_deg" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_deg"
->From_deg</A>
-</TD><TD>Convert from degree to radian</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_rpm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_rpm"
->To_rpm</A>
-</TD><TD>Convert from radian per second to revolutions per minute</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_rpm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_rpm"
->From_rpm</A>
-</TD><TD>Convert from revolutions per minute to radian per second</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_kmh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_kmh"
->To_kmh</A>
-</TD><TD>Convert from metre per second to kilometre per hour</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_kmh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_kmh"
->From_kmh</A>
-</TD><TD>Convert from kilometre per hour to metre per second</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87e08db99184176o_dayS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_day" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_day"
->To_day</A>
-</TD><TD>Convert from second to day</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit653d2ad6418aa2a6m_dayS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_day" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_day"
->From_day</A>
-</TD><TD>Convert from day to second</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit690b6761530e1721_hourS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_hour" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_hour"
->To_hour</A>
-</TD><TD>Convert from second to hour</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitced9cad231526dfa_hourS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_hour" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_hour"
->From_hour</A>
-</TD><TD>Convert from hour to second</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit2cc91e6132311729inuteS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_minute" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_minute"
->To_minute</A>
-</TD><TD>Convert from second to minute</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitc511305a43c47a20inuteS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_minute" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_minute"
->From_minute</A>
-</TD><TD>Convert from minute to second</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit063eaba16181e04dlitreS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_litre" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_litre"
->To_litre</A>
-</TD><TD>Convert from cubic metre to litre</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit063eaba16181e04dlitreS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_litre" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_litre"
->From_litre</A>
-</TD><TD>Convert from litre to cubic metre</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87fd8eb99187ba7o_kWhS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_kWh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_kWh"
->To_kWh</A>
-</TD><TD>Convert from Joule to kilo Watt hour</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unit653efae6418a9877m_kWhS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_kWh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_kWh"
->From_kWh</A>
-</TD><TD>Convert from kilo Watt hour to Joule</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_bar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_bar"
->To_bar</A>
-</TD><TD>Convert from Pascal to bar</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_bar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_bar"
->From_bar</A>
-</TD><TD>Convert from bar to Pascal</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" ALT="Modelica.Blocks.Math.UnitConversions.To_gps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_gps"
->To_gps</A>
-</TD><TD>Convert from kilogram per second to gram per second</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" ALT="Modelica.Blocks.Math.UnitConversions.From_gps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_gps"
->From_gps</A>
-</TD><TD>Convert from gram per second to kilogram per second</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_degC<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit687f8b4253083d50_degCI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_degC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_degC"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_degC</H2>
-<B>Convert from Kelvin to degCelsius</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit687f8b4253083d50_degCS.png" alt="Modelica.Blocks.Math.UnitConversions.To_degC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_degC"
+>To_degC</a>
+</td>
+<td>Convert from Kelvin to degCelsius</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitce4deeb33154478b_degCS.png" alt="Modelica.Blocks.Math.UnitConversions.From_degC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_degC"
+>From_degC</a>
+</td>
+<td>Convert from degCelsius to Kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit687f8b4553083d55_degFS.png" alt="Modelica.Blocks.Math.UnitConversions.To_degF" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_degF"
+>To_degF</a>
+</td>
+<td>Convert from Kelvin to degFahrenheit</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitce4deeb63154478e_degFS.png" alt="Modelica.Blocks.Math.UnitConversions.From_degF" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_degF"
+>From_degF</a>
+</td>
+<td>Convert from degFahrenheit to Kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit79444ade6107a843degRkS.png" alt="Modelica.Blocks.Math.UnitConversions.To_degRk" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_degRk"
+>To_degRk</a>
+</td>
+<td>Convert from Kelvin to degRankine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit91e12db12a88fb2ddegRkS.png" alt="Modelica.Blocks.Math.UnitConversions.From_degRk" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_degRk"
+>From_degRk</a>
+</td>
+<td>Convert from degRankine to Kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" alt="Modelica.Blocks.Math.UnitConversions.To_deg" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_deg"
+>To_deg</a>
+</td>
+<td>Convert from radian to degree</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" alt="Modelica.Blocks.Math.UnitConversions.From_deg" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_deg"
+>From_deg</a>
+</td>
+<td>Convert from degree to radian</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" alt="Modelica.Blocks.Math.UnitConversions.To_rpm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_rpm"
+>To_rpm</a>
+</td>
+<td>Convert from radian per second to revolutions per minute</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" alt="Modelica.Blocks.Math.UnitConversions.From_rpm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_rpm"
+>From_rpm</a>
+</td>
+<td>Convert from revolutions per minute to radian per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" alt="Modelica.Blocks.Math.UnitConversions.To_kmh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_kmh"
+>To_kmh</a>
+</td>
+<td>Convert from metre per second to kilometre per hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degS.png" alt="Modelica.Blocks.Math.UnitConversions.From_kmh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_kmh"
+>From_kmh</a>
+</td>
+<td>Convert from kilometre per hour to metre per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87e08db99184176o_dayS.png" alt="Modelica.Blocks.Math.UnitConversions.To_day" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_day"
+>To_day</a>
+</td>
+<td>Convert from second to day</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit653d2ad6418aa2a6m_dayS.png" alt="Modelica.Blocks.Math.UnitConversions.From_day" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_day"
+>From_day</a>
+</td>
+<td>Convert from day to second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit690b6761530e1721_hourS.png" alt="Modelica.Blocks.Math.UnitConversions.To_hour" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_hour"
+>To_hour</a>
+</td>
+<td>Convert from second to hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitced9cad231526dfa_hourS.png" alt="Modelica.Blocks.Math.UnitConversions.From_hour" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_hour"
+>From_hour</a>
+</td>
+<td>Convert from hour to second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit2cc91e6132311729inuteS.png" alt="Modelica.Blocks.Math.UnitConversions.To_minute" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_minute"
+>To_minute</a>
+</td>
+<td>Convert from second to minute</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitc511305a43c47a20inuteS.png" alt="Modelica.Blocks.Math.UnitConversions.From_minute" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_minute"
+>From_minute</a>
+</td>
+<td>Convert from minute to second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit063eaba16181e04dlitreS.png" alt="Modelica.Blocks.Math.UnitConversions.To_litre" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_litre"
+>To_litre</a>
+</td>
+<td>Convert from cubic metre to litre</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit063eaba16181e04dlitreS.png" alt="Modelica.Blocks.Math.UnitConversions.From_litre" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_litre"
+>From_litre</a>
+</td>
+<td>Convert from litre to cubic metre</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87fd8eb99187ba7o_kWhS.png" alt="Modelica.Blocks.Math.UnitConversions.To_kWh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_kWh"
+>To_kWh</a>
+</td>
+<td>Convert from Joule to kilo Watt hour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unit653efae6418a9877m_kWhS.png" alt="Modelica.Blocks.Math.UnitConversions.From_kWh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_kWh"
+>From_kWh</a>
+</td>
+<td>Convert from kilo Watt hour to Joule</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" alt="Modelica.Blocks.Math.UnitConversions.To_bar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_bar"
+>To_bar</a>
+</td>
+<td>Convert from Pascal to bar</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" alt="Modelica.Blocks.Math.UnitConversions.From_bar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_bar"
+>From_bar</a>
+</td>
+<td>Convert from bar to Pascal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" alt="Modelica.Blocks.Math.UnitConversions.To_gps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.To_gps"
+>To_gps</a>
+</td>
+<td>Convert from kilogram per second to gram per second</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barS.png" alt="Modelica.Blocks.Math.UnitConversions.From_gps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions.From_gps"
+>From_gps</a>
+</td>
+<td>Convert from gram per second to kilogram per second</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_degC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit687f8b4253083d50_degCI.png" alt="Modelica.Blocks.Math.UnitConversions.To_degC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_degC"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_degC</h2>
+<p>
+<span class="ModelicaDescription">Convert from Kelvin to degCelsius</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from Kelvin to degCelsius and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_degC<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitce4deeb33154478b_degCI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_degC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_degC"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_degC</H2>
-<B>Convert from degCelsius to Kelvin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_degC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitce4deeb33154478b_degCI.png" alt="Modelica.Blocks.Math.UnitConversions.From_degC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_degC"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_degC</h2>
+<p>
+<span class="ModelicaDescription">Convert from degCelsius to Kelvin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from degCelsius to Kelvin and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_degF<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit687f8b4553083d55_degFI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_degF" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_degF"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_degF</H2>
-<B>Convert from Kelvin to degFahrenheit</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_degF<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit687f8b4553083d55_degFI.png" alt="Modelica.Blocks.Math.UnitConversions.To_degF" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_degF"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_degF</h2>
+<p>
+<span class="ModelicaDescription">Convert from Kelvin to degFahrenheit</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from Kelvin to degFahrenheit and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_degF<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitce4deeb63154478e_degFI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_degF" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_degF"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_degF</H2>
-<B>Convert from degFahrenheit to Kelvin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_degF<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitce4deeb63154478e_degFI.png" alt="Modelica.Blocks.Math.UnitConversions.From_degF" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_degF"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_degF</h2>
+<p>
+<span class="ModelicaDescription">Convert from degFahrenheit to Kelvin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from degFahrenheit to Kelvin and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_degRk<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit79444ade6107a843degRkI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_degRk" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_degRk"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_degRk</H2>
-<B>Convert from Kelvin to degRankine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_degRk<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit79444ade6107a843degRkI.png" alt="Modelica.Blocks.Math.UnitConversions.To_degRk" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_degRk"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_degRk</h2>
+<p>
+<span class="ModelicaDescription">Convert from Kelvin to degRankine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from Kelvin to degRankine and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_degRk<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit91e12db12a88fb2ddegRkI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_degRk" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_degRk"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_degRk</H2>
-<B>Convert from degRankine to Kelvin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_degRk<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit91e12db12a88fb2ddegRkI.png" alt="Modelica.Blocks.Math.UnitConversions.From_degRk" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_degRk"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_degRk</h2>
+<p>
+<span class="ModelicaDescription">Convert from degRankine to Kelvin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from degRankine to Kelvin and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_deg<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_deg" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_deg"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_deg</H2>
-<B>Convert from radian to degree</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_deg<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" alt="Modelica.Blocks.Math.UnitConversions.To_deg" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_deg"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_deg</h2>
+<p>
+<span class="ModelicaDescription">Convert from radian to degree</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from radian to degree and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_deg<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_deg" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_deg"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_deg</H2>
-<B>Convert from degree to radian</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_deg<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" alt="Modelica.Blocks.Math.UnitConversions.From_deg" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_deg"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_deg</h2>
+<p>
+<span class="ModelicaDescription">Convert from degree to radian</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from degree to radian and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_rpm<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_rpm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_rpm"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_rpm</H2>
-<B>Convert from radian per second to revolutions per minute</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_rpm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" alt="Modelica.Blocks.Math.UnitConversions.To_rpm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_rpm"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_rpm</h2>
+<p>
+<span class="ModelicaDescription">Convert from radian per second to revolutions per minute</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from radian per second to revolutions per minute and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_rpm<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_rpm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_rpm"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_rpm</H2>
-<B>Convert from revolutions per minute to radian per second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_rpm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" alt="Modelica.Blocks.Math.UnitConversions.From_rpm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_rpm"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_rpm</h2>
+<p>
+<span class="ModelicaDescription">Convert from revolutions per minute to radian per second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from revolutions per minute to radian per second and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_kmh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_kmh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_kmh"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_kmh</H2>
-<B>Convert from metre per second to kilometre per hour</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_kmh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" alt="Modelica.Blocks.Math.UnitConversions.To_kmh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_kmh"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_kmh</h2>
+<p>
+<span class="ModelicaDescription">Convert from metre per second to kilometre per hour</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from metre per second to kilometre per hour and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_kmh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_kmh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_kmh"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_kmh</H2>
-<B>Convert from kilometre per hour to metre per second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_kmh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e0ad5991841e8o_degI.png" alt="Modelica.Blocks.Math.UnitConversions.From_kmh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_kmh"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_kmh</h2>
+<p>
+<span class="ModelicaDescription">Convert from kilometre per hour to metre per second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from kilometre per hour to metre per second and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_day<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87e08db99184176o_dayI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_day" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_day"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_day</H2>
-<B>Convert from second to day</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_day<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87e08db99184176o_dayI.png" alt="Modelica.Blocks.Math.UnitConversions.To_day" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_day"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_day</h2>
+<p>
+<span class="ModelicaDescription">Convert from second to day</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from second to day and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_day<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit653d2ad6418aa2a6m_dayI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_day" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_day"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_day</H2>
-<B>Convert from day to second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_day<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit653d2ad6418aa2a6m_dayI.png" alt="Modelica.Blocks.Math.UnitConversions.From_day" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_day"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_day</h2>
+<p>
+<span class="ModelicaDescription">Convert from day to second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from day to second and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_hour<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit690b6761530e1721_hourI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_hour" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_hour"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_hour</H2>
-<B>Convert from second to hour</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_hour<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit690b6761530e1721_hourI.png" alt="Modelica.Blocks.Math.UnitConversions.To_hour" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_hour"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_hour</h2>
+<p>
+<span class="ModelicaDescription">Convert from second to hour</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from second to hour and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_hour<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitced9cad231526dfa_hourI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_hour" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_hour"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_hour</H2>
-<B>Convert from hour to second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_hour<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitced9cad231526dfa_hourI.png" alt="Modelica.Blocks.Math.UnitConversions.From_hour" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_hour"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_hour</h2>
+<p>
+<span class="ModelicaDescription">Convert from hour to second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from hour to second and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_minute<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit2cc91e6132311729inuteI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_minute" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_minute"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_minute</H2>
-<B>Convert from second to minute</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_minute<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit2cc91e6132311729inuteI.png" alt="Modelica.Blocks.Math.UnitConversions.To_minute" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_minute"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_minute</h2>
+<p>
+<span class="ModelicaDescription">Convert from second to minute</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from second to minute and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_minute<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitc511305a43c47a20inuteI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_minute" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_minute"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_minute</H2>
-<B>Convert from minute to second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_minute<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitc511305a43c47a20inuteI.png" alt="Modelica.Blocks.Math.UnitConversions.From_minute" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_minute"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_minute</h2>
+<p>
+<span class="ModelicaDescription">Convert from minute to second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from minute to second and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_litre<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit063eaba16181e04dlitreI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_litre" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_litre"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_litre</H2>
-<B>Convert from cubic metre to litre</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_litre<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit063eaba16181e04dlitreI.png" alt="Modelica.Blocks.Math.UnitConversions.To_litre" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_litre"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_litre</h2>
+<p>
+<span class="ModelicaDescription">Convert from cubic metre to litre</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from metre to litre and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_litre<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit063eaba16181e04dlitreI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_litre" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_litre"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_litre</H2>
-<B>Convert from litre to cubic metre</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_litre<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit063eaba16181e04dlitreI.png" alt="Modelica.Blocks.Math.UnitConversions.From_litre" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_litre"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_litre</h2>
+<p>
+<span class="ModelicaDescription">Convert from litre to cubic metre</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from litre to cubic metre and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_kWh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87fd8eb99187ba7o_kWhI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_kWh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_kWh"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_kWh</H2>
-<B>Convert from Joule to kilo Watt hour</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_kWh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87fd8eb99187ba7o_kWhI.png" alt="Modelica.Blocks.Math.UnitConversions.To_kWh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_kWh"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_kWh</h2>
+<p>
+<span class="ModelicaDescription">Convert from Joule to kilo Watt hour</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from Joule to kilo Watt hour and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_kWh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unit653efae6418a9877m_kWhI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_kWh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_kWh"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_kWh</H2>
-<B>Convert from kilo Watt hour to Joule</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_kWh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unit653efae6418a9877m_kWhI.png" alt="Modelica.Blocks.Math.UnitConversions.From_kWh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_kWh"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_kWh</h2>
+<p>
+<span class="ModelicaDescription">Convert from kilo Watt hour to Joule</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from kilo Watt hour to Joule and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_bar<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_bar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_bar"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_bar</H2>
-<B>Convert from Pascal to bar</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_bar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" alt="Modelica.Blocks.Math.UnitConversions.To_bar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_bar"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_bar</h2>
+<p>
+<span class="ModelicaDescription">Convert from Pascal to bar</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from Pascal to bar and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_bar<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_bar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_bar"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_bar</H2>
-<B>Convert from bar to Pascal</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_bar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" alt="Modelica.Blocks.Math.UnitConversions.From_bar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_bar"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_bar</h2>
+<p>
+<span class="ModelicaDescription">Convert from bar to Pascal</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from bar to Pascal and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE To_gps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" ALT="Modelica.Blocks.Math.UnitConversions.To_gps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.To_gps"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.To_gps</H2>
-<B>Convert from kilogram per second to gram per second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE To_gps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" alt="Modelica.Blocks.Math.UnitConversions.To_gps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.To_gps"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.To_gps</h2>
+<p>
+<span class="ModelicaDescription">Convert from kilogram per second to gram per second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from kilogram per second to gram per seconds and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE From_gps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" ALT="Modelica.Blocks.Math.UnitConversions.From_gps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.Math.UnitConversions.From_gps"></A><A HREF="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
->Modelica.Blocks.Math.UnitConversions</A>.From_gps</H2>
-<B>Convert from gram per second to kilogram per second</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE From_gps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.Unitb87d82c29918597do_barI.png" alt="Modelica.Blocks.Math.UnitConversions.From_gps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.UnitConversions.From_gps"></a><a href="Modelica_Blocks_Math_UnitConversions.html#Modelica.Blocks.Math.UnitConversions"
+>Modelica.Blocks.Math.UnitConversions</a>.From_gps</h2>
+<p>
+<span class="ModelicaDescription">Convert from gram per second to kilogram per second</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This block converts the input signal from gram per second to kilogram per second and returns
 the result as output signal.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
->Modelica.Blocks.Interfaces.PartialConversionBlock</A> (Partial block defining the interface for conversion blocks).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:25 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialConversionBlock"
+>Modelica.Blocks.Interfaces.PartialConversionBlock</a> (Partial block defining the interface for conversion blocks).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+</address>
+</body>
+</html>

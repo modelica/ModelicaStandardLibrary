@@ -1,176 +1,242 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Spice3.Sources</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Spice3.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Time dependent SPICE3 voltage and current sources&quot;">
+<meta name="description" content="&quot;Time dependent SPICE3 voltage and current sources&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Spice3.Sources"></A><A HREF="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
->Modelica.Electrical.Spice3</A>.Sources</H2>
-<B>Time dependent SPICE3 voltage and current sources</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Spice3.Sources"></a><a href="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
+>Modelica.Electrical.Spice3</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">Time dependent SPICE3 voltage and current sources</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package contains the SPICE sources.</p>
 <p><b>Note:</b> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <b>all</b> parameters of the source.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
->Modelica.Icons.SourcesPackage</A> (Icon for packages containing sources).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spiceb317cbca8a24d345stantS.png" ALT="Modelica.Electrical.Spice3.Sources.V_constant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_constant"
->V_constant</A>
-</TD><TD>Constant independent voltage sources</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Sources.V_sinS.png" ALT="Modelica.Electrical.Spice3.Sources.V_sin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_sin"
->V_sin</A>
-</TD><TD>Sinusoidal voltage source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Sources.V_expS.png" ALT="Modelica.Electrical.Spice3.Sources.V_exp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_exp"
->V_exp</A>
-</TD><TD>Exponential voltage source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice93ab1f37b4c21c5bpulseS.png" ALT="Modelica.Electrical.Spice3.Sources.V_pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
->V_pulse</A>
-</TD><TD>Pulse voltage source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Sources.V_pwlS.png" ALT="Modelica.Electrical.Spice3.Sources.V_pwl" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pwl"
->V_pwl</A>
-</TD><TD>Piece-wise linear voltage source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice7e952178f5a7bdbf_sffmS.png" ALT="Modelica.Electrical.Spice3.Sources.V_sffm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_sffm"
->V_sffm</A>
-</TD><TD>Single-frequency FM voltage source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spicef13199c38a273345stantS.png" ALT="Modelica.Electrical.Spice3.Sources.I_constant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_constant"
->I_constant</A>
-</TD><TD>Constant independent current sources</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Sources.I_sinS.png" ALT="Modelica.Electrical.Spice3.Sources.I_sin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_sin"
->I_sin</A>
-</TD><TD>Sinusoidal current source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Sources.I_expS.png" ALT="Modelica.Electrical.Spice3.Sources.I_exp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_exp"
->I_exp</A>
-</TD><TD>Exponential current source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice6699353274c21c5cpulseS.png" ALT="Modelica.Electrical.Spice3.Sources.I_pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_pulse"
->I_pulse</A>
-</TD><TD>Pulse current source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Sources.I_pwlS.png" ALT="Modelica.Electrical.Spice3.Sources.I_pwl" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_pwl"
->I_pwl</A>
-</TD><TD>Piece-wise linear current source</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Spiceb8dd4ca1cba7bdbf_sffmS.png" ALT="Modelica.Electrical.Spice3.Sources.I_sffm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_sffm"
->I_sffm</A>
-</TD><TD>Single-frequency FM current source</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE V_constant<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spiceb317cbca8a24d345stantI.png" ALT="Modelica.Electrical.Spice3.Sources.V_constant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.V_constant"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.V_constant</H2>
-<B>Constant independent voltage sources</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spiceb317cbca8a24d345stantS.png" alt="Modelica.Electrical.Spice3.Sources.V_constant" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_constant"
+>V_constant</a>
+</td>
+<td>Constant independent voltage sources</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Sources.V_sinS.png" alt="Modelica.Electrical.Spice3.Sources.V_sin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_sin"
+>V_sin</a>
+</td>
+<td>Sinusoidal voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Sources.V_expS.png" alt="Modelica.Electrical.Spice3.Sources.V_exp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_exp"
+>V_exp</a>
+</td>
+<td>Exponential voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice93ab1f37b4c21c5bpulseS.png" alt="Modelica.Electrical.Spice3.Sources.V_pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>V_pulse</a>
+</td>
+<td>Pulse voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Sources.V_pwlS.png" alt="Modelica.Electrical.Spice3.Sources.V_pwl" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pwl"
+>V_pwl</a>
+</td>
+<td>Piece-wise linear voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice7e952178f5a7bdbf_sffmS.png" alt="Modelica.Electrical.Spice3.Sources.V_sffm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_sffm"
+>V_sffm</a>
+</td>
+<td>Single-frequency FM voltage source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spicef13199c38a273345stantS.png" alt="Modelica.Electrical.Spice3.Sources.I_constant" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_constant"
+>I_constant</a>
+</td>
+<td>Constant independent current sources</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Sources.I_sinS.png" alt="Modelica.Electrical.Spice3.Sources.I_sin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_sin"
+>I_sin</a>
+</td>
+<td>Sinusoidal current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Sources.I_expS.png" alt="Modelica.Electrical.Spice3.Sources.I_exp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_exp"
+>I_exp</a>
+</td>
+<td>Exponential current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice6699353274c21c5cpulseS.png" alt="Modelica.Electrical.Spice3.Sources.I_pulse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_pulse"
+>I_pulse</a>
+</td>
+<td>Pulse current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spice3.Sources.I_pwlS.png" alt="Modelica.Electrical.Spice3.Sources.I_pwl" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_pwl"
+>I_pwl</a>
+</td>
+<td>Piece-wise linear current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Spiceb8dd4ca1cba7bdbf_sffmS.png" alt="Modelica.Electrical.Spice3.Sources.I_sffm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.I_sffm"
+>I_sffm</a>
+</td>
+<td>Single-frequency FM current source</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE V_constant<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spiceb317cbca8a24d345stantI.png" alt="Modelica.Electrical.Spice3.Sources.V_constant" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.V_constant"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.V_constant</h2>
+<p>
+<span class="ModelicaDescription">Constant independent voltage sources</span>
+</p>
+<h3>Information</h3>
+
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>V</TD><TD>Value of constant voltage [V]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE V_sin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice3.Sources.V_sinI.png" ALT="Modelica.Electrical.Spice3.Sources.V_sin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.V_sin"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.V_sin</H2>
-<B>Sinusoidal voltage source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Value of constant voltage [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE V_sin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Sources.V_sinI.png" alt="Modelica.Electrical.Spice3.Sources.V_sin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.V_sin"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.V_sin</h2>
+<p>
+<span class="ModelicaDescription">Sinusoidal voltage source</span>
+</p>
+<h3>Information</h3>
+
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.<br></li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>VO</TD><TD>Offset [V]</TD></TR>
-<TR><TD>VA</TD><TD>Amplitude [V]</TD></TR>
-<TR><TD>FREQ</TD><TD>Frequency [Hz]</TD></TR>
-<TR><TD>TD</TD><TD>Delay [s]</TD></TR>
-<TR><TD>THETA</TD><TD>Damping factor [s-1]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE V_exp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice3.Sources.V_expI.png" ALT="Modelica.Electrical.Spice3.Sources.V_exp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.V_exp"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.V_exp</H2>
-<B>Exponential voltage source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VO</td><td>Offset [V]</td></tr>
+<tr><td>VA</td><td>Amplitude [V]</td></tr>
+<tr><td>FREQ</td><td>Frequency [Hz]</td></tr>
+<tr><td>TD</td><td>Delay [s]</td></tr>
+<tr><td>THETA</td><td>Damping factor [s-1]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE V_exp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Sources.V_expI.png" alt="Modelica.Electrical.Spice3.Sources.V_exp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.V_exp"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.V_exp</h2>
+<p>
+<span class="ModelicaDescription">Exponential voltage source</span>
+</p>
+<h3>Information</h3>
+
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.- it should be set all the parameters definitely <br>- normally, there exist differences between Dymola and Spice, because TSTEP and TSTOP are not available. <br></li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>V1</TD><TD>Initial value [V]</TD></TR>
-<TR><TD>V2</TD><TD>Pulsed value [V]</TD></TR>
-<TR><TD>TD1</TD><TD>Rise delay time [s]</TD></TR>
-<TR><TD>TAU1</TD><TD>Rise time constant [s]</TD></TR>
-<TR><TD>TD2</TD><TD>Fall delay time [s]</TD></TR>
-<TR><TD>TAU2</TD><TD>Fall time constant [s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE V_pulse<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice93ab1f37b4c21c5bpulseI.png" ALT="Modelica.Electrical.Spice3.Sources.V_pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.V_pulse"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.V_pulse</H2>
-<B>Pulse voltage source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V1</td><td>Initial value [V]</td></tr>
+<tr><td>V2</td><td>Pulsed value [V]</td></tr>
+<tr><td>TD1</td><td>Rise delay time [s]</td></tr>
+<tr><td>TAU1</td><td>Rise time constant [s]</td></tr>
+<tr><td>TD2</td><td>Fall delay time [s]</td></tr>
+<tr><td>TAU2</td><td>Fall time constant [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE V_pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice93ab1f37b4c21c5bpulseI.png" alt="Modelica.Electrical.Spice3.Sources.V_pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.V_pulse"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.V_pulse</h2>
+<p>
+<span class="ModelicaDescription">Pulse voltage source</span>
+</p>
+<h3>Information</h3>
+
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
 <table cellspacing="2" cellpadding="0" border="0"><tr>
@@ -242,35 +308,37 @@ Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electr
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>V1</TD><TD>Initial value [V]</TD></TR>
-<TR><TD>V2</TD><TD>Pulsed value [V]</TD></TR>
-<TR><TD>TD</TD><TD>Delay time [s]</TD></TR>
-<TR><TD>TR</TD><TD>Rise time [s]</TD></TR>
-<TR><TD>TF</TD><TD>Fall time [s]</TD></TR>
-<TR><TD>PW</TD><TD>Pulse width [s]</TD></TR>
-<TR><TD>PER</TD><TD>Period [s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE V_pwl<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice3.Sources.V_pwlI.png" ALT="Modelica.Electrical.Spice3.Sources.V_pwl" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.V_pwl"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.V_pwl</H2>
-<B>Piece-wise linear voltage source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V1</td><td>Initial value [V]</td></tr>
+<tr><td>V2</td><td>Pulsed value [V]</td></tr>
+<tr><td>TD</td><td>Delay time [s]</td></tr>
+<tr><td>TR</td><td>Rise time [s]</td></tr>
+<tr><td>TF</td><td>Fall time [s]</td></tr>
+<tr><td>PW</td><td>Pulse width [s]</td></tr>
+<tr><td>PER</td><td>Period [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE V_pwl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Sources.V_pwlI.png" alt="Modelica.Electrical.Spice3.Sources.V_pwl" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.V_pwl"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.V_pwl</h2>
+<p>
+<span class="ModelicaDescription">Piece-wise linear voltage source</span>
+</p>
+<h3>Information</h3>
+
 <p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
@@ -293,153 +361,163 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the voltage v =  4.0,
     e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>table[:, :]</TD><TD>Table matrix (time = first column, voltage = second column)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE V_sffm<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice7e952178f5a7bdbf_sffmI.png" ALT="Modelica.Electrical.Spice3.Sources.V_sffm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.V_sffm"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.V_sffm</H2>
-<B>Single-frequency FM voltage source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>table[:, :]</td><td>Table matrix (time = first column, voltage = second column)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE V_sffm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice7e952178f5a7bdbf_sffmI.png" alt="Modelica.Electrical.Spice3.Sources.V_sffm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.V_sffm"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.V_sffm</h2>
+<p>
+<span class="ModelicaDescription">Single-frequency FM voltage source</span>
+</p>
+<h3>Information</h3>
+
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
 <h4>Attention:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>VO</TD><TD>Offset [V]</TD></TR>
-<TR><TD>VA</TD><TD>Amplitude [V]</TD></TR>
-<TR><TD>FC</TD><TD>Carrier frequency [Hz]</TD></TR>
-<TR><TD>MDI</TD><TD>Modulation index</TD></TR>
-<TR><TD>FS</TD><TD>Signal frequency [Hz]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE I_constant<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spicef13199c38a273345stantI.png" ALT="Modelica.Electrical.Spice3.Sources.I_constant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.I_constant"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.I_constant</H2>
-<B>Constant independent current sources</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VO</td><td>Offset [V]</td></tr>
+<tr><td>VA</td><td>Amplitude [V]</td></tr>
+<tr><td>FC</td><td>Carrier frequency [Hz]</td></tr>
+<tr><td>MDI</td><td>Modulation index</td></tr>
+<tr><td>FS</td><td>Signal frequency [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE I_constant<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spicef13199c38a273345stantI.png" alt="Modelica.Electrical.Spice3.Sources.I_constant" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.I_constant"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.I_constant</h2>
+<p>
+<span class="ModelicaDescription">Constant independent current sources</span>
+</p>
+<h3>Information</h3>
+
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>I</TD><TD>Value of constant voltage [A]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE I_sin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice3.Sources.I_sinI.png" ALT="Modelica.Electrical.Spice3.Sources.I_sin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.I_sin"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.I_sin</H2>
-<B>Sinusoidal current source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I</td><td>Value of constant voltage [A]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE I_sin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Sources.I_sinI.png" alt="Modelica.Electrical.Spice3.Sources.I_sin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.I_sin"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.I_sin</h2>
+<p>
+<span class="ModelicaDescription">Sinusoidal current source</span>
+</p>
+<h3>Information</h3>
+
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>IO</TD><TD>Offset [A]</TD></TR>
-<TR><TD>IA</TD><TD>Amplitude [A]</TD></TR>
-<TR><TD>FREQ</TD><TD>Frequency [Hz]</TD></TR>
-<TR><TD>TD</TD><TD>Delay [s]</TD></TR>
-<TR><TD>THETA</TD><TD>Damping factor [s-1]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE I_exp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice3.Sources.I_expI.png" ALT="Modelica.Electrical.Spice3.Sources.I_exp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.I_exp"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.I_exp</H2>
-<B>Exponential current source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>IO</td><td>Offset [A]</td></tr>
+<tr><td>IA</td><td>Amplitude [A]</td></tr>
+<tr><td>FREQ</td><td>Frequency [Hz]</td></tr>
+<tr><td>TD</td><td>Delay [s]</td></tr>
+<tr><td>THETA</td><td>Damping factor [s-1]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE I_exp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Sources.I_expI.png" alt="Modelica.Electrical.Spice3.Sources.I_exp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.I_exp"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.I_exp</h2>
+<p>
+<span class="ModelicaDescription">Exponential current source</span>
+</p>
+<h3>Information</h3>
+
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>I1</TD><TD>Initial value [A]</TD></TR>
-<TR><TD>I2</TD><TD>Pulsed value [A]</TD></TR>
-<TR><TD>TD1</TD><TD>Rise delay time [s]</TD></TR>
-<TR><TD>TAU1</TD><TD>Rise time constant [s]</TD></TR>
-<TR><TD>TD2</TD><TD>Fall delay time [s]</TD></TR>
-<TR><TD>TAU2</TD><TD>Fall time constant [s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE I_pulse<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice6699353274c21c5cpulseI.png" ALT="Modelica.Electrical.Spice3.Sources.I_pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.I_pulse"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.I_pulse</H2>
-<B>Pulse current source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I1</td><td>Initial value [A]</td></tr>
+<tr><td>I2</td><td>Pulsed value [A]</td></tr>
+<tr><td>TD1</td><td>Rise delay time [s]</td></tr>
+<tr><td>TAU1</td><td>Rise time constant [s]</td></tr>
+<tr><td>TD2</td><td>Fall delay time [s]</td></tr>
+<tr><td>TAU2</td><td>Fall time constant [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE I_pulse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice6699353274c21c5cpulseI.png" alt="Modelica.Electrical.Spice3.Sources.I_pulse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.I_pulse"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.I_pulse</h2>
+<p>
+<span class="ModelicaDescription">Pulse current source</span>
+</p>
+<h3>Information</h3>
+
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
 <table cellspacing="2" cellpadding="0" border="0"><tr>
@@ -511,35 +589,37 @@ Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electr
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>I1</TD><TD>Initial value [A]</TD></TR>
-<TR><TD>I2</TD><TD>Pulsed value [A]</TD></TR>
-<TR><TD>TD</TD><TD>Delay time [s]</TD></TR>
-<TR><TD>TR</TD><TD>Rise time [s]</TD></TR>
-<TR><TD>TF</TD><TD>Fall time [s]</TD></TR>
-<TR><TD>PW</TD><TD>Pulse width [s]</TD></TR>
-<TR><TD>PER</TD><TD>Period [s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE I_pwl<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spice3.Sources.I_pwlI.png" ALT="Modelica.Electrical.Spice3.Sources.I_pwl" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.I_pwl"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.I_pwl</H2>
-<B>Piece-wise linear current source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>I1</td><td>Initial value [A]</td></tr>
+<tr><td>I2</td><td>Pulsed value [A]</td></tr>
+<tr><td>TD</td><td>Delay time [s]</td></tr>
+<tr><td>TR</td><td>Rise time [s]</td></tr>
+<tr><td>TF</td><td>Fall time [s]</td></tr>
+<tr><td>PW</td><td>Pulse width [s]</td></tr>
+<tr><td>PER</td><td>Period [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE I_pwl<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spice3.Sources.I_pwlI.png" alt="Modelica.Electrical.Spice3.Sources.I_pwl" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.I_pwl"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.I_pwl</h2>
+<p>
+<span class="ModelicaDescription">Piece-wise linear current source</span>
+</p>
+<h3>Information</h3>
+
 <p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 
 <ul>
@@ -564,53 +644,57 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the current i =  4.0,
     e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>table[:, :]</TD><TD>Table matrix (time = first column, voltage = second column)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE I_sffm<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Spiceb8dd4ca1cba7bdbf_sffmI.png" ALT="Modelica.Electrical.Spice3.Sources.I_sffm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Spice3.Sources.I_sffm"></A><A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
->Modelica.Electrical.Spice3.Sources</A>.I_sffm</H2>
-<B>Single-frequency FM current source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>table[:, :]</td><td>Table matrix (time = first column, voltage = second column)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE I_sffm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Spiceb8dd4ca1cba7bdbf_sffmI.png" alt="Modelica.Electrical.Spice3.Sources.I_sffm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Spice3.Sources.I_sffm"></a><a href="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources"
+>Modelica.Electrical.Spice3.Sources</a>.I_sffm</h2>
+<p>
+<span class="ModelicaDescription">Single-frequency FM current source</span>
+</p>
+<h3>Information</h3>
+
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>IO</TD><TD>Offset [A]</TD></TR>
-<TR><TD>IA</TD><TD>Amplitude [A]</TD></TR>
-<TR><TD>FC</TD><TD>Carrier frequency [Hz]</TD></TR>
-<TR><TD>MDI</TD><TD>Modulation index</TD></TR>
-<TR><TD>FS</TD><TD>Signal frequency [Hz]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>IO</td><td>Offset [A]</td></tr>
+<tr><td>IA</td><td>Amplitude [A]</td></tr>
+<tr><td>FC</td><td>Carrier frequency [Hz]</td></tr>
+<tr><td>MDI</td><td>Modulation index</td></tr>
+<tr><td>FS</td><td>Signal frequency [Hz]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+</address>
+</body>
+</html>

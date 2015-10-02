@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Efficient inverses for selected pairs of variables&quot;">
+<meta name="description" content="&quot;Efficient inverses for selected pairs of variables&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Inverses<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
->Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.Inverses</H2>
-<B>Efficient inverses for selected pairs of variables</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre><h4>Package description</h4>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inverses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.Inverses</h2>
+<p>
+<span class="ModelicaDescription">Efficient inverses for selected pairs of variables</span><br>
+</p>
+<h3>Information</h3>
+<h4>Package description</h4>
           <h4>Package contents</h4>
           <ul>
           <li>Function <b>fixdT</b> constrains density and temperature to allowed region</li>
@@ -58,302 +77,362 @@ table   { solid #000; border-collapse: collapse;}
           <li>Initial version: July 2000</li>
           <li>Documentation added: December 2002</li>
           </ul>
-          <pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT"
->fixdT</A>
-</TD><TD>Region limits for inverse iteration in region 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13"
->dofp13</A>
-</TD><TD>Density at the boundary between regions 1 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23"
->dofp23</A>
-</TD><TD>Density at the boundary between regions 2 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3"
->dofpt3</A>
-</TD><TD>Inverse iteration in region 3: (d) = f(p,T)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3"
->dtofph3</A>
-</TD><TD>Inverse iteration in region 3: (d,T) = f(p,h)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3"
->dtofps3</A>
-</TD><TD>Inverse iteration in region 3: (d,T) = f(p,s)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3"
->dtofpsdt3</A>
-</TD><TD>Inverse iteration in region 3: (d,T) = f(p,s)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125"
->pofdt125</A>
-</TD><TD>Inverse iteration in region 1,2 and 5: p = g(d,T)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5"
->tofph5</A>
-</TD><TD>Inverse iteration in region 5: (p,T) = f(p,h)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5"
->tofps5</A>
-</TD><TD>Inverse iteration in region 5: (p,T) = f(p,s)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5"
->tofpst5</A>
-</TD><TD>Inverse iteration in region 5: (p,T) = f(p,s)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE fixdT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.fixdT</H2>
-<B>Region limits for inverse iteration in region 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>din</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>Tin</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dout</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>Tout</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dofp13<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dofp13</H2>
-<B>Density at the boundary between regions 1 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dofp23<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dofp23</H2>
-<B>Density at the boundary between regions 2 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dofpt3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dofpt3</H2>
-<B>Inverse iteration in region 3: (d) = f(p,T)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>delp</TD><TD>Iteration converged if (p-pre(p) &lt; delp) [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtofph3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dtofph3</H2>
-<B>Inverse iteration in region 3: (d,T) = f(p,h)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-<TR><TD>delp</TD><TD>Iteration accuracy [Pa]</TD></TR>
-<TR><TD>delh</TD><TD>Iteration accuracy [J/kg]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtofps3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dtofps3</H2>
-<B>Inverse iteration in region 3: (d,T) = f(p,s)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>delp</TD><TD>Iteration accuracy [Pa]</TD></TR>
-<TR><TD>dels</TD><TD>Iteration accuracy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dtofpsdt3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.dtofpsdt3</H2>
-<B>Inverse iteration in region 3: (d,T) = f(p,s)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>dguess</TD><TD>Guess density, e.g., from adjacent volume [kg/m3]</TD></TR>
-<TR><TD>Tguess</TD><TD>Guess temperature, e.g., from adjacent volume [K]</TD></TR>
-<TR><TD>delp</TD><TD>Iteration accuracy [Pa]</TD></TR>
-<TR><TD>dels</TD><TD>Iteration accuracy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE pofdt125<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.pofdt125</H2>
-<B>Inverse iteration in region 1,2 and 5: p = g(d,T)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>reldd</TD><TD>Relative iteration accuracy of density [Pa]</TD></TR>
-<TR><TD>region</TD><TD>Region in IAPWS/IF97 in which inverse should be calculated</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tofph5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.tofph5</H2>
-<B>Inverse iteration in region 5: (p,T) = f(p,h)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-<TR><TD>reldh</TD><TD>Iteration accuracy [J/kg]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tofps5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.tofps5</H2>
-<B>Inverse iteration in region 5: (p,T) = f(p,s)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>relds</TD><TD>Iteration accuracy [J/kg]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tofpst5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</A>.tofpst5</H2>
-<B>Inverse iteration in region 5: (p,T) = f(p,s)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>Tguess</TD><TD>Guess temperature, e.g., from adjacent volume [K]</TD></TR>
-<TR><TD>relds</TD><TD>Iteration accuracy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>error</TD><TD>Error flag: iteration failed if different from 0</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:08 2013.
-</address></BODY>
-</HTML>
+          
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT"
+>fixdT</a>
+</td>
+<td>Region limits for inverse iteration in region 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13"
+>dofp13</a>
+</td>
+<td>Density at the boundary between regions 1 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23"
+>dofp23</a>
+</td>
+<td>Density at the boundary between regions 2 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3"
+>dofpt3</a>
+</td>
+<td>Inverse iteration in region 3: (d) = f(p,T)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3"
+>dtofph3</a>
+</td>
+<td>Inverse iteration in region 3: (d,T) = f(p,h)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3"
+>dtofps3</a>
+</td>
+<td>Inverse iteration in region 3: (d,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3"
+>dtofpsdt3</a>
+</td>
+<td>Inverse iteration in region 3: (d,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125"
+>pofdt125</a>
+</td>
+<td>Inverse iteration in region 1,2 and 5: p = g(d,T)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5"
+>tofph5</a>
+</td>
+<td>Inverse iteration in region 5: (p,T) = f(p,h)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5"
+>tofps5</a>
+</td>
+<td>Inverse iteration in region 5: (p,T) = f(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5"
+>tofpst5</a>
+</td>
+<td>Inverse iteration in region 5: (p,T) = f(p,s)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE fixdT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.fixdT"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.fixdT</h2>
+<p>
+<span class="ModelicaDescription">Region limits for inverse iteration in region 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>din</td><td>Density [kg/m3]</td></tr>
+<tr><td>Tin</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dout</td><td>Density [kg/m3]</td></tr>
+<tr><td>Tout</td><td>Temperature [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dofp13<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp13"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.dofp13</h2>
+<p>
+<span class="ModelicaDescription">Density at the boundary between regions 1 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dofp23<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofp23"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.dofp23</h2>
+<p>
+<span class="ModelicaDescription">Density at the boundary between regions 2 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dofpt3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dofpt3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.dofpt3</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 3: (d) = f(p,T)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>delp</td><td>Iteration converged if (p-pre(p) &lt; delp) [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtofph3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofph3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.dtofph3</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 3: (d,T) = f(p,h)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>delp</td><td>Iteration accuracy [Pa]</td></tr>
+<tr><td>delh</td><td>Iteration accuracy [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtofps3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofps3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.dtofps3</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 3: (d,T) = f(p,s)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>delp</td><td>Iteration accuracy [Pa]</td></tr>
+<tr><td>dels</td><td>Iteration accuracy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dtofpsdt3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.dtofpsdt3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.dtofpsdt3</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 3: (d,T) = f(p,s)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>dguess</td><td>Guess density, e.g., from adjacent volume [kg/m3]</td></tr>
+<tr><td>Tguess</td><td>Guess temperature, e.g., from adjacent volume [K]</td></tr>
+<tr><td>delp</td><td>Iteration accuracy [Pa]</td></tr>
+<tr><td>dels</td><td>Iteration accuracy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE pofdt125<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.pofdt125"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.pofdt125</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 1,2 and 5: p = g(d,T)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>reldd</td><td>Relative iteration accuracy of density [Pa]</td></tr>
+<tr><td>region</td><td>Region in IAPWS/IF97 in which inverse should be calculated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tofph5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofph5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.tofph5</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 5: (p,T) = f(p,h)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>reldh</td><td>Iteration accuracy [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tofps5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofps5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.tofps5</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 5: (p,T) = f(p,s)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>relds</td><td>Iteration accuracy [J/kg]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tofpst5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF974e773ca1ee4a424bfixdTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses.tofpst5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Inverses.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Inverses</a>.tofpst5</h2>
+<p>
+<span class="ModelicaDescription">Inverse iteration in region 5: (p,T) = f(p,s)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>Tguess</td><td>Guess temperature, e.g., from adjacent volume [K]</td></tr>
+<tr><td>relds</td><td>Iteration accuracy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>error</td><td>Error flag: iteration failed if different from 0</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:24 2015.
+</address>
+</body>
+</html>

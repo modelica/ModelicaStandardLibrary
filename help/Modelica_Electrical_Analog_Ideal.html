@@ -1,497 +1,222 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Analog.Ideal</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Analog.Ideal</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Ideal electrical elements such as switches, diode, transformer, operational amplifier&quot;">
+<meta name="description" content="&quot;Ideal electrical elements such as switches, diode, transformer, operational amplifier&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Ideal<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Analog.Ideal"></A><A HREF="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
->Modelica.Electrical.Analog</A>.Ideal</H2>
-<B>Ideal electrical elements such as switches, diode, transformer, operational amplifier</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Ideal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Analog.Ideal"></a><a href="Modelica_Electrical_Analog.html#Modelica.Electrical.Analog"
+>Modelica.Electrical.Analog</a>.Ideal</h2>
+<p>
+<span class="ModelicaDescription">Ideal electrical elements such as switches, diode, transformer, operational amplifier</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package contains electrical components with idealized behaviour. To enable more realistic applications than it is possible with pure realistic behavior some components are improved by additional features. E.g. the switches have resistances for the open or close case which can be parametrized.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo935e9df040d3127eistorS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealThyristor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealThyristor"
->IdealThyristor</A>
-</TD><TD>Ideal thyristor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo4452d5ee78289bf1istorS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"
->IdealGTOThyristor</A>
-</TD><TD>Ideal GTO thyristor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analocc95c8a73e815455witchS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"
->IdealCommutingSwitch</A>
-</TD><TD>Ideal commuting switch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analoa11d9c4d7f03fb5cwitchS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"
->IdealIntermediateSwitch</A>
-</TD><TD>Ideal intermediate switch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo39ad2c2dae005db0witchS.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"
->ControlledIdealCommutingSwitch</A>
-</TD><TD>Controlled ideal commuting switch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analoef022c6ff6f0c71cwitchS.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch"
->ControlledIdealIntermediateSwitch</A>
-</TD><TD>Controlled ideal intermediate switch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analoc4148dffb74227f7OpAmpS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmp"
->IdealOpAmp</A>
-</TD><TD>Ideal operational amplifier (norator-nullator pair)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analod2d1d6897f63996cp3PinS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin"
->IdealOpAmp3Pin</A>
-</TD><TD>Ideal operational amplifier (norator-nullator pair), but 3 pins</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analobbcc99c30af4636amitedS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited"
->IdealOpAmpLimited</A>
-</TD><TD>Ideal operational amplifier with limitation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo0219a03fb7fe1ec2DiodeS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealDiode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealDiode"
->IdealDiode</A>
-</TD><TD>Ideal diode</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analof2b9a3dde4345137ormerS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTransformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTransformer"
->IdealTransformer</A>
-</TD><TD>Ideal transformer core with or without magnetization</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analod27a0ada19a9c341ratorS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGyrator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGyrator"
->IdealGyrator</A>
-</TD><TD>Ideal gyrator</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analog.Ideal.IdleS.png" ALT="Modelica.Electrical.Analog.Ideal.Idle" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Idle"
->Idle</A>
-</TD><TD>Idle branch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analog.Ideal.ShortS.png" ALT="Modelica.Electrical.Analog.Ideal.Short" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Short"
->Short</A>
-</TD><TD>Short cut branch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo8eeea4d023f2d1dawitchS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
->IdealOpeningSwitch</A>
-</TD><TD>Ideal electrical opener</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo33956721edd971dawitchS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
->IdealClosingSwitch</A>
-</TD><TD>Ideal electrical closer</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo3267afa65a92f19bwitchS.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch"
->ControlledIdealOpeningSwitch</A>
-</TD><TD>Controlled ideal electrical opener</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analod70e71f794b9519bwitchS.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch"
->ControlledIdealClosingSwitch</A>
-</TD><TD>Controlled ideal electrical closer</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo3eb78f18e8673823thArcS.png" ALT="Modelica.Electrical.Analog.Ideal.OpenerWithArc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.OpenerWithArc"
->OpenerWithArc</A>
-</TD><TD>Ideal opening switch with simple arc model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analoe35e5169264c9823thArcS.png" ALT="Modelica.Electrical.Analog.Ideal.CloserWithArc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.CloserWithArc"
->CloserWithArc</A>
-</TD><TD>Ideal closing switch with simple arc model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo00c32f6a5d771fdfthArcS.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc"
->ControlledOpenerWithArc</A>
-</TD><TD>Controlled ideal electrical opener with simple arc model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analoa569f1bb935cbfdfthArcS.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc"
->ControlledCloserWithArc</A>
-</TD><TD>Controlled ideal electrical closer with simple arc model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo1c282c01b6f38664TriacS.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTriac" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTriac"
->IdealTriac</A>
-</TD><TD>Ideal triac, based on ideal thyristors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analo3383b49942572013erterS.png" ALT="Modelica.Electrical.Analog.Ideal.AD_Converter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.AD_Converter"
->AD_Converter</A>
-</TD><TD>Simple n-bit analog to digital converter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Analodb5fb40f40c32013erterS.png" ALT="Modelica.Electrical.Analog.Ideal.DA_Converter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.DA_Converter"
->DA_Converter</A>
-</TD><TD>Simple digital to analog converter</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealThyristor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo935e9df040d3127eistorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealThyristor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealThyristor"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealThyristor</H2>
-<B>Ideal thyristor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<p>This is an ideal thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or both the thyristor already open (off = true) and fire is false<br>
-<b>closed</b> (not off), if both the voltage drop is greater or equal 0 and either the thyristor was already closed (off=false) or fire is true.
-</P>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo0219a03fb7fe1ec2DiodeS.png" alt="Modelica.Electrical.Analog.Ideal.IdealDiode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealDiode"
+>IdealDiode</a>
+</td>
+<td>Ideal diode</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo935e9df040d3127eistorS.png" alt="Modelica.Electrical.Analog.Ideal.IdealThyristor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealThyristor"
+>IdealThyristor</a>
+</td>
+<td>Ideal thyristor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo4452d5ee78289bf1istorS.png" alt="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"
+>IdealGTOThyristor</a>
+</td>
+<td>Ideal GTO thyristor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analocc95c8a73e815455witchS.png" alt="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"
+>IdealCommutingSwitch</a>
+</td>
+<td>Ideal commuting switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoa11d9c4d7f03fb5cwitchS.png" alt="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"
+>IdealIntermediateSwitch</a>
+</td>
+<td>Ideal intermediate switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo39ad2c2dae005db0witchS.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"
+>ControlledIdealCommutingSwitch</a>
+</td>
+<td>Controlled ideal commuting switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoef022c6ff6f0c71cwitchS.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch"
+>ControlledIdealIntermediateSwitch</a>
+</td>
+<td>Controlled ideal intermediate switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoc4148dffb74227f7OpAmpS.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpAmp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmp"
+>IdealOpAmp</a>
+</td>
+<td>Ideal operational amplifier (norator-nullator pair)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analod2d1d6897f63996cp3PinS.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin"
+>IdealOpAmp3Pin</a>
+</td>
+<td>Ideal operational amplifier (norator-nullator pair), but 3 pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analobbcc99c30af4636amitedS.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited"
+>IdealOpAmpLimited</a>
+</td>
+<td>Ideal operational amplifier with limitation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analof2b9a3dde4345137ormerS.png" alt="Modelica.Electrical.Analog.Ideal.IdealTransformer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTransformer"
+>IdealTransformer</a>
+</td>
+<td>Ideal transformer core with or without magnetization</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analod27a0ada19a9c341ratorS.png" alt="Modelica.Electrical.Analog.Ideal.IdealGyrator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealGyrator"
+>IdealGyrator</a>
+</td>
+<td>Ideal gyrator</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analog.Ideal.IdleS.png" alt="Modelica.Electrical.Analog.Ideal.Idle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Idle"
+>Idle</a>
+</td>
+<td>Idle branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analog.Ideal.ShortS.png" alt="Modelica.Electrical.Analog.Ideal.Short" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.Short"
+>Short</a>
+</td>
+<td>Short cut branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo8eeea4d023f2d1dawitchS.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
+>IdealOpeningSwitch</a>
+</td>
+<td>Ideal electrical opener</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo33956721edd971dawitchS.png" alt="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
+>IdealClosingSwitch</a>
+</td>
+<td>Ideal electrical closer</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3267afa65a92f19bwitchS.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch"
+>ControlledIdealOpeningSwitch</a>
+</td>
+<td>Controlled ideal electrical opener</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analod70e71f794b9519bwitchS.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch"
+>ControlledIdealClosingSwitch</a>
+</td>
+<td>Controlled ideal electrical closer</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3eb78f18e8673823thArcS.png" alt="Modelica.Electrical.Analog.Ideal.OpenerWithArc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.OpenerWithArc"
+>OpenerWithArc</a>
+</td>
+<td>Ideal opening switch with simple arc model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoe35e5169264c9823thArcS.png" alt="Modelica.Electrical.Analog.Ideal.CloserWithArc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.CloserWithArc"
+>CloserWithArc</a>
+</td>
+<td>Ideal closing switch with simple arc model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo00c32f6a5d771fdfthArcS.png" alt="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc"
+>ControlledOpenerWithArc</a>
+</td>
+<td>Controlled ideal electrical opener with simple arc model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analoa569f1bb935cbfdfthArcS.png" alt="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc"
+>ControlledCloserWithArc</a>
+</td>
+<td>Controlled ideal electrical closer with simple arc model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo1c282c01b6f38664TriacS.png" alt="Modelica.Electrical.Analog.Ideal.IdealTriac" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealTriac"
+>IdealTriac</a>
+</td>
+<td>Ideal triac, based on ideal thyristors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo3383b49942572013erterS.png" alt="Modelica.Electrical.Analog.Ideal.AD_Converter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.AD_Converter"
+>AD_Converter</a>
+</td>
+<td>Simple n-bit analog to digital converter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analodb5fb40f40c32013erterS.png" alt="Modelica.Electrical.Analog.Ideal.DA_Converter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.DA_Converter"
+>DA_Converter</a>
+</td>
+<td>Simple digital to analog converter</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealDiode<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo0219a03fb7fe1ec2DiodeI.png" alt="Modelica.Electrical.Analog.Ideal.IdealDiode" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealDiode"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealDiode</h2>
 <p>
-This is the behaviour if all parameters are exactly zero.<br><br>
-Note, there are circuits, where this ideal description
-with zero resistance and zero conductance is not possible.
-In order to prevent singularities during switching, the opened
-thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
-resistance <i>Ron</i> which is default.
-</P>
-<P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br>
-along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+<span class="ModelicaDescription">Ideal diode</span>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed thyristor resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened thyristor conductance [S]</TD></TR>
-<TR><TD>Vknee</TD><TD>Forward threshold voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>fire</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealGTOThyristor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo4452d5ee78289bf1istorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealGTOThyristor</H2>
-<B>Ideal GTO thyristor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<p>This is an ideal GTO thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
-<b>closed</b> (not off), if the voltage drop is greater or equal 0  and fire is true.
-</P>
-<p>
-This is the behaviour if all parameters are exactly zero.<br><br>
-Note, there are circuits, where this ideal description
-with zero resistance and zero conductance is not possible.
-In order to prevent singularities during switching, the opened
-thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
-resistance <i>Ron</i> which is default.
-</P>
-<P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br>
-along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
-</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed thyristor resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened thyristor conductance [S]</TD></TR>
-<TR><TD>Vknee</TD><TD>Forward threshold voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>fire</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealCommutingSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analocc95c8a73e815455witchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealCommutingSwitch</H2>
-<B>Ideal commuting switch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<P>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
-The switching behaviour is controlled
-by the input signal control. If control is true, the pin p is connected
-with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
-</P>
-<P>
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron.
-The limiting case is also allowed, i.e., the resistance Ron of the
-closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits,
-where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
-</P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p--n2 connected, false =&gt; p--n1 connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealIntermediateSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analoa11d9c4d7f03fb5cwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealIntermediateSwitch</H2>
-<B>Ideal intermediate switch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
+<h3>Information</h3>
 
-<p>
-<img src="../Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png"
-     alt="IdealIntermediateSwitch1.png">
-</p>
-
-<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.</p>
-
-<p>
-<img src="../Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png"
-     alt="IdealIntermediateSwitch2.png">
-</p>
-
-<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledIdealCommutingSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo39ad2c2dae005db0witchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.ControlledIdealCommutingSwitch</H2>
-<B>Controlled ideal commuting switch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<P>
-The commuting switch has a positive pin p and two negative pins n1 and n2.
-The switching behaviour is controlled
-by the control pin. If its voltage exceeds the value of the parameter level,
-the pin p is connected with the negative pin n2. Otherwise, the pin p is
-connected the negative pin n1.
-</P>
-<P>
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron.
-The limiting case is also allowed, i.e., the resistance Ron of the
-closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits,
-where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
-</P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>level</TD><TD>Switch level [V]</TD></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>Control pin: if control.v &gt; level p--n2 connected, otherwise p--n1 connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledIdealIntermediateSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analoef022c6ff6f0c71cwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.ControlledIdealIntermediateSwitch</H2>
-<B>Controlled ideal intermediate switch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2.
-</p>
-
-<p>
-<img src="../Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png"
-     alt="ControlledIdealIntermediateSwitch1.png">
-</p>
-
-<p>
-In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
-</p>
-
-<p>
-<img src="../Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png"
-     alt="ControlledIdealIntermediateSwitch2.png">
-</p>
-
-<p>
-The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><br><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>level</TD><TD>Switch level [V]</TD></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>Control pin: if control.v &gt; level p1--n2, p2--n1 connected,
-         otherwise p1--n1, p2--n2  connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealOpAmp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analoc4148dffb74227f7OpAmpI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpAmp"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealOpAmp</H2>
-<B>Ideal operational amplifier (norator-nullator pair)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<P>
-The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0</i>
-(nullator). At the right port both any voltage <i>v2</i> and any current <i>i2</i>
-are possible (norator).
-</P>
-<pre></PRE><P></P>
-
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p1</TD><TD>Positive pin of the left port</TD></TR>
-<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
-<TR><TD>p2</TD><TD>Positive pin of the right port</TD></TR>
-<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealOpAmp3Pin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analod2d1d6897f63996cp3PinI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealOpAmp3Pin</H2>
-<B>Ideal operational amplifier (norator-nullator pair), but 3 pins</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<P>
-The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
-OpAmp with four pins. Only the negative output pin is left out.
-Both the input voltage and current are fixed to zero (nullator).
-At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
-are possible.
-</P>
-<pre></PRE><P></P>
-
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>in_p</TD><TD>Positive pin of the input port</TD></TR>
-<TR><TD>in_n</TD><TD>Negative pin of the input port</TD></TR>
-<TR><TD>out</TD><TD>Output pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealOpAmpLimited<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analobbcc99c30af4636amitedI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealOpAmpLimited</H2>
-<B>Ideal operational amplifier with limitation</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<P>
-The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
-if the output voltage is within the limits VMin and VMax. In this case
-the input voltage vin = in_p.v - in_n.v is zero.
-If the input voltage vin less than 0, the output voltage is out.v = VMin.
-If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
-</P>
-<pre></PRE><P></P>
-
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>in_p</TD><TD>Positive pin of the input port</TD></TR>
-<TR><TD>in_n</TD><TD>Negative pin of the input port</TD></TR>
-<TR><TD>out</TD><TD>Output pin</TD></TR>
-<TR><TD>VMax</TD><TD>Positive output voltage limitation</TD></TR>
-<TR><TD>VMin</TD><TD>Negative output voltage limitation</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealDiode<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo0219a03fb7fe1ec2DiodeI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealDiode" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealDiode"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealDiode</H2>
-<B>Ideal diode</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
 <P>
 This is an ideal switch which is<br><br>
 <b>open </b>(off), if it is reversed biased (voltage drop less than 0)<br>
@@ -513,35 +238,426 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Forward state-on differential resistance (closed diode resistance) [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Backward state-off conductance (opened diode conductance) [S]</TD></TR>
-<TR><TD>Vknee</TD><TD>Forward threshold voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealTransformer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analof2b9a3dde4345137ormerI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTransformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealTransformer"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealTransformer</H2>
-<B>Ideal transformer core with or without magnetization</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Forward state-on differential resistance (closed diode resistance) [Ohm]</td></tr>
+<tr><td>Goff</td><td>Backward state-off conductance (opened diode conductance) [S]</td></tr>
+<tr><td>Vknee</td><td>Forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealThyristor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo935e9df040d3127eistorI.png" alt="Modelica.Electrical.Analog.Ideal.IdealThyristor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealThyristor"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealThyristor</h2>
+<p>
+<span class="ModelicaDescription">Ideal thyristor</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an ideal thyristor model which is<br><br>
+<b>open </b>(off), if the voltage drop is less than 0 or both the thyristor already open (off = true) and fire is false<br>
+<b>closed</b> (not off), if both the voltage drop is greater or equal 0 and either the thyristor was already closed (off=false) or fire is true.
+</P>
+<p>
+This is the behaviour if all parameters are exactly zero.<br><br>
+Note, there are circuits, where this ideal description
+with zero resistance and zero conductance is not possible.
+In order to prevent singularities during switching, the opened
+thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
+resistance <i>Ron</i> which is default.
+</P>
+<P>
+The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
+the knee point <br>
+along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>Vknee</td><td>Forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>fire</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealGTOThyristor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo4452d5ee78289bf1istorI.png" alt="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealGTOThyristor"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealGTOThyristor</h2>
+<p>
+<span class="ModelicaDescription">Ideal GTO thyristor</span>
+</p>
+<h3>Information</h3>
+
+<p>This is an ideal GTO thyristor model which is<br><br>
+<b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
+<b>closed</b> (not off), if the voltage drop is greater or equal 0  and fire is true.
+</P>
+<p>
+This is the behaviour if all parameters are exactly zero.<br><br>
+Note, there are circuits, where this ideal description
+with zero resistance and zero conductance is not possible.
+In order to prevent singularities during switching, the opened
+thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
+resistance <i>Ron</i> which is default.
+</P>
+<P>
+The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
+the knee point <br>
+along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed thyristor resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened thyristor conductance [S]</td></tr>
+<tr><td>Vknee</td><td>Forward threshold voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>fire</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealCommutingSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analocc95c8a73e815455witchI.png" alt="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealCommutingSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal commuting switch</span>
+</p>
+<h3>Information</h3>
+
+<P>
+The commuting switch has a positive pin p and two negative pins n1 and n2.
+The switching behaviour is controlled
+by the input signal control. If control is true, the pin p is connected
+with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
+</P>
+<P>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</P>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n2</td><td>&nbsp;</td></tr>
+<tr><td>n1</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p--n2 connected, false =&gt; p--n1 connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealIntermediateSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoa11d9c4d7f03fb5cwitchI.png" alt="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealIntermediateSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal intermediate switch</span>
+</p>
+<h3>Information</h3>
+
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
+
+<p>
+<img src="../Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png"
+     alt="IdealIntermediateSwitch1.png">
+</p>
+
+<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.</p>
+
+<p>
+<img src="../Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png"
+     alt="IdealIntermediateSwitch2.png">
+</p>
+
+<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
+<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p1</td><td>&nbsp;</td></tr>
+<tr><td>p2</td><td>&nbsp;</td></tr>
+<tr><td>n1</td><td>&nbsp;</td></tr>
+<tr><td>n2</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledIdealCommutingSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo39ad2c2dae005db0witchI.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.ControlledIdealCommutingSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.ControlledIdealCommutingSwitch</h2>
+<p>
+<span class="ModelicaDescription">Controlled ideal commuting switch</span>
+</p>
+<h3>Information</h3>
+
+<P>
+The commuting switch has a positive pin p and two negative pins n1 and n2.
+The switching behaviour is controlled
+by the control pin. If its voltage exceeds the value of the parameter level,
+the pin p is connected with the negative pin n2. Otherwise, the pin p is
+connected the negative pin n1.
+</P>
+<P>
+In order to prevent singularities during switching, the opened
+switch has a (very low) conductance Goff
+and the closed switch has a (very low) resistance Ron.
+The limiting case is also allowed, i.e., the resistance Ron of the
+closed switch could be exactly zero and the conductance Goff of the
+open switch could be also exactly zero. Note, there are circuits,
+where a description with zero Ron or zero Goff is not possible.
+<br> <br>
+<b>Please note:</b>
+In case of useHeatPort=true the temperature dependence of the electrical
+behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+</P>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>level</td><td>Switch level [V]</td></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n2</td><td>&nbsp;</td></tr>
+<tr><td>n1</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>Control pin: if control.v &gt; level p--n2 connected, otherwise p--n1 connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledIdealIntermediateSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoef022c6ff6f0c71cwitchI.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.ControlledIdealIntermediateSwitch</h2>
+<p>
+<span class="ModelicaDescription">Controlled ideal intermediate switch</span>
+</p>
+<h3>Information</h3>
+
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2.
+</p>
+
+<p>
+<img src="../Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png"
+     alt="ControlledIdealIntermediateSwitch1.png">
+</p>
+
+<p>
+In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
+</p>
+
+<p>
+<img src="../Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png"
+     alt="ControlledIdealIntermediateSwitch2.png">
+</p>
+
+<p>
+The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
+<p><br><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>level</td><td>Switch level [V]</td></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p1</td><td>&nbsp;</td></tr>
+<tr><td>p2</td><td>&nbsp;</td></tr>
+<tr><td>n1</td><td>&nbsp;</td></tr>
+<tr><td>n2</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>Control pin: if control.v &gt; level p1--n2, p2--n1 connected,
+         otherwise p1--n1, p2--n2  connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealOpAmp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoc4148dffb74227f7OpAmpI.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpAmp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealOpAmp"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealOpAmp</h2>
+<p>
+<span class="ModelicaDescription">Ideal operational amplifier (norator-nullator pair)</span>
+</p>
+<h3>Information</h3>
+
+<P>
+The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0</i>
+(nullator). At the right port both any voltage <i>v2</i> and any current <i>i2</i>
+are possible (norator).
+</P>
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p1</td><td>Positive pin of the left port</td></tr>
+<tr><td>n1</td><td>Negative pin of the left port</td></tr>
+<tr><td>p2</td><td>Positive pin of the right port</td></tr>
+<tr><td>n2</td><td>Negative pin of the right port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealOpAmp3Pin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analod2d1d6897f63996cp3PinI.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealOpAmp3Pin</h2>
+<p>
+<span class="ModelicaDescription">Ideal operational amplifier (norator-nullator pair), but 3 pins</span>
+</p>
+<h3>Information</h3>
+
+<P>
+The ideal OpAmp with three pins is of exactly the same behaviour as the ideal
+OpAmp with four pins. Only the negative output pin is left out.
+Both the input voltage and current are fixed to zero (nullator).
+At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
+are possible.
+</P>
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Positive pin of the input port</td></tr>
+<tr><td>in_n</td><td>Negative pin of the input port</td></tr>
+<tr><td>out</td><td>Output pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealOpAmpLimited<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analobbcc99c30af4636amitedI.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealOpAmpLimited"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealOpAmpLimited</h2>
+<p>
+<span class="ModelicaDescription">Ideal operational amplifier with limitation</span>
+</p>
+<h3>Information</h3>
+
+<P>
+The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
+if the output voltage is within the limits VMin and VMax. In this case
+the input voltage vin = in_p.v - in_n.v is zero.
+If the input voltage vin less than 0, the output voltage is out.v = VMin.
+If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
+</P>
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>in_p</td><td>Positive pin of the input port</td></tr>
+<tr><td>in_n</td><td>Negative pin of the input port</td></tr>
+<tr><td>out</td><td>Output pin</td></tr>
+<tr><td>VMax</td><td>Positive output voltage limitation</td></tr>
+<tr><td>VMin</td><td>Negative output voltage limitation</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealTransformer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analof2b9a3dde4345137ormerI.png" alt="Modelica.Electrical.Analog.Ideal.IdealTransformer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealTransformer"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealTransformer</h2>
+<p>
+<span class="ModelicaDescription">Ideal transformer core with or without magnetization</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The ideal transformer is a two-port circuit element;
 in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
@@ -568,7 +684,7 @@ Due to this equations, the DC offset of secondary voltages and currents decremen
 </p>
 <p>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
-compared with the <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Transformer"
+compared with the <a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Transformer"
 >basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
@@ -580,33 +696,35 @@ the following parameter conversion can be applied (which leads to identical resu
 <p>
 For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
->Modelica.Electrical.Analog.Interfaces.TwoPort</A> (Component with two electrical ports, including current).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Turns ratio primary:secondary voltage</TD></TR>
-<TR><TD>considerMagnetization</TD><TD>Choice of considering magnetization</TD></TR>
-<TR><TD>Lm1</TD><TD>Magnetization inductance w.r.t. primary side [H]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
-<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
-<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
-<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealGyrator<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analod27a0ada19a9c341ratorI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealGyrator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealGyrator"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealGyrator</H2>
-<B>Ideal gyrator</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Modelica.Electrical.Analog.Interfaces.TwoPort</a> (Component with two electrical ports, including current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Turns ratio primary:secondary voltage</td></tr>
+<tr><td>considerMagnetization</td><td>Choice of considering magnetization</td></tr>
+<tr><td>Lm1</td><td>Magnetization inductance w.r.t. primary side [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p1</td><td>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</td></tr>
+<tr><td>n1</td><td>Negative pin of the left port</td></tr>
+<tr><td>p2</td><td>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</td></tr>
+<tr><td>n2</td><td>Negative pin of the right port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealGyrator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analod27a0ada19a9c341ratorI.png" alt="Modelica.Electrical.Analog.Ideal.IdealGyrator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealGyrator"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealGyrator</h2>
+<p>
+<span class="ModelicaDescription">Ideal gyrator</span>
+</p>
+<h3>Information</h3>
+
 <p>
 A gyrator is an ideal two-port element defined by the following equations:
 <br><br>
@@ -617,69 +735,75 @@ A gyrator is an ideal two-port element defined by the following equations:
 <br>
 where the constant <i>G</i> is called the gyration conductance.
 </P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
->Interfaces.TwoPort</A> (Component with two electrical ports, including current).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>G</TD><TD>Gyration conductance [S]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p1</TD><TD>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</TD></TR>
-<TR><TD>n1</TD><TD>Negative pin of the left port</TD></TR>
-<TR><TD>p2</TD><TD>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</TD></TR>
-<TR><TD>n2</TD><TD>Negative pin of the right port</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Idle<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.IdleI.png" ALT="Modelica.Electrical.Analog.Ideal.Idle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.Idle"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.Idle</H2>
-<B>Idle branch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.TwoPort"
+>Interfaces.TwoPort</a> (Component with two electrical ports, including current).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G</td><td>Gyration conductance [S]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p1</td><td>Positive pin of the left port (potential p1.v &gt; n1.v for positive voltage drop v1)</td></tr>
+<tr><td>n1</td><td>Negative pin of the left port</td></tr>
+<tr><td>p2</td><td>Positive pin of the right port (potential p2.v &gt; n2.v for positive voltage drop v2)</td></tr>
+<tr><td>n2</td><td>Negative pin of the right port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Idle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analog.Ideal.IdleI.png" alt="Modelica.Electrical.Analog.Ideal.Idle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.Idle"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.Idle</h2>
+<p>
+<span class="ModelicaDescription">Idle branch</span>
+</p>
+<h3>Information</h3>
+
 <p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completeness this component is part of the MSL, as an opposite of the short cut.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Short<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analog.Ideal.ShortI.png" ALT="Modelica.Electrical.Analog.Ideal.Short" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.Short"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.Short</H2>
-<B>Short cut branch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Short<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analog.Ideal.ShortI.png" alt="Modelica.Electrical.Analog.Ideal.Short" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.Short"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.Short</h2>
+<p>
+<span class="ModelicaDescription">Short cut branch</span>
+</p>
+<h3>Information</h3>
+
 <p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be neglected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealOpeningSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo8eeea4d023f2d1dawitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealOpeningSwitch</H2>
-<B>Ideal electrical opener</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealOpeningSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo8eeea4d023f2d1dawitchI.png" alt="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealOpeningSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal electrical opener</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
@@ -699,35 +823,37 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; switch open, false =&gt; p--n connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealClosingSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo33956721edd971dawitchI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealClosingSwitch</H2>
-<B>Ideal electrical closer</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealClosingSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo33956721edd971dawitchI.png" alt="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealClosingSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal electrical closer</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
@@ -747,35 +873,37 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p--n connected, false =&gt; switch open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledIdealOpeningSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo3267afa65a92f19bwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.ControlledIdealOpeningSwitch</H2>
-<B>Controlled ideal electrical opener</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledIdealOpeningSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3267afa65a92f19bwitchI.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.ControlledIdealOpeningSwitch</h2>
+<p>
+<span class="ModelicaDescription">Controlled ideal electrical opener</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the control pin.
@@ -795,35 +923,37 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>level</TD><TD>Switch level [V]</TD></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>Control pin: control.v &gt; level switch open, otherwise p--n connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledIdealClosingSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analod70e71f794b9519bwitchI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.ControlledIdealClosingSwitch</H2>
-<B>Controlled ideal electrical closer</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>level</td><td>Switch level [V]</td></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>Control pin: control.v &gt; level switch open, otherwise p--n connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledIdealClosingSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analod70e71f794b9519bwitchI.png" alt="Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.ControlledIdealClosingSwitch</h2>
+<p>
+<span class="ModelicaDescription">Controlled ideal electrical closer</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The closing ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the control pin.
@@ -843,37 +973,39 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>level</TD><TD>Switch level [V]</TD></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>Control pin: control.v &gt; level switch closed, otherwise switch open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE OpenerWithArc<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo3eb78f18e8673823thArcI.png" ALT="Modelica.Electrical.Analog.Ideal.OpenerWithArc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.OpenerWithArc"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.OpenerWithArc</H2>
-<B>Ideal opening switch with simple arc model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>level</td><td>Switch level [V]</td></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>Control pin: control.v &gt; level switch closed, otherwise switch open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OpenerWithArc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3eb78f18e8673823thArcI.png" alt="Modelica.Electrical.Analog.Ideal.OpenerWithArc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.OpenerWithArc"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.OpenerWithArc</h2>
 <p>
-This model is an extension to the <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
+<span class="ModelicaDescription">Ideal opening switch with simple arc model</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model is an extension to the <a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
 >IdealOpeningSwitch</a>.
 </p>
 <p>
@@ -912,40 +1044,42 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>V0</TD><TD>Initial arc voltage [V]</TD></TR>
-<TR><TD>dVdt</TD><TD>Arc voltage slope [V/s]</TD></TR>
-<TR><TD>Vmax</TD><TD>Max. arc voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>false =&gt; p--n connected, true =&gt; switch open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CloserWithArc<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analoe35e5169264c9823thArcI.png" ALT="Modelica.Electrical.Analog.Ideal.CloserWithArc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.CloserWithArc"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.CloserWithArc</H2>
-<B>Ideal closing switch with simple arc model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>V0</td><td>Initial arc voltage [V]</td></tr>
+<tr><td>dVdt</td><td>Arc voltage slope [V/s]</td></tr>
+<tr><td>Vmax</td><td>Max. arc voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>false =&gt; p--n connected, true =&gt; switch open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CloserWithArc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoe35e5169264c9823thArcI.png" alt="Modelica.Electrical.Analog.Ideal.CloserWithArc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.CloserWithArc"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.CloserWithArc</h2>
 <p>
-This model is an extension to the <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
+<span class="ModelicaDescription">Ideal closing switch with simple arc model</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model is an extension to the <a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
 >IdealClosingSwitch</a>.
 </p>
 <p>
@@ -984,41 +1118,43 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
->Modelica.Electrical.Analog.Interfaces.OnePort</A> (Component with two electrical pins p and n and current i from p to n), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>V0</TD><TD>Initial arc voltage [V]</TD></TR>
-<TR><TD>dVdt</TD><TD>Arc voltage slope [V/s]</TD></TR>
-<TR><TD>Vmax</TD><TD>Max. arc voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</TD></TR>
-<TR><TD>n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p--n connected, false =&gt; switch open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledOpenerWithArc<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo00c32f6a5d771fdfthArcI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.ControlledOpenerWithArc</H2>
-<B>Controlled ideal electrical opener with simple arc model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>V0</td><td>Initial arc voltage [V]</td></tr>
+<tr><td>dVdt</td><td>Arc voltage slope [V/s]</td></tr>
+<tr><td>Vmax</td><td>Max. arc voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledOpenerWithArc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo00c32f6a5d771fdfthArcI.png" alt="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.ControlledOpenerWithArc"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.ControlledOpenerWithArc</h2>
+<p>
+<span class="ModelicaDescription">Controlled ideal electrical opener with simple arc model</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
-This model is an extension to the <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
+This model is an extension to the <a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch"
 >IdealOpeningSwitch</a>.
 </p>
 
@@ -1060,40 +1196,42 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>level</TD><TD>Switch level [V]</TD></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>V0</TD><TD>Initial arc voltage [V]</TD></TR>
-<TR><TD>dVdt</TD><TD>Arc voltage slope [V/s]</TD></TR>
-<TR><TD>Vmax</TD><TD>Max. arc voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>Control pin: control.v &gt; level switch open, otherwise p--n connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ControlledCloserWithArc<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analoa569f1bb935cbfdfthArcI.png" ALT="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.ControlledCloserWithArc</H2>
-<B>Controlled ideal electrical closer with simple arc model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>level</td><td>Switch level [V]</td></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>V0</td><td>Initial arc voltage [V]</td></tr>
+<tr><td>dVdt</td><td>Arc voltage slope [V/s]</td></tr>
+<tr><td>Vmax</td><td>Max. arc voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>Control pin: control.v &gt; level switch open, otherwise p--n connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ControlledCloserWithArc<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analoa569f1bb935cbfdfthArcI.png" alt="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.ControlledCloserWithArc</h2>
 <p>
-This model is an extension to the <A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
+<span class="ModelicaDescription">Controlled ideal electrical closer with simple arc model</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model is an extension to the <a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal.IdealClosingSwitch"
 >IdealClosingSwitch</a>.
 </p>
 <p>
@@ -1135,38 +1273,40 @@ In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>level</TD><TD>Switch level [V]</TD></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>V0</TD><TD>Initial arc voltage [V]</TD></TR>
-<TR><TD>dVdt</TD><TD>Arc voltage slope [V/s]</TD></TR>
-<TR><TD>Vmax</TD><TD>Max. arc voltage [V]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>Control pin: control.v &gt; level switch closed, otherwise switch open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealTriac<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo1c282c01b6f38664TriacI.png" ALT="Modelica.Electrical.Analog.Ideal.IdealTriac" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.IdealTriac"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.IdealTriac</H2>
-<B>Ideal triac, based on ideal thyristors</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>level</td><td>Switch level [V]</td></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>V0</td><td>Initial arc voltage [V]</td></tr>
+<tr><td>dVdt</td><td>Arc voltage slope [V/s]</td></tr>
+<tr><td>Vmax</td><td>Max. arc voltage [V]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>Control pin: control.v &gt; level switch closed, otherwise switch open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealTriac<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo1c282c01b6f38664TriacI.png" alt="Modelica.Electrical.Analog.Ideal.IdealTriac" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.IdealTriac"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.IdealTriac</h2>
+<p>
+<span class="ModelicaDescription">Ideal triac, based on ideal thyristors</span>
+</p>
+<h3>Information</h3>
+
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 
 <p>Two ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor) are contrarily connected in parallel and additionally eliminated interference with a resistor (Rdis=100) and a capacitor (Cdis=0.005), which are connected in series.</p>
@@ -1191,33 +1331,34 @@ Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electr
 <li>power packs </li>
 </ul>
 <p>As an additional information: this model is based on the Modelica.Electrical.Analog.Ideal.IdealThyristor.</p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed triac resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened triac conductance [S]</TD></TR>
-<TR><TD>Vknee</TD><TD>Threshold voltage for positive and negative phase [V]</TD></TR>
-<TR><TD>Rdis</TD><TD>Resistance of disturbance elimination [Ohm]</TD></TR>
-<TR><TD>Cdis</TD><TD>Capacity of disturbance elimination [F]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fire1</TD><TD>Gate</TD></TR>
-<TR><TD>n</TD><TD>Cathode</TD></TR>
-<TR><TD>p</TD><TD>Anode</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AD_Converter<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analo3383b49942572013erterI.png" ALT="Modelica.Electrical.Analog.Ideal.AD_Converter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.AD_Converter"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.AD_Converter</H2>
-<B>Simple n-bit analog to digital converter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed triac resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened triac conductance [S]</td></tr>
+<tr><td>Vknee</td><td>Threshold voltage for positive and negative phase [V]</td></tr>
+<tr><td>Rdis</td><td>Resistance of disturbance elimination [Ohm]</td></tr>
+<tr><td>Cdis</td><td>Capacity of disturbance elimination [F]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fire1</td><td>Gate</td></tr>
+<tr><td>n</td><td>Cathode</td></tr>
+<tr><td>p</td><td>Anode</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AD_Converter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo3383b49942572013erterI.png" alt="Modelica.Electrical.Analog.Ideal.AD_Converter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.AD_Converter"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.AD_Converter</h2>
+<p>
+<span class="ModelicaDescription">Simple n-bit analog to digital converter</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
@@ -1240,33 +1381,34 @@ This is an abstract model of an ADC. Therefore, it can not cover the dynamic beh
 Hence the output will change instantaneously when the trigger signal rises.
 </P>
 
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>N</TD><TD>Resolution in bits - output signal width</TD></TR>
-<TR><TD>VRefHigh</TD><TD>High reference voltage [V]</TD></TR>
-<TR><TD>VRefLow</TD><TD>Low reference voltage [V]</TD></TR>
-<TR><TD>Rin</TD><TD>Input resistance [Ohm]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Positive electrical pin (input)</TD></TR>
-<TR><TD>n</TD><TD>Negative electrical pin (input)</TD></TR>
-<TR><TD>y[N]</TD><TD>Digital output</TD></TR>
-<TR><TD>trig</TD><TD>Trigger input</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DA_Converter<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Analodb5fb40f40c32013erterI.png" ALT="Modelica.Electrical.Analog.Ideal.DA_Converter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Analog.Ideal.DA_Converter"></A><A HREF="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
->Modelica.Electrical.Analog.Ideal</A>.DA_Converter</H2>
-<B>Simple digital to analog converter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>N</td><td>Resolution in bits - output signal width</td></tr>
+<tr><td>VRefHigh</td><td>High reference voltage [V]</td></tr>
+<tr><td>VRefLow</td><td>Low reference voltage [V]</td></tr>
+<tr><td>Rin</td><td>Input resistance [Ohm]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive electrical pin (input)</td></tr>
+<tr><td>n</td><td>Negative electrical pin (input)</td></tr>
+<tr><td>y[N]</td><td>Digital output</td></tr>
+<tr><td>trig</td><td>Trigger input</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DA_Converter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analodb5fb40f40c32013erterI.png" alt="Modelica.Electrical.Analog.Ideal.DA_Converter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Ideal.DA_Converter"></a><a href="Modelica_Electrical_Analog_Ideal.html#Modelica.Electrical.Analog.Ideal"
+>Modelica.Electrical.Analog.Ideal</a>.DA_Converter</h2>
+<p>
+<span class="ModelicaDescription">Simple digital to analog converter</span>
+</p>
+<h3>Information</h3>
+
 <p>Simple digital to analog converter with a variable input signal width of N bits. The input signal is an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The output voltage of value <code>y</code> is generated by an ideal voltage source. The output can only change if the trigger signal <code>trig</code> of type Logic changes to &#39;;1&#39;; (forced or weak). In this case, the output voltage is calculated in the following way:
 </p>
 <pre>       N
@@ -1275,22 +1417,23 @@ Hence the output will change instantaneously when the trigger signal rises.
 </pre>
 <p>where x[i], i=1,...,N is 1 or 0. and Vref is the reference value. Therefore, the first bit in the input vector x[1] is the least significant one (LSB) and x[N] is the most significant bit (MSB).</p>
 <p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaneously when the trigger signal rises.</p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>N</TD><TD>Resolution - input signal width</TD></TR>
-<TR><TD>Vref</TD><TD>Reference voltage [V]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>trig</TD><TD>Trigger input</TD></TR>
-<TR><TD>x[N]</TD><TD>Digital input</TD></TR>
-<TR><TD>p</TD><TD>Positive electrical pin (output)</TD></TR>
-<TR><TD>n</TD><TD>Negative electrical pin (output)</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:27 2013.
-</address></BODY>
-</HTML>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>N</td><td>Resolution - input signal width</td></tr>
+<tr><td>Vref</td><td>Reference voltage [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>trig</td><td>Trigger input</td></tr>
+<tr><td>x[N]</td><td>Digital input</td></tr>
+<tr><td>p</td><td>Positive electrical pin (output)</td></tr>
+<tr><td>n</td><td>Negative electrical pin (output)</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+</address>
+</body>
+</html>

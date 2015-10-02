@@ -1,84 +1,144 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Digital.Registers</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Digital.Registers</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Registers with N-bit input data and output data&quot;">
+<meta name="description" content="&quot;Registers with N-bit input data and output data&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Registers<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Registers"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
->Modelica.Electrical.Digital</A>.Registers</H2>
-<B>Registers with N-bit input data and output data</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Registers<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Registers"></a><a href="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</a>.Registers</h2>
+<p>
+<span class="ModelicaDescription">Registers with N-bit input data and output data</span><br>
+</p>
+<h3>Information</h3>
+
 <p>Registers is a collection of flipflops and latches. In the opposite to the Examples.Utilities models the Register models are a series of assignments in the algorithm part of the model. The model text is taken nearly identical from the standard logic text.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit8480efa4c9e0d731.DFFRS.png" ALT="Modelica.Electrical.Digital.Registers.DFFR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFR"
->DFFR</A>
-</TD><TD>Edge triggered register bank with reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREG" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREG"
->DFFREG</A>
-</TD><TD>Edge triggered register bank with high active reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitd5ffa25a6b99f852FREGLS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGL"
->DFFREGL</A>
-</TD><TD>Edge triggered register bank with low active reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitcdfaa1c13c9ae64bDFFSRS.png" ALT="Modelica.Electrical.Digital.Registers.DFFSR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFSR"
->DFFSR</A>
-</TD><TD>Edge triggered register bank with set and reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRH" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRH"
->DFFREGSRH</A>
-</TD><TD>Edge triggered register bank with high active set and reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHS.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRL"
->DFFREGSRL</A>
-</TD><TD>Edge triggered register bank with low active set and reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitcec724b93c9ffaabDLATRS.png" ALT="Modelica.Electrical.Digital.Registers.DLATR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATR"
->DLATR</A>
-</TD><TD>Level sensitive register bank with reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit639cd9177feaa419ATREGS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREG" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREG"
->DLATREG</A>
-</TD><TD>Level sensitive register bank with reset active high</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitf9431711fd5483a3TREGLS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGL"
->DLATREGL</A>
-</TD><TD>Level sensitive register bank with reset active low</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitcfe7cb80e3ff5515LATSRS.png" ALT="Modelica.Electrical.Digital.Registers.DLATSR" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATSR"
->DLATSR</A>
-</TD><TD>Level sensitive register bank with set and reset</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit526742165210f9fdEGSRHS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRH" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRH"
->DLATREGSRH</A>
-</TD><TD>Level sensitive register bank with set and reset, active high</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit5267421a5210f9f9EGSRLS.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRL" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRL"
->DLATREGSRL</A>
-</TD><TD>Level sensitive register bank with set and reset, active low</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DFFR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit8480efa4c9e0d731.DFFRI.png" ALT="Modelica.Electrical.Digital.Registers.DFFR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DFFR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DFFR</H2>
-<B>Edge triggered register bank with reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit8480efa4c9e0d731.DFFRS.png" alt="Modelica.Electrical.Digital.Registers.DFFR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFR"
+>DFFR</a>
+</td>
+<td>Edge triggered register bank with reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGS.png" alt="Modelica.Electrical.Digital.Registers.DFFREG" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREG"
+>DFFREG</a>
+</td>
+<td>Edge triggered register bank with high active reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitd5ffa25a6b99f852FREGLS.png" alt="Modelica.Electrical.Digital.Registers.DFFREGL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGL"
+>DFFREGL</a>
+</td>
+<td>Edge triggered register bank with low active reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitcdfaa1c13c9ae64bDFFSRS.png" alt="Modelica.Electrical.Digital.Registers.DFFSR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFSR"
+>DFFSR</a>
+</td>
+<td>Edge triggered register bank with set and reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHS.png" alt="Modelica.Electrical.Digital.Registers.DFFREGSRH" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRH"
+>DFFREGSRH</a>
+</td>
+<td>Edge triggered register bank with high active set and reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHS.png" alt="Modelica.Electrical.Digital.Registers.DFFREGSRL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRL"
+>DFFREGSRL</a>
+</td>
+<td>Edge triggered register bank with low active set and reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitcec724b93c9ffaabDLATRS.png" alt="Modelica.Electrical.Digital.Registers.DLATR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATR"
+>DLATR</a>
+</td>
+<td>Level sensitive register bank with reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit639cd9177feaa419ATREGS.png" alt="Modelica.Electrical.Digital.Registers.DLATREG" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREG"
+>DLATREG</a>
+</td>
+<td>Level sensitive register bank with reset active high</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitf9431711fd5483a3TREGLS.png" alt="Modelica.Electrical.Digital.Registers.DLATREGL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGL"
+>DLATREGL</a>
+</td>
+<td>Level sensitive register bank with reset active low</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitcfe7cb80e3ff5515LATSRS.png" alt="Modelica.Electrical.Digital.Registers.DLATSR" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATSR"
+>DLATSR</a>
+</td>
+<td>Level sensitive register bank with set and reset</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit526742165210f9fdEGSRHS.png" alt="Modelica.Electrical.Digital.Registers.DLATREGSRH" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRH"
+>DLATREGSRH</a>
+</td>
+<td>Level sensitive register bank with set and reset, active high</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit5267421a5210f9f9EGSRLS.png" alt="Modelica.Electrical.Digital.Registers.DLATREGSRL" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRL"
+>DLATREGSRL</a>
+</td>
+<td>Level sensitive register bank with set and reset, active low</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DFFR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit8480efa4c9e0d731.DFFRI.png" alt="Modelica.Electrical.Digital.Registers.DFFR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DFFR"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DFFR</h2>
+<p>
+<span class="ModelicaDescription">Edge triggered register bank with reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
 <p><b>Truth Table for high active reset:</b></p>
 
@@ -130,32 +190,33 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>ResetMap[9]</TD><TD>function selection, defaults for high active reset</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DFFREG<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREG" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DFFREG"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DFFREG</H2>
-<B>Edge triggered register bank with high active reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ResetMap[9]</td><td>function selection, defaults for high active reset</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DFFREG<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGI.png" alt="Modelica.Electrical.Digital.Registers.DFFREG" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DFFREG"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DFFREG</h2>
+<p>
+<span class="ModelicaDescription">Edge triggered register bank with high active reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table</b></p>
 
@@ -187,33 +248,34 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DFFREGL<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DFFREGL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DFFREGL</H2>
-<B>Edge triggered register bank with low active reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DFFREGL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit67407c5ae35ccfc0FFREGI.png" alt="Modelica.Electrical.Digital.Registers.DFFREGL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DFFREGL"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DFFREGL</h2>
+<p>
+<span class="ModelicaDescription">Edge triggered register bank with low active reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table</b></p>
 
@@ -245,34 +307,36 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREG"
->DFFREG</A> (Edge triggered register bank with high active reset).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DFFSR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digitcdfaa1c13c9ae64bDFFSRI.png" ALT="Modelica.Electrical.Digital.Registers.DFFSR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DFFSR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DFFSR</H2>
-<B>Edge triggered register bank with set and reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREG"
+>DFFREG</a> (Edge triggered register bank with high active reset).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DFFSR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digitcdfaa1c13c9ae64bDFFSRI.png" alt="Modelica.Electrical.Digital.Registers.DFFSR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DFFSR"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DFFSR</h2>
+<p>
+<span class="ModelicaDescription">Edge triggered register bank with set and reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table for high active set and reset</b></p>
 
@@ -337,33 +401,34 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>ResetSetMap[9, 9]</TD><TD>function selection by [reset, set] reading</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DFFREGSRH<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DFFREGSRH"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DFFREGSRH</H2>
-<B>Edge triggered register bank with high active set and reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ResetSetMap[9, 9]</td><td>function selection by [reset, set] reading</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DFFREGSRH<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHI.png" alt="Modelica.Electrical.Digital.Registers.DFFREGSRH" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DFFREGSRH"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DFFREGSRH</h2>
+<p>
+<span class="ModelicaDescription">Edge triggered register bank with high active set and reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table</b></p>
 
@@ -402,34 +467,35 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DFFREGSRL<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DFFREGSRL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DFFREGSRL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DFFREGSRL</H2>
-<B>Edge triggered register bank with low active set and reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DFFREGSRL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d7c42a767e12fa6EGSRHI.png" alt="Modelica.Electrical.Digital.Registers.DFFREGSRL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DFFREGSRL"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DFFREGSRL</h2>
+<p>
+<span class="ModelicaDescription">Edge triggered register bank with low active set and reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 
 <p><b>Truth Table</b></p>
@@ -469,35 +535,37 @@ Clock transition definitions:
   0-Trns: ~ -> 0 or 1 -> * or X -> X|U or U -> X|U
   X-Trns: 0 -> X|U or X|U -> 1
 </PRE>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRH"
->Digital.Registers.DFFREGSRH</A> (Edge triggered register bank with high active set and reset).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>clock</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DLATR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digitcec724b93c9ffaabDLATRI.png" ALT="Modelica.Electrical.Digital.Registers.DLATR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DLATR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DLATR</H2>
-<B>Level sensitive register bank with reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DFFREGSRH"
+>Digital.Registers.DFFREGSRH</a> (Edge triggered register bank with high active set and reset).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>clock</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DLATR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digitcec724b93c9ffaabDLATRI.png" alt="Modelica.Electrical.Digital.Registers.DLATR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DLATR"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DLATR</h2>
+<p>
+<span class="ModelicaDescription">Level sensitive register bank with reset</span>
+</p>
+<h3>Information</h3>
+
 
 <p> Description in VHDL is given by <a href="http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
 <p><b>Truth Table for high active reset:</b></p>
@@ -548,32 +616,33 @@ Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electr
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>ResetMap[9]</TD><TD>function selection, defaults for high active reset</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DLATREG<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit639cd9177feaa419ATREGI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREG" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DLATREG"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DLATREG</H2>
-<B>Level sensitive register bank with reset active high</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ResetMap[9]</td><td>function selection, defaults for high active reset</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DLATREG<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit639cd9177feaa419ATREGI.png" alt="Modelica.Electrical.Digital.Registers.DLATREG" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DLATREG"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DLATREG</h2>
+<p>
+<span class="ModelicaDescription">Level sensitive register bank with reset active high</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table</b></p>
 
@@ -602,33 +671,34 @@ Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electr
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DLATREGL<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit639cd9177feaa419ATREGI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DLATREGL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DLATREGL</H2>
-<B>Level sensitive register bank with reset active low</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DLATREGL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit639cd9177feaa419ATREGI.png" alt="Modelica.Electrical.Digital.Registers.DLATREGL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DLATREGL"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DLATREGL</h2>
+<p>
+<span class="ModelicaDescription">Level sensitive register bank with reset active low</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table</b></p>
 
@@ -657,34 +727,36 @@ Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electr
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREG"
->DLATREG</A> (Level sensitive register bank with reset active high).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DLATSR<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digitcfe7cb80e3ff5515LATSRI.png" ALT="Modelica.Electrical.Digital.Registers.DLATSR" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DLATSR"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DLATSR</H2>
-<B>Level sensitive register bank with set and reset</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREG"
+>DLATREG</a> (Level sensitive register bank with reset active high).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DLATSR<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digitcfe7cb80e3ff5515LATSRI.png" alt="Modelica.Electrical.Digital.Registers.DLATSR" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DLATSR"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DLATSR</h2>
+<p>
+<span class="ModelicaDescription">Level sensitive register bank with set and reset</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table for high active set and reset</b></p>
 
@@ -747,33 +819,34 @@ Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electr
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>ResetSetMap[9, 9]</TD><TD>function selection by [reset, set] reading</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DLATREGSRH<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit526742165210f9fdEGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRH" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DLATREGSRH"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DLATREGSRH</H2>
-<B>Level sensitive register bank with set and reset, active high</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ResetSetMap[9, 9]</td><td>function selection by [reset, set] reading</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DLATREGSRH<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit526742165210f9fdEGSRHI.png" alt="Modelica.Electrical.Digital.Registers.DLATREGSRH" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DLATREGSRH"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DLATREGSRH</h2>
+<p>
+<span class="ModelicaDescription">Level sensitive register bank with set and reset, active high</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table:</b></p>
 
@@ -809,34 +882,35 @@ Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electr
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DLATREGSRL<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit526742165210f9fdEGSRHI.png" ALT="Modelica.Electrical.Digital.Registers.DLATREGSRL" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Registers.DLATREGSRL"></A><A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
->Modelica.Electrical.Digital.Registers</A>.DLATREGSRL</H2>
-<B>Level sensitive register bank with set and reset, active low</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DLATREGSRL<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit526742165210f9fdEGSRHI.png" alt="Modelica.Electrical.Digital.Registers.DLATREGSRL" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Registers.DLATREGSRL"></a><a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers"
+>Modelica.Electrical.Digital.Registers</a>.DLATREGSRL</h2>
+<p>
+<span class="ModelicaDescription">Level sensitive register bank with set and reset, active low</span>
+</p>
+<h3>Information</h3>
+
 <p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
 <p><b>Truth Table</b></p>
 
@@ -871,26 +945,28 @@ Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electr
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRH"
->Digital.Registers.DLATREGSRH</A> (Level sensitive register bank with set and reset, active high).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>tHL</TD><TD>High-&gt;Low delay [s]</TD></TR>
-<TR><TD>tLH</TD><TD>Low-&gt;High delay [s]</TD></TR>
-<TR><TD>strength</TD><TD>output strength</TD></TR>
-<TR><TD>n</TD><TD>data width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>set</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reset</TD><TD>&nbsp;</TD></TR>
-<TR><TD>enable</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataIn[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>dataOut[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Registers.html#Modelica.Electrical.Digital.Registers.DLATREGSRH"
+>Digital.Registers.DLATREGSRH</a> (Level sensitive register bank with set and reset, active high).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>tHL</td><td>High-&gt;Low delay [s]</td></tr>
+<tr><td>tLH</td><td>Low-&gt;High delay [s]</td></tr>
+<tr><td>strength</td><td>output strength</td></tr>
+<tr><td>n</td><td>data width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>set</td><td>&nbsp;</td></tr>
+<tr><td>reset</td><td>&nbsp;</td></tr>
+<tr><td>enable</td><td>&nbsp;</td></tr>
+<tr><td>dataIn[n]</td><td>&nbsp;</td></tr>
+<tr><td>dataOut[n]</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+</address>
+</body>
+</html>

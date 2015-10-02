@@ -1,135 +1,195 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Math.Vectors</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math.Vectors</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of functions operating on vectors&quot;">
+<meta name="description" content="&quot;Library of functions operating on vectors&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Vectors<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Math.Vectors"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.Vectors</H2>
-<B>Library of functions operating on vectors</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Vectors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math.Vectors"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.Vectors</h2>
+<p>
+<span class="ModelicaDescription">Library of functions operating on vectors</span><br>
+</p>
+<h3>Information</h3>
+
 <h4>Library content</h4>
 <p>
 This library provides functions operating on vectors:
 </p>
 
 <ul>
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.toString"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.toString"
 >toString</a>(v)
      - returns the string representation of vector v.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
 >isEqual</a>(v1, v2)
      - returns true if vectors v1 and v2 have the same size and the same elements.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
 >norm</a>(v,p)
      - returns the p-norm of vector v.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
 >length</a>(v)
      - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
        symbolic manipulations)</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
 >normalize</a>(v)
      - returns vector in direction of v with lenght = 1 and prevents
        zero-division for zero vector.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.reverse"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.reverse"
 >reverse</a>(v)
      - reverses the vector elements of v. </li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.sort"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.sort"
 >sort</a>(v)
      - sorts the elements of vector v in ascending or descending order.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.find"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.find"
 >find</a>(e, v)
      - returns the index of the first occurrence of scalar e in vector v.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.interpolate"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.interpolate"
 >interpolate</a>(x, y, xi)
      - returns the interpolated value in (x,y) that corresponds to xi.</li>
 
-<li> <A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.relNodePositions"
+<li> <a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.relNodePositions"
 >relNodePositions</a>(nNodes)
      - returns a vector of relative node positions (0..1).</li>
 </ul>
 
 <h4>See also</h4>
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
 >Matrices</a>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.toString" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.toString"
->toString</A>
-</TD><TD>Convert a real vector in to a string representation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.isEqual" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
->isEqual</A>
-</TD><TD>Determine if two Real vectors are numerically identical</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.norm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
->norm</A>
-</TD><TD>Return the p-norm of a vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.length" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
->length</A>
-</TD><TD>Return length of a vector (better as norm(), if further symbolic processing is performed)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.normalize" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
->normalize</A>
-</TD><TD>Return normalized vector such that length = 1 and prevent zero-division for zero vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.normalizeWithAssert" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalizeWithAssert"
->normalizeWithAssert</A>
-</TD><TD>Return normalized vector such that length = 1 (trigger an assert for zero vector)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.reverse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.reverse"
->reverse</A>
-</TD><TD>Reverse vector elements (e.g., v[1] becomes last element)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.sort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.sort"
->sort</A>
-</TD><TD>Sort elements of vector in ascending or descending order</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.find" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.find"
->find</A>
-</TD><TD>Find element in a vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.interpolate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.interpolate"
->interpolate</A>
-</TD><TD>Interpolate in a vector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.toStringS.png" ALT="Modelica.Math.Vectors.relNodePositions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.relNodePositions"
->relNodePositions</A>
-</TD><TD>Return vector of relative node positions (0..1)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.Vectors.UtilitiesS.png" ALT="Modelica.Math.Vectors.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities"
->Utilities</A>
-</TD><TD>Utility functions that should not be directly utilized by the user</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE toString<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.toString" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.toString"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.toString</H2>
-<B>Convert a real vector in to a string representation</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.toString" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.toString"
+>toString</a>
+</td>
+<td>Convert a real vector in to a string representation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.isEqual" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+>isEqual</a>
+</td>
+<td>Determine if two Real vectors are numerically identical</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.norm" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+>norm</a>
+</td>
+<td>Return the p-norm of a vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.length" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+>length</a>
+</td>
+<td>Return length of a vector (better as norm(), if further symbolic processing is performed)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.normalize" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
+>normalize</a>
+</td>
+<td>Return normalized vector such that length = 1 and prevent zero-division for zero vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.normalizeWithAssert" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalizeWithAssert"
+>normalizeWithAssert</a>
+</td>
+<td>Return normalized vector such that length = 1 (trigger an assert for zero vector)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.reverse" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.reverse"
+>reverse</a>
+</td>
+<td>Reverse vector elements (e.g., v[1] becomes last element)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.sort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.sort"
+>sort</a>
+</td>
+<td>Sort elements of vector in ascending or descending order</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.find" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.find"
+>find</a>
+</td>
+<td>Find element in a vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.interpolate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.interpolate"
+>interpolate</a>
+</td>
+<td>Interpolate in a vector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.toStringS.png" alt="Modelica.Math.Vectors.relNodePositions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.relNodePositions"
+>relNodePositions</a>
+</td>
+<td>Return vector of relative node positions (0..1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.Vectors.UtilitiesS.png" alt="Modelica.Math.Vectors.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors_Utilities.html#Modelica.Math.Vectors.Utilities"
+>Utilities</a>
+</td>
+<td>Utility functions that should not be directly utilized by the user</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE toString<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.toString" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.toString"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.toString</h2>
+<p>
+<span class="ModelicaDescription">Convert a real vector in to a string representation</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>toString</b>(v);
@@ -160,33 +220,35 @@ The default values of "name" and "significantDigits" are "" and 6 respectively. 
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.toString"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.toString"
 >Matrices.toString</a>,
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Real vector</TD></TR>
-<TR><TD>name</TD><TD>Independent variable name used for printing</TD></TR>
-<TR><TD>significantDigits</TD><TD>Number of significant digits that are shown</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE isEqual<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.isEqual" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.isEqual"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.isEqual</H2>
-<B>Determine if two Real vectors are numerically identical</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Real vector</td></tr>
+<tr><td>name</td><td>Independent variable name used for printing</td></tr>
+<tr><td>significantDigits</td><td>Number of significant digits that are shown</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isEqual<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.isEqual" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.isEqual"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.isEqual</h2>
+<p>
+<span class="ModelicaDescription">Determine if two Real vectors are numerically identical</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>isEqual</b>(v1, v2);
@@ -215,37 +277,39 @@ can be provided as third argument of the function. Default is "eps = 0".
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.find"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.find"
 >Vectors.find</a>,
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
 >Matrices.isEqual</a>,
-<A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
+<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
 >Strings.isEqual</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v1[:]</TD><TD>First vector</TD></TR>
-<TR><TD>v2[:]</TD><TD>Second vector (may have different length as v1)</TD></TR>
-<TR><TD>eps</TD><TD>Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) &lt;= eps</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>= true, if vectors have the same length and the same elements</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE norm<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.norm" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.norm"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.norm</H2>
-<B>Return the p-norm of a vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v1[:]</td><td>First vector</td></tr>
+<tr><td>v2[:]</td><td>Second vector (may have different length as v1)</td></tr>
+<tr><td>eps</td><td>Two elements e1 and e2 of the two vectors are identical if abs(e1-e2) &lt;= eps</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>= true, if vectors have the same length and the same elements</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE norm<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.norm" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.norm"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.norm</h2>
+<p>
+<span class="ModelicaDescription">Return the p-norm of a vector</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>norm</b>(v);
@@ -296,32 +360,34 @@ Note, for any vector norm the following inequality holds:
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.norm"
 >Matrices.norm</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Vector</TD></TR>
-<TR><TD>p</TD><TD>Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>p-norm of vector v</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE length<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.length" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.length"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.length</H2>
-<B>Return length of a vector (better as norm(), if further symbolic processing is performed)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+<tr><td>p</td><td>Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>p-norm of vector v</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE length<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.length" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.length"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.length</h2>
+<p>
+<span class="ModelicaDescription">Return length of a vector (better as norm(), if further symbolic processing is performed)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>length</b>(v);
@@ -343,31 +409,33 @@ not the case with function norm(..).
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.norm"
 >Vectors.norm</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Vector</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>Length of vector v</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE normalize<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.normalize" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.normalize"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.normalize</H2>
-<B>Return normalized vector such that length = 1 and prevent zero-division for zero vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Length of vector v</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE normalize<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.normalize" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.normalize"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.normalize</h2>
+<p>
+<span class="ModelicaDescription">Return normalized vector such that length = 1 and prevent zero-division for zero vector</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>normalize</b>(v);
@@ -396,34 +464,36 @@ is usually inlined and symbolic processing is applied.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
 >Vectors.length</a>,
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
 >Vectors.normalizeWithAssert</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Vector</TD></TR>
-<TR><TD>eps</TD><TD>if |v| &lt; eps then result = v/eps</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result[size(v, 1)]</TD><TD>Input vector v normalized to length=1</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE normalizeWithAssert<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.normalizeWithAssert" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.normalizeWithAssert"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.normalizeWithAssert</H2>
-<B>Return normalized vector such that length = 1 (trigger an assert for zero vector)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+<tr><td>eps</td><td>if |v| &lt; eps then result = v/eps</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result[size(v, 1)]</td><td>Input vector v normalized to length=1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE normalizeWithAssert<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.normalizeWithAssert" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.normalizeWithAssert"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.normalizeWithAssert</h2>
+<p>
+<span class="ModelicaDescription">Return normalized vector such that length = 1 (trigger an assert for zero vector)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>normalizeWithAssert</b>(v);
@@ -445,33 +515,35 @@ is usually inlined and symbolic processing is applied.
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.length"
 >Vectors.length</a>,
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.normalize"
 >Vectors.normalize</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Vector</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result[size(v, 1)]</TD><TD>Input vector v normalized to length=1</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE reverse<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.reverse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.reverse"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.reverse</H2>
-<B>Reverse vector elements (e.g., v[1] becomes last element)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result[size(v, 1)]</td><td>Input vector v normalized to length=1</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE reverse<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.reverse" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.reverse"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.reverse</h2>
+<p>
+<span class="ModelicaDescription">Reverse vector elements (e.g., v[1] becomes last element)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>reverse</b>(v);
@@ -485,28 +557,30 @@ vector elements in reverse order.
 <blockquote><pre>
   <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Vector</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result[size(v, 1)]</TD><TD>Elements of vector v in reversed order</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.sort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.sort"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.sort</H2>
-<B>Sort elements of vector in ascending or descending order</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result[size(v, 1)]</td><td>Elements of vector v in reversed order</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.sort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.sort"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.sort</h2>
+<p>
+<span class="ModelicaDescription">Sort elements of vector in ascending or descending order</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
            sorted_v = Vectors.<b>sort</b>(v);
@@ -527,30 +601,32 @@ to the original vector are given, such that sorted_v = v[indices].
        -> v2 = {-1, 2, 3, 6, 8}
           i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v[:]</TD><TD>Vector to be sorted</TD></TR>
-<TR><TD>ascending</TD><TD>= true if ascending order, otherwise descending order</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sorted_v[size(v, 1)]</TD><TD>Sorted vector</TD></TR>
-<TR><TD>indices[size(v, 1)]</TD><TD>sorted_v = v[indices]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE find<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.find" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.find"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.find</H2>
-<B>Find element in a vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v[:]</td><td>Vector to be sorted</td></tr>
+<tr><td>ascending</td><td>= true if ascending order, otherwise descending order</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sorted_v[size(v, 1)]</td><td>Sorted vector</td></tr>
+<tr><td>indices[size(v, 1)]</td><td>sorted_v = v[indices]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE find<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.find" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.find"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.find</h2>
+<p>
+<span class="ModelicaDescription">Find element in a vector</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>find</b>(e, v);
@@ -575,33 +651,35 @@ can be provided as third argument of the function. Default is "eps = 0".
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
 >Vectors.isEqual</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>e</TD><TD>Search for e</TD></TR>
-<TR><TD>v[:]</TD><TD>Integer vector</TD></TR>
-<TR><TD>eps</TD><TD>Element e is equal to a element v[i] of vector v if abs(e-v[i]) &lt;= eps</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>v[result] = e (first occurrence of e); result=0, if not found</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE interpolate<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.interpolate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.interpolate"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.interpolate</H2>
-<B>Interpolate in a vector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>e</td><td>Search for e</td></tr>
+<tr><td>v[:]</td><td>Integer vector</td></tr>
+<tr><td>eps</td><td>Element e is equal to a element v[i] of vector v if abs(e-v[i]) &lt;= eps</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>v[result] = e (first occurrence of e); result=0, if not found</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE interpolate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.interpolate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.interpolate"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.interpolate</h2>
+<p>
+<span class="ModelicaDescription">Interpolate in a vector</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 // Real    x[:], y[:], xi, yi;
@@ -630,32 +708,34 @@ if many interpolations take place.
   (yi, iNew) := Vectors.interpolate(x,y,5);  // yi = 35, iNew=3
 </pre></blockquote>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[:]</TD><TD>Abscissa table vector (strict monotonically increasing values required)</TD></TR>
-<TR><TD>y[size(x, 1)]</TD><TD>Ordinate table vector</TD></TR>
-<TR><TD>xi</TD><TD>Desired abscissa value</TD></TR>
-<TR><TD>iLast</TD><TD>Index used in last search</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>yi</TD><TD>Ordinate value corresponding to xi</TD></TR>
-<TR><TD>iNew</TD><TD>xi is in the interval x[iNew] &lt;= xi &lt; x[iNew+1]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE relNodePositions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.Vectors.toStringI.png" ALT="Modelica.Math.Vectors.relNodePositions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.Vectors.relNodePositions"></A><A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Modelica.Math.Vectors</A>.relNodePositions</H2>
-<B>Return vector of relative node positions (0..1)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[:]</td><td>Abscissa table vector (strict monotonically increasing values required)</td></tr>
+<tr><td>y[size(x, 1)]</td><td>Ordinate table vector</td></tr>
+<tr><td>xi</td><td>Desired abscissa value</td></tr>
+<tr><td>iLast</td><td>Index used in last search</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>yi</td><td>Ordinate value corresponding to xi</td></tr>
+<tr><td>iNew</td><td>xi is in the interval x[iNew] &lt;= xi &lt; x[iNew+1]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE relNodePositions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Vectors.toStringI.png" alt="Modelica.Math.Vectors.relNodePositions" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Vectors.relNodePositions"></a><a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Modelica.Math.Vectors</a>.relNodePositions</h2>
+<p>
+<span class="ModelicaDescription">Return vector of relative node positions (0..1)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>relNodePositions</b>(nNodes);
@@ -681,22 +761,24 @@ at the left and at the right side of the pipe), see next figure:
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField"
+<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField"
 >MultiBody.Visualizers.PipeWithScalarField</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nNodes</TD><TD>Number of nodes (including node at left and right position)</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>xsi[nNodes]</TD><TD>Relative node positions</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nNodes</td><td>Number of nodes (including node at left and right position)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>xsi[nNodes]</td><td>Relative node positions</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

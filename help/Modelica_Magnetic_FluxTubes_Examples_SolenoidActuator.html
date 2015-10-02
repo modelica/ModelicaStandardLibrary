@@ -1,76 +1,109 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Two models of a reluctance actuator of different modelling depth and their comparison and usage&quot;">
+<meta name="description" content="&quot;Two models of a reluctance actuator of different modelling depth and their comparison and usage&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SolenoidActuator<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
->Modelica.Magnetic.FluxTubes.Examples</A>.SolenoidActuator</H2>
-<B>Two models of a reluctance actuator of different modelling depth and their comparison and usage</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SolenoidActuator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"></a><a href="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</a>.SolenoidActuator</h2>
 <p>
-In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <A HREF="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation"
+<span class="ModelicaDescription">Two models of a reluctance actuator of different modelling depth and their comparison and usage</span><br>
+</p>
+<h3>Information</h3>
+
+<p>
+In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation"
 >Reluctance Forces</a> of the User's Guide.
 </p>
 
 <p>
-As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
->SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
 >AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
 </p>
 
 <p>
-The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
->ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
+>ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
 >ComparisonPullInStroke</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
->ComparisonQuasiStationary</A>
-</TD><TD>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
->ComparisonPullInStroke</A>
-</TD><TD>Pull-in stroke of both solenoid models after a voltage step at time t=0</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTube698761fbba49e2anentsS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components"
->Components</A>
-</TD><TD>Components to be used in examples</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ComparisonQuasiStationary<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
->Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</A>.ComparisonQuasiStationary</H2>
-<B>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryS.png" alt="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
+>ComparisonQuasiStationary</a>
+</td>
+<td>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryS.png" alt="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</a>
+</td>
+<td>Pull-in stroke of both solenoid models after a voltage step at time t=0</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTube698761fbba49e2anentsS.png" alt="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components"
+>Components</a>
+</td>
+<td>Components to be used in examples</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ComparisonQuasiStationary<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryI.png" alt="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"></a><a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</a>.ComparisonQuasiStationary</h2>
 <p>
-Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
->SolenoidActuator</a> for general comments and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
->SimpleSolenoid</a> and <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+<span class="ModelicaDescription">Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Have a look at <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</a> for general comments and at <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> and <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
 >AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
 
@@ -107,30 +140,32 @@ The magnetic flux through the armature and the actuator's static inductance both
 </pre>
 
 <p>
-As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
 >ComparisonPullInStroke</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v_step</TD><TD>Applied voltage [V]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ComparisonPullInStroke<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
->Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</A>.ComparisonPullInStroke</H2>
-<B>Pull-in stroke of both solenoid models after a voltage step at time t=0</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_step</td><td>Applied voltage [V]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ComparisonPullInStroke<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub55d60a4deba24cb3onaryI.png" alt="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"></a><a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</a>.ComparisonPullInStroke</h2>
 <p>
-Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
->SolenoidActuator</a> for general comments and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
->SimpleSolenoid</a> and <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+<span class="ModelicaDescription">Pull-in stroke of both solenoid models after a voltage step at time t=0</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Have a look at <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</a> for general comments and at <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> and <a href="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
 >AdvancedSolenoid</a> for a detailed description of both magnetic network models.
 </p>
 
@@ -162,14 +197,16 @@ Plot window for position:
 <p>
 The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>v_step</TD><TD>Applied voltage [V]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>v_step</td><td>Applied voltage [V]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+</address>
+</body>
+</html>

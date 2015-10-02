@@ -1,87 +1,123 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Utilities.Examples</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Utilities.Examples</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Examples to demonstrate the usage of package Modelica.Utilities&quot;">
+<meta name="description" content="&quot;Examples to demonstrate the usage of package Modelica.Utilities&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Utilities.Examples"></A><A HREF="Modelica_Utilities.html#Modelica.Utilities"
->Modelica.Utilities</A>.Examples</H2>
-<B>Examples to demonstrate the usage of package Modelica.Utilities</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.Examples"></a><a href="Modelica_Utilities.html#Modelica.Utilities"
+>Modelica.Utilities</a>.Examples</h2>
+<p>
+<span class="ModelicaDescription">Examples to demonstrate the usage of package Modelica.Utilities</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains quite involved examples that demonstrate how to
 use the functions of package Modelica.Utilities. In particular
 the following examples are present.
 </p>
 <ul>
-<li> Function <A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.calculator"
+<li> Function <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.calculator"
 >calculator</a>
      is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
      For example: calculator("1.5*sin(pi/6)"); <br>&nbsp;</li>
-<li> Function <A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.expression"
+<li> Function <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.expression"
 >expression</a>
      is the basic function used in "calculator" to evaluate an expression.
      It is useful if the expression interpreter is used in a larger
      scan operation (such as readRealParameter below).<br>&nbsp;</li>
-<li> Function <A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameter"
+<li> Function <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameter"
 >readRealParameter</a>
      reads the value of a parameter
      from file, given the file and the parameter name. The value
      on file is interpreted with the Examples.expression function
      and can therefore be an expression.<br>&nbsp;</li>
-<li> Model <A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameterModel"
+<li> Model <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameterModel"
 >readRealParameterModel</a>
      is a test model to demonstrate the usage of "readRealParameter". The model
      contains 3 parameters that are read from file "Modelica.Utilities/data/Examples_readRealParameters.txt".
      </li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Examples.calculatorS.png" ALT="Modelica.Utilities.Examples.calculator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.calculator"
->calculator</A>
-</TD><TD>Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Examples.calculatorS.png" ALT="Modelica.Utilities.Examples.expression" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.expression"
->expression</A>
-</TD><TD>Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Examples.calculatorS.png" ALT="Modelica.Utilities.Examples.readRealParameter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameter"
->readRealParameter</A>
-</TD><TD>Read the value of a Real parameter from file</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelS.png" ALT="Modelica.Utilities.Examples.readRealParameterModel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameterModel"
->readRealParameterModel</A>
-</TD><TD>Demonstrate usage of Examples.readRealParameter/.expression</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE calculator<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Examples.calculatorI.png" ALT="Modelica.Utilities.Examples.calculator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Examples.calculator"></A><A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
->Modelica.Utilities.Examples</A>.calculator</H2>
-<B>Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Examples.calculatorS.png" alt="Modelica.Utilities.Examples.calculator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.calculator"
+>calculator</a>
+</td>
+<td>Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Examples.calculatorS.png" alt="Modelica.Utilities.Examples.expression" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.expression"
+>expression</a>
+</td>
+<td>Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Examples.calculatorS.png" alt="Modelica.Utilities.Examples.readRealParameter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameter"
+>readRealParameter</a>
+</td>
+<td>Read the value of a Real parameter from file</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelS.png" alt="Modelica.Utilities.Examples.readRealParameterModel" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameterModel"
+>readRealParameterModel</a>
+</td>
+<td>Demonstrate usage of Examples.readRealParameter/.expression</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE calculator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Examples.calculatorI.png" alt="Modelica.Utilities.Examples.calculator" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Examples.calculator"></a><a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>.calculator</h2>
+<p>
+<span class="ModelicaDescription">Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 result = <b>calculator</b>(expression);
@@ -111,28 +147,30 @@ The following operations are supported (pi=3.14.. is a predefined constant):
   calculator("2+3*(4-1)");  // returns 11
   calculator("sin(pi/6)");  // returns 0.5
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>string</TD><TD>Expression that is evaluated</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>Value of expression</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE expression<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Examples.calculatorI.png" ALT="Modelica.Utilities.Examples.expression" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Examples.expression"></A><A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
->Modelica.Utilities.Examples</A>.expression</H2>
-<B>Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>string</td><td>Expression that is evaluated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Value of expression</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE expression<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Examples.calculatorI.png" alt="Modelica.Utilities.Examples.expression" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Examples.expression"></a><a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>.expression</h2>
+<p>
+<span class="ModelicaDescription">Expression interpreter that returns with the position after the expression (expression may consist of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
              result = <b>expression</b>(string);
@@ -203,31 +241,33 @@ function can be used as part of another scan operation.
   expression("2+3*(4-1)");  // returns 11
   expression("sin(pi/6)");  // returns 0.5
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>string</TD><TD>Expression that is evaluated</TD></TR>
-<TR><TD>startIndex</TD><TD>Start scanning of expression at character startIndex</TD></TR>
-<TR><TD>message</TD><TD>Message used in error message if scan is not successful</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>Value of expression</TD></TR>
-<TR><TD>nextIndex</TD><TD>Index after the scanned expression</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE readRealParameter<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Examples.calculatorI.png" ALT="Modelica.Utilities.Examples.readRealParameter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Examples.readRealParameter"></A><A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
->Modelica.Utilities.Examples</A>.readRealParameter</H2>
-<B>Read the value of a Real parameter from file</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>string</td><td>Expression that is evaluated</td></tr>
+<tr><td>startIndex</td><td>Start scanning of expression at character startIndex</td></tr>
+<tr><td>message</td><td>Message used in error message if scan is not successful</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Value of expression</td></tr>
+<tr><td>nextIndex</td><td>Index after the scanned expression</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE readRealParameter<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Examples.calculatorI.png" alt="Modelica.Utilities.Examples.readRealParameter" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Examples.readRealParameter"></a><a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>.readRealParameter</h2>
+<p>
+<span class="ModelicaDescription">Read the value of a Real parameter from file</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 result = <b>readRealParameter</b>(fileName, name);
@@ -266,45 +306,49 @@ The function returns the value "3.0" when called as:
 <blockquote><pre>
 readRealParameter("test.txt", "w_rel0")
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Name of file</TD></TR>
-<TR><TD>name</TD><TD>Name of parameter</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>Actual value of parameter on file</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE readRealParameterModel<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelI.png" ALT="Modelica.Utilities.Examples.readRealParameterModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Examples.readRealParameterModel"></A><A HREF="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
->Modelica.Utilities.Examples</A>.readRealParameterModel</H2>
-<B>Demonstrate usage of Examples.readRealParameter/.expression</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Name of file</td></tr>
+<tr><td>name</td><td>Name of parameter</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>Actual value of parameter on file</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE readRealParameterModel<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelI.png" alt="Modelica.Utilities.Examples.readRealParameterModel" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Examples.readRealParameterModel"></a><a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>.readRealParameterModel</h2>
+<p>
+<span class="ModelicaDescription">Demonstrate usage of Examples.readRealParameter/.expression</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Model that shows the usage of Examples.readRealParameter and Examples.expression.
 The model has 3 parameters and the values of these parameters are read
 from a file.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>file</TD><TD>File on which data is present</TD></TR>
-<TR><TD>J</TD><TD>Inertia [kg.m2]</TD></TR>
-<TR><TD>phi_rel0</TD><TD>Relative angle [rad]</TD></TR>
-<TR><TD>w_rel0</TD><TD>Relative angular velocity [rad/s]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>file</td><td>File on which data is present</td></tr>
+<tr><td>J</td><td>Inertia [kg.m2]</td></tr>
+<tr><td>phi_rel0</td><td>Relative angle [rad]</td></tr>
+<tr><td>w_rel0</td><td>Relative angular velocity [rad/s]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

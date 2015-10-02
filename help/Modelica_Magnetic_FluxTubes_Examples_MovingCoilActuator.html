@@ -1,98 +1,136 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Two translatory electrodynamic actuator models of different modelling depth and their comparison&quot;">
+<meta name="description" content="&quot;Two translatory electrodynamic actuator models of different modelling depth and their comparison&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MovingCoilActuator<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
->Modelica.Magnetic.FluxTubes.Examples</A>.MovingCoilActuator</H2>
-<B>Two translatory electrodynamic actuator models of different modelling depth and their comparison</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MovingCoilActuator<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"></a><a href="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</a>.MovingCoilActuator</h2>
 <p>
-Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
->ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+<span class="ModelicaDescription">Two translatory electrodynamic actuator models of different modelling depth and their comparison</span><br>
+</p>
+<h3>Information</h3>
+
+<p>
+Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
 >PermeanceActuator</a> can be used to describe this non-linear force component.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour"
->ForceCurrentBehaviour</A>
-</TD><TD>Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour"
->ForceStrokeBehaviour</A>
-</TD><TD>Force-stroke characteristic of the permeance model at constant current</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke"
->ArmatureStroke</A>
-</TD><TD>Armature stroke of both moving coil actuator models after a voltage step at time t=0</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubc82e23bfd96ff86cnentsS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components"
->Components</A>
-</TD><TD>Components to be used in examples</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ForceCurrentBehaviour<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
->Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</A>.ForceCurrentBehaviour</H2>
-<B>Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourS.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour"
+>ForceCurrentBehaviour</a>
+</td>
+<td>Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourS.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour"
+>ForceStrokeBehaviour</a>
+</td>
+<td>Force-stroke characteristic of the permeance model at constant current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourS.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke"
+>ArmatureStroke</a>
+</td>
+<td>Armature stroke of both moving coil actuator models after a voltage step at time t=0</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTubc82e23bfd96ff86cnentsS.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components"
+>Components</a>
+</td>
+<td>Components to be used in examples</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ForceCurrentBehaviour<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourI.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceCurrentBehaviour"></a><a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
+>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</a>.ForceCurrentBehaviour</h2>
 <p>
-Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
->ConstantActuator</a> and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+<span class="ModelicaDescription">Comparison of the force-current characteristics of both converter models with armature blocked at mid-position</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Have a look at <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</a> and at <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
 >PermeanceActuator</a> for an explanation of both converter models. <br>
 </p>
 <p>
-Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
->ConstantActuator</a>, force is proportional to current. In the simple <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
->PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+Simulation of the force-current characteristics of both converter models with the armature blocked at mid-position x=0 reveals the difference between the two models. In the <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</a>, force is proportional to current. In the simple <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+>PermeanceActuator</a> there is an additional non-linear force component that is due to the dependency of the inductance on the armature position. Comparison with FEA results validates the higher accuracy of the <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
 >PermeanceActuator</a>. In the FEA model, the relative permeability of the stator iron was set to mu_rFe=const.=1000 in order to avoid additional non-linear force components due to saturation. <b>Simulate for 6 s</b> and <b>plot vs. current (e.g., iSensor.i)</b></p>
 <pre>
     pmFixedPos.flange_b.f       // force of permeance model
     cFixedPos.flange_b.f        // force of converter constant model
     comparisonWithFEA.y[1]      // force of FEA model for comparison
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ForceStrokeBehaviour<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
->Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</A>.ForceStrokeBehaviour</H2>
-<B>Force-stroke characteristic of the permeance model at constant current</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ForceStrokeBehaviour<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourI.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ForceStrokeBehaviour"></a><a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
+>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</a>.ForceStrokeBehaviour</h2>
 <p>
-Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
->ConstantActuator</a> and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+<span class="ModelicaDescription">Force-stroke characteristic of the permeance model at constant current</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Have a look at <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</a> and at <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
 >PermeanceActuator</a> for an explanation of both converter models. <br>
 </p>
 <p>
-Simulation of the force-stroke characteristic of the <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+Simulation of the force-stroke characteristic of the <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
 >PermeanceActuator</a> with a constant current I=3A and a forced armature movement (similar to measurements in reality) shows the dependency of both force-generating permeances G_ma and G_mb as well as inductance L on armature position x. <b>Simulate for 8 s</b> and <b>plot vs.</b> armature position <b>feedX.flange_b.s</b> (same physical quantities together in a common diagram for comparison):</p>
 <pre>
     feedX.flange_b.f            // force of permeance model (permeance of stator iron neglected in this model)
@@ -103,21 +141,23 @@ Simulation of the force-stroke characteristic of the <A HREF="Modelica_Magnetic_
     actuator.L                  // inductance of permeance model
     comparisonWithFEA.y[3]      // inductance of FEA model for comparison (mu_rFe=const.=1000).
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ArmatureStroke<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
->Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</A>.ArmatureStroke</H2>
-<B>Armature stroke of both moving coil actuator models after a voltage step at time t=0</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ArmatureStroke<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub1ab0faeae7e4286aviourI.png" alt="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke"></a><a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator"
+>Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator</a>.ArmatureStroke</h2>
 <p>
-Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
->ConstantActuator</a> and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
+<span class="ModelicaDescription">Armature stroke of both moving coil actuator models after a voltage step at time t=0</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Have a look at <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator"
+>ConstantActuator</a> and at <a href="Modelica_Magnetic_FluxTubes_Examples_MovingCoilActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator"
 >PermeanceActuator</a>
 for an explanation of both actuator models.</p>
 
@@ -140,9 +180,11 @@ The initial current rise in both actuator models is due to the inductance of the
 <p>
 Whereas the steady state current is the same in both models, the steady state actuator force is not due to the neglection of the non-linear force component in the converter constant model. Differences in the current rise of both models are due to the neglection of the coil inductance variation in the converter constant model.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:37 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+</address>
+</body>
+</html>

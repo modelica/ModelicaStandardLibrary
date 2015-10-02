@@ -1,282 +1,351 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Mechanics.Rotational.Sensors</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Rotational.Sensors</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Sensors to measure variables in 1D rotational mechanical components&quot;">
+<meta name="description" content="&quot;Sensors to measure variables in 1D rotational mechanical components&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Mechanics.Rotational.Sensors"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
->Modelica.Mechanics.Rotational</A>.Sensors</H2>
-<B>Sensors to measure variables in 1D rotational mechanical components</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.Rotational.Sensors"></a><a href="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</a>.Sensors</h2>
+<p>
+<span class="ModelicaDescription">Sensors to measure variables in 1D rotational mechanical components</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
 Modelica.Blocks library.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
->Modelica.Icons.SensorsPackage</A> (Icon for packages containing sensors).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati3e55308e8c3c3169ensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.AngleSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AngleSensor"
->AngleSensor</A>
-</TD><TD>Ideal sensor to measure the absolute flange angle</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatif65791cecc77f321ensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.SpeedSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.SpeedSensor"
->SpeedSensor</A>
-</TD><TD>Ideal sensor to measure the absolute flange angular velocity</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatic5c911d840fd2747ensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.AccSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AccSensor"
->AccSensor</A>
-</TD><TD>Ideal sensor to measure the absolute flange angular acceleration</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatie65483172d2e53b0ensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"
->RelAngleSensor</A>
-</TD><TD>Ideal sensor to measure the relative angle between two flanges</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatie65483172d2e53b0ensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"
->RelSpeedSensor</A>
-</TD><TD>Ideal sensor to measure the relative angular velocity between two flanges</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatie65483172d2e53b0ensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.RelAccSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelAccSensor"
->RelAccSensor</A>
-</TD><TD>Ideal sensor to measure the relative angular acceleration between two flanges</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati89d697e36dbe636eensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.TorqueSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.TorqueSensor"
->TorqueSensor</A>
-</TD><TD>Ideal sensor to measure the torque between two flanges (= flange_a.tau)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati89d697e36dbe636eensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.PowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.PowerSensor"
->PowerSensor</A>
-</TD><TD>Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatie6796a108c0f5aaaensorS.png" ALT="Modelica.Mechanics.Rotational.Sensors.MultiSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.MultiSensor"
->MultiSensor</A>
-</TD><TD>Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AngleSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati3e55308e8c3c3169ensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.AngleSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.AngleSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.AngleSensor</H2>
-<B>Ideal sensor to measure the absolute flange angle</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</a> (Icon for packages containing sensors).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati3e55308e8c3c3169ensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.AngleSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AngleSensor"
+>AngleSensor</a>
+</td>
+<td>Ideal sensor to measure the absolute flange angle</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatif65791cecc77f321ensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.SpeedSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.SpeedSensor"
+>SpeedSensor</a>
+</td>
+<td>Ideal sensor to measure the absolute flange angular velocity</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatic5c911d840fd2747ensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.AccSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.AccSensor"
+>AccSensor</a>
+</td>
+<td>Ideal sensor to measure the absolute flange angular acceleration</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatie65483172d2e53b0ensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"
+>RelAngleSensor</a>
+</td>
+<td>Ideal sensor to measure the relative angle between two flanges</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatie65483172d2e53b0ensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"
+>RelSpeedSensor</a>
+</td>
+<td>Ideal sensor to measure the relative angular velocity between two flanges</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatie65483172d2e53b0ensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.RelAccSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelAccSensor"
+>RelAccSensor</a>
+</td>
+<td>Ideal sensor to measure the relative angular acceleration between two flanges</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati89d697e36dbe636eensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.TorqueSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.TorqueSensor"
+>TorqueSensor</a>
+</td>
+<td>Ideal sensor to measure the torque between two flanges (= flange_a.tau)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati89d697e36dbe636eensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.PowerSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.PowerSensor"
+>PowerSensor</a>
+</td>
+<td>Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatie6796a108c0f5aaaensorS.png" alt="Modelica.Mechanics.Rotational.Sensors.MultiSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.MultiSensor"
+>MultiSensor</a>
+</td>
+<td>Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AngleSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati3e55308e8c3c3169ensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.AngleSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.AngleSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.AngleSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the absolute flange angle</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>absolute angle phi</b> of a flange in an ideal
 way and provides the result as output signal <b>phi</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
->Rotational.Interfaces.PartialAbsoluteSensor</A> (Partial model to measure a single absolute flange variable).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange</TD><TD>Flange of shaft from which sensor information shall be measured</TD></TR>
-<TR><TD>phi</TD><TD>Absolute angle of flange as output signal [rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpeedSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatif65791cecc77f321ensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.SpeedSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.SpeedSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.SpeedSensor</H2>
-<B>Ideal sensor to measure the absolute flange angular velocity</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
+>Rotational.Interfaces.PartialAbsoluteSensor</a> (Partial model to measure a single absolute flange variable).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft from which sensor information shall be measured</td></tr>
+<tr><td>phi</td><td>Absolute angle of flange as output signal [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpeedSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatif65791cecc77f321ensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.SpeedSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.SpeedSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.SpeedSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the absolute flange angular velocity</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>absolute angular velocity w</b> of a flange in an ideal
 way and provides the result as output signal <b>w</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
->Rotational.Interfaces.PartialAbsoluteSensor</A> (Partial model to measure a single absolute flange variable).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange</TD><TD>Flange of shaft from which sensor information shall be measured</TD></TR>
-<TR><TD>w</TD><TD>Absolute angular velocity of flange as output signal [rad/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AccSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatic5c911d840fd2747ensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.AccSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.AccSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.AccSensor</H2>
-<B>Ideal sensor to measure the absolute flange angular acceleration</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
+>Rotational.Interfaces.PartialAbsoluteSensor</a> (Partial model to measure a single absolute flange variable).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft from which sensor information shall be measured</td></tr>
+<tr><td>w</td><td>Absolute angular velocity of flange as output signal [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AccSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatic5c911d840fd2747ensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.AccSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.AccSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.AccSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the absolute flange angular acceleration</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>absolute angular acceleration a</b> of a flange in an ideal
 way and provides the result as output signal <b>a</b> (to be further processed with
 blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
->Rotational.Interfaces.PartialAbsoluteSensor</A> (Partial model to measure a single absolute flange variable).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange</TD><TD>Flange of shaft from which sensor information shall be measured</TD></TR>
-<TR><TD>a</TD><TD>Absolute angular acceleration of flange as output signal [rad/s2]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelAngleSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatie65483172d2e53b0ensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.RelAngleSensor</H2>
-<B>Ideal sensor to measure the relative angle between two flanges</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
+>Rotational.Interfaces.PartialAbsoluteSensor</a> (Partial model to measure a single absolute flange variable).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft from which sensor information shall be measured</td></tr>
+<tr><td>a</td><td>Absolute angular acceleration of flange as output signal [rad/s2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelAngleSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatie65483172d2e53b0ensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.RelAngleSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the relative angle between two flanges</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>relative angle phi_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>phi_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
->Rotational.Interfaces.PartialRelativeSensor</A> (Partial model to measure a single relative variable between two flanges).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
-<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
-<TR><TD>phi_rel</TD><TD>Relative angle between two flanges (= flange_b.phi - flange_a.phi) as output signal [rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelSpeedSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatie65483172d2e53b0ensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.RelSpeedSensor</H2>
-<B>Ideal sensor to measure the relative angular velocity between two flanges</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+>Rotational.Interfaces.PartialRelativeSensor</a> (Partial model to measure a single relative variable between two flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of shaft</td></tr>
+<tr><td>flange_b</td><td>Right flange of shaft</td></tr>
+<tr><td>phi_rel</td><td>Relative angle between two flanges (= flange_b.phi - flange_a.phi) as output signal [rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelSpeedSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatie65483172d2e53b0ensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.RelSpeedSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the relative angular velocity between two flanges</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>relative angular velocity w_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>w_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
->Rotational.Interfaces.PartialRelativeSensor</A> (Partial model to measure a single relative variable between two flanges).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
-<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
-<TR><TD>w_rel</TD><TD>Relative angular velocity between two flanges (= der(flange_b.phi) - der(flange_a.phi)) as output signal [rad/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelAccSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatie65483172d2e53b0ensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.RelAccSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.RelAccSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.RelAccSensor</H2>
-<B>Ideal sensor to measure the relative angular acceleration between two flanges</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+>Rotational.Interfaces.PartialRelativeSensor</a> (Partial model to measure a single relative variable between two flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of shaft</td></tr>
+<tr><td>flange_b</td><td>Right flange of shaft</td></tr>
+<tr><td>w_rel</td><td>Relative angular velocity between two flanges (= der(flange_b.phi) - der(flange_a.phi)) as output signal [rad/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelAccSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatie65483172d2e53b0ensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.RelAccSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.RelAccSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.RelAccSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the relative angular acceleration between two flanges</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>relative angular acceleration a_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>a_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
->Rotational.Interfaces.PartialRelativeSensor</A> (Partial model to measure a single relative variable between two flanges).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
-<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
-<TR><TD>a_rel</TD><TD>Relative angular acceleration between two flanges as output signal [rad/s2]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TorqueSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati89d697e36dbe636eensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.TorqueSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.TorqueSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.TorqueSensor</H2>
-<B>Ideal sensor to measure the torque between two flanges (= flange_a.tau)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+>Rotational.Interfaces.PartialRelativeSensor</a> (Partial model to measure a single relative variable between two flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of shaft</td></tr>
+<tr><td>flange_b</td><td>Right flange of shaft</td></tr>
+<tr><td>a_rel</td><td>Relative angular acceleration between two flanges as output signal [rad/s2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TorqueSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati89d697e36dbe636eensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.TorqueSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.TorqueSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.TorqueSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the torque between two flanges (= flange_a.tau)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>cut-torque between two flanges</b> in an ideal way
 and provides the result as output signal <b>tau</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
->Rotational.Interfaces.PartialRelativeSensor</A> (Partial model to measure a single relative variable between two flanges).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
-<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
-<TR><TD>tau</TD><TD>Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PowerSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotati89d697e36dbe636eensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.PowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.PowerSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.PowerSensor</H2>
-<B>Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+>Rotational.Interfaces.PartialRelativeSensor</a> (Partial model to measure a single relative variable between two flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of shaft</td></tr>
+<tr><td>flange_b</td><td>Right flange of shaft</td></tr>
+<tr><td>tau</td><td>Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PowerSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati89d697e36dbe636eensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.PowerSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.PowerSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.PowerSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the power between two flanges (= flange_a.tau*der(flange_a.phi))</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Measures the <b>power between two flanges</b> in an ideal way
 and provides the result as output signal <b>power</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
->Rotational.Interfaces.PartialRelativeSensor</A> (Partial model to measure a single relative variable between two flanges).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
-<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
-<TR><TD>power</TD><TD>Power in flange flange_a as output signal [W]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MultiSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatie6796a108c0f5aaaensorI.png" ALT="Modelica.Mechanics.Rotational.Sensors.MultiSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.Sensors.MultiSensor"></A><A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
->Modelica.Mechanics.Rotational.Sensors</A>.MultiSensor</H2>
-<B>Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+>Rotational.Interfaces.PartialRelativeSensor</a> (Partial model to measure a single relative variable between two flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of shaft</td></tr>
+<tr><td>flange_b</td><td>Right flange of shaft</td></tr>
+<tr><td>power</td><td>Power in flange flange_a as output signal [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatie6796a108c0f5aaaensorI.png" alt="Modelica.Mechanics.Rotational.Sensors.MultiSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sensors.MultiSensor"></a><a href="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors"
+>Modelica.Mechanics.Rotational.Sensors</a>.MultiSensor</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity</span>
+</p>
+<h3>Information</h3>
+
 <p>Measures the <b>absolute angular velocity</b> of a flange_a, the <b>cut-torque</b> and <b>power</b> between two flanges in an ideal way and provides the results as output signals <b>w</b>, <b>tau</b> and <b>power</b>, respectively.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
->.Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor</A> (Partial model to measure a single relative variable between two flanges).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>flange_a</TD><TD>Left flange of shaft</TD></TR>
-<TR><TD>flange_b</TD><TD>Right flange of shaft</TD></TR>
-<TR><TD>power</TD><TD>Power in flange flange_a as output signal [W]</TD></TR>
-<TR><TD>w</TD><TD>Absolute angular velocity of flange_a as output signal [rad/s]</TD></TR>
-<TR><TD>tau</TD><TD>Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:43 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+>.Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor</a> (Partial model to measure a single relative variable between two flanges).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of shaft</td></tr>
+<tr><td>flange_b</td><td>Right flange of shaft</td></tr>
+<tr><td>power</td><td>Power in flange flange_a as output signal [W]</td></tr>
+<tr><td>w</td><td>Absolute angular velocity of flange_a as output signal [rad/s]</td></tr>
+<tr><td>tau</td><td>Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau) as output signal [N.m]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+</address>
+</body>
+</html>

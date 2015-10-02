@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Utilities.Files</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Utilities.Files</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Functions to work with files and directories&quot;">
+<meta name="description" content="&quot;Functions to work with files and directories&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Files<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Utilities.Files"></A><A HREF="Modelica_Utilities.html#Modelica.Utilities"
->Modelica.Utilities</A>.Files</H2>
-<B>Functions to work with files and directories</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Files<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.Files"></a><a href="Modelica_Utilities.html#Modelica.Utilities"
+>Modelica.Utilities</a>.Files</h2>
+<p>
+<span class="ModelicaDescription">Functions to work with files and directories</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains functions to work with files and directories.
 As a general convention of this package, '/' is used as directory
@@ -46,109 +65,150 @@ In the table below an example call to every function is given:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function/type</i></b></th><th><b><i>Description</i></b></th></tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.list"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.list"
 >list</a>(name)</td>
       <td valign="top"> List content of file or of directory.</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.copy"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.copy"
 >copy</a>(oldName, newName)<br>
-          <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.copy"
+          <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.copy"
 >copy</a>(oldName, newName, replace=false)</td>
       <td valign="top"> Generate a copy of a file or of a directory.</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.move"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.move"
 >move</a>(oldName, newName)<br>
-          <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.move"
+          <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.move"
 >move</a>(oldName, newName, replace=false)</td>
       <td valign="top"> Move a file or a directory to another place.</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.remove"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.remove"
 >remove</a>(name)</td>
       <td valign="top"> Remove file or directory (ignore call, if it does not exist).</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.removeFile"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.removeFile"
 >removeFile</a>(name)</td>
       <td valign="top"> Remove file (ignore call, if it does not exist)</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.createDirectory"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.createDirectory"
 >createDirectory</a>(name)</td>
       <td valign="top"> Create directory (if directory already exists, ignore call).</td>
   </tr>
-  <tr><td valign="top">result = <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.exist"
+  <tr><td valign="top">result = <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.exist"
 >exist</a>(name)</td>
       <td valign="top"> Inquire whether file or directory exists.</td>
   </tr>
-  <tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.assertNew"
+  <tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.assertNew"
 >assertNew</a>(name,message)</td>
       <td valign="top"> Trigger an assert, if a file or directory exists.</td>
   </tr>
-  <tr><td valign="top">fullName = <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.fullPathName"
+  <tr><td valign="top">fullName = <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.fullPathName"
 >fullPathName</a>(name)</td>
       <td valign="top"> Get full path name of file or directory name.</td>
   </tr>
-  <tr><td valign="top">(directory, name, extension) = <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.splitPathName"
+  <tr><td valign="top">(directory, name, extension) = <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.splitPathName"
 >splitPathName</a>(name)</td>
       <td valign="top"> Split path name in directory, file name kernel, file name extension.</td>
   </tr>
-  <tr><td valign="top">fileName = <A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.temporaryFileName"
+  <tr><td valign="top">fileName = <a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.temporaryFileName"
 >temporaryFileName</a>()</td>
       <td valign="top"> Return arbitrary name of a file that does not exist<br>
            and is in a directory where access rights allow to <br>
            write to this file (useful for temporary output of files).</td>
   </tr>
 </table>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.list" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.list"
->list</A>
-</TD><TD>List content of file or directory</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.copy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.copy"
->copy</A>
-</TD><TD>Generate a copy of a file or of a directory</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.move" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.move"
->move</A>
-</TD><TD>Move a file or a directory to another place</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.remove" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.remove"
->remove</A>
-</TD><TD>Remove file or directory (ignore call, if it does not exist)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.removeFile" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.removeFile"
->removeFile</A>
-</TD><TD>Remove file (ignore call, if it does not exist)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.createDirectory" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.createDirectory"
->createDirectory</A>
-</TD><TD>Create directory (if directory already exists, ignore call)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.exist" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.exist"
->exist</A>
-</TD><TD>Inquire whether file or directory exists</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.assertNew" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.assertNew"
->assertNew</A>
-</TD><TD>Trigger an assert, if a file or directory exists</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.fullPathName" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.fullPathName"
->fullPathName</A>
-</TD><TD>Get full path name of file or directory name</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.splitPathName" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.splitPathName"
->splitPathName</A>
-</TD><TD>Split path name in directory, file name kernel, file name extension</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.temporaryFileName" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.temporaryFileName"
->temporaryFileName</A>
-</TD><TD>Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.Files.listS.png" ALT="Modelica.Utilities.Files.loadResource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
->loadResource</A>
-</TD><TD>Return the absolute path name of a URI or local file name</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE list<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.list" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.list"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.list</H2>
-<B>List content of file or directory</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.list" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.list"
+>list</a>
+</td>
+<td>List content of file or directory</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.copy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.copy"
+>copy</a>
+</td>
+<td>Generate a copy of a file or of a directory</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.move" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.move"
+>move</a>
+</td>
+<td>Move a file or a directory to another place</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.remove" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.remove"
+>remove</a>
+</td>
+<td>Remove file or directory (ignore call, if it does not exist)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.removeFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.removeFile"
+>removeFile</a>
+</td>
+<td>Remove file (ignore call, if it does not exist)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.createDirectory" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.createDirectory"
+>createDirectory</a>
+</td>
+<td>Create directory (if directory already exists, ignore call)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.exist" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.exist"
+>exist</a>
+</td>
+<td>Inquire whether file or directory exists</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.assertNew" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.assertNew"
+>assertNew</a>
+</td>
+<td>Trigger an assert, if a file or directory exists</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.fullPathName" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.fullPathName"
+>fullPathName</a>
+</td>
+<td>Get full path name of file or directory name</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.splitPathName" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.splitPathName"
+>splitPathName</a>
+</td>
+<td>Split path name in directory, file name kernel, file name extension</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.temporaryFileName" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.temporaryFileName"
+>temporaryFileName</a>
+</td>
+<td>Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Files.loadResource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files.loadResource"
+>loadResource</a>
+</td>
+<td>Return the absolute path name of a URI or local file name</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE list<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.list" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.list"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.list</h2>
+<p>
+<span class="ModelicaDescription">List content of file or directory</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>list</b>(name);
@@ -162,23 +222,25 @@ file is printed.
 If "name" is a directory, the directory and file names
 in the "name" directory are printed in sorted order.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>name</TD><TD>If name is a directory, list directory content. If it is a file, list the file content</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE copy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.copy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.copy"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.copy</H2>
-<B>Generate a copy of a file or of a directory</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>name</td><td>If name is a directory, list directory content. If it is a file, list the file content</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE copy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.copy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.copy"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.copy</h2>
+<p>
+<span class="ModelicaDescription">Generate a copy of a file or of a directory</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>copy</b>(oldName, newName);
@@ -210,25 +272,27 @@ oldName.
      -> make a copy of file "test1.txt" with the name "test2.txt"
         in the current directory
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>oldName</TD><TD>Name of file or directory to be copied</TD></TR>
-<TR><TD>newName</TD><TD>Name of copy of the file or of the directory</TD></TR>
-<TR><TD>replace</TD><TD>= true, if an existing file may be replaced by the required copy</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE move<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.move" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.move"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.move</H2>
-<B>Move a file or a directory to another place</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>oldName</td><td>Name of file or directory to be copied</td></tr>
+<tr><td>newName</td><td>Name of copy of the file or of the directory</td></tr>
+<tr><td>replace</td><td>= true, if an existing file may be replaced by the required copy</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE move<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.move" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.move"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.move</h2>
+<p>
+<span class="ModelicaDescription">Move a file or a directory to another place</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>move</b>(oldName, newName);
@@ -261,25 +325,27 @@ oldName.
      -> rename file "test1.txt" into "test2.txt"
         within the current directory
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>oldName</TD><TD>Name of file or directory to be moved</TD></TR>
-<TR><TD>newName</TD><TD>New name of the moved file or directory</TD></TR>
-<TR><TD>replace</TD><TD>= true, if an existing file or directory may be replaced</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE remove<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.remove" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.remove"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.remove</H2>
-<B>Remove file or directory (ignore call, if it does not exist)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>oldName</td><td>Name of file or directory to be moved</td></tr>
+<tr><td>newName</td><td>New name of the moved file or directory</td></tr>
+<tr><td>replace</td><td>= true, if an existing file or directory may be replaced</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE remove<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.remove" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.remove"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.remove</h2>
+<p>
+<span class="ModelicaDescription">Remove file or directory (ignore call, if it does not exist)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>remove</b>(name);
@@ -294,23 +360,25 @@ the directory itself.
 <p>
 This function is silent, i.e., it does not print a message.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>name</TD><TD>Name of file or directory to be removed</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE removeFile<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.removeFile" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.removeFile"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.removeFile</H2>
-<B>Remove file (ignore call, if it does not exist)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>name</td><td>Name of file or directory to be removed</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE removeFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.removeFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.removeFile"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.removeFile</h2>
+<p>
+<span class="ModelicaDescription">Remove file (ignore call, if it does not exist)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>removeFile</b>(fileName);
@@ -325,23 +393,25 @@ error is triggered.
 <p>
 This function is silent, i.e., it does not print a message.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Name of file that should be removed</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE createDirectory<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.createDirectory" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.createDirectory"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.createDirectory</H2>
-<B>Create directory (if directory already exists, ignore call)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Name of file that should be removed</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE createDirectory<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.createDirectory" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.createDirectory"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.createDirectory</h2>
+<p>
+<span class="ModelicaDescription">Create directory (if directory already exists, ignore call)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>createDirectory</b>(directoryName);
@@ -361,23 +431,25 @@ This function is silent, i.e., it does not print a message.
 In case of error (e.g., "directoryName" is an existing regular
 file), an assert is triggered.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>directoryName</TD><TD>Name of directory to be created (if present, ignore call)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE exist<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.exist" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.exist"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.exist</H2>
-<B>Inquire whether file or directory exists</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>directoryName</td><td>Name of directory to be created (if present, ignore call)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE exist<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.exist" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.exist"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.exist</h2>
+<p>
+<span class="ModelicaDescription">Inquire whether file or directory exists</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 result = Files.<b>exist</b>(name);
@@ -387,28 +459,30 @@ result = Files.<b>exist</b>(name);
 Returns true, if "name" is an existing file or directory.
 If this is not the case, the function returns false.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>name</TD><TD>Name of file or directory</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>= true, if file or directory exists</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE assertNew<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.assertNew" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.assertNew"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.assertNew</H2>
-<B>Trigger an assert, if a file or directory exists</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>name</td><td>Name of file or directory</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>= true, if file or directory exists</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE assertNew<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.assertNew" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.assertNew"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.assertNew</h2>
+<p>
+<span class="ModelicaDescription">Trigger an assert, if a file or directory exists</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>assertNew</b>(name);
@@ -423,24 +497,26 @@ directory. The error message has the following structure:
   File "&lt;name&gt;" already exists.
   &lt;message&gt;
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>name</TD><TD>Name of file or directory</TD></TR>
-<TR><TD>message</TD><TD>Message that should be printed after the default message in a new line</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE fullPathName<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.fullPathName" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.fullPathName"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.fullPathName</H2>
-<B>Get full path name of file or directory name</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>name</td><td>Name of file or directory</td></tr>
+<tr><td>message</td><td>Message that should be printed after the default message in a new line</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE fullPathName<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.fullPathName" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.fullPathName"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.fullPathName</h2>
+<p>
+<span class="ModelicaDescription">Get full path name of file or directory name</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 fullName = Files.<b>fullPathName</b>(name);
@@ -449,28 +525,30 @@ fullName = Files.<b>fullPathName</b>(name);
 <p>
 Returns the full path name of a file or directory "name".
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>name</TD><TD>Absolute or relative file or directory name</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fullName</TD><TD>Full path of &#39;name&#39;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE splitPathName<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.splitPathName" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.splitPathName"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.splitPathName</H2>
-<B>Split path name in directory, file name kernel, file name extension</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>name</td><td>Absolute or relative file or directory name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fullName</td><td>Full path of &#39;name&#39;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE splitPathName<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.splitPathName" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.splitPathName"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.splitPathName</h2>
+<p>
+<span class="ModelicaDescription">Split path name in directory, file name kernel, file name extension</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 (directory, name, extension) = Files.<b>splitPathName</b>(pathName);
@@ -487,30 +565,32 @@ Function <b>splitPathName</b>(..) splits a path name into its parts.
      name      = "input"
      extension = ".txt"
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pathName</TD><TD>Absolute or relative file or directory name</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>directory</TD><TD>Name of the directory including a trailing &#39;/&#39;</TD></TR>
-<TR><TD>name</TD><TD>Name of the file without the extension</TD></TR>
-<TR><TD>extension</TD><TD>Extension of the file name. Starts with &#39;.&#39;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE temporaryFileName<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.temporaryFileName" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.temporaryFileName"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.temporaryFileName</H2>
-<B>Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pathName</td><td>Absolute or relative file or directory name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>directory</td><td>Name of the directory including a trailing &#39;/&#39;</td></tr>
+<tr><td>name</td><td>Name of the file without the extension</td></tr>
+<tr><td>extension</td><td>Extension of the file name. Starts with &#39;.&#39;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE temporaryFileName<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.temporaryFileName" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.temporaryFileName"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.temporaryFileName</h2>
+<p>
+<span class="ModelicaDescription">Return arbitrary name of a file that does not exist and is in a directory where access rights allow to write to this file (useful for temporary output of files)</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 fileName = Files.<b>temporaryFileName</b>();
@@ -521,23 +601,25 @@ Return arbitrary name of a file that does not exist
 and is in a directory where access rights allow to
 write to this file (useful for temporary output of files).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileName</TD><TD>Full path name of temporary file</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE loadResource<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.Files.listI.png" ALT="Modelica.Utilities.Files.loadResource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.Files.loadResource"></A><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
->Modelica.Utilities.Files</A>.loadResource</H2>
-<B>Return the absolute path name of a URI or local file name</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileName</td><td>Full path name of temporary file</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE loadResource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Files.listI.png" alt="Modelica.Utilities.Files.loadResource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Files.loadResource"></a><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+>Modelica.Utilities.Files</a>.loadResource</h2>
+<p>
+<span class="ModelicaDescription">Return the absolute path name of a URI or local file name</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 fileReference = FileSystem.<b>loadResource</b>(uri);
@@ -546,7 +628,7 @@ fileReference = FileSystem.<b>loadResource</b>(uri);
 <p>
 The function call "<code>FileSystem.<b>loadResource</b>(uri)</code>" returns the
 <b>absolute path name</b> of the file that is either defined by an URI or by a local
-(e.g. relative) path name. With the returned file name it is possible to
+path name. With the returned file name it is possible to
 access the file with function calls of the C standard library.
 If the data or file is stored in a data-base,
 this might require copying the resource to a temporary folder and referencing that.
@@ -555,7 +637,7 @@ this might require copying the resource to a temporary folder and referencing th
 <p>
 The implementation of this function is tool specific. However, at least Modelica URIs
 (see "chapter 13.2.3 External Resources" of the Modelica Specification),
-as well as absolute and relative local file path names are supported.
+as well as absolute local file path names are supported.
 </p>
 
 <h4>Example</h4>
@@ -565,19 +647,21 @@ as well as absolute and relative local file path names are supported.
   file2 = loadResource("C:\\data\\readParameters.txt")
           file2 = "C:/data/readParameters.txt"
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Utilities_Internal_PartialModelicaServices_ExternalReferences.html#Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource"
->Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource</A> (Interface for tool specific function to return the absolute path name of a URI or local file name), ModelicaServices.ExternalReferences.loadResource (Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>uri</TD><TD>URI or local file name</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>fileReference</TD><TD>Absolute path name of file</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Utilities_Internal_PartialModelicaServices_ExternalReferences.html#Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource"
+>Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource</a> (Interface for tool specific function to return the absolute path name of a URI or local file name), ModelicaServices.ExternalReferences.loadResource (Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>uri</td><td>URI or local file name</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>fileReference</td><td>Absolute path name of file</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

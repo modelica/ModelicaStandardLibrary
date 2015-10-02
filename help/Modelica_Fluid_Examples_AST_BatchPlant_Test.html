@@ -1,129 +1,181 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Examples.AST_BatchPlant.Test</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Examples.AST_BatchPlant.Test</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Test of used tank models&quot;">
+<meta name="description" content="&quot;Test of used tank models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Test<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
->Modelica.Fluid.Examples.AST_BatchPlant</A>.Test</H2>
-<B>Test of used tank models</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank"
->OneTank</A>
-</TD><TD>Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks"
->TwoTanks</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1"
->TankWithEmptyingPipe1</A>
-</TD><TD>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2"
->TankWithEmptyingPipe2</A>
-</TD><TD>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1"
->TanksWithEmptyingPipe1</A>
-</TD><TD>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2"
->TanksWithEmptyingPipe2</A>
-</TD><TD>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE OneTank<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
->Modelica.Fluid.Examples.AST_BatchPlant.Test</A>.OneTank</H2>
-<B>Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TwoTanks<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
->Modelica.Fluid.Examples.AST_BatchPlant.Test</A>.TwoTanks</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>stiffCharacteristicForEmptyPort</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TankWithEmptyingPipe1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
->Modelica.Fluid.Examples.AST_BatchPlant.Test</A>.TankWithEmptyingPipe1</H2>
-<B>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TankWithEmptyingPipe2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
->Modelica.Fluid.Examples.AST_BatchPlant.Test</A>.TankWithEmptyingPipe2</H2>
-<B>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TanksWithEmptyingPipe1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
->Modelica.Fluid.Examples.AST_BatchPlant.Test</A>.TanksWithEmptyingPipe1</H2>
-<B>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TanksWithEmptyingPipe2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2"></A><A HREF="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
->Modelica.Fluid.Examples.AST_BatchPlant.Test</A>.TanksWithEmptyingPipe2</H2>
-<B>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>stiffCharacteristicForEmptyPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:45 2013.
-</address></BODY>
-</HTML>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Test<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Examples.AST_BatchPlant.Test"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
+>Modelica.Fluid.Examples.AST_BatchPlant</a>.Test</h2>
+<p>
+<span class="ModelicaDescription">Test of used tank models</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank"
+>OneTank</a>
+</td>
+<td>Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks"
+>TwoTanks</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1"
+>TankWithEmptyingPipe1</a>
+</td>
+<td>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2"
+>TankWithEmptyingPipe2</a>
+</td>
+<td>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1"
+>TanksWithEmptyingPipe1</a>
+</td>
+<td>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2"
+>TanksWithEmptyingPipe2</a>
+</td>
+<td>Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OneTank<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.Test.OneTank"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Modelica.Fluid.Examples.AST_BatchPlant.Test</a>.OneTank</h2>
+<p>
+<span class="ModelicaDescription">Tank with one time-varying top inlet mass flow rate and a bottom outlet into the ambient</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoTanks<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.Test.TwoTanks"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Modelica.Fluid.Examples.AST_BatchPlant.Test</a>.TwoTanks</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>stiffCharacteristicForEmptyPort</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TankWithEmptyingPipe1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe1"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Modelica.Fluid.Examples.AST_BatchPlant.Test</a>.TankWithEmptyingPipe1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TankWithEmptyingPipe2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.Test.TankWithEmptyingPipe2"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Modelica.Fluid.Examples.AST_BatchPlant.Test</a>.TankWithEmptyingPipe2</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TanksWithEmptyingPipe1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe1"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Modelica.Fluid.Examples.AST_BatchPlant.Test</a>.TanksWithEmptyingPipe1</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TanksWithEmptyingPipe2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.A0711ee7365df1ceceTankI.png" alt="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.AST_BatchPlant.Test.TanksWithEmptyingPipe2"></a><a href="Modelica_Fluid_Examples_AST_BatchPlant_Test.html#Modelica.Fluid.Examples.AST_BatchPlant.Test"
+>Modelica.Fluid.Examples.AST_BatchPlant.Test</a>.TanksWithEmptyingPipe2</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates a tank with one constant top inlet mass flow rate and a bottom outlet into the ambient</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>stiffCharacteristicForEmptyPort</td><td>&nbsp;</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

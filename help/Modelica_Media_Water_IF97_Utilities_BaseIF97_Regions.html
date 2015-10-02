@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Functions to find the current region for given pairs of input variables&quot;">
+<meta name="description" content="&quot;Functions to find the current region for given pairs of input variables&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Regions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
->Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.Regions</H2>
-<B>Functions to find the current region for given pairs of input variables</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre><h4>Package description</h4>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Regions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.Regions</h2>
+<p>
+<span class="ModelicaDescription">Functions to find the current region for given pairs of input variables</span><br>
+</p>
+<h3>Information</h3>
+<h4>Package description</h4>
  <p>Package <b>Regions</b> contains a large number of auxiliary functions which are needed to compute the current region
  of the IAPWS/IF97 for a given pair of input variables as quickly as possible. The focus of this implementation was on
  computational efficiency, not on compact code. Many of the function values calculated in these functions could be obtained
@@ -104,1134 +123,1371 @@ table   { solid #000; border-collapse: collapse;}
  <li>Initial version: July 2000</li>
  <li>Revised and extended for inclusion in Modelica.Thermal: December 2002</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT"
->boundary23ofT</A>
-</TD><TD>Boundary function for region boundary between regions 2 and 3 (input temperature)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp"
->boundary23ofp</A>
-</TD><TD>Boundary function for region boundary between regions 2 and 3 (input pressure)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5"
->hlowerofp5</A>
-</TD><TD>Explicit lower specific enthalpy limit of region 5 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5"
->hupperofp5</A>
-</TD><TD>Explicit upper specific enthalpy limit of region 5 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5"
->slowerofp5</A>
-</TD><TD>Explicit lower specific entropy limit of region 5 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5"
->supperofp5</A>
-</TD><TD>Explicit upper specific entropy limit of region 5 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1"
->hlowerofp1</A>
-</TD><TD>Explicit lower specific enthalpy limit of region 1 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1"
->hupperofp1</A>
-</TD><TD>Explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1"
->slowerofp1</A>
-</TD><TD>Explicit lower specific entropy limit of region 1 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1"
->supperofp1</A>
-</TD><TD>Explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2"
->hlowerofp2</A>
-</TD><TD>Explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2"
->hupperofp2</A>
-</TD><TD>Explicit upper specific enthalpy limit of region 2 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2"
->slowerofp2</A>
-</TD><TD>Explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2"
->supperofp2</A>
-</TD><TD>Explicit upper specific entropy limit of region 2 as function of pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n"
->d1n</A>
-</TD><TD>Density in region 1 as function of p and T</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n"
->d2n</A>
-</TD><TD>Density in region 2 as function of p and T</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp"
->dhot1ofp</A>
-</TD><TD>Density at upper temperature limit of region 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT"
->dupper1ofT</A>
-</TD><TD>Density at upper pressure limit of region 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b"
->hl_p_R4b</A>
-</TD><TD>Explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b"
->hv_p_R4b</A>
-</TD><TD>Explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b"
->sl_p_R4b</A>
-</TD><TD>Explicit approximation of liquid specific entropy on the boundary between regions 4 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b"
->sv_p_R4b</A>
-</TD><TD>Explicit approximation of vapour specific entropy on the boundary between regions 4 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b"
->rhol_p_R4b</A>
-</TD><TD>Explicit approximation of liquid density on the boundary between regions 4 and 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b"
->rhov_p_R4b</A>
-</TD><TD>Explicit approximation of vapour density on the boundary between regions 4 and 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p"
->boilingcurve_p</A>
-</TD><TD>Properties on the boiling curve</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p"
->dewcurve_p</A>
-</TD><TD>Properties on the dew curve</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p"
->hvl_p</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p"
->hl_p</A>
-</TD><TD>Liquid specific enthalpy on the boundary between regions 4 and 3 or 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p"
->hv_p</A>
-</TD><TD>Vapour specific enthalpy on the boundary between regions 4 and 3 or 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der"
->hvl_p_der</A>
-</TD><TD>Derivative function for the specific enthalpy along the phase boundary</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p"
->rhovl_p</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p"
->rhol_p</A>
-</TD><TD>Density of saturated water</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p"
->rhov_p</A>
-</TD><TD>Density of saturated vapour</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der"
->rhovl_p_der</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p"
->sl_p</A>
-</TD><TD>Liquid specific entropy on the boundary between regions 4 and 3 or 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p"
->sv_p</A>
-</TD><TD>Vapour specific entropy on the boundary between regions 4 and 3 or 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T"
->rhol_T</A>
-</TD><TD>Density of saturated water</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T"
->rhov_T</A>
-</TD><TD>Density of saturated vapour</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph"
->region_ph</A>
-</TD><TD>Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps"
->region_ps</A>
-</TD><TD>Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT"
->region_pT</A>
-</TD><TD>Return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT"
->region_dT</A>
-</TD><TD>Return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp"
->hvl_dp</A>
-</TD><TD>Derivative function for the specific enthalpy along the phase boundary</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp"
->dhl_dp</A>
-</TD><TD>Derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp"
->dhv_dp</A>
-</TD><TD>Derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp"
->drhovl_dp</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp"
->drhol_dp</A>
-</TD><TD>Derivative of density of saturated water w.r.t. pressure</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp"
->drhov_dp</A>
-</TD><TD>Derivative of density of saturated steam w.r.t. pressure</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE boundary23ofT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.boundary23ofT</H2>
-<B>Boundary function for region boundary between regions 2 and 3 (input temperature)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>t</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE boundary23ofp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.boundary23ofp</H2>
-<B>Boundary function for region boundary between regions 2 and 3 (input pressure)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>t</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hlowerofp5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hlowerofp5</H2>
-<B>Explicit lower specific enthalpy limit of region 5 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hupperofp5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hupperofp5</H2>
-<B>Explicit upper specific enthalpy limit of region 5 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE slowerofp5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.slowerofp5</H2>
-<B>Explicit lower specific entropy limit of region 5 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE supperofp5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.supperofp5</H2>
-<B>Explicit upper specific entropy limit of region 5 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hlowerofp1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hlowerofp1</H2>
-<B>Explicit lower specific enthalpy limit of region 1 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hupperofp1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hupperofp1</H2>
-<B>Explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE slowerofp1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.slowerofp1</H2>
-<B>Explicit lower specific entropy limit of region 1 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE supperofp1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.supperofp1</H2>
-<B>Explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hlowerofp2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hlowerofp2</H2>
-<B>Explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hupperofp2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hupperofp2</H2>
-<B>Explicit upper specific enthalpy limit of region 2 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE slowerofp2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.slowerofp2</H2>
-<B>Explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE supperofp2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.supperofp2</H2>
-<B>Explicit upper specific entropy limit of region 2 as function of pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE d1n<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.d1n</H2>
-<B>Density in region 1 as function of p and T</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE d2n<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.d2n</H2>
-<B>Density in region 2 as function of p and T</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dhot1ofp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dhot1ofp</H2>
-<B>Density at upper temperature limit of region 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dupper1ofT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dupper1ofT</H2>
-<B>Density at upper pressure limit of region 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hl_p_R4b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hl_p_R4b</H2>
-<B>Explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hv_p_R4b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hv_p_R4b</H2>
-<B>Explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sl_p_R4b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sl_p_R4b</H2>
-<B>Explicit approximation of liquid specific entropy on the boundary between regions 4 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sv_p_R4b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sv_p_R4b</H2>
-<B>Explicit approximation of vapour specific entropy on the boundary between regions 4 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>[J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhol_p_R4b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhol_p_R4b</H2>
-<B>Explicit approximation of liquid density on the boundary between regions 4 and 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dl</TD><TD>Liquid density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhov_p_R4b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhov_p_R4b</H2>
-<B>Explicit approximation of vapour density on the boundary between regions 4 and 2</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dv</TD><TD>Vapour density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE boilingcurve_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.boilingcurve_p</H2>
-<B>Properties on the boiling curve</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dewcurve_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dewcurve_p</H2>
-<B>Properties on the dew curve</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hvl_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hvl_p</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hl_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hl_p</H2>
-<B>Liquid specific enthalpy on the boundary between regions 4 and 3 or 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hv_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hv_p</H2>
-<B>Vapour specific enthalpy on the boundary between regions 4 and 3 or 2</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hvl_p_der<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hvl_p_der</H2>
-<B>Derivative function for the specific enthalpy along the phase boundary</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h_der</TD><TD>Time derivative of specific enthalpy along the phase boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhovl_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhovl_p</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho</TD><TD>Density [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhol_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhol_p</H2>
-<B>Density of saturated water</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Saturation pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho</TD><TD>Density of steam at the condensation point [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhov_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhov_p</H2>
-<B>Density of saturated vapour</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Saturation pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>rho</TD><TD>Density of steam at the condensation point [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhovl_p_der<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhovl_p_der</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Saturation pressure [Pa]</TD></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-<TR><TD>p_der</TD><TD>Derivative of pressure</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d_der</TD><TD>Time derivative of density along the phase boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sl_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sl_p</H2>
-<B>Liquid specific entropy on the boundary between regions 4 and 3 or 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sv_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.sv_p</H2>
-<B>Vapour specific entropy on the boundary between regions 4 and 3 or 2</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhol_T<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhol_T</H2>
-<B>Density of saturated water</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density of water at the boiling point [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE rhov_T<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.rhov_T</H2>
-<B>Density of saturated vapour</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density of steam at the condensation point [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE region_ph<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_ph</H2>
-<B>Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-<TR><TD>phase</TD><TD>Phase: 2 for two-phase, 1 for one phase, 0 if not known</TD></TR>
-<TR><TD>mode</TD><TD>Mode: 0 means check, otherwise assume region=mode</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>region</TD><TD>Region (valid values: 1,2,3,4,5) in IF97</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE region_ps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_ps</H2>
-<B>Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>phase</TD><TD>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</TD></TR>
-<TR><TD>mode</TD><TD>Mode: 0 means check, otherwise assume region=mode</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>region</TD><TD>Region (valid values: 1,2,3,4,5) in IF97</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE region_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_pT</H2>
-<B>Return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>mode</TD><TD>Mode: 0 means check, otherwise assume region=mode</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>region</TD><TD>Region (valid values: 1,2,3,5) in IF97, region 4 is impossible!</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE region_dT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.region_dT</H2>
-<B>Return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-<TR><TD>phase</TD><TD>Phase: 2 for two-phase, 1 for one phase, 0 if not known</TD></TR>
-<TR><TD>mode</TD><TD>Mode: 0 means check, otherwise assume region=mode</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>region</TD><TD>(valid values: 1,2,3,4,5) in IF97</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hvl_dp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.hvl_dp</H2>
-<B>Derivative function for the specific enthalpy along the phase boundary</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dh_dp</TD><TD>Derivative of specific enthalpy along the phase boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dhl_dp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dhl_dp</H2>
-<B>Derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dh_dp</TD><TD>Specific enthalpy derivative w.r.t. pressure [J.m.s2/kg2]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dhv_dp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.dhv_dp</H2>
-<B>Derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dh_dp</TD><TD>Specific enthalpy derivative w.r.t. pressure [J.m.s2/kg2]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE drhovl_dp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.drhovl_dp</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Saturation pressure [Pa]</TD></TR>
-<TR><TD>bpro</TD><TD>Property record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dd_dp</TD><TD>Derivative of density along the phase boundary [kg/(m3.Pa)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE drhol_dp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.drhol_dp</H2>
-<B>Derivative of density of saturated water w.r.t. pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Saturation pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dd_dp</TD><TD>Derivative of density of water at the boiling point [s2/m2]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE drhov_dp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</A>.drhov_dp</H2>
-<B>Derivative of density of saturated steam w.r.t. pressure</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Saturation pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dd_dp</TD><TD>Derivative of density of water at the boiling point [s2/m2]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:07 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT"
+>boundary23ofT</a>
+</td>
+<td>Boundary function for region boundary between regions 2 and 3 (input temperature)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp"
+>boundary23ofp</a>
+</td>
+<td>Boundary function for region boundary between regions 2 and 3 (input pressure)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5"
+>hlowerofp5</a>
+</td>
+<td>Explicit lower specific enthalpy limit of region 5 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5"
+>hupperofp5</a>
+</td>
+<td>Explicit upper specific enthalpy limit of region 5 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5"
+>slowerofp5</a>
+</td>
+<td>Explicit lower specific entropy limit of region 5 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5"
+>supperofp5</a>
+</td>
+<td>Explicit upper specific entropy limit of region 5 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1"
+>hlowerofp1</a>
+</td>
+<td>Explicit lower specific enthalpy limit of region 1 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1"
+>hupperofp1</a>
+</td>
+<td>Explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1"
+>slowerofp1</a>
+</td>
+<td>Explicit lower specific entropy limit of region 1 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1"
+>supperofp1</a>
+</td>
+<td>Explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2"
+>hlowerofp2</a>
+</td>
+<td>Explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2"
+>hupperofp2</a>
+</td>
+<td>Explicit upper specific enthalpy limit of region 2 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2"
+>slowerofp2</a>
+</td>
+<td>Explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2"
+>supperofp2</a>
+</td>
+<td>Explicit upper specific entropy limit of region 2 as function of pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n"
+>d1n</a>
+</td>
+<td>Density in region 1 as function of p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n"
+>d2n</a>
+</td>
+<td>Density in region 2 as function of p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp"
+>dhot1ofp</a>
+</td>
+<td>Density at upper temperature limit of region 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT"
+>dupper1ofT</a>
+</td>
+<td>Density at upper pressure limit of region 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b"
+>hl_p_R4b</a>
+</td>
+<td>Explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b"
+>hv_p_R4b</a>
+</td>
+<td>Explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b"
+>sl_p_R4b</a>
+</td>
+<td>Explicit approximation of liquid specific entropy on the boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b"
+>sv_p_R4b</a>
+</td>
+<td>Explicit approximation of vapour specific entropy on the boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b"
+>rhol_p_R4b</a>
+</td>
+<td>Explicit approximation of liquid density on the boundary between regions 4 and 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b"
+>rhov_p_R4b</a>
+</td>
+<td>Explicit approximation of vapour density on the boundary between regions 4 and 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p"
+>boilingcurve_p</a>
+</td>
+<td>Properties on the boiling curve</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p"
+>dewcurve_p</a>
+</td>
+<td>Properties on the dew curve</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p"
+>hvl_p</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p"
+>hl_p</a>
+</td>
+<td>Liquid specific enthalpy on the boundary between regions 4 and 3 or 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p"
+>hv_p</a>
+</td>
+<td>Vapour specific enthalpy on the boundary between regions 4 and 3 or 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der"
+>hvl_p_der</a>
+</td>
+<td>Derivative function for the specific enthalpy along the phase boundary</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p"
+>rhovl_p</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p"
+>rhol_p</a>
+</td>
+<td>Density of saturated water</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p"
+>rhov_p</a>
+</td>
+<td>Density of saturated vapour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der"
+>rhovl_p_der</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p"
+>sl_p</a>
+</td>
+<td>Liquid specific entropy on the boundary between regions 4 and 3 or 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p"
+>sv_p</a>
+</td>
+<td>Vapour specific entropy on the boundary between regions 4 and 3 or 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T"
+>rhol_T</a>
+</td>
+<td>Density of saturated water</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T"
+>rhov_T</a>
+</td>
+<td>Density of saturated vapour</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph"
+>region_ph</a>
+</td>
+<td>Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps"
+>region_ps</a>
+</td>
+<td>Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT"
+>region_pT</a>
+</td>
+<td>Return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT"
+>region_dT</a>
+</td>
+<td>Return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp"
+>hvl_dp</a>
+</td>
+<td>Derivative function for the specific enthalpy along the phase boundary</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp"
+>dhl_dp</a>
+</td>
+<td>Derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp"
+>dhv_dp</a>
+</td>
+<td>Derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp"
+>drhovl_dp</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp"
+>drhol_dp</a>
+</td>
+<td>Derivative of density of saturated water w.r.t. pressure</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp"
+>drhov_dp</a>
+</td>
+<td>Derivative of density of saturated steam w.r.t. pressure</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE boundary23ofT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofT"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.boundary23ofT</h2>
+<p>
+<span class="ModelicaDescription">Boundary function for region boundary between regions 2 and 3 (input temperature)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>t</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE boundary23ofp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boundary23ofp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.boundary23ofp</h2>
+<p>
+<span class="ModelicaDescription">Boundary function for region boundary between regions 2 and 3 (input pressure)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>t</td><td>Temperature (K) [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hlowerofp5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hlowerofp5</h2>
+<p>
+<span class="ModelicaDescription">Explicit lower specific enthalpy limit of region 5 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hupperofp5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hupperofp5</h2>
+<p>
+<span class="ModelicaDescription">Explicit upper specific enthalpy limit of region 5 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE slowerofp5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.slowerofp5</h2>
+<p>
+<span class="ModelicaDescription">Explicit lower specific entropy limit of region 5 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE supperofp5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.supperofp5</h2>
+<p>
+<span class="ModelicaDescription">Explicit upper specific entropy limit of region 5 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hlowerofp1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hlowerofp1</h2>
+<p>
+<span class="ModelicaDescription">Explicit lower specific enthalpy limit of region 1 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hupperofp1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hupperofp1</h2>
+<p>
+<span class="ModelicaDescription">Explicit upper specific enthalpy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE slowerofp1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.slowerofp1</h2>
+<p>
+<span class="ModelicaDescription">Explicit lower specific entropy limit of region 1 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE supperofp1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.supperofp1</h2>
+<p>
+<span class="ModelicaDescription">Explicit upper specific entropy limit of region 1 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hlowerofp2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hlowerofp2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hlowerofp2</h2>
+<p>
+<span class="ModelicaDescription">Explicit lower specific enthalpy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hupperofp2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hupperofp2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hupperofp2</h2>
+<p>
+<span class="ModelicaDescription">Explicit upper specific enthalpy limit of region 2 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE slowerofp2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.slowerofp2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.slowerofp2</h2>
+<p>
+<span class="ModelicaDescription">Explicit lower specific entropy limit of region 2 as function of pressure (meets region 4 saturation pressure curve at 623.15 K)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE supperofp2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.supperofp2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.supperofp2</h2>
+<p>
+<span class="ModelicaDescription">Explicit upper specific entropy limit of region 2 as function of pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE d1n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d1n"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.d1n</h2>
+<p>
+<span class="ModelicaDescription">Density in region 1 as function of p and T</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE d2n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.d2n"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.d2n</h2>
+<p>
+<span class="ModelicaDescription">Density in region 2 as function of p and T</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dhot1ofp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhot1ofp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.dhot1ofp</h2>
+<p>
+<span class="ModelicaDescription">Density at upper temperature limit of region 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dupper1ofT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dupper1ofT"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.dupper1ofT</h2>
+<p>
+<span class="ModelicaDescription">Density at upper pressure limit of region 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hl_p_R4b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p_R4b"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hl_p_R4b</h2>
+<p>
+<span class="ModelicaDescription">Explicit approximation of liquid specific enthalpy on the boundary between regions 4 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hv_p_R4b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p_R4b"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hv_p_R4b</h2>
+<p>
+<span class="ModelicaDescription">Explicit approximation of vapour specific enthalpy on the boundary between regions 4 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sl_p_R4b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p_R4b"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.sl_p_R4b</h2>
+<p>
+<span class="ModelicaDescription">Explicit approximation of liquid specific entropy on the boundary between regions 4 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sv_p_R4b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p_R4b"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.sv_p_R4b</h2>
+<p>
+<span class="ModelicaDescription">Explicit approximation of vapour specific entropy on the boundary between regions 4 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>[J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhol_p_R4b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p_R4b"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhol_p_R4b</h2>
+<p>
+<span class="ModelicaDescription">Explicit approximation of liquid density on the boundary between regions 4 and 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dl</td><td>Liquid density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhov_p_R4b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p_R4b"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhov_p_R4b</h2>
+<p>
+<span class="ModelicaDescription">Explicit approximation of vapour density on the boundary between regions 4 and 2</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dv</td><td>Vapour density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE boilingcurve_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.boilingcurve_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.boilingcurve_p</h2>
+<p>
+<span class="ModelicaDescription">Properties on the boiling curve</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dewcurve_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dewcurve_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.dewcurve_p</h2>
+<p>
+<span class="ModelicaDescription">Properties on the dew curve</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hvl_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hvl_p</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hl_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hl_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hl_p</h2>
+<p>
+<span class="ModelicaDescription">Liquid specific enthalpy on the boundary between regions 4 and 3 or 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hv_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hv_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hv_p</h2>
+<p>
+<span class="ModelicaDescription">Vapour specific enthalpy on the boundary between regions 4 and 3 or 2</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hvl_p_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_p_der"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hvl_p_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative function for the specific enthalpy along the phase boundary</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h_der</td><td>Time derivative of specific enthalpy along the phase boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhovl_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhovl_p</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhol_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhol_p</h2>
+<p>
+<span class="ModelicaDescription">Density of saturated water</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density of steam at the condensation point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhov_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhov_p</h2>
+<p>
+<span class="ModelicaDescription">Density of saturated vapour</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>rho</td><td>Density of steam at the condensation point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhovl_p_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhovl_p_der"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhovl_p_der</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+<tr><td>p_der</td><td>Derivative of pressure</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d_der</td><td>Time derivative of density along the phase boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sl_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sl_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.sl_p</h2>
+<p>
+<span class="ModelicaDescription">Liquid specific entropy on the boundary between regions 4 and 3 or 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sv_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.sv_p"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.sv_p</h2>
+<p>
+<span class="ModelicaDescription">Vapour specific entropy on the boundary between regions 4 and 3 or 2</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhol_T<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhol_T"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhol_T</h2>
+<p>
+<span class="ModelicaDescription">Density of saturated water</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density of water at the boiling point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE rhov_T<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.rhov_T"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.rhov_T</h2>
+<p>
+<span class="ModelicaDescription">Density of saturated vapour</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density of steam at the condensation point [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE region_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ph"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.region_ph</h2>
+<p>
+<span class="ModelicaDescription">Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific enthalpy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if not known</td></tr>
+<tr><td>mode</td><td>Mode: 0 means check, otherwise assume region=mode</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>region</td><td>Region (valid values: 1,2,3,4,5) in IF97</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE region_ps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_ps"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.region_ps</h2>
+<p>
+<span class="ModelicaDescription">Return the current region (valid values: 1,2,3,4,5) in IF97 for given pressure and specific entropy</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+<tr><td>mode</td><td>Mode: 0 means check, otherwise assume region=mode</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>region</td><td>Region (valid values: 1,2,3,4,5) in IF97</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE region_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_pT"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.region_pT</h2>
+<p>
+<span class="ModelicaDescription">Return the current region (valid values: 1,2,3,5) in IF97, given pressure and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>mode</td><td>Mode: 0 means check, otherwise assume region=mode</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>region</td><td>Region (valid values: 1,2,3,5) in IF97, region 4 is impossible!</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE region_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.region_dT"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.region_dT</h2>
+<p>
+<span class="ModelicaDescription">Return the current region (valid values: 1,2,3,4,5) in IF97, given density and temperature</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if not known</td></tr>
+<tr><td>mode</td><td>Mode: 0 means check, otherwise assume region=mode</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>region</td><td>(valid values: 1,2,3,4,5) in IF97</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hvl_dp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.hvl_dp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.hvl_dp</h2>
+<p>
+<span class="ModelicaDescription">Derivative function for the specific enthalpy along the phase boundary</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dh_dp</td><td>Derivative of specific enthalpy along the phase boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dhl_dp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhl_dp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.dhl_dp</h2>
+<p>
+<span class="ModelicaDescription">Derivative of liquid specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dh_dp</td><td>Specific enthalpy derivative w.r.t. pressure [J.m.s2/kg2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dhv_dp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.dhv_dp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.dhv_dp</h2>
+<p>
+<span class="ModelicaDescription">Derivative of vapour specific enthalpy on the boundary between regions 4 and 3 or 1 w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dh_dp</td><td>Specific enthalpy derivative w.r.t. pressure [J.m.s2/kg2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE drhovl_dp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhovl_dp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.drhovl_dp</h2>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+<tr><td>bpro</td><td>Property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dd_dp</td><td>Derivative of density along the phase boundary [kg/(m3.Pa)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE drhol_dp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhol_dp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.drhol_dp</h2>
+<p>
+<span class="ModelicaDescription">Derivative of density of saturated water w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dd_dp</td><td>Derivative of density of water at the boiling point [s2/m2]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE drhov_dp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF97ad96a47c0204ebf423ofTI.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions.drhov_dp"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Regions.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Regions</a>.drhov_dp</h2>
+<p>
+<span class="ModelicaDescription">Derivative of density of saturated steam w.r.t. pressure</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Saturation pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dd_dp</td><td>Derivative of density of water at the boiling point [s2/m2]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:24 2015.
+</address>
+</body>
+</html>

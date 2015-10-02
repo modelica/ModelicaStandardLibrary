@@ -1,323 +1,387 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Dissipation.PressureLoss.Orifice</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Dissipation.PressureLoss.Orifice</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Package for pressure loss calculation of orifices&quot;">
+<meta name="description" content="&quot;Package for pressure loss calculation of orifices&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Orifice<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss.html#Modelica.Fluid.Dissipation.PressureLoss"
->Modelica.Fluid.Dissipation.PressureLoss</A>.Orifice</H2>
-<B>Package for pressure loss calculation of orifices</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Orifice<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice"></a><a href="Modelica_Fluid_Dissipation_PressureLoss.html#Modelica.Fluid.Dissipation.PressureLoss"
+>Modelica.Fluid.Dissipation.PressureLoss</a>.Orifice</h2>
+<p>
+<span class="ModelicaDescription">Package for pressure loss calculation of orifices</span><br>
+</p>
+<h3>Information</h3>
+
 <h4>Orifice</h4>
 <h5>Sudden change</h5>
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface.
-<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange"
+<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange"
 >See more information</a>.
 </p>
 
 <h5>Thick edged orifice</h5>
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
-<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall"
+<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall"
 >See more information</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
->Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
->dp_suddenChange_DP</A>
-</TD><TD>Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
->dp_suddenChange_MFLOW</A>
-</TD><TD>Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con"
->dp_suddenChange_IN_con</A>
-</TD><TD>Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var"
->dp_suddenChange_IN_var</A>
-</TD><TD>Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
->dp_thickEdgedOverall_DP</A>
-</TD><TD>Pressure loss of thick and sharp edged orifice | calculate pressure loss | overall flow regime | constant influence of friction  | arbitrary cross sectional area</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
->dp_thickEdgedOverall_MFLOW</A>
-</TD><TD>Pressure loss of thick and sharp edged orifice | calculate mass flow rate | overall flow regime | constant influence of friction  | arbitrary cross sectional area</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con"
->dp_thickEdgedOverall_IN_con</A>
-</TD><TD>Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var"
->dp_thickEdgedOverall_IN_var</A>
-</TD><TD>Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_suddenChange_DP<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_suddenChange_DP</H2>
-<B>Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
+>dp_suddenChange_DP</a>
+</td>
+<td>Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
+>dp_suddenChange_MFLOW</a>
+</td>
+<td>Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con"
+>dp_suddenChange_IN_con</a>
+</td>
+<td>Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var"
+>dp_suddenChange_IN_var</a>
+</td>
+<td>Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
+>dp_thickEdgedOverall_DP</a>
+</td>
+<td>Pressure loss of thick and sharp edged orifice | calculate pressure loss | overall flow regime | constant influence of friction  | arbitrary cross sectional area</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
+>dp_thickEdgedOverall_MFLOW</a>
+</td>
+<td>Pressure loss of thick and sharp edged orifice | calculate mass flow rate | overall flow regime | constant influence of friction  | arbitrary cross sectional area</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con"
+>dp_thickEdgedOverall_IN_con</a>
+</td>
+<td>Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conS.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var"
+>dp_thickEdgedOverall_IN_var</a>
+</td>
+<td>Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_suddenChange_DP<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_suddenChange_DP</h2>
+<p>
+<span class="ModelicaDescription">Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
->dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange"
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
+>dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange"
 >See more information</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
-<TR><TD>IN_con</TD><TD>Input record for function dp_suddenChange_DP</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
-<TR><TD>IN_var</TD><TD>Input record for function dp_suddenChange_DP</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>DP</TD><TD>Output for function dp_suddenChange_DP [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_suddenChange_MFLOW<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_suddenChange_MFLOW</H2>
-<B>Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Constant inputs</td></tr>
+<tr><td>IN_con</td><td>Input record for function dp_suddenChange_DP</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Variable inputs</td></tr>
+<tr><td>IN_var</td><td>Input record for function dp_suddenChange_DP</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Input</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate [kg/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>DP</td><td>Output for function dp_suddenChange_DP [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_suddenChange_MFLOW<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio5818404d1fd3b71fge_DPI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_suddenChange_MFLOW</h2>
+<p>
+<span class="ModelicaDescription">Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
->dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange"
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
+>dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange"
 >See more information</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
-<TR><TD>IN_con</TD><TD>Input record for function dp_suddenChange_MFLOW</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
-<TR><TD>IN_var</TD><TD>Input record for function dp_suddenChange_MFLOW</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
-<TR><TD>dp</TD><TD>Pressure loss [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>M_FLOW</TD><TD>Output for function dp_suddenChange_MFLOW [kg/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_suddenChange_IN_con<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_suddenChange_IN_con</H2>
-<B>Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Constant inputs</td></tr>
+<tr><td>IN_con</td><td>Input record for function dp_suddenChange_MFLOW</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Variable inputs</td></tr>
+<tr><td>IN_var</td><td>Input record for function dp_suddenChange_MFLOW</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Input</td></tr>
+<tr><td>dp</td><td>Pressure loss [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>M_FLOW</td><td>Output for function dp_suddenChange_MFLOW [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_suddenChange_IN_con<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_suddenChange_IN_con</h2>
+<p>
+<span class="ModelicaDescription">Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</span>
+</p>
+<h3>Information</h3>
+
 This record is used as <b> input record </b> for the pressure loss functions
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
 > dp_suddenChange_DP</a> and
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
 > dp_suddenChange_MFLOW</a>.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange"
->Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange</A> (Input for sudden change of diameter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Orifice</TD></TR>
-<TR><TD>A_1</TD><TD>Small cross sectional area of orifice [m2]</TD></TR>
-<TR><TD>A_2</TD><TD>Large cross sectional area of orifice [m2]</TD></TR>
-<TR><TD>C_1</TD><TD>Small perimeter of orifice [m]</TD></TR>
-<TR><TD>C_2</TD><TD>Large perimeter of orifice [m]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_suddenChange_IN_var<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_suddenChange_IN_var</H2>
-<B>Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange"
+>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange</a> (Input for sudden change of diameter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Orifice</td></tr>
+<tr><td>A_1</td><td>Small cross sectional area of orifice [m2]</td></tr>
+<tr><td>A_2</td><td>Large cross sectional area of orifice [m2]</td></tr>
+<tr><td>C_1</td><td>Small perimeter of orifice [m]</td></tr>
+<tr><td>C_2</td><td>Large perimeter of orifice [m]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_suddenChange_IN_var<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio781b15356a3ffcb4N_conI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_suddenChange_IN_var</h2>
+<p>
+<span class="ModelicaDescription">Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW</span>
+</p>
+<h3>Information</h3>
+
 This record is used as <b> input record </b> for the pressure loss functions
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP"
 > dp_suddenChange_DP</a> and
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW"
 > dp_suddenChange_MFLOW</a>.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss"
->Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss</A> (Base record for fluid properties for pressure loss).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
-<TR><TD>eta</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
-<TR><TD>rho</TD><TD>Density of fluid [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_thickEdgedOverall_DP<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_thickEdgedOverall_DP</H2>
-<B>Pressure loss of thick and sharp edged orifice | calculate pressure loss | overall flow regime | constant influence of friction  | arbitrary cross sectional area</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss</a> (Base record for fluid properties for pressure loss).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid properties</td></tr>
+<tr><td>eta</td><td>Dynamic viscosity of fluid [Pa.s]</td></tr>
+<tr><td>rho</td><td>Density of fluid [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_thickEdgedOverall_DP<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_thickEdgedOverall_DP</h2>
+<p>
+<span class="ModelicaDescription">Pressure loss of thick and sharp edged orifice | calculate pressure loss | overall flow regime | constant influence of friction  | arbitrary cross sectional area</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
->dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall"
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
+>dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall"
 >See more information</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
-<TR><TD>IN_con</TD><TD>Input record for function dp_thickEdgedOverall_DP</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
-<TR><TD>IN_var</TD><TD>Input record for function dp_thickEdgedOverall_DP</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>DP</TD><TD>Output for function dp_thickEdgedOverall_DP [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_thickEdgedOverall_MFLOW<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_thickEdgedOverall_MFLOW</H2>
-<B>Pressure loss of thick and sharp edged orifice | calculate mass flow rate | overall flow regime | constant influence of friction  | arbitrary cross sectional area</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Constant inputs</td></tr>
+<tr><td>IN_con</td><td>Input record for function dp_thickEdgedOverall_DP</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Variable inputs</td></tr>
+<tr><td>IN_var</td><td>Input record for function dp_thickEdgedOverall_DP</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Input</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate [kg/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>DP</td><td>Output for function dp_thickEdgedOverall_DP [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_thickEdgedOverall_MFLOW<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio3b9cdccfdd42bbc6ll_DPI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_thickEdgedOverall_MFLOW</h2>
+<p>
+<span class="ModelicaDescription">Pressure loss of thick and sharp edged orifice | calculate mass flow rate | overall flow regime | constant influence of friction  | arbitrary cross sectional area</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
->dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall"
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
+>dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall"
 >See more information</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
-<TR><TD>IN_con</TD><TD>Input record for function dp_thickEdgedOverall_MFLOW</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
-<TR><TD>IN_var</TD><TD>Input record for function dp_thickEdgedOverall_MFLOW</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
-<TR><TD>dp</TD><TD>Pressure loss [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>M_FLOW</TD><TD>Output for function dp_thickEdgedOverall_MFLOW [kg/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_thickEdgedOverall_IN_con<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_thickEdgedOverall_IN_con</H2>
-<B>Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Constant inputs</td></tr>
+<tr><td>IN_con</td><td>Input record for function dp_thickEdgedOverall_MFLOW</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Variable inputs</td></tr>
+<tr><td>IN_var</td><td>Input record for function dp_thickEdgedOverall_MFLOW</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Input</td></tr>
+<tr><td>dp</td><td>Pressure loss [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>M_FLOW</td><td>Output for function dp_thickEdgedOverall_MFLOW [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_thickEdgedOverall_IN_con<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_thickEdgedOverall_IN_con</h2>
+<p>
+<span class="ModelicaDescription">Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</span>
+</p>
+<h3>Information</h3>
+
 This record is used as <b> input record </b> for the pressure loss functions
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
 > dp_thickEdgedOverall_DP</a> and
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
 > dp_thickEdgedOverall_MFLOW</a>.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice</A> (Input for orifice).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Orifice</TD></TR>
-<TR><TD>A_0</TD><TD>Cross sectional area of vena contraction [m2]</TD></TR>
-<TR><TD>C_0</TD><TD>Perimeter of vena contraction [m]</TD></TR>
-<TR><TD>A_1</TD><TD>Large cross sectional area of orifice [m2]</TD></TR>
-<TR><TD>C_1</TD><TD>Large perimeter of orifice [m]</TD></TR>
-<TR><TD>L</TD><TD>Length of vena contraction [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Linearisation</TD></TR>
-<TR><TD>dp_smooth</TD><TD>Start linearisation for decreasing pressure loss [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE dp_thickEdgedOverall_IN_var<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
->Modelica.Fluid.Dissipation.PressureLoss.Orifice</A>.dp_thickEdgedOverall_IN_var</H2>
-<B>Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice</a> (Input for orifice).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Orifice</td></tr>
+<tr><td>A_0</td><td>Cross sectional area of vena contraction [m2]</td></tr>
+<tr><td>C_0</td><td>Perimeter of vena contraction [m]</td></tr>
+<tr><td>A_1</td><td>Large cross sectional area of orifice [m2]</td></tr>
+<tr><td>C_1</td><td>Large perimeter of orifice [m]</td></tr>
+<tr><td>L</td><td>Length of vena contraction [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Linearisation</td></tr>
+<tr><td>dp_smooth</td><td>Start linearisation for decreasing pressure loss [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dp_thickEdgedOverall_IN_var<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio91ef0657a1a3d5a5N_conI.png" alt="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var"></a><a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice"
+>Modelica.Fluid.Dissipation.PressureLoss.Orifice</a>.dp_thickEdgedOverall_IN_var</h2>
+<p>
+<span class="ModelicaDescription">Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW</span>
+</p>
+<h3>Information</h3>
+
 This record is used as <b> input record </b> for the pressure loss functions
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP"
 > dp_thickEdgedOverall_DP </a> and
-<A HREF="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
+<a href="Modelica_Fluid_Dissipation_PressureLoss_Orifice.html#Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW"
 > dp_thickEdgedOverall_MFLOW </a>.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss"
->Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss</A> (Base record for fluid properties for pressure loss).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
-<TR><TD>eta</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
-<TR><TD>rho</TD><TD>Density of fluid [kg/m3]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:51 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss</a> (Base record for fluid properties for pressure loss).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid properties</td></tr>
+<tr><td>eta</td><td>Dynamic viscosity of fluid [Pa.s]</td></tr>
+<tr><td>rho</td><td>Density of fluid [kg/m3]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:18 2015.
+</address>
+</body>
+</html>

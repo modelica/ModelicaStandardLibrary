@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Blocks.MathBoolean</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks.MathBoolean</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of Boolean mathematical functions as input/output blocks&quot;">
+<meta name="description" content="&quot;Library of Boolean mathematical functions as input/output blocks&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MathBoolean<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Blocks.MathBoolean"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
->Modelica.Blocks</A>.MathBoolean</H2>
-<B>Library of Boolean mathematical functions as input/output blocks</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MathBoolean<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks.MathBoolean"></a><a href="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</a>.MathBoolean</h2>
+<p>
+<span class="ModelicaDescription">Library of Boolean mathematical functions as input/output blocks</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains basic <b>mathematical operations</b>
 on <b>Boolean</b> signals.
@@ -33,7 +52,7 @@ on <b>Boolean</b> signals.
 
 <p>
 Package MathBoolean is a new design that shall replace in the future the
-<A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
 >Logical</a> package.
 The new features are:
 </p>
@@ -48,55 +67,93 @@ The new features are:
 
 </ul>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.MultiSwitchS.png" ALT="Modelica.Blocks.MathBoolean.MultiSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.MultiSwitch"
->MultiSwitch</A>
-</TD><TD>Set Boolean expression that is associated with the first active input signal</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.AndS.png" ALT="Modelica.Blocks.MathBoolean.And" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.And"
->And</A>
-</TD><TD>Logical &#39;and&#39;: y = u[1] and u[2] and ... and u[nu]</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.AndS.png" ALT="Modelica.Blocks.MathBoolean.Or" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Or"
->Or</A>
-</TD><TD>Logical &#39;or&#39;: y = u[1] or u[2] or ... or u[nu]</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.AndS.png" ALT="Modelica.Blocks.MathBoolean.Xor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Xor"
->Xor</A>
-</TD><TD>Logical &#39;xor&#39;: y = oneTrue(u)  (y is true, if exactly one element of u is true, otherwise it is false)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.AndS.png" ALT="Modelica.Blocks.MathBoolean.Nand" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Nand"
->Nand</A>
-</TD><TD>Logical &#39;nand&#39;: y = not ( u[1] and u[2] and ... and u[nu] )</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.AndS.png" ALT="Modelica.Blocks.MathBoolean.Nor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Nor"
->Nor</A>
-</TD><TD>Logical &#39;nor&#39;: y = not ( u[1] or u[2] or ... or u[nu] )</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.NotS.png" ALT="Modelica.Blocks.MathBoolean.Not" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Not"
->Not</A>
-</TD><TD>Logical &#39;not&#39;: y = not u</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.RisingEdgeS.png" ALT="Modelica.Blocks.MathBoolean.RisingEdge" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.RisingEdge"
->RisingEdge</A>
-</TD><TD>Output y is true, if the input u has a rising edge, otherwise it is false (y = edge(u))</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.FallingEdgeS.png" ALT="Modelica.Blocks.MathBoolean.FallingEdge" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.FallingEdge"
->FallingEdge</A>
-</TD><TD>Output y is true, if the input u has a falling edge, otherwise it is false (y = edge(not u))</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.ChangingEdgeS.png" ALT="Modelica.Blocks.MathBoolean.ChangingEdge" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.ChangingEdge"
->ChangingEdge</A>
-</TD><TD>Output y is true, if the input u has either a rising or a falling edge and otherwise it is false (y=change(u))</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBoolean.OnDelayS.png" ALT="Modelica.Blocks.MathBoolean.OnDelay" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.OnDelay"
->OnDelay</A>
-</TD><TD>Delay a rising edge of the input, but do not delay a falling edge.</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MultiSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.MultiSwitchI.png" ALT="Modelica.Blocks.MathBoolean.MultiSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.MultiSwitch"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.MultiSwitch</H2>
-<B>Set Boolean expression that is associated with the first active input signal</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.MultiSwitchS.png" alt="Modelica.Blocks.MathBoolean.MultiSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.MultiSwitch"
+>MultiSwitch</a>
+</td>
+<td>Set Boolean expression that is associated with the first active input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.AndS.png" alt="Modelica.Blocks.MathBoolean.And" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.And"
+>And</a>
+</td>
+<td>Logical &#39;and&#39;: y = u[1] and u[2] and ... and u[nu]</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.AndS.png" alt="Modelica.Blocks.MathBoolean.Or" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Or"
+>Or</a>
+</td>
+<td>Logical &#39;or&#39;: y = u[1] or u[2] or ... or u[nu]</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.AndS.png" alt="Modelica.Blocks.MathBoolean.Xor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Xor"
+>Xor</a>
+</td>
+<td>Logical &#39;xor&#39;: y = oneTrue(u)  (y is true, if exactly one element of u is true, otherwise it is false)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.AndS.png" alt="Modelica.Blocks.MathBoolean.Nand" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Nand"
+>Nand</a>
+</td>
+<td>Logical &#39;nand&#39;: y = not ( u[1] and u[2] and ... and u[nu] )</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.AndS.png" alt="Modelica.Blocks.MathBoolean.Nor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Nor"
+>Nor</a>
+</td>
+<td>Logical &#39;nor&#39;: y = not ( u[1] or u[2] or ... or u[nu] )</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.NotS.png" alt="Modelica.Blocks.MathBoolean.Not" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.Not"
+>Not</a>
+</td>
+<td>Logical &#39;not&#39;: y = not u</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.RisingEdgeS.png" alt="Modelica.Blocks.MathBoolean.RisingEdge" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.RisingEdge"
+>RisingEdge</a>
+</td>
+<td>Output y is true, if the input u has a rising edge, otherwise it is false (y = edge(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.FallingEdgeS.png" alt="Modelica.Blocks.MathBoolean.FallingEdge" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.FallingEdge"
+>FallingEdge</a>
+</td>
+<td>Output y is true, if the input u has a falling edge, otherwise it is false (y = edge(not u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.ChangingEdgeS.png" alt="Modelica.Blocks.MathBoolean.ChangingEdge" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.ChangingEdge"
+>ChangingEdge</a>
+</td>
+<td>Output y is true, if the input u has either a rising or a falling edge and otherwise it is false (y=change(u))</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBoolean.OnDelayS.png" alt="Modelica.Blocks.MathBoolean.OnDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean.OnDelay"
+>OnDelay</a>
+</td>
+<td>Delay a rising edge of the input, but do not delay a falling edge.</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.MultiSwitchI.png" alt="Modelica.Blocks.MathBoolean.MultiSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.MultiSwitch"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.MultiSwitch</h2>
+<p>
+<span class="ModelicaDescription">Set Boolean expression that is associated with the first active input signal</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The block has a vector of Boolean input signals u[nu] and a vector of
 (time varying) Boolean expressions expr[:]. The output signal y is
@@ -115,34 +172,35 @@ previous value of y is kept if parameter use_pre_as_default = <b>true</b>:
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>expr[nu]</TD><TD>y = if u[i] then expr[i] else y_default (time varying)</TD></TR>
-<TR><TD>use_pre_as_default</TD><TD>set true to hold last value as default (y_default = pre(y))</TD></TR>
-<TR><TD>y_default</TD><TD>Default value of output y if all u[i] = false</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Set y = expr[i], if u[i] = true</TD></TR>
-<TR><TD>y</TD><TD>Output depending on expression</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE And<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.AndI.png" ALT="Modelica.Blocks.MathBoolean.And" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.And"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.And</H2>
-<B>Logical &#39;and&#39;: y = u[1] and u[2] and ... and u[nu]</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>expr[nu]</td><td>y = if u[i] then expr[i] else y_default (time varying)</td></tr>
+<tr><td>use_pre_as_default</td><td>set true to hold last value as default (y_default = pre(y))</td></tr>
+<tr><td>y_default</td><td>Default value of output y if all u[i] = false</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Set y = expr[i], if u[i] = true</td></tr>
+<tr><td>y</td><td>Output depending on expression</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE And<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.AndI.png" alt="Modelica.Blocks.MathBoolean.And" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.And"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.And</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;and&#39;: y = u[1] and u[2] and ... and u[nu]</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output is <b>true</b> if all inputs are <b>true</b>, otherwise
 the output is <b>false</b>.
@@ -158,7 +216,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
@@ -166,24 +224,26 @@ The usage is demonstrated, e.g., in example
 If no connection to the input connector "u" is present,
 the output is set to <b>false</b>: y=false.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
->Modelica.Blocks.Interfaces.PartialBooleanMISO</A> (Partial block with a BooleanVectorInput and a BooleanOutput signal).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Boolean input signals</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Or<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.AndI.png" ALT="Modelica.Blocks.MathBoolean.Or" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.Or"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.Or</H2>
-<B>Logical &#39;or&#39;: y = u[1] or u[2] or ... or u[nu]</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
+>Modelica.Blocks.Interfaces.PartialBooleanMISO</a> (Partial block with a BooleanVectorInput and a BooleanOutput signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Boolean input signals</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Or<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.AndI.png" alt="Modelica.Blocks.MathBoolean.Or" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.Or"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.Or</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;or&#39;: y = u[1] or u[2] or ... or u[nu]</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output is <b>true</b> if at least one input is <b>true</b>, otherwise
 the output is <b>false</b>.
@@ -199,7 +259,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
@@ -208,24 +268,26 @@ If no connection to the input connector "u" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
->Modelica.Blocks.Interfaces.PartialBooleanMISO</A> (Partial block with a BooleanVectorInput and a BooleanOutput signal).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Boolean input signals</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Xor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.AndI.png" ALT="Modelica.Blocks.MathBoolean.Xor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.Xor"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.Xor</H2>
-<B>Logical &#39;xor&#39;: y = oneTrue(u)  (y is true, if exactly one element of u is true, otherwise it is false)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
+>Modelica.Blocks.Interfaces.PartialBooleanMISO</a> (Partial block with a BooleanVectorInput and a BooleanOutput signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Boolean input signals</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Xor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.AndI.png" alt="Modelica.Blocks.MathBoolean.Xor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.Xor"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.Xor</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;xor&#39;: y = oneTrue(u)  (y is true, if exactly one element of u is true, otherwise it is false)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
 the output is <b>false</b>.
@@ -241,7 +303,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
@@ -250,24 +312,26 @@ If no connection to the input connector "u" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
->Modelica.Blocks.Interfaces.PartialBooleanMISO</A> (Partial block with a BooleanVectorInput and a BooleanOutput signal).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Boolean input signals</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Nand<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.AndI.png" ALT="Modelica.Blocks.MathBoolean.Nand" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.Nand"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.Nand</H2>
-<B>Logical &#39;nand&#39;: y = not ( u[1] and u[2] and ... and u[nu] )</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
+>Modelica.Blocks.Interfaces.PartialBooleanMISO</a> (Partial block with a BooleanVectorInput and a BooleanOutput signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Boolean input signals</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nand<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.AndI.png" alt="Modelica.Blocks.MathBoolean.Nand" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.Nand"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.Nand</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;nand&#39;: y = not ( u[1] and u[2] and ... and u[nu] )</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
 the output is <b>false</b>.
@@ -283,7 +347,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
@@ -292,24 +356,26 @@ If no connection to the input connector "u" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
->Modelica.Blocks.Interfaces.PartialBooleanMISO</A> (Partial block with a BooleanVectorInput and a BooleanOutput signal).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Boolean input signals</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Nor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.AndI.png" ALT="Modelica.Blocks.MathBoolean.Nor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.Nor"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.Nor</H2>
-<B>Logical &#39;nor&#39;: y = not ( u[1] or u[2] or ... or u[nu] )</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
+>Modelica.Blocks.Interfaces.PartialBooleanMISO</a> (Partial block with a BooleanVectorInput and a BooleanOutput signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Boolean input signals</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Nor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.AndI.png" alt="Modelica.Blocks.MathBoolean.Nor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.Nor"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.Nor</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;nor&#39;: y = not ( u[1] or u[2] or ... or u[nu] )</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output is <b>false</b> if at least one input is <b>true</b>, otherwise
 the output is <b>true</b>.
@@ -325,7 +391,7 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
@@ -333,24 +399,26 @@ The usage is demonstrated, e.g., in example
 If no connection to the input connector "u" is present,
 the output is set to <b>false</b>: y=false.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
->Modelica.Blocks.Interfaces.PartialBooleanMISO</A> (Partial block with a BooleanVectorInput and a BooleanOutput signal).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u[nu]</TD><TD>Vector of Boolean input signals</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Not<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.NotI.png" ALT="Modelica.Blocks.MathBoolean.Not" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.Not"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.Not</H2>
-<B>Logical &#39;not&#39;: y = not u</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanMISO"
+>Modelica.Blocks.Interfaces.PartialBooleanMISO</a> (Partial block with a BooleanVectorInput and a BooleanOutput signal).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nu]</td><td>Vector of Boolean input signals</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Not<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.NotI.png" alt="Modelica.Blocks.MathBoolean.Not" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.Not"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.Not</h2>
+<p>
+<span class="ModelicaDescription">Logical &#39;not&#39;: y = not u</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The output is <b>false</b> if at least one input is <b>true</b>, otherwise
 the output is <b>true</b>.
@@ -366,27 +434,29 @@ connectorSizing annotation).
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
->Modelica.Blocks.Interfaces.PartialBooleanSISO_small</A> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Boolean input signal</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RisingEdge<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.RisingEdgeI.png" ALT="Modelica.Blocks.MathBoolean.RisingEdge" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.RisingEdge"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.RisingEdge</H2>
-<B>Output y is true, if the input u has a rising edge, otherwise it is false (y = edge(u))</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
+>Modelica.Blocks.Interfaces.PartialBooleanSISO_small</a> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Boolean input signal</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RisingEdge<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.RisingEdgeI.png" alt="Modelica.Blocks.MathBoolean.RisingEdge" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.RisingEdge"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.RisingEdge</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if the input u has a rising edge, otherwise it is false (y = edge(u))</span>
+</p>
+<h3>Information</h3>
+
 <p>
 A rising edge of the Boolean input u results in y = <b>true</b> at this
 time instant. At all other time instants, y = <b>false</b>.
@@ -394,33 +464,35 @@ time instant. At all other time instants, y = <b>false</b>.
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
->Modelica.Blocks.Interfaces.PartialBooleanSISO_small</A> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pre_u_start</TD><TD>Value of pre(u) at initial time</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Boolean input signal</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FallingEdge<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.FallingEdgeI.png" ALT="Modelica.Blocks.MathBoolean.FallingEdge" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.FallingEdge"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.FallingEdge</H2>
-<B>Output y is true, if the input u has a falling edge, otherwise it is false (y = edge(not u))</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
+>Modelica.Blocks.Interfaces.PartialBooleanSISO_small</a> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Boolean input signal</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FallingEdge<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.FallingEdgeI.png" alt="Modelica.Blocks.MathBoolean.FallingEdge" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.FallingEdge"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.FallingEdge</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if the input u has a falling edge, otherwise it is false (y = edge(not u))</span>
+</p>
+<h3>Information</h3>
+
 <p>
 A falling edge of the Boolean input u results in y = <b>true</b> at this
 time instant. At all other time instants, y = <b>false</b>.
@@ -428,33 +500,35 @@ time instant. At all other time instants, y = <b>false</b>.
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
->Modelica.Blocks.Interfaces.PartialBooleanSISO_small</A> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pre_u_start</TD><TD>Value of pre(u) at initial time</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Boolean input signal</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ChangingEdge<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.ChangingEdgeI.png" ALT="Modelica.Blocks.MathBoolean.ChangingEdge" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.ChangingEdge"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.ChangingEdge</H2>
-<B>Output y is true, if the input u has either a rising or a falling edge and otherwise it is false (y=change(u))</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
+>Modelica.Blocks.Interfaces.PartialBooleanSISO_small</a> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Boolean input signal</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ChangingEdge<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.ChangingEdgeI.png" alt="Modelica.Blocks.MathBoolean.ChangingEdge" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.ChangingEdge"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.ChangingEdge</h2>
+<p>
+<span class="ModelicaDescription">Output y is true, if the input u has either a rising or a falling edge and otherwise it is false (y=change(u))</span>
+</p>
+<h3>Information</h3>
+
 <p>
 A changing edge, i.e., either rising or falling,
 of the Boolean input u results in y = <b>true</b> at this
@@ -463,33 +537,35 @@ time instant. At all other time instants, y = <b>false</b>.
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
->Modelica.Blocks.Interfaces.PartialBooleanSISO_small</A> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pre_u_start</TD><TD>Value of pre(u) at initial time</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Boolean input signal</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE OnDelay<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Blocks.MathBoolean.OnDelayI.png" ALT="Modelica.Blocks.MathBoolean.OnDelay" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Blocks.MathBoolean.OnDelay"></A><A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->Modelica.Blocks.MathBoolean</A>.OnDelay</H2>
-<B>Delay a rising edge of the input, but do not delay a falling edge.</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
+>Modelica.Blocks.Interfaces.PartialBooleanSISO_small</a> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pre_u_start</td><td>Value of pre(u) at initial time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Boolean input signal</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OnDelay<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.MathBoolean.OnDelayI.png" alt="Modelica.Blocks.MathBoolean.OnDelay" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.MathBoolean.OnDelay"></a><a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>Modelica.Blocks.MathBoolean</a>.OnDelay</h2>
+<p>
+<span class="ModelicaDescription">Delay a rising edge of the input, but do not delay a falling edge.</span>
+</p>
+<h3>Information</h3>
+
 <p>
 A rising edge of the Boolean input u gives a delayed output.
 A falling edge of the input is immediately given to the output.
@@ -510,24 +586,26 @@ is shown in the next figure.
 
 <p>
 The usage is demonstrated, e.g., in example
-<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
+<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.BooleanNetwork1"
 >Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
->Modelica.Blocks.Interfaces.PartialBooleanSISO_small</A> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>delayTime</TD><TD>Delay time [s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>Boolean input signal</TD></TR>
-<TR><TD>y</TD><TD>Boolean output signal</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:25 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialBooleanSISO_small"
+>Modelica.Blocks.Interfaces.PartialBooleanSISO_small</a> (Partial block with a BooleanInput and a BooleanOutput signal and a small block icon).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>delayTime</td><td>Delay time [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Boolean input signal</td></tr>
+<tr><td>y</td><td>Boolean output signal</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+</address>
+</body>
+</html>

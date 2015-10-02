@@ -1,73 +1,120 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Mechanics.Rotational.UsersGuide</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.Rotational.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;User&#39;s Guide of Rotational Library&quot;">
+<meta name="description" content="&quot;User&#39;s Guide of Rotational Library&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide"></A><A HREF="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
->Modelica.Mechanics.Rotational</A>.UsersGuide</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide"></a><a href="Modelica_Mechanics_Rotational.html#Modelica.Mechanics.Rotational"
+>Modelica.Mechanics.Rotational</a>.UsersGuide</h2>
+<p>
+</p>
+
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
 drive trains with frictional losses.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.Overview" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.Overview"
->Overview</A>
-</TD><TD>Overview</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors"
->FlangeConnectors</A>
-</TD><TD>Flange Connectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.SupportTorques" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.SupportTorques"
->SupportTorques</A>
-</TD><TD>Support Torques</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.SignConventions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.SignConventions"
->SignConventions</A>
-</TD><TD>Sign Conventions</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents"
->UserDefinedComponents</A>
-</TD><TD>User Defined Components</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool"
->RequirementsForSimulationTool</A>
-</TD><TD>Requirements for Simulation Tools</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.StateSelection" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
->StateSelection</A>
-</TD><TD>State Selection</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.Rotatid690daf05976aeabntactS.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.Contact"
->Contact</A>
-</TD><TD>Contact</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Overview<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.Overview" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.Overview"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.Overview</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.Overview" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.Overview"
+>Overview</a>
+</td>
+<td>Overview</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors"
+>FlangeConnectors</a>
+</td>
+<td>Flange Connectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.SupportTorques" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.SupportTorques"
+>SupportTorques</a>
+</td>
+<td>Support Torques</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.SignConventions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.SignConventions"
+>SignConventions</a>
+</td>
+<td>Sign Conventions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents"
+>UserDefinedComponents</a>
+</td>
+<td>User Defined Components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool"
+>RequirementsForSimulationTool</a>
+</td>
+<td>Requirements for Simulation Tools</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotati5dd7214d789e7f5arviewS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.StateSelection" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>StateSelection</a>
+</td>
+<td>State Selection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatid690daf05976aeabntactS.png" alt="Modelica.Mechanics.Rotational.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Overview<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.Overview" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.Overview"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.Overview</h2>
+
 
 <p>
 This package contains components to model <b>1-dimensional rotational
@@ -131,16 +178,16 @@ together, see figure below.
 <IMG src="../Resources/Images/Mechanics/Rotational/driveConnections2.png" ALT="driveConnections2"><br>
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FlangeConnectors<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.FlangeConnectors</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FlangeConnectors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.FlangeConnectors"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.FlangeConnectors</h2>
+
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -161,16 +208,16 @@ determined by differentiation of the flange angle <code>phi</code>:
 <pre>
      w = <b>der</b>(phi);    a = <b>der</b>(w);
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SupportTorques<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.SupportTorques" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.SupportTorques"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.SupportTorques</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SupportTorques<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.SupportTorques" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.SupportTorques"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.SupportTorques</h2>
+
 
 <p>The following figure shows examples of components equipped with
 a support flange (framed flange in the lower center), which can be used
@@ -180,7 +227,7 @@ support torque is enabled or disabled. If it is enabled, it must be connected.
 If it is disabled, it must not be connected.
 Enabled support flanges offer, e.g., the possibility to model gearboxes mounted on
 the ground via spring-damper-systems (cf. example
-<A HREF="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.ElasticBearing"
+<a href="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.ElasticBearing"
 >ElasticBearing</a>).
 </p>
 
@@ -199,16 +246,16 @@ identical results.
 <IMG src="../Resources/Images/Mechanics/Rotational/bearing2.png" ALT="bearing2">
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SignConventions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.SignConventions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.SignConventions"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.SignConventions</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignConventions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.SignConventions" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.SignConventions"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.SignConventions</h2>
+
 
 <p>
 The variables of a component of this library can be accessed in the
@@ -273,16 +320,16 @@ the axis direction determines the positive rotation along these
 flanges. As a result, the positive rotation for <code>inertia4, inertia6</code>
 is as indicated with the additional grey arrows.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UserDefinedComponents<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.UserDefinedComponents</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UserDefinedComponents<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.UserDefinedComponents"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.UserDefinedComponents</h2>
+
 <p>
 In this section some hints are given to define your own
 1-dimensional rotational components which are compatible with the
@@ -294,7 +341,7 @@ which are defined in sublibrary Interfaces:
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
 <tr><th>Name</th><th>Description</th></tr>
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliant"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliant"
 >PartialCompliant</a>
   </td>
   <td valign="top">Compliant connection of two rotational 1-dim. flanges
@@ -302,7 +349,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
 >PartialCompliantWithRelativeStates</a>
   </td>
   <td valign="top"> Same as "PartialCompliant", but relative angle and relative speed are
@@ -315,7 +362,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
 >PartialElementaryTwoFlangesAndSupport2</a>
 </td>
   <td valign="top"> Partial model for a 1-dim. rotational gear consisting of the flange of
@@ -324,7 +371,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
 >PartialTorque</a>
 </td>
   <td valign="top"> Partial model of a torque acting at the flange (accelerates the flange).
@@ -332,7 +379,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
 >PartialTwoFlanges</a>
 </td>
   <td valign="top">General connection of two rotational 1-dim. flanges.
@@ -340,7 +387,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor"
 >PartialAbsoluteSensor</a>
 </td>
   <td valign="top">Measure absolute flange variables.
@@ -348,7 +395,7 @@ which are defined in sublibrary Interfaces:
 </tr>
 
 <tr>
-  <td valign="top"><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
+  <td valign="top"><a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor"
 >PartialRelativeSensor</a>
 </td>
   <td valign="top">Measure relative flange variables.
@@ -426,16 +473,16 @@ by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RequirementsForSimulationTool<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.RequirementsForSimulationTool</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RequirementsForSimulationTool<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.RequirementsForSimulationTool"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.RequirementsForSimulationTool</h2>
+
 
 <p>
 This library is designed in a fully object oriented way in order that
@@ -488,19 +535,19 @@ by picking one solution of the infinitely many, e.g., the one where
 the difference to the value of the previous time instant is as small
 as possible.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE StateSelection<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotational.UsersGuideI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.StateSelection" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.StateSelection"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.StateSelection</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StateSelection<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotational.UsersGuideI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.StateSelection" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.StateSelection"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.StateSelection</h2>
+
 <p>
 Only a few components of the Rotational library use the der(..) operator
-and are therefore candidates to have states. Most important, component <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+and are therefore candidates to have states. Most important, component <a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
 >Inertia</a>
 defines the absolute rotation angle and the absolute angular velocity of this
 component as candidate for states. In the "Advanced" menu the built-in StateSelect
@@ -557,10 +604,10 @@ Currently, in Modelica there is no possibility to provide this information.
 In order to reduce this effect, it is advisable to not use absolute angles, but
 relative angles as states. A user can define relative variables as states
 explicitly with component
-<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.RelativeStates"
+<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.RelativeStates"
 >RelativeStates</a>.
 Furthermore, all compliant components, such as
-<A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.SpringDamper"
+<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.SpringDamper"
 >SpringDamper</a> are
 defining the relative angle and the relative angular velocity as preferred states.
 Therefore, a tool will select in most cases relative angles as states.
@@ -575,22 +622,22 @@ explicitly a nominal value on the relative angle. This definition is provided in
 "Advanced" menu of the compliant components with parameter "phi_nominal".
 The default value is 1e-4 rad, to be in the order of a compliant deformation of a
 drive. For some components, like
-a <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Clutch"
+a <a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Clutch"
 >Clutch</a>
 this might be too small and a value of phi_nominal=1 might be more appropriate
 (a value of phi_nominal = 1e-4 does not hurt, but just makes the error control
 unnecessarily stringent).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.Rotatid690daf05976aeabntactI.png" ALT="Modelica.Mechanics.Rotational.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.Rotational.UsersGuide.Contact"></A><A HREF="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
->Modelica.Mechanics.Rotational.UsersGuide</A>.Contact</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatid690daf05976aeabntactI.png" alt="Modelica.Mechanics.Rotational.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.UsersGuide.Contact"></a><a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide"
+>Modelica.Mechanics.Rotational.UsersGuide</a>.Contact</h2>
+
 <dl>
 <dt><b>Library Officer</b>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> <br>
@@ -615,9 +662,11 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
      A-3423 St.Andrae-Woerdern, Austria<br>
      email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
->Modelica.Icons.Contact</A> (Icon for contact information).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:43 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+</address>
+</body>
+</html>

@@ -1,210 +1,289 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Interfaces</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Interfaces</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow&quot;">
+<meta name="description" content="&quot;Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Interfaces"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
->Modelica.Fluid</A>.Interfaces</H2>
-<B>Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Interfaces"></a><a href="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a>.Interfaces</h2>
+<p>
+<span class="ModelicaDescription">Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow</span><br>
+</p>
+<h3>Information</h3>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
->Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPortS.png" ALT="Modelica.Fluid.Interfaces.FluidPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
->FluidPort</A>
-</TD><TD>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_aS.png" ALT="Modelica.Fluid.Interfaces.FluidPort_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
->FluidPort_a</A>
-</TD><TD>Generic fluid connector at design inlet</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_bS.png" ALT="Modelica.Fluid.Interfaces.FluidPort_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
->FluidPort_b</A>
-</TD><TD>Generic fluid connector at design outlet</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_aS.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_a"
->FluidPorts_a</A>
-</TD><TD>Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_bS.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
->FluidPorts_b</A>
-</TD><TD>Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortS.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
->PartialTwoPort</A>
-</TD><TD>Partial component with two ports</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfacesa77e017d710b9016sportS.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPortTransport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
->PartialTwoPortTransport</A>
-</TD><TD>Partial element transporting fluid between two ports without storage of mass or energy</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_aS.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
->HeatPorts_a</A>
-</TD><TD>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_bS.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_b"
->HeatPorts_b</A>
-</TD><TD>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces4c3d888405cb5f92nsferS.png" ALT="Modelica.Fluid.Interfaces.PartialHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
->PartialHeatTransfer</A>
-</TD><TD>Common interface for heat transfer models</TD></TR>
-<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
->PartialLumpedVolume</A>
-</TD><TD>Lumped volume with mass and energy balance</TD></TR>
-<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
->PartialLumpedFlow</A>
-</TD><TD>Base class for a lumped momentum balance</TD></TR>
-<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
->PartialDistributedVolume</A>
-</TD><TD>Base class for distributed volume models</TD></TR>
-<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedFlow"
->PartialDistributedFlow</A>
-</TD><TD>Base class for a distributed momentum balance</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Interfaces55974c65ef387f6aeLossS.png" ALT="Modelica.Fluid.Interfaces.PartialPressureLoss" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialPressureLoss"
->PartialPressureLoss</A>
-</TD><TD>Base flow model for pressure loss functions with the same area at port_a and at port_b</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FluidPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Interfaces.FluidPort"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.FluidPort</H2>
-<B>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium model</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium model</TD></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
-<TR><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
-<TR><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
-<TR><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
-<TR><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FluidPort_a<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_aI.png" ALT="Modelica.Fluid.Interfaces.FluidPort_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.FluidPort_a"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.FluidPort_a</H2>
-<B>Generic fluid connector at design inlet</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
->FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium model</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
-<TR><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
-<TR><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
-<TR><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
-<TR><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FluidPort_b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_bI.png" ALT="Modelica.Fluid.Interfaces.FluidPort_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.FluidPort_b"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.FluidPort_b</H2>
-<B>Generic fluid connector at design outlet</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
->FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium model</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
-<TR><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
-<TR><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
-<TR><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
-<TR><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FluidPorts_a<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_aI.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.FluidPorts_a"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.FluidPorts_a</H2>
-<B>Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
->FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium model</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
-<TR><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
-<TR><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
-<TR><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
-<TR><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FluidPorts_b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_bI.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.FluidPorts_b"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.FluidPorts_b</H2>
-<B>Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
->FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium model</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
-<TR><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
-<TR><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
-<TR><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
-<TR><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortI.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.PartialTwoPort"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialTwoPort</H2>
-<B>Partial component with two ports</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</a> (Icon for packages containing interfaces).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.FluidPortS.png" alt="Modelica.Fluid.Interfaces.FluidPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</a>
+</td>
+<td>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.FluidPort_aS.png" alt="Modelica.Fluid.Interfaces.FluidPort_a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</a>
+</td>
+<td>Generic fluid connector at design inlet</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.FluidPort_bS.png" alt="Modelica.Fluid.Interfaces.FluidPort_b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</a>
+</td>
+<td>Generic fluid connector at design outlet</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.FluidPorts_aS.png" alt="Modelica.Fluid.Interfaces.FluidPorts_a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_a"
+>FluidPorts_a</a>
+</td>
+<td>Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.FluidPorts_bS.png" alt="Modelica.Fluid.Interfaces.FluidPorts_b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</a>
+</td>
+<td>Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.PartialTwoPortS.png" alt="Modelica.Fluid.Interfaces.PartialTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>PartialTwoPort</a>
+</td>
+<td>Partial component with two ports</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfacesa77e017d710b9016sportS.png" alt="Modelica.Fluid.Interfaces.PartialTwoPortTransport" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>PartialTwoPortTransport</a>
+</td>
+<td>Partial element transporting fluid between two ports without storage of mass or energy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.HeatPorts_aS.png" alt="Modelica.Fluid.Interfaces.HeatPorts_a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</a>
+</td>
+<td>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces.HeatPorts_bS.png" alt="Modelica.Fluid.Interfaces.HeatPorts_b" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_b"
+>HeatPorts_b</a>
+</td>
+<td>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces4c3d888405cb5f92nsferS.png" alt="Modelica.Fluid.Interfaces.PartialHeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
+>PartialHeatTransfer</a>
+</td>
+<td>Common interface for heat transfer models</td>
+</tr>
+<tr>
+<td><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>PartialLumpedVolume</a>
+</td>
+<td>Lumped volume with mass and energy balance</td>
+</tr>
+<tr>
+<td><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>PartialLumpedFlow</a>
+</td>
+<td>Base class for a lumped momentum balance</td>
+</tr>
+<tr>
+<td><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
+>PartialDistributedVolume</a>
+</td>
+<td>Base class for distributed volume models</td>
+</tr>
+<tr>
+<td><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedFlow"
+>PartialDistributedFlow</a>
+</td>
+<td>Base class for a distributed momentum balance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Interfaces55974c65ef387f6aeLossS.png" alt="Modelica.Fluid.Interfaces.PartialPressureLoss" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialPressureLoss"
+>PartialPressureLoss</a>
+</td>
+<td>Base flow model for pressure loss functions with the same area at port_a and at port_b</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Interfaces.FluidPort"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.FluidPort</h2>
+<p>
+<span class="ModelicaDescription">Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>p</td><td>Thermodynamic pressure in the connection point [Pa]</td></tr>
+<tr><td>h_outflow</td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</td></tr>
+<tr><td>Xi_outflow[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</td></tr>
+<tr><td>C_outflow[Medium.nC]</td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPort_a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.FluidPort_aI.png" alt="Modelica.Fluid.Interfaces.FluidPort_a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.FluidPort_a"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.FluidPort_a</h2>
+<p>
+<span class="ModelicaDescription">Generic fluid connector at design inlet</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</a> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>p</td><td>Thermodynamic pressure in the connection point [Pa]</td></tr>
+<tr><td>h_outflow</td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</td></tr>
+<tr><td>Xi_outflow[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</td></tr>
+<tr><td>C_outflow[Medium.nC]</td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPort_b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.FluidPort_bI.png" alt="Modelica.Fluid.Interfaces.FluidPort_b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.FluidPort_b"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.FluidPort_b</h2>
+<p>
+<span class="ModelicaDescription">Generic fluid connector at design outlet</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</a> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>p</td><td>Thermodynamic pressure in the connection point [Pa]</td></tr>
+<tr><td>h_outflow</td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</td></tr>
+<tr><td>Xi_outflow[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</td></tr>
+<tr><td>C_outflow[Medium.nC]</td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPorts_a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.FluidPorts_aI.png" alt="Modelica.Fluid.Interfaces.FluidPorts_a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.FluidPorts_a"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.FluidPorts_a</h2>
+<p>
+<span class="ModelicaDescription">Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</a> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>p</td><td>Thermodynamic pressure in the connection point [Pa]</td></tr>
+<tr><td>h_outflow</td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</td></tr>
+<tr><td>Xi_outflow[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</td></tr>
+<tr><td>C_outflow[Medium.nC]</td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FluidPorts_b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.FluidPorts_bI.png" alt="Modelica.Fluid.Interfaces.FluidPorts_b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.FluidPorts_b"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.FluidPorts_b</h2>
+<p>
+<span class="ModelicaDescription">Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</a> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium model</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Mass flow rate from the connection point into the component [kg/s]</td></tr>
+<tr><td>p</td><td>Thermodynamic pressure in the connection point [Pa]</td></tr>
+<tr><td>h_outflow</td><td>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</td></tr>
+<tr><td>Xi_outflow[Medium.nXi]</td><td>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</td></tr>
+<tr><td>C_outflow[Medium.nC]</td><td>Properties c_i/m close to the connection point if m_flow &lt; 0</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.PartialTwoPortI.png" alt="Modelica.Fluid.Interfaces.PartialTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.PartialTwoPort"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Partial component with two ports</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This partial model defines an interface for components with two ports.
 The treatment of the design flow direction and of flow reversal are predefined based on the parameter <code><b>allowFlowReversal</b></code>.
@@ -215,31 +294,32 @@ An extending model providing direct access to internal storage of mass or energy
 should redefine the protected parameters <code><b>port_a_exposesState</b></code> and <code><b>port_b_exposesState</b></code> appropriately.
 This will be visualized at the port icons, in order to improve the understanding of fluid model diagrams.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialTwoPortTransport<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfacesa77e017d710b9016sportI.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPortTransport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.PartialTwoPortTransport"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialTwoPortTransport</H2>
-<B>Partial element transporting fluid between two ports without storage of mass or energy</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialTwoPortTransport<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfacesa77e017d710b9016sportI.png" alt="Modelica.Fluid.Interfaces.PartialTwoPortTransport" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.PartialTwoPortTransport"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialTwoPortTransport</h2>
+<p>
+<span class="ModelicaDescription">Partial element transporting fluid between two ports without storage of mass or energy</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component transports fluid between its two ports, without storing mass or energy.
 Energy may be exchanged with the environment though, e.g., in the form of work.
@@ -259,70 +339,76 @@ Moreover appropriate values shall be assigned to the following parameters:
 <li><code>dp_start</code> for a guess of the pressure drop</li>
 <li><code>m_flow_small</code> for regularization of zero flow.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
->PartialTwoPort</A> (Partial component with two ports).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
-<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
-<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
-<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE HeatPorts_a<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_aI.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.HeatPorts_a"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.HeatPorts_a</H2>
-<B>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
->Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</A> (Thermal port for 1-dim. heat transfer).
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Port temperature [K]</TD></TR>
-<TR><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE HeatPorts_b<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_bI.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.HeatPorts_b"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.HeatPorts_b</H2>
-<B>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
->Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</A> (Thermal port for 1-dim. heat transfer).
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Port temperature [K]</TD></TR>
-<TR><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialHeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces4c3d888405cb5f92nsferI.png" ALT="Modelica.Fluid.Interfaces.PartialHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.PartialHeatTransfer"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialHeatTransfer</H2>
-<B>Common interface for heat transfer models</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>PartialTwoPort</a> (Partial component with two ports).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>dp_start</td><td>Guess value of dp = port_a.p - port_b.p [Pa]</td></tr>
+<tr><td>m_flow_start</td><td>Guess value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate for regularization of zero flow [kg/s]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Diagnostics</td></tr>
+<tr><td>show_T</td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td>show_V_flow</td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HeatPorts_a<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.HeatPorts_aI.png" alt="Modelica.Fluid.Interfaces.HeatPorts_a" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.HeatPorts_a"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.HeatPorts_a</h2>
+<p>
+<span class="ModelicaDescription">HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</a> (Thermal port for 1-dim. heat transfer).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Port temperature [K]</td></tr>
+<tr><td>Q_flow</td><td>Heat flow rate (positive if flowing from outside into the component) [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HeatPorts_b<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces.HeatPorts_bI.png" alt="Modelica.Fluid.Interfaces.HeatPorts_b" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.HeatPorts_b"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.HeatPorts_b</h2>
+<p>
+<span class="ModelicaDescription">HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</a> (Thermal port for 1-dim. heat transfer).</span></p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Port temperature [K]</td></tr>
+<tr><td>Q_flow</td><td>Heat flow rate (positive if flowing from outside into the component) [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialHeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces4c3d888405cb5f92nsferI.png" alt="Modelica.Fluid.Interfaces.PartialHeatTransfer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.PartialHeatTransfer"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialHeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">Common interface for heat transfer models</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component is a common interface for heat transfer models. The heat flow rates <code>Q_flows[n]</code> through the boundaries of n flow segments
 are obtained as function of the thermodynamic <code>states</code> of the flow segments for a given fluid <code>Medium</code>,
@@ -334,34 +420,35 @@ The heat loss coefficient <code>k</code> can be used to model a thermal isolatio
 An extending model implementing this interface needs to define one equation: the relation between the predefined fluid temperatures <code>Ts[n]</code>,
 the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <code>Q_flows[n]</code>.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Ambient</TD></TR>
-<TR><TD>k</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
-<TR><TD>T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of heat transfer segments</TD></TR>
-<TR><TD>use_k</TD><TD>= true to use k value for thermal isolation</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialLumpedVolume<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Interfaces.PartialLumpedVolume"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialLumpedVolume</H2>
-<B>Lumped volume with mass and energy balance</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Ambient</td></tr>
+<tr><td>k</td><td>Heat transfer coefficient to ambient [W/(m2.K)]</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of heat transfer segments</td></tr>
+<tr><td>use_k</td><td>= true to use k value for thermal isolation</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPorts[n]</td><td>Heat port to component boundary</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialLumpedVolume<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Interfaces.PartialLumpedVolume"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialLumpedVolume</h2>
+<p>
+<span class="ModelicaDescription">Lumped volume with mass and energy balance</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
@@ -382,37 +469,38 @@ Further source terms must be defined by an extending class for fluid flow across
 <li><code><b>mbXi_flow</b></code>, substance mass flow, and</li>
 <li><code><b>mbC_flow</b></code>, trace substance mass flow.</li>
 </ul>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
-<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
-<TR><TD>p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
-<TR><TD>use_T_start</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
-<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
-<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
-<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
-<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialLumpedFlow<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Interfaces.PartialLumpedFlow"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialLumpedFlow</H2>
-<B>Base class for a lumped momentum balance</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>energyDynamics</td><td>Formulation of energy balance</td></tr>
+<tr><td>massDynamics</td><td>Formulation of mass balance</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>p_start</td><td>Start value of pressure [Pa]</td></tr>
+<tr><td>use_T_start</td><td>= true, use T_start, otherwise h_start</td></tr>
+<tr><td>T_start</td><td>Start value of temperature [K]</td></tr>
+<tr><td>h_start</td><td>Start value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Start value of mass fractions m_i/m [kg/kg]</td></tr>
+<tr><td>C_start[Medium.nC]</td><td>Start value of trace substances</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialLumpedFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Interfaces.PartialLumpedFlow"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialLumpedFlow</h2>
+<p>
+<span class="ModelicaDescription">Base class for a lumped momentum balance</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Interface and base class for a momentum balance, defining the mass flow rate <code><b>m_flow</b></code>
 of a given <code>Medium</code> in a flow model.
@@ -428,32 +516,33 @@ The following boundary flow and force terms are part of the momentum balance and
 <p>
 The length of the flow path <code><b>pathLength</b></code> is an input that needs to be set in an extending class to complete the model.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (m_flow &gt;= 0)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>momentumDynamics</TD><TD>Formulation of momentum balance</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
-<TR><TD>m_flow_start</TD><TD>Start value of mass flow rates [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialDistributedVolume<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Interfaces.PartialDistributedVolume"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialDistributedVolume</H2>
-<B>Base class for distributed volume models</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (m_flow &gt;= 0)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>momentumDynamics</td><td>Formulation of momentum balance</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>m_flow_start</td><td>Start value of mass flow rates [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialDistributedVolume<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Interfaces.PartialDistributedVolume"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialDistributedVolume</h2>
+<p>
+<span class="ModelicaDescription">Base class for distributed volume models</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
 It is intended to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
@@ -475,39 +564,40 @@ Further source terms must be defined by an extending class for fluid flow across
 <li><code><b>mbXi_flows[n]</b></code>, substance mass flow, and</li>
 <li><code><b>mbC_flows[n]</b></code>, trace substance mass flow.</li>
 </ul>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of discrete volumes</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>energyDynamics</TD><TD>Formulation of energy balances</TD></TR>
-<TR><TD>massDynamics</TD><TD>Formulation of mass balances</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
-<TR><TD>p_a_start</TD><TD>Start value of pressure at port a [Pa]</TD></TR>
-<TR><TD>p_b_start</TD><TD>Start value of pressure at port b [Pa]</TD></TR>
-<TR><TD>use_T_start</TD><TD>Use T_start if true, otherwise h_start</TD></TR>
-<TR><TD>T_start</TD><TD>Start value of temperature [K]</TD></TR>
-<TR><TD>h_start</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
-<TR><TD>X_start[Medium.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
-<TR><TD>C_start[Medium.nC]</TD><TD>Start value of trace substances</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialDistributedFlow<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Interfaces.PartialDistributedFlow"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialDistributedFlow</H2>
-<B>Base class for a distributed momentum balance</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of discrete volumes</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>energyDynamics</td><td>Formulation of energy balances</td></tr>
+<tr><td>massDynamics</td><td>Formulation of mass balances</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>p_a_start</td><td>Start value of pressure at port a [Pa]</td></tr>
+<tr><td>p_b_start</td><td>Start value of pressure at port b [Pa]</td></tr>
+<tr><td>use_T_start</td><td>Use T_start if true, otherwise h_start</td></tr>
+<tr><td>T_start</td><td>Start value of temperature [K]</td></tr>
+<tr><td>h_start</td><td>Start value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start[Medium.nX]</td><td>Start value of mass fractions m_i/m [kg/kg]</td></tr>
+<tr><td>C_start[Medium.nC]</td><td>Start value of trace substances</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialDistributedFlow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Interfaces.PartialDistributedFlow"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialDistributedFlow</h2>
+<p>
+<span class="ModelicaDescription">Base class for a distributed momentum balance</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Interface and base class for <code><b>m</b></code> momentum balances, defining the mass flow rates <code><b>m_flows[m]</b></code>
 of a given <code>Medium</code> in <code><b>m</b></code> flow segments.
@@ -523,55 +613,58 @@ The following boundary flow and force terms are part of the momentum balances an
 <p>
 The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input that needs to be set in an extending class to complete the model.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>m</TD><TD>Number of flow segments</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (m_flows &gt;= zeros(m))</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>momentumDynamics</TD><TD>Formulation of momentum balance</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
-<TR><TD>m_flow_start</TD><TD>Start value of mass flow rates [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialPressureLoss<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Interfaces55974c65ef387f6aeLossI.png" ALT="Modelica.Fluid.Interfaces.PartialPressureLoss" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Interfaces.PartialPressureLoss"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
->Modelica.Fluid.Interfaces</A>.PartialPressureLoss</H2>
-<B>Base flow model for pressure loss functions with the same area at port_a and at port_b</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
->Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>dp_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
-<TR><TD>m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Diagnostics</TD></TR>
-<TR><TD>show_T</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
-<TR><TD>show_V_flow</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:49 2013.
-</address></BODY>
-</HTML>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>m</td><td>Number of flow segments</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (m_flows &gt;= zeros(m))</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>momentumDynamics</td><td>Formulation of momentum balance</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Initialization</td></tr>
+<tr><td>m_flow_start</td><td>Start value of mass flow rates [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialPressureLoss<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Interfaces55974c65ef387f6aeLossI.png" alt="Modelica.Fluid.Interfaces.PartialPressureLoss" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Interfaces.PartialPressureLoss"></a><a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</a>.PartialPressureLoss</h2>
+<p>
+<span class="ModelicaDescription">Base flow model for pressure loss functions with the same area at port_a and at port_b</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</a> (Partial element transporting fluid between two ports without storage of mass or energy).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>dp_start</td><td>Guess value of dp = port_a.p - port_b.p [Pa]</td></tr>
+<tr><td>m_flow_start</td><td>Guess value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate for regularization of zero flow [kg/s]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Diagnostics</td></tr>
+<tr><td>show_T</td><td>= true, if temperatures at port_a and port_b are computed</td></tr>
+<tr><td>show_V_flow</td><td>= true, if volume flow rate at inflowing port is computed</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:18 2015.
+</address>
+</body>
+</html>

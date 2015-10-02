@@ -1,93 +1,167 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.UsersGuide.ReleaseNotes</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.UsersGuide.ReleaseNotes</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Release notes&quot;">
+<meta name="description" content="&quot;Release notes&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ReleaseNotes<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes"></A><A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide"
->Modelica.UsersGuide</A>.ReleaseNotes</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes"></a><a href="Modelica_UsersGuide.html#Modelica.UsersGuide"
+>Modelica.UsersGuide</a>.ReleaseNotes</h2>
+<p>
+</p>
+
 
 <p>
 This section summarizes the changes that have been performed
 on the Modelica standard library. Furthermore, it is explained in
-<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.VersionManagement"
+<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.VersionManagement"
 >Modelica.UsersGuide.ReleaseNotes.VersionManagement</a>
 how the versions are managed with the subversion management systems.
 This is especially important for maintenance (bug-fix) releases where the
 main version number is not changed.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.VersionManagement" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.VersionManagement"
->VersionManagement</A>
-</TD><TD>Version Management</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_1"
->Version_3_2_1</A>
-</TD><TD>Version 3.2.1 (August 14, 2013)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2"
->Version_3_2</A>
-</TD><TD>Version 3.2 (Oct. 25, 2010)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_1"
->Version_3_1</A>
-</TD><TD>Version 3.1 (August 14, 2009)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_0_1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_0_1"
->Version_3_0_1</A>
-</TD><TD>Version 3.0.1 (Jan. 27, 2009)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_0" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_0"
->Version_3_0</A>
-</TD><TD>Version 3.0 (March 1, 2008)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_2_2"
->Version_2_2_2</A>
-</TD><TD>Version 2.2.2 (Aug. 31, 2007)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_2_1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_2_1"
->Version_2_2_1</A>
-</TD><TD>Version 2.2.1 (March 24, 2006)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_2"
->Version_2_2</A>
-</TD><TD>Version 2.2 (April 6, 2005)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_1"
->Version_2_1</A>
-</TD><TD>Version 2.1 (Nov. 11, 2004)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_1_6" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_1_6"
->Version_1_6</A>
-</TD><TD>Version 1.6 (June 21, 2004)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_1_5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_1_5"
->Version_1_5</A>
-</TD><TD>Version 1.5 (Dec. 16, 2002)</TD></TR>
-<TR><TD><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_1_4" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_1_4"
->Version_1_4</A>
-</TD><TD>Version 1.4 (June 28, 2001)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VersionManagement<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.VersionManagement" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.VersionManagement"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.VersionManagement</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.VersionManagement" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.VersionManagement"
+>VersionManagement</a>
+</td>
+<td>Version Management</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_4" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_4"
+>Version_3_2_1_build_4</a>
+</td>
+<td>Version 3.2.1 build 4 (Sept. 30, 2015)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3"
+>Version_3_2_1_build_3</a>
+</td>
+<td>Version 3.2.1 build 3 (July 30, 2015)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2_1"
+>Version_3_2_1</a>
+</td>
+<td>Version 3.2.1 (August 14, 2013)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_2"
+>Version_3_2</a>
+</td>
+<td>Version 3.2 (Oct. 25, 2010)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_1" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_1"
+>Version_3_1</a>
+</td>
+<td>Version 3.1 (August 14, 2009)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_0_1" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_0_1"
+>Version_3_0_1</a>
+</td>
+<td>Version 3.0.1 (Jan. 27, 2009)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_0" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_3_0"
+>Version_3_0</a>
+</td>
+<td>Version 3.0 (March 1, 2008)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_2_2"
+>Version_2_2_2</a>
+</td>
+<td>Version 2.2.2 (Aug. 31, 2007)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_2_1" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_2_1"
+>Version_2_2_1</a>
+</td>
+<td>Version 2.2.1 (March 24, 2006)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_2" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_2"
+>Version_2_2</a>
+</td>
+<td>Version 2.2 (April 6, 2005)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_1" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_2_1"
+>Version_2_1</a>
+</td>
+<td>Version 2.1 (Nov. 11, 2004)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_1_6" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_1_6"
+>Version_1_6</a>
+</td>
+<td>Version 1.6 (June 21, 2004)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_1_5" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_1_5"
+>Version_1_5</a>
+</td>
+<td>Version 1.5 (Dec. 16, 2002)</td>
+</tr>
+<tr>
+<td><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyS.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_1_4" width="20" height="20" align="top">&nbsp;<a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes.Version_1_4"
+>Version_1_4</a>
+</td>
+<td>Version 1.4 (June 28, 2001)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VersionManagement<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.VersionManagement" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.VersionManagement"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.VersionManagement</h2>
+
 <p>
 Maintenance of the Modelica Standard Library is performed with
 three branches on the subversion server of the Modelica Association
@@ -188,16 +262,152 @@ more of the following changes.
          The problem is that this might be non-backward compatible,
          because a user might already extend from this class and already using the same name.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_3_2_1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_3_2_1</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_2_1_build_4<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_4" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_4"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_2_1_build_4</h2>
+
+<p>
+Version 3.2.1 build 4 is backward compatible to version 3.2.1 build 3,
+that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will
+work without any changes also with version 3.2.1 build 4
+(see also issue (4) below, ticket <a href="https://trac.modelica.org/Modelica/ticket/1757">1757</a>).
+This version is a bug-fix release. Short Overview:
+</p>
+
+<ol>
+<li> This version of the Modelica package is <b>fully compatible</b> to
+     Modelica Specification <b>3.2 revision 2</b>
+     (with exception of issue (3) reported below and in
+      ticket <a href="https://trac.modelica.org/Modelica/ticket/1758">1758</a>).
+     </li>
+
+<li> About <a  >10 tickets</a>
+     have been fixed for this release. In particular the following <b>critical bug</b> has been fixed:<br>
+     Ticket <a href="https://trac.modelica.org/Modelica/ticket/1768">1768</a>
+     fixes an issue with block <a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>CombiTimeTable</a>
+     (wrong output when using fixed time step integrator with time step greater than table resolution).
+      </li>
+
+<li> Ticket <a href="https://trac.modelica.org/Modelica/ticket/1758">1758</a>
+     states that simulation of
+     <a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.HeatingSystem"
+>Modelica.Fluid.Examples.HeatingSystem</a>
+     fails in Dymola 2016 if option "pedantic mode for checking Modelica semantics" is set.
+     This issue was not fixed in the library due to the following reasons:<br>
+     The Modelica.Fluid library uses a particular pattern to define some parameters resulting
+     in a cyclic dependency of parameters if only incident information is taken into account.
+     According to Modelica Specification 3.2 revision 2 this is not allowed
+     (and therefore Dymola 2016 correctly reports errors if the pedantic flag is set).
+     In ticket <a href="https://trac.modelica.org/Modelica/ticket/1320">1320</a>
+     this issue was resolved for Modelica Specification 3.3 revision 1 by allowing
+     cyclic parameter definitions if the cycles disappear when evaluating parameters
+     that have annotation Evaluate=true. Modelica.Fluid is correct with respect
+     to Modelica Specification 3.3 revision 1.
+     Changing the Modelica.Fluid library for build 4 so that no cyclic parameter dependencies
+     would be present anymore would (a) result in a non-backwards compatible
+     change and (b) make the usage of Modelica.Fluid less convenient. For this
+     reason Modelica.Fluid is not changed. (Practically, this means for example that
+     the pedantic flag in Dymola 2016 needs to be switched off, when using the
+     Modelica.Fluid library in version 3.2.1 build 4 and any previous version).
+     </li>
+
+<li> In ticket <a href="https://trac.modelica.org/Modelica/ticket/1757">1757</a> it is (correctly) stated
+     that the example model <a href="modelica://Modelica.Media.Air.MoistAir.PsychrometricData">PsychrometricData</a>
+     was moved to another location and that this is a non-backwards compatible change.
+     This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
+     a package in which it resides), for details see ticket
+     <a href="https://trac.modelica.org/Modelica/ticket/1679">1679</a>.
+     Fixing this ticket is seen as of much higher priority, as the small drawback that
+     an example model is moved (and the probability is very high that this moved model is not
+     used in any user model).
+     </li>
+
+<li> In the release notes of build 3 it is stated that no models, blocks, or functions have been
+     newly introduced. This is not correct.<br>
+     In package Modelica the following models have been newly introduced:<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Mechanics.Rotational.Examples.Utilities.SpringDamperNoRelativeStates
+     (to fix ticket <a href="https://trac.modelica.org/Modelica/ticket/1375">1375</a>).<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Fluid.Examples.NonCircularPipes
+     (to check the fix of ticket <a href="https://trac.modelica.org/Modelica/ticket/1601">1681</a>)<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Media.Examples.PsychrometricData
+     (to fix ticket <a href="https://trac.modelica.org/Modelica/ticket/1679">1679</a>).<br>
+     In package ModelicaTest the following models have been newly introduced:<br>
+     &nbsp;&nbsp;&nbsp;Modelica.Tables.CombiTable2D.Test19<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test20<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test21<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test22<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTable2D.Test23<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test68<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test69<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test70<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test71<br>
+     &nbsp;&nbsp;&nbsp;Tables.CombiTimeTable.Test72<br>
+     &nbsp;&nbsp;&nbsp;MultiBody.PlanarLoopWithMove
+     </li>
+</ol>
+
+<p>
+This release of package Modelica, and the accompanying ModelicaTest,
+has been tested with the following tools (the tools are listed alphabetically.
+At the time of the test, some of the tools might not yet support the complete Modelica package):
+</p>
+
+<ul>
+<li> Dymola 2016<br>
+     Regression test results with regards to Modelica 3.2.1 build 3 are available
+     <a href="https://trac.modelica.org/Modelica/ticket/1681">here</a>.</li>
+
+<li> Maplesim Parser</li>
+<li> OpenModelica(Windows, Linux, Mac)<br>
+     Test reports for the daily builds are available
+     <a href="https://trac.openmodelica.org/OpenModelica/wiki">here</a>.</li>
+</ul>
+
+<p>
+The exact difference between package Modelica version 3.2.1 build 3 and version 3.2.1 build 4 is summarized in
+a <a  >comparison table</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_2_1_build_3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_2_1_build_3</h2>
+
+<p>Version 3.2.1 build 3 is backward compatible to version 3.2.1 build 2, that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release. Short Overview: </p>
+<ul>
+<li>This version of the Modelica package is <b>fully compatible</b> to Modelica Specification <b>3.2 revision 2</b>. </li>
+<li>About <a  >103 tickets</a> have been fixed for this release. </li>
+<li><b>No</b> models and blocks and functions are newly included. </li>
+</ul>
+<p>This release of package Modelica, and the accompanying ModelicaTest, has been tested with the following tools (the tools are listed alphabetically. At the time of the test, some of the tools might not yet support the complete Modelica package): </p>
+<ul>
+<li>Dymola 2016<br>Regression test results with regards to Modelica 3.2.1 build 2 are available <a href="https://trac.modelica.org/Modelica/ticket/1681">here</a>.</li>
+<li>Maplesim Parser</li>
+<li>OpenModelica(Windows, Linux, Mac)<br>Test reports for the daily builds are available <a href="https://trac.openmodelica.org/OpenModelica/wiki">here</a>.</li>
+<li>LMS Imagine.Lab Amesim 14.1</li>
+</ul>
+<p>The exact difference between package Modelica version 3.2.1 build 2 and version 3.2.1 build 3 is summarized in a <a  >comparison table</a>. </p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_2_1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_2_1"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_2_1</h2>
+
 <p>
 Version 3.2.1 is backward compatible to version 3.2, that is models developed with
 versions 3.0, 3.0.1, 3.1, or 3.2 will work without any changes also with version 3.2.1.
@@ -527,16 +737,16 @@ to <b style="color:blue">existing</b> libraries:
                         DerPressureByTemperature</td>
     <td valign="top"> New SI unit types </td></tr>
 </table>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_3_2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_3_2"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_3_2</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_2"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_2</h2>
+
 
 <p>
 Version 3.2 is backward compatible to version 3.1, i.e., models developed with
@@ -550,7 +760,7 @@ This version is a major improvement:
 <li><b>7</b> new libraries are included.</li>
 
 <li> The icons of the library are newly designed to provide a modern, unified view,
-     see <A HREF="Modelica_Icons.html#Modelica.Icons"
+     see <a href="Modelica_Icons.html#Modelica.Icons"
 >Modelica.Icons</a>.</li>
 
 <li> All non-Modelica files, such as images, pdf-files, C-source files,
@@ -567,14 +777,14 @@ This version is a major improvement:
      of technical systems.</li>
 
 <li> All electrical machines in the
-     <A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+     <a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Machines</a>
      library have now a "Losses" tab in the parameter menu to optionally
      model machines losses such as frictional losses, stator core losses
      or stray load losses, respectively.</li>
 
 <li> All electrical machines in the
-     <A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+     <a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Machines</a>
      library have now a "powerBalance" result record,
      summarizing converted power and losses.</li>
@@ -622,29 +832,29 @@ The following <b style="color:blue">new libraries</b> have been added:
     (This library was developed by Marcus Baur, DLR).
     </td></tr>
 
-<tr><td valign="top"><A HREF="Modelica_ComplexBlocks.html#Modelica.ComplexBlocks"
+<tr><td valign="top"><a href="Modelica_ComplexBlocks.html#Modelica.ComplexBlocks"
 >Modelica.ComplexBlocks</a></td>
     <td valign="top">
     Library of basic input/output control blocks with Complex signals.<br>
     This library is especially useful in combination with the new
-    <A HREF="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
+    <a href="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
 >Modelica.Electrical.QuasiStationary</a>
     library in order to build up very fast simulations of electrical circuits with periodic
     currents and voltages.<br>
     (This library was developed by Anton Haumer).
     </td></tr>
 
-<tr><td valign="top"><A HREF="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
+<tr><td valign="top"><a href="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
 >Modelica.Electrical.QuasiStationary</a></td>
     <td valign="top">
     Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
     This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-stationary, periodic part
     and neglecting non-periodic transients.<br>
-    (This library was developed by Anton Haumer and Christian Kral, AIT).
+    (This library was developed by Anton Haumer and Christian Kral).
     </td></tr>
 
-<tr><td valign="top"><A HREF="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
+<tr><td valign="top"><a href="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
 >Modelica.Electrical.Spice3</a></td>
     <td valign="top">
     Library with components of the Berkeley
@@ -664,7 +874,7 @@ The following <b style="color:blue">new libraries</b> have been added:
     (This library was developed by Fraunhofer Gesellschaft, Dresden).
     </td></tr>
 
-<tr><td valign="top"><A HREF="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
+<tr><td valign="top"><a href="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
 >Modelica.Magnetic.FundamentalWave</a></td>
     <td valign="top">
      Library for magnetic fundamental wave effects in electric machines for the
@@ -676,11 +886,11 @@ The following <b style="color:blue">new libraries</b> have been added:
      electrical machines.
      From a didactic point of view this library is very beneficial for students in the field
      of electrical engineering.<br>
-     (This library was developed by Christian Kral, AIT, and Anton Haumer, using
+     (This library was developed by Christian Kral, and Anton Haumer, using
      ideas and source code of a library from Michael Beuschel from 2000).
     </td></tr>
 
-<tr><td valign="top"><A HREF="Modelica_Fluid_Dissipation.html#Modelica.Fluid.Dissipation"
+<tr><td valign="top"><a href="Modelica_Fluid_Dissipation.html#Modelica.Fluid.Dissipation"
 >Modelica.Fluid.Dissipation</a></td>
     <td valign="top">
      Library with functions to compute convective heat transfer and pressure loss characteristics.<br>
@@ -688,7 +898,7 @@ The following <b style="color:blue">new libraries</b> have been added:
      XRG Simulation GmbH).
     </td></tr>
 
-<tr><td valign="top"><A HREF="Modelica_ComplexMath.html#Modelica.ComplexMath"
+<tr><td valign="top"><a href="Modelica_ComplexMath.html#Modelica.ComplexMath"
 >Modelica.ComplexMath</a></td>
     <td valign="top">
     Library of complex mathematical functions (e.g., sin, cos) and of functions operating
@@ -772,12 +982,12 @@ to <b style="color:blue">existing</b> libraries:
                       OnDelay</td>
     <td valign="top"> Mathematical blocks for Boolean signals.
                       Some of these blocks are available also in library
-                      <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+                      <a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
 >Logical</a>.
                       The new design is based on the connectorSizing annotation that allows
                       the convenient handling of an arbitrary number of input signals
                       (e.g., the "And" block has 1,2,...,N inputs, instead of only 2 inputs
-                      in the <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+                      in the <a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
 >Logical</a> library).
                       Additionally, the icons are smaller so that the diagram area is
                       better utilized</td> </tr>
@@ -1182,9 +1392,9 @@ to <b style="color:blue">existing</b> libraries:
                       ComplexAdmittance<br>
                       ComplexPower</td>
     <td valign="top"> SIunits to be used in physical models using complex variables, e.g.,<br>
-                      <A HREF="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
+                      <a href="Modelica_Electrical_QuasiStationary.html#Modelica.Electrical.QuasiStationary"
 >Modelica.Electrical.QuasiStationary</a>,
-                      <A HREF="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
+                      <a href="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
 >Modelica.Magnetic.FundamentalWave</a> </td> </tr>
 <tr><td valign="top"> ImpulseFlowRate<br>
                       AngularImpulseFlowRate</td>
@@ -1221,7 +1431,7 @@ have been <b style="color:blue">improved</b> in a
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       and transformers conditional thermal ports have been added,
                       to which the dissipated losses are flowing, if activated.
-                      The thermal port contains a <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+                      The thermal port contains a <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
 >HeatPort</a>
                       for each loss source of the specific machine type. <br><br>
                       To all electric machines (asynchronous and synchronous induction machines, DC machines)
@@ -1791,16 +2001,16 @@ Note:
      <a href="https://www.modelica.org/libraries/Modelica_StateGraph2">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_3_1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_3_1"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_3_1</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_1"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_1</h2>
+
 
 <p>
 Version 3.1 is backward compatible to version 3.0 and 3.0.1,
@@ -1831,7 +2041,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 The following <b style="color:blue">new libraries</b> have been added:
 </p>
 <table border="1" cellspacing=0 cellpadding=2>
-<tr><td valign="top"><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+<tr><td valign="top"><a href="Modelica_Fluid.html#Modelica.Fluid"
 >Modelica.Fluid</a></td>
     <td valign="top">
      Components to model 1-dim. thermo-fluid flow in networks of vessels, pipes,
@@ -1841,7 +2051,7 @@ The following <b style="color:blue">new libraries</b> have been added:
     The library is using the stream-concept from Modelica Specification 3.1.
     </td>
 
-<tr><td valign="top"><A HREF="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+<tr><td valign="top"><a href="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
 >Modelica.Magnetic.FluxTubes</a></td>
     <td valign="top">
      Components to model magnetic devices based on the magnetic flux tubes concepts.
@@ -2088,20 +2298,20 @@ units are wrong or errors in documentation):
     <td valign="top"> Wrong documentation corrected (#162)</td> </tr>
 </table>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_3_0_1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_0_1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_3_0_1"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_3_0_1</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_0_1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_0_1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_0_1"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_0_1</h2>
+
 
 <p>
 This Modelica package is provided under the
-<A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+<a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
 >Modelica License 2</a>
 and no longer under Modelica License 1.1. There are the following reasons
 why the Modelica Association changes from Modelica License 1.1 to this
@@ -2367,16 +2577,16 @@ units are wrong or errors in documentation):
 
 </table>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_3_0<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_3_0" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_3_0"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_3_0</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_3_0<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_3_0" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_3_0"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_3_0</h2>
+
 <p>
 Version 3.0 is <b>not</b> backward compatible to previous versions.
 A conversion script is provided to transform models and libraries
@@ -3123,16 +3333,16 @@ units are wrong or errors in documentation):
 
 </table>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_2_2_2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_2_2_2</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_2_2_2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_2_2_2"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_2_2_2</h2>
+
 <p>
 Version 2.2.2 is backward compatible to version 2.2.1 and 2.2 with
 the following exceptions:
@@ -3145,7 +3355,7 @@ the following exceptions:
          to Modelica.Media.Interfaces.PartialMedium, because a FluidConstants
          record definition is missing,
          for details, see
-          <A HREF="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
+          <a href="Modelica_Media_IdealGases.html#Modelica.Media.IdealGases"
 >Modelica.Media.IdealGases</a>
          (this is seen as a bug fix).
 </ul>
@@ -4109,16 +4319,16 @@ units are wrong or errors in documentation):
 
 </table>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_2_2_1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_2_1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_2_2_1"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_2_2_1</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_2_2_1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_2_1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_2_2_1"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_2_2_1</h2>
+
 
 <p>
 Version 2.2.1 is backward compatible to version 2.2.
@@ -4489,16 +4699,16 @@ The following <b>errors</b> have been fixed:
                    after reading the file content.</td> </tr>
 
 </table>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_2_2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_2_2"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_2_2</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_2_2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_2_2"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_2_2</h2>
+
 
 <p>
 Version 2.2 is backward compatible to version 2.1.
@@ -4509,7 +4719,7 @@ The following <b>new libraries</b> have been added:
 </p>
 
 <table border="1" cellspacing=0 cellpadding=2>
-<tr><td valign="top"><A HREF="Modelica_Media.html#Modelica.Media"
+<tr><td valign="top"><a href="Modelica_Media.html#Modelica.Media"
 >Modelica.Media</a></td>
           <td valign="top"> Property models of liquids and gases, especially
                    <ul>
@@ -4535,7 +4745,7 @@ The following <b>new libraries</b> have been added:
                                 dynamic simulation.</li>
                    </ul>
           </td></tr>
-<tr><td valign="top"><A HREF="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+<tr><td valign="top"><a href="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
 >Modelica.Thermal.FluidHeatFlow</a></td>
           <td valign="top"> Simple components for 1-dim., incompressible thermo-fluid flow
                    to model coolant flows, e.g., of electrical machines.
@@ -4561,16 +4771,16 @@ The following <b>changes</b> have been performed in the
          copying of a component outside of the Modelica library, the references
          still remain valid.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_2_1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_2_1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_2_1"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_2_1</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_2_1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_2_1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_2_1"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_2_1</h2>
+
 
 <p> This is a major change with respect to previous versions of the
         Modelica Standard Library, because <b>many new libraries</b> and components
@@ -4610,34 +4820,34 @@ before automatic conversion is performed.
 The following <b>new libraries</b> have been added:
 </p>
 <table border="1" cellspacing=0 cellpadding=2>
-<tr><td valign="top"><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+<tr><td valign="top"><a href="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
 >Modelica.Electrical.Digital</a></td>
           <td valign="top">Digital electrical components based on 2-,3-,4-, and 9-valued logic<br>
                   according to the VHDL standard</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+<tr><td valign="top"><a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Modelica.Electrical.Machines</a></td>
           <td valign="top">Asynchronous, synchronous and DC motor and generator models</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+<tr><td valign="top"><a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
 >Modelica.Math.Matrices</a></td>
           <td valign="top">Functions operating on matrices such as solve() (A*x=b), leastSquares(),<br>
                   norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td></tr>
-<tr><td valign="top"><A HREF="Modelica_StateGraph.html#Modelica.StateGraph"
+<tr><td valign="top"><a href="Modelica_StateGraph.html#Modelica.StateGraph"
 >Modelica.StateGraph</a></td>
           <td valign="top"> Modeling of <b>discrete event</b> and <b>reactive</b> systems in a convenient way using<br>
                    <b>hierarchical state machines</b> and <b>Modelica</b> as <b>action language</b>. <br>
                    It is based on JGrafchart and Grafcet and  has a similar modeling power as <br>
                    StateCharts. It avoids deficiencies of usually used action languages. <br>
                    This library makes the ModelicaAdditions.PetriNets library obsolet.</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
+<tr><td valign="top"><a href="Modelica_Utilities_Files.html#Modelica.Utilities.Files"
 >Modelica.Utilities.Files</a></td>
           <td valign="top">Functions to operate on files and directories (copy, move, remove files etc.)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+<tr><td valign="top"><a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
 >Modelica.Utilities.Streams</a></td>
           <td valign="top">Read from files and write to files (print, readLine, readFile, error, ...)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
+<tr><td valign="top"><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a></td>
           <td valign="top">Operations on strings (substring, find, replace, sort, scanToken, ...)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Utilities_System.html#Modelica.Utilities.System"
+<tr><td valign="top"><a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
 >Modelica.Utilities.System</a></td>
           <td valign="top">Get/set current directory, get/set environment variable, execute shell command, etc.</td></tr>
 </table>
@@ -4648,27 +4858,27 @@ have been improved and added as <b>new libraries</b>
 to the new sublibraries inside package Modelica):
 </p>
 <table border="1" cellspacing=0 cellpadding=2>
-<tr><td valign="top"><A HREF="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+<tr><td valign="top"><a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
 >Modelica.Blocks.Discrete</a></td>
           <td valign="top"> Discrete input/output blocks with fixed sample period<br>
                    (from ModelicaAdditions.Blocks.Discrete)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+<tr><td valign="top"><a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
 >Modelica.Blocks.Logical</a></td>
           <td valign="top"> Logical components with Boolean input and output signals<br>
                    (from ModelicaAdditions.Blocks.Logical)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+<tr><td valign="top"><a href="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
 >Modelica.Blocks.Nonlinear</a></td>
           <td valign="top"> Discontinuous or non-differentiable algebraic control blocks such as variable limiter,<br>
                    fixed, variable and Pade delay etc. (from ModelicaAdditions.Blocks.Nonlinear)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+<tr><td valign="top"><a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
 >Modelica.Blocks.Routing</a></td>
           <td valign="top"> Blocks to combine and extract signals, such as multiplexer<br>
                    (from ModelicaAdditions.Blocks.Multiplexer)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+<tr><td valign="top"><a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
 >Modelica.Blocks.Tables</a></td>
           <td valign="top"> One and two-dimensional interpolation in tables. CombiTimeTable is available<br>
                    in Modelica.Blocks.Sources (from ModelicaAdditions.Tables)</td></tr>
-<tr><td valign="top"><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+<tr><td valign="top"><a href="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
 >Modelica.Mechanics.MultiBody</a></td>
           <td valign="top"> Components to model the movement of 3-dimensional mechanical systems. Contains <br>
                    body, joint, force and sensor components, analytic handling of kinematic loops,<br>
@@ -4771,16 +4981,16 @@ Other changes:
 <li> The Modelica.Blocks connectors for Real signals are changed from
          blue to dark blue in order to distinguish them from electrical signals.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_1_6<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_1_6" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_1_6"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_1_6</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_1_6<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_1_6" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_1_6"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_1_6</h2>
+
 
 <p> Added 1 new library (Electrical.MultiPhase), 17 new components,
         improved 3 existing components
@@ -4853,16 +5063,16 @@ with not much computational effort.</p>
 <tr><td valign="top">ThermodynamicTemperature</td>
           <td valign="top">min=0 added</td></tr>
 </table>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_1_5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_1_5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_1_5"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_1_5</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_1_5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_1_5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_1_5"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_1_5</h2>
+
 
 <p> Added 55 new components. In particular, added new package
         <b>Thermal.HeatTransfer</b> for modeling of lumped
@@ -5061,16 +5271,16 @@ filled with white and not transparent any more.</p>
 <code>flow SIunits.HeatFlux q;</code> changed to <code>flow SIunits.HeatFlowRate q;</code></p>
 <p><i>MultiBody.Parts.InertialSystem</i></p>
 <p>Icon corrected.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Version_1_4<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" ALT="Modelica.UsersGuide.ReleaseNotes.Version_1_4" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.UsersGuide.ReleaseNotes.Version_1_4"></A><A HREF="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
->Modelica.UsersGuide.ReleaseNotes</A>.Version_1_4</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Version_1_4<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.UsersGuide.Convec1e139451d32ad63storyI.png" alt="Modelica.UsersGuide.ReleaseNotes.Version_1_4" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.UsersGuide.ReleaseNotes.Version_1_4"></a><a href="Modelica_UsersGuide_ReleaseNotes.html#Modelica.UsersGuide.ReleaseNotes"
+>Modelica.UsersGuide.ReleaseNotes</a>.Version_1_4</h2>
+
 
 <ul>
 <li>Several minor bugs fixed. </li>
@@ -5129,9 +5339,11 @@ Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
 <p>
 First official release of the library.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:24 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:08 2015.
+</address>
+</body>
+</html>

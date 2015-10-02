@@ -1,225 +1,295 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.R134a.Common</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.R134a.Common</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Common<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.R134a.Common"></A><A HREF="Modelica_Media_R134a.html#Modelica.Media.R134a"
->Modelica.Media.R134a</A>.Common</H2>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" ALT="Modelica.Media.R134a.Common.PhaseBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.PhaseBoundaryProperties"
->PhaseBoundaryProperties</A>
-</TD><TD>Thermodynamic base properties on the phase boundary</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" ALT="Modelica.Media.R134a.Common.InverseDerivatives_rhoT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.InverseDerivatives_rhoT"
->InverseDerivatives_rhoT</A>
-</TD><TD>Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" ALT="Modelica.Media.R134a.Common.EOSIdealCoeff" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.EOSIdealCoeff"
->EOSIdealCoeff</A>
-</TD><TD>Record for coefficients of ideal term of helmholtz equation of state</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" ALT="Modelica.Media.R134a.Common.EOSResidualCoeff" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.EOSResidualCoeff"
->EOSResidualCoeff</A>
-</TD><TD>Record for coefficients of residual term of helmholtz equation of state</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" ALT="Modelica.Media.R134a.Common.CubicSplineDerEval" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.CubicSplineDerEval"
->CubicSplineDerEval</A>
-</TD><TD>Derivative of cubic spline</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" ALT="Modelica.Media.R134a.Common.CubicSplineEval" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.CubicSplineEval"
->CubicSplineEval</A>
-</TD><TD>Cubic spline</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" ALT="Modelica.Media.R134a.Common.cv2Phase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.cv2Phase"
->cv2Phase</A>
-</TD><TD>Compute isochoric specific heat capacity inside the two-phase region</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" ALT="Modelica.Media.R134a.Common.FindInterval" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.FindInterval"
->FindInterval</A>
-</TD><TD>Half-interval search algorithm</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" ALT="Modelica.Media.R134a.Common.helmholtzToBoundaryProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.helmholtzToBoundaryProps"
->helmholtzToBoundaryProps</A>
-</TD><TD>Calulate phase boundary property record from dimensionless Helmholtz function</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PhaseBoundaryProperties<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" ALT="Modelica.Media.R134a.Common.PhaseBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.PhaseBoundaryProperties"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.PhaseBoundaryProperties</H2>
-<B>Thermodynamic base properties on the phase boundary</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE InverseDerivatives_rhoT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" ALT="Modelica.Media.R134a.Common.InverseDerivatives_rhoT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.InverseDerivatives_rhoT"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.InverseDerivatives_rhoT</H2>
-<B>Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE EOSIdealCoeff<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" ALT="Modelica.Media.R134a.Common.EOSIdealCoeff" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.EOSIdealCoeff"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.EOSIdealCoeff</H2>
-<B>Record for coefficients of ideal term of helmholtz equation of state</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nc</TD><TD>No. of coefficients in a</TD></TR>
-<TR><TD>a[nc]</TD><TD>Coefficients of ideal term of helmholtz equation of state</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE EOSResidualCoeff<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" ALT="Modelica.Media.R134a.Common.EOSResidualCoeff" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.EOSResidualCoeff"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.EOSResidualCoeff</H2>
-<B>Record for coefficients of residual term of helmholtz equation of state</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nc</TD><TD>No. of coefficients in c, d, t, n</TD></TR>
-<TR><TD>ns1</TD><TD>No. of zero coefficients in c</TD></TR>
-<TR><TD>c[nc]</TD><TD>Coefficients of residual term of helmholtz equation of state</TD></TR>
-<TR><TD>d[nc]</TD><TD>Coefficients of residual term of helmholtz equation of state</TD></TR>
-<TR><TD>t[nc]</TD><TD>Coefficients of residual term of helmholtz equation of state</TD></TR>
-<TR><TD>n[nc]</TD><TD>Coefficients of residual term of helmholtz equation of state</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CubicSplineDerEval<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" ALT="Modelica.Media.R134a.Common.CubicSplineDerEval" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.CubicSplineDerEval"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.CubicSplineDerEval</H2>
-<B>Derivative of cubic spline</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Input</TD></TR>
-<TR><TD>coefs[4]</TD><TD>Spline coefficients</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>yder</TD><TD>Spline derivative</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CubicSplineEval<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" ALT="Modelica.Media.R134a.Common.CubicSplineEval" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.CubicSplineEval"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.CubicSplineEval</H2>
-<B>Cubic spline</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Input</TD></TR>
-<TR><TD>coefs[4]</TD><TD>Spline coefficients</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>Output</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE cv2Phase<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" ALT="Modelica.Media.R134a.Common.cv2Phase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.cv2Phase"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.cv2Phase</H2>
-<B>Compute isochoric specific heat capacity inside the two-phase region</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>liq</TD><TD>Properties on the boiling curve</TD></TR>
-<TR><TD>vap</TD><TD>Properties on the condensation curve</TD></TR>
-<TR><TD>x</TD><TD>Vapour mass fraction [1]</TD></TR>
-<TR><TD>T</TD><TD>Temperature [K]</TD></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>cv</TD><TD>Isochoric specific heat capacity [J/(kg.K)]</TD></TR>
-<TR><TD>dpT</TD><TD>Derivative of pressure w.r.t. temperature</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FindInterval<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" ALT="Modelica.Media.R134a.Common.FindInterval" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.FindInterval"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.FindInterval</H2>
-<B>Half-interval search algorithm</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Input</TD></TR>
-<TR><TD>breaks[:]</TD><TD>Grid points defining the intervals</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>i</TD><TD>Found interval number</TD></TR>
-<TR><TD>error</TD><TD>1=did not find interval</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE helmholtzToBoundaryProps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" ALT="Modelica.Media.R134a.Common.helmholtzToBoundaryProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.R134a.Common.helmholtzToBoundaryProps"></A><A HREF="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
->Modelica.Media.R134a.Common</A>.helmholtzToBoundaryProps</H2>
-<B>Calulate phase boundary property record from dimensionless Helmholtz function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sat</TD><TD>Phase boundary property record</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:04 2013.
-</address></BODY>
-</HTML>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Common<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.R134a.Common"></a><a href="Modelica_Media_R134a.html#Modelica.Media.R134a"
+>Modelica.Media.R134a</a>.Common</h2>
+<p>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" alt="Modelica.Media.R134a.Common.PhaseBoundaryProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</a>
+</td>
+<td>Thermodynamic base properties on the phase boundary</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" alt="Modelica.Media.R134a.Common.InverseDerivatives_rhoT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.InverseDerivatives_rhoT"
+>InverseDerivatives_rhoT</a>
+</td>
+<td>Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" alt="Modelica.Media.R134a.Common.EOSIdealCoeff" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.EOSIdealCoeff"
+>EOSIdealCoeff</a>
+</td>
+<td>Record for coefficients of ideal term of helmholtz equation of state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" alt="Modelica.Media.R134a.Common.EOSResidualCoeff" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.EOSResidualCoeff"
+>EOSResidualCoeff</a>
+</td>
+<td>Record for coefficients of residual term of helmholtz equation of state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.CubicSplineDerEval" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.CubicSplineDerEval"
+>CubicSplineDerEval</a>
+</td>
+<td>Derivative of cubic spline</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.CubicSplineEval" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.CubicSplineEval"
+>CubicSplineEval</a>
+</td>
+<td>Cubic spline</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.cv2Phase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.cv2Phase"
+>cv2Phase</a>
+</td>
+<td>Compute isochoric specific heat capacity inside the two-phase region</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.FindInterval" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.FindInterval"
+>FindInterval</a>
+</td>
+<td>Half-interval search algorithm</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.helmholtzToBoundaryProps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.helmholtzToBoundaryProps"
+>helmholtzToBoundaryProps</a>
+</td>
+<td>Calulate phase boundary property record from dimensionless Helmholtz function</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PhaseBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" alt="Modelica.Media.R134a.Common.PhaseBoundaryProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.PhaseBoundaryProperties"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.PhaseBoundaryProperties</h2>
+<p>
+<span class="ModelicaDescription">Thermodynamic base properties on the phase boundary</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InverseDerivatives_rhoT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" alt="Modelica.Media.R134a.Common.InverseDerivatives_rhoT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.InverseDerivatives_rhoT"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.InverseDerivatives_rhoT</h2>
+<p>
+<span class="ModelicaDescription">Derivatives required for inversion of density and temperature functions w.r.t. pressure and enthalpy states</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EOSIdealCoeff<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" alt="Modelica.Media.R134a.Common.EOSIdealCoeff" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.EOSIdealCoeff"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.EOSIdealCoeff</h2>
+<p>
+<span class="ModelicaDescription">Record for coefficients of ideal term of helmholtz equation of state</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nc</td><td>No. of coefficients in a</td></tr>
+<tr><td>a[nc]</td><td>Coefficients of ideal term of helmholtz equation of state</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EOSResidualCoeff<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesI.png" alt="Modelica.Media.R134a.Common.EOSResidualCoeff" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.EOSResidualCoeff"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.EOSResidualCoeff</h2>
+<p>
+<span class="ModelicaDescription">Record for coefficients of residual term of helmholtz equation of state</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nc</td><td>No. of coefficients in c, d, t, n</td></tr>
+<tr><td>ns1</td><td>No. of zero coefficients in c</td></tr>
+<tr><td>c[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
+<tr><td>d[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
+<tr><td>t[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
+<tr><td>n[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CubicSplineDerEval<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" alt="Modelica.Media.R134a.Common.CubicSplineDerEval" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.CubicSplineDerEval"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.CubicSplineDerEval</h2>
+<p>
+<span class="ModelicaDescription">Derivative of cubic spline</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Input</td></tr>
+<tr><td>coefs[4]</td><td>Spline coefficients</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>yder</td><td>Spline derivative</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CubicSplineEval<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" alt="Modelica.Media.R134a.Common.CubicSplineEval" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.CubicSplineEval"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.CubicSplineEval</h2>
+<p>
+<span class="ModelicaDescription">Cubic spline</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Input</td></tr>
+<tr><td>coefs[4]</td><td>Spline coefficients</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Output</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cv2Phase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" alt="Modelica.Media.R134a.Common.cv2Phase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.cv2Phase"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.cv2Phase</h2>
+<p>
+<span class="ModelicaDescription">Compute isochoric specific heat capacity inside the two-phase region</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>liq</td><td>Properties on the boiling curve</td></tr>
+<tr><td>vap</td><td>Properties on the condensation curve</td></tr>
+<tr><td>x</td><td>Vapour mass fraction [1]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>cv</td><td>Isochoric specific heat capacity [J/(kg.K)]</td></tr>
+<tr><td>dpT</td><td>Derivative of pressure w.r.t. temperature</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FindInterval<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" alt="Modelica.Media.R134a.Common.FindInterval" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.FindInterval"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.FindInterval</h2>
+<p>
+<span class="ModelicaDescription">Half-interval search algorithm</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Input</td></tr>
+<tr><td>breaks[:]</td><td>Grid points defining the intervals</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>i</td><td>Found interval number</td></tr>
+<tr><td>error</td><td>1=did not find interval</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE helmholtzToBoundaryProps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalI.png" alt="Modelica.Media.R134a.Common.helmholtzToBoundaryProps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.Common.helmholtzToBoundaryProps"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
+>Modelica.Media.R134a.Common</a>.helmholtzToBoundaryProps</h2>
+<p>
+<span class="ModelicaDescription">Calulate phase boundary property record from dimensionless Helmholtz function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Phase boundary property record</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:23 2015.
+</address>
+</body>
+</html>

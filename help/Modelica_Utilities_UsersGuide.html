@@ -1,29 +1,49 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Utilities.UsersGuide</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Utilities.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;User&#39;s Guide of Utilities Library&quot;">
+<meta name="description" content="&quot;User&#39;s Guide of Utilities Library&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.UsersGuideI.png" ALT="Modelica.Utilities.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.UsersGuide"></A><A HREF="Modelica_Utilities.html#Modelica.Utilities"
->Modelica.Utilities</A>.UsersGuide</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.UsersGuideI.png" alt="Modelica.Utilities.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.UsersGuide"></a><a href="Modelica_Utilities.html#Modelica.Utilities"
+>Modelica.Utilities</a>.UsersGuide</h2>
+<p>
+</p>
+
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary
@@ -32,19 +52,19 @@ The User's Guide has currently the following chapters:
 </p>
 <ol>
 <li>
-<A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ReleaseNotes"
+<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ReleaseNotes"
 >Release Notes</a>
   summarizes the differences between different versions of this
   library.
 </li>
 <li>
-<A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ImplementationNotes"
+<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ImplementationNotes"
 >ImplementationNotes</a>
   describes design decisions for this library especially for
   Modelica tool vendors.
 </li>
 <li>
-<A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.Contact"
+<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.Contact"
 >Contact</a> provides
   information about the authors of the library as well as acknowledgments.
 </li>
@@ -57,29 +77,41 @@ functions do not return, if an error is triggered inside the function.
 In the near future, an exception handling mechanism will be introduced
 in Modelica that will allow to catch errors at a defined place.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.UsersGb99a6a1dc7ddcf23NotesS.png" ALT="Modelica.Utilities.UsersGuide.ImplementationNotes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ImplementationNotes"
->ImplementationNotes</A>
-</TD><TD>Implementation Notes</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.UsersGfc37124cf4232d60NotesS.png" ALT="Modelica.Utilities.UsersGuide.ReleaseNotes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ReleaseNotes"
->ReleaseNotes</A>
-</TD><TD>Release notes</TD></TR>
-<TR><TD><IMG SRC="Modelica.Utilities.UsersGuide.ContactS.png" ALT="Modelica.Utilities.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.Contact"
->Contact</A>
-</TD><TD>Contact</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ImplementationNotes<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.UsersGuideI.png" ALT="Modelica.Utilities.UsersGuide.ImplementationNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.UsersGuide.ImplementationNotes"></A><A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
->Modelica.Utilities.UsersGuide</A>.ImplementationNotes</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.UsersGb99a6a1dc7ddcf23NotesS.png" alt="Modelica.Utilities.UsersGuide.ImplementationNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ImplementationNotes"
+>ImplementationNotes</a>
+</td>
+<td>Implementation Notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.UsersGfc37124cf4232d60NotesS.png" alt="Modelica.Utilities.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.UsersGuide.ContactS.png" alt="Modelica.Utilities.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ImplementationNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.UsersGuideI.png" alt="Modelica.Utilities.UsersGuide.ImplementationNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.UsersGuide.ImplementationNotes"></a><a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
+>Modelica.Utilities.UsersGuide</a>.ImplementationNotes</h2>
+
 <p>
 Below the major design decisions of this library are summarized.
 </p>
@@ -151,30 +183,30 @@ Below the major design decisions of this library are summarized.
      efficiently, if such types of optimizations are supported
      by the tool.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ReleaseNotes<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.UsersGfc37124cf4232d60NotesI.png" ALT="Modelica.Utilities.UsersGuide.ReleaseNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.UsersGuide.ReleaseNotes"></A><A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
->Modelica.Utilities.UsersGuide</A>.ReleaseNotes</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.UsersGfc37124cf4232d60NotesI.png" alt="Modelica.Utilities.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.UsersGuide.ReleaseNotes"></a><a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
+>Modelica.Utilities.UsersGuide</a>.ReleaseNotes</h2>
+
 <h4>Version 1.0, 2004-09-29</h4>
 <p>
 First version implemented.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Utilities.UsersGuide.ContactI.png" ALT="Modelica.Utilities.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Utilities.UsersGuide.Contact"></A><A HREF="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
->Modelica.Utilities.UsersGuide</A>.Contact</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.UsersGuide.ContactI.png" alt="Modelica.Utilities.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.UsersGuide.Contact"></a><a href="Modelica_Utilities_UsersGuide.html#Modelica.Utilities.UsersGuide"
+>Modelica.Utilities.UsersGuide</a>.Contact</h2>
+
 <dl>
 <dt><b>Responsible for Library:</b>
 <dd>Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden.<br>
@@ -197,9 +229,11 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
      are appreciated, as well as discussions at the 34th, 36th, and 40th
      Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden. </li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
->Modelica.Icons.Contact</A> (Icon for contact information).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

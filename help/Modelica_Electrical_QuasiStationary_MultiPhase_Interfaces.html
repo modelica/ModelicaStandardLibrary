@@ -1,75 +1,123 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Interfaces for AC multiphase models&quot;">
+<meta name="description" content="&quot;Interfaces for AC multiphase models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
->Modelica.Electrical.QuasiStationary.MultiPhase</A>.Interfaces</H2>
-<B>Interfaces for AC multiphase models</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
->Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasidc7e69dfa40338d9.PlugS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
->Plug</A>
-</TD><TD>Basic multiphase plug</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi69e1242ca94daac7ePlugS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
->PositivePlug</A>
-</TD><TD>Positive multiphase connector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi716862f0a66722c7ePlugS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
->NegativePlug</A>
-</TD><TD>Negative multiphase connector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->TwoPlug</A>
-</TD><TD>Two plugs with pin-adapter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort"
->OnePort</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasiad771056e02dd105ensorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"
->AbsoluteSensor</A>
-</TD><TD>Partial potential sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi2fed23b39f96cd33ensorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor"
->RelativeSensor</A>
-</TD><TD>Partial voltage / current sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasifd602f940ad33eebourceS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
->Source</A>
-</TD><TD>Partial voltage / current source</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Plug<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.Plug</H2>
-<B>Basic multiphase plug</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
+>Modelica.Electrical.QuasiStationary.MultiPhase</a>.Interfaces</h2>
+<p>
+<span class="ModelicaDescription">Interfaces for AC multiphase models</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</a> (Icon for packages containing interfaces).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasidc7e69dfa40338d9.PlugS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+>Plug</a>
+</td>
+<td>Basic multiphase plug</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi69e1242ca94daac7ePlugS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</a>
+</td>
+<td>Positive multiphase connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi716862f0a66722c7ePlugS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</a>
+</td>
+<td>Negative multiphase connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>TwoPlug</a>
+</td>
+<td>Two plugs with pin-adapter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort"
+>OnePort</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasiad771056e02dd105ensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"
+>AbsoluteSensor</a>
+</td>
+<td>Partial potential sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi2fed23b39f96cd33ensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor"
+>RelativeSensor</a>
+</td>
+<td>Partial voltage / current sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasifd602f940ad33eebourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
+>Source</a>
+</td>
+<td>Partial voltage / current source</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Plug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.Plug</h2>
+<p>
+<span class="ModelicaDescription">Basic multiphase plug</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
-This multiphase plug contains a vector of <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
+This multiphase plug contains a vector of <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
 >single phase pins</a>.
-The <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+The <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >positive</a> and
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
 >negative plug</a> are
 derived from this base connector.
 </p>
@@ -77,304 +125,316 @@ derived from this base connector.
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
 >Pin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin"
 >PositivePin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin"
 >NegativePin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >PositivePlug</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
 >NegativePlug</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-<TR><TD>pin[m]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PositivePlug<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi69e1242ca94daac7ePlugI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.PositivePlug</H2>
-<B>Positive multiphase connector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+<tr><td>pin[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PositivePlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi69e1242ca94daac7ePlugI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.PositivePlug</h2>
+<p>
+<span class="ModelicaDescription">Positive multiphase connector</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
-The positive plug is based on <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+The positive plug is based on <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
 >Plug</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
 >negative plug</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
 >Pin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin"
 >PositivePin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin"
 >NegativePin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
 >Plug</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
 >NegativePlug</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
->Plug</A> (Basic multiphase plug).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-<TR><TD>pin[m]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reference</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE NegativePlug<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi716862f0a66722c7ePlugI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.NegativePlug</H2>
-<B>Negative multiphase connector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+>Plug</a> (Basic multiphase plug).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+<tr><td>pin[m]</td><td>&nbsp;</td></tr>
+<tr><td>reference</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NegativePlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi716862f0a66722c7ePlugI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.NegativePlug</h2>
+<p>
+<span class="ModelicaDescription">Negative multiphase connector</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
-The negative plug is based on <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+The negative plug is based on <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
 >Plug</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of each quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >positive plug</a>.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin"
 >Pin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin"
 >PositivePin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin"
 >NegativePin</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
 >Plug</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >PositivePlug</a>,
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
->Plug</A> (Basic multiphase plug).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-</TABLE>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-<TR><TD>pin[m]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>reference</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TwoPlug<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.TwoPlug</H2>
-<B>Two plugs with pin-adapter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Plug"
+>Plug</a> (Basic multiphase plug).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+<tr><td>pin[m]</td><td>&nbsp;</td></tr>
+<tr><td>reference</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoPlug<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.TwoPlug</h2>
 <p>
-This partial model uses a <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+<span class="ModelicaDescription">Two plugs with pin-adapter</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This partial model uses a <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >positive</a>
-and <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
->negative plug</a> and defines the complex voltage differences as well as the complex currents (into the positive plug). A <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
+and <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>negative plug</a> and defines the complex voltage differences as well as the complex currents (into the positive plug). A <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
 >positive</a> and
-a <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
+a <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
 >negative adapter</a> are used to give easy access to the single pins of both plugs. Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >PositivePlug</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
 >NegativePlug</a>,
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE OnePort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.OnePort</H2>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AbsoluteSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasiad771056e02dd105ensorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.AbsoluteSensor</H2>
-<B>Partial potential sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OnePort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasicb2f1f99abd6e327oPlugI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.OnePort</h2>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasiad771056e02dd105ensorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.AbsoluteSensor</h2>
+<p>
+<span class="ModelicaDescription">Partial potential sensor</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 The absolute sensor partial model relies on the a
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
 >positive plug</a> to measure the complex potential. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor"
 >RelativeSensor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor"
 >SinglePhase.Interfaces.AbsoluteSensor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor"
 >SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelativeSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi2fed23b39f96cd33ensorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.RelativeSensor</H2>
-<B>Partial voltage / current sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi2fed23b39f96cd33ensorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.RelativeSensor</h2>
+<p>
+<span class="ModelicaDescription">Partial voltage / current sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The relative sensor partial model relies on the
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
 >TwoPlug</a> to measure the complex voltages, currents or power. Additionally this model contains a proper icon and a definition of the angular velocity.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"
 >AbsoluteSensor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor"
 >SinglePhase.Interfaces.AbsoluteSensor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor"
 >SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device), <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->TwoPlug</A> (Two plugs with pin-adapter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>y[m]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Source<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasifd602f940ad33eebourceI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
->Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</A>.Source</H2>
-<B>Partial voltage / current source</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device), <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>y[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Source<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasifd602f940ad33eebourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.Source</h2>
+<p>
+<span class="ModelicaDescription">Partial voltage / current source</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The source partial model relies on the
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
 >TwoPlug</a> and contains a proper icon.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
 >VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
 >VariableVoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
 >CurrentSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
 >VariableCurrentSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source"
 >SinglePhase.Interfaces.Source</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->TwoPlug</A> (Two plugs with pin-adapter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:36 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+</address>
+</body>
+</html>

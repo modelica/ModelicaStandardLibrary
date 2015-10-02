@@ -1,75 +1,126 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Digital.Converters</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Digital.Converters</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Converters between 2-,3-,4- and 9-valued logic&quot;">
+<meta name="description" content="&quot;Converters between 2-,3-,4- and 9-valued logic&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Converters<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Converters"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
->Modelica.Electrical.Digital</A>.Converters</H2>
-<B>Converters between 2-,3-,4- and 9-valued logic</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Converters<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Converters"></a><a href="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</a>.Converters</h2>
+<p>
+<span class="ModelicaDescription">Converters between 2-,3-,4- and 9-valued logic</span><br>
+</p>
+<h3>Information</h3>
+
 <p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01S.png" ALT="Modelica.Electrical.Digital.Converters.LogicToX01" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01"
->LogicToX01</A>
-</TD><TD>Conversion to X01</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01S.png" ALT="Modelica.Electrical.Digital.Converters.LogicToX01Z" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01Z"
->LogicToX01Z</A>
-</TD><TD>Conversion to X01Z</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01S.png" ALT="Modelica.Electrical.Digital.Converters.LogicToUX01" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToUX01"
->LogicToUX01</A>
-</TD><TD>Conversion to UX01</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digite18c2b1e9a9f90a4LogicS.png" ALT="Modelica.Electrical.Digital.Converters.BooleanToLogic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.BooleanToLogic"
->BooleanToLogic</A>
-</TD><TD>Boolean to Logic converter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitbbc7ae821cbaecb8oleanS.png" ALT="Modelica.Electrical.Digital.Converters.LogicToBoolean" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToBoolean"
->LogicToBoolean</A>
-</TD><TD>Logic to Boolean converter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit5ef52f9241b3df9cLogicS.png" ALT="Modelica.Electrical.Digital.Converters.RealToLogic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.RealToLogic"
->RealToLogic</A>
-</TD><TD>Real to Logic converter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitde922218f5e410b6oRealS.png" ALT="Modelica.Electrical.Digital.Converters.LogicToReal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToReal"
->LogicToReal</A>
-</TD><TD>Logic to Real converter</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1S.png" ALT="Modelica.Electrical.Digital.Converters.LogicToXO1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToXO1"
->LogicToXO1</A>
-</TD><TD>This model will be removed in future Modelica versions, use &#39;LogicToX01&#39; instead!</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1S.png" ALT="Modelica.Electrical.Digital.Converters.LogicToXO1Z" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToXO1Z"
->LogicToXO1Z</A>
-</TD><TD>This model will be removed in future Modelica versions, use &#39;LogicToX01Z&#39; instead!</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToX01<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01I.png" ALT="Modelica.Electrical.Digital.Converters.LogicToX01" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToX01"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToX01</H2>
-<B>Conversion to X01</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01S.png" alt="Modelica.Electrical.Digital.Converters.LogicToX01" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01"
+>LogicToX01</a>
+</td>
+<td>Conversion to X01</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01S.png" alt="Modelica.Electrical.Digital.Converters.LogicToX01Z" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01Z"
+>LogicToX01Z</a>
+</td>
+<td>Conversion to X01Z</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01S.png" alt="Modelica.Electrical.Digital.Converters.LogicToUX01" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToUX01"
+>LogicToUX01</a>
+</td>
+<td>Conversion to UX01</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digite18c2b1e9a9f90a4LogicS.png" alt="Modelica.Electrical.Digital.Converters.BooleanToLogic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.BooleanToLogic"
+>BooleanToLogic</a>
+</td>
+<td>Boolean to Logic converter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitbbc7ae821cbaecb8oleanS.png" alt="Modelica.Electrical.Digital.Converters.LogicToBoolean" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToBoolean"
+>LogicToBoolean</a>
+</td>
+<td>Logic to Boolean converter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit5ef52f9241b3df9cLogicS.png" alt="Modelica.Electrical.Digital.Converters.RealToLogic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.RealToLogic"
+>RealToLogic</a>
+</td>
+<td>Real to Logic converter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitde922218f5e410b6oRealS.png" alt="Modelica.Electrical.Digital.Converters.LogicToReal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToReal"
+>LogicToReal</a>
+</td>
+<td>Logic to Real converter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1S.png" alt="Modelica.Electrical.Digital.Converters.LogicToXO1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToXO1"
+>LogicToXO1</a>
+</td>
+<td>This model will be removed in future Modelica versions, use &#39;LogicToX01&#39; instead!</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1S.png" alt="Modelica.Electrical.Digital.Converters.LogicToXO1Z" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToXO1Z"
+>LogicToXO1Z</a>
+</td>
+<td>This model will be removed in future Modelica versions, use &#39;LogicToX01Z&#39; instead!</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToX01<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01I.png" alt="Modelica.Electrical.Digital.Converters.LogicToX01" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToX01"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToX01</h2>
+<p>
+<span class="ModelicaDescription">Conversion to X01</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
@@ -90,28 +141,29 @@ any delay according to IEEE 1164 To_X01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToX01Z<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01I.png" ALT="Modelica.Electrical.Digital.Converters.LogicToX01Z" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToX01Z"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToX01Z</H2>
-<B>Conversion to X01Z</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToX01Z<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01I.png" alt="Modelica.Electrical.Digital.Converters.LogicToX01Z" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToX01Z"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToX01Z</h2>
+<p>
+<span class="ModelicaDescription">Conversion to X01Z</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
@@ -132,28 +184,29 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToUX01<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01I.png" ALT="Modelica.Electrical.Digital.Converters.LogicToUX01" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToUX01"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToUX01</H2>
-<B>Conversion to UX01</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToUX01<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d2f86cbd7cf0276ToX01I.png" alt="Modelica.Electrical.Digital.Converters.LogicToUX01" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToUX01"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToUX01</h2>
+<p>
+<span class="ModelicaDescription">Conversion to UX01</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
@@ -174,28 +227,29 @@ any delay according to IEEE 1164 To_UX01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BooleanToLogic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digite18c2b1e9a9f90a4LogicI.png" ALT="Modelica.Electrical.Digital.Converters.BooleanToLogic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.BooleanToLogic"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.BooleanToLogic</H2>
-<B>Boolean to Logic converter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BooleanToLogic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digite18c2b1e9a9f90a4LogicI.png" alt="Modelica.Electrical.Digital.Converters.BooleanToLogic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.BooleanToLogic"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.BooleanToLogic</h2>
+<p>
+<span class="ModelicaDescription">Boolean to Logic converter</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a Boolean input into a digital output without any delay according to:
 </P>
@@ -207,28 +261,29 @@ Conversion of a Boolean input into a digital output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToBoolean<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digitbbc7ae821cbaecb8oleanI.png" ALT="Modelica.Electrical.Digital.Converters.LogicToBoolean" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToBoolean"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToBoolean</H2>
-<B>Logic to Boolean converter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToBoolean<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digitbbc7ae821cbaecb8oleanI.png" alt="Modelica.Electrical.Digital.Converters.LogicToBoolean" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToBoolean"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToBoolean</h2>
+<p>
+<span class="ModelicaDescription">Logic to Boolean converter</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a digital input into a Boolean output without any delay according to:
 </P>
@@ -247,28 +302,29 @@ Conversion of a digital input into a Boolean output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RealToLogic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit5ef52f9241b3df9cLogicI.png" ALT="Modelica.Electrical.Digital.Converters.RealToLogic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.RealToLogic"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.RealToLogic</H2>
-<B>Real to Logic converter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RealToLogic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit5ef52f9241b3df9cLogicI.png" alt="Modelica.Electrical.Digital.Converters.RealToLogic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.RealToLogic"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.RealToLogic</h2>
+<p>
+<span class="ModelicaDescription">Real to Logic converter</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a real input into a digital output without any delay according to:
 </P>
@@ -281,33 +337,34 @@ Conversion of a real input into a digital output without any delay according to:
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-<TR><TD>upper_limit</TD><TD>upper limit</TD></TR>
-<TR><TD>lower_limit</TD><TD>lower limit</TD></TR>
-<TR><TD>upper_value</TD><TD>output if input &gt; upper_limit</TD></TR>
-<TR><TD>lower_value</TD><TD>output if input &lt; lower_limit</TD></TR>
-<TR><TD>middle_value</TD><TD>output else</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToReal<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digitde922218f5e410b6oRealI.png" ALT="Modelica.Electrical.Digital.Converters.LogicToReal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToReal"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToReal</H2>
-<B>Logic to Real converter</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+<tr><td>upper_limit</td><td>upper limit</td></tr>
+<tr><td>lower_limit</td><td>lower limit</td></tr>
+<tr><td>upper_value</td><td>output if input &gt; upper_limit</td></tr>
+<tr><td>lower_value</td><td>output if input &lt; lower_limit</td></tr>
+<tr><td>middle_value</td><td>output else</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToReal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digitde922218f5e410b6oRealI.png" alt="Modelica.Electrical.Digital.Converters.LogicToReal" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToReal"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToReal</h2>
+<p>
+<span class="ModelicaDescription">Logic to Real converter</span>
+</p>
+<h3>Information</h3>
+
 <P>
 Conversion of a digital input into a Real output without any delay according to:
 </P>
@@ -327,39 +384,40 @@ Conversion of a digital input into a Real output without any delay according to:
 The values val... are given by parameters.</P>
 <P>If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-<TR><TD>value_U</TD><TD>value for digital U (uninitialized)</TD></TR>
-<TR><TD>value_X</TD><TD>value for digital X (Forcing Unknown)</TD></TR>
-<TR><TD>value_0</TD><TD>value for digital 0 (Forcing 0)</TD></TR>
-<TR><TD>value_1</TD><TD>value for digital 1 (Forcing 1)</TD></TR>
-<TR><TD>value_Z</TD><TD>value for digital Z (High Impedance)</TD></TR>
-<TR><TD>value_W</TD><TD>value for digital W (Weak    Unknown)</TD></TR>
-<TR><TD>value_L</TD><TD>value for digital L (Weak 0)</TD></TR>
-<TR><TD>value_H</TD><TD>value for digital H (Weak 1)</TD></TR>
-<TR><TD>value_m</TD><TD>value for digital m (Do not care)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToXO1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1I.png" ALT="Modelica.Electrical.Digital.Converters.LogicToXO1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToXO1"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToXO1</H2>
-<B>This model will be removed in future Modelica versions, use &#39;LogicToX01&#39; instead!</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+<tr><td>value_U</td><td>value for digital U (uninitialized)</td></tr>
+<tr><td>value_X</td><td>value for digital X (Forcing Unknown)</td></tr>
+<tr><td>value_0</td><td>value for digital 0 (Forcing 0)</td></tr>
+<tr><td>value_1</td><td>value for digital 1 (Forcing 1)</td></tr>
+<tr><td>value_Z</td><td>value for digital Z (High Impedance)</td></tr>
+<tr><td>value_W</td><td>value for digital W (Weak    Unknown)</td></tr>
+<tr><td>value_L</td><td>value for digital L (Weak 0)</td></tr>
+<tr><td>value_H</td><td>value for digital H (Weak 1)</td></tr>
+<tr><td>value_m</td><td>value for digital m (Do not care)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToXO1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1I.png" alt="Modelica.Electrical.Digital.Converters.LogicToXO1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToXO1"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToXO1</h2>
+<p>
+<span class="ModelicaDescription">This model will be removed in future Modelica versions, use &#39;LogicToX01&#39; instead!</span>
+</p>
+<h3>Information</h3>
+
 <h4>Obsoletion Note</h4>
-<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01"
+<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01"
 >LogicToX01</a> shall be used.</p>
 <hr>
 <P>
@@ -382,30 +440,31 @@ any delay according to IEEE 1164 To_X01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LogicToXO1Z<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1I.png" ALT="Modelica.Electrical.Digital.Converters.LogicToXO1Z" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Converters.LogicToXO1Z"></A><A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
->Modelica.Electrical.Digital.Converters</A>.LogicToXO1Z</H2>
-<B>This model will be removed in future Modelica versions, use &#39;LogicToX01Z&#39; instead!</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogicToXO1Z<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6d2f96a8d7cf0d96ToXO1I.png" alt="Modelica.Electrical.Digital.Converters.LogicToXO1Z" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Converters.LogicToXO1Z"></a><a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters"
+>Modelica.Electrical.Digital.Converters</a>.LogicToXO1Z</h2>
+<p>
+<span class="ModelicaDescription">This model will be removed in future Modelica versions, use &#39;LogicToX01Z&#39; instead!</span>
+</p>
+<h3>Information</h3>
+
 <h4>Obsoletion Note</h4>
-<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <A HREF="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01Z"
+<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href="Modelica_Electrical_Digital_Converters.html#Modelica.Electrical.Digital.Converters.LogicToX01Z"
 >LogicToX01Z</a> shall be used.</p>
 <hr>
 <P>
@@ -428,19 +487,20 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>signal width</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y[n]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
-</address></BODY>
-</HTML>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>signal width</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>&nbsp;</td></tr>
+<tr><td>y[n]</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+</address>
+</body>
+</html>

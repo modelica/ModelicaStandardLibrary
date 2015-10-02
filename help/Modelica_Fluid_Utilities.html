@@ -1,104 +1,166 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Utilities</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Utility models to construct fluid components (should not be used directly)&quot;">
+<meta name="description" content="&quot;Utility models to construct fluid components (should not be used directly)&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Utilities"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
->Modelica.Fluid</A>.Utilities</H2>
-<B>Utility models to construct fluid components (should not be used directly)</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Utilities"></a><a href="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility models to construct fluid components (should not be used directly)</span><br>
+</p>
+<h3>Information</h3>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
->Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.checkBoundary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.checkBoundary"
->checkBoundary</A>
-</TD><TD>Check whether boundary definition is correct</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regRoot" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot"
->regRoot</A>
-</TD><TD>Anti-symmetric square root approximation with finite derivative in the origin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regRoot_der" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot_der"
->regRoot_der</A>
-</TD><TD>Derivative of regRoot</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regSquare" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regSquare"
->regSquare</A>
-</TD><TD>Anti-symmetric square approximation with non-zero derivative in the origin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regPow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regPow"
->regPow</A>
-</TD><TD>Anti-symmetric power approximation with non-zero derivative in the origin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regRoot2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot2"
->regRoot2</A>
-</TD><TD>Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regSquare2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regSquare2"
->regSquare2</A>
-</TD><TD>Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regStep"
->regStep</A>
-</TD><TD>Approximation of a general step, such that the characteristic is continuous and differentiable</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"
->evaluatePoly3_derivativeAtZero</A>
-</TD><TD>Evaluate polynomial of order 3 that passes the origin with a predefined derivative</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.regFun3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regFun3"
->regFun3</A>
-</TD><TD>Co-monotonic and C1 smooth regularization function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.cubicHermite" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.cubicHermite"
->cubicHermite</A>
-</TD><TD>Evaluate a cubic Hermite spline</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryS.png" ALT="Modelica.Fluid.Utilities.cubicHermite_withDerivative" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.cubicHermite_withDerivative"
->cubicHermite_withDerivative</A>
-</TD><TD>Evaluate a cubic Hermite spline, return value and derivative</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE checkBoundary<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.checkBoundary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.checkBoundary"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.checkBoundary</H2>
-<B>Check whether boundary definition is correct</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>mediumName</TD><TD>&nbsp;</TD></TR>
-<TR><TD>substanceNames[:]</TD><TD>Names of substances</TD></TR>
-<TR><TD>singleState</TD><TD>&nbsp;</TD></TR>
-<TR><TD>define_p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>X_boundary[:]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>modelName</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regRoot<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regRoot" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regRoot"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regRoot</H2>
-<B>Anti-symmetric square root approximation with finite derivative in the origin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.checkBoundary" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.checkBoundary"
+>checkBoundary</a>
+</td>
+<td>Check whether boundary definition is correct</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regRoot" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot"
+>regRoot</a>
+</td>
+<td>Anti-symmetric square root approximation with finite derivative in the origin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regRoot_der" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot_der"
+>regRoot_der</a>
+</td>
+<td>Derivative of regRoot</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regSquare" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regSquare"
+>regSquare</a>
+</td>
+<td>Anti-symmetric square approximation with non-zero derivative in the origin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regPow" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regPow"
+>regPow</a>
+</td>
+<td>Anti-symmetric power approximation with non-zero derivative in the origin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regRoot2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regRoot2"
+>regRoot2</a>
+</td>
+<td>Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regSquare2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regSquare2"
+>regSquare2</a>
+</td>
+<td>Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regStep"
+>regStep</a>
+</td>
+<td>Approximation of a general step, such that the characteristic is continuous and differentiable</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"
+>evaluatePoly3_derivativeAtZero</a>
+</td>
+<td>Evaluate polynomial of order 3 that passes the origin with a predefined derivative</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.regFun3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.regFun3"
+>regFun3</a>
+</td>
+<td>Co-monotonic and C1 smooth regularization function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.cubicHermite" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.cubicHermite"
+>cubicHermite</a>
+</td>
+<td>Evaluate a cubic Hermite spline</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Utilities.checkBoundaryS.png" alt="Modelica.Fluid.Utilities.cubicHermite_withDerivative" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities.cubicHermite_withDerivative"
+>cubicHermite_withDerivative</a>
+</td>
+<td>Evaluate a cubic Hermite spline, return value and derivative</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE checkBoundary<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.checkBoundary" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.checkBoundary"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.checkBoundary</h2>
+<p>
+<span class="ModelicaDescription">Check whether boundary definition is correct</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>mediumName</td><td>&nbsp;</td></tr>
+<tr><td>substanceNames[:]</td><td>Names of substances</td></tr>
+<tr><td>singleState</td><td>&nbsp;</td></tr>
+<tr><td>define_p</td><td>&nbsp;</td></tr>
+<tr><td>X_boundary[:]</td><td>&nbsp;</td></tr>
+<tr><td>modelName</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regRoot<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regRoot" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regRoot"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regRoot</h2>
+<p>
+<span class="ModelicaDescription">Anti-symmetric square root approximation with finite derivative in the origin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function approximates sqrt(abs(x))*sgn(x), such that the derivative is finite and smooth in x=0.
 </p>
@@ -110,53 +172,57 @@ This function approximates sqrt(abs(x))*sgn(x), such that the derivative is fini
 <p>
 With the default value of delta=0.01, the difference between sqrt(x) and regRoot(x) is 16% around x=0.01, 0.25% around x=0.1 and 0.0025% around x=1.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>&nbsp;</TD></TR>
-<TR><TD>delta</TD><TD>Range of significant deviation from sqrt(abs(x))*sgn(x)</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regRoot_der<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regRoot_der" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regRoot_der"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regRoot_der</H2>
-<B>Derivative of regRoot</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>&nbsp;</TD></TR>
-<TR><TD>delta</TD><TD>Range of significant deviation from sqrt(x)</TD></TR>
-<TR><TD>dx</TD><TD>Derivative of x</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dy</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regSquare<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regSquare" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regSquare"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regSquare</H2>
-<B>Anti-symmetric square approximation with non-zero derivative in the origin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>delta</td><td>Range of significant deviation from sqrt(abs(x))*sgn(x)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regRoot_der<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regRoot_der" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regRoot_der"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regRoot_der</h2>
+<p>
+<span class="ModelicaDescription">Derivative of regRoot</span>
+</p>
+<h3>Information</h3>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>delta</td><td>Range of significant deviation from sqrt(x)</td></tr>
+<tr><td>dx</td><td>Derivative of x</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dy</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regSquare<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regSquare" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regSquare"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regSquare</h2>
+<p>
+<span class="ModelicaDescription">Anti-symmetric square approximation with non-zero derivative in the origin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function approximates x^2*sgn(x), such that the derivative is non-zero in x=0.
 </p>
@@ -168,29 +234,31 @@ This function approximates x^2*sgn(x), such that the derivative is non-zero in x
 <p>
 With the default value of delta=0.01, the difference between x^2 and regSquare(x) is 41% around x=0.01, 0.4% around x=0.1 and 0.005% around x=1.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>&nbsp;</TD></TR>
-<TR><TD>delta</TD><TD>Range of significant deviation from x^2*sgn(x)</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regPow<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regPow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regPow"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regPow</H2>
-<B>Anti-symmetric power approximation with non-zero derivative in the origin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>delta</td><td>Range of significant deviation from x^2*sgn(x)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regPow<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regPow" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regPow"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regPow</h2>
+<p>
+<span class="ModelicaDescription">Anti-symmetric power approximation with non-zero derivative in the origin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function approximates abs(x)^a*sign(x), such that the derivative is positive, finite and smooth in x=0.
 </p>
@@ -199,30 +267,32 @@ This function approximates abs(x)^a*sign(x), such that the derivative is positiv
 <tr><td>y = regPow(x)</td><td>y ~= abs(x)^a*sgn(x)</td><td>abs(x) &gt;&gt;delta</td></tr>
 <tr><td>y = regPow(x)</td><td>y ~= x*delta^(a-1)</td><td>abs(x) &lt;&lt; delta</td></tr>
 </table>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>&nbsp;</TD></TR>
-<TR><TD>a</TD><TD>&nbsp;</TD></TR>
-<TR><TD>delta</TD><TD>Range of significant deviation from x^a*sgn(x)</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regRoot2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regRoot2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regRoot2"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regRoot2</H2>
-<B>Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>&nbsp;</td></tr>
+<tr><td>a</td><td>&nbsp;</td></tr>
+<tr><td>delta</td><td>Range of significant deviation from x^a*sgn(x)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regRoot2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regRoot2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regRoot2"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regRoot2</h2>
+<p>
+<span class="ModelicaDescription">Anti-symmetric approximation of square root with discontinuous factor so that the first derivative is finite and continuous</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Approximates the function
 </p>
@@ -280,33 +350,35 @@ k1=1, k2=3 is shown in the next figure:
 <dd> <b>Monotone piecewise cubic interpolation</b>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>abscissa value</TD></TR>
-<TR><TD>x_small</TD><TD>approximation of function for |x| &lt;= x_small</TD></TR>
-<TR><TD>k1</TD><TD>y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)</TD></TR>
-<TR><TD>k2</TD><TD>y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)</TD></TR>
-<TR><TD>use_yd0</TD><TD>= true, if yd0 shall be used</TD></TR>
-<TR><TD>yd0</TD><TD>Desired derivative at x=0: dy/dx = yd0</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>ordinate value</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regSquare2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regSquare2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regSquare2"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regSquare2</H2>
-<B>Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>abscissa value</td></tr>
+<tr><td>x_small</td><td>approximation of function for |x| &lt;= x_small</td></tr>
+<tr><td>k1</td><td>y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)</td></tr>
+<tr><td>k2</td><td>y = if x&gt;=0 then sqrt(k1*x) else -sqrt(k2*|x|)</td></tr>
+<tr><td>use_yd0</td><td>= true, if yd0 shall be used</td></tr>
+<tr><td>yd0</td><td>Desired derivative at x=0: dy/dx = yd0</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>ordinate value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regSquare2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regSquare2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regSquare2"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regSquare2</h2>
+<p>
+<span class="ModelicaDescription">Anti-symmetric approximation of square with discontinuous factor so that the first derivative is non-zero and is continuous</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Approximates the function
 </p>
@@ -361,33 +433,35 @@ k1=1, k2=3 is shown in the next figure:
 <dd> <b>Monotone piecewise cubic interpolation</b>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>abscissa value</TD></TR>
-<TR><TD>x_small</TD><TD>approximation of function for |x| &lt;= x_small</TD></TR>
-<TR><TD>k1</TD><TD>y = (if x&gt;=0 then k1 else k2)*x*|x|</TD></TR>
-<TR><TD>k2</TD><TD>y = (if x&gt;=0 then k1 else k2)*x*|x|</TD></TR>
-<TR><TD>use_yd0</TD><TD>= true, if yd0 shall be used</TD></TR>
-<TR><TD>yd0</TD><TD>Desired derivative at x=0: dy/dx = yd0</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>ordinate value</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regStep<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regStep"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regStep</H2>
-<B>Approximation of a general step, such that the characteristic is continuous and differentiable</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>abscissa value</td></tr>
+<tr><td>x_small</td><td>approximation of function for |x| &lt;= x_small</td></tr>
+<tr><td>k1</td><td>y = (if x&gt;=0 then k1 else k2)*x*|x|</td></tr>
+<tr><td>k2</td><td>y = (if x&gt;=0 then k1 else k2)*x*|x|</td></tr>
+<tr><td>use_yd0</td><td>= true, if yd0 shall be used</td></tr>
+<tr><td>yd0</td><td>Desired derivative at x=0: dy/dx = yd0</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>ordinate value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regStep"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regStep</h2>
+<p>
+<span class="ModelicaDescription">Approximation of a general step, such that the characteristic is continuous and differentiable</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function is used to approximate the equation
 </p>
@@ -408,58 +482,62 @@ by a smooth characteristic, so that the expression is continuous and differentia
 In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
 for a smooth transition from y1 to y2.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Abscissa value</TD></TR>
-<TR><TD>y1</TD><TD>Ordinate value for x &gt; 0</TD></TR>
-<TR><TD>y2</TD><TD>Ordinate value for x &lt; 0</TD></TR>
-<TR><TD>x_small</TD><TD>Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt;= 0 required</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>Ordinate value to approximate y = if x &gt; 0 then y1 else y2</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE evaluatePoly3_derivativeAtZero<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.evaluatePoly3_derivativeAtZero</H2>
-<B>Evaluate polynomial of order 3 that passes the origin with a predefined derivative</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Value for which polynomial shall be evaluated</TD></TR>
-<TR><TD>x1</TD><TD>Abscissa value</TD></TR>
-<TR><TD>y1</TD><TD>y1=f(x1)</TD></TR>
-<TR><TD>y1d</TD><TD>First derivative at y1</TD></TR>
-<TR><TD>y0d</TD><TD>First derivative at f(x=0)</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE regFun3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.regFun3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.regFun3"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.regFun3</H2>
-<B>Co-monotonic and C1 smooth regularization function</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Abscissa value</td></tr>
+<tr><td>y1</td><td>Ordinate value for x &gt; 0</td></tr>
+<tr><td>y2</td><td>Ordinate value for x &lt; 0</td></tr>
+<tr><td>x_small</td><td>Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt;= 0 required</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Ordinate value to approximate y = if x &gt; 0 then y1 else y2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE evaluatePoly3_derivativeAtZero<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.evaluatePoly3_derivativeAtZero"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.evaluatePoly3_derivativeAtZero</h2>
+<p>
+<span class="ModelicaDescription">Evaluate polynomial of order 3 that passes the origin with a predefined derivative</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Value for which polynomial shall be evaluated</td></tr>
+<tr><td>x1</td><td>Abscissa value</td></tr>
+<tr><td>y1</td><td>y1=f(x1)</td></tr>
+<tr><td>y1d</td><td>First derivative at y1</td></tr>
+<tr><td>y0d</td><td>First derivative at f(x=0)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE regFun3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.regFun3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.regFun3"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.regFun3</h2>
+<p>
+<span class="ModelicaDescription">Co-monotonic and C1 smooth regularization function</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Approximates a function in a region between <code>x0</code> and <code>x1</code>
 such that
@@ -511,79 +589,85 @@ The second graph shows the continuous derivative of this regularization function
 <dd> <b>Piecewise cubic monotone interpolation with assigned slopes</b>.
      Computing, Vol. 46, Issue 4, December 1991, pp. 355 - 365.</dd>
 </dl>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Abscissa value</TD></TR>
-<TR><TD>x0</TD><TD>Lower abscissa value</TD></TR>
-<TR><TD>x1</TD><TD>Upper abscissa value</TD></TR>
-<TR><TD>y0</TD><TD>Ordinate value at lower abscissa value</TD></TR>
-<TR><TD>y1</TD><TD>Ordinate value at upper abscissa value</TD></TR>
-<TR><TD>y0d</TD><TD>Derivative at lower abscissa value</TD></TR>
-<TR><TD>y1d</TD><TD>Derivative at upper abscissa value</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>Ordinate value</TD></TR>
-<TR><TD>c</TD><TD>Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE cubicHermite<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.cubicHermite" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.cubicHermite"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.cubicHermite</H2>
-<B>Evaluate a cubic Hermite spline</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Abscissa value</TD></TR>
-<TR><TD>x1</TD><TD>Lower abscissa value</TD></TR>
-<TR><TD>x2</TD><TD>Upper abscissa value</TD></TR>
-<TR><TD>y1</TD><TD>Lower ordinate value</TD></TR>
-<TR><TD>y2</TD><TD>Upper ordinate value</TD></TR>
-<TR><TD>y1d</TD><TD>Lower gradient</TD></TR>
-<TR><TD>y2d</TD><TD>Upper gradient</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>Interpolated ordinate value</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE cubicHermite_withDerivative<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Utilities.checkBoundaryI.png" ALT="Modelica.Fluid.Utilities.cubicHermite_withDerivative" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Utilities.cubicHermite_withDerivative"></A><A HREF="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
->Modelica.Fluid.Utilities</A>.cubicHermite_withDerivative</H2>
-<B>Evaluate a cubic Hermite spline, return value and derivative</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Abscissa value</TD></TR>
-<TR><TD>x1</TD><TD>Lower abscissa value</TD></TR>
-<TR><TD>x2</TD><TD>Upper abscissa value</TD></TR>
-<TR><TD>y1</TD><TD>Lower ordinate value</TD></TR>
-<TR><TD>y2</TD><TD>Upper ordinate value</TD></TR>
-<TR><TD>y1d</TD><TD>Lower gradient</TD></TR>
-<TR><TD>y2d</TD><TD>Upper gradient</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>Interpolated ordinate value</TD></TR>
-<TR><TD>dy_dx</TD><TD>Derivative dy/dx at abscissa value x</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:53 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Abscissa value</td></tr>
+<tr><td>x0</td><td>Lower abscissa value</td></tr>
+<tr><td>x1</td><td>Upper abscissa value</td></tr>
+<tr><td>y0</td><td>Ordinate value at lower abscissa value</td></tr>
+<tr><td>y1</td><td>Ordinate value at upper abscissa value</td></tr>
+<tr><td>y0d</td><td>Derivative at lower abscissa value</td></tr>
+<tr><td>y1d</td><td>Derivative at upper abscissa value</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Ordinate value</td></tr>
+<tr><td>c</td><td>Slope of linear section between two cubic polynomials or dummy linear section slope if single cubic is used</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cubicHermite<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.cubicHermite" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.cubicHermite"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.cubicHermite</h2>
+<p>
+<span class="ModelicaDescription">Evaluate a cubic Hermite spline</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Abscissa value</td></tr>
+<tr><td>x1</td><td>Lower abscissa value</td></tr>
+<tr><td>x2</td><td>Upper abscissa value</td></tr>
+<tr><td>y1</td><td>Lower ordinate value</td></tr>
+<tr><td>y2</td><td>Upper ordinate value</td></tr>
+<tr><td>y1d</td><td>Lower gradient</td></tr>
+<tr><td>y2d</td><td>Upper gradient</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated ordinate value</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cubicHermite_withDerivative<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Utilities.checkBoundaryI.png" alt="Modelica.Fluid.Utilities.cubicHermite_withDerivative" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Utilities.cubicHermite_withDerivative"></a><a href="Modelica_Fluid_Utilities.html#Modelica.Fluid.Utilities"
+>Modelica.Fluid.Utilities</a>.cubicHermite_withDerivative</h2>
+<p>
+<span class="ModelicaDescription">Evaluate a cubic Hermite spline, return value and derivative</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Abscissa value</td></tr>
+<tr><td>x1</td><td>Lower abscissa value</td></tr>
+<tr><td>x2</td><td>Upper abscissa value</td></tr>
+<tr><td>y1</td><td>Lower ordinate value</td></tr>
+<tr><td>y2</td><td>Upper ordinate value</td></tr>
+<tr><td>y1d</td><td>Lower gradient</td></tr>
+<tr><td>y2d</td><td>Upper gradient</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Interpolated ordinate value</td></tr>
+<tr><td>dy_dx</td><td>Derivative dy/dx at abscissa value x</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:19 2015.
+</address>
+</body>
+</html>

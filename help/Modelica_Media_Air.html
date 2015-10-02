@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Air</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Air</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Medium models for air&quot;">
+<meta name="description" content="&quot;Medium models for air&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Air<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Air"></A><A HREF="Modelica_Media.html#Modelica.Media"
->Modelica.Media</A>.Air</H2>
-<B>Medium models for air</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Air<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Air"></a><a href="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</a>.Air</h2>
+<p>
+<span class="ModelicaDescription">Medium models for air</span><br>
+</p>
+<h3>Information</h3>
+
   <p>This package contains different medium models for air:</p>
 <ul>
 <li><b>SimpleAir</b><br>
@@ -35,28 +54,48 @@ table   { solid #000; border-collapse: collapse;}
 <li><b>MoistAir</b><br>
     Moist air as an ideal gas mixture of steam and dry air with fog below and above the triple point temperature.</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
->Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.SimpleAirS.png" ALT="Modelica.Media.Air.SimpleAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
->SimpleAir</A>
-</TD><TD>Air: Simple dry air model (0..100 degC)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.SimpleAirS.png" ALT="Modelica.Media.Air.DryAirNasa" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_DryAirNasa.html#Modelica.Media.Air.DryAirNasa"
->DryAirNasa</A>
-</TD><TD>Air: Detailed dry air model as ideal gas (200..6000 K)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.ReferenceAirS.png" ALT="Modelica.Media.Air.ReferenceAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir"
->ReferenceAir</A>
-</TD><TD>ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.MoistAirS.png" ALT="Modelica.Media.Air.MoistAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
->MoistAir</A>
-</TD><TD>Air: Moist air model (190 ... 647 K)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Air.MoistAirS.png" ALT="Modelica.Media.Air.ReferenceMoistAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Air_ReferenceMoistAir.html#Modelica.Media.Air.ReferenceMoistAir"
->ReferenceMoistAir</A>
-</TD><TD>ReferenceMoistAir: Detailed moist air model (143.15 ... 2000 K)</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:56 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.SimpleAirS.png" alt="Modelica.Media.Air.SimpleAir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_SimpleAir.html#Modelica.Media.Air.SimpleAir"
+>SimpleAir</a>
+</td>
+<td>Air: Simple dry air model (0..100 degC)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.SimpleAirS.png" alt="Modelica.Media.Air.DryAirNasa" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_DryAirNasa.html#Modelica.Media.Air.DryAirNasa"
+>DryAirNasa</a>
+</td>
+<td>Air: Detailed dry air model as ideal gas (200..6000 K)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.ReferenceAirS.png" alt="Modelica.Media.Air.ReferenceAir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceAir.html#Modelica.Media.Air.ReferenceAir"
+>ReferenceAir</a>
+</td>
+<td>ReferenceAir: Detailed dry air model with a large operating range (130 ... 2000 K, 0 ... 2000 MPa) based on Helmholtz equations of state</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.MoistAirS.png" alt="Modelica.Media.Air.MoistAir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>MoistAir</a>
+</td>
+<td>Air: Moist air model (190 ... 647 K)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Air.MoistAirS.png" alt="Modelica.Media.Air.ReferenceMoistAir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Air_ReferenceMoistAir.html#Modelica.Media.Air.ReferenceMoistAir"
+>ReferenceMoistAir</a>
+</td>
+<td>ReferenceMoistAir: Detailed moist air model (143.15 ... 2000 K)</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:20 2015.
+</address>
+</body>
+</html>

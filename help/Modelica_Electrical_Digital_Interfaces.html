@@ -1,74 +1,125 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.Digital.Interfaces</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.Digital.Interfaces</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Basic definitions&quot;">
+<meta name="description" content="&quot;Basic definitions&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Interfaces"></A><A HREF="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
->Modelica.Electrical.Digital</A>.Interfaces</H2>
-<B>Basic definitions</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Interfaces"></a><a href="Modelica_Electrical_Digital.html#Modelica.Electrical.Digital"
+>Modelica.Electrical.Digital</a>.Interfaces</h2>
+<p>
+<span class="ModelicaDescription">Basic definitions</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
->Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
->Logic</A>
-</TD><TD>Logic values and their coding according to IEEE 1164 STD_ULOGIC type</TD></TR>
-<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.UX01"
->UX01</A>
-</TD><TD>4-valued subtype of IEEE 1164 STD_ULOGIC type</TD></TR>
-<TR><TD><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Strength"
->Strength</A>
-</TD><TD>Output strengths of registers</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digitace9fba003770468ignalS.png" ALT="Modelica.Electrical.Digital.Interfaces.DigitalSignal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalSignal"
->DigitalSignal</A>
-</TD><TD>Digital port (both input/output possible)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit219bcd92a1b86756InputS.png" ALT="Modelica.Electrical.Digital.Interfaces.DigitalInput" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
->DigitalInput</A>
-</TD><TD>Input DigitalSignal as connector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit933bdad53abefef0utputS.png" ALT="Modelica.Electrical.Digital.Interfaces.DigitalOutput" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
->DigitalOutput</A>
-</TD><TD>Output DigitalSignal as connector</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit70b850a23636180c.SISOS.png" ALT="Modelica.Electrical.Digital.Interfaces.SISO" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
->SISO</A>
-</TD><TD>Single input, single output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6fea7f003639180c.MISOS.png" ALT="Modelica.Electrical.Digital.Interfaces.MISO" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
->MISO</A>
-</TD><TD>Multiple input - single output</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Digit6fea7bee36391bcc.MIMOS.png" ALT="Modelica.Electrical.Digital.Interfaces.MIMO" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MIMO"
->MIMO</A>
-</TD><TD>Multiple input - multiple output</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Logic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Interfaces.Logic"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.Logic</H2>
-<B>Logic values and their coding according to IEEE 1164 STD_ULOGIC type</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</a> (Icon for packages containing interfaces).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</a>
+</td>
+<td>Logic values and their coding according to IEEE 1164 STD_ULOGIC type</td>
+</tr>
+<tr>
+<td><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.UX01"
+>UX01</a>
+</td>
+<td>4-valued subtype of IEEE 1164 STD_ULOGIC type</td>
+</tr>
+<tr>
+<td><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Strength"
+>Strength</a>
+</td>
+<td>Output strengths of registers</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digitace9fba003770468ignalS.png" alt="Modelica.Electrical.Digital.Interfaces.DigitalSignal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalSignal"
+>DigitalSignal</a>
+</td>
+<td>Digital port (both input/output possible)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit219bcd92a1b86756InputS.png" alt="Modelica.Electrical.Digital.Interfaces.DigitalInput" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalInput"
+>DigitalInput</a>
+</td>
+<td>Input DigitalSignal as connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit933bdad53abefef0utputS.png" alt="Modelica.Electrical.Digital.Interfaces.DigitalOutput" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalOutput"
+>DigitalOutput</a>
+</td>
+<td>Output DigitalSignal as connector</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit70b850a23636180c.SISOS.png" alt="Modelica.Electrical.Digital.Interfaces.SISO" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.SISO"
+>SISO</a>
+</td>
+<td>Single input, single output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6fea7f003639180c.MISOS.png" alt="Modelica.Electrical.Digital.Interfaces.MISO" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MISO"
+>MISO</a>
+</td>
+<td>Multiple input - single output</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Digit6fea7bee36391bcc.MIMOS.png" alt="Modelica.Electrical.Digital.Interfaces.MIMO" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.MIMO"
+>MIMO</a>
+</td>
+<td>Multiple input - multiple output</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Logic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Interfaces.Logic"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.Logic</h2>
+<p>
+<span class="ModelicaDescription">Logic values and their coding according to IEEE 1164 STD_ULOGIC type</span>
+</p>
+<h3>Information</h3>
+
 <p><b>Code Table:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -87,16 +138,17 @@ Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.Inter
   <tr><td valign="top">'-'</td> <td valign="top">Do not care</td></tr>
 </table>
 
-<pre></PRE><P></P>
 
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UX01<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Interfaces.UX01"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.UX01</H2>
-<B>4-valued subtype of IEEE 1164 STD_ULOGIC type</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UX01<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Interfaces.UX01"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.UX01</h2>
+<p>
+<span class="ModelicaDescription">4-valued subtype of IEEE 1164 STD_ULOGIC type</span>
+</p>
+<h3>Information</h3>
+
 <p><b>Code Table:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -110,16 +162,17 @@ Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.Inter
   <tr><td valign="top">'1'</td> <td valign="top">Forcing 1</td></tr>
 
 </table>
-<pre></PRE><P></P>
 
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Strength<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Interfaces.Strength"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.Strength</H2>
-<B>Output strengths of registers</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Strength<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Interfaces.Strength"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.Strength</h2>
+<p>
+<span class="ModelicaDescription">Output strengths of registers</span>
+</p>
+<h3>Information</h3>
+
 
 <p><b>Strength Table:</b></p>
 
@@ -139,110 +192,120 @@ Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.Inter
   <tr><td valign="top">'S_W0H'</td> <td valign="top">Weak X, 1 and Forcing 0</td></tr>
   <tr><td valign="top">'S_WL1'</td> <td valign="top">Weak X, 0 and Forcing 1</td></tr>
 </table>
-<pre></PRE><P></P>
 
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DigitalSignal<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.Digital.Interfaces.DigitalSignal"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.DigitalSignal</H2>
-<B>Digital port (both input/output possible)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DigitalSignal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.Digital.Interfaces.DigitalSignal"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.DigitalSignal</h2>
+<p>
+<span class="ModelicaDescription">Digital port (both input/output possible)</span>
+</p>
+<h3>Information</h3>
+
 <p>DigitalSignal is the basic digital connector definition. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
->Logic</A> (Logic values and their coding according to IEEE 1164 STD_ULOGIC type).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DigitalInput<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit219bcd92a1b86756InputI.png" ALT="Modelica.Electrical.Digital.Interfaces.DigitalInput" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Interfaces.DigitalInput"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.DigitalInput</H2>
-<B>Input DigitalSignal as connector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.Logic"
+>Logic</a> (Logic values and their coding according to IEEE 1164 STD_ULOGIC type).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DigitalInput<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit219bcd92a1b86756InputI.png" alt="Modelica.Electrical.Digital.Interfaces.DigitalInput" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Interfaces.DigitalInput"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.DigitalInput</h2>
+<p>
+<span class="ModelicaDescription">Input DigitalSignal as connector</span>
+</p>
+<h3>Information</h3>
+
 <p>DigitalInput is the  digital input connector definition. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalSignal"
->DigitalSignal</A> (Digital port (both input/output possible)).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DigitalOutput<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit933bdad53abefef0utputI.png" ALT="Modelica.Electrical.Digital.Interfaces.DigitalOutput" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Interfaces.DigitalOutput"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.DigitalOutput</H2>
-<B>Output DigitalSignal as connector</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalSignal"
+>DigitalSignal</a> (Digital port (both input/output possible)).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DigitalOutput<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit933bdad53abefef0utputI.png" alt="Modelica.Electrical.Digital.Interfaces.DigitalOutput" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Interfaces.DigitalOutput"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.DigitalOutput</h2>
+<p>
+<span class="ModelicaDescription">Output DigitalSignal as connector</span>
+</p>
+<h3>Information</h3>
+
 <p>DigitalOutput is the  digital output connector definition. DigitalOutput  is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalSignal"
->DigitalSignal</A> (Digital port (both input/output possible)).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SISO<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit70b850a23636180c.SISOI.png" ALT="Modelica.Electrical.Digital.Interfaces.SISO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Interfaces.SISO"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.SISO</H2>
-<B>Single input, single output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces.DigitalSignal"
+>DigitalSignal</a> (Digital port (both input/output possible)).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SISO<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit70b850a23636180c.SISOI.png" alt="Modelica.Electrical.Digital.Interfaces.SISO" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Interfaces.SISO"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.SISO</h2>
+<p>
+<span class="ModelicaDescription">Single input, single output</span>
+</p>
+<h3>Information</h3>
+
 <p>SISO is a partial model for the connection pattern with <b>s</b>ingle (scalar) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the SISO model.</p>
-<pre></PRE><P></P>
 
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x</TD><TD>Connector of Digital input signal</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MISO<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6fea7f003639180c.MISOI.png" ALT="Modelica.Electrical.Digital.Interfaces.MISO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Interfaces.MISO"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.MISO</H2>
-<B>Multiple input - single output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x</td><td>Connector of Digital input signal</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MISO<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6fea7f003639180c.MISOI.png" alt="Modelica.Electrical.Digital.Interfaces.MISO" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Interfaces.MISO"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.MISO</h2>
+<p>
+<span class="ModelicaDescription">Multiple input - single output</span>
+</p>
+<h3>Information</h3>
+
 <p>MISO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y</TD><TD>Connector of Digital output signal</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MIMO<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Digit6fea7bee36391bcc.MIMOI.png" ALT="Modelica.Electrical.Digital.Interfaces.MIMO" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.Digital.Interfaces.MIMO"></A><A HREF="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
->Modelica.Electrical.Digital.Interfaces</A>.MIMO</H2>
-<B>Multiple input - multiple output</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y</td><td>Connector of Digital output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MIMO<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Digit6fea7bee36391bcc.MIMOI.png" alt="Modelica.Electrical.Digital.Interfaces.MIMO" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Digital.Interfaces.MIMO"></a><a href="Modelica_Electrical_Digital_Interfaces.html#Modelica.Electrical.Digital.Interfaces"
+>Modelica.Electrical.Digital.Interfaces</a>.MIMO</h2>
+<p>
+<span class="ModelicaDescription">Multiple input - multiple output</span>
+</p>
+<h3>Information</h3>
+
 <p>MIMO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Number of inputs = Number of outputs</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>x[n]</TD><TD>Connector of Digital input signal vector</TD></TR>
-<TR><TD>y[n]</TD><TD>Connector of Digital output signal vector</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:28 2013.
-</address></BODY>
-</HTML>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Number of inputs = Number of outputs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>x[n]</td><td>Connector of Digital input signal vector</td></tr>
+<tr><td>y[n]</td><td>Connector of Digital output signal vector</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+</address>
+</body>
+</html>

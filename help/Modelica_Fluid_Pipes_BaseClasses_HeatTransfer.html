@@ -1,204 +1,251 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Heat transfer for flow models&quot;">
+<meta name="description" content="&quot;Heat transfer for flow models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE HeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses"
->Modelica.Fluid.Pipes.BaseClasses</A>.HeatTransfer</H2>
-<B>Heat transfer for flow models</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"></a><a href="Modelica_Fluid_Pipes_BaseClasses.html#Modelica.Fluid.Pipes.BaseClasses"
+>Modelica.Fluid.Pipes.BaseClasses</a>.HeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">Heat transfer for flow models</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 Heat transfer correlations for pipe models
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
->PartialFlowHeatTransfer</A>
-</TD><TD>base class for any pipe heat transfer correlation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer"
->IdealFlowHeatTransfer</A>
-</TD><TD>IdealHeatTransfer: Ideal heat transfer without thermal resistance</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer"
->ConstantFlowHeatTransfer</A>
-</TD><TD>ConstantHeatTransfer: Constant heat transfer coefficient</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer"
->PartialPipeFlowHeatTransfer</A>
-</TD><TD>Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer"
->LocalPipeFlowHeatTransfer</A>
-</TD><TD>LocalPipeFlowHeatTransfer: Laminar and turbulent forced convection in pipes, local coefficients</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialFlowHeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
->Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</A>.PartialFlowHeatTransfer</H2>
-<B>base class for any pipe heat transfer correlation</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
+>PartialFlowHeatTransfer</a>
+</td>
+<td>base class for any pipe heat transfer correlation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer"
+>IdealFlowHeatTransfer</a>
+</td>
+<td>IdealHeatTransfer: Ideal heat transfer without thermal resistance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer"
+>ConstantFlowHeatTransfer</a>
+</td>
+<td>ConstantHeatTransfer: Constant heat transfer coefficient</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer"
+>PartialPipeFlowHeatTransfer</a>
+</td>
+<td>Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferS.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer"
+>LocalPipeFlowHeatTransfer</a>
+</td>
+<td>LocalPipeFlowHeatTransfer: Laminar and turbulent forced convection in pipes, local coefficients</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialFlowHeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"></a><a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</a>.PartialFlowHeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">base class for any pipe heat transfer correlation</span>
+</p>
+<h3>Information</h3>
+
 Base class for heat transfer models of flow devices.
 <p>
 The geometry is specified in the interface with the <code>surfaceAreas[n]</code>, the <code>roughnesses[n]</code>
 and the lengths[n] along the flow path.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n+1]</code>
 and the average velocities <code>vs[n+1]</code> of fluid flow.
-See <A HREF="Modelica_Fluid_Pipes_BaseClasses_CharacteristicNumbers.html#Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber"
+See <a href="Modelica_Fluid_Pipes_BaseClasses_CharacteristicNumbers.html#Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber"
 >Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
 for example definitions.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
->Modelica.Fluid.Interfaces.PartialHeatTransfer</A> (Common interface for heat transfer models).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Ambient</TD></TR>
-<TR><TD>k</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
-<TR><TD>T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of heat transfer segments</TD></TR>
-<TR><TD>use_k</TD><TD>= true to use k value for thermal isolation</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>number of identical parallel flow devices</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealFlowHeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
->Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</A>.IdealFlowHeatTransfer</H2>
-<B>IdealHeatTransfer: Ideal heat transfer without thermal resistance</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
+>Modelica.Fluid.Interfaces.PartialHeatTransfer</a> (Common interface for heat transfer models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Ambient</td></tr>
+<tr><td>k</td><td>Heat transfer coefficient to ambient [W/(m2.K)]</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of heat transfer segments</td></tr>
+<tr><td>use_k</td><td>= true to use k value for thermal isolation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPorts[n]</td><td>Heat port to component boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealFlowHeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer"></a><a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</a>.IdealFlowHeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">IdealHeatTransfer: Ideal heat transfer without thermal resistance</span>
+</p>
+<h3>Information</h3>
+
 Ideal heat transfer without thermal resistance.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
->PartialFlowHeatTransfer</A> (base class for any pipe heat transfer correlation).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Ambient</TD></TR>
-<TR><TD>k</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
-<TR><TD>T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of heat transfer segments</TD></TR>
-<TR><TD>use_k</TD><TD>= true to use k value for thermal isolation</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>number of identical parallel flow devices</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ConstantFlowHeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
->Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</A>.ConstantFlowHeatTransfer</H2>
-<B>ConstantHeatTransfer: Constant heat transfer coefficient</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
+>PartialFlowHeatTransfer</a> (base class for any pipe heat transfer correlation).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Ambient</td></tr>
+<tr><td>k</td><td>Heat transfer coefficient to ambient [W/(m2.K)]</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of heat transfer segments</td></tr>
+<tr><td>use_k</td><td>= true to use k value for thermal isolation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPorts[n]</td><td>Heat port to component boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantFlowHeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.ConstantFlowHeatTransfer"></a><a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</a>.ConstantFlowHeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">ConstantHeatTransfer: Constant heat transfer coefficient</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Simple heat transfer correlation with constant heat transfer coefficient, used as default component in distributed pipe models.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
->PartialFlowHeatTransfer</A> (base class for any pipe heat transfer correlation).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alpha0</TD><TD>heat transfer coefficient [W/(m2.K)]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Ambient</TD></TR>
-<TR><TD>k</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
-<TR><TD>T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of heat transfer segments</TD></TR>
-<TR><TD>use_k</TD><TD>= true to use k value for thermal isolation</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>number of identical parallel flow devices</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PartialPipeFlowHeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
->Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</A>.PartialPipeFlowHeatTransfer</H2>
-<B>Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
+>PartialFlowHeatTransfer</a> (base class for any pipe heat transfer correlation).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alpha0</td><td>heat transfer coefficient [W/(m2.K)]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Ambient</td></tr>
+<tr><td>k</td><td>Heat transfer coefficient to ambient [W/(m2.K)]</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of heat transfer segments</td></tr>
+<tr><td>use_k</td><td>= true to use k value for thermal isolation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPorts[n]</td><td>Heat port to component boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialPipeFlowHeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer"></a><a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</a>.PartialPipeFlowHeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Base class for heat transfer models that are expressed in terms of the Nusselt number and which can be used in distributed pipe models.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
->PartialFlowHeatTransfer</A> (base class for any pipe heat transfer correlation).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alpha0</TD><TD>guess value for heat transfer coefficients [W/(m2.K)]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Ambient</TD></TR>
-<TR><TD>k</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
-<TR><TD>T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of heat transfer segments</TD></TR>
-<TR><TD>use_k</TD><TD>= true to use k value for thermal isolation</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>number of identical parallel flow devices</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LocalPipeFlowHeatTransfer<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
->Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</A>.LocalPipeFlowHeatTransfer</H2>
-<B>LocalPipeFlowHeatTransfer: Laminar and turbulent forced convection in pipes, local coefficients</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer"
+>PartialFlowHeatTransfer</a> (base class for any pipe heat transfer correlation).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alpha0</td><td>guess value for heat transfer coefficients [W/(m2.K)]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Ambient</td></tr>
+<tr><td>k</td><td>Heat transfer coefficient to ambient [W/(m2.K)]</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of heat transfer segments</td></tr>
+<tr><td>use_k</td><td>= true to use k value for thermal isolation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPorts[n]</td><td>Heat port to component boundary</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LocalPipeFlowHeatTransfer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Pipes.Base04974a158c564c17nsferI.png" alt="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.LocalPipeFlowHeatTransfer"></a><a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer</a>.LocalPipeFlowHeatTransfer</h2>
+<p>
+<span class="ModelicaDescription">LocalPipeFlowHeatTransfer: Laminar and turbulent forced convection in pipes, local coefficients</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Heat transfer model for laminar and turbulent flow in pipes. Range of validity:
 </p>
@@ -218,28 +265,30 @@ The correlation takes into account the spatial position along the pipe flow, whi
     <dd><b>VDI W&auml;rmeatlas</b>.
          Springer Verlag, Ed. 8, 1997.</dd>
 </dl>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer"
->PartialPipeFlowHeatTransfer</A> (Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>alpha0</TD><TD>guess value for heat transfer coefficients [W/(m2.K)]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Ambient</TD></TR>
-<TR><TD>k</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
-<TR><TD>T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Internal Interface</B></TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>n</TD><TD>Number of heat transfer segments</TD></TR>
-<TR><TD>use_k</TD><TD>= true to use k value for thermal isolation</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Geometry</TD></TR>
-<TR><TD>nParallel</TD><TD>number of identical parallel flow devices</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:46 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Pipes_BaseClasses_HeatTransfer.html#Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer"
+>PartialPipeFlowHeatTransfer</a> (Base class for pipe heat transfer correlation in terms of Nusselt number heat transfer in a circular pipe for laminar and turbulent one-phase flow).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>alpha0</td><td>guess value for heat transfer coefficients [W/(m2.K)]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Ambient</td></tr>
+<tr><td>k</td><td>Heat transfer coefficient to ambient [W/(m2.K)]</td></tr>
+<tr><td>T_ambient</td><td>Ambient temperature [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Internal Interface</td></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>n</td><td>Number of heat transfer segments</td></tr>
+<tr><td>use_k</td><td>= true to use k value for thermal isolation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Geometry</td></tr>
+<tr><td>nParallel</td><td>number of identical parallel flow devices</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPorts[n]</td><td>Heat port to component boundary</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

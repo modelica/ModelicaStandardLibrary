@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Thermal.HeatTransfer.Rankine</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Thermal.HeatTransfer.Rankine</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Components with Rankine input and/or output&quot;">
+<meta name="description" content="&quot;Components with Rankine input and/or output&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Rankine<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Thermal.HeatTransfer.Rankine"></A><A HREF="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
->Modelica.Thermal.HeatTransfer</A>.Rankine</H2>
-<B>Components with Rankine input and/or output</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Rankine<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Thermal.HeatTransfer.Rankine"></a><a href="Modelica_Thermal_HeatTransfer.html#Modelica.Thermal.HeatTransfer"
+>Modelica.Thermal.HeatTransfer</a>.Rankine</h2>
+<p>
+<span class="ModelicaDescription">Components with Rankine input and/or output</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Rankine units, since all models
@@ -42,114 +61,137 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
->Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Thermal.HeatTranac21fb6251038255elvinS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.ToKelvin"
->ToKelvin</A>
-</TD><TD>Conversion block from degRankine to Kelvin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Thermal.HeatTran8149bc4d4127e428elvinS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.FromKelvin"
->FromKelvin</A>
-</TD><TD>Conversion from Kelvin to degRankine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Thermal.HeatTranb78c157aa5269e0batureS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature"
->FixedTemperature</A>
-</TD><TD>Fixed temperature boundary condition in degRankine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Thermal.HeatTran87dbbd6759bf3ac6atureS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature"
->PrescribedTemperature</A>
-</TD><TD>Variable temperature boundary condition in degRankine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Thermal.HeatTran3d9fa21c02c70491ensorS.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor"
->TemperatureSensor</A>
-</TD><TD>Absolute temperature sensor in degRankine</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ToKelvin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Thermal.HeatTranac21fb6251038255elvinI.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
->Modelica.Thermal.HeatTransfer.Rankine</A>.ToKelvin</H2>
-<B>Conversion block from degRankine to Kelvin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.HeatTranac21fb6251038255elvinS.png" alt="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.ToKelvin"
+>ToKelvin</a>
+</td>
+<td>Conversion block from degRankine to Kelvin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.HeatTran8149bc4d4127e428elvinS.png" alt="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.FromKelvin"
+>FromKelvin</a>
+</td>
+<td>Conversion from Kelvin to degRankine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.HeatTranb78c157aa5269e0batureS.png" alt="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature"
+>FixedTemperature</a>
+</td>
+<td>Fixed temperature boundary condition in degRankine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.HeatTran87dbbd6759bf3ac6atureS.png" alt="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature"
+>PrescribedTemperature</a>
+</td>
+<td>Variable temperature boundary condition in degRankine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Thermal.HeatTran3d9fa21c02c70491ensorS.png" alt="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor"
+>TemperatureSensor</a>
+</td>
+<td>Absolute temperature sensor in degRankine</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ToKelvin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.HeatTranac21fb6251038255elvinI.png" alt="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.HeatTransfer.Rankine.ToKelvin"></a><a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Modelica.Thermal.HeatTransfer.Rankine</a>.ToKelvin</h2>
+<p>
+<span class="ModelicaDescription">Conversion block from degRankine to Kelvin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component converts all input signals from degree Rankine to Kelvin
 and provides them as output signals.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Rankine</TD><TD>[degRk]</TD></TR>
-<TR><TD>Kelvin</TD><TD>[K]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FromKelvin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Thermal.HeatTran8149bc4d4127e428elvinI.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin"></A><A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
->Modelica.Thermal.HeatTransfer.Rankine</A>.FromKelvin</H2>
-<B>Conversion from Kelvin to degRankine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Rankine</td><td>[degRk]</td></tr>
+<tr><td>Kelvin</td><td>[K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FromKelvin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.HeatTran8149bc4d4127e428elvinI.png" alt="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.HeatTransfer.Rankine.FromKelvin"></a><a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Modelica.Thermal.HeatTransfer.Rankine</a>.FromKelvin</h2>
+<p>
+<span class="ModelicaDescription">Conversion from Kelvin to degRankine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component converts all input signals from Kelvin to Rankine
 and provides them as output signals.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Kelvin</TD><TD>[K]</TD></TR>
-<TR><TD>Rankine</TD><TD>[degRk]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FixedTemperature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Thermal.HeatTranb78c157aa5269e0batureI.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
->Modelica.Thermal.HeatTransfer.Rankine</A>.FixedTemperature</H2>
-<B>Fixed temperature boundary condition in degRankine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Only kept for backwards compatibility (parameter is not used in the model and will be removed in a future version)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Kelvin</td><td>[K]</td></tr>
+<tr><td>Rankine</td><td>[degRk]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.HeatTranb78c157aa5269e0batureI.png" alt="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.HeatTransfer.Rankine.FixedTemperature"></a><a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Modelica.Thermal.HeatTransfer.Rankine</a>.FixedTemperature</h2>
+<p>
+<span class="ModelicaDescription">Fixed temperature boundary condition in degRankine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>Fixed Temperature at the port [degRk]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PrescribedTemperature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Thermal.HeatTran87dbbd6759bf3ac6atureI.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature"></A><A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
->Modelica.Thermal.HeatTransfer.Rankine</A>.PrescribedTemperature</H2>
-<B>Variable temperature boundary condition in degRankine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>Fixed Temperature at the port [degRk]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PrescribedTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.HeatTran87dbbd6759bf3ac6atureI.png" alt="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.HeatTransfer.Rankine.PrescribedTemperature"></a><a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Modelica.Thermal.HeatTransfer.Rankine</a>.PrescribedTemperature</h2>
+<p>
+<span class="ModelicaDescription">Variable temperature boundary condition in degRankine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This model represents a variable temperature boundary condition
 The temperature value in degree Rankine, [degRk] is given by the input signal
@@ -157,23 +199,24 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>T</TD><TD>[degRk]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TemperatureSensor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Thermal.HeatTran3d9fa21c02c70491ensorI.png" ALT="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor"></A><A HREF="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
->Modelica.Thermal.HeatTransfer.Rankine</A>.TemperatureSensor</H2>
-<B>Absolute temperature sensor in degRankine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>T</td><td>[degRk]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TemperatureSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Thermal.HeatTran3d9fa21c02c70491ensorI.png" alt="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Thermal.HeatTransfer.Rankine.TemperatureSensor"></a><a href="Modelica_Thermal_HeatTransfer_Rankine.html#Modelica.Thermal.HeatTransfer.Rankine"
+>Modelica.Thermal.HeatTransfer.Rankine</a>.TemperatureSensor</h2>
+<p>
+<span class="ModelicaDescription">Absolute temperature sensor in degRankine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Rankine as an output
@@ -182,14 +225,15 @@ whatever it is connected to.  Furthermore, no
 thermocouple-like lags are associated with this
 sensor model.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>T</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:09 2013.
-</address></BODY>
-</HTML>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>T</td><td>&nbsp;</td></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

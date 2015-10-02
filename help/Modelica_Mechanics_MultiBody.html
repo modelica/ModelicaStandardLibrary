@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Mechanics.MultiBody</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library to model 3-dimensional mechanical systems&quot;">
+<meta name="description" content="&quot;Library to model 3-dimensional mechanical systems&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MultiBody<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Mechanics.MultiBody"></A><A HREF="Modelica_Mechanics.html#Modelica.Mechanics"
->Modelica.Mechanics</A>.MultiBody</H2>
-<B>Library to model 3-dimensional mechanical systems</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiBody<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Mechanics.MultiBody"></a><a href="Modelica_Mechanics.html#Modelica.Mechanics"
+>Modelica.Mechanics</a>.MultiBody</h2>
+<p>
+<span class="ModelicaDescription">Library to model 3-dimensional mechanical systems</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -42,73 +61,114 @@ in the next figure:
 For an introduction, have especially a look at:
 </p>
 <ul>
-<li> <A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
+<li> <a href="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
 >MultiBody.UsersGuide</a>
      discusses the most important aspects how to use this library.</li>
-<li> <A HREF="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
+<li> <a href="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
 >MultiBody.Examples</a>
      contains examples that demonstrate the usage of this library.</li>
 </ul>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
 >Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuideS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
->UsersGuide</A>
-</TD><TD>User&#39;s Guide of MultiBody Library</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.WorldS.png" ALT="Modelica.Mechanics.MultiBody.World" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
->World</A>
-</TD><TD>World coordinate system + gravity field + default animation definition</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.ExamplesS.png" ALT="Modelica.Mechanics.MultiBody.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
->Examples</A>
-</TD><TD>Examples that demonstrate the usage of the MultiBody library</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.ForcesS.png" ALT="Modelica.Mechanics.MultiBody.Forces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
->Forces</A>
-</TD><TD>Components that exert forces and/or torques between frames</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.FramesS.png" ALT="Modelica.Mechanics.MultiBody.Frames" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
->Frames</A>
-</TD><TD>Functions to transform rotational frame quantities</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.InterfacesS.png" ALT="Modelica.Mechanics.MultiBody.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces"
->Interfaces</A>
-</TD><TD>Connectors and partial models for 3-dim. mechanical components</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.JointsS.png" ALT="Modelica.Mechanics.MultiBody.Joints" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
->Joints</A>
-</TD><TD>Components that constrain the motion between two frames</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.PartsS.png" ALT="Modelica.Mechanics.MultiBody.Parts" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts"
->Parts</A>
-</TD><TD>Rigid components such as bodies with mass and inertia and massless rods</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.SensorsS.png" ALT="Modelica.Mechanics.MultiBody.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
->Sensors</A>
-</TD><TD>Sensors to measure variables</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.VisualizersS.png" ALT="Modelica.Mechanics.MultiBody.Visualizers" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
->Visualizers</A>
-</TD><TD>3-dimensional visual objects used for animation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.TypesS.png" ALT="Modelica.Mechanics.MultiBody.Types" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
->Types</A>
-</TD><TD>Constants and types with choices, especially to build menus</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.IconsS.png" ALT="Modelica.Mechanics.MultiBody.Icons" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Icons.html#Modelica.Mechanics.MultiBody.Icons"
->Icons</A>
-</TD><TD>Icons for MultiBody package</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE World<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiBody.WorldI.png" ALT="Modelica.Mechanics.MultiBody.World" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.World"></A><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
->Modelica.Mechanics.MultiBody</A>.World</H2>
-<B>World coordinate system + gravity field + default animation definition</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.UsersGuideS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide of MultiBody Library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.WorldS.png" alt="Modelica.Mechanics.MultiBody.World" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody.World"
+>World</a>
+</td>
+<td>World coordinate system + gravity field + default animation definition</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.ExamplesS.png" alt="Modelica.Mechanics.MultiBody.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples.html#Modelica.Mechanics.MultiBody.Examples"
+>Examples</a>
+</td>
+<td>Examples that demonstrate the usage of the MultiBody library</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.ForcesS.png" alt="Modelica.Mechanics.MultiBody.Forces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Forces.html#Modelica.Mechanics.MultiBody.Forces"
+>Forces</a>
+</td>
+<td>Components that exert forces and/or torques between frames</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.FramesS.png" alt="Modelica.Mechanics.MultiBody.Frames" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Frames.html#Modelica.Mechanics.MultiBody.Frames"
+>Frames</a>
+</td>
+<td>Functions to transform rotational frame quantities</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.InterfacesS.png" alt="Modelica.Mechanics.MultiBody.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces"
+>Interfaces</a>
+</td>
+<td>Connectors and partial models for 3-dim. mechanical components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.JointsS.png" alt="Modelica.Mechanics.MultiBody.Joints" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints"
+>Joints</a>
+</td>
+<td>Components that constrain the motion between two frames</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.PartsS.png" alt="Modelica.Mechanics.MultiBody.Parts" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts"
+>Parts</a>
+</td>
+<td>Rigid components such as bodies with mass and inertia and massless rods</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.SensorsS.png" alt="Modelica.Mechanics.MultiBody.Sensors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Sensors.html#Modelica.Mechanics.MultiBody.Sensors"
+>Sensors</a>
+</td>
+<td>Sensors to measure variables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.VisualizersS.png" alt="Modelica.Mechanics.MultiBody.Visualizers" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers"
+>Visualizers</a>
+</td>
+<td>3-dimensional visual objects used for animation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.TypesS.png" alt="Modelica.Mechanics.MultiBody.Types" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Types.html#Modelica.Mechanics.MultiBody.Types"
+>Types</a>
+</td>
+<td>Constants and types with choices, especially to build menus</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiBody.IconsS.png" alt="Modelica.Mechanics.MultiBody.Icons" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Icons.html#Modelica.Mechanics.MultiBody.Icons"
+>Icons</a>
+</td>
+<td>Icons for MultiBody package</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE World<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBody.WorldI.png" alt="Modelica.Mechanics.MultiBody.World" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.World"></a><a href="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</a>.World</h2>
+<p>
+<span class="ModelicaDescription">World coordinate system + gravity field + default animation definition</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Model <b>World</b> represents a global coordinate system fixed in
 ground. This model serves several purposes:
@@ -125,7 +185,7 @@ ground. This model serves several purposes:
      gravity can be selected. Also, function gravityAcceleration can
      be redeclared to a user-defined function that computes the gravity
      acceleration, see example
-     <A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField"
+     <a href="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField"
 >Examples.Elementary.UserDefinedGravityField</a>.
      </li>
 <li> It is used to define <b>default settings</b> of animation properties
@@ -170,59 +230,60 @@ support in such a situation, in the icon of a World instance
 two axes of the world frame are shown and the labels
 of these axes can be set via parameters.
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>enableAnimation</TD><TD>= true, if animation of all components is enabled</TD></TR>
-<TR><TD>animateWorld</TD><TD>= true, if world coordinate system shall be visualized</TD></TR>
-<TR><TD>animateGravity</TD><TD>= true, if gravity field shall be visualized (acceleration vector or field center)</TD></TR>
-<TR><TD>label1</TD><TD>Label of horizontal axis in icon</TD></TR>
-<TR><TD>label2</TD><TD>Label of vertical axis in icon</TD></TR>
-<TR><TD>gravityType</TD><TD>Type of gravity field</TD></TR>
-<TR><TD>g</TD><TD>Constant gravity acceleration [m/s2]</TD></TR>
-<TR><TD>n</TD><TD>Direction of gravity resolved in world frame (gravity = g*n/length(n)) [1]</TD></TR>
-<TR><TD>mue</TD><TD>Gravity field constant (default = field constant of earth) [m3/s2]</TD></TR>
-<TR><TD>driveTrainMechanics3D</TD><TD>= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account</TD></TR>
-<TR><TD>replaceable function gravityAcceleration</TD><TD>Function to compute the gravity acceleration, resolved in world frame</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Animation</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animateWorld = true</TD></TR>
-<TR><TD>axisLength</TD><TD>Length of world axes arrows [m]</TD></TR>
-<TR><TD>axisDiameter</TD><TD>Diameter of world axes arrows [m]</TD></TR>
-<TR><TD>axisShowLabels</TD><TD>= true, if labels shall be shown</TD></TR>
-<TR><TD>axisColor_x</TD><TD>Color of x-arrow</TD></TR>
-<TR><TD>axisColor_y</TD><TD>&nbsp;</TD></TR>
-<TR><TD>axisColor_z</TD><TD>Color of z-arrow</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animateGravity = true and gravityType = UniformGravity</TD></TR>
-<TR><TD>gravityArrowTail[3]</TD><TD>Position vector from origin of world frame to arrow tail, resolved in world frame [m]</TD></TR>
-<TR><TD>gravityArrowLength</TD><TD>Length of gravity arrow [m]</TD></TR>
-<TR><TD>gravityArrowDiameter</TD><TD>Diameter of gravity arrow [m]</TD></TR>
-<TR><TD>gravityArrowColor</TD><TD>Color of gravity arrow</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>if animateGravity = true and gravityType = PointGravity</TD></TR>
-<TR><TD>gravitySphereDiameter</TD><TD>Diameter of sphere representing gravity center (default = mean diameter of earth) [m]</TD></TR>
-<TR><TD>gravitySphereColor</TD><TD>Color of gravity sphere</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Defaults</B></TD></TR>
-<TR><TD>nominalLength</TD><TD>&quot;Nominal&quot; length of multi-body system [m]</TD></TR>
-<TR><TD>defaultAxisLength</TD><TD>Default for length of a frame axis (but not world frame) [m]</TD></TR>
-<TR><TD>defaultJointLength</TD><TD>Default for the fixed length of a shape representing a joint [m]</TD></TR>
-<TR><TD>defaultJointWidth</TD><TD>Default for the fixed width of a shape representing a joint [m]</TD></TR>
-<TR><TD>defaultForceLength</TD><TD>Default for the fixed length of a shape representing a force (e.g., damper) [m]</TD></TR>
-<TR><TD>defaultForceWidth</TD><TD>Default for the fixed width of a shape representing a force (e.g., spring, bushing) [m]</TD></TR>
-<TR><TD>defaultBodyDiameter</TD><TD>Default for diameter of sphere representing the center of mass of a body [m]</TD></TR>
-<TR><TD>defaultWidthFraction</TD><TD>Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)</TD></TR>
-<TR><TD>defaultArrowDiameter</TD><TD>Default for arrow diameter (e.g., of forces, torques, sensors) [m]</TD></TR>
-<TR><TD>defaultFrameDiameterFraction</TD><TD>Default for arrow diameter of a coordinate system as a fraction of axis length</TD></TR>
-<TR><TD>defaultSpecularCoefficient</TD><TD>Default reflection of ambient light (= 0: light is completely absorbed)</TD></TR>
-<TR><TD>defaultN_to_m</TD><TD>Default scaling of force arrows (length = force/defaultN_to_m) [N/m]</TD></TR>
-<TR><TD>defaultNm_to_m</TD><TD>Default scaling of torque arrows (length = torque/defaultNm_to_m) [N.m/m]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>frame_b</TD><TD>Coordinate system fixed in the origin of the world frame</TD></TR>
-<TR><TD>replaceable function gravityAcceleration</TD><TD>Function to compute the gravity acceleration, resolved in world frame</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:39 2013.
-</address></BODY>
-</HTML>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>enableAnimation</td><td>= true, if animation of all components is enabled</td></tr>
+<tr><td>animateWorld</td><td>= true, if world coordinate system shall be visualized</td></tr>
+<tr><td>animateGravity</td><td>= true, if gravity field shall be visualized (acceleration vector or field center)</td></tr>
+<tr><td>label1</td><td>Label of horizontal axis in icon</td></tr>
+<tr><td>label2</td><td>Label of vertical axis in icon</td></tr>
+<tr><td>gravityType</td><td>Type of gravity field</td></tr>
+<tr><td>g</td><td>Constant gravity acceleration [m/s2]</td></tr>
+<tr><td>n</td><td>Direction of gravity resolved in world frame (gravity = g*n/length(n)) [1]</td></tr>
+<tr><td>mue</td><td>Gravity field constant (default = field constant of earth) [m3/s2]</td></tr>
+<tr><td>driveTrainMechanics3D</td><td>= true, if 3-dim. mechanical effects of Parts.Mounting1D/Rotor1D/BevelGear1D shall be taken into account</td></tr>
+<tr><td>replaceable function gravityAcceleration</td><td>Function to compute the gravity acceleration, resolved in world frame</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Animation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animateWorld = true</td></tr>
+<tr><td>axisLength</td><td>Length of world axes arrows [m]</td></tr>
+<tr><td>axisDiameter</td><td>Diameter of world axes arrows [m]</td></tr>
+<tr><td>axisShowLabels</td><td>= true, if labels shall be shown</td></tr>
+<tr><td>axisColor_x</td><td>Color of x-arrow</td></tr>
+<tr><td>axisColor_y</td><td>&nbsp;</td></tr>
+<tr><td>axisColor_z</td><td>Color of z-arrow</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animateGravity = true and gravityType = UniformGravity</td></tr>
+<tr><td>gravityArrowTail[3]</td><td>Position vector from origin of world frame to arrow tail, resolved in world frame [m]</td></tr>
+<tr><td>gravityArrowLength</td><td>Length of gravity arrow [m]</td></tr>
+<tr><td>gravityArrowDiameter</td><td>Diameter of gravity arrow [m]</td></tr>
+<tr><td>gravityArrowColor</td><td>Color of gravity arrow</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">if animateGravity = true and gravityType = PointGravity</td></tr>
+<tr><td>gravitySphereDiameter</td><td>Diameter of sphere representing gravity center (default = mean diameter of earth) [m]</td></tr>
+<tr><td>gravitySphereColor</td><td>Color of gravity sphere</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Defaults</td></tr>
+<tr><td>nominalLength</td><td>&quot;Nominal&quot; length of multi-body system [m]</td></tr>
+<tr><td>defaultAxisLength</td><td>Default for length of a frame axis (but not world frame) [m]</td></tr>
+<tr><td>defaultJointLength</td><td>Default for the fixed length of a shape representing a joint [m]</td></tr>
+<tr><td>defaultJointWidth</td><td>Default for the fixed width of a shape representing a joint [m]</td></tr>
+<tr><td>defaultForceLength</td><td>Default for the fixed length of a shape representing a force (e.g., damper) [m]</td></tr>
+<tr><td>defaultForceWidth</td><td>Default for the fixed width of a shape representing a force (e.g., spring, bushing) [m]</td></tr>
+<tr><td>defaultBodyDiameter</td><td>Default for diameter of sphere representing the center of mass of a body [m]</td></tr>
+<tr><td>defaultWidthFraction</td><td>Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)</td></tr>
+<tr><td>defaultArrowDiameter</td><td>Default for arrow diameter (e.g., of forces, torques, sensors) [m]</td></tr>
+<tr><td>defaultFrameDiameterFraction</td><td>Default for arrow diameter of a coordinate system as a fraction of axis length</td></tr>
+<tr><td>defaultSpecularCoefficient</td><td>Default reflection of ambient light (= 0: light is completely absorbed)</td></tr>
+<tr><td>defaultN_to_m</td><td>Default scaling of force arrows (length = force/defaultN_to_m) [N/m]</td></tr>
+<tr><td>defaultNm_to_m</td><td>Default scaling of torque arrows (length = torque/defaultNm_to_m) [N.m/m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>frame_b</td><td>Coordinate system fixed in the origin of the world frame</td></tr>
+<tr><td>replaceable function gravityAcceleration</td><td>Function to compute the gravity acceleration, resolved in world frame</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+</address>
+</body>
+</html>

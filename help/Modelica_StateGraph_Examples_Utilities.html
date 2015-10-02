@@ -1,306 +1,390 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.StateGraph.Examples.Utilities</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.StateGraph.Examples.Utilities</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Utility components for the examples&quot;">
+<meta name="description" content="&quot;Utility components for the examples&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.StateGraph.Examples.Utilities"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
->Modelica.StateGraph.Examples</A>.Utilities</H2>
-<B>Utility components for the examples</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
->Modelica.Icons.UtilitiesPackage</A> (Icon for utility packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampc3d3c9defbb70ca7ollerS.png" ALT="Modelica.StateGraph.Examples.Utilities.TankController" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.TankController"
->TankController</A>
-</TD><TD>Controller for tank system</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampf046149d8697ef81oductS.png" ALT="Modelica.StateGraph.Examples.Utilities.MakeProduct" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.MakeProduct"
->MakeProduct</A>
-</TD><TD>State machine defining the time instants when to fill or empty a tank</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampf06d652a5dad2395flow1S.png" ALT="Modelica.StateGraph.Examples.Utilities.Inflow1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Inflow1"
->Inflow1</A>
-</TD><TD>Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampf06d652a5dad2395flow1S.png" ALT="Modelica.StateGraph.Examples.Utilities.Inflow2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Inflow2"
->Inflow2</A>
-</TD><TD>Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp1cc084fd5105926cflow1S.png" ALT="Modelica.StateGraph.Examples.Utilities.Outflow1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Outflow1"
->Outflow1</A>
-</TD><TD>Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp1cc084fd5105926cflow1S.png" ALT="Modelica.StateGraph.Examples.Utilities.Outflow2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Outflow2"
->Outflow2</A>
-</TD><TD>Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampadcf3b1c72e0c001valveS.png" ALT="Modelica.StateGraph.Examples.Utilities.valve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.valve"
->valve</A>
-</TD><TD>Simple valve model (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp839c51222006065e.TankS.png" ALT="Modelica.StateGraph.Examples.Utilities.Tank" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Tank"
->Tank</A>
-</TD><TD>Simple tank model (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Examp84e894b716f49089ourceS.png" ALT="Modelica.StateGraph.Examples.Utilities.Source" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Source"
->Source</A>
-</TD><TD>Simple source model (this is a copy from Isolde Dressler&#39;s master thesis project)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepS.png" ALT="Modelica.StateGraph.Examples.Utilities.CompositeStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep"
->CompositeStep</A>
-</TD><TD>State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepS.png" ALT="Modelica.StateGraph.Examples.Utilities.CompositeStep1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep1"
->CompositeStep1</A>
-</TD><TD>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepS.png" ALT="Modelica.StateGraph.Examples.Utilities.CompositeStep2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep2"
->CompositeStep2</A>
-</TD><TD>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TankController<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampc3d3c9defbb70ca7ollerI.png" ALT="Modelica.StateGraph.Examples.Utilities.TankController" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.TankController"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.TankController</H2>
-<B>Controller for tank system</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStateGraphIcon"
->StateGraph.Interfaces.PartialStateGraphIcon</A> (Icon for a StateGraph object).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>limit</TD><TD>Limit level of tank 1</TD></TR>
-<TR><TD>waitTime</TD><TD>Wait time</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>start</TD><TD>&nbsp;</TD></TR>
-<TR><TD>stop</TD><TD>&nbsp;</TD></TR>
-<TR><TD>shut</TD><TD>&nbsp;</TD></TR>
-<TR><TD>level1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>level2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>valve1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>valve2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>valve3</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MakeProduct<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampf046149d8697ef81oductI.png" ALT="Modelica.StateGraph.Examples.Utilities.MakeProduct" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.MakeProduct"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.MakeProduct</H2>
-<B>State machine defining the time instants when to fill or empty a tank</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
->StateGraph.PartialCompositeStep</A> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>limit</TD><TD>Limit level of tank 1</TD></TR>
-<TR><TD>waitTime</TD><TD>Wait time</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Exception connections</TD></TR>
-<TR><TD>nSuspend</TD><TD>Number of suspend ports</TD></TR>
-<TR><TD>nResume</TD><TD>Number of resume ports</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>inPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>outPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>suspend[nSuspend]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>resume[nResume]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>level1</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Inflow1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampf06d652a5dad2395flow1I.png" ALT="Modelica.StateGraph.Examples.Utilities.Inflow1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.Inflow1"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.Inflow1</H2>
-<B>Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Fi</TD><TD>inflow [m3/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Inflow2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampf06d652a5dad2395flow1I.png" ALT="Modelica.StateGraph.Examples.Utilities.Inflow2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.Inflow2"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.Inflow2</H2>
-<B>Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Fi</TD><TD>inflow [m3/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Outflow1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp1cc084fd5105926cflow1I.png" ALT="Modelica.StateGraph.Examples.Utilities.Outflow1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.Outflow1"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.Outflow1</H2>
-<B>Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Fo</TD><TD>outflow [m3/s]</TD></TR>
-<TR><TD>open</TD><TD>valve open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Outflow2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp1cc084fd5105926cflow1I.png" ALT="Modelica.StateGraph.Examples.Utilities.Outflow2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.Outflow2"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.Outflow2</H2>
-<B>Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Contents</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Fo</TD><TD>outflow [m3/s]</TD></TR>
-<TR><TD>open</TD><TD>valve open</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE valve<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampadcf3b1c72e0c001valveI.png" ALT="Modelica.StateGraph.Examples.Utilities.valve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.valve"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.valve</H2>
-<B>Simple valve model (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>valveControl</TD><TD>&nbsp;</TD></TR>
-<TR><TD>inflow1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>outflow1</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Tank<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp839c51222006065e.TankI.png" ALT="Modelica.StateGraph.Examples.Utilities.Tank" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.Tank"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.Tank</H2>
-<B>Simple tank model (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>A</TD><TD>Ground area of tank in m^2</TD></TR>
-<TR><TD>a</TD><TD>Area of drain hole in m^2</TD></TR>
-<TR><TD>hmax</TD><TD>Max height of tank in m</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>levelSensor</TD><TD>&nbsp;</TD></TR>
-<TR><TD>inflow1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>outflow1</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Source<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Examp84e894b716f49089ourceI.png" ALT="Modelica.StateGraph.Examples.Utilities.Source" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.Source"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.Source</H2>
-<B>Simple source model (this is a copy from Isolde Dressler&#39;s master thesis project)</B><p></P>
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>maxflow</TD><TD>maximal flow out of source</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>outflow1</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CompositeStep<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepI.png" ALT="Modelica.StateGraph.Examples.Utilities.CompositeStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.CompositeStep"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.CompositeStep</H2>
-<B>State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
->StateGraph.PartialCompositeStep</A> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Exception connections</TD></TR>
-<TR><TD>nSuspend</TD><TD>Number of suspend ports</TD></TR>
-<TR><TD>nResume</TD><TD>Number of resume ports</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>inPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>outPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>suspend[nSuspend]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>resume[nResume]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CompositeStep1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepI.png" ALT="Modelica.StateGraph.Examples.Utilities.CompositeStep1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.CompositeStep1"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.CompositeStep1</H2>
-<B>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
->PartialCompositeStep</A> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Exception connections</TD></TR>
-<TR><TD>nSuspend</TD><TD>Number of suspend ports</TD></TR>
-<TR><TD>nResume</TD><TD>Number of resume ports</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>inPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>outPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>suspend[nSuspend]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>resume[nResume]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CompositeStep2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepI.png" ALT="Modelica.StateGraph.Examples.Utilities.CompositeStep2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.Examples.Utilities.CompositeStep2"></A><A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
->Modelica.StateGraph.Examples.Utilities</A>.CompositeStep2</H2>
-<B>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
->PartialCompositeStep</A> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>waitTime</TD><TD>waiting time in this composite step</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Exception connections</TD></TR>
-<TR><TD>nSuspend</TD><TD>Number of suspend ports</TD></TR>
-<TR><TD>nResume</TD><TD>Number of resume ports</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>inPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>outPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>suspend[nSuspend]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>resume[nResume]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:26 2013.
-</address></BODY>
-</HTML>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.StateGraph.Examples.Utilities"></a><a href="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</a>.Utilities</h2>
+<p>
+<span class="ModelicaDescription">Utility components for the examples</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
+>Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampc3d3c9defbb70ca7ollerS.png" alt="Modelica.StateGraph.Examples.Utilities.TankController" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.TankController"
+>TankController</a>
+</td>
+<td>Controller for tank system</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampf046149d8697ef81oductS.png" alt="Modelica.StateGraph.Examples.Utilities.MakeProduct" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.MakeProduct"
+>MakeProduct</a>
+</td>
+<td>State machine defining the time instants when to fill or empty a tank</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampf06d652a5dad2395flow1S.png" alt="Modelica.StateGraph.Examples.Utilities.Inflow1" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Inflow1"
+>Inflow1</a>
+</td>
+<td>Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampf06d652a5dad2395flow1S.png" alt="Modelica.StateGraph.Examples.Utilities.Inflow2" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Inflow2"
+>Inflow2</a>
+</td>
+<td>Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp1cc084fd5105926cflow1S.png" alt="Modelica.StateGraph.Examples.Utilities.Outflow1" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Outflow1"
+>Outflow1</a>
+</td>
+<td>Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp1cc084fd5105926cflow1S.png" alt="Modelica.StateGraph.Examples.Utilities.Outflow2" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Outflow2"
+>Outflow2</a>
+</td>
+<td>Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampadcf3b1c72e0c001valveS.png" alt="Modelica.StateGraph.Examples.Utilities.valve" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.valve"
+>valve</a>
+</td>
+<td>Simple valve model (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp839c51222006065e.TankS.png" alt="Modelica.StateGraph.Examples.Utilities.Tank" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Tank"
+>Tank</a>
+</td>
+<td>Simple tank model (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Examp84e894b716f49089ourceS.png" alt="Modelica.StateGraph.Examples.Utilities.Source" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Source"
+>Source</a>
+</td>
+<td>Simple source model (this is a copy from Isolde Dressler&#39;s master thesis project)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepS.png" alt="Modelica.StateGraph.Examples.Utilities.CompositeStep" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep"
+>CompositeStep</a>
+</td>
+<td>State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepS.png" alt="Modelica.StateGraph.Examples.Utilities.CompositeStep1" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep1"
+>CompositeStep1</a>
+</td>
+<td>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepS.png" alt="Modelica.StateGraph.Examples.Utilities.CompositeStep2" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep2"
+>CompositeStep2</a>
+</td>
+<td>Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TankController<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampc3d3c9defbb70ca7ollerI.png" alt="Modelica.StateGraph.Examples.Utilities.TankController" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.TankController"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.TankController</h2>
+<p>
+<span class="ModelicaDescription">Controller for tank system</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph_Interfaces.html#Modelica.StateGraph.Interfaces.PartialStateGraphIcon"
+>StateGraph.Interfaces.PartialStateGraphIcon</a> (Icon for a StateGraph object).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>limit</td><td>Limit level of tank 1</td></tr>
+<tr><td>waitTime</td><td>Wait time</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>start</td><td>&nbsp;</td></tr>
+<tr><td>stop</td><td>&nbsp;</td></tr>
+<tr><td>shut</td><td>&nbsp;</td></tr>
+<tr><td>level1</td><td>&nbsp;</td></tr>
+<tr><td>level2</td><td>&nbsp;</td></tr>
+<tr><td>valve1</td><td>&nbsp;</td></tr>
+<tr><td>valve2</td><td>&nbsp;</td></tr>
+<tr><td>valve3</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MakeProduct<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampf046149d8697ef81oductI.png" alt="Modelica.StateGraph.Examples.Utilities.MakeProduct" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.MakeProduct"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.MakeProduct</h2>
+<p>
+<span class="ModelicaDescription">State machine defining the time instants when to fill or empty a tank</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
+>StateGraph.PartialCompositeStep</a> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>limit</td><td>Limit level of tank 1</td></tr>
+<tr><td>waitTime</td><td>Wait time</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Exception connections</td></tr>
+<tr><td>nSuspend</td><td>Number of suspend ports</td></tr>
+<tr><td>nResume</td><td>Number of resume ports</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>suspend[nSuspend]</td><td>&nbsp;</td></tr>
+<tr><td>resume[nResume]</td><td>&nbsp;</td></tr>
+<tr><td>level1</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inflow1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampf06d652a5dad2395flow1I.png" alt="Modelica.StateGraph.Examples.Utilities.Inflow1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.Inflow1"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.Inflow1</h2>
+<p>
+<span class="ModelicaDescription">Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Fi</td><td>inflow [m3/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inflow2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampf06d652a5dad2395flow1I.png" alt="Modelica.StateGraph.Examples.Utilities.Inflow2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.Inflow2"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.Inflow2</h2>
+<p>
+<span class="ModelicaDescription">Inflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Fi</td><td>inflow [m3/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Outflow1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp1cc084fd5105926cflow1I.png" alt="Modelica.StateGraph.Examples.Utilities.Outflow1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.Outflow1"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.Outflow1</h2>
+<p>
+<span class="ModelicaDescription">Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Fo</td><td>outflow [m3/s]</td></tr>
+<tr><td>open</td><td>valve open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Outflow2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp1cc084fd5105926cflow1I.png" alt="Modelica.StateGraph.Examples.Utilities.Outflow2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.Outflow2"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.Outflow2</h2>
+<p>
+<span class="ModelicaDescription">Outflow connector (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Contents</h3>
+<table summary="Contents" class="ModelicaTableContents">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Fo</td><td>outflow [m3/s]</td></tr>
+<tr><td>open</td><td>valve open</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE valve<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampadcf3b1c72e0c001valveI.png" alt="Modelica.StateGraph.Examples.Utilities.valve" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.valve"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.valve</h2>
+<p>
+<span class="ModelicaDescription">Simple valve model (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>valveControl</td><td>&nbsp;</td></tr>
+<tr><td>inflow1</td><td>&nbsp;</td></tr>
+<tr><td>outflow1</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Tank<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp839c51222006065e.TankI.png" alt="Modelica.StateGraph.Examples.Utilities.Tank" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.Tank"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.Tank</h2>
+<p>
+<span class="ModelicaDescription">Simple tank model (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A</td><td>Ground area of tank in m^2</td></tr>
+<tr><td>a</td><td>Area of drain hole in m^2</td></tr>
+<tr><td>hmax</td><td>Max height of tank in m</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>levelSensor</td><td>&nbsp;</td></tr>
+<tr><td>inflow1</td><td>&nbsp;</td></tr>
+<tr><td>outflow1</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Source<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Examp84e894b716f49089ourceI.png" alt="Modelica.StateGraph.Examples.Utilities.Source" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.Source"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.Source</h2>
+<p>
+<span class="ModelicaDescription">Simple source model (this is a copy from Isolde Dressler&#39;s master thesis project)</span>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>maxflow</td><td>maximal flow out of source</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>outflow1</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CompositeStep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepI.png" alt="Modelica.StateGraph.Examples.Utilities.CompositeStep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.CompositeStep"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.CompositeStep</h2>
+<p>
+<span class="ModelicaDescription">State machine demonstrating a composite step (used in StateGraph.Examples.ShowCompositeStep)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
+>StateGraph.PartialCompositeStep</a> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Exception connections</td></tr>
+<tr><td>nSuspend</td><td>Number of suspend ports</td></tr>
+<tr><td>nResume</td><td>Number of resume ports</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>suspend[nSuspend]</td><td>&nbsp;</td></tr>
+<tr><td>resume[nResume]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CompositeStep1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepI.png" alt="Modelica.StateGraph.Examples.Utilities.CompositeStep1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.CompositeStep1"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.CompositeStep1</h2>
+<p>
+<span class="ModelicaDescription">Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
+>PartialCompositeStep</a> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Exception connections</td></tr>
+<tr><td>nSuspend</td><td>Number of suspend ports</td></tr>
+<tr><td>nResume</td><td>Number of resume ports</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>suspend[nSuspend]</td><td>&nbsp;</td></tr>
+<tr><td>resume[nResume]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CompositeStep2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Exampbbdb606b19bc95a3eStepI.png" alt="Modelica.StateGraph.Examples.Utilities.CompositeStep2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.Examples.Utilities.CompositeStep2"></a><a href="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Modelica.StateGraph.Examples.Utilities</a>.CompositeStep2</h2>
+<p>
+<span class="ModelicaDescription">Composite step used to demonstrate exceptions (in StateGraph.Examples.ShowExceptions)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_StateGraph.html#Modelica.StateGraph.PartialCompositeStep"
+>PartialCompositeStep</a> (Superclass of a subgraph, i.e., a composite step that has internally a StateGraph).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>waitTime</td><td>waiting time in this composite step</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Exception connections</td></tr>
+<tr><td>nSuspend</td><td>Number of suspend ports</td></tr>
+<tr><td>nResume</td><td>Number of resume ports</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>inPort</td><td>&nbsp;</td></tr>
+<tr><td>outPort</td><td>&nbsp;</td></tr>
+<tr><td>suspend[nSuspend]</td><td>&nbsp;</td></tr>
+<tr><td>resume[nResume]</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+</address>
+</body>
+</html>

@@ -1,81 +1,147 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Examples</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Examples</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Demonstration of the usage of the library&quot;">
+<meta name="description" content="&quot;Demonstration of the usage of the library&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Examples"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
->Modelica.Fluid</A>.Examples</H2>
-<B>Demonstration of the usage of the library</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.PumpingSystemS.png" ALT="Modelica.Fluid.Examples.PumpingSystem" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.PumpingSystem"
->PumpingSystem</A>
-</TD><TD>Model of a pumping system for drinking water</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.PumpingSystemS.png" ALT="Modelica.Fluid.Examples.HeatingSystem" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.HeatingSystem"
->HeatingSystem</A>
-</TD><TD>Simple model of a heating system</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.DrumBoilerS.png" ALT="Modelica.Fluid.Examples.DrumBoiler" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_DrumBoiler.html#Modelica.Fluid.Examples.DrumBoiler"
->DrumBoiler</A>
-</TD><TD>Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.DrumBoilerS.png" ALT="Modelica.Fluid.Examples.Tanks" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_Tanks.html#Modelica.Fluid.Examples.Tanks"
->Tanks</A>
-</TD><TD>Library demonstrating the usage of the tank model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.DrumBoilerS.png" ALT="Modelica.Fluid.Examples.ControlledTankSystem" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem"
->ControlledTankSystem</A>
-</TD><TD>Tank system with controller, start/stop/shut operation and diagram animation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.DrumBoilerS.png" ALT="Modelica.Fluid.Examples.AST_BatchPlant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
->AST_BatchPlant</A>
-</TD><TD>Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.I2a31144a69927bcetworkS.png" ALT="Modelica.Fluid.Examples.IncompressibleFluidNetwork" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.IncompressibleFluidNetwork"
->IncompressibleFluidNetwork</A>
-</TD><TD>Multi-way connections of pipes and incompressible medium model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesS.png" ALT="Modelica.Fluid.Examples.BranchingDynamicPipes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.BranchingDynamicPipes"
->BranchingDynamicPipes</A>
-</TD><TD>Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.HeatExchangerS.png" ALT="Modelica.Fluid.Examples.HeatExchanger" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_HeatExchanger.html#Modelica.Fluid.Examples.HeatExchanger"
->HeatExchanger</A>
-</TD><TD>Demo of a heat exchanger model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.HeatExchangerS.png" ALT="Modelica.Fluid.Examples.TraceSubstances" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_TraceSubstances.html#Modelica.Fluid.Examples.TraceSubstances"
->TraceSubstances</A>
-</TD><TD>Library demonstrating the usage of trace substances</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.I5201a8ca4e57a67eationS.png" ALT="Modelica.Fluid.Examples.InverseParameterization" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.InverseParameterization"
->InverseParameterization</A>
-</TD><TD>Demonstrates the parameterization of a pump and a pipe for given nominal values</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.ExplanatoryS.png" ALT="Modelica.Fluid.Examples.Explanatory" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory"
->Explanatory</A>
-</TD><TD>A set of examples illustrating when special attention has to be paid</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PumpingSystem<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.PumpingSystemI.png" ALT="Modelica.Fluid.Examples.PumpingSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.PumpingSystem"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
->Modelica.Fluid.Examples</A>.PumpingSystem</H2>
-<B>Model of a pumping system for drinking water</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Examples"></a><a href="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a>.Examples</h2>
+<p>
+<span class="ModelicaDescription">Demonstration of the usage of the library</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.PumpingSystemS.png" alt="Modelica.Fluid.Examples.PumpingSystem" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.PumpingSystem"
+>PumpingSystem</a>
+</td>
+<td>Model of a pumping system for drinking water</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.PumpingSystemS.png" alt="Modelica.Fluid.Examples.HeatingSystem" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.HeatingSystem"
+>HeatingSystem</a>
+</td>
+<td>Simple model of a heating system</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.DrumBoilerS.png" alt="Modelica.Fluid.Examples.DrumBoiler" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_DrumBoiler.html#Modelica.Fluid.Examples.DrumBoiler"
+>DrumBoiler</a>
+</td>
+<td>Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.DrumBoilerS.png" alt="Modelica.Fluid.Examples.Tanks" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_Tanks.html#Modelica.Fluid.Examples.Tanks"
+>Tanks</a>
+</td>
+<td>Library demonstrating the usage of the tank model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.DrumBoilerS.png" alt="Modelica.Fluid.Examples.ControlledTankSystem" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_ControlledTankSystem.html#Modelica.Fluid.Examples.ControlledTankSystem"
+>ControlledTankSystem</a>
+</td>
+<td>Tank system with controller, start/stop/shut operation and diagram animation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.DrumBoilerS.png" alt="Modelica.Fluid.Examples.AST_BatchPlant" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_AST_BatchPlant.html#Modelica.Fluid.Examples.AST_BatchPlant"
+>AST_BatchPlant</a>
+</td>
+<td>Model of the experimental batch plant at Process Control Laboratory at University of Dortmund (Prof. Engell)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.I2a31144a69927bcetworkS.png" alt="Modelica.Fluid.Examples.IncompressibleFluidNetwork" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.IncompressibleFluidNetwork"
+>IncompressibleFluidNetwork</a>
+</td>
+<td>Multi-way connections of pipes and incompressible medium model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesS.png" alt="Modelica.Fluid.Examples.BranchingDynamicPipes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.BranchingDynamicPipes"
+>BranchingDynamicPipes</a>
+</td>
+<td>Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesS.png" alt="Modelica.Fluid.Examples.NonCircularPipes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.NonCircularPipes"
+>NonCircularPipes</a>
+</td>
+<td>Comparing a circular with a non-circular pipe</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.HeatExchangerS.png" alt="Modelica.Fluid.Examples.HeatExchanger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_HeatExchanger.html#Modelica.Fluid.Examples.HeatExchanger"
+>HeatExchanger</a>
+</td>
+<td>Demo of a heat exchanger model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.HeatExchangerS.png" alt="Modelica.Fluid.Examples.TraceSubstances" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_TraceSubstances.html#Modelica.Fluid.Examples.TraceSubstances"
+>TraceSubstances</a>
+</td>
+<td>Library demonstrating the usage of trace substances</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.I5201a8ca4e57a67eationS.png" alt="Modelica.Fluid.Examples.InverseParameterization" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples.InverseParameterization"
+>InverseParameterization</a>
+</td>
+<td>Demonstrates the parameterization of a pump and a pipe for given nominal values</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.ExplanatoryS.png" alt="Modelica.Fluid.Examples.Explanatory" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory"
+>Explanatory</a>
+</td>
+<td>A set of examples illustrating when special attention has to be paid</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PumpingSystem<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.PumpingSystemI.png" alt="Modelica.Fluid.Examples.PumpingSystem" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.PumpingSystem"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.PumpingSystem</h2>
+<p>
+<span class="ModelicaDescription">Model of a pumping system for drinking water</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Water is pumped from a source by a pump (fitted with check valves), through a pipe whose outlet is 50 m higher than the source, into a reservoir. The users are represented by an equivalent valve, connected to the reservoir.
 </p>
@@ -91,28 +157,30 @@ If using Dymola, turn off "Equidistant time grid" to avoid numerical errors.
 
 <img src="../Resources/Images/Fluid/Examples/PumpingSystem.png" border="1"
      alt="PumpingSystem.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE HeatingSystem<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.PumpingSystemI.png" ALT="Modelica.Fluid.Examples.HeatingSystem" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.HeatingSystem"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
->Modelica.Fluid.Examples</A>.HeatingSystem</H2>
-<B>Simple model of a heating system</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE HeatingSystem<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.PumpingSystemI.png" alt="Modelica.Fluid.Examples.HeatingSystem" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.HeatingSystem"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.HeatingSystem</h2>
+<p>
+<span class="ModelicaDescription">Simple model of a heating system</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Simple heating system with a closed flow cycle.
 After 2000s of simulation time the valve fully opens. A simple idealized control is embedded
@@ -148,28 +216,30 @@ could be additionally introduced to model the fitting between the heater and the
 
 <img src="../Resources/Images/Fluid/Examples/HeatingSystem.png" border="1"
      alt="HeatingSystem.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IncompressibleFluidNetwork<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.I2a31144a69927bcetworkI.png" ALT="Modelica.Fluid.Examples.IncompressibleFluidNetwork" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.IncompressibleFluidNetwork"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
->Modelica.Fluid.Examples</A>.IncompressibleFluidNetwork</H2>
-<B>Multi-way connections of pipes and incompressible medium model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IncompressibleFluidNetwork<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.I2a31144a69927bcetworkI.png" alt="Modelica.Fluid.Examples.IncompressibleFluidNetwork" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.IncompressibleFluidNetwork"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.IncompressibleFluidNetwork</h2>
+<p>
+<span class="ModelicaDescription">Multi-way connections of pipes and incompressible medium model</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This example demonstrates two aspects: the treatment of multi-way connections
 and the usage of an incompressible medium model.
@@ -179,7 +249,7 @@ When configuring <b>pipeModelStructure=a_v_b</b>, the flow models at the pipe po
 A common work-around is to introduce "mixing volumes" in critical connections.
 </p><p>
 Here the problem is treated alternatively with the default <b>pipeModelStructure=av_vb</b> of the
-<A HREF="Modelica_Fluid_Pipes.html#Modelica.Fluid.Pipes.DynamicPipe"
+<a href="Modelica_Fluid_Pipes.html#Modelica.Fluid.Pipes.DynamicPipe"
 >DynamicPipe</a> model.
 Each pipe exposes the states of the outer fluid segments to the respective fluid ports.
 Consequently the pressures of all connected pipe segments get lumped together into one mass balance spanning the whole connection set.
@@ -208,31 +278,33 @@ The fluid temperatures in the pipes of interest are exposed through heatPorts.
 </p>
 <img src="../Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png" border="1"
      alt="IncompressibleFluidNetwork.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pipeModelStructure</TD><TD>&nbsp;</TD></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-<TR><TD>systemMassDynamics</TD><TD>&nbsp;</TD></TR>
-<TR><TD>filteredValveOpening</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BranchingDynamicPipes<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesI.png" ALT="Modelica.Fluid.Examples.BranchingDynamicPipes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.BranchingDynamicPipes"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
->Modelica.Fluid.Examples</A>.BranchingDynamicPipes</H2>
-<B>Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pipeModelStructure</td><td>&nbsp;</td></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+<tr><td>systemMassDynamics</td><td>&nbsp;</td></tr>
+<tr><td>filteredValveOpening</td><td>&nbsp;</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BranchingDynamicPipes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesI.png" alt="Modelica.Fluid.Examples.BranchingDynamicPipes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.BranchingDynamicPipes"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.BranchingDynamicPipes</h2>
+<p>
+<span class="ModelicaDescription">Multi-way connections of pipes with dynamic momentum balance, pressure wave and flow reversal</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
 At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
@@ -259,28 +331,69 @@ This avoids a high-index DAE and overdetermined initial conditions.
 </p>
 <img src="../Resources/Images/Fluid/Examples/BranchingDynamicPipes.png" border="1"
      alt="BranchingDynamicPipes.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE InverseParameterization<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesI.png" ALT="Modelica.Fluid.Examples.InverseParameterization" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.InverseParameterization"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
->Modelica.Fluid.Examples</A>.InverseParameterization</H2>
-<B>Demonstrates the parameterization of a pump and a pipe for given nominal values</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NonCircularPipes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesI.png" alt="Modelica.Fluid.Examples.NonCircularPipes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.NonCircularPipes"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.NonCircularPipes</h2>
+<p>
+<span class="ModelicaDescription">Comparing a circular with a non-circular pipe</span>
+</p>
+<h3>Information</h3>
+
+<p>
+In this example two pipes are used to demonstrate the use of circular (default) and non-circular pipes,
+where the topmost pipe is circular with a length of 100 m and an inner diameter of 10 mm and the second pipe
+is a circular ring pipe with inner diameter of 5 mm and an outer diamter of 15 mm.
+</p>
+<p>
+Both pipes are connected to a pT source (water, 293.15 K, 10 bar) and a mass flow sink (0.1 kg/s inflow).
+</p>
+<p>
+Although the hydraulic diameter of both pipes are the same, the different cross sections lead to different
+velocities and by this different outlet pressures (7.324 bar for the circular pipe versus 9.231 bar for the
+circular ring pipe).
+</p>
+<p><img src="../Resources/Images/Fluid/Examples/NonCircularPipes.png" border="1"
+     alt="NonCircularPipes.png"></p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE InverseParameterization<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.Bc71ca4adfb9becddPipesI.png" alt="Modelica.Fluid.Examples.InverseParameterization" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.InverseParameterization"></a><a href="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</a>.InverseParameterization</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the parameterization of a pump and a pipe for given nominal values</span>
+</p>
+<h3>Information</h3>
+
 <p>
 A pump, an orifice and two pipes are parameterized with simple nominal values.
 Note that pipe1 and pipe2 use the flowModel NominalTurbulentFlow and NominalLaminarFlow, respectively,
@@ -312,20 +425,22 @@ it can be seen that eps_m_flow_turbulent=0.1 is an appropriate choice for the gi
 </p>
 <img src="../Resources/Images/Fluid/Examples/InverseParametrization.png" border="1"
      alt="InverseParametrization.png">
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-<TR><TD>eps_m_flow_turbulent</TD><TD>Turbulent flow |m_flow| &gt;= eps_m_flow_nominal*m_flow_nominal</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:44 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+<tr><td>eps_m_flow_turbulent</td><td>Turbulent flow |m_flow| &gt;= eps_m_flow_nominal*m_flow_nominal</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

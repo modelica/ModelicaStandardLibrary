@@ -1,39 +1,58 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Magnetic.FundamentalWave.UsersGuide</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Magnetic.FundamentalWave.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;User&#39;s Guide&quot;">
+<meta name="description" content="&quot;User&#39;s Guide&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide"></A><A HREF="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
->Modelica.Magnetic.FundamentalWave</A>.UsersGuide</H2>
-<B>User&#39;s Guide</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FundamentalWave.UsersGuide"></a><a href="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
+>Modelica.Magnetic.FundamentalWave</a>.UsersGuide</h2>
+<p>
+<span class="ModelicaDescription">User&#39;s Guide</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
 models for the application in multi phase phase
-<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines"
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines"
 >electric machines</a>.
 The number of phases is not restricted to three. DC machines are (currently) not included
 in this library. The FundamentalWave library is an alternative approach to the
-<A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+<a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Modelica.Electrical.Machines</a> library.
 A great advantage of this library is the strict object orientation of the electrical and
 magnetic components that the electric machines models are composed of.
@@ -42,7 +61,7 @@ field of electrical engineering.
 </p>
 
 <p>
-For more details see the <A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Concept"
+For more details see the <a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Concept"
 >concept.</a>
 </p>
 
@@ -55,40 +74,63 @@ The magnetic potential difference of the connector therefore also refers to an e
 </ul>
 
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.Fundame5effd37872e6212anceptS.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.Concept" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Concept"
->Concept</A>
-</TD><TD>Fundamental wave concept</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.Fundame5effd37872e6212anceptS.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"
->MultiPhase</A>
-</TD><TD>Multi phase windings</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.Fundame5effd37872e6212anceptS.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters"
->Parameters</A>
-</TD><TD>Parameters of equivalent machines models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.Fundame6145e7f872edb34antactS.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Contact"
->Contact</A>
-</TD><TD>Contact</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.Fundame119487ba1a9bd6b0NotesS.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes"
->ReleaseNotes</A>
-</TD><TD>Release Notes</TD></TR>
-<TR><TD><IMG SRC="Modelica.Magnetic.Fundameae7b63dcbfd393e1encesS.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.References" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
->References</A>
-</TD><TD>References</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Concept<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.Fundamec9ee8906be6a363bGuideI.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.Concept" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide.Concept"></A><A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
->Modelica.Magnetic.FundamentalWave.UsersGuide</A>.Concept</H2>
-<B>Fundamental wave concept</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame5effd37872e6212anceptS.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.Concept" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Concept"
+>Concept</a>
+</td>
+<td>Fundamental wave concept</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame5effd37872e6212anceptS.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"
+>MultiPhase</a>
+</td>
+<td>Multi phase windings</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame5effd37872e6212anceptS.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters"
+>Parameters</a>
+</td>
+<td>Parameters of equivalent machines models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame6145e7f872edb34antactS.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame119487ba1a9bd6b0NotesS.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release Notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundameae7b63dcbfd393e1encesS.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.References" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+>References</a>
+</td>
+<td>References</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Concept<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundamec9ee8906be6a363bGuideI.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.Concept" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.UsersGuide.Concept"></a><a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
+>Modelica.Magnetic.FundamentalWave.UsersGuide</a>.Concept</h2>
+<p>
+<span class="ModelicaDescription">Fundamental wave concept</span>
+</p>
+<h3>Information</h3>
+
 
 <h4>Overview of the concept of fundamental waves</h4>
 
@@ -137,25 +179,25 @@ The waveforms of the magnetic field quantities, e.g., the magnetic potential dif
 </table>
 
 <p>
-The potential and flow quantities of this library are the complex magnetic potential difference and the complex magnetic flux as defined in the basic <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
->magnetic port</a>. Due to the sinusoidal distribution of magnetic potential and flux, such a complex phasor representation can be used. This way, the FundamentalWave library can be seen as a spatial extension of the <A HREF="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+The potential and flow quantities of this library are the complex magnetic potential difference and the complex magnetic flux as defined in the basic <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>magnetic port</a>. Due to the sinusoidal distribution of magnetic potential and flux, such a complex phasor representation can be used. This way, the FundamentalWave library can be seen as a spatial extension of the <a href="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
 >FluxTubes</a> library.
 </p>
 
 <p>
 The specific arrangement of windings in electric machines with <img src="../Resources/Images/Magnetic/FundamentalWave/p.png"> pole pairs give rise to sinusoidal dominant magnetic potential wave. The spatial period of this wave is determined by one pole pair
-[<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+[<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Mueller70</a>,
- <A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+ <a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Spaeth73</a>].
 </p>
 
 <p>
-The main components of an electric machine model based on the FundamentalWave library are <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
->multi phase</a> and <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
->single phase windings</a>, <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
->air gap</a> as well as <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
->symmetric</a> or <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding"
+The main components of an electric machine model based on the FundamentalWave library are <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+>multi phase</a> and <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
+>single phase windings</a>, <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
+>air gap</a> as well as <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+>symmetric</a> or <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding"
 >salient cage</a> models.
 The electric machine models provided in this library are based on symmetrical windings in the stator and equivalent two or three phase windings in squirrel cage rotors. Slip ring induction machines may have different phase numbers in the stator and rotor.
 </p>
@@ -168,7 +210,7 @@ The machine models of the FundamentalWave library are currently based on the fol
 
 <ul>
 <li>The number of stator phases is greater or equal to three
-    [<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+    [<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Eckhardt82</a>]
     </li>
 <li>The phase windings are assumed to be symmetrical; an extension to this approach can be considered</li>
@@ -176,9 +218,9 @@ The machine models of the FundamentalWave library are currently based on the fol
 <li>The magnetic potential difference refers to an equivalent two pole machine</li>
 <li>There are no restrictions on the waveforms of voltages and currents</li>
 <li>All resistances and inductances are modeled as constant quantities; saturation effects, cross coupling effects
-    [<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+    [<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
-<li>Hysteresis losses are currently not considered [<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+<li>Hysteresis losses are currently not considered [<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Haumer09</a>]</li>
 <li>The losses dissipated in the electric machine models are
     <ul>
@@ -195,18 +237,20 @@ The machine models of the FundamentalWave library are currently based on the fol
 <p>
 The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic quantities. This library has no limitations with respect to the waveforms of the time domain signals of any voltages, currents, etc.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MultiPhase<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.Fundamec9ee8906be6a363bGuideI.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"></A><A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
->Modelica.Magnetic.FundamentalWave.UsersGuide</A>.MultiPhase</H2>
-<B>Multi phase windings</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiPhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundamec9ee8906be6a363bGuideI.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"></a><a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
+>Modelica.Magnetic.FundamentalWave.UsersGuide</a>.MultiPhase</h2>
+<p>
+<span class="ModelicaDescription">Multi phase windings</span>
+</p>
+<h3>Information</h3>
+
 <h4>Symmetrical three phase system</h4>
 
 <p>
@@ -224,7 +268,7 @@ Electrical three phase machines have (usually) symmetrical three phase windings 
 excite spatial magnetic potential with a spacial displacement of
 <img src="../Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/2pi_3.png"/>
 - with respect to the fundamental wave,
-see [<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+see [<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Laughton02</a>].
 Such a symmetrical three phase system of currents (or voltages) can be represented by
 <a href="http://en.wikipedia.org/wiki/Phasor">phasors</a>, as depicted in Fig. 1(a).
@@ -297,7 +341,7 @@ an phase number, <img src="../Resources/Images/Magnetic/FundamentalWave/UsersGui
 can be recursively split into various symmetrical systems with odd phase numbers, as depicted in Fig. 3 and 4.
 The displacement between the two symmetrical systems is
 <img src="../Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/pi_m.png"/>.
-A function for calculating the <A HREF="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
+A function for calculating the <a href="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
 >symmetricOrientation</a> is available.
 </p>
 
@@ -329,18 +373,20 @@ In a fully symmetrical machine, the orientation of the winding axes and the symm
 <a href="http://en.wikipedia.org/wiki/Phasor">phasors</a> have different signs; see Fig. 1 and 2 for odd phase numbers
 and Fig. 3 and 4 for even phase numbes.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Parameters<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.Fundamec9ee8906be6a363bGuideI.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters"></A><A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
->Modelica.Magnetic.FundamentalWave.UsersGuide</A>.Parameters</H2>
-<B>Parameters of equivalent machines models</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Parameters<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundamec9ee8906be6a363bGuideI.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.UsersGuide.Parameters"></a><a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
+>Modelica.Magnetic.FundamentalWave.UsersGuide</a>.Parameters</h2>
+<p>
+<span class="ModelicaDescription">Parameters of equivalent machines models</span>
+</p>
+<h3>Information</h3>
+
 
 <h4>Stator main inductance</h4>
 
@@ -392,7 +438,7 @@ This way the same torque is generated and the machine currents are related by:
 
 <p>
 The same applies for the rotor parameters of a
-<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_AsynchronousInductionMachines.html#Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"
 >
 slip ring induction machine</a>, where the phase number
 <img src="../Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png">
@@ -405,34 +451,37 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_MultiPhase"
+<a href="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMC_DOL_MultiPhase"
 >AIMC_DOL_MultiPhase</a>,
-<A HREF="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMS_Start_MultiPhase"
+<a href="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.AIMS_Start_MultiPhase"
 >AIMS_Start_MultiPhase</a>,
-<A HREF="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMPM_Inverter_MultiPhase"
+<a href="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMPM_Inverter_MultiPhase"
 >SMPM_Inverter_MultiPhase</a>,
-<A HREF="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMEE_Generator_MultiPhase"
+<a href="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMEE_Generator_MultiPhase"
 >SMEE_Generator_MultiPhase</a>,
-<A HREF="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMR_Inverter_MultiPhase"
+<a href="Modelica_Magnetic_FundamentalWave_Examples_BasicMachines.html#Modelica.Magnetic.FundamentalWave.Examples.BasicMachines.SMR_Inverter_MultiPhase"
 >SMR_Inverter_MultiPhase</a>
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.Fundame6145e7f872edb34antactI.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide.Contact"></A><A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
->Modelica.Magnetic.FundamentalWave.UsersGuide</A>.Contact</H2>
-<B>Contact</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame6145e7f872edb34antactI.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.UsersGuide.Contact"></a><a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
+>Modelica.Magnetic.FundamentalWave.UsersGuide</a>.Contact</h2>
+<p>
+<span class="ModelicaDescription">Contact</span>
+</p>
+<h3>Information</h3>
+
 <h4>Contact</h4>
 
 <p>
 Christian Kral<br>
+Electric Machines, Drives and Systems<br>
 1060 Vienna, Austria<br>
 email: <a HREF="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a><br>
 </p>
@@ -448,14 +497,10 @@ email: <a HREF="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a><br>
 
 <p>
 Based on an original idea of Michael Beuschel this library was developed
-[<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+[<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Beuschel00</a>].
 The authors of the FundamentalWave library would like to thank Michael Beuschel
 for contributing his source code to this library.
-</p>
-
-<p>
-The main work has been performed 
 </p>
 
 <p>
@@ -464,18 +509,20 @@ agreement no. 270693-2 and from the &Ouml;sterreichische
 Forschungsf&ouml;rderungsgesellschaft mbH under project
 no. 829420.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
->Modelica.Icons.Contact</A> (Icon for contact information).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ReleaseNotes<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.Fundame119487ba1a9bd6b0NotesI.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes"></A><A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
->Modelica.Magnetic.FundamentalWave.UsersGuide</A>.ReleaseNotes</H2>
-<B>Release Notes</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame119487ba1a9bd6b0NotesI.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes"></a><a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
+>Modelica.Magnetic.FundamentalWave.UsersGuide</a>.ReleaseNotes</h2>
+<p>
+<span class="ModelicaDescription">Release Notes</span>
+</p>
+<h3>Information</h3>
+
 
 <h5>Version 3.2.1, 2013-07-31</h5>
 
@@ -484,7 +531,7 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
 <li>Bug fix of conditional initialization of examples, see ticket #1223</li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket #1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
-<A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
 >multi phase converter</a></li>
 <li>Added two more component examples, showing the equivalent nature of electrical and magnetic domain</li>
 </ul>
@@ -507,7 +554,7 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
 
 <ul>
 <li>Corrected bug in calculation of core conductance in
-<A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
 >SymmetricMultiPhaseWinding</a>:
 the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2</code> is now replaced by <code>G=(m/2)*GcRef*effectiveTurns^2</code></li>
 </ul>
@@ -516,16 +563,16 @@ the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2</code> is now replace
 
 <ul>
 <li>Naming and documentation of
-<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
 >
 PartialTwoPort</a> is exchanged by
-<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
+<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
 >
 PartialTwoPortElementary</a> to match the naming conventions of
-<A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
+<a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces"
 >
 Rotational.Interfaces</a>
-and <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+and <a href="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
 >
 Translational.Interfaces</a></li>
 <li>Fixed a broken link and updated documentation</li>
@@ -535,25 +582,25 @@ Translational.Interfaces</a></li>
 <h5>Version 1.7.0, 2010-05-31</h5>
 
 <ul>
-<li>Changed <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+<li>Changed <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
 >symmetric multi phase winding</a> model
   <ul>
       <li>Added zero sequence inductance based on
-          <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.ZeroInductor"
+          <a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.ZeroInductor"
 >zero inductor</a></li>
       <li>Replaced electrical model of stray
-          <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
+          <a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
 >inductor</a> by stray
-          <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Reluctance"
+          <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Reluctance"
 >reluctance</a> model</li>
-      <li>Integrated cores <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
+      <li>Integrated cores <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
 >losses</a>
-          and <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+          and <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
 >heat port</a></li>
   </ul></li>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
-  <li>Renamed heat ports of <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
->single phase winding</a> and <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+  <li>Renamed heat ports of <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
+>single phase winding</a> and <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
 >symmetric multi phase winding</a>
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magnetic domain</li>
@@ -561,14 +608,14 @@ Translational.Interfaces</a></li>
   <li>Added magnetic potential sensor</li>
   <li>Removed state selections</li>
   <li>Updates due to changed loss variable and heat port names in
-      <A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+      <a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Electrical.Machines</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
-      <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
+      <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
 >single phase winding</a>
-  <li>Reduced number of states in <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding"
+  <li>Reduced number of states in <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding"
 >symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
@@ -577,28 +624,28 @@ Translational.Interfaces</a></li>
 <ul>
 <li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:
 <ul>
-<li><A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter"
+<li><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter"
 >SinglePhaseElectroMagneticConverter</a></li>
-<li><A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
+<li><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
 >MultiPhaseElectroMagneticConverter</a></li>
-<li><A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
+<li><a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
 >SinglePhaseWinding</a></li>
-<li><A HREF="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
+<li><a href="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
 >symmetricOrientation</a></li>
 </ul></li>
-<li>Update due to changed class names in <A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons"
+<li>Update due to changed class names in <a href="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons"
 >Machines.Icons</a></li>
-<li>Using <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort"
+<li>Using <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort"
 >HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
-    <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+    <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
 >Analog.Interfaces.ConditionalHeatPort</a> in
-    <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
+    <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
 >EddyCurrent</a> </li>
 <li>Added <code>modelica://</code> to all Modelica hyper links</li>
-<li>Fixed bug in displayed parameters of <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
+<li>Fixed bug in displayed parameters of <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
 >EddyCurrent</a> </li>
 <li>Updated some images (and renamed image file <code>LossPower.png</code> to <code>lossPower.png</code>)</li>
-<li>Exchanged positive and negative stator ports of <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
+<li>Exchanged positive and negative stator ports of <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
 >RotorSaliencyAirGap</a>
 model, adapted equations accordingly and updated code documentation.</li>
 </ul>
@@ -607,11 +654,11 @@ model, adapted equations accordingly and updated code documentation.</li>
 
 <ul>
 <li>Added stator core, friction, stray load and brush losses to all machine types based on
-<A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses"
->loss models</a> of the <A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+<a href="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses"
+>loss models</a> of the <a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Machines</a> library.</li>
 <li>Changed parameter of
-<A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
 >EddyCurrent</a>
 model from R to G</li>
 <li>Fixed wrong sign of internal quantity <code>tauElectrical</code>, model behavior does not change</li>
@@ -621,10 +668,10 @@ model from R to G</li>
 <h5>Version 1.4.0, 2010-04-22</h5>
 
 <ul>
-<li>Added eddy current model in accordance to <A HREF="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
+<li>Added eddy current model in accordance to <a href="Modelica_Magnetic_FluxTubes.html#Modelica.Magnetic.FluxTubes"
 >FluxTubes</a> library</li>
 <li>Added thermal heat port to eddy current model</li>
-<li>Minor updates due to dependencies of <A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+<li>Minor updates due to dependencies of <a href="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
 >Machines</a>
 </ul>
 
@@ -680,21 +727,23 @@ model from R to G</li>
 
 <ul>
 <li>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel
-[<A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
+[<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.References"
 >Beuschel00</a>]</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE References<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Magnetic.Fundameae7b63dcbfd393e1encesI.png" ALT="Modelica.Magnetic.FundamentalWave.UsersGuide.References" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Magnetic.FundamentalWave.UsersGuide.References"></A><A HREF="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
->Modelica.Magnetic.FundamentalWave.UsersGuide</A>.References</H2>
-<B>References</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE References<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundameae7b63dcbfd393e1encesI.png" alt="Modelica.Magnetic.FundamentalWave.UsersGuide.References" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.UsersGuide.References"></a><a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide"
+>Modelica.Magnetic.FundamentalWave.UsersGuide</a>.References</h2>
+<p>
+<span class="ModelicaDescription">References</span>
+</p>
+<h3>Information</h3>
+
 <h4>References</h4>
 
 <table border="0" cellspacing="0" cellpadding="2">
@@ -761,9 +810,11 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
     </tr>
 
 </table>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.References"
->Modelica.Icons.References</A> (Icon for external references).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:38 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</a> (Icon for external references).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+</address>
+</body>
+</html>

@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Examples</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Examples</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Demonstrate usage of property models (currently: simple tests)&quot;">
+<meta name="description" content="&quot;Demonstrate usage of property models (currently: simple tests)&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Examples"></A><A HREF="Modelica_Media.html#Modelica.Media"
->Modelica.Media</A>.Examples</H2>
-<B>Demonstrate usage of property models (currently: simple tests)</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Examples"></a><a href="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</a>.Examples</h2>
+<p>
+<span class="ModelicaDescription">Demonstrate usage of property models (currently: simple tests)</span><br>
+</p>
+<h3>Information</h3>
+
 <h4>Examples</h4>
 Physical properties for fluids are needed in so many different variants
 that a library can only provide models for the most common situations.
@@ -62,144 +81,247 @@ how fluid components should be implemented that are using Modelica.Media
 models. This library is also used to test all media models in
 Modelica.Media.Examples.Tests.MediaTestModels.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
->Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" ALT="Modelica.Media.Examples.SimpleLiquidWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.SimpleLiquidWater"
->SimpleLiquidWater</A>
-</TD><TD>Example for Water.SimpleLiquidWater medium model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" ALT="Modelica.Media.Examples.IdealGasH2O" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.IdealGasH2O"
->IdealGasH2O</A>
-</TD><TD>IdealGas H20 medium model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" ALT="Modelica.Media.Examples.WaterIF97" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.WaterIF97"
->WaterIF97</A>
-</TD><TD>WaterIF97 medium model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" ALT="Modelica.Media.Examples.MixtureGases" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.MixtureGases"
->MixtureGases</A>
-</TD><TD>Test gas mixtures</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" ALT="Modelica.Media.Examples.MoistAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples.MoistAir"
->MoistAir</A>
-</TD><TD>Ideal gas flue gas model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.TwoPhaseWaterS.png" ALT="Modelica.Media.Examples.TwoPhaseWater" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TwoPhaseWater.html#Modelica.Media.Examples.TwoPhaseWater"
->TwoPhaseWater</A>
-</TD><TD>Extension of the StandardWater package</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.ReferenceAirS.png" ALT="Modelica.Media.Examples.ReferenceAir" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_ReferenceAir.html#Modelica.Media.Examples.ReferenceAir"
->ReferenceAir</A>
-</TD><TD>Examples for detailed dry air and moist air medium models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.ReferenceAirS.png" ALT="Modelica.Media.Examples.R134a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_R134a.html#Modelica.Media.Examples.R134a"
->R134a</A>
-</TD><TD>Examples for R134a</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.ReferenceAirS.png" ALT="Modelica.Media.Examples.TestOnly" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
->TestOnly</A>
-</TD><TD>Examples to show the testing of media</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.ReferenceAirS.png" ALT="Modelica.Media.Examples.Tests" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_Tests.html#Modelica.Media.Examples.Tests"
->Tests</A>
-</TD><TD>Library to test that all media models simulate and fulfill the expected structural properties</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Examples.ReferenceAirS.png" ALT="Modelica.Media.Examples.SolveOneNonlinearEquation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Examples_SolveOneNonlinearEquation.html#Modelica.Media.Examples.SolveOneNonlinearEquation"
->SolveOneNonlinearEquation</A>
-</TD><TD>Demonstrate how to solve one non-linear algebraic equation in one unknown</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SimpleLiquidWater<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" ALT="Modelica.Media.Examples.SimpleLiquidWater" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Examples.SimpleLiquidWater"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
->Modelica.Media.Examples</A>.SimpleLiquidWater</H2>
-<B>Example for Water.SimpleLiquidWater medium model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>V</TD><TD>Volume [m3]</TD></TR>
-<TR><TD>H_flow_ext</TD><TD>Constant enthalpy flow rate into the volume [W]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealGasH2O<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" ALT="Modelica.Media.Examples.IdealGasH2O" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Examples.IdealGasH2O"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
->Modelica.Media.Examples</A>.IdealGasH2O</H2>
-<B>IdealGas H20 medium model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" alt="Modelica.Media.Examples.SimpleLiquidWater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples.SimpleLiquidWater"
+>SimpleLiquidWater</a>
+</td>
+<td>Example for Water.SimpleLiquidWater medium model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" alt="Modelica.Media.Examples.IdealGasH2O" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples.IdealGasH2O"
+>IdealGasH2O</a>
+</td>
+<td>IdealGas H20 medium model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" alt="Modelica.Media.Examples.WaterIF97" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples.WaterIF97"
+>WaterIF97</a>
+</td>
+<td>WaterIF97 medium model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" alt="Modelica.Media.Examples.MixtureGases" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples.MixtureGases"
+>MixtureGases</a>
+</td>
+<td>Test gas mixtures</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" alt="Modelica.Media.Examples.MoistAir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples.MoistAir"
+>MoistAir</a>
+</td>
+<td>Ideal gas flue gas model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.S81ced0fa51013568WaterS.png" alt="Modelica.Media.Examples.PsychrometricData" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples.html#Modelica.Media.Examples.PsychrometricData"
+>PsychrometricData</a>
+</td>
+<td>Produces plot data for psychrometric charts</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.TwoPhaseWaterS.png" alt="Modelica.Media.Examples.TwoPhaseWater" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_TwoPhaseWater.html#Modelica.Media.Examples.TwoPhaseWater"
+>TwoPhaseWater</a>
+</td>
+<td>Extension of the StandardWater package</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.ReferenceAirS.png" alt="Modelica.Media.Examples.ReferenceAir" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_ReferenceAir.html#Modelica.Media.Examples.ReferenceAir"
+>ReferenceAir</a>
+</td>
+<td>Examples for detailed dry air and moist air medium models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.ReferenceAirS.png" alt="Modelica.Media.Examples.R134a" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_R134a.html#Modelica.Media.Examples.R134a"
+>R134a</a>
+</td>
+<td>Examples for R134a</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.ReferenceAirS.png" alt="Modelica.Media.Examples.TestOnly" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_TestOnly.html#Modelica.Media.Examples.TestOnly"
+>TestOnly</a>
+</td>
+<td>Examples to show the testing of media</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.ReferenceAirS.png" alt="Modelica.Media.Examples.Tests" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_Tests.html#Modelica.Media.Examples.Tests"
+>Tests</a>
+</td>
+<td>Library to test that all media models simulate and fulfill the expected structural properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Examples.ReferenceAirS.png" alt="Modelica.Media.Examples.SolveOneNonlinearEquation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Examples_SolveOneNonlinearEquation.html#Modelica.Media.Examples.SolveOneNonlinearEquation"
+>SolveOneNonlinearEquation</a>
+</td>
+<td>Demonstrate how to solve one non-linear algebraic equation in one unknown</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SimpleLiquidWater<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" alt="Modelica.Media.Examples.SimpleLiquidWater" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.SimpleLiquidWater"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.SimpleLiquidWater</h2>
+<p>
+<span class="ModelicaDescription">Example for Water.SimpleLiquidWater medium model</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Volume [m3]</td></tr>
+<tr><td>H_flow_ext</td><td>Constant enthalpy flow rate into the volume [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealGasH2O<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" alt="Modelica.Media.Examples.IdealGasH2O" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.IdealGasH2O"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.IdealGasH2O</h2>
+<p>
+<span class="ModelicaDescription">IdealGas H20 medium model</span>
+</p>
+<h3>Information</h3>
+
 <p>An example for using ideal gas properties and how to compute
   isentropic enthalpy changes.
   The function that is implemented is approximate, but usually
    very good: the second medium record medium2
    is given to compare the approximation.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE WaterIF97<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" ALT="Modelica.Media.Examples.WaterIF97" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Examples.WaterIF97"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
->Modelica.Media.Examples</A>.WaterIF97</H2>
-<B>WaterIF97 medium model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dV</TD><TD>Fixed time derivative of volume [m3/s]</TD></TR>
-<TR><TD>m_flow_ext</TD><TD>Fixed mass flow rate into volume [kg/s]</TD></TR>
-<TR><TD>H_flow_ext</TD><TD>Fixed enthalpy flow rate into volume [W]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MixtureGases<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" ALT="Modelica.Media.Examples.MixtureGases" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Examples.MixtureGases"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
->Modelica.Media.Examples</A>.MixtureGases</H2>
-<B>Test gas mixtures</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE WaterIF97<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" alt="Modelica.Media.Examples.WaterIF97" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.WaterIF97"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.WaterIF97</h2>
+<p>
+<span class="ModelicaDescription">WaterIF97 medium model</span>
+</p>
+<h3>Information</h3>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>V</TD><TD>Fixed size of volume 1 and volume 2 [m3]</TD></TR>
-<TR><TD>m_flow_ext</TD><TD>Fixed mass flow rate in to volume 1 and in to volume 2 [kg/s]</TD></TR>
-<TR><TD>H_flow_ext</TD><TD>Fixed enthalpy flow rate in to volume and in to volume 2 [W]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MoistAir<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" ALT="Modelica.Media.Examples.MoistAir" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Examples.MoistAir"></A><A HREF="Modelica_Media_Examples.html#Modelica.Media.Examples"
->Modelica.Media.Examples</A>.MoistAir</H2>
-<B>Ideal gas flue gas model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dV</td><td>Fixed time derivative of volume [m3/s]</td></tr>
+<tr><td>m_flow_ext</td><td>Fixed mass flow rate into volume [kg/s]</td></tr>
+<tr><td>H_flow_ext</td><td>Fixed enthalpy flow rate into volume [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MixtureGases<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" alt="Modelica.Media.Examples.MixtureGases" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.MixtureGases"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.MixtureGases</h2>
+<p>
+<span class="ModelicaDescription">Test gas mixtures</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>V</td><td>Fixed size of volume 1 and volume 2 [m3]</td></tr>
+<tr><td>m_flow_ext</td><td>Fixed mass flow rate in to volume 1 and in to volume 2 [kg/s]</td></tr>
+<tr><td>H_flow_ext</td><td>Fixed enthalpy flow rate in to volume and in to volume 2 [W]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MoistAir<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" alt="Modelica.Media.Examples.MoistAir" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.MoistAir"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.MoistAir</h2>
+<p>
+<span class="ModelicaDescription">Ideal gas flue gas model</span>
+</p>
+<h3>Information</h3>
+
 <p>An example for using ideal gas properties and how to compute isentropic enthalpy changes.
 The function that is implemented is approximate, but usually very good: the second medium record medium2
 is given to compare the approximation.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
->Modelica.Icons.Example</A> (Icon for runnable examples).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>MMx[2]</TD><TD>Vector of molar masses (consisting of dry air and of steam) [kg/mol]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:53 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>MMx[2]</td><td>Vector of molar masses (consisting of dry air and of steam) [kg/mol]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PsychrometricData<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Examples.S81ced0fa51013568WaterI.png" alt="Modelica.Media.Examples.PsychrometricData" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Examples.PsychrometricData"></a><a href="Modelica_Media_Examples.html#Modelica.Media.Examples"
+>Modelica.Media.Examples</a>.PsychrometricData</h2>
+<p>
+<span class="ModelicaDescription">Produces plot data for psychrometric charts</span>
+</p>
+<h3>Information</h3>
+
+<p>This model produces psychrometric data from the moist air model in this library to be plotted in charts. The two most common chart varieties are the Mollier Diagram and the Psychrometric Chart. The first is widely used in some European countries while the second is more common in the Anglo-American world. Specific enthalpy is plotted over absolute humidity in the Mollier Diagram, it is the other way round in the Psychrometric Chart.<br>
+It must be noted that the relationship of both axis variables is not right-angled, the absolute humidity follows a slope which equals the enthalpy of vaporization at 0 &deg;C. For better reading and in order to reduce the fog region the humidity axis is rotated to obtain a right-angled plot. Both charts usually contain additional information as isochores or auxiliary scales for e.g., heat ratios. Those information are omitted in this model and the charts below. Other important features of psychrometric chart data are that all mass specific variables (like absolute humidity, specific enthalpy etc.) are expressed in terms of kg dry air and that their baseline of 0 enthalpy is found at 0 &deg;C and zero humidity.</p>
+
+<p>
+<img src="../Resources/Images/Media/Air/Mollier.png"><br>
+<img src="../Resources/Images/Media/Air/PsycroChart.png">
+</p>
+
+<p>
+<b>Legend:</b> blue - constant specific enthalpy, red - constant temperature, black - constant relative humidity</p>
+
+<p>The model provides data for lines of constant specific enthalpy, temperature and relative humidity in a Mollier Diagram or Psychrometric Chart as they were used for the figures above. For limitations and ranges of validity please refer to the <a href="Modelica_Media_Air_MoistAir.html#Modelica.Media.Air.MoistAir"
+>MoistAir package description</a>. Absolute humidity <b>x</b> is increased with time in this model. The specific enthalpies adjusted for plotting are then obtained from:</p>
+<ul>
+<li><b>y_h</b>: constant specific enthalpy</li>
+<li><b>y_T</b>: constant temperature</li>
+<li><b>y_phi</b>: constant relative humidity</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p_const</td><td>Pressure [Pa]</td></tr>
+<tr><td>n_T</td><td>Number of isotherms</td></tr>
+<tr><td>T_min</td><td>Lowest isotherm [K]</td></tr>
+<tr><td>T_step</td><td>Temperature step between two isotherms [K]</td></tr>
+<tr><td>n_h</td><td>Number of lines with constant specific enthalpy</td></tr>
+<tr><td>h_min</td><td>Lowest line of constant enthalpy [J/kg]</td></tr>
+<tr><td>h_step</td><td>Enthalpy step between two lines of constant enthalpy [J/kg]</td></tr>
+<tr><td>n_phi</td><td>Number of lines with constant relative humidity</td></tr>
+<tr><td>phi_min</td><td>Lowest line of constant humidity</td></tr>
+<tr><td>phi_step</td><td>Step between two lines of constant humidity</td></tr>
+<tr><td>x_min</td><td>Minimum diagram absolute humidity [1]</td></tr>
+<tr><td>x_max</td><td>Maximum diagram absolute humidity [1]</td></tr>
+<tr><td>t</td><td>Simulation time [s]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:19 2015.
+</address>
+</body>
+</html>

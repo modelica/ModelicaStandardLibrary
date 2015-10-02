@@ -1,248 +1,292 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;AC multiphase sources&quot;">
+<meta name="description" content="&quot;AC multiphase sources&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Sources<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Sources"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
->Modelica.Electrical.QuasiStationary.MultiPhase</A>.Sources</H2>
-<B>AC multiphase sources</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sources<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
+>Modelica.Electrical.QuasiStationary.MultiPhase</a>.Sources</h2>
+<p>
+<span class="ModelicaDescription">AC multiphase sources</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package hosts sources for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
-<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
+<a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
 >references</a>.
 </p>
 <h4>See also</h4>
 
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources"
 >SinglePhase.Sources</a>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
->Modelica.Icons.SourcesPackage</A> (Icon for packages containing sources).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi6d1af83cf7961a1aourceS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
->VoltageSource</A>
-</TD><TD>Constant multiphase AC voltage</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi4ffd062c100b93fbourceS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
->VariableVoltageSource</A>
-</TD><TD>Variable multiphase AC voltage</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi596bd7f3eaeede57ourceS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
->CurrentSource</A>
-</TD><TD>Constant multiphase AC current</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi3c4de5e30d7357b6ourceS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
->VariableCurrentSource</A>
-</TD><TD>Variable multiphase AC current</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VoltageSource<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi6d1af83cf7961a1aourceI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
->Modelica.Electrical.QuasiStationary.MultiPhase.Sources</A>.VoltageSource</H2>
-<B>Constant multiphase AC voltage</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SourcesPackage.html#Modelica.Icons.SourcesPackage"
+>Modelica.Icons.SourcesPackage</a> (Icon for packages containing sources).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi6d1af83cf7961a1aourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+>VoltageSource</a>
+</td>
+<td>Constant multiphase AC voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4ffd062c100b93fbourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>
+</td>
+<td>Variable multiphase AC voltage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi596bd7f3eaeede57ourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+>CurrentSource</a>
+</td>
+<td>Constant multiphase AC current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3c4de5e30d7357b6ourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
+>VariableCurrentSource</a>
+</td>
+<td>Variable multiphase AC current</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi6d1af83cf7961a1aourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</a>.VoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Constant multiphase AC voltage</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This model describes <i>m</i> constant voltage sources, specifying the complex voltages by the RMS voltages and the phase shifts
 (defaults are
-<A HREF="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
+<a href="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
 >-symmetricOrientation</a>).
-<i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+<i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
 >single phase VoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
 >SinglePhase.VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
 >VariableVoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
 >CurrentSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
 >VariableCurrentSource</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
->Interfaces.Source</A> (Partial voltage / current source).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>f</TD><TD>Frequency of the source [Hz]</TD></TR>
-<TR><TD>V[m]</TD><TD>RMS voltage of the source [V]</TD></TR>
-<TR><TD>phi[m]</TD><TD>Phase shift of the source [rad]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VariableVoltageSource<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi4ffd062c100b93fbourceI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
->Modelica.Electrical.QuasiStationary.MultiPhase.Sources</A>.VariableVoltageSource</H2>
-<B>Variable multiphase AC voltage</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Frequency of the source [Hz]</td></tr>
+<tr><td>V[m]</td><td>RMS voltage of the source [V]</td></tr>
+<tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableVoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4ffd062c100b93fbourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</a>.VariableVoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Variable multiphase AC voltage</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This model describes <i>m</i> variable voltage sources, with <i>m</i> complex signal inputs,
 specifying the complex voltages by the complex RMS voltage components.
 Additionally, the frequency of the voltage source is defined by a real signal input.
-<i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource"
+<i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource"
 >single phase VariableVoltageSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
 >SinglePhase.VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
 >VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
 >CurrentSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
 >VariableCurrentSource</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
->Interfaces.Source</A> (Partial voltage / current source).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>f</TD><TD>&nbsp;</TD></TR>
-<TR><TD>V[m]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE CurrentSource<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi596bd7f3eaeede57ourceI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
->Modelica.Electrical.QuasiStationary.MultiPhase.Sources</A>.CurrentSource</H2>
-<B>Constant multiphase AC current</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>f</td><td>&nbsp;</td></tr>
+<tr><td>V[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi596bd7f3eaeede57ourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</a>.CurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Constant multiphase AC current</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts
 (defaults are
-<A HREF="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
+<a href="Modelica_Electrical_MultiPhase_Functions.html#Modelica.Electrical.MultiPhase.Functions.symmetricOrientation"
 >-symmetricOrientation</a>).
-<i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource"
+<i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource"
 >single phase CurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource"
 >SinglePhase.CurrentSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
 >VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
 >VariableVoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
 >VariableCurrentSource</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
->Interfaces.Source</A> (Partial voltage / current source).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>f</TD><TD>Frequency of the source [Hz]</TD></TR>
-<TR><TD>I[m]</TD><TD>RMS current of the source [A]</TD></TR>
-<TR><TD>phi[m]</TD><TD>Phase shift of the source [rad]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VariableCurrentSource<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi3c4de5e30d7357b6ourceI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
->Modelica.Electrical.QuasiStationary.MultiPhase.Sources</A>.VariableCurrentSource</H2>
-<B>Variable multiphase AC current</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>f</td><td>Frequency of the source [Hz]</td></tr>
+<tr><td>I[m]</td><td>RMS current of the source [A]</td></tr>
+<tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableCurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi3c4de5e30d7357b6ourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</a>.VariableCurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Variable multiphase AC current</span>
+</p>
+<h3>Information</h3>
+
 
 <p>
 This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
 specifying the complex current by the complex RMS voltage components.
 Additionally, the frequency of the current source is defined by a real signal input.
-<i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource"
+<i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource"
 >single phase VariableCurrentSources</a> are used.
 </p>
 
 <h4>See also</h4>
 
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
 >SinglePhase.VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
 >VoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
 >VariableVoltageSource</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
 >CurrentSource</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
->Interfaces.Source</A> (Partial voltage / current source).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>f</TD><TD>&nbsp;</TD></TR>
-<TR><TD>I[m]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:36 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.Source"
+>Interfaces.Source</a> (Partial voltage / current source).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>f</td><td>&nbsp;</td></tr>
+<tr><td>I[m]</td><td>&nbsp;</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+</address>
+</body>
+</html>

@@ -1,104 +1,176 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Common.ThermoFluidSpecial</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Common.ThermoFluidSpecial</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Property records used by the ThermoFluid library&quot;">
+<meta name="description" content="&quot;Property records used by the ThermoFluid library&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermoFluidSpecial<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Common.ThermoFluidSpecial"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
->Modelica.Media.Common</A>.ThermoFluidSpecial</H2>
-<B>Property records used by the ThermoFluid library</B>
-<P></P>
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties"
->FixedIGProperties</A>
-</TD><TD>Constant properties for ideal gases</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars"
->ThermoBaseVars</A>
-</TD><TD>&nbsp;</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties"
->ThermoProperties</A>
-</TD><TD>Thermodynamic base property data for all state models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph"
->ThermoProperties_ph</A>
-</TD><TD>Thermodynamic property data for pressure p and specific enthalpy h as dynamic states</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT"
->ThermoProperties_pT</A>
-</TD><TD>Thermodynamic property data for pressure p and temperature T as dynamic states</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT"
->ThermoProperties_dT</A>
-</TD><TD>Thermodynamic property data for density d and temperature T as dynamic states</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.TransportProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.TransportProps"
->TransportProps</A>
-</TD><TD>Record with transport properties</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph"
->gibbsToProps_ph</A>
-</TD><TD>Calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps"
->gibbsToBoundaryProps</A>
-</TD><TD>Calculate phase boundary property record from dimensionless Gibbs function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT"
->gibbsToProps_dT</A>
-</TD><TD>Calculate property record for density and temperature as states from dimensionless Gibbs function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT"
->gibbsToProps_pT</A>
-</TD><TD>Calculate property record for pressure and temperature as states from dimensionless Gibbs function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph"
->helmholtzToProps_ph</A>
-</TD><TD>Calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT"
->helmholtzToProps_pT</A>
-</TD><TD>Calculate property record for pressure and temperature as states from dimensionless Helmholtz function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT"
->helmholtzToProps_dT</A>
-</TD><TD>Calculate property record for density and temperature as states from dimensionless Helmholtz function</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph"
->TwoPhaseToProps_ph</A>
-</TD><TD>Compute property record for pressure and specific enthalpy as states from saturation properties</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT"
->TwoPhaseToProps_dT</A>
-</TD><TD>Compute property record for density and temperature as states from saturation properties</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FixedIGProperties<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.FixedIGProperties</H2>
-<B>Constant properties for ideal gases</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nspecies</TD><TD>Number of components</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermoBaseVars<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.ThermoBaseVars</H2>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermoFluidSpecial<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Common.ThermoFluidSpecial"></a><a href="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</a>.ThermoFluidSpecial</h2>
+<p>
+<span class="ModelicaDescription">Property records used by the ThermoFluid library</span><br>
+</p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties"
+>FixedIGProperties</a>
+</td>
+<td>Constant properties for ideal gases</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars"
+>ThermoBaseVars</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties"
+>ThermoProperties</a>
+</td>
+<td>Thermodynamic base property data for all state models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph"
+>ThermoProperties_ph</a>
+</td>
+<td>Thermodynamic property data for pressure p and specific enthalpy h as dynamic states</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT"
+>ThermoProperties_pT</a>
+</td>
+<td>Thermodynamic property data for pressure p and temperature T as dynamic states</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT"
+>ThermoProperties_dT</a>
+</td>
+<td>Thermodynamic property data for density d and temperature T as dynamic states</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The717339feeba679c5rtiesS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.TransportProps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.TransportProps"
+>TransportProps</a>
+</td>
+<td>Record with transport properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph"
+>gibbsToProps_ph</a>
+</td>
+<td>Calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps"
+>gibbsToBoundaryProps</a>
+</td>
+<td>Calculate phase boundary property record from dimensionless Gibbs function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT"
+>gibbsToProps_dT</a>
+</td>
+<td>Calculate property record for density and temperature as states from dimensionless Gibbs function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT"
+>gibbsToProps_pT</a>
+</td>
+<td>Calculate property record for pressure and temperature as states from dimensionless Gibbs function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph"
+>helmholtzToProps_ph</a>
+</td>
+<td>Calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT"
+>helmholtzToProps_pT</a>
+</td>
+<td>Calculate property record for pressure and temperature as states from dimensionless Helmholtz function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT"
+>helmholtzToProps_dT</a>
+</td>
+<td>Calculate property record for density and temperature as states from dimensionless Helmholtz function</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph"
+>TwoPhaseToProps_ph</a>
+</td>
+<td>Compute property record for pressure and specific enthalpy as states from saturation properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phS.png" alt="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT"
+>TwoPhaseToProps_dT</a>
+</td>
+<td>Compute property record for density and temperature as states from saturation properties</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FixedIGProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.FixedIGProperties"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.FixedIGProperties</h2>
+<p>
+<span class="ModelicaDescription">Constant properties for ideal gases</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nspecies</td><td>Number of components</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermoBaseVars<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.ThermoBaseVars"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.ThermoBaseVars</h2>
+<h3>Information</h3>
+
                          <h4>Model description</h4>
                               <p>
                               <b>ThermoBaseVars</b> is inherited by all medium property models
@@ -106,47 +178,51 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
                               of mass and energy. Thus it is a good choice as a restricting class
                               for any medium model or dynamic state model.
                            </p>
-                              <pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Discretization number</TD></TR>
-<TR><TD>nspecies</TD><TD>Number of species</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermoProperties<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.ThermoProperties</H2>
-<B>Thermodynamic base property data for all state models</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+                              
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Discretization number</td></tr>
+<tr><td>nspecies</td><td>Number of species</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermoProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.ThermoProperties</h2>
+<p>
+<span class="ModelicaDescription">Thermodynamic base property data for all state models</span>
+</p>
+<h3>Information</h3>
+
         <h4>Model description</h4>
         <p>
         A base class for medium property models which work with most of the
         versions of dynamic states that are available in the ThermoFluid
         library. Currently used by all ideal gas models.
      </p>
-        <pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>nspecies</TD><TD>Number of species</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermoProperties_ph<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.ThermoProperties_ph</H2>
-<B>Thermodynamic property data for pressure p and specific enthalpy h as dynamic states</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+        
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nspecies</td><td>Number of species</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermoProperties_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_ph"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.ThermoProperties_ph</h2>
+<p>
+<span class="ModelicaDescription">Thermodynamic property data for pressure p and specific enthalpy h as dynamic states</span>
+</p>
+<h3>Information</h3>
+
 <h4>Model description</h4>
 <p>
 A base class for medium property models which
@@ -154,36 +230,40 @@ use pressure and enthalpy as dynamic states.
 This is the preferred model for fluids that can also be in the
 two phase and liquid regions.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermoProperties_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.ThermoProperties_pT</H2>
-<B>Thermodynamic property data for pressure p and temperature T as dynamic states</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermoProperties_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_pT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.ThermoProperties_pT</h2>
+<p>
+<span class="ModelicaDescription">Thermodynamic property data for pressure p and temperature T as dynamic states</span>
+</p>
+<h3>Information</h3>
+
 <h4>Model description</h4>
 <p>
 A base class for medium property models which use pressure and temperature as dynamic states.
 This is a reasonable model for fluids that can also be in the gas and
 liquid regions, but never in the two-phase region.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ThermoProperties_dT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.ThermoProperties_dT</H2>
-<B>Thermodynamic property data for density d and temperature T as dynamic states</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ThermoProperties_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.ThermoProperties_dT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.ThermoProperties_dT</h2>
+<p>
+<span class="ModelicaDescription">Thermodynamic property data for density d and temperature T as dynamic states</span>
+</p>
+<h3>Information</h3>
+
 <h4>Model description</h4>
 <p>
 A base class for medium property models which use density and temperature as dynamic states.
@@ -192,199 +272,221 @@ and two-phase region. The model is numerically not well suited for
 liquids except if the pressure is always above approx. 80% of the
 critical pressure.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TransportProps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The717339feeba679c5rtiesI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.TransportProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.TransportProps"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.TransportProps</H2>
-<B>Record with transport properties</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE gibbsToProps_ph<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.gibbsToProps_ph</H2>
-<B>Calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for pressure and specific enthalpy as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE gibbsToBoundaryProps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.gibbsToBoundaryProps</H2>
-<B>Calculate phase boundary property record from dimensionless Gibbs function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sat</TD><TD>Phase boundary properties</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE gibbsToProps_dT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.gibbsToProps_dT</H2>
-<B>Calculate property record for density and temperature as states from dimensionless Gibbs function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for density and temperature as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE gibbsToProps_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.gibbsToProps_pT</H2>
-<B>Calculate property record for pressure and temperature as states from dimensionless Gibbs function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>g</TD><TD>Dimensionless derivatives of Gibbs function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for pressure and temperature as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE helmholtzToProps_ph<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.helmholtzToProps_ph</H2>
-<B>Calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for pressure and specific enthalpy as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE helmholtzToProps_pT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.helmholtzToProps_pT</H2>
-<B>Calculate property record for pressure and temperature as states from dimensionless Helmholtz function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for pressure and temperature as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE helmholtzToProps_dT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.helmholtzToProps_dT</H2>
-<B>Calculate property record for density and temperature as states from dimensionless Helmholtz function</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>f</TD><TD>Dimensionless derivatives of Helmholtz function</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for density and temperature as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TwoPhaseToProps_ph<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.TwoPhaseToProps_ph</H2>
-<B>Compute property record for pressure and specific enthalpy as states from saturation properties</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sat</TD><TD>Saturation property record</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for pressure and specific enthalpy as dynamic states</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TwoPhaseToProps_dT<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" ALT="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT"></A><A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
->Modelica.Media.Common.ThermoFluidSpecial</A>.TwoPhaseToProps_dT</H2>
-<B>Compute property record for density and temperature as states from saturation properties</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>sat</TD><TD>Saturation properties</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pro</TD><TD>Property record for density and temperature as dynamic states</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:56 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TransportProps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The717339feeba679c5rtiesI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.TransportProps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.TransportProps"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.TransportProps</h2>
+<p>
+<span class="ModelicaDescription">Record with transport properties</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE gibbsToProps_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_ph"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.gibbsToProps_ph</h2>
+<p>
+<span class="ModelicaDescription">Calculate property record for pressure and specific enthalpy as states from dimensionless Gibbs function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>g</td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for pressure and specific enthalpy as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE gibbsToBoundaryProps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.gibbsToBoundaryProps"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.gibbsToBoundaryProps</h2>
+<p>
+<span class="ModelicaDescription">Calculate phase boundary property record from dimensionless Gibbs function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>g</td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Phase boundary properties</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE gibbsToProps_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_dT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.gibbsToProps_dT</h2>
+<p>
+<span class="ModelicaDescription">Calculate property record for density and temperature as states from dimensionless Gibbs function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>g</td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for density and temperature as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE gibbsToProps_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.gibbsToProps_pT</h2>
+<p>
+<span class="ModelicaDescription">Calculate property record for pressure and temperature as states from dimensionless Gibbs function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>g</td><td>Dimensionless derivatives of Gibbs function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for pressure and temperature as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE helmholtzToProps_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_ph"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.helmholtzToProps_ph</h2>
+<p>
+<span class="ModelicaDescription">Calculate property record for pressure and specific enthalpy as states from dimensionless Helmholtz function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for pressure and specific enthalpy as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE helmholtzToProps_pT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_pT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.helmholtzToProps_pT</h2>
+<p>
+<span class="ModelicaDescription">Calculate property record for pressure and temperature as states from dimensionless Helmholtz function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for pressure and temperature as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE helmholtzToProps_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.helmholtzToProps_dT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.helmholtzToProps_dT</h2>
+<p>
+<span class="ModelicaDescription">Calculate property record for density and temperature as states from dimensionless Helmholtz function</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>f</td><td>Dimensionless derivatives of Helmholtz function</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for density and temperature as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoPhaseToProps_ph<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_ph"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.TwoPhaseToProps_ph</h2>
+<p>
+<span class="ModelicaDescription">Compute property record for pressure and specific enthalpy as states from saturation properties</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation property record</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for pressure and specific enthalpy as dynamic states</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoPhaseToProps_dT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Common.The4c4bd680e46edd5dps_phI.png" alt="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Common.ThermoFluidSpecial.TwoPhaseToProps_dT"></a><a href="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>Modelica.Media.Common.ThermoFluidSpecial</a>.TwoPhaseToProps_dT</h2>
+<p>
+<span class="ModelicaDescription">Compute property record for density and temperature as states from saturation properties</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>sat</td><td>Saturation properties</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pro</td><td>Property record for density and temperature as dynamic states</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:20 2015.
+</address>
+</body>
+</html>

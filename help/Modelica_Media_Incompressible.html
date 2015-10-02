@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Incompressible</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Incompressible</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Medium model for T-dependent properties, defined by tables or polynomials&quot;">
+<meta name="description" content="&quot;Medium model for T-dependent properties, defined by tables or polynomials&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Incompressible<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Incompressible"></A><A HREF="Modelica_Media.html#Modelica.Media"
->Modelica.Media</A>.Incompressible</H2>
-<B>Medium model for T-dependent properties, defined by tables or polynomials</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Incompressible<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Incompressible"></a><a href="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</a>.Incompressible</h2>
+<p>
+<span class="ModelicaDescription">Medium model for T-dependent properties, defined by tables or polynomials</span><br>
+</p>
+<h3>Information</h3>
+
 <h4>Incompressible media package</h4>
 <p>
 This package provides a structure and examples of how to create simple
@@ -58,7 +77,7 @@ energy, which makes all medium properties pure functions of temperature.</li>
 The default setting for both these flags is true, which enables the simulation tool
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
-<A HREF="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection"
+<a href="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection"
 >Static
 state selection</a> in the Modelica.Media User's Guide.
 </p>
@@ -68,41 +87,55 @@ state selection</a> in the Modelica.Media User's Guide.
 Currently, the package contains the following parts:
 </p>
 <ol>
-<li> <A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+<li> <a href="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
 >
       Table based medium models</a></li>
-<li> <A HREF="Modelica_Media_Incompressible_Examples.html#Modelica.Media.Incompressible.Examples"
+<li> <a href="Modelica_Media_Incompressible_Examples.html#Modelica.Media.Incompressible.Examples"
 >
       Example medium models</a></li>
 </ol>
 
 <p>
 A few examples are given in the Examples package. The model
-<A HREF="Modelica_Media_Incompressible_Examples_Glycol47.html#Modelica.Media.Incompressible.Examples.Glycol47"
+<a href="Modelica_Media_Incompressible_Examples_Glycol47.html#Modelica.Media.Incompressible.Examples.Glycol47"
 >
 Examples.Glycol47</a> shows how the medium models can be used. For more
 realistic examples of how to implement volume models with medium properties
-look in the <A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+look in the <a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
 >Medium
 usage section</a> of the User's Guide.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
->Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Incompressible.ExamplesS.png" ALT="Modelica.Media.Incompressible.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_Examples.html#Modelica.Media.Incompressible.Examples"
->Examples</A>
-</TD><TD>Examples for incompressible media</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Incompressible.CommonS.png" ALT="Modelica.Media.Incompressible.Common" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_Common.html#Modelica.Media.Incompressible.Common"
->Common</A>
-</TD><TD>Common data structures</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Incompressible.TableBasedS.png" ALT="Modelica.Media.Incompressible.TableBased" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
->TableBased</A>
-</TD><TD>Incompressible medium properties based on tables</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:03 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Incompressible.ExamplesS.png" alt="Modelica.Media.Incompressible.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Incompressible_Examples.html#Modelica.Media.Incompressible.Examples"
+>Examples</a>
+</td>
+<td>Examples for incompressible media</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Incompressible.CommonS.png" alt="Modelica.Media.Incompressible.Common" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Incompressible_Common.html#Modelica.Media.Incompressible.Common"
+>Common</a>
+</td>
+<td>Common data structures</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Incompressible.TableBasedS.png" alt="Modelica.Media.Incompressible.TableBased" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Incompressible_TableBased.html#Modelica.Media.Incompressible.TableBased"
+>TableBased</a>
+</td>
+<td>Incompressible medium properties based on tables</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:22 2015.
+</address>
+</body>
+</html>

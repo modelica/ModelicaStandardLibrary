@@ -1,129 +1,175 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Ideal components for AC singlephase models&quot;">
+<meta name="description" content="&quot;Ideal components for AC singlephase models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Ideal<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
->Modelica.Electrical.QuasiStationary.SinglePhase</A>.Ideal</H2>
-<B>Ideal components for AC singlephase models</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Ideal<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
+>Modelica.Electrical.QuasiStationary.SinglePhase</a>.Ideal</h2>
+<p>
+<span class="ModelicaDescription">Ideal components for AC singlephase models</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package hosts ideal models for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
-<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
+<a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
 >references</a>.
 </p>
 <h4>See also</h4>
 
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Ideal.html#Modelica.Electrical.QuasiStationary.MultiPhase.Ideal"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Ideal.html#Modelica.Electrical.QuasiStationary.MultiPhase.Ideal"
 >MultiPhase.Ideal</a>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasie053f0ad7008e259.IdleS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle"
->Idle</A>
-</TD><TD>Idle branch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi7b074e5300ba453aShortS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short"
->Short</A>
-</TD><TD>Short cut branch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi180d60af64a1b671witchS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch"
->IdealCommutingSwitch</A>
-</TD><TD>Ideal commuting switch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi7c5111250311d642witchS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch"
->IdealIntermediateSwitch</A>
-</TD><TD>Ideal intermediate switch</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasied095698aae45be1witchS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch"
->IdealOpeningSwitch</A>
-</TD><TD>Ideal electrical opener</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi91b018e964cffbe1witchS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch"
->IdealClosingSwitch</A>
-</TD><TD>Ideal electrical closer</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Idle<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasie053f0ad7008e259.IdleI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
->Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</A>.Idle</H2>
-<B>Idle branch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasie053f0ad7008e259.IdleS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle"
+>Idle</a>
+</td>
+<td>Idle branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi7b074e5300ba453aShortS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short"
+>Short</a>
+</td>
+<td>Short cut branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi180d60af64a1b671witchS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch"
+>IdealCommutingSwitch</a>
+</td>
+<td>Ideal commuting switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi7c5111250311d642witchS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch"
+>IdealIntermediateSwitch</a>
+</td>
+<td>Ideal intermediate switch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasied095698aae45be1witchS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch"
+>IdealOpeningSwitch</a>
+</td>
+<td>Ideal electrical opener</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi91b018e964cffbe1witchS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch"
+>IdealClosingSwitch</a>
+</td>
+<td>Ideal electrical closer</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Idle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasie053f0ad7008e259.IdleI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.Idle</h2>
+<p>
+<span class="ModelicaDescription">Idle branch</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This model is a simple idle branch considering the complex current <i><u>i</u></i> = 0.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short"
 >Short</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
->Interfaces.OnePort</A> (Two pins, current through).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pin_p</TD><TD>Positive pin</TD></TR>
-<TR><TD>pin_n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Short<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi7b074e5300ba453aShortI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
->Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</A>.Short</H2>
-<B>Short cut branch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive pin</td></tr>
+<tr><td>pin_n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Short<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi7b074e5300ba453aShortI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.Short</h2>
+<p>
+<span class="ModelicaDescription">Short cut branch</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This model is a simple short cut branch considering the complex voltage <i><u>v</u></i> = 0.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle"
 >Idle</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
->Interfaces.OnePort</A> (Two pins, current through).
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pin_p</TD><TD>Positive pin</TD></TR>
-<TR><TD>pin_n</TD><TD>Negative pin</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealCommutingSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi180d60af64a1b671witchI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
->Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</A>.IdealCommutingSwitch</H2>
-<B>Ideal commuting switch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
+>Interfaces.OnePort</a> (Two pins, current through).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive pin</td></tr>
+<tr><td>pin_n</td><td>Negative pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealCommutingSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi180d60af64a1b671witchI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.IdealCommutingSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal commuting switch</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
@@ -147,35 +193,37 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p--n2 connected, false =&gt; p--n1 connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealIntermediateSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi7c5111250311d642witchI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
->Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</A>.IdealIntermediateSwitch</H2>
-<B>Ideal intermediate switch</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>&nbsp;</td></tr>
+<tr><td>n2</td><td>&nbsp;</td></tr>
+<tr><td>n1</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p--n2 connected, false =&gt; p--n1 connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealIntermediateSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi7c5111250311d642witchI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.IdealIntermediateSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal intermediate switch</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
@@ -212,36 +260,38 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>n2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealOpeningSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasied095698aae45be1witchI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
->Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</A>.IdealOpeningSwitch</H2>
-<B>Ideal electrical opener</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>p1</td><td>&nbsp;</td></tr>
+<tr><td>p2</td><td>&nbsp;</td></tr>
+<tr><td>n1</td><td>&nbsp;</td></tr>
+<tr><td>n2</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealOpeningSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasied095698aae45be1witchI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.IdealOpeningSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal electrical opener</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
@@ -266,35 +316,37 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
->Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort</A> (Two pins, current through), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pin_p</TD><TD>Positive pin</TD></TR>
-<TR><TD>pin_n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; switch open, false =&gt; p--n connected</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE IdealClosingSwitch<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi91b018e964cffbe1witchI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
->Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</A>.IdealClosingSwitch</H2>
-<B>Ideal electrical closer</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive pin</td></tr>
+<tr><td>pin_n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealClosingSwitch<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi91b018e964cffbe1witchI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.IdealClosingSwitch</h2>
+<p>
+<span class="ModelicaDescription">Ideal electrical closer</span>
+</p>
+<h3>Information</h3>
+
 <P>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
@@ -319,26 +371,28 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
->Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort</A> (Two pins, current through), <A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</A> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>Ron</TD><TD>Closed switch resistance [Ohm]</TD></TR>
-<TR><TD>Goff</TD><TD>Opened switch conductance [S]</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if HeatPort is enabled</TD></TR>
-<TR><TD>T</TD><TD>Fixed device temperature if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>pin_p</TD><TD>Positive pin</TD></TR>
-<TR><TD>pin_n</TD><TD>Negative pin</TD></TR>
-<TR><TD>heatPort</TD><TD>&nbsp;</TD></TR>
-<TR><TD>control</TD><TD>true =&gt; p--n connected, false =&gt; switch open</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:33 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort</a> (Two pins, current through), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
+<tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>Positive pin</td></tr>
+<tr><td>pin_n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>control</td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+</address>
+</body>
+</html>

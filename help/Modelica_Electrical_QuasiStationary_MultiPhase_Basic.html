@@ -1,748 +1,836 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Basic components for AC multiphase models&quot;">
+<meta name="description" content="&quot;Basic components for AC multiphase models&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Basic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
->Modelica.Electrical.QuasiStationary.MultiPhase</A>.Basic</H2>
-<B>Basic components for AC multiphase models</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Basic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
+>Modelica.Electrical.QuasiStationary.MultiPhase</a>.Basic</h2>
+<p>
+<span class="ModelicaDescription">Basic components for AC multiphase models</span><br>
+</p>
+<h3>Information</h3>
+
 <p>This package hosts basic models for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
-<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
+<a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide.References"
 >references</a>.
 </p>
 <h4>See also</h4>
 
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic"
 >SinglePhase.Basic</a>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi7ff44e49a3db3ce9.StarS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star"
->Star</A>
-</TD><TD>Star connection</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi70b6b7517a1f2999DeltaS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta"
->Delta</A>
-</TD><TD>Delta (polygon) connection</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi703a280ac5e3c019Pin_pS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
->PlugToPin_p</A>
-</TD><TD>Connect one (positive) pin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi703a2808c5e3c007Pin_nS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
->PlugToPin_n</A>
-</TD><TD>Connect one (negative) pin</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi6dc7b18fbc78b688ins_pS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
->PlugToPins_p</A>
-</TD><TD>Connect all (positive) pins</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi6dc7b18dbc78b696ins_nS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
->PlugToPins_n</A>
-</TD><TD>Connect all (negative) pins</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi36262488ab1a602distorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
->Resistor</A>
-</TD><TD>Multiphase linear resistor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi36262488ab1a602distorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
->Conductor</A>
-</TD><TD>Multiphase linear conductor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi4b5d0137b282fb47citorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
->Capacitor</A>
-</TD><TD>Multiphase linear capacitor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi7199252544d260f7uctorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
->Inductor</A>
-</TD><TD>Multiphase linear inductor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasiab58d118439024b2istorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
->VariableResistor</A>
-</TD><TD>Multiphase variable resistor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasiab58d118439024b2istorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
->VariableConductor</A>
-</TD><TD>Multiphase variable conductor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi444b4ee7630a68bacitorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
->VariableCapacitor</A>
-</TD><TD>Multiphase variable capacitor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasie6cbd1b5ac582468uctorS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
->VariableInductor</A>
-</TD><TD>Multiphase variable inductor</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Star<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi7ff44e49a3db3ce9.StarI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.Star</H2>
-<B>Star connection</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi7ff44e49a3db3ce9.StarS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star"
+>Star</a>
+</td>
+<td>Star connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi70b6b7517a1f2999DeltaS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta"
+>Delta</a>
+</td>
+<td>Delta (polygon) connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi703a280ac5e3c019Pin_pS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
+>PlugToPin_p</a>
+</td>
+<td>Connect one (positive) pin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi703a2808c5e3c007Pin_nS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
+>PlugToPin_n</a>
+</td>
+<td>Connect one (negative) pin</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi6dc7b18fbc78b688ins_pS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
+>PlugToPins_p</a>
+</td>
+<td>Connect all (positive) pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi6dc7b18dbc78b696ins_nS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
+>PlugToPins_n</a>
+</td>
+<td>Connect all (negative) pins</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi36262488ab1a602distorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+>Resistor</a>
+</td>
+<td>Multiphase linear resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi36262488ab1a602distorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+>Conductor</a>
+</td>
+<td>Multiphase linear conductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi4b5d0137b282fb47citorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+>Capacitor</a>
+</td>
+<td>Multiphase linear capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi7199252544d260f7uctorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+>Inductor</a>
+</td>
+<td>Multiphase linear inductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasiab58d118439024b2istorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+>VariableResistor</a>
+</td>
+<td>Multiphase variable resistor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasiab58d118439024b2istorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+>VariableConductor</a>
+</td>
+<td>Multiphase variable conductor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi444b4ee7630a68bacitorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+>VariableCapacitor</a>
+</td>
+<td>Multiphase variable capacitor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasie6cbd1b5ac582468uctorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+>VariableInductor</a>
+</td>
+<td>Multiphase variable inductor</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Star<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi7ff44e49a3db3ce9.StarI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.Star</h2>
+<p>
+<span class="ModelicaDescription">Star connection</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Star (wye) connection of a multi phase circuit. The potentials at the star points are the same.
 </p>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta"
 >Delta</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>pin_n</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Delta<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi70b6b7517a1f2999DeltaI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.Delta</H2>
-<B>Delta (polygon) connection</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Delta<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi70b6b7517a1f2999DeltaI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.Delta</h2>
+<p>
+<span class="ModelicaDescription">Delta (polygon) connection</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Delta (polygon) connection of a multi phase circuit.
 </p>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star"
 >Star</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PlugToPin_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi703a280ac5e3c019Pin_pI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.PlugToPin_p</H2>
-<B>Connect one (positive) pin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPin_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi703a280ac5e3c019Pin_pI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.PlugToPin_p</h2>
+<p>
+<span class="ModelicaDescription">Connect one (positive) pin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
 </p>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
 >PlugToPin_n</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
 >PlutToPins_p</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
 >PlugToPins_n</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>k</TD><TD>Phase index</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>pin_p</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PlugToPin_n<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi703a2808c5e3c007Pin_nI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.PlugToPin_n</H2>
-<B>Connect one (negative) pin</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>k</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_p</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPin_n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi703a2808c5e3c007Pin_nI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.PlugToPin_n</h2>
+<p>
+<span class="ModelicaDescription">Connect one (negative) pin</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.
 </p>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
 >PlugToPin_p</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
 >PlutToPins_p</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
 >PlugToPins_n</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>k</TD><TD>Phase index</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
-<TR><TD>pin_n</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PlugToPins_p<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi6dc7b18fbc78b688ins_pI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.PlugToPins_p</H2>
-<B>Connect all (positive) pins</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>k</td><td>Phase index</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPins_p<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi6dc7b18fbc78b688ins_pI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.PlugToPins_p</h2>
+<p>
+<span class="ModelicaDescription">Connect all (positive) pins</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Connects all <i>m</i> single phase (positive) pins of the multi phase (positive) plug to an array of <i>m</i> single phase (positive) pins.
 </p>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
 >PlugToPin_p</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
 >PlugToPin_n</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"
 >PlugToPins_n</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>&nbsp;</TD></TR>
-<TR><TD>pin_p[m]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PlugToPins_n<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi6dc7b18dbc78b696ins_nI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.PlugToPins_n</H2>
-<B>Connect all (negative) pins</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_p[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlugToPins_n<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi6dc7b18dbc78b696ins_nI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.PlugToPins_n</h2>
+<p>
+<span class="ModelicaDescription">Connect all (negative) pins</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Connects all <i>m</i> single phase (negative) pins of the multi phase (negative) plug to an array of <i>m</i> single phase (negative) pins.
 </p>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p"
 >PlugToPin_p</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n"
 >PlugToPin_n</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p"
 >PlugToPins_p</a>
 </p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_n</TD><TD>&nbsp;</TD></TR>
-<TR><TD>pin_n[m]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Resistor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi36262488ab1a602distorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.Resistor</H2>
-<B>Multiphase linear resistor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+<tr><td>pin_n[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Resistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi36262488ab1a602distorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.Resistor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase linear resistor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
 >single phase Resistors</a>.
 </p>
 
 <p>
 The resistor model also has <i>m</i> optional
-<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+<a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
 >conditional heat ports</a>.
 A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>R_ref[m]</TD><TD>Reference resistances at T_ref [Ohm]</TD></TR>
-<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
-<TR><TD>alpha_ref[m]</TD><TD>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</TD></TR>
-<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
-<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Conductor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi36262488ab1a602distorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.Conductor</H2>
-<B>Multiphase linear conductor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter), <a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>R_ref[m]</td><td>Reference resistances at T_ref [Ohm]</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi36262488ab1a602distorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.Conductor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase linear conductor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear resistor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*G = <u>i</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor"
 >single phase Conductors</a>.
 </p>
 
 <p>
 The conductor model also has <i>m</i> optional
-<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+<a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
 >conditional heat ports</a>.
 A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>G_ref[m]</TD><TD>Reference conductances at T_ref [S]</TD></TR>
-<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
-<TR><TD>alpha_ref[m]</TD><TD>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</TD></TR>
-<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
-<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Capacitor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi4b5d0137b282fb47citorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.Capacitor</H2>
-<B>Multiphase linear capacitor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter), <a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>G_ref[m]</td><td>Reference conductances at T_ref [S]</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Capacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi4b5d0137b282fb47citorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.Capacitor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase linear capacitor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear capacitor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*j*&omega;*C = <u>i</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor"
 >single phase Capacitors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>C[m]</TD><TD>Capacitances [F]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Inductor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi7199252544d260f7uctorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.Inductor</H2>
-<B>Multiphase linear inductor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>C[m]</td><td>Capacitances [F]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Inductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi7199252544d260f7uctorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.Inductor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase linear inductor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
 >single phase Inductors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>L[m]</TD><TD>Inductances [H]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VariableResistor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasiab58d118439024b2istorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.VariableResistor</H2>
-<B>Multiphase variable resistor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>L[m]</td><td>Inductances [H]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableResistor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasiab58d118439024b2istorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.VariableResistor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase variable resistor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor"
 >single phase variable Resistors</a>.
 The resistances <i>R</i> are given as <i>m</i> input signals.
 </p>
 
 <p>
 The resistor model also has <i>m</i> optional
-<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+<a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
 >conditional heat ports</a>.
 A linear temperature dependency of the resistances for enabled heat ports is also taken into account.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor"
 >VariableResistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
-<TR><TD>alpha_ref[m]</TD><TD>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</TD></TR>
-<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
-<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>R_ref[m]</TD><TD>[Ohm]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VariableConductor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasiab58d118439024b2istorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.VariableConductor</H2>
-<B>Multiphase variable conductor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter), <a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>R_ref[m]</td><td>[Ohm]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableConductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasiab58d118439024b2istorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.VariableConductor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase variable conductor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear resistor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*G = <u>i</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor"
 >single phase variable Conductors</a>.
 The conductances <i>G</i> are given as <i>m</i> input signals.
 </p>
 
 <p>
 The conductor model also has <i>m</i> optional
-<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+<a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
 >conditional heat ports</a>.
 A linear temperature dependency of the conductances for enabled heat ports is also taken into account.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor"
 >VariableConductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter), <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
->Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</A> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-<TR><TD>T_ref[m]</TD><TD>Reference temperatures [K]</TD></TR>
-<TR><TD>alpha_ref[m]</TD><TD>Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</TD></TR>
-<TR><TD>mh</TD><TD>Number of heatPorts=number of phases</TD></TR>
-<TR><TD>useHeatPort</TD><TD>=true, if all HeatPorts are enabled</TD></TR>
-<TR><TD>T[mh]</TD><TD>Fixed device temperatures if useHeatPort = false [K]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>heatPort[mh]</TD><TD>&nbsp;</TD></TR>
-<TR><TD>G_ref[m]</TD><TD>[S]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VariableCapacitor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasi444b4ee7630a68bacitorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.VariableCapacitor</H2>
-<B>Multiphase variable capacitor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter), <a href="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort</a> (Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
+<tr><td>alpha_ref[m]</td><td>Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref)) [1/K]</td></tr>
+<tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>G_ref[m]</td><td>[S]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableCapacitor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi444b4ee7630a68bacitorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.VariableCapacitor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase variable capacitor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear capacitor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*j*&omega;*C = <u>i</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor"
 >single phase variable Capacitors</a>.
 The capacitances <i>C</i> are given as <i>m</i> input signals.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor"
 >VariableCapacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"
 >Variable inductor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>C[m]</TD><TD>[F]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VariableInductor<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Electrical.Quasie6cbd1b5ac582468uctorI.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"></A><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
->Modelica.Electrical.QuasiStationary.MultiPhase.Basic</A>.VariableInductor</H2>
-<B>Multiphase variable inductor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>C[m]</td><td>[F]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VariableInductor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasie6cbd1b5ac582468uctorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Basic</a>.VariableInductor</h2>
+<p>
+<span class="ModelicaDescription">Multiphase variable inductor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
-using <i>m</i> <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor"
+using <i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor"
 >single phase variable Inductors</a>.
 The inductances <i>L</i> are given as <i>m</i> input signals.
 </p>
 
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
 >Resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor"
 >Conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor"
 >Capacitor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
 >Inductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor"
 >Variable resistor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor"
 >Variable conductor</a>,
-<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor"
 >Variable capacitor</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->Interfaces.TwoPlug</A> (Two plugs with pin-adapter).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m</TD><TD>Number of phases</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>plug_p</TD><TD>Positive quasi stationary multi phase plug</TD></TR>
-<TR><TD>plug_n</TD><TD>Negative quasi stationary multi phase plug</TD></TR>
-<TR><TD>L[m]</TD><TD>[H]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:36 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Interfaces.TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>L[m]</td><td>[H]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+</address>
+</body>
+</html>

@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Blocks</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Blocks</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of basic input/output control blocks (continuous, discrete, logical, table blocks)&quot;">
+<meta name="description" content="&quot;Library of basic input/output control blocks (continuous, discrete, logical, table blocks)&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Blocks<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Blocks"></A><A HREF="Modelica.html#Modelica"
->Modelica</A>.Blocks</H2>
-<B>Library of basic input/output control blocks (continuous, discrete, logical, table blocks)</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Blocks<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Blocks"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.Blocks</h2>
+<p>
+<span class="ModelicaDescription">Library of basic input/output control blocks (continuous, discrete, logical, table blocks)</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This library contains input/output blocks to build up block diagrams.
 </p>
@@ -40,64 +59,114 @@ This library contains input/output blocks to build up block diagrams.
     email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
 >Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.ExamplesS.png" ALT="Modelica.Blocks.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
->Examples</A>
-</TD><TD>Library of examples to demonstrate the usage of package Blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.ContinuousS.png" ALT="Modelica.Blocks.Continuous" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
->Continuous</A>
-</TD><TD>Library of continuous control blocks with internal states</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.DiscreteS.png" ALT="Modelica.Blocks.Discrete" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
->Discrete</A>
-</TD><TD>Library of discrete input/output blocks with fixed sample period</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.InteractionS.png" ALT="Modelica.Blocks.Interaction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Interaction.html#Modelica.Blocks.Interaction"
->Interaction</A>
-</TD><TD>Library of user interaction blocks to input and to show variables in a diagram animation</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.InterfacesS.png" ALT="Modelica.Blocks.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
->Interfaces</A>
-</TD><TD>Library of connectors and partial models for input/output blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.LogicalS.png" ALT="Modelica.Blocks.Logical" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
->Logical</A>
-</TD><TD>Library of components with Boolean input and output signals</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathS.png" ALT="Modelica.Blocks.Math" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
->Math</A>
-</TD><TD>Library of Real mathematical functions as input/output blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathIntegerS.png" ALT="Modelica.Blocks.MathInteger" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
->MathInteger</A>
-</TD><TD>Library of Integer mathematical functions as input/output blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.MathBooleanS.png" ALT="Modelica.Blocks.MathBoolean" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
->MathBoolean</A>
-</TD><TD>Library of Boolean mathematical functions as input/output blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.NonlinearS.png" ALT="Modelica.Blocks.Nonlinear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
->Nonlinear</A>
-</TD><TD>Library of discontinuous or non-differentiable algebraic control blocks</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.RoutingS.png" ALT="Modelica.Blocks.Routing" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
->Routing</A>
-</TD><TD>Library of blocks to combine and extract signals</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.SourcesS.png" ALT="Modelica.Blocks.Sources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
->Sources</A>
-</TD><TD>Library of signal source blocks generating Real and Boolean signals</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.TablesS.png" ALT="Modelica.Blocks.Tables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
->Tables</A>
-</TD><TD>Library of blocks to interpolate in one and two-dimensional tables</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.TypesS.png" ALT="Modelica.Blocks.Types" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
->Types</A>
-</TD><TD>Library of constants and types with choices, especially to build menus</TD></TR>
-<TR><TD><IMG SRC="Modelica.Blocks.IconsS.png" ALT="Modelica.Blocks.Icons" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons"
->Icons</A>
-</TD><TD>Icons for Blocks</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:24 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.ExamplesS.png" alt="Modelica.Blocks.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples"
+>Examples</a>
+</td>
+<td>Library of examples to demonstrate the usage of package Blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.ContinuousS.png" alt="Modelica.Blocks.Continuous" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous"
+>Continuous</a>
+</td>
+<td>Library of continuous control blocks with internal states</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.DiscreteS.png" alt="Modelica.Blocks.Discrete" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Discrete.html#Modelica.Blocks.Discrete"
+>Discrete</a>
+</td>
+<td>Library of discrete input/output blocks with fixed sample period</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.InteractionS.png" alt="Modelica.Blocks.Interaction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Interaction.html#Modelica.Blocks.Interaction"
+>Interaction</a>
+</td>
+<td>Library of user interaction blocks to input and to show variables in a diagram animation</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.InterfacesS.png" alt="Modelica.Blocks.Interfaces" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
+>Interfaces</a>
+</td>
+<td>Library of connectors and partial models for input/output blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.LogicalS.png" alt="Modelica.Blocks.Logical" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical"
+>Logical</a>
+</td>
+<td>Library of components with Boolean input and output signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathS.png" alt="Modelica.Blocks.Math" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Math</a>
+</td>
+<td>Library of Real mathematical functions as input/output blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathIntegerS.png" alt="Modelica.Blocks.MathInteger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>MathInteger</a>
+</td>
+<td>Library of Integer mathematical functions as input/output blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.MathBooleanS.png" alt="Modelica.Blocks.MathBoolean" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_MathBoolean.html#Modelica.Blocks.MathBoolean"
+>MathBoolean</a>
+</td>
+<td>Library of Boolean mathematical functions as input/output blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.NonlinearS.png" alt="Modelica.Blocks.Nonlinear" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
+>Nonlinear</a>
+</td>
+<td>Library of discontinuous or non-differentiable algebraic control blocks</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.RoutingS.png" alt="Modelica.Blocks.Routing" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing"
+>Routing</a>
+</td>
+<td>Library of blocks to combine and extract signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.SourcesS.png" alt="Modelica.Blocks.Sources" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources"
+>Sources</a>
+</td>
+<td>Library of signal source blocks generating Real and Boolean signals</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.TablesS.png" alt="Modelica.Blocks.Tables" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables"
+>Tables</a>
+</td>
+<td>Library of blocks to interpolate in one and two-dimensional tables</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.TypesS.png" alt="Modelica.Blocks.Types" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Types.html#Modelica.Blocks.Types"
+>Types</a>
+</td>
+<td>Library of constants and types with choices, especially to build menus</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.IconsS.png" alt="Modelica.Blocks.Icons" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons"
+>Icons</a>
+</td>
+<td>Icons for Blocks</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:08 2015.
+</address>
+</body>
+</html>

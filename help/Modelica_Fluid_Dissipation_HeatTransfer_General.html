@@ -1,175 +1,220 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Dissipation.HeatTransfer.General</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Dissipation.HeatTransfer.General</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE General<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer.html#Modelica.Fluid.Dissipation.HeatTransfer"
->Modelica.Fluid.Dissipation.HeatTransfer</A>.General</H2>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE General<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Dissipation.HeatTransfer.General"></a><a href="Modelica_Fluid_Dissipation_HeatTransfer.html#Modelica.Fluid.Dissipation.HeatTransfer"
+>Modelica.Fluid.Dissipation.HeatTransfer</a>.General</h2>
+<p>
+</p>
+<h3>Information</h3>
+
 <h4>General heat transfer</h4>
 <h5>Approximated forced convection</h5>
-<p>Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime. <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
+<p>Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime. <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
 >See more information.</a> </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
->Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
->kc_approxForcedConvection</A>
-</TD><TD>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
->kc_approxForcedConvection_KC</A>
-</TD><TD>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio82acf41f5603249bN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
->kc_approxForcedConvection_IN_con</A>
-</TD><TD>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Dissipatio82acf41f5603249bN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
->kc_approxForcedConvection_IN_var</A>
-</TD><TD>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
->Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection</H2>
-<B>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</a> (Icon for package containing variants).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionS.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
+>kc_approxForcedConvection</a>
+</td>
+<td>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionS.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+>kc_approxForcedConvection_KC</a>
+</td>
+<td>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio82acf41f5603249bN_conS.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
+>kc_approxForcedConvection_IN_con</a>
+</td>
+<td>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Dissipatio82acf41f5603249bN_conS.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
+>kc_approxForcedConvection_IN_var</a>
+</td>
+<td>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kc_approxForcedConvection<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionI.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"></a><a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</a>.kc_approxForcedConvection</h2>
+<p>
+<span class="ModelicaDescription">Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 </p>
 
 <p>
 A detailed documentation for this convective heat transfer calculation can be found in its underlying function
-<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
 >kc_approxForcedConvection_KC</a> .
-Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
+Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
 >See more information</a> .
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
-<TR><TD>IN_con</TD><TD>Input record for function kc_approxForcedConvection</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
-<TR><TD>IN_var</TD><TD>Input record for function kc_approxForcedConvection</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Output</TD></TR>
-<TR><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
-<TR><TD>Pr</TD><TD>Prandtl number [1]</TD></TR>
-<TR><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
-<TR><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
-<TR><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection_KC<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
->Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection_KC</H2>
-<B>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Constant inputs</td></tr>
+<tr><td>IN_con</td><td>Input record for function kc_approxForcedConvection</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Variable inputs</td></tr>
+<tr><td>IN_var</td><td>Input record for function kc_approxForcedConvection</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Output</td></tr>
+<tr><td>kc</td><td>Convective heat transfer coefficient [W/(m2.K)]</td></tr>
+<tr><td>Pr</td><td>Prandtl number [1]</td></tr>
+<tr><td>Re</td><td>Reynolds number [1]</td></tr>
+<tr><td>Nu</td><td>Nusselt number [1]</td></tr>
+<tr><td>failureStatus</td><td>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningful results</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kc_approxForcedConvection_KC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio88b28e2c401a84a0ctionI.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"></a><a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</a>.kc_approxForcedConvection_KC</h2>
+<p>
+<span class="ModelicaDescription">Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</span>
+</p>
+<h3>Information</h3>
+
 <p>
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
-<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
+<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
 >See more information</a> .
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Constant inputs</TD></TR>
-<TR><TD>IN_con</TD><TD>Input record for function kc_approxForcedConvection_KC</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Variable inputs</TD></TR>
-<TR><TD>IN_var</TD><TD>Input record for function kc_approxForcedConvection_KC</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>kc</TD><TD>Output for function kc_approxForcedConvection_KC [W/(m2.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection_IN_con<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio82acf41f5603249bN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
->Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection_IN_con</H2>
-<B>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Constant inputs</td></tr>
+<tr><td>IN_con</td><td>Input record for function kc_approxForcedConvection_KC</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Variable inputs</td></tr>
+<tr><td>IN_var</td><td>Input record for function kc_approxForcedConvection_KC</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>kc</td><td>Output for function kc_approxForcedConvection_KC [W/(m2.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kc_approxForcedConvection_IN_con<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio82acf41f5603249bN_conI.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"></a><a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</a>.kc_approxForcedConvection_IN_con</h2>
+<p>
+<span class="ModelicaDescription">Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</span>
+</p>
+<h3>Information</h3>
+
+This record is used as <b> input record </b> for the heat transfer function <a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
 > kc_approxForcedConvection</a> and
-<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
 > kc_approxForcedConvection_KC</a>.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General"
->Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General</A> (Input for generic correlation).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Generic variables</TD></TR>
-<TR><TD>target</TD><TD>Target correlation</TD></TR>
-<TR><TD>A_cross</TD><TD>Cross sectional area [m2]</TD></TR>
-<TR><TD>perimeter</TD><TD>Wetted perimeter [m]</TD></TR>
-<TR><TD>exp_Pr</TD><TD>Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection_IN_var<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Dissipatio82acf41f5603249bN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
->Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection_IN_var</H2>
-<B>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
-This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General</a> (Input for generic correlation).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Generic variables</td></tr>
+<tr><td>target</td><td>Target correlation</td></tr>
+<tr><td>A_cross</td><td>Cross sectional area [m2]</td></tr>
+<tr><td>perimeter</td><td>Wetted perimeter [m]</td></tr>
+<tr><td>exp_Pr</td><td>Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE kc_approxForcedConvection_IN_var<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Dissipatio82acf41f5603249bN_conI.png" alt="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"></a><a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</a>.kc_approxForcedConvection_IN_var</h2>
+<p>
+<span class="ModelicaDescription">Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</span>
+</p>
+<h3>Information</h3>
+
+This record is used as <b> input record </b> for the heat transfer function <a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
 > kc_approxForcedConvection</a> and
-<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+<a href="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
 > kc_approxForcedConvection_KC</a>.
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
->Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A> (Base record for fluid properties).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid properties</TD></TR>
-<TR><TD>cp</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
-<TR><TD>eta</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
-<TR><TD>lambda</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
-<TR><TD>rho</TD><TD>Density of fluid [kg/m3]</TD></TR>
-<TR><TD>eta_wall</TD><TD>Dynamic viscosity of fluid at wall temperature [Pa.s]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Input</TD></TR>
-<TR><TD>m_flow</TD><TD>[kg/s]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:49 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</a> (Base record for fluid properties).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid properties</td></tr>
+<tr><td>cp</td><td>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</td></tr>
+<tr><td>eta</td><td>Dynamic viscosity of fluid [Pa.s]</td></tr>
+<tr><td>lambda</td><td>Thermal conductivity of fluid [W/(m.K)]</td></tr>
+<tr><td>rho</td><td>Density of fluid [kg/m3]</td></tr>
+<tr><td>eta_wall</td><td>Dynamic viscosity of fluid at wall temperature [Pa.s]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Input</td></tr>
+<tr><td>m_flow</td><td>[kg/s]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:18 2015.
+</address>
+</body>
+</html>

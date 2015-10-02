@@ -1,29 +1,49 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.StateGraph.UsersGuide</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.StateGraph.UsersGuide</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;User&#39;s Guide of StateGraph Library&quot;">
+<meta name="description" content="&quot;User&#39;s Guide of StateGraph Library&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.UsersGuideI.png" ALT="Modelica.StateGraph.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide"></A><A HREF="Modelica_StateGraph.html#Modelica.StateGraph"
->Modelica.StateGraph</A>.UsersGuide</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.UsersGuideI.png" alt="Modelica.StateGraph.UsersGuide" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide"></a><a href="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</a>.UsersGuide</h2>
+<p>
+</p>
+
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing
 components to model <b>discrete event</b> and <b>reactive</b>
@@ -32,67 +52,91 @@ way. This package contains the <b>User's Guide</b> for
 the library and has the following content:
 </p>
 <ol>
-<li><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.OverView"
+<li><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.OverView"
 >Overview of library</a>
      gives an overview of the library.</li>
-<li> <A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.FirstExample"
+<li> <a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.FirstExample"
 >A first example</a>
      demonstrates at hand of a first example how to use this library.</li>
-<li> <A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ApplicationExample"
+<li> <a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ApplicationExample"
 >An
      application example</a> demonstrates varies features at hand of the
      control of a two tank system.</li>
-<li> <A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"
+<li> <a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"
 >Comparison
      with StateGraph2</a> compares Modelica.StateGraph with the much improved version
      Modelica_StateGraph2.</li>
-<li><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ReleaseNotes"
+<li><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ReleaseNotes"
 >Release Notes</a>
     summarizes the differences between different versions of this library.</li>
-<li><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+<li><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
 >Literature</a>
     provides references that have been used to design and implement this
     library.</li>
-<li><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Contact"
+<li><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Contact"
 >Contact</a>
     provides information about the authors of the library as well as
     acknowledgments.</li>
 </ol>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.UsersGuide.OverViewS.png" ALT="Modelica.StateGraph.UsersGuide.OverView" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.OverView"
->OverView</A>
-</TD><TD>Overview of library</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.UsersGuide.OverViewS.png" ALT="Modelica.StateGraph.UsersGuide.FirstExample" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.FirstExample"
->FirstExample</A>
-</TD><TD>A first example</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.UsersGuide.OverViewS.png" ALT="Modelica.StateGraph.UsersGuide.ApplicationExample" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ApplicationExample"
->ApplicationExample</A>
-</TD><TD>An application example</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.UsersGuide.OverViewS.png" ALT="Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"
->ComparisonWithStateGraph2</A>
-</TD><TD>Comparison with StateGraph2</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Usersdfc04877becbb6c9NotesS.png" ALT="Modelica.StateGraph.UsersGuide.ReleaseNotes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ReleaseNotes"
->ReleaseNotes</A>
-</TD><TD>Release notes</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.Usersa3646156a184519fatureS.png" ALT="Modelica.StateGraph.UsersGuide.Literature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
->Literature</A>
-</TD><TD>Literature</TD></TR>
-<TR><TD><IMG SRC="Modelica.StateGraph.UsersGuide.ContactS.png" ALT="Modelica.StateGraph.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Contact"
->Contact</A>
-</TD><TD>Contact</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE OverView<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.UsersGuideI.png" ALT="Modelica.StateGraph.UsersGuide.OverView" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.OverView"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.OverView</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.UsersGuide.OverViewS.png" alt="Modelica.StateGraph.UsersGuide.OverView" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.OverView"
+>OverView</a>
+</td>
+<td>Overview of library</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.UsersGuide.OverViewS.png" alt="Modelica.StateGraph.UsersGuide.FirstExample" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.FirstExample"
+>FirstExample</a>
+</td>
+<td>A first example</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.UsersGuide.OverViewS.png" alt="Modelica.StateGraph.UsersGuide.ApplicationExample" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ApplicationExample"
+>ApplicationExample</a>
+</td>
+<td>An application example</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.UsersGuide.OverViewS.png" alt="Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"
+>ComparisonWithStateGraph2</a>
+</td>
+<td>Comparison with StateGraph2</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Usersdfc04877becbb6c9NotesS.png" alt="Modelica.StateGraph.UsersGuide.ReleaseNotes" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.ReleaseNotes"
+>ReleaseNotes</a>
+</td>
+<td>Release notes</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.Usersa3646156a184519fatureS.png" alt="Modelica.StateGraph.UsersGuide.Literature" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+>Literature</a>
+</td>
+<td>Literature</td>
+</tr>
+<tr>
+<td><img src="Modelica.StateGraph.UsersGuide.ContactS.png" alt="Modelica.StateGraph.UsersGuide.Contact" width="20" height="20" align="top">&nbsp;<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Contact"
+>Contact</a>
+</td>
+<td>Contact</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OverView<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.UsersGuideI.png" alt="Modelica.StateGraph.UsersGuide.OverView" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.OverView"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.OverView</h2>
+
 <p>
 In this section, an overview of the most important features
 of this library is given.
@@ -431,35 +475,35 @@ a CompositeStep and all of its content can be left via its suspend ports
 is a vector of suspend connectors, i.e., a CompositeStep might
 be aborted due to different transitions).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE FirstExample<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.UsersGuideI.png" ALT="Modelica.StateGraph.UsersGuide.FirstExample" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.FirstExample"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.FirstExample</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FirstExample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.UsersGuideI.png" alt="Modelica.StateGraph.UsersGuide.FirstExample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.FirstExample"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.FirstExample</h2>
+
 <p>
 A first example will be given here (not yet done).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ApplicationExample<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.UsersGuideI.png" ALT="Modelica.StateGraph.UsersGuide.ApplicationExample" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.ApplicationExample"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.ApplicationExample</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ApplicationExample<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.UsersGuideI.png" alt="Modelica.StateGraph.UsersGuide.ApplicationExample" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.ApplicationExample"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.ApplicationExample</h2>
+
 <p>
 In this section a more realistic, still simple, application example
 is given, to demonstrate various features of the StateGraph library.
 This example shows the control of a two tank system from the master thesis
 of Isolde Dressler
-(<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+(<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
 >see literature</a>).
 </p>
 <p>
@@ -558,16 +602,16 @@ For example, the output y of "setValve2" is computed as:
 i.e., valve2 is open, when step "makeProduct.fillTank2 or when
 step "emptyTanks" is active. Otherwise, valve2 is closed.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ComparisonWithStateGraph2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.UsersGuideI.png" ALT="Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.ComparisonWithStateGraph2</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ComparisonWithStateGraph2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.UsersGuideI.png" alt="Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.ComparisonWithStateGraph2</h2>
+
 <p>
 There is a much improved library available called "Modelica_StateGraph2".
 If this library is not yet distributed with your Modelica tool, you can download
@@ -719,16 +763,16 @@ based on the following references:
      </dd>
 </dl>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ReleaseNotes<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Usersdfc04877becbb6c9NotesI.png" ALT="Modelica.StateGraph.UsersGuide.ReleaseNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.ReleaseNotes"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.ReleaseNotes</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Usersdfc04877becbb6c9NotesI.png" alt="Modelica.StateGraph.UsersGuide.ReleaseNotes" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.ReleaseNotes"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.ReleaseNotes</h2>
+
 <h4>Version 0.87, 2004-06-23</h4>
 <ul>
 <li> Included in Modelica standard library 2.0 Beta 1 with the new block connectors.
@@ -782,16 +826,16 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
 <p>
 Implemented a first version that is provided to other people.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
->Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Literature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.Usersa3646156a184519fatureI.png" ALT="Modelica.StateGraph.UsersGuide.Literature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.Literature"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.Literature</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Literature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.Usersa3646156a184519fatureI.png" alt="Modelica.StateGraph.UsersGuide.Literature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.Literature"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.Literature</h2>
+
 <p>
 The StateGraph library is based on the following references:
 </p>
@@ -816,16 +860,16 @@ The StateGraph library is based on the following references:
      Society for Computer Simulation International, pp. 314-319.
      </dd>
 </dl>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.References"
->Modelica.Icons.References</A> (Icon for external references).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.StateGraph.UsersGuide.ContactI.png" ALT="Modelica.StateGraph.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.StateGraph.UsersGuide.Contact"></A><A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
->Modelica.StateGraph.UsersGuide</A>.Contact</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</a> (Icon for external references).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.StateGraph.UsersGuide.ContactI.png" alt="Modelica.StateGraph.UsersGuide.Contact" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.StateGraph.UsersGuide.Contact"></a><a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide"
+>Modelica.StateGraph.UsersGuide</a>.Contact</h2>
+
 <dl>
 <dt><b>Main Author:</b>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
@@ -841,7 +885,7 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.References"
 <ul>
 <li> The development of this library was strongly motivated by the
      master thesis of Isolde Dressler
-     (<A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+     (<a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
 >see literature</a>),
      in which
      a compiler from JGrafchart to Modelica was designed and
@@ -858,12 +902,14 @@ Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.References"
      finite state machines with equations is based on
      (Elmqvist, Mattsson and Otter, 2001),
      which in turn uses ideas from (Mosterman, Otter and Elmqvist, 1998),
-     see <A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+     see <a href="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
 >literature</a></li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
->Modelica.Icons.Contact</A> (Icon for contact information).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:26 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</a> (Icon for contact information).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+</address>
+</body>
+</html>

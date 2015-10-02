@@ -1,41 +1,60 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Math</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Math</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices&quot;">
+<meta name="description" content="&quot;Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Math<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Math"></A><A HREF="Modelica.html#Modelica"
->Modelica</A>.Math</H2>
-<B>Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Math<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Math"></a><a href="Modelica.html#Modelica"
+>Modelica</a>.Math</h2>
+<p>
+<span class="ModelicaDescription">Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains <b>basic mathematical functions</b> (such as sin(..)),
 as well as functions operating on
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
 >vectors</a>,
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
 >matrices</a>,
-<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+<a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
 >nonlinear functions</a>, and
-<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+<a href="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
 >Boolean vectors</a>.
 </p>
 
@@ -52,109 +71,195 @@ as well as functions operating on
 </dl>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association and DLR.
+Copyright &copy; 1998-2015, Modelica Association and DLR.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
 >Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Math.IconsS.png" ALT="Modelica.Math.Icons" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons"
->Icons</A>
-</TD><TD>Icons for Math</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.Vectors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
->Vectors</A>
-</TD><TD>Library of functions operating on vectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.Matrices" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
->Matrices</A>
-</TD><TD>Library of functions operating on matrices</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.Nonlinear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
->Nonlinear</A>
-</TD><TD>Library of functions operating on nonlinear equations</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.BooleanVectors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
->BooleanVectors</A>
-</TD><TD>Library of functions operating on Boolean vectors</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.isEqualS.png" ALT="Modelica.Math.isEqual" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.isEqual"
->isEqual</A>
-</TD><TD>Determine if two Real scalars are numerically identical</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.isEqualS.png" ALT="Modelica.Math.isPowerOf2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.isPowerOf2"
->isPowerOf2</A>
-</TD><TD>Determine if the integer input is a power of 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.sinS.png" ALT="Modelica.Math.sin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.sin"
->sin</A>
-</TD><TD>Sine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.cosS.png" ALT="Modelica.Math.cos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.cos"
->cos</A>
-</TD><TD>Cosine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.tanS.png" ALT="Modelica.Math.tan" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tan"
->tan</A>
-</TD><TD>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.asinS.png" ALT="Modelica.Math.asin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.asin"
->asin</A>
-</TD><TD>Inverse sine (-1 &lt;= u &lt;= 1)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.acosS.png" ALT="Modelica.Math.acos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.acos"
->acos</A>
-</TD><TD>Inverse cosine (-1 &lt;= u &lt;= 1)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.atanS.png" ALT="Modelica.Math.atan" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.atan"
->atan</A>
-</TD><TD>Inverse tangent</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.atan2S.png" ALT="Modelica.Math.atan2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.atan2"
->atan2</A>
-</TD><TD>Four quadrant inverse tangent</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.atan2S.png" ALT="Modelica.Math.atan3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.atan3"
->atan3</A>
-</TD><TD>Four quadrant inverse tangent (select solution that is closest to given angle y0)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.sinhS.png" ALT="Modelica.Math.sinh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.sinh"
->sinh</A>
-</TD><TD>Hyperbolic sine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.coshS.png" ALT="Modelica.Math.cosh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.cosh"
->cosh</A>
-</TD><TD>Hyperbolic cosine</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.tanhS.png" ALT="Modelica.Math.tanh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tanh"
->tanh</A>
-</TD><TD>Hyperbolic tangent</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.asinhS.png" ALT="Modelica.Math.asinh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.asinh"
->asinh</A>
-</TD><TD>Inverse of sinh (area hyperbolic sine)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.acoshS.png" ALT="Modelica.Math.acosh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.acosh"
->acosh</A>
-</TD><TD>Inverse of cosh (area hyperbolic cosine)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.expS.png" ALT="Modelica.Math.exp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.exp"
->exp</A>
-</TD><TD>Exponential, base e</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.logS.png" ALT="Modelica.Math.log" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.log"
->log</A>
-</TD><TD>Natural (base e) logarithm (u shall be &gt; 0)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.logS.png" ALT="Modelica.Math.log10" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.log10"
->log10</A>
-</TD><TD>Base 10 logarithm (u shall be &gt; 0)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.baseIcon1S.png" ALT="Modelica.Math.baseIcon1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
->baseIcon1</A>
-</TD><TD>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead.</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.baseIcon2S.png" ALT="Modelica.Math.baseIcon2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
->baseIcon2</A>
-</TD><TD>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead.</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.tempInterpol1S.png" ALT="Modelica.Math.tempInterpol1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tempInterpol1"
->tempInterpol1</A>
-</TD><TD>Temporary function for linear interpolation (will be removed)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Math.tempInterpol1S.png" ALT="Modelica.Math.tempInterpol2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tempInterpol2"
->tempInterpol2</A>
-</TD><TD>Temporary function for vectorized linear interpolation (will be removed)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE isEqual<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.isEqualI.png" ALT="Modelica.Math.isEqual" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.isEqual"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.isEqual</H2>
-<B>Determine if two Real scalars are numerically identical</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Math.IconsS.png" alt="Modelica.Math.Icons" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Icons.html#Modelica.Math.Icons"
+>Icons</a>
+</td>
+<td>Icons for Math</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.Vectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Vectors</a>
+</td>
+<td>Library of functions operating on vectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.Matrices" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Matrices</a>
+</td>
+<td>Library of functions operating on matrices</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.Nonlinear" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Nonlinear</a>
+</td>
+<td>Library of functions operating on nonlinear equations</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.BooleanVectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>BooleanVectors</a>
+</td>
+<td>Library of functions operating on Boolean vectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.isEqual" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.isEqual"
+>isEqual</a>
+</td>
+<td>Determine if two Real scalars are numerically identical</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.isPowerOf2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.isPowerOf2"
+>isPowerOf2</a>
+</td>
+<td>Determine if the integer input is a power of 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.sinS.png" alt="Modelica.Math.sin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.sin"
+>sin</a>
+</td>
+<td>Sine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.cosS.png" alt="Modelica.Math.cos" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.cos"
+>cos</a>
+</td>
+<td>Cosine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.tanS.png" alt="Modelica.Math.tan" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.tan"
+>tan</a>
+</td>
+<td>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.asinS.png" alt="Modelica.Math.asin" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.asin"
+>asin</a>
+</td>
+<td>Inverse sine (-1 &lt;= u &lt;= 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.acosS.png" alt="Modelica.Math.acos" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.acos"
+>acos</a>
+</td>
+<td>Inverse cosine (-1 &lt;= u &lt;= 1)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.atanS.png" alt="Modelica.Math.atan" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.atan"
+>atan</a>
+</td>
+<td>Inverse tangent</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.atan2S.png" alt="Modelica.Math.atan2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.atan2"
+>atan2</a>
+</td>
+<td>Four quadrant inverse tangent</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.atan2S.png" alt="Modelica.Math.atan3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.atan3"
+>atan3</a>
+</td>
+<td>Four quadrant inverse tangent (select solution that is closest to given angle y0)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.sinhS.png" alt="Modelica.Math.sinh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.sinh"
+>sinh</a>
+</td>
+<td>Hyperbolic sine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.coshS.png" alt="Modelica.Math.cosh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.cosh"
+>cosh</a>
+</td>
+<td>Hyperbolic cosine</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.tanhS.png" alt="Modelica.Math.tanh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.tanh"
+>tanh</a>
+</td>
+<td>Hyperbolic tangent</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.asinhS.png" alt="Modelica.Math.asinh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.asinh"
+>asinh</a>
+</td>
+<td>Inverse of sinh (area hyperbolic sine)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.acoshS.png" alt="Modelica.Math.acosh" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.acosh"
+>acosh</a>
+</td>
+<td>Inverse of cosh (area hyperbolic cosine)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.expS.png" alt="Modelica.Math.exp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.exp"
+>exp</a>
+</td>
+<td>Exponential, base e</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.logS.png" alt="Modelica.Math.log" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.log"
+>log</a>
+</td>
+<td>Natural (base e) logarithm (u shall be &gt; 0)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.logS.png" alt="Modelica.Math.log10" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.log10"
+>log10</a>
+</td>
+<td>Base 10 logarithm (u shall be &gt; 0)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.baseIcon1S.png" alt="Modelica.Math.baseIcon1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</a>
+</td>
+<td>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead.</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.baseIcon2S.png" alt="Modelica.Math.baseIcon2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</a>
+</td>
+<td>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead.</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.tempInterpol1S.png" alt="Modelica.Math.tempInterpol1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.tempInterpol1"
+>tempInterpol1</a>
+</td>
+<td>Temporary function for linear interpolation (will be removed)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.tempInterpol1S.png" alt="Modelica.Math.tempInterpol2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.tempInterpol2"
+>tempInterpol2</a>
+</td>
+<td>Temporary function for vectorized linear interpolation (will be removed)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isEqual<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.isEqual" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.isEqual"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.isEqual</h2>
+<p>
+<span class="ModelicaDescription">Determine if two Real scalars are numerically identical</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Math.<b>isEqual</b>(s1, s2);
@@ -181,37 +286,39 @@ can be provided as third argument of the function. Default is "eps = 0".
 </pre></blockquote>
 <h4>See also</h4>
 <p>
-<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
 >Vectors.isEqual</a>,
-<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
+<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
 >Matrices.isEqual</a>,
-<A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
+<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
 >Strings.isEqual</a>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>s1</TD><TD>First scalar</TD></TR>
-<TR><TD>s2</TD><TD>Second scalar</TD></TR>
-<TR><TD>eps</TD><TD>The two scalars are identical if abs(s1-s2) &lt;= eps</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>= true, if scalars are identical</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE isPowerOf2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.isEqualI.png" ALT="Modelica.Math.isPowerOf2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.isPowerOf2"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.isPowerOf2</H2>
-<B>Determine if the integer input is a power of 2</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>s1</td><td>First scalar</td></tr>
+<tr><td>s2</td><td>Second scalar</td></tr>
+<tr><td>eps</td><td>The two scalars are identical if abs(s1-s2) &lt;= eps</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>= true, if scalars are identical</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE isPowerOf2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.isEqualI.png" alt="Modelica.Math.isPowerOf2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.isPowerOf2"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.isPowerOf2</h2>
+<p>
+<span class="ModelicaDescription">Determine if the integer input is a power of 2</span>
+</p>
+<h3>Information</h3>
+
 <h4>Syntax</h4>
 <blockquote><pre>
 Math.<b>isPowerOf2</b>(i);
@@ -233,28 +340,30 @@ returns <b>false</b>. The Integer input has to be &gt;=1.
   result := Math.isPowerOf2(i2);     // = <b>true</b> 2^2
   result := Math.isPowerOf2(i3);     // = <b>false</b>
 </pre></blockquote>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>i</TD><TD>Integer scalar</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>result</TD><TD>= true, if integer scalar is a power of 2</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.sinI.png" ALT="Modelica.Math.sin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.sin"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.sin</H2>
-<B>Sine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>i</td><td>Integer scalar</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>result</td><td>= true, if integer scalar is a power of 2</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.sinI.png" alt="Modelica.Math.sin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.sin"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.sin</h2>
+<p>
+<span class="ModelicaDescription">Sine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -262,28 +371,30 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/sin.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
->Modelica.Math.Icons.AxisLeft</A> (Basic icon for mathematical function with y-axis on left side).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>[rad]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE cos<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.cosI.png" ALT="Modelica.Math.cos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.cos"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.cos</H2>
-<B>Cosine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
+>Modelica.Math.Icons.AxisLeft</a> (Basic icon for mathematical function with y-axis on left side).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>[rad]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cos<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.cosI.png" alt="Modelica.Math.cos" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.cos"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.cos</h2>
+<p>
+<span class="ModelicaDescription">Cosine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -291,28 +402,30 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/cos.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
->Modelica.Math.Icons.AxisLeft</A> (Basic icon for mathematical function with y-axis on left side).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>[rad]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tan<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.tanI.png" ALT="Modelica.Math.tan" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.tan"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.tan</H2>
-<B>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
+>Modelica.Math.Icons.AxisLeft</a> (Basic icon for mathematical function with y-axis on left side).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>[rad]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tan<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.tanI.png" alt="Modelica.Math.tan" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.tan"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.tan</h2>
+<p>
+<span class="ModelicaDescription">Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 (if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
@@ -321,28 +434,30 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 <p>
 <img src="../Resources/Images/Math/tan.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>[rad]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE asin<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.asinI.png" ALT="Modelica.Math.asin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.asin"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.asin</H2>
-<B>Inverse sine (-1 &lt;= u &lt;= 1)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>[rad]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE asin<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.asinI.png" alt="Modelica.Math.asin" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.asin"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.asin</h2>
+<p>
+<span class="ModelicaDescription">Inverse sine (-1 &lt;= u &lt;= 1)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = asin(u), with -1 &le; u &le; +1:
 </p>
@@ -350,28 +465,30 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 <p>
 <img src="../Resources/Images/Math/asin.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>[rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE acos<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.acosI.png" ALT="Modelica.Math.acos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.acos"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.acos</H2>
-<B>Inverse cosine (-1 &lt;= u &lt;= 1)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>[rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE acos<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.acosI.png" alt="Modelica.Math.acos" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.acos"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.acos</h2>
+<p>
+<span class="ModelicaDescription">Inverse cosine (-1 &lt;= u &lt;= 1)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = acos(u), with -1 &le; u &le; +1:
 </p>
@@ -379,28 +496,30 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 <p>
 <img src="../Resources/Images/Math/acos.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>[rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE atan<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.atanI.png" ALT="Modelica.Math.atan" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.atan"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.atan</H2>
-<B>Inverse tangent</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>[rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE atan<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.atanI.png" alt="Modelica.Math.atan" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.atan"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.atan</h2>
+<p>
+<span class="ModelicaDescription">Inverse tangent</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -408,28 +527,30 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/atan.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>[rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE atan2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.atan2I.png" ALT="Modelica.Math.atan2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.atan2"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.atan2</H2>
-<B>Four quadrant inverse tangent</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>[rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE atan2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.atan2I.png" alt="Modelica.Math.atan2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.atan2"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.atan2</h2>
+<p>
+<span class="ModelicaDescription">Four quadrant inverse tangent</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
 y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
@@ -441,29 +562,31 @@ u1 = sin(y) and u2 = cos(y):
 <img src="../Resources/Images/Math/atan2.png">
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>u2</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>[rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE atan3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.atan2I.png" ALT="Modelica.Math.atan3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.atan3"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.atan3</H2>
-<B>Four quadrant inverse tangent (select solution that is closest to given angle y0)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>&nbsp;</td></tr>
+<tr><td>u2</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>[rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE atan3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.atan2I.png" alt="Modelica.Math.atan3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.atan3"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.atan3</h2>
+<p>
+<span class="ModelicaDescription">Four quadrant inverse tangent (select solution that is closest to given angle y0)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
@@ -482,30 +605,32 @@ shall be returned:
 Note, for the default case (y0=0), exactly the same result as with atan2(..)
 is returned.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>u2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>y0</TD><TD>y shall be in the range: -pi &lt; y-y0 &lt;= pi [rad]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>[rad]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE sinh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.sinhI.png" ALT="Modelica.Math.sinh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.sinh"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.sinh</H2>
-<B>Hyperbolic sine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u1</td><td>&nbsp;</td></tr>
+<tr><td>u2</td><td>&nbsp;</td></tr>
+<tr><td>y0</td><td>y shall be in the range: -pi &lt; y-y0 &lt;= pi [rad]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>[rad]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE sinh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.sinhI.png" alt="Modelica.Math.sinh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.sinh"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.sinh</h2>
+<p>
+<span class="ModelicaDescription">Hyperbolic sine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -513,28 +638,30 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/sinh.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE cosh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.coshI.png" ALT="Modelica.Math.cosh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.cosh"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.cosh</H2>
-<B>Hyperbolic cosine</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE cosh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.coshI.png" alt="Modelica.Math.cosh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.cosh"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.cosh</h2>
+<p>
+<span class="ModelicaDescription">Hyperbolic cosine</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -542,28 +669,30 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/cosh.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tanh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.tanhI.png" ALT="Modelica.Math.tanh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.tanh"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.tanh</H2>
-<B>Hyperbolic tangent</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tanh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.tanhI.png" alt="Modelica.Math.tanh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.tanh"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.tanh</h2>
+<p>
+<span class="ModelicaDescription">Hyperbolic tangent</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -571,28 +700,30 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/tanh.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE asinh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.asinhI.png" ALT="Modelica.Math.asinh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.asinh"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.asinh</H2>
-<B>Inverse of sinh (area hyperbolic sine)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE asinh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.asinhI.png" alt="Modelica.Math.asinh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.asinh"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.asinh</h2>
+<p>
+<span class="ModelicaDescription">Inverse of sinh (area hyperbolic sine)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The function returns the area hyperbolic sine of its
 input argument u. This inverse of sinh(..) is unique
@@ -603,28 +734,30 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 <p>
 <img src="../Resources/Images/Math/asinh.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE acosh<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.acoshI.png" ALT="Modelica.Math.acosh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.acosh"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.acosh</H2>
-<B>Inverse of cosh (area hyperbolic cosine)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE acosh<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.acoshI.png" alt="Modelica.Math.acosh" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.acosh"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.acosh</h2>
+<p>
+<span class="ModelicaDescription">Inverse of cosh (area hyperbolic cosine)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns the area hyperbolic cosine of its
 input argument u. The valid range of u is
@@ -644,28 +777,30 @@ can become close to 1:
 <p>
 <img src="../Resources/Images/Math/acosh.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
->Modelica.Math.Icons.AxisLeft</A> (Basic icon for mathematical function with y-axis on left side).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE exp<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.expI.png" ALT="Modelica.Math.exp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.exp"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.exp</H2>
-<B>Exponential, base e</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
+>Modelica.Math.Icons.AxisLeft</a> (Basic icon for mathematical function with y-axis on left side).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE exp<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.expI.png" alt="Modelica.Math.exp" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.exp"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.exp</h2>
+<p>
+<span class="ModelicaDescription">Exponential, base e</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
@@ -673,28 +808,30 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 <p>
 <img src="../Resources/Images/Math/exp.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
->Modelica.Math.Icons.AxisCenter</A> (Basic icon for mathematical function with y-axis in the center).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE log<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.logI.png" ALT="Modelica.Math.log" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.log"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.log</H2>
-<B>Natural (base e) logarithm (u shall be &gt; 0)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+>Modelica.Math.Icons.AxisCenter</a> (Basic icon for mathematical function with y-axis in the center).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE log<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.logI.png" alt="Modelica.Math.log" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.log"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.log</h2>
+<p>
+<span class="ModelicaDescription">Natural (base e) logarithm (u shall be &gt; 0)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = log(10) (the natural logarithm of u),
 with u &gt; 0:
@@ -703,28 +840,30 @@ with u &gt; 0:
 <p>
 <img src="../Resources/Images/Math/log.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
->Modelica.Math.Icons.AxisLeft</A> (Basic icon for mathematical function with y-axis on left side).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE log10<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.logI.png" ALT="Modelica.Math.log10" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.log10"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.log10</H2>
-<B>Base 10 logarithm (u shall be &gt; 0)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
+>Modelica.Math.Icons.AxisLeft</a> (Basic icon for mathematical function with y-axis on left side).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE log10<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.logI.png" alt="Modelica.Math.log10" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.log10"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.log10</h2>
+<p>
+<span class="ModelicaDescription">Base 10 logarithm (u shall be &gt; 0)</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns y = log10(u),
 with u &gt; 0:
@@ -733,101 +872,109 @@ with u &gt; 0:
 <p>
 <img src="../Resources/Images/Math/log10.png">
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
->Modelica.Math.Icons.AxisLeft</A> (Basic icon for mathematical function with y-axis on left side).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>&nbsp;</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE baseIcon1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.baseIcon1I.png" ALT="Modelica.Math.baseIcon1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.baseIcon1"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.baseIcon1</H2>
-<B>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead.</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
+>Modelica.Math.Icons.AxisLeft</a> (Basic icon for mathematical function with y-axis on left side).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>&nbsp;</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE baseIcon1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.baseIcon1I.png" alt="Modelica.Math.baseIcon1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.baseIcon1"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.baseIcon1</h2>
+<p>
+<span class="ModelicaDescription">This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead.</span>
+</p>
+<h3>Information</h3>
+
 <p>This icon will be removed in future versions of the Modelica Standard Library.
-Instead the icon <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
+Instead the icon <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisLeft"
 >Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
-<pre></PRE><P></P>
 
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE baseIcon2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.baseIcon2I.png" ALT="Modelica.Math.baseIcon2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.baseIcon2"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.baseIcon2</H2>
-<B>This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead.</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE baseIcon2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.baseIcon2I.png" alt="Modelica.Math.baseIcon2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.baseIcon2"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.baseIcon2</h2>
+<p>
+<span class="ModelicaDescription">This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead.</span>
+</p>
+<h3>Information</h3>
+
 <p>This icon will be removed in future versions of the Modelica Standard Library.
-Instead the icon <A HREF="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
+Instead the icon <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCenter"
 >Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
-<pre></PRE><P></P>
 
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tempInterpol1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.tempInterpol1I.png" ALT="Modelica.Math.tempInterpol1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.tempInterpol1"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.tempInterpol1</H2>
-<B>Temporary function for linear interpolation (will be removed)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tempInterpol1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.tempInterpol1I.png" alt="Modelica.Math.tempInterpol1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.tempInterpol1"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.tempInterpol1</h2>
+<p>
+<span class="ModelicaDescription">Temporary function for linear interpolation (will be removed)</span>
+</p>
+<h3>Information</h3>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions), <A HREF="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
->Modelica.Icons.ObsoleteModel</A> (Icon for classes that are obsolete and will be removed in later versions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>input value (first column of table)</TD></TR>
-<TR><TD>table[:, :]</TD><TD>table to be interpolated</TD></TR>
-<TR><TD>icol</TD><TD>column of table to be interpolated</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y</TD><TD>interpolated input value (icol column of table)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE tempInterpol2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Math.tempInterpol1I.png" ALT="Modelica.Math.tempInterpol2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Math.tempInterpol2"></A><A HREF="Modelica_Math.html#Modelica.Math"
->Modelica.Math</A>.tempInterpol2</H2>
-<B>Temporary function for vectorized linear interpolation (will be removed)</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions), <A HREF="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
->Modelica.Icons.ObsoleteModel</A> (Icon for classes that are obsolete and will be removed in later versions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>u</TD><TD>input value (first column of table)</TD></TR>
-<TR><TD>table[:, :]</TD><TD>table to be interpolated</TD></TR>
-<TR><TD>icol[:]</TD><TD>column(s) of table to be interpolated</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>y[1, size(icol, 1)]</TD><TD>interpolated input value(s) (column(s) icol of table)</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:10 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>input value (first column of table)</td></tr>
+<tr><td>table[:, :]</td><td>table to be interpolated</td></tr>
+<tr><td>icol</td><td>column of table to be interpolated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>interpolated input value (icol column of table)</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE tempInterpol2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.tempInterpol1I.png" alt="Modelica.Math.tempInterpol2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.tempInterpol2"></a><a href="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</a>.tempInterpol2</h2>
+<p>
+<span class="ModelicaDescription">Temporary function for vectorized linear interpolation (will be removed)</span>
+</p>
+<h3>Information</h3>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions), <a href="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>input value (first column of table)</td></tr>
+<tr><td>table[:, :]</td><td>table to be interpolated</td></tr>
+<tr><td>icol[:]</td><td>column(s) of table to be interpolated</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y[1, size(icol, 1)]</td><td>interpolated input value(s) (column(s) icol of table)</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+</address>
+</body>
+</html>

@@ -1,29 +1,49 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Loop structures&quot;">
+<meta name="description" content="&quot;Loop structures&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE LoopStructures<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
->Modelica.Mechanics.MultiBody.UsersGuide.Tutorial</A>.LoopStructures</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LoopStructures<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial</a>.LoopStructures</h2>
+<p>
+</p>
+
 <p>
 The MultiBody library has the feature that all components
 can be connected together in a nearly arbitrary fashion.
@@ -35,44 +55,56 @@ occurring non-linear algebraic equation systems are solved
 analytically. There are the following sub-chapters:
 </p>
 <ol>
-<li><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction"
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction"
 >Introduction</a>
 </li>
-<li><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"
 >Planar loops</a>.
 </li>
-<li><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+<li><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
 >Analytic loop handling</a>.
 </li>
 </ol>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction"
->Introduction</A>
-</TD><TD>Introduction</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"
->PlanarLoops</A>
-</TD><TD>Planar loops</TD></TR>
-<TR><TD><IMG SRC="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
->AnalyticLoopHandling</A>
-</TD><TD>Analytic loop handling</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Introduction<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
->Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</A>.Introduction</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction"
+>Introduction</a>
+</td>
+<td>Introduction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"
+>PlanarLoops</a>
+</td>
+<td>Planar loops</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB2d291d75bbd27608rViewS.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+>AnalyticLoopHandling</a>
+</td>
+<td>Analytic loop handling</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Introduction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</a>.Introduction</h2>
+
 <p>
 In principal, now special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
 An example is presented in the figure below. It is available as
-<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1"
+<a href="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1"
 >
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
@@ -126,23 +158,23 @@ In many mechanisms it is possible to solve the non-linear algebraic
 equations analytically. For a certain class of systems this can
 be performed also with the MultiBody library. This technique
 is described in section
-"<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+"<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
 >Analytic loop handling</a>".
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE PlanarLoops<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
->Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</A>.PlanarLoops</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PlanarLoops<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</a>.PlanarLoops</h2>
+
 <p>
 In the figure below, the model of a V6 engine is
 shown that has a simple combustion model. It is available as
-<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6"
+<a href="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6"
 >
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
@@ -193,7 +225,7 @@ on pure structural information cannot distinguish these two cases.
 The usual remedy is to remove superfluous constraints,
 e.g., along the axis of rotation of <b>one</b> revolute joint. Since this is
 not easy for an inexperienced modeler, the special joint:
-<A HREF="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint"
+<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint"
 >
 RevolutePlanarLoopConstraint</a> is provided that removes these constraints.
 Exactly one revolute joint in a every planar loop must be replaced by this
@@ -226,20 +258,20 @@ Both cases are discussed in the error message.
 Note, that the non-linear algebraic equations occurring
 in planar loops can be solved analytically in most cases and therefore it is
 highly recommended to use the techniques discussed in section
-"<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
+"<a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"
 >Analytic loop handling</a>"
 for such systems.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE AnalyticLoopHandling<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
->Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</A>.AnalyticLoopHandling</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AnalyticLoopHandling<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiBad9755d695deb6c7orialI.png" alt="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling"></a><a href="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial_LoopStructures.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures"
+>Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures</a>.AnalyticLoopHandling</h2>
+
 <p>
 It is well known that the non-linear
 algebraic equations of most mechanical loops in technical devices can be
@@ -276,7 +308,7 @@ method is usually manually applied which requires know-how and experience.
 In the MultiBody library the "characteristic pair of
 joints" method is supported in a restricted form such that it can be applied
 also by non-specialists. The idea is to provide aggregations of joints in package
-<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
+<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies"
 >
 MultiBody.Joints.Assemblies</a>.
 as one object that either have <b>6</b> degrees of freedom or
@@ -297,7 +329,7 @@ joint, two spherical joints and one prismatic joint.
 In the figure below, the two spherical joints
 and the prismatic joint are collected together in an assembly object
 called "jointSSP" from
-<A HREF="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"
+<a href="Modelica_Mechanics_MultiBody_Joints_Assemblies.html#Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP"
 >
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
@@ -587,7 +619,7 @@ revolute and one prismatic joint, see next figure.
 Since 6
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are
 present. This model is available as
-<A HREF="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic"
+<a href="Modelica_Mechanics_MultiBody_Examples_Loops.html#Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic"
 >
 MultiBody.Examples.Loops.EngineV6_analytic</a>.
 </p>
@@ -616,9 +648,11 @@ that leads to a DAE with 6 algebraic loops and 5 non-linear equations per
 loop. Additionally, a linear system of equations of order 43 is present.
 The simulation time is about 5 times faster with the analytic loop handling.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:39 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+</address>
+</body>
+</html>

@@ -1,94 +1,138 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.UsersGuide.MediumUsage</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.UsersGuide.MediumUsage</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Medium usage&quot;">
+<meta name="description" content="&quot;Medium usage&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MediumUsage<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage"></A><A HREF="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide"
->Modelica.Media.UsersGuide</A>.MediumUsage</H2>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MediumUsage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage"></a><a href="Modelica_Media_UsersGuide.html#Modelica.Media.UsersGuide"
+>Modelica.Media.UsersGuide</a>.MediumUsage</h2>
+<p>
+</p>
+
 <p>
 Content:
 </p>
 <ol>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BasicUsage"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BasicUsage"
 >Basic usage of medium model</a></li>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BalanceVolume"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BalanceVolume"
 >Medium model for a balance volume</a></li>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.ShortPipe"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.ShortPipe"
 >Medium model for a pressure loss</a></li>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"
 >Optional medium properties</a></li>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Constants"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Constants"
 >Constants provided by medium model</a></li>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.TwoPhase"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.TwoPhase"
 >Two-phase media</a></li>
-<li><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Initialization"
+<li><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Initialization"
 >Initialization</a></li>
 </ol>
 
 <p>
 A good demonstration how to use the media from Modelica.Media is
 given in package Modelica.Media.Examples.Tests. Under
-<A HREF="Modelica_Media_Examples_Tests_Components.html#Modelica.Media.Examples.Tests.Components"
+<a href="Modelica_Media_Examples_Tests_Components.html#Modelica.Media.Examples.Tests.Components"
 >
 Tests.Components</a> the most basic components of a Fluid library
 are defined. Under Tests.MediaTestModels these basic components are used to test
 all media models with some very simple piping networks.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.BasicUsage" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BasicUsage"
->BasicUsage</A>
-</TD><TD>Basic usage</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.BalanceVolume" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BalanceVolume"
->BalanceVolume</A>
-</TD><TD>Balance volume</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.ShortPipe" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.ShortPipe"
->ShortPipe</A>
-</TD><TD>Short pipe</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"
->OptionalProperties</A>
-</TD><TD>Optional properties</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.Constants" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Constants"
->Constants</A>
-</TD><TD>Constants</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.TwoPhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.TwoPhase"
->TwoPhase</A>
-</TD><TD>Two-phase media</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" ALT="Modelica.Media.UsersGuide.MediumUsage.Initialization" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Initialization"
->Initialization</A>
-</TD><TD>Initialization</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BasicUsage<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.BasicUsage" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.BasicUsage"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.BasicUsage</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.BasicUsage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BasicUsage"
+>BasicUsage</a>
+</td>
+<td>Basic usage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.BalanceVolume" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.BalanceVolume"
+>BalanceVolume</a>
+</td>
+<td>Balance volume</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.ShortPipe" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.ShortPipe"
+>ShortPipe</a>
+</td>
+<td>Short pipe</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"
+>OptionalProperties</a>
+</td>
+<td>Optional properties</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.Constants" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Constants"
+>Constants</a>
+</td>
+<td>Constants</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.TwoPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.TwoPhase"
+>TwoPhase</a>
+</td>
+<td>Two-phase media</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.UsersGuide1c2579b946f8e2c2UsageS.png" alt="Modelica.Media.UsersGuide.MediumUsage.Initialization" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage.Initialization"
+>Initialization</a>
+</td>
+<td>Initialization</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicUsage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.BasicUsage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.BasicUsage"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.BasicUsage</h2>
+
 <h4>Basic usage of medium model</h4>
 <p>
 Media models in Modelica.Media are provided by packages, inheriting from the
@@ -163,7 +207,7 @@ In a component, the most basic usage of a medium model is as follows
 <p>
 The second way is to use the setState_XXX functions to compute the thermodynamic state
 record from which all other thermodynamic state variables can be computed (see
-<A HREF="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition"
+<a href="Modelica_Media_UsersGuide_MediumDefinition.html#Modelica.Media.UsersGuide.MediumDefinition.BasicDefinition"
 >
 Basic definition of medium</a> for further details on ThermodynamicState). The setState_XXX functions
 accept either X or Xi (see explanation below) and will decide internally which of these two compositions
@@ -311,23 +355,23 @@ then via the medium it is defined how Xi is interpreted:
 The full vector of mass fractions <b>X[nX]</b> is computed in
 PartialMedium.BaseProperties based on Xi, reference_X, and the information whether Xi = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For multiple-substance media, nX = nS, and X always contains the full vector of mass fractions. In order to reduce confusion for the user of a fluid component library, "Xi" has the annotation "HideResult=true", meaning, that this variable is not shown in the plot window. Only X is shown in the plot window and this vector always contains all mass fractions.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BalanceVolume<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.BalanceVolume" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.BalanceVolume"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.BalanceVolume</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BalanceVolume<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.BalanceVolume" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.BalanceVolume"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.BalanceVolume</h2>
+
 <p>
 Fluid libraries usually have balance volume components with one fluid connector
 port that fulfill the mass and energy balance and on a different grid components that
 fulfill the momentum balance. A balance volume component, called junction
 volume below, should be primarily implemented in the following way
 (see also the implementation in
-<A HREF="Modelica_Media_Examples_Tests_Components.html#Modelica.Media.Examples.Tests.Components.PortVolume"
+<a href="Modelica_Media_Examples_Tests_Components.html#Modelica.Media.Examples.Tests.Components.PortVolume"
 >
 Modelica.Media.Examples.Tests.Components.PortVolume</a>):
 </p>
@@ -426,16 +470,16 @@ disadvantage that for many media non-linear systems of equations are
 present to compute the intrinsic properties p, d, T, u, h from
 M and U.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE ShortPipe<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.ShortPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.ShortPipe"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.ShortPipe</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ShortPipe<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.ShortPipe" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.ShortPipe"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.ShortPipe</h2>
+
 <p>
 Fluid libraries have components with two ports that store
 neither mass nor energy and fulfill the
@@ -446,7 +490,7 @@ other port. Since no mass or energy is stored, no differential
 equations for thermodynamic variables are present. A component model of this type
 has therefore usually the following structure
 (see also the implementation in
-<A HREF="Modelica_Media_Examples_Tests_Components.html#Modelica.Media.Examples.Tests.Components.ShortPipe"
+<a href="Modelica_Media_Examples_Tests_Components.html#Modelica.Media.Examples.Tests.Components.ShortPipe"
 >
 Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
 </p>
@@ -532,22 +576,22 @@ linear system of equations:
      the linear system is regular.</li>
 </ul>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE OptionalProperties<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.OptionalProperties</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE OptionalProperties<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.OptionalProperties"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.OptionalProperties</h2>
+
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
 one of the functions listed in the following table. They are
 defined as partial functions within package
-<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+<a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
 >PartialMedium</a>,
 and then (optionally) implemented in actual medium packages.
 If a component calls such an optional function and the
@@ -696,16 +740,16 @@ etc. are defined in PartialMedium. Whenever possible, these medium
 specific types should be used in a model in order that medium information,
 e.g., about nominal or start values, are automatically utilized.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Constants<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.Constants" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.Constants"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.Constants</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Constants<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.Constants" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.Constants"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.Constants</h2>
+
 <p>
 Every medium model provides the following <b>constants</b>. For example,
 if a medium is declared as:
@@ -907,19 +951,19 @@ elements</p>
 
 </table>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TwoPhase<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.TwoPhase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.TwoPhase"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.TwoPhase</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TwoPhase<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.TwoPhase" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.TwoPhase"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.TwoPhase</h2>
+
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
-from <A HREF="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium"
+from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium"
 >
 Modelica.Media.Interfaces.PartialTwoPhaseMedium</a>
 (which inherits from PartialMedium). The basic usage of these
@@ -1108,16 +1152,16 @@ Here are some examples:
    bubble_2    = setBubbleState(sat, 2);
    drho_dp_h_2 = Medium.density_derp_h(bubble_2);
 </pre>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Initialization<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.UsersGuide.MediumUsageI.png" ALT="Modelica.Media.UsersGuide.MediumUsage.Initialization" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.UsersGuide.MediumUsage.Initialization"></A><A HREF="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
->Modelica.Media.UsersGuide.MediumUsage</A>.Initialization</H2>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Initialization<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.UsersGuide.MediumUsageI.png" alt="Modelica.Media.UsersGuide.MediumUsage.Initialization" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.UsersGuide.MediumUsage.Initialization"></a><a href="Modelica_Media_UsersGuide_MediumUsage.html#Modelica.Media.UsersGuide.MediumUsage"
+>Modelica.Media.UsersGuide.MediumUsage</a>.Initialization</h2>
+
 
 <p>
 When a medium model is used in a balance volume, differential
@@ -1195,9 +1239,11 @@ exist:
      and by inspection of the file "dsmodel.mof" that is generated
      when this option is set (search for "nonlinear").</li>
 </ul>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
->Modelica.Icons.Information</A> (Icon for general information packages).
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:53 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:19 2015.
+</address>
+</body>
+</html>

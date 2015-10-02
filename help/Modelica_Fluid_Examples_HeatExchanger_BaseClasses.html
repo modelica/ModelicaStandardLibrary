@@ -1,161 +1,193 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Additional models for heat exchangers&quot;">
+<meta name="description" content="&quot;Additional models for heat exchangers&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Examples.HeatExchanger.BaseClasses"></A><A HREF="Modelica_Fluid_Examples_HeatExchanger.html#Modelica.Fluid.Examples.HeatExchanger"
->Modelica.Fluid.Examples.HeatExchanger</A>.BaseClasses</H2>
-<B>Additional models for heat exchangers</B>
-<P></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
->Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.H9b57d05551fefa17sicHXS.png" ALT="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX"
->BasicHX</A>
-</TD><TD>Simple heat exchanger model</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Examples.H0b9cb4c4ad5f4436PropsS.png" ALT="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps"
->WallConstProps</A>
-</TD><TD>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE BasicHX<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.H9b57d05551fefa17sicHXI.png" ALT="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX"></A><A HREF="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses"
->Modelica.Fluid.Examples.HeatExchanger.BaseClasses</A>.BasicHX</H2>
-<B>Simple heat exchanger model</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Examples.HeatExchanger.BaseClasses"></a><a href="Modelica_Fluid_Examples_HeatExchanger.html#Modelica.Fluid.Examples.HeatExchanger"
+>Modelica.Fluid.Examples.HeatExchanger</a>.BaseClasses</h2>
+<p>
+<span class="ModelicaDescription">Additional models for heat exchangers</span><br>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</a> (Icon for packages containing base classes).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.H9b57d05551fefa17sicHXS.png" alt="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX"
+>BasicHX</a>
+</td>
+<td>Simple heat exchanger model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Examples.H0b9cb4c4ad5f4436PropsS.png" alt="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps"
+>WallConstProps</a>
+</td>
+<td>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BasicHX<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.H9b57d05551fefa17sicHXI.png" alt="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.BasicHX"></a><a href="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses"
+>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</a>.BasicHX</h2>
+<p>
+<span class="ModelicaDescription">Simple heat exchanger model</span>
+</p>
+<h3>Information</h3>
+
 <p>Simple model of a heat exchanger consisting of two pipes and one wall in between.
 For both fluids geometry parameters, such as heat transfer area and cross section as well as heat transfer and pressure drop correlations may be chosen.
 The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
 The design flow direction with positive m_flow variables is counterflow.</p>
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>length</TD><TD>Length of flow path for both fluids [m]</TD></TR>
-<TR><TD>nNodes</TD><TD>Spatial segmentation</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid 1</TD></TR>
-<TR><TD>modelStructure_1</TD><TD>Determines whether flow or volume models are present at the ports</TD></TR>
-<TR><TD>replaceable package Medium_1</TD><TD>Fluid 1</TD></TR>
-<TR><TD>crossArea_1</TD><TD>Cross sectional area [m2]</TD></TR>
-<TR><TD>perimeter_1</TD><TD>Flow channel perimeter [m]</TD></TR>
-<TR><TD>replaceable model HeatTransfer_1</TD><TD>Heat transfer model</TD></TR>
-<TR><TD>area_h_1</TD><TD>Heat transfer area [m2]</TD></TR>
-<TR><TD>replaceable model FlowModel_1</TD><TD>Characteristic of wall friction</TD></TR>
-<TR><TD>roughness_1</TD><TD>Absolute roughness of pipe (default = smooth steel pipe) [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid 2</TD></TR>
-<TR><TD>modelStructure_2</TD><TD>Determines whether flow or volume models are present at the ports</TD></TR>
-<TR><TD>replaceable package Medium_2</TD><TD>Fluid 2</TD></TR>
-<TR><TD>crossArea_2</TD><TD>Cross sectional area [m2]</TD></TR>
-<TR><TD>perimeter_2</TD><TD>Flow channel perimeter [m]</TD></TR>
-<TR><TD>replaceable model HeatTransfer_2</TD><TD>Heat transfer model</TD></TR>
-<TR><TD>area_h_2</TD><TD>Heat transfer area [m2]</TD></TR>
-<TR><TD>replaceable model FlowModel_2</TD><TD>Characteristic of wall friction</TD></TR>
-<TR><TD>roughness_2</TD><TD>Absolute roughness of pipe (default = smooth steel pipe) [m]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Wall properties</TD></TR>
-<TR><TD>s_wall</TD><TD>Wall thickness [m]</TD></TR>
-<TR><TD>k_wall</TD><TD>Thermal conductivity of wall material [W/(m.K)]</TD></TR>
-<TR><TD>c_wall</TD><TD>Specific heat capacity of wall material [J/(kg.K)]</TD></TR>
-<TR><TD>rho_wall</TD><TD>Density of wall material [kg/m3]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
-<TR><TD>massDynamics</TD><TD>Formulation of mass balance</TD></TR>
-<TR><TD>momentumDynamics</TD><TD>Formulation of momentum balance, if pressureLoss options available</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Initialization</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Wall</TD></TR>
-<TR><TD>Twall_start</TD><TD>Start value of wall temperature [K]</TD></TR>
-<TR><TD>dT</TD><TD>Start value for pipe_1.T - pipe_2.T [K]</TD></TR>
-<TR><TD>use_T_start</TD><TD>Use T_start if true, otherwise h_start</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid 1</TD></TR>
-<TR><TD>p_a_start1</TD><TD>Start value of pressure [Pa]</TD></TR>
-<TR><TD>p_b_start1</TD><TD>Start value of pressure [Pa]</TD></TR>
-<TR><TD>T_start_1</TD><TD>Start value of temperature [K]</TD></TR>
-<TR><TD>h_start_1</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
-<TR><TD>X_start_1[Medium_1.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
-<TR><TD>m_flow_start_1</TD><TD>Start value of mass flow rate [kg/s]</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid 2</TD></TR>
-<TR><TD>p_a_start2</TD><TD>Start value of pressure [Pa]</TD></TR>
-<TR><TD>p_b_start2</TD><TD>Start value of pressure [Pa]</TD></TR>
-<TR><TD>T_start_2</TD><TD>Start value of temperature [K]</TD></TR>
-<TR><TD>h_start_2</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
-<TR><TD>X_start_2[Medium_2.nX]</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
-<TR><TD>m_flow_start_2</TD><TD>Start value of mass flow rate [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_b1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port_a1</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port_b2</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port_a2</TD><TD>&nbsp;</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid 1</TD></TR>
-<TR><TD>replaceable package Medium_1</TD><TD>Fluid 1</TD></TR>
-<TR><TD>replaceable model HeatTransfer_1</TD><TD>Heat transfer model</TD></TR>
-<TR><TD>replaceable model FlowModel_1</TD><TD>Characteristic of wall friction</TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Fluid 2</TD></TR>
-<TR><TD>replaceable package Medium_2</TD><TD>Fluid 2</TD></TR>
-<TR><TD>replaceable model HeatTransfer_2</TD><TD>Heat transfer model</TD></TR>
-<TR><TD>replaceable model FlowModel_2</TD><TD>Characteristic of wall friction</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE WallConstProps<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Examples.H0b9cb4c4ad5f4436PropsI.png" ALT="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps"></A><A HREF="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses"
->Modelica.Fluid.Examples.HeatExchanger.BaseClasses</A>.WallConstProps</H2>
-<B>Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>length</td><td>Length of flow path for both fluids [m]</td></tr>
+<tr><td>nNodes</td><td>Spatial segmentation</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid 1</td></tr>
+<tr><td>modelStructure_1</td><td>Determines whether flow or volume models are present at the ports</td></tr>
+<tr><td>replaceable package Medium_1</td><td>Fluid 1</td></tr>
+<tr><td>crossArea_1</td><td>Cross sectional area [m2]</td></tr>
+<tr><td>perimeter_1</td><td>Flow channel perimeter [m]</td></tr>
+<tr><td>replaceable model HeatTransfer_1</td><td>Heat transfer model</td></tr>
+<tr><td>area_h_1</td><td>Heat transfer area [m2]</td></tr>
+<tr><td>replaceable model FlowModel_1</td><td>Characteristic of wall friction</td></tr>
+<tr><td>roughness_1</td><td>Absolute roughness of pipe (default = smooth steel pipe) [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid 2</td></tr>
+<tr><td>modelStructure_2</td><td>Determines whether flow or volume models are present at the ports</td></tr>
+<tr><td>replaceable package Medium_2</td><td>Fluid 2</td></tr>
+<tr><td>crossArea_2</td><td>Cross sectional area [m2]</td></tr>
+<tr><td>perimeter_2</td><td>Flow channel perimeter [m]</td></tr>
+<tr><td>replaceable model HeatTransfer_2</td><td>Heat transfer model</td></tr>
+<tr><td>area_h_2</td><td>Heat transfer area [m2]</td></tr>
+<tr><td>replaceable model FlowModel_2</td><td>Characteristic of wall friction</td></tr>
+<tr><td>roughness_2</td><td>Absolute roughness of pipe (default = smooth steel pipe) [m]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Wall properties</td></tr>
+<tr><td>s_wall</td><td>Wall thickness [m]</td></tr>
+<tr><td>k_wall</td><td>Thermal conductivity of wall material [W/(m.K)]</td></tr>
+<tr><td>c_wall</td><td>Specific heat capacity of wall material [J/(kg.K)]</td></tr>
+<tr><td>rho_wall</td><td>Density of wall material [kg/m3]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>energyDynamics</td><td>Formulation of energy balance</td></tr>
+<tr><td>massDynamics</td><td>Formulation of mass balance</td></tr>
+<tr><td>momentumDynamics</td><td>Formulation of momentum balance, if pressureLoss options available</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Initialization</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Wall</td></tr>
+<tr><td>Twall_start</td><td>Start value of wall temperature [K]</td></tr>
+<tr><td>dT</td><td>Start value for pipe_1.T - pipe_2.T [K]</td></tr>
+<tr><td>use_T_start</td><td>Use T_start if true, otherwise h_start</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid 1</td></tr>
+<tr><td>p_a_start1</td><td>Start value of pressure [Pa]</td></tr>
+<tr><td>p_b_start1</td><td>Start value of pressure [Pa]</td></tr>
+<tr><td>T_start_1</td><td>Start value of temperature [K]</td></tr>
+<tr><td>h_start_1</td><td>Start value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start_1[Medium_1.nX]</td><td>Start value of mass fractions m_i/m [kg/kg]</td></tr>
+<tr><td>m_flow_start_1</td><td>Start value of mass flow rate [kg/s]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid 2</td></tr>
+<tr><td>p_a_start2</td><td>Start value of pressure [Pa]</td></tr>
+<tr><td>p_b_start2</td><td>Start value of pressure [Pa]</td></tr>
+<tr><td>T_start_2</td><td>Start value of temperature [K]</td></tr>
+<tr><td>h_start_2</td><td>Start value of specific enthalpy [J/kg]</td></tr>
+<tr><td>X_start_2[Medium_2.nX]</td><td>Start value of mass fractions m_i/m [kg/kg]</td></tr>
+<tr><td>m_flow_start_2</td><td>Start value of mass flow rate [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_b1</td><td>&nbsp;</td></tr>
+<tr><td>port_a1</td><td>&nbsp;</td></tr>
+<tr><td>port_b2</td><td>&nbsp;</td></tr>
+<tr><td>port_a2</td><td>&nbsp;</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid 1</td></tr>
+<tr><td>replaceable package Medium_1</td><td>Fluid 1</td></tr>
+<tr><td>replaceable model HeatTransfer_1</td><td>Heat transfer model</td></tr>
+<tr><td>replaceable model FlowModel_1</td><td>Characteristic of wall friction</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fluid 2</td></tr>
+<tr><td>replaceable package Medium_2</td><td>Fluid 2</td></tr>
+<tr><td>replaceable model HeatTransfer_2</td><td>Heat transfer model</td></tr>
+<tr><td>replaceable model FlowModel_2</td><td>Characteristic of wall friction</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE WallConstProps<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Examples.H0b9cb4c4ad5f4436PropsI.png" alt="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Examples.HeatExchanger.BaseClasses.WallConstProps"></a><a href="Modelica_Fluid_Examples_HeatExchanger_BaseClasses.html#Modelica.Fluid.Examples.HeatExchanger.BaseClasses"
+>Modelica.Fluid.Examples.HeatExchanger.BaseClasses</a>.WallConstProps</h2>
+<p>
+<span class="ModelicaDescription">Pipe wall with capacitance, assuming 1D heat conduction and constant material properties</span>
+</p>
+<h3>Information</h3>
+
 Simple model of circular (or any other closed shape) wall to be used for pipe (or duct) models. Heat conduction is regarded one dimensional, capacitance is lumped at the arithmetic mean temperature. The spatial discretization (parameter <code>n</code>) is meant to correspond to a connected fluid model discretization.
-<pre></PRE><P></P>
 
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>n</TD><TD>Segmentation perpendicular to heat conduction</TD></TR>
-<TR><TD>s</TD><TD>Wall thickness [m]</TD></TR>
-<TR><TD>area_h</TD><TD>Heat transfer area [m2]</TD></TR>
-<TR><TD>rho_wall</TD><TD>Density of wall material [kg/m3]</TD></TR>
-<TR><TD>c_wall</TD><TD>Specific heat capacity of wall material [J/(kg.K)]</TD></TR>
-<TR><TD>k_wall</TD><TD>Thermal conductivity of wall material [W/(m.K)]</TD></TR>
-<TR><TD>m[n]</TD><TD>Distribution of wall mass [kg]</TD></TR>
-<TR><TD>T_start</TD><TD>Wall temperature start value [K]</TD></TR>
-<TR><TD>dT</TD><TD>Start value for port_b.T - port_a.T [K]</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR bgcolor="#e0e0e0"><TD colspan=2>Dynamics</TD></TR>
-<TR><TD>energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>heatPort_a[n]</TD><TD>Thermal port</TD></TR>
-<TR><TD>heatPort_b[n]</TD><TD>Thermal port</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:45 2013.
-</address></BODY>
-</HTML>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Segmentation perpendicular to heat conduction</td></tr>
+<tr><td>s</td><td>Wall thickness [m]</td></tr>
+<tr><td>area_h</td><td>Heat transfer area [m2]</td></tr>
+<tr><td>rho_wall</td><td>Density of wall material [kg/m3]</td></tr>
+<tr><td>c_wall</td><td>Specific heat capacity of wall material [J/(kg.K)]</td></tr>
+<tr><td>k_wall</td><td>Thermal conductivity of wall material [W/(m.K)]</td></tr>
+<tr><td>m[n]</td><td>Distribution of wall mass [kg]</td></tr>
+<tr><td>T_start</td><td>Wall temperature start value [K]</td></tr>
+<tr><td>dT</td><td>Start value for port_b.T - port_a.T [K]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Dynamics</td></tr>
+<tr><td>energyDynamics</td><td>Formulation of energy balance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort_a[n]</td><td>Thermal port</td></tr>
+<tr><td>heatPort_b[n]</td><td>Thermal port</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+</address>
+</body>
+</html>

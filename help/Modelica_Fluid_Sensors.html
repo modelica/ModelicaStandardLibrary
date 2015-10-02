@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Sensors</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Sensors</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Ideal sensor components to extract signals from a fluid connector&quot;">
+<meta name="description" content="&quot;Ideal sensor components to extract signals from a fluid connector&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Sensors"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
->Modelica.Fluid</A>.Sensors</H2>
-<B>Ideal sensor components to extract signals from a fluid connector</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Sensors"></a><a href="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</a>.Sensors</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor components to extract signals from a fluid connector</span><br>
+</p>
+<h3>Information</h3>
+
 <p align = justify>
 Package <b>Sensors</b> consists of idealized sensor components that
 provide variables of a medium model and/or fluid ports as
@@ -49,602 +68,695 @@ Moreover the obtained result is restricted to the value flowing into port_a if a
 </ul>
 
 <p>
-<A HREF="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory.MeasuringTemperature"
+<a href="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory.MeasuringTemperature"
 >Modelica.Fluid.Examples.Explanatory.MeasuringTemperature</a>
 demonstrates the differences between one- and two-port sensor at hand of a
 simple example.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
->Modelica.Icons.SensorsPackage</A> (Icon for packages containing sensors).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.PressureS.png" ALT="Modelica.Fluid.Sensors.Pressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Pressure"
->Pressure</A>
-</TD><TD>Ideal pressure sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.DensityS.png" ALT="Modelica.Fluid.Sensors.Density" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Density"
->Density</A>
-</TD><TD>Ideal one port density sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.DensityTwoPortS.png" ALT="Modelica.Fluid.Sensors.DensityTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.DensityTwoPort"
->DensityTwoPort</A>
-</TD><TD>Ideal two port density sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.TemperatureS.png" ALT="Modelica.Fluid.Sensors.Temperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Temperature"
->Temperature</A>
-</TD><TD>Ideal one port temperature sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Te0b3f0b322a11c202oPortS.png" ALT="Modelica.Fluid.Sensors.TemperatureTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TemperatureTwoPort"
->TemperatureTwoPort</A>
-</TD><TD>Ideal two port temperature sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.SpecificEnthalpyS.png" ALT="Modelica.Fluid.Sensors.SpecificEnthalpy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEnthalpy"
->SpecificEnthalpy</A>
-</TD><TD>Ideal one port specific enthalpy sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Spfcc2159d385c8e79oPortS.png" ALT="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort"
->SpecificEnthalpyTwoPort</A>
-</TD><TD>Ideal two port sensor for the specific enthalpy</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.SpecificEntropyS.png" ALT="Modelica.Fluid.Sensors.SpecificEntropy" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEntropy"
->SpecificEntropy</A>
-</TD><TD>Ideal one port specific entropy sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Spa130607f6e344793oPortS.png" ALT="Modelica.Fluid.Sensors.SpecificEntropyTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEntropyTwoPort"
->SpecificEntropyTwoPort</A>
-</TD><TD>Ideal two port sensor for the specific entropy</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.MassFractionsS.png" ALT="Modelica.Fluid.Sensors.MassFractions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFractions"
->MassFractions</A>
-</TD><TD>Ideal one port mass fraction sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Ma5c5022492b3608bfoPortS.png" ALT="Modelica.Fluid.Sensors.MassFractionsTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFractionsTwoPort"
->MassFractionsTwoPort</A>
-</TD><TD>Ideal two port sensor for mass fraction</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.TraceSubstancesS.png" ALT="Modelica.Fluid.Sensors.TraceSubstances" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TraceSubstances"
->TraceSubstances</A>
-</TD><TD>Ideal one port trace substances sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.Tra105800ec5703cccoPortS.png" ALT="Modelica.Fluid.Sensors.TraceSubstancesTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TraceSubstancesTwoPort"
->TraceSubstancesTwoPort</A>
-</TD><TD>Ideal two port sensor for trace substance</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.MassFlowRateS.png" ALT="Modelica.Fluid.Sensors.MassFlowRate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFlowRate"
->MassFlowRate</A>
-</TD><TD>Ideal sensor for mass flow rate</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.MassFlowRateS.png" ALT="Modelica.Fluid.Sensors.VolumeFlowRate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.VolumeFlowRate"
->VolumeFlowRate</A>
-</TD><TD>Ideal sensor for volume flow rate</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.RelativePressureS.png" ALT="Modelica.Fluid.Sensors.RelativePressure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.RelativePressure"
->RelativePressure</A>
-</TD><TD>Ideal relative pressure sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.RelativePressureS.png" ALT="Modelica.Fluid.Sensors.RelativeTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.RelativeTemperature"
->RelativeTemperature</A>
-</TD><TD>Ideal relative temperature sensor</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Sensors.BaseClassesS.png" ALT="Modelica.Fluid.Sensors.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
->BaseClasses</A>
-</TD><TD>Base classes used in the Sensors package (only of interest to build new component models)</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Pressure<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.PressureI.png" ALT="Modelica.Fluid.Sensors.Pressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.Pressure"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.Pressure</H2>
-<B>Ideal pressure sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</a> (Icon for packages containing sensors).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.PressureS.png" alt="Modelica.Fluid.Sensors.Pressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Pressure"
+>Pressure</a>
+</td>
+<td>Ideal pressure sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.DensityS.png" alt="Modelica.Fluid.Sensors.Density" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Density"
+>Density</a>
+</td>
+<td>Ideal one port density sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.DensityTwoPortS.png" alt="Modelica.Fluid.Sensors.DensityTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.DensityTwoPort"
+>DensityTwoPort</a>
+</td>
+<td>Ideal two port density sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.TemperatureS.png" alt="Modelica.Fluid.Sensors.Temperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Temperature"
+>Temperature</a>
+</td>
+<td>Ideal one port temperature sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Te0b3f0b322a11c202oPortS.png" alt="Modelica.Fluid.Sensors.TemperatureTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TemperatureTwoPort"
+>TemperatureTwoPort</a>
+</td>
+<td>Ideal two port temperature sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.SpecificEnthalpyS.png" alt="Modelica.Fluid.Sensors.SpecificEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEnthalpy"
+>SpecificEnthalpy</a>
+</td>
+<td>Ideal one port specific enthalpy sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Spfcc2159d385c8e79oPortS.png" alt="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort"
+>SpecificEnthalpyTwoPort</a>
+</td>
+<td>Ideal two port sensor for the specific enthalpy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.SpecificEntropyS.png" alt="Modelica.Fluid.Sensors.SpecificEntropy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEntropy"
+>SpecificEntropy</a>
+</td>
+<td>Ideal one port specific entropy sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Spa130607f6e344793oPortS.png" alt="Modelica.Fluid.Sensors.SpecificEntropyTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.SpecificEntropyTwoPort"
+>SpecificEntropyTwoPort</a>
+</td>
+<td>Ideal two port sensor for the specific entropy</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.MassFractionsS.png" alt="Modelica.Fluid.Sensors.MassFractions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFractions"
+>MassFractions</a>
+</td>
+<td>Ideal one port mass fraction sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Ma5c5022492b3608bfoPortS.png" alt="Modelica.Fluid.Sensors.MassFractionsTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFractionsTwoPort"
+>MassFractionsTwoPort</a>
+</td>
+<td>Ideal two port sensor for mass fraction</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.TraceSubstancesS.png" alt="Modelica.Fluid.Sensors.TraceSubstances" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TraceSubstances"
+>TraceSubstances</a>
+</td>
+<td>Ideal one port trace substances sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.Tra105800ec5703cccoPortS.png" alt="Modelica.Fluid.Sensors.TraceSubstancesTwoPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TraceSubstancesTwoPort"
+>TraceSubstancesTwoPort</a>
+</td>
+<td>Ideal two port sensor for trace substance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.MassFlowRateS.png" alt="Modelica.Fluid.Sensors.MassFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFlowRate"
+>MassFlowRate</a>
+</td>
+<td>Ideal sensor for mass flow rate</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.MassFlowRateS.png" alt="Modelica.Fluid.Sensors.VolumeFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.VolumeFlowRate"
+>VolumeFlowRate</a>
+</td>
+<td>Ideal sensor for volume flow rate</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.RelativePressureS.png" alt="Modelica.Fluid.Sensors.RelativePressure" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.RelativePressure"
+>RelativePressure</a>
+</td>
+<td>Ideal relative pressure sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.RelativePressureS.png" alt="Modelica.Fluid.Sensors.RelativeTemperature" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.RelativeTemperature"
+>RelativeTemperature</a>
+</td>
+<td>Ideal relative temperature sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Sensors.BaseClassesS.png" alt="Modelica.Fluid.Sensors.BaseClasses" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses"
+>BaseClasses</a>
+</td>
+<td>Base classes used in the Sensors package (only of interest to build new component models)</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Pressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.PressureI.png" alt="Modelica.Fluid.Sensors.Pressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.Pressure"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.Pressure</h2>
+<p>
+<span class="ModelicaDescription">Ideal pressure sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the absolute pressure at its fluid port. The sensor is
 ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p</TD><TD>Pressure at port [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Density<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.DensityI.png" ALT="Modelica.Fluid.Sensors.Density" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.Density"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.Density</H2>
-<B>Ideal one port density sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>p</td><td>Pressure at port [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Density<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.DensityI.png" alt="Modelica.Fluid.Sensors.Density" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.Density"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.Density</h2>
+<p>
+<span class="ModelicaDescription">Ideal one port density sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the density of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>d</TD><TD>Density in port medium [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE DensityTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.DensityTwoPortI.png" ALT="Modelica.Fluid.Sensors.DensityTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.DensityTwoPort"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.DensityTwoPort</H2>
-<B>Ideal two port density sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>d</td><td>Density in port medium [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE DensityTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.DensityTwoPortI.png" alt="Modelica.Fluid.Sensors.DensityTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.DensityTwoPort"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.DensityTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Ideal two port density sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the density of the fluid flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>d</TD><TD>Density of the passing fluid [kg/m3]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Temperature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.TemperatureI.png" ALT="Modelica.Fluid.Sensors.Temperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.Temperature"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.Temperature</H2>
-<B>Ideal one port temperature sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>d</td><td>Density of the passing fluid [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Temperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.TemperatureI.png" alt="Modelica.Fluid.Sensors.Temperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.Temperature"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.Temperature</h2>
+<p>
+<span class="ModelicaDescription">Ideal one port temperature sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the temperature of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>T</TD><TD>Temperature in port medium [K]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TemperatureTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Te0b3f0b322a11c202oPortI.png" ALT="Modelica.Fluid.Sensors.TemperatureTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.TemperatureTwoPort"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.TemperatureTwoPort</H2>
-<B>Ideal two port temperature sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>T</td><td>Temperature in port medium [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TemperatureTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Te0b3f0b322a11c202oPortI.png" alt="Modelica.Fluid.Sensors.TemperatureTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.TemperatureTwoPort"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.TemperatureTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Ideal two port temperature sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the temperature of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>T</TD><TD>Temperature of the passing fluid [K]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEnthalpy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.SpecificEnthalpyI.png" ALT="Modelica.Fluid.Sensors.SpecificEnthalpy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.SpecificEnthalpy"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.SpecificEnthalpy</H2>
-<B>Ideal one port specific enthalpy sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>T</td><td>Temperature of the passing fluid [K]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEnthalpy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.SpecificEnthalpyI.png" alt="Modelica.Fluid.Sensors.SpecificEnthalpy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.SpecificEnthalpy"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.SpecificEnthalpy</h2>
+<p>
+<span class="ModelicaDescription">Ideal one port specific enthalpy sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the specific enthalpy of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>h_out</TD><TD>Specific enthalpy in port medium [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEnthalpyTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Spfcc2159d385c8e79oPortI.png" ALT="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.SpecificEnthalpyTwoPort</H2>
-<B>Ideal two port sensor for the specific enthalpy</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>h_out</td><td>Specific enthalpy in port medium [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEnthalpyTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Spfcc2159d385c8e79oPortI.png" alt="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.SpecificEnthalpyTwoPort"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.SpecificEnthalpyTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Ideal two port sensor for the specific enthalpy</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the specific enthalpy of a passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>h_out</TD><TD>Specific enthalpy of the passing fluid [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEntropy<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.SpecificEntropyI.png" ALT="Modelica.Fluid.Sensors.SpecificEntropy" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.SpecificEntropy"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.SpecificEntropy</H2>
-<B>Ideal one port specific entropy sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>h_out</td><td>Specific enthalpy of the passing fluid [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEntropy<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.SpecificEntropyI.png" alt="Modelica.Fluid.Sensors.SpecificEntropy" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.SpecificEntropy"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.SpecificEntropy</h2>
+<p>
+<span class="ModelicaDescription">Ideal one port specific entropy sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the specific entropy of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy in port medium [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE SpecificEntropyTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Spa130607f6e344793oPortI.png" ALT="Modelica.Fluid.Sensors.SpecificEntropyTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.SpecificEntropyTwoPort"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.SpecificEntropyTwoPort</H2>
-<B>Ideal two port sensor for the specific entropy</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>s</td><td>Specific entropy in port medium [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SpecificEntropyTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Spa130607f6e344793oPortI.png" alt="Modelica.Fluid.Sensors.SpecificEntropyTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.SpecificEntropyTwoPort"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.SpecificEntropyTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Ideal two port sensor for the specific entropy</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the specific entropy of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy of the passing fluid [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MassFractions<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.MassFractionsI.png" ALT="Modelica.Fluid.Sensors.MassFractions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.MassFractions"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.MassFractions</H2>
-<B>Ideal one port mass fraction sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>s</td><td>Specific entropy of the passing fluid [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MassFractions<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.MassFractionsI.png" alt="Modelica.Fluid.Sensors.MassFractions" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.MassFractions"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.MassFractions</h2>
+<p>
+<span class="ModelicaDescription">Ideal one port mass fraction sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the mass fraction contained in the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-<TR><TD>substanceName</TD><TD>Name of mass fraction</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>Xi</TD><TD>Mass fraction in port medium</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MassFractionsTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Ma5c5022492b3608bfoPortI.png" ALT="Modelica.Fluid.Sensors.MassFractionsTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.MassFractionsTwoPort"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.MassFractionsTwoPort</H2>
-<B>Ideal two port sensor for mass fraction</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+<tr><td>substanceName</td><td>Name of mass fraction</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>Xi</td><td>Mass fraction in port medium</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MassFractionsTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Ma5c5022492b3608bfoPortI.png" alt="Modelica.Fluid.Sensors.MassFractionsTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.MassFractionsTwoPort"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.MassFractionsTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Ideal two port sensor for mass fraction</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the mass fraction of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
-</p> <pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>substanceName</TD><TD>Name of mass fraction</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>Xi</TD><TD>Mass fraction in port medium</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TraceSubstances<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.TraceSubstancesI.png" ALT="Modelica.Fluid.Sensors.TraceSubstances" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.TraceSubstances"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.TraceSubstances</H2>
-<B>Ideal one port trace substances sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</p> 
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>substanceName</td><td>Name of mass fraction</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>Xi</td><td>Mass fraction in port medium</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TraceSubstances<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.TraceSubstancesI.png" alt="Modelica.Fluid.Sensors.TraceSubstances" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.TraceSubstances"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.TraceSubstances</h2>
+<p>
+<span class="ModelicaDescription">Ideal one port trace substances sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the trace substances contained in the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
->Sensors.BaseClasses.PartialAbsoluteSensor</A> (Partial component to model a sensor that measures a potential variable), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-<TR><TD>substanceName</TD><TD>Name of trace substance</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port</TD><TD>&nbsp;</TD></TR>
-<TR><TD>C</TD><TD>Trace substance in port medium</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE TraceSubstancesTwoPort<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.Tra105800ec5703cccoPortI.png" ALT="Modelica.Fluid.Sensors.TraceSubstancesTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.TraceSubstancesTwoPort"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.TraceSubstancesTwoPort</H2>
-<B>Ideal two port sensor for trace substance</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialAbsoluteSensor"
+>Sensors.BaseClasses.PartialAbsoluteSensor</a> (Partial component to model a sensor that measures a potential variable), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+<tr><td>substanceName</td><td>Name of trace substance</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>&nbsp;</td></tr>
+<tr><td>C</td><td>Trace substance in port medium</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TraceSubstancesTwoPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.Tra105800ec5703cccoPortI.png" alt="Modelica.Fluid.Sensors.TraceSubstancesTwoPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.TraceSubstancesTwoPort"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.TraceSubstancesTwoPort</h2>
+<p>
+<span class="ModelicaDescription">Ideal two port sensor for trace substance</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the trace substance of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR><TD>substanceName</TD><TD>Name of trace substance</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>C</TD><TD>Trace substance of the passing fluid</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE MassFlowRate<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.MassFlowRateI.png" ALT="Modelica.Fluid.Sensors.MassFlowRate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.MassFlowRate"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.MassFlowRate</H2>
-<B>Ideal sensor for mass flow rate</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr><td>substanceName</td><td>Name of trace substance</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>C</td><td>Trace substance of the passing fluid</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MassFlowRate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.MassFlowRateI.png" alt="Modelica.Fluid.Sensors.MassFlowRate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.MassFlowRate"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.MassFlowRate</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor for mass flow rate</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the mass flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE VolumeFlowRate<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.MassFlowRateI.png" ALT="Modelica.Fluid.Sensors.VolumeFlowRate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.VolumeFlowRate"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.VolumeFlowRate</H2>
-<B>Ideal sensor for volume flow rate</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>m_flow</td><td>Mass flow rate from port_a to port_b [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VolumeFlowRate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.MassFlowRateI.png" alt="Modelica.Fluid.Sensors.VolumeFlowRate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.VolumeFlowRate"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.VolumeFlowRate</h2>
+<p>
+<span class="ModelicaDescription">Ideal sensor for volume flow rate</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This component monitors the volume flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
->Sensors.BaseClasses.PartialFlowSensor</A> (Partial component to model sensors that measure flow properties), <A HREF="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
->Modelica.Icons.RotationalSensor</A> (Icon representing a round measurement device).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the component</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Assumptions</B></TD></TR>
-<TR><TD>allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
-<TR bgcolor="#c0c0c0"><TD colspan=2><B>Advanced</B></TD></TR>
-<TR><TD>m_flow_nominal</TD><TD>Nominal value of m_flow = port_a.m_flow [kg/s]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
-<TR><TD>V_flow</TD><TD>Volume flow rate from port_a to port_b [m3/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelativePressure<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.RelativePressureI.png" ALT="Modelica.Fluid.Sensors.RelativePressure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.RelativePressure"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.RelativePressure</H2>
-<B>Ideal relative pressure sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialFlowSensor"
+>Sensors.BaseClasses.PartialFlowSensor</a> (Partial component to model sensors that measure flow properties), <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the component</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Assumptions</td></tr>
+<tr><td>allowFlowReversal</td><td>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>m_flow_nominal</td><td>Nominal value of m_flow = port_a.m_flow [kg/s]</td></tr>
+<tr><td>m_flow_small</td><td>Regularization for bi-directional flow in the region |m_flow| &lt; m_flow_small (m_flow_small &gt; 0 required) [kg/s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>Fluid connector a (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>port_b</td><td>Fluid connector b (positive design flow direction is from port_a to port_b)</td></tr>
+<tr><td>V_flow</td><td>Volume flow rate from port_a to port_b [m3/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativePressure<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.RelativePressureI.png" alt="Modelica.Fluid.Sensors.RelativePressure" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.RelativePressure"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.RelativePressure</h2>
+<p>
+<span class="ModelicaDescription">Ideal relative pressure sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The relative pressure "port_a.p - port_b.p" is determined between
 the two ports of this component and is provided as output signal. The
 sensor should be connected in parallel with other equipment, no flow
 through the sensor is allowed.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"
->Sensors.BaseClasses.PartialRelativeSensor</A> (Partial component to model a sensor that measures the difference between two potential variables).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port_b</TD><TD>&nbsp;</TD></TR>
-<TR><TD>p_rel</TD><TD>Relative pressure signal [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE RelativeTemperature<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Sensors.RelativePressureI.png" ALT="Modelica.Fluid.Sensors.RelativeTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Sensors.RelativeTemperature"></A><A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
->Modelica.Fluid.Sensors</A>.RelativeTemperature</H2>
-<B>Ideal relative temperature sensor</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"
+>Sensors.BaseClasses.PartialRelativeSensor</a> (Partial component to model a sensor that measures the difference between two potential variables).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>&nbsp;</td></tr>
+<tr><td>port_b</td><td>&nbsp;</td></tr>
+<tr><td>p_rel</td><td>Relative pressure signal [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE RelativeTemperature<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Sensors.RelativePressureI.png" alt="Modelica.Fluid.Sensors.RelativeTemperature" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Sensors.RelativeTemperature"></a><a href="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors"
+>Modelica.Fluid.Sensors</a>.RelativeTemperature</h2>
+<p>
+<span class="ModelicaDescription">Ideal relative temperature sensor</span>
+</p>
+<h3>Information</h3>
+
 <p>
 The relative temperature "T(port_a) - T(port_b)" is determined between
 the two ports of this component and is provided as output signal. The
 sensor should be connected in parallel with other equipment, no flow
 through the sensor is allowed.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"
->Sensors.BaseClasses.PartialRelativeSensor</A> (Partial component to model a sensor that measures the difference between two potential variables).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>replaceable package Medium</TD><TD>Medium in the sensor</TD></TR>
-</TABLE>
-<P><H3>Connectors</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>port_a</TD><TD>&nbsp;</TD></TR>
-<TR><TD>port_b</TD><TD>&nbsp;</TD></TR>
-<TR><TD>T_rel</TD><TD>Relative temperature signal [K]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:49 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Fluid_Sensors_BaseClasses.html#Modelica.Fluid.Sensors.BaseClasses.PartialRelativeSensor"
+>Sensors.BaseClasses.PartialRelativeSensor</a> (Partial component to model a sensor that measures the difference between two potential variables).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>replaceable package Medium</td><td>Medium in the sensor</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_a</td><td>&nbsp;</td></tr>
+<tr><td>port_b</td><td>&nbsp;</td></tr>
+<tr><td>T_rel</td><td>Relative temperature signal [K]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:18 2015.
+</address>
+</body>
+</html>

@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Electrical.QuasiStationary</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Electrical.QuasiStationary</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Library for quasi-stationary electrical singlephase and multiphase AC simulation&quot;">
+<meta name="description" content="&quot;Library for quasi-stationary electrical singlephase and multiphase AC simulation&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE QuasiStationary<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Electrical.QuasiStationary"></A><A HREF="Modelica_Electrical.html#Modelica.Electrical"
->Modelica.Electrical</A>.QuasiStationary</H2>
-<B>Library for quasi-stationary electrical singlephase and multiphase AC simulation</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE QuasiStationary<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Electrical.QuasiStationary"></a><a href="Modelica_Electrical.html#Modelica.Electrical"
+>Modelica.Electrical</a>.QuasiStationary</h2>
+<p>
+<span class="ModelicaDescription">Library for quasi-stationary electrical singlephase and multiphase AC simulation</span><br>
+</p>
+<h3>Information</h3>
+
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -35,44 +54,63 @@ table   { solid #000; border-collapse: collapse;}
   A-3423 St.Andrae-Woerdern, Austria<br>
   email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
 </p>
-  <p>
+<p>
   Dr. Christian Kral<br>
-  <a href="http://www.ait.ac.at/">AIT Austrian Institute of Technology GmbH</a><br>
-  Mobility Department<br>
-  A-1210 Vienna, Austria<br>
+  <a href="http://christiankral.net/">Electric Machines, Drives and Systems</a><br>
+  A-1060 Vienna, Austria<br>
   email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
 </p>
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and AIT.
+Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
 >Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasiea5844a9f3f9d326GuideS.png" ALT="Modelica.Electrical.QuasiStationary.UsersGuide" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide"
->UsersGuide</A>
-</TD><TD>User&#39;s guide</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi965c072af971b1d4PhaseS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
->SinglePhase</A>
-</TD><TD>Single phase AC components</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi6140d0d95d5158a9hinesS.png" ALT="Modelica.Electrical.QuasiStationary.Machines" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_Machines.html#Modelica.Electrical.QuasiStationary.Machines"
->Machines</A>
-</TD><TD>Quasistationary machine models</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasif403b1b34684778fPhaseS.png" ALT="Modelica.Electrical.QuasiStationary.MultiPhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
->MultiPhase</A>
-</TD><TD>Multiphase AC components</TD></TR>
-<TR><TD><IMG SRC="Modelica.Electrical.Quasi982d3f50d968571bTypesS.png" ALT="Modelica.Electrical.QuasiStationary.Types" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_Types.html#Modelica.Electrical.QuasiStationary.Types"
->Types</A>
-</TD><TD>Definition of types for quasistationary AC models</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:33 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasiea5844a9f3f9d326GuideS.png" alt="Modelica.Electrical.QuasiStationary.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s guide</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi965c072af971b1d4PhaseS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
+>SinglePhase</a>
+</td>
+<td>Single phase AC components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi6140d0d95d5158a9hinesS.png" alt="Modelica.Electrical.QuasiStationary.Machines" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_Machines.html#Modelica.Electrical.QuasiStationary.Machines"
+>Machines</a>
+</td>
+<td>Quasistationary machine models</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasif403b1b34684778fPhaseS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase.html#Modelica.Electrical.QuasiStationary.MultiPhase"
+>MultiPhase</a>
+</td>
+<td>Multiphase AC components</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi982d3f50d968571bTypesS.png" alt="Modelica.Electrical.QuasiStationary.Types" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_Types.html#Modelica.Electrical.QuasiStationary.Types"
+>Types</a>
+</td>
+<td>Definition of types for quasistationary AC models</td>
+</tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:12 2015.
+</address>
+</body>
+</html>

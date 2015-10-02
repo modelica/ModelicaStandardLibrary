@@ -1,31 +1,50 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Functions for calculating the isentropic enthalpy from pressure p and specific entropy s&quot;">
+<meta name="description" content="&quot;Functions for calculating the isentropic enthalpy from pressure p and specific entropy s&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Isentropic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
->Modelica.Media.Water.IF97_Utilities.BaseIF97</A>.Isentropic</H2>
-<B>Functions for calculating the isentropic enthalpy from pressure p and specific entropy s</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre><h4>Package description</h4>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Isentropic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97.html#Modelica.Media.Water.IF97_Utilities.BaseIF97"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97</a>.Isentropic</h2>
+<p>
+<span class="ModelicaDescription">Functions for calculating the isentropic enthalpy from pressure p and specific entropy s</span><br>
+</p>
+<h3>Information</h3>
+<h4>Package description</h4>
           <h4>Package contents</h4>
           <ul>
           <li>Function <b>hofpT1</b> computes h(p,T) in region 1.</li>
@@ -63,335 +82,405 @@ table   { solid #000; border-collapse: collapse;}
           <li>Initial version: July 2000</li>
           <li>Documentation added: December 2002</li>
           </ul>
-          <pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1"
->hofpT1</A>
-</TD><TD>Intermediate function for isentropic specific enthalpy in region 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1"
->handsofpT1</A>
-</TD><TD>Special function for specific enthalpy and specific entropy in region 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1"
->hofps1</A>
-</TD><TD>Function for isentropic specific enthalpy in region 1</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2"
->hofpT2</A>
-</TD><TD>Intermediate function for isentropic specific enthalpy in region 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2"
->handsofpT2</A>
-</TD><TD>Function for isentropic specific enthalpy and specific entropy in region 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2"
->hofps2</A>
-</TD><TD>Function for isentropic specific enthalpy in region 2</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3"
->hofdT3</A>
-</TD><TD>Function for isentropic specific enthalpy in region 3</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3"
->hofps3</A>
-</TD><TD>Isentropic specific enthalpy in region 3 h(p,s)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3"
->hofpsdt3</A>
-</TD><TD>Isentropic specific enthalpy in region 3 h(p,s) with given good guess in d and T</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4"
->hofps4</A>
-</TD><TD>Isentropic specific enthalpy in region 4 h(p,s)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5"
->hofpT5</A>
-</TD><TD>Specific enthalpy in region 5 h(p,T)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic"
->water_hisentropic</A>
-</TD><TD>Isentropic specific enthalpy from p,s (preferably use water_hisentropic_dyn in dynamic simulation!)</TD></TR>
-<TR><TD><IMG SRC="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn"
->water_hisentropic_dyn</A>
-</TD><TD>Isentropic specific enthalpy from p,s and good guesses of d and T</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofpT1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofpT1</H2>
-<B>Intermediate function for isentropic specific enthalpy in region 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE handsofpT1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.handsofpT1</H2>
-<B>Special function for specific enthalpy and specific entropy in region 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofps1<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofps1</H2>
-<B>Function for isentropic specific enthalpy in region 1</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofpT2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofpT2</H2>
-<B>Intermediate function for isentropic specific enthalpy in region 2</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE handsofpT2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.handsofpT2</H2>
-<B>Function for isentropic specific enthalpy and specific entropy in region 2</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofps2<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofps2</H2>
-<B>Function for isentropic specific enthalpy in region 2</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofdT3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofdT3</H2>
-<B>Function for isentropic specific enthalpy in region 3</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d</TD><TD>Density [kg/m3]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofps3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofps3</H2>
-<B>Isentropic specific enthalpy in region 3 h(p,s)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofpsdt3<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofpsdt3</H2>
-<B>Isentropic specific enthalpy in region 3 h(p,s) with given good guess in d and T</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>dguess</TD><TD>Good guess density, e.g., from adjacent volume [kg/m3]</TD></TR>
-<TR><TD>Tguess</TD><TD>Good guess temperature, e.g., from adjacent volume [K]</TD></TR>
-<TR><TD>delp</TD><TD>Relative error in p [Pa]</TD></TR>
-<TR><TD>dels</TD><TD>Relative error in s [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofps4<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofps4</H2>
-<B>Isentropic specific enthalpy in region 4 h(p,s)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE hofpT5<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.hofpT5</H2>
-<B>Specific enthalpy in region 5 h(p,T)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>T</TD><TD>Temperature (K) [K]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE water_hisentropic<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.water_hisentropic</H2>
-<B>Isentropic specific enthalpy from p,s (preferably use water_hisentropic_dyn in dynamic simulation!)</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>phase</TD><TD>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE water_hisentropic_dyn<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" ALT="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn"></A><A HREF="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
->Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</A>.water_hisentropic_dyn</H2>
-<B>Isentropic specific enthalpy from p,s and good guesses of d and T</B><p></P>
-<P></P><H3>Information</H3>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>p</TD><TD>Pressure [Pa]</TD></TR>
-<TR><TD>s</TD><TD>Specific entropy [J/(kg.K)]</TD></TR>
-<TR><TD>dguess</TD><TD>Good guess density, e.g., from adjacent volume [kg/m3]</TD></TR>
-<TR><TD>Tguess</TD><TD>Good guess temperature, e.g., from adjacent volume [K]</TD></TR>
-<TR><TD>phase</TD><TD>1 for one phase, 2 for two phase</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>h</TD><TD>Specific enthalpy [J/kg]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:21:08 2013.
-</address></BODY>
-</HTML>
+          
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1"
+>hofpT1</a>
+</td>
+<td>Intermediate function for isentropic specific enthalpy in region 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1"
+>handsofpT1</a>
+</td>
+<td>Special function for specific enthalpy and specific entropy in region 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1"
+>hofps1</a>
+</td>
+<td>Function for isentropic specific enthalpy in region 1</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2"
+>hofpT2</a>
+</td>
+<td>Intermediate function for isentropic specific enthalpy in region 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2"
+>handsofpT2</a>
+</td>
+<td>Function for isentropic specific enthalpy and specific entropy in region 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2"
+>hofps2</a>
+</td>
+<td>Function for isentropic specific enthalpy in region 2</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3"
+>hofdT3</a>
+</td>
+<td>Function for isentropic specific enthalpy in region 3</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3"
+>hofps3</a>
+</td>
+<td>Isentropic specific enthalpy in region 3 h(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3"
+>hofpsdt3</a>
+</td>
+<td>Isentropic specific enthalpy in region 3 h(p,s) with given good guess in d and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4"
+>hofps4</a>
+</td>
+<td>Isentropic specific enthalpy in region 4 h(p,s)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5"
+>hofpT5</a>
+</td>
+<td>Specific enthalpy in region 5 h(p,T)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic"
+>water_hisentropic</a>
+</td>
+<td>Isentropic specific enthalpy from p,s (preferably use water_hisentropic_dyn in dynamic simulation!)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.Water.IF97b68546b940198baevs_phS.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn"
+>water_hisentropic_dyn</a>
+</td>
+<td>Isentropic specific enthalpy from p,s and good guesses of d and T</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpT1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofpT1</h2>
+<p>
+<span class="ModelicaDescription">Intermediate function for isentropic specific enthalpy in region 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE handsofpT1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.handsofpT1</h2>
+<p>
+<span class="ModelicaDescription">Special function for specific enthalpy and specific entropy in region 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofps1<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps1"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofps1</h2>
+<p>
+<span class="ModelicaDescription">Function for isentropic specific enthalpy in region 1</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpT2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofpT2</h2>
+<p>
+<span class="ModelicaDescription">Intermediate function for isentropic specific enthalpy in region 2</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE handsofpT2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.handsofpT2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.handsofpT2</h2>
+<p>
+<span class="ModelicaDescription">Function for isentropic specific enthalpy and specific entropy in region 2</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofps2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps2"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofps2</h2>
+<p>
+<span class="ModelicaDescription">Function for isentropic specific enthalpy in region 2</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofdT3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofdT3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofdT3</h2>
+<p>
+<span class="ModelicaDescription">Function for isentropic specific enthalpy in region 3</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofps3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofps3</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy in region 3 h(p,s)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpsdt3<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpsdt3"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofpsdt3</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy in region 3 h(p,s) with given good guess in d and T</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>dguess</td><td>Good guess density, e.g., from adjacent volume [kg/m3]</td></tr>
+<tr><td>Tguess</td><td>Good guess temperature, e.g., from adjacent volume [K]</td></tr>
+<tr><td>delp</td><td>Relative error in p [Pa]</td></tr>
+<tr><td>dels</td><td>Relative error in s [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofps4<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofps4"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofps4</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy in region 4 h(p,s)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpT5<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.hofpT5"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.hofpT5</h2>
+<p>
+<span class="ModelicaDescription">Specific enthalpy in region 5 h(p,T)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature (K) [K]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE water_hisentropic<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.water_hisentropic</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy from p,s (preferably use water_hisentropic_dyn in dynamic simulation!)</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>phase</td><td>Phase: 2 for two-phase, 1 for one phase, 0 if unknown</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE water_hisentropic_dyn<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.Water.IF978b67a311a065f67bofpT1I.png" alt="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic.water_hisentropic_dyn"></a><a href="Modelica_Media_Water_IF97_Utilities_BaseIF97_Isentropic.html#Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic"
+>Modelica.Media.Water.IF97_Utilities.BaseIF97.Isentropic</a>.water_hisentropic_dyn</h2>
+<p>
+<span class="ModelicaDescription">Isentropic specific enthalpy from p,s and good guesses of d and T</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
+<tr><td>dguess</td><td>Good guess density, e.g., from adjacent volume [kg/m3]</td></tr>
+<tr><td>Tguess</td><td>Good guess temperature, e.g., from adjacent volume [K]</td></tr>
+<tr><td>phase</td><td>1 for one phase, 2 for two phase</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:24 2015.
+</address>
+</body>
+</html>

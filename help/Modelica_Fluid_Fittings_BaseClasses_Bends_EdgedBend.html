@@ -1,65 +1,98 @@
-<HTML>
-<HEAD>
-<TITLE>Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</TITLE>
-<META name="HTML-Generator" content="Dymola">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</title>
+<meta name="HTML-Generator" content="Dymola">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<META name="description" content="&quot;Pressure loss functions for edged bends&quot;">
+<meta name="description" content="&quot;Pressure loss functions for edged bends&quot;">
 <style type="text/css">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-pre     { font-size:  9pt; font-family: Courier,monospace;}
-h4      { font-size: 10pt; font-weight: bold; color: green; }
-h3      { font-size: 11pt; font-weight: bold; color: green; }
-h2      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal} 
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
+*       { font-size: 100%; font-family: Arial, sans-serif; }
+.modelica, .modelica * { font-size: 90%; font-family: Courier, monospace; white-space: pre; } /* For the Modelica code (in exported html). */
+h4      { font-size: 100%; font-weight: bold; color: green; } 
+h3      { font-size: 110%; font-weight: bold; color: green; }
+h2      { font-size: 130%; font-weight: bold; color: green; }
+address { font-weight: normal; }
+td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
+th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
+table   { border: 1px solid #808080; border-collapse: collapse; }
+.ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
+.ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
+.ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
+.ModelicaComment { color: #006400;  font-weight: normal; font-style: normal;} /* All three variants of comments in Modelica.  */
+.ModelicaString { color: #006400;  font-weight: normal; font-style: normal;} /* String constants. */
+.ModelicaClass { color: red; font-weight: normal; font-style: normal;} /* Formatting the names of referenced classes (for base-class and components). */
+.ModelicaFunction { color: red; font-weight: normal; font-style: normal;} /* Formatting for called functions. */
+.ModelicaTablePackageContent { } /* The table of contents for each package. */
+.ModelicaTableCrossReference { } /* The optional cross-reference table. */
+.ModelicaTableInputs {} /* The table of inputs for a function. */
+.ModelicaTableOutputs {} /* The table of outputs for a function. */
+.ModelicaTableParameters {} /* The table of parameters for a model/block. */
+.ModelicaTableConnectors {} /* The table of connectors for a model/block. */
+.ModelicaTableContents {} /* The table of contents for a connector. */
+.ModelicaStartAttribute { font-weight: bold; } /* The formatting used for start-attribute in the table of parameters, to separate them from parameter values. */
+.ModelicaParameterTab { background-color: #c0c0c0; font-weight: bold; } /* The tab-heading in the table of parameters */
+.ModelicaParameterGroup { background-color: #e0e0e0; } /* The group-heading in the table of parameters */
 </style>
-</HEAD>
-<BODY><P></P>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE EdgedBend<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><A NAME="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends.html#Modelica.Fluid.Fittings.BaseClasses.Bends"
->Modelica.Fluid.Fittings.BaseClasses.Bends</A>.EdgedBend</H2>
-<B>Pressure loss functions for edged bends</B>
-<P></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+</head>
+<body>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE EdgedBend<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"></a><a href="Modelica_Fluid_Fittings_BaseClasses_Bends.html#Modelica.Fluid.Fittings.BaseClasses.Bends"
+>Modelica.Fluid.Fittings.BaseClasses.Bends</a>.EdgedBend</h2>
+<p>
+<span class="ModelicaDescription">Pressure loss functions for edged bends</span><br>
+</p>
+<h3>Information</h3>
+
 <p>
 This package contains utility functions and records
 for the EdgedBend fitting component.
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
->Modelica.Icons.Package</A> (Icon for standard packages).
-<P></P><H3>Package Content</H3>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
-<TR><TH >Name</TH><TH>Description</TH></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate"
->massFlowRate</A>
-</TD><TD>Return mass flow rate m_flow as function of pressure loss dp for a curved bend</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss"
->pressureLoss</A>
-</TD><TD>Return pressure loss dp as function of mass flow rate m_flow for a curved bend</TD></TR>
-<TR><TD><IMG SRC="Modelica.Fluid.Fittings.B23fef63f76cd17f7metryS.png" ALT="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry"
->Geometry</A>
-</TD><TD>Geometric data for a curved bend</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE massFlowRate<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"
->Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</A>.massFlowRate</H2>
-<B>Return mass flow rate m_flow as function of pressure loss dp for a curved bend</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
+<h3>Package Content</h3>
+<table summary="Package Content" class="ModelicaTablePackageContent">
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateS.png" alt="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate"
+>massFlowRate</a>
+</td>
+<td>Return mass flow rate m_flow as function of pressure loss dp for a curved bend</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateS.png" alt="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss"
+>pressureLoss</a>
+</td>
+<td>Return pressure loss dp as function of mass flow rate m_flow for a curved bend</td>
+</tr>
+<tr>
+<td><img src="Modelica.Fluid.Fittings.B23fef63f76cd17f7metryS.png" alt="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry" width="20" height="20" align="top">&nbsp;<a href="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry"
+>Geometry</a>
+</td>
+<td>Geometric data for a curved bend</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE massFlowRate<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateI.png" alt="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate"></a><a href="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"
+>Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</a>.massFlowRate</h2>
+<p>
+<span class="ModelicaDescription">Return mass flow rate m_flow as function of pressure loss dp for a curved bend</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns the mass flow rate m_flow as function of pressure loss dp for an edged bend.
 The details of the function are described
-<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Bend.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall"
+<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Bend.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall"
 >here</a>.
 </p>
 
@@ -72,39 +105,41 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 (d_b, eta_b).
 </p>
 
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dp</TD><TD>Pressure loss [Pa]</TD></TR>
-<TR><TD>geometry</TD><TD>Geometry of bend</TD></TR>
-<TR><TD>d_a</TD><TD>Density at port_a when fluid is flowing from port_a to port_b [kg/m3]</TD></TR>
-<TR><TD>d_b</TD><TD>Density at port_b when fluid is flowing from port_b to port_a [kg/m3]</TD></TR>
-<TR><TD>eta_a</TD><TD>Dynamic viscosity at port_a when fluid is flowing from port_a to port_b [Pa.s]</TD></TR>
-<TR><TD>eta_b</TD><TD>Dynamic viscosity at port_b when fluid is flowing from port_b to port_a [Pa.s]</TD></TR>
-<TR><TD>dp_small</TD><TD>Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp) [Pa]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate (= port_a.m_flow) [kg/s]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE pressureLoss<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"
->Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</A>.pressureLoss</H2>
-<B>Return pressure loss dp as function of mass flow rate m_flow for a curved bend</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dp</td><td>Pressure loss [Pa]</td></tr>
+<tr><td>geometry</td><td>Geometry of bend</td></tr>
+<tr><td>d_a</td><td>Density at port_a when fluid is flowing from port_a to port_b [kg/m3]</td></tr>
+<tr><td>d_b</td><td>Density at port_b when fluid is flowing from port_b to port_a [kg/m3]</td></tr>
+<tr><td>eta_a</td><td>Dynamic viscosity at port_a when fluid is flowing from port_a to port_b [Pa.s]</td></tr>
+<tr><td>eta_b</td><td>Dynamic viscosity at port_b when fluid is flowing from port_b to port_a [Pa.s]</td></tr>
+<tr><td>dp_small</td><td>Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp) [Pa]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow) [kg/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Mass flow rate (= port_a.m_flow) [kg/s]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE pressureLoss<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.B2d2cc39750ac7956wRateI.png" alt="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss"></a><a href="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"
+>Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</a>.pressureLoss</h2>
+<p>
+<span class="ModelicaDescription">Return pressure loss dp as function of mass flow rate m_flow for a curved bend</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This function returns the pressure loss dp as function of mass flow rate m_flow for an edged bend.
 The details of the function are described
-<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Bend.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall"
+<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Bend.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall"
 >here</a>.
 </p>
 
@@ -116,51 +151,55 @@ and dynamic viscosity around zero mass flow rate, the two quantities have to be 
 fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
 (d_b, eta_b).
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
->Modelica.Icons.Function</A> (Icon for functions).
-<P><H3>Inputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>m_flow</TD><TD>Mass flow rate (= port_a.m_flow) [kg/s]</TD></TR>
-<TR><TD>geometry</TD><TD>Geometry of bend</TD></TR>
-<TR><TD>d_a</TD><TD>Density at port_a when fluid is flowing from port_a to port_b [kg/m3]</TD></TR>
-<TR><TD>d_b</TD><TD>Density at port_b when fluid is flowing from port_b to port_a [kg/m3]</TD></TR>
-<TR><TD>eta_a</TD><TD>Dynamic viscosity at port_a when fluid is flowing from port_a to port_b [Pa.s]</TD></TR>
-<TR><TD>eta_b</TD><TD>Dynamic viscosity at port_b when fluid is flowing from port_b to port_a [Pa.s]</TD></TR>
-<TR><TD>dp_small</TD><TD>Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp) [Pa]</TD></TR>
-<TR><TD>m_flow_small</TD><TD>Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow) [kg/s]</TD></TR>
-</TABLE>
-<P><H3>Outputs</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>dp</TD><TD>Pressure loss [Pa]</TD></TR>
-</TABLE>
-<!--[if supportFields]><span style='mso-element:field-begin'></span>
-<span style='mso-spacerun:yes'></span>XE Geometry<![endif]-->
-<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
-<H2><IMG SRC="Modelica.Fluid.Fittings.B23fef63f76cd17f7metryI.png" ALT="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
-<A NAME="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry"></A><A HREF="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"
->Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</A>.Geometry</H2>
-<B>Geometric data for a curved bend</B><p></P>
-<P></P><H3>Information</H3>
-<PRE></pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m_flow</td><td>Mass flow rate (= port_a.m_flow) [kg/s]</td></tr>
+<tr><td>geometry</td><td>Geometry of bend</td></tr>
+<tr><td>d_a</td><td>Density at port_a when fluid is flowing from port_a to port_b [kg/m3]</td></tr>
+<tr><td>d_b</td><td>Density at port_b when fluid is flowing from port_b to port_a [kg/m3]</td></tr>
+<tr><td>eta_a</td><td>Dynamic viscosity at port_a when fluid is flowing from port_a to port_b [Pa.s]</td></tr>
+<tr><td>eta_b</td><td>Dynamic viscosity at port_b when fluid is flowing from port_b to port_a [Pa.s]</td></tr>
+<tr><td>dp_small</td><td>Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp) [Pa]</td></tr>
+<tr><td>m_flow_small</td><td>Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow) [kg/s]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>dp</td><td>Pressure loss [Pa]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Geometry<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Fluid.Fittings.B23fef63f76cd17f7metryI.png" alt="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry"></a><a href="Modelica_Fluid_Fittings_BaseClasses_Bends_EdgedBend.html#Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend"
+>Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend</a>.Geometry</h2>
+<p>
+<span class="ModelicaDescription">Geometric data for a curved bend</span>
+</p>
+<h3>Information</h3>
+
 <p>
 This record is used to define the geometric (constant) data of an edged bend.
 The details of the record are described
-<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Bend.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall"
+<a href="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_Bend.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall"
 >here</a>.
 </p>
-<pre></PRE><P></P>
-Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
->Modelica.Icons.Record</A> (Icon for records).
-<P><H3>Parameters</H3><P>
-<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
-<TR><TH>Name</TH><TH>Description</TH></TR>
-<TR><TD>d_hyd</TD><TD>Hydraulic diameter [m]</TD></TR>
-<TR><TD>delta</TD><TD>Angle of turning [rad]</TD></TR>
-<TR><TD>K</TD><TD>Absolute roughness, with a default for a smooth steel pipe [m]</TD></TR>
-</TABLE>
-<address><a href="http://www.3ds.com/">Automatically generated</a> Mon Sep 23 17:20:48 2013.
-</address></BODY>
-</HTML>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</a> (Icon for records).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d_hyd</td><td>Hydraulic diameter [m]</td></tr>
+<tr><td>delta</td><td>Angle of turning [rad]</td></tr>
+<tr><td>K</td><td>Absolute roughness, with a default for a smooth steel pipe [m]</td></tr>
+</table>
+<address>
+<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:18 2015.
+</address>
+</body>
+</html>
