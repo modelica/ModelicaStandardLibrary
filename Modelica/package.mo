@@ -2471,7 +2471,7 @@ This version is a bug-fix release. Short Overview:
      </li>
 
 <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
-     that the example model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a>
+     that the example model <a href=\"modelica://Modelica.Media.Examples.PsychrometricData\">PsychrometricData</a>
      was moved to another location and that this is a non-backwards compatible change.
      This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
      a package in which it resides), for details see ticket
