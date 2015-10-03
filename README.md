@@ -34,8 +34,6 @@ a package in which it resides), for details see ticket [1679](https://trac.model
 drawback that an example model is moved (and the probability is very high that this moved model is not used in any user model).
         5. In the release notes of build 3 it is stated that no models, blocks, or functions have been newly introduced. This is not correct.
     * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_4.html)
-
-
 * [Version v3.2.1+build.3 (2015-07-30)](../../archive/v3.2.1+build.3.zip)
     * Summary: Version 3.2.1 (Build 3) is backward compatible to version 3.2.1 (Build 2), that is models developed with versions 3.0, 3.0.1, 3.1, 3.2 or 3.2.1 will work without any changes also with version 3.2.1 build 3. This version is a bug-fix release.
     * Short Overview:
@@ -43,8 +41,6 @@ drawback that an example model is moved (and the probability is very high that t
         * About [103 tickets](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html) have been fixed for this release.
         * **No** models and blocks and functions are newly included.
     * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1_build_3.html)
-</ul>
-
 * [Version v3.2.1 (2013-08-14)](../../archive/v3.2.1+build.2.zip)
   * Summary: Version 3.2.1 (Build 2) is backward compatible to version 3.2, that is models developed with versions 3.0, 3.0.1, 3.1, or 3.2 will work without any changes also with version 3.2.1. This is a "clean-up" with major emphasis on quality improvement and tool compatibility. The goal is that all Modelica tools will support this package and will interpret it in the same way. This version of the Modelica package is **fully compatible** to Modelica Specification **3.2 Revision 2**. 60 models and blocks and 90 functions were newly included.
   * [Detailed Release Notes](http://htmlpreview.github.com/?https://github.com/modelica/ModelicaStandardLibrary/blob/release/Modelica%203.2.1/Resources/help/Modelica.UsersGuide.ReleaseNotes.Version_3_2_1.html)
