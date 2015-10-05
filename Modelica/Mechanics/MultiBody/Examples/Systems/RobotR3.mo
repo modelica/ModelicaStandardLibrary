@@ -383,12 +383,19 @@ determined from the connections to this bus.
     expandable connector ControlBus "Data bus for all axes of robot"
       extends Modelica.Icons.SignalBus;
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus1 "Bus of axis 1"      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus2 "Bus of axis 2"      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus3 "Bus of axis 3"      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus4 "Bus of axis 4"      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus5 "Bus of axis 5"      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus6 "Bus of axis 6"      annotation (
+        axisControlBus1 "Bus of axis 1";
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus2 "Bus of axis 2";
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus3 "Bus of axis 3";
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus4 "Bus of axis 4";
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus5 "Bus of axis 5";
+      Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
+        axisControlBus6 "Bus of axis 6";
+
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-20,2},{22,-2}},
