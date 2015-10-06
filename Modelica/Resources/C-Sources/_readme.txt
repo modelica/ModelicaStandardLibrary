@@ -25,4 +25,4 @@ Additionally, a tool vendor has to provide library "lapack"
 and this library should be used in the linker when a model is compiled
 that uses this library in its library annotation.
 
-August 07, 2014.
+October 06, 2015.
