@@ -4,6 +4,7 @@ to the following object libraries
 - ModelicaExternalC (.lib, .dll, .a, .so, depending on tool and OS) containing:
   ModelicaInternal.c
   ModelicaStrings.c
+  ModelicaRandom.c
   win32_dirent.c (for Visual C++ on Windows)
 
 - ModelicaStandardTables (.lib, .dll, .a, .so, depending on tool and OS) containing:
