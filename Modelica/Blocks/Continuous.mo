@@ -77,8 +77,7 @@ This is discussed in the description of package
               textString="k=%k"),
             Line(
               points={{-80.0,-80.0},{80.0,80.0}},
-              color={0,0,127})
-      }),
+              color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -830,8 +829,7 @@ to compute u by an algebraic equation.
       "Time constant of Integrator block"
        annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PI or
                                 controllerType==.Modelica.Blocks.Types.SimpleController.PID));
-    parameter SIunits.Time Td(min=0)= 0.1
-      "Time constant of Derivative block"
+    parameter SIunits.Time Td(min=0)= 0.1 "Time constant of Derivative block"
          annotation(Dialog(enable=controllerType==.Modelica.Blocks.Types.SimpleController.PD or
                                   controllerType==.Modelica.Blocks.Types.SimpleController.PID));
     parameter Real yMax(start=1) "Upper limit of output";
@@ -923,16 +921,10 @@ to compute u by an algebraic equation.
        gainPID.y = y_start;
     end if;
   equation
-    assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
-                         ") < yMin (=" + String(yMin) + ")");
     if initType == InitPID.InitialOutput and (y_start < yMin or y_start > yMax) then
         Modelica.Utilities.Streams.error("LimPID: Start value y_start (=" + String(y_start) +
            ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
     end if;
-    assert(limitsAtInit or not limitsAtInit and y >= yMin and y <= yMax,
-           "LimPID: During initialization the limits have been switched off.\n" +
-           "After initialization, the output y (=" + String(y) +
-           ") is outside of the limits of yMin (=" + String(yMin) +") and yMax (=" + String(yMax) + ")");
 
     connect(u_s, addP.u1) annotation (Line(points={{-120,0},{-96,0},{-96,56},{
             -82,56}}, color={0,0,127}));
