@@ -12884,20 +12884,19 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={0,0,255}));
       connect(statorCore.heatPort, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{10,40},{50,40},{50,-80},{0.4,-80},{0.4,-79.2}},
+          points={{10,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0}));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{90,70},{90,60},{50,60},{50,-80},{0.4,-80}},
+          points={{90,70},{90,60},{50,60},{50,-80},{0,-80}},
           color={191,0,0}));
       connect(rs.heatPort, internalThermalPort.heatPortStatorWinding)
         annotation (Line(
-          points={{50,70},{50,-80},{0,-80},{0,-80},{0,-80},{-0.4,-80},{-0.4,
-              -79.2}},
+          points={{50,70},{50,-80},{0,-80}},
           color={191,0,0}));
       connect(friction.heatPort, internalThermalPort.heatPortFriction)
         annotation (Line(
-          points={{80,-50},{50,-50},{50,-80},{0,-80},{0,-81.6}},
+          points={{80,-50},{50,-50},{50,-80},{0,-80}},
           color={191,0,0}));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
           points={{80,90},{100,90},{100,40},{90,40},{90,0}}));
