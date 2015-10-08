@@ -6,7 +6,7 @@ Free library from the Modelica Association to model mechanical (1D/3D), electric
 
 Package `Modelica` is a free library that is developed together with the Modelica language from the Modelica Association. It is also called *Modelica Standard Library*. It provides model components and standard component interfaces from many engineering domains. Each model comes with [documentation](https://modelica.github.io/Modelica/) included. The generous [license conditions](https://www.modelica.org/licenses/ModelicaLicense2) allow usage in commercial products.
 
-Note, the usage of a Modelica library requires a Modelica simulation environment, [see the tools page](https://www.modelica.org/tools/), and that such an environment usually already includes the Modelica standard library. It is possible that the demo version of the commerical tools will not allow to simulate non-trivial examples from the library.
+Note, the usage of a Modelica library requires a Modelica simulation environment, [see the tools page](https://www.modelica.org/tools/), and that such an environment usually already includes the Modelica standard library. It is possible that the demo version of the commercial tools will not allow to simulate non-trivial examples from the library.
 
 ![ModelicaLibraries](ModelicaLibraries.png)
 
