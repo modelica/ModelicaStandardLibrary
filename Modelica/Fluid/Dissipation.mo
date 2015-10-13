@@ -10956,9 +10956,9 @@ For |x| &gt; 1 both functions return identical results.
 
         algorithm
           adeltax := abs(deltax);
-          if noEvent(x >= adeltax) then
+          if x >= adeltax then
             dy := dx*pow*x^(pow - 1);
-          elseif noEvent(x <= -adeltax) then
+          elseif x <= -adeltax then
             dy := dx*pow*(-x)^(pow - 1);
           else
             C3 := (pow - 1)/2*adeltax^(pow - 3);
@@ -10966,7 +10966,8 @@ For |x| &gt; 1 both functions return identical results.
             dy := (C1 + 3*C3*x*x)*dx;
           end if;
          annotation (Documentation(revisions="<html>
-2014-04-29 Stefan Wischhusen: Corrected branch for x<=-adeltax, removed dpow and ddeltax.
+ 2014-04-29 Stefan Wischhusen: Corrected branch for x<=-adeltax, removed dpow and ddeltax.
+ 2015-10-13 Stefan Wischhusen: Removed noEvent() from if clause.
 </html>"));
         end SmoothPower_der;
 
