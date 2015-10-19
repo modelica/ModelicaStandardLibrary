@@ -515,9 +515,9 @@ Modelica_ERROR: ModelicaFormatError("Not possible to get number of files in \"%s
 
 MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name) {
   /* Get full path name of file or directory */
-    char* fullName;
 
 #if defined(_WIN32) || (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || (_POSIX_VERSION >= 200112L))
+    char* fullName;
     char localbuf[BUFFER_LENGTH];
 #if (_BSD_SOURCE || _XOPEN_SOURCE >= 500 || _XOPEN_SOURCE && _XOPEN_SOURCE_EXTENDED || _POSIX_VERSION >= 200112L)
     /* realpath availability: 4.4BSD, POSIX.1-2001. Using the behaviour of NULL: POSIX.1-2008 */
@@ -534,6 +534,7 @@ MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name) {
     strcpy(fullName, tempName);
     ModelicaConvertToUnixDirectorySeparator(fullName);
 #elif defined(_POSIX_)
+    char* fullName;
     char localbuf[BUFFER_LENGTH];
     /* No such system call in _POSIX_ available (except realpath above) */
     char* cwd = getcwd(localbuf, sizeof(localbuf));
@@ -549,6 +550,7 @@ MODELICA_EXPORT const char* ModelicaInternal_fullPathName(const char* name) {
     }
     strcat(fullName, name);
 #else
+    char* fullName = "";
     ModelicaNotExistError("ModelicaInternal_fullPathName");
 #endif
 
