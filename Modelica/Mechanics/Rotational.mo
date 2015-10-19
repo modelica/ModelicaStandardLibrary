@@ -1161,7 +1161,7 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
         c=1e5,
         d=5,
         phi_rel(fixed=true),
-        w_rel(fixed=true)) annotation (Placement(transformation(
+        w_rel(fixed=true, nominal=1e-4)) annotation (Placement(transformation(
             origin={20,-36},
             extent={{-10,-10},{10,10}},
             rotation=90)));
