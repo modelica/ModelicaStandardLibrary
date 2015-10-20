@@ -285,7 +285,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
 <td valign=\"top\">4954</td>
 <td valign=\"top\">2012-03-02</td>
 <td valign=\"top\">A. Haumer &amp; D. Winkler</td>
-<td valign=\"top\"><p>Initial version based on discussion in <a href=\"https://trac.modelica.org/Modelica/ticket/529/Modelica\">#529</a></p></td>
+<td valign=\"top\"><p>Initial version based on discussion in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/529\">#529</a></p></td>
 </tr>
 </table>
 </html>"));
