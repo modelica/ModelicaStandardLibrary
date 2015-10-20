@@ -4032,7 +4032,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
 <li>Bertsch C. (2009):
 &quot;<a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">Problem
 with model LossyGear and a proposed solution</a>&quot;,
-Ticket <a href=\"http://trac.modelica.org/Modelica/ticket/108\">#108</a>,
+Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a>,
 Sept. 11, 2009.</li>
 </ul>
 

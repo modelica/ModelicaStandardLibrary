@@ -427,9 +427,11 @@ ideal AC DC converter</a>, which is used in the
     annotation (Documentation(info="<html>
 <h5>Version 3.2.2, 2015-02-02</h5>
 <ul>
-<li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see #1405</li>
-<li>Added active, reactive and aparrent power and power factor in interface models, see #1405</li>
-<li>Added complex single and multi phase impedance and admittance models (
+<li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
+    <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
+<li>Added active, reactive and aparrent power and power factor in interface models, see ticket
+    <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
+<li>Added complex single and multi phase impedance and admittance models (ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1367\">#1367</a>)</li>
 <li>Updated documentation on temperature dependency of resistance and conductance models</li>
 <li>Rewrote source models to simplify initialization (
