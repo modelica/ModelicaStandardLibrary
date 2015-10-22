@@ -1489,14 +1489,14 @@ Simulate for 1.5 seconds and plot (versus time):
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
-                      textString="%m phase machine
-",                    textStyle={TextStyle.Bold}),Text(
+                      textString="%m phase machine",
+                      textStyle={TextStyle.Bold}),Text(
                       extent={{20,-22},{100,-30}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
-                      textString="3 phase machine
-",                    textStyle={TextStyle.Bold})}));
+                      textString="3 phase machine",
+                      textStyle={TextStyle.Bold})}));
       end AIMC_DOL_MultiPhase;
 
       model AIMS_Start
@@ -2018,14 +2018,14 @@ Simulate for 1.5 seconds and plot (versus time):
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
-                      textString="%m phase machine
-",                    textStyle={TextStyle.Bold}),Text(
+                      textString="%m phase machine",
+                      textStyle={TextStyle.Bold}),Text(
                       extent={{40,-32},{100,-40}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
-                      textString="3 phase machine
-",                    textStyle={TextStyle.Bold})}));
+                      textString="3 phase machine",
+                      textStyle={TextStyle.Bold})}));
       end AIMS_Start_MultiPhase;
 
       model SMPM_Inverter
