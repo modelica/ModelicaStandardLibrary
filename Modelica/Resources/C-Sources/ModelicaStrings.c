@@ -468,7 +468,7 @@ MODELICA_EXPORT int ModelicaStrings_hashString(const char* str) {
 
     unsigned int hash = 0xAAAAAAAA;
     unsigned int i    = 0;
-    unsigned int len  = strlen(str);
+    unsigned int len  = (unsigned int)strlen(str);
 
     union hash_tag {
         unsigned int iu;
