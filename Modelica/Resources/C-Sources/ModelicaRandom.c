@@ -45,53 +45,55 @@
 #   define MODELICA_EXPORT
 #endif
 
-/* Have ModelicaRandom int64 / uint64 */
+/* Have RANDOM int64 / uint64 */
 #if defined (_WIN32)
 #if defined(_MSC_VER)
-#define HAVE_ModelicaRandom_INT64_T 1
-#define HAVE_ModelicaRandom_UINT64_T 1
+#define HAVE_RANDOM_INT64_T 1
+#define HAVE_RANDOM_UINT64_T 1
 #elif defined(__WATCOMC__)
-#define HAVE_ModelicaRandom_INT64_T 1
-#define HAVE_ModelicaRandom_UINT64_T 1
+#define HAVE_RANDOM_INT64_T 1
+#define HAVE_RANDOM_UINT64_T 1
 #elif defined(__BORLANDC__)
-#undef HAVE_ModelicaRandom_INT64_T
-#undef HAVE_ModelicaRandom_UINT64_T
+#undef HAVE_RANDOM_INT64_T
+#undef HAVE_RANDOM_UINT64_T
 #else
-#undef HAVE_ModelicaRandom_INT64_T
-#undef HAVE_ModelicaRandom_UINT64_T
+#undef HAVE_RANDOM_INT64_T
+#undef HAVE_RANDOM_UINT64_T
 #endif
 #else
-#define HAVE_ModelicaRandom_INT64_T 1
-#define HAVE_ModelicaRandom_UINT64_T 1
+#define HAVE_RANDOM_INT64_T 1
+#define HAVE_RANDOM_UINT64_T 1
 #endif
 
-/* Define to 1 if <stdint.h> header file is available */
+/* Define to 1 if you have the <stdint.h> header file. */
 #if defined(_WIN32)
-#   if defined(_MSC_VER) && _MSC_VER >= 1600
-#       define ModelicaRandom_HAVE_STDINT_H 1
-#   elif defined(__WATCOMC__)
-#       define ModelicaRandom_HAVE_STDINT_H 1
-#   else
-#       undef ModelicaRandom_HAVE_STDINT_H
-#   endif
+#if defined(_MSC_VER) && _MSC_VER >= 1600
+#define HAVE_RANDOM_STDINT_H 1
+#elif defined(__WATCOMC__)
+#define HAVE_RANDOM_STDINT_H 1
 #else
-#   define ModelicaRandom_HAVE_STDINT_H 1
+#undef HAVE_RANDOM_STDINT_H
+#endif
+#elif !defined(__VXWORKS__)
+#define HAVE_RANDOM_STDINT_H 1
+#else
+#undef HAVE_RANDOM_STDINT_H
 #endif
 
 /* Include integer type header */
-#if defined(ModelicaRandom_HAVE_STDINT_H)
-#   include <stdint.h>
+#if defined(HAVE_RANDOM_STDINT_H)
+#include <stdint.h>
 #else
-#   define int32_t  int
-#   define uint32_t unsigned int
-#if defined(HAVE_ModelicaRandom_INT64_T)
+#define int32_t  int
+#define uint32_t unsigned int
+#if defined(HAVE_RANDOM_INT64_T)
 #if defined(_MSC_VER) && _MSC_VER < 1300
 #define int64_t __int64
 #else
 #define int64_t long long
 #endif
 #endif
-#if defined(HAVE_ModelicaRandom_UINT64_T)
+#if defined(HAVE_RANDOM_UINT64_T)
 #if defined(_MSC_VER) && _MSC_VER < 1300
 #define uint64_t unsigned __int64
 #else
