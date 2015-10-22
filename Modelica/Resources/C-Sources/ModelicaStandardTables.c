@@ -711,7 +711,6 @@ void ModelicaStandardTables_CombiTimeTable_close(void* _tableID) {
         }
         spline1DClose(&tableID->spline);
         free(tableID);
-        tableID = NULL;
     }
 }
 
@@ -1815,7 +1814,6 @@ void ModelicaStandardTables_CombiTable1D_close(void* _tableID) {
         }
         spline1DClose(&tableID->spline);
         free(tableID);
-        tableID = NULL;
     }
 }
 
@@ -2216,7 +2214,6 @@ void ModelicaStandardTables_CombiTable2D_close(void* _tableID) {
         }
         spline2DClose(&tableID->spline);
         free(tableID);
-        tableID = NULL;
     }
 }
 
