@@ -249,12 +249,12 @@ EXTERN int mat_vasprintf(char **ptr,const char *format,va_list ap);
 /*   endian.c     */
 EXTERN double        Mat_doubleSwap(double  *a);
 EXTERN float         Mat_floatSwap(float   *a);
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
 EXTERN mat_int64_t   Mat_int64Swap(mat_int64_t  *a);
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
 EXTERN mat_uint64_t  Mat_uint64Swap(mat_uint64_t *a);
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
 EXTERN mat_int32_t   Mat_int32Swap(mat_int32_t  *a);
 EXTERN mat_uint32_t  Mat_uint32Swap(mat_uint32_t *a);
 EXTERN mat_int16_t   Mat_int16Swap(mat_int16_t  *a);
@@ -265,14 +265,14 @@ EXTERN int ReadDoubleData(mat_t *mat,double  *data,enum matio_types data_type,
                int len);
 EXTERN int ReadSingleData(mat_t *mat,float   *data,enum matio_types data_type,
                int len);
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
 EXTERN int ReadInt64Data (mat_t *mat,mat_int64_t *data,
                enum matio_types data_type,int len);
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
 EXTERN int ReadUInt64Data(mat_t *mat,mat_uint64_t *data,
                enum matio_types data_type,int len);
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
 EXTERN int ReadInt32Data (mat_t *mat,mat_int32_t *data,
                enum matio_types data_type,int len);
 EXTERN int ReadUInt32Data(mat_t *mat,mat_uint32_t *data,
@@ -300,14 +300,14 @@ EXTERN int ReadCompressedDoubleData(mat_t *mat,z_stream *z,double  *data,
                enum matio_types data_type,int len);
 EXTERN int ReadCompressedSingleData(mat_t *mat,z_stream *z,float   *data,
                enum matio_types data_type,int len);
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
 EXTERN int ReadCompressedInt64Data(mat_t *mat,z_stream *z,mat_int64_t *data,
                enum matio_types data_type,int len);
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
 EXTERN int ReadCompressedUInt64Data(mat_t *mat,z_stream *z,mat_uint64_t *data,
                enum matio_types data_type,int len);
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
 EXTERN int ReadCompressedInt32Data(mat_t *mat,z_stream *z,mat_int32_t *data,
                enum matio_types data_type,int len);
 EXTERN int ReadCompressedUInt32Data(mat_t *mat,z_stream *z,mat_uint32_t *data,
@@ -357,7 +357,7 @@ EXTERN int InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
  */
 #define swap(a,b)   a^=b;b^=a;a^=b
 
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
 /** @brief swap the bytes of a 64-bit signed integer
  * @ingroup mat_internal
  * @param a pointer to integer to swap
@@ -384,9 +384,9 @@ Mat_int64Swap( mat_int64_t *a )
     return *a;
 
 }
-#endif /* HAVE_MAT_INT64_T */
+#endif /* HAVE_MATIO_INT64_T */
 
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
 /** @brief swap the bytes of a 64-bit unsigned integer
  * @ingroup mat_internal
  * @param a pointer to integer to swap
@@ -413,7 +413,7 @@ Mat_uint64Swap( mat_uint64_t *a )
     return *a;
 
 }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
 
 /** @brief swap the bytes of a 32-bit signed integer
  * @ingroup mat_internal
@@ -745,16 +745,16 @@ InflateSkipData(mat_t *mat,z_stream *z,enum matio_types data_type,int len)
         case MAT_T_SINGLE:
             data_size = sizeof(float);
             break;
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
             data_size = sizeof(mat_int64_t);
             break;
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
             data_size = sizeof(mat_uint64_t);
             break;
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_T_INT32:
             data_size = sizeof(mat_int32_t);
             break;
@@ -1539,11 +1539,11 @@ Mat_SizeOf(enum matio_types data_type)
             return sizeof(double);
         case MAT_T_SINGLE:
             return sizeof(float);
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
             return sizeof(mat_int64_t);
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
             return sizeof(mat_uint64_t);
 #endif
@@ -2358,7 +2358,7 @@ ReadCompressedSingleData(mat_t *mat,z_stream *z,float *data,
 }
 #endif
 
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
 /** @brief Reads data of type @c data_type into a signed 64-bit integer type
  *
  * Reads from the MAT file @c len elements of data type @c data_type storing
@@ -2435,7 +2435,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64;
@@ -2454,7 +2454,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_T_INT32:
         {
             mat_int32_t i32;
@@ -2768,9 +2768,9 @@ ReadCompressedInt64Data(mat_t *mat,z_stream *z,mat_int64_t *data,
     return nBytes;
 }
 #endif
-#endif /* HAVE_MAT_INT64_T */
+#endif /* HAVE_MATIO_INT64_T */
 
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
 /** @brief Reads data of type @c data_type into an unsigned 64-bit integer type
  *
  * Reads from the MAT file @c len elements of data type @c data_type storing
@@ -2829,7 +2829,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
         {
             mat_int64_t i64;
@@ -2848,7 +2848,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
             }
             break;
         }
-#endif /* HAVE_MAT_INT64_T */
+#endif /* HAVE_MATIO_INT64_T */
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64;
@@ -3180,7 +3180,7 @@ ReadCompressedUInt64Data(mat_t *mat,z_stream *z,mat_uint64_t *data,
     return nBytes;
 }
 #endif /* HAVE_ZLIB */
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
 
 /** @brief Reads data of type @c data_type into a signed 32-bit integer type
  *
@@ -5517,7 +5517,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr = data;
@@ -5605,8 +5605,8 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             }
             break;
         }
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr = data;
@@ -5694,7 +5694,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
             }
             break;
         }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
         {
             mat_int32_t *ptr = data;
@@ -6444,7 +6444,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr;
@@ -6536,8 +6536,8 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr;
@@ -6629,7 +6629,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
         {
             mat_int32_t *ptr;
@@ -7230,7 +7230,7 @@ ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
                 }
             }
             break;
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
             if ( !stride ) {
                 bytesread+=ReadInt64Data(mat,data,data_type,edge);
@@ -7241,8 +7241,8 @@ ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
                 }
             }
             break;
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
             if ( !stride ) {
                 bytesread+=ReadUInt64Data(mat,data,data_type,edge);
@@ -7253,7 +7253,7 @@ ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
                 }
             }
             break;
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
             if ( !stride ) {
                 bytesread+=ReadInt32Data(mat,data,data_type,edge);
@@ -7400,7 +7400,7 @@ ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr;
@@ -7422,8 +7422,8 @@ ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
             }
             break;
         }
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr;
@@ -7445,7 +7445,7 @@ ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
             }
             break;
         }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
         {
             mat_int32_t *ptr;
@@ -7635,7 +7635,7 @@ ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr = data;
@@ -7649,8 +7649,8 @@ ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr = data;
@@ -7664,7 +7664,7 @@ ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
         {
             mat_int32_t *ptr = data;
@@ -7842,7 +7842,7 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
         {
             mat_int64_t *ptr;
@@ -7864,8 +7864,8 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
         {
             mat_uint64_t *ptr;
@@ -7887,7 +7887,7 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
             }
             break;
         }
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
         {
             mat_int32_t *ptr;
@@ -9042,7 +9042,7 @@ Mat_PrintNumber(enum matio_types type, void *data)
         case MAT_T_SINGLE:
             printf("%g",*(float*)data);
             break;
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
 #ifdef HAVE_LONG_LONG
             printf("%lld",(long long)(*(mat_int64_t*)data));
@@ -9051,7 +9051,7 @@ Mat_PrintNumber(enum matio_types type, void *data)
 #endif
             break;
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
 #ifdef HAVE_LONG_LONG
             printf("%llu",(unsigned long long)(*(mat_uint64_t*)data));
@@ -9388,11 +9388,11 @@ Mat_SizeOfClass(int class_type)
             return sizeof(double);
         case MAT_C_SINGLE:
             return sizeof(float);
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
             return sizeof(mat_int64_t);
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
             return sizeof(mat_uint64_t);
 #endif
@@ -10336,10 +10336,10 @@ Mat_VarPrint( matvar_t *matvar, int printdata )
         switch( matvar->class_type ) {
             case MAT_C_DOUBLE:
             case MAT_C_SINGLE:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
             case MAT_C_INT64:
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
             case MAT_C_UINT64:
 #endif
             case MAT_C_INT32:
@@ -12158,7 +12158,7 @@ WriteEmptyData(mat_t *mat,int N,enum matio_types data_type)
                 fwrite(&ui32,data_size,1,mat->fp);
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
         {
             mat_int64_t i64 = 0;
@@ -12172,7 +12172,7 @@ WriteEmptyData(mat_t *mat,int N,enum matio_types data_type)
             break;
         }
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64 = 0;
@@ -12313,7 +12313,7 @@ WriteCompressedEmptyData(mat_t *mat,z_stream *z,int N,
                 fwrite(&ui32,data_size,1,mat->fp);
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
         {
             mat_int64_t i64 = 0;
@@ -12327,7 +12327,7 @@ WriteCompressedEmptyData(mat_t *mat,z_stream *z,int N,
             break;
         }
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
         {
             mat_uint64_t ui64 = 0;
@@ -12420,7 +12420,7 @@ WriteDataSlab2(mat_t *mat,void *data,enum matio_types data_type,size_t *dims,
             }
             break;
         }
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_T_INT64:
         {
             mat_int64_t *ptr;
@@ -12444,7 +12444,7 @@ WriteDataSlab2(mat_t *mat,void *data,enum matio_types data_type,size_t *dims,
             break;
         }
 #endif
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_T_UINT64:
         {
             mat_uint64_t *ptr;
@@ -14722,12 +14722,12 @@ Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N)
                 nBytes = ReadSingleData(mat,data,packed_type,N);
                 break;
             case MAT_C_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                 nBytes = ReadInt64Data(mat,data,packed_type,N);
 #endif
                 break;
             case MAT_C_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                 nBytes = ReadUInt64Data(mat,data,packed_type,N);
 #endif
                 break;
@@ -14772,13 +14772,13 @@ Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N)
                                                   packed_type,N);
                 break;
             case MAT_C_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                 nBytes = ReadCompressedInt64Data(mat,matvar->internal->z,data,
                                                  packed_type,N);
 #endif
                 break;
             case MAT_C_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                 nBytes = ReadCompressedUInt64Data(mat,matvar->internal->z,data,
                                                   packed_type,N);
 #endif
@@ -14935,7 +14935,7 @@ Read5(mat_t *mat, matvar_t *matvar)
             }
             break;
         case MAT_C_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
             fseek(mat->fp,matvar->internal->datapos,SEEK_SET);
             matvar->data_size = sizeof(mat_int64_t);
             matvar->data_type = MAT_T_INT64;
@@ -14974,7 +14974,7 @@ Read5(mat_t *mat, matvar_t *matvar)
 #endif
             break;
         case MAT_C_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
             fseek(mat->fp,matvar->internal->datapos,SEEK_SET);
             matvar->data_size = sizeof(mat_uint64_t);
             matvar->data_type = MAT_T_UINT64;
@@ -15562,13 +15562,13 @@ Read5(mat_t *mat, matvar_t *matvar)
                                 packed_type,data->ndata);
                             break;
                         case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                             nBytes = ReadInt64Data(mat,complex_data->Re,
                                 packed_type,data->ndata);
 #endif
                             break;
                         case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                             nBytes = ReadUInt64Data(mat,complex_data->Re,
                                 packed_type,data->ndata);
 #endif
@@ -15635,13 +15635,13 @@ Read5(mat_t *mat, matvar_t *matvar)
                                 packed_type,data->ndata);
                             break;
                         case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                             nBytes = ReadInt64Data(mat,complex_data->Im,
                                 packed_type,data->ndata);
 #endif
                             break;
                         case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                             nBytes = ReadUInt64Data(mat,complex_data->Im,
                                 packed_type,data->ndata);
 #endif
@@ -15694,14 +15694,14 @@ Read5(mat_t *mat, matvar_t *matvar)
                                  complex_data->Re,packed_type,data->ndata);
                             break;
                         case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                             nBytes = ReadCompressedInt64Data(mat,
                                 matvar->internal->z,complex_data->Re,
                                 packed_type,data->ndata);
 #endif
                             break;
                         case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                             nBytes = ReadCompressedUInt64Data(mat,
                                 matvar->internal->z,complex_data->Re,
                                 packed_type,data->ndata);
@@ -15770,14 +15770,14 @@ Read5(mat_t *mat, matvar_t *matvar)
                                  complex_data->Im,packed_type,data->ndata);
                             break;
                         case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                             nBytes = ReadCompressedInt64Data(mat,
                                 matvar->internal->z,complex_data->Im,
                                 packed_type,data->ndata);
 #endif
                             break;
                         case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                             nBytes = ReadCompressedUInt64Data(mat,
                                 matvar->internal->z,complex_data->Im,
                                 packed_type,data->ndata);
@@ -15840,13 +15840,13 @@ Read5(mat_t *mat, matvar_t *matvar)
                                 packed_type,data->ndata);
                             break;
                         case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                             nBytes = ReadInt64Data(mat,data->data,
                                 packed_type,data->ndata);
 #endif
                             break;
                         case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                             nBytes = ReadUInt64Data(mat,data->data,
                                 packed_type,data->ndata);
 #endif
@@ -15899,14 +15899,14 @@ Read5(mat_t *mat, matvar_t *matvar)
                                  data->data,packed_type,data->ndata);
                             break;
                         case MAT_T_INT64:
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
                             nBytes = ReadCompressedInt64Data(mat,
                                 matvar->internal->z,data->data,packed_type,
                                 data->ndata);
 #endif
                             break;
                         case MAT_T_UINT64:
-#ifdef HAVE_MAT_UINT64_T
+#ifdef HAVE_MATIO_UINT64_T
                             nBytes = ReadCompressedUInt64Data(mat,
                                 matvar->internal->z,data->data,packed_type,
                                 data->ndata);
@@ -16176,18 +16176,18 @@ ReadData5(mat_t *mat,matvar_t *matvar,void *data,
             matvar->data_type = MAT_T_SINGLE;
             matvar->data_size = sizeof(float);
             break;
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
             matvar->data_type = MAT_T_INT64;
             matvar->data_size = sizeof(mat_int64_t);
             break;
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
             matvar->data_type = MAT_T_UINT64;
             matvar->data_size = sizeof(mat_uint64_t);
             break;
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
             matvar->data_type = MAT_T_INT32;
             matvar->data_size = sizeof(mat_int32_t);
@@ -16354,18 +16354,18 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
             matvar->data_type = MAT_T_SINGLE;
             matvar->data_size = sizeof(float);
             break;
-#ifdef HAVE_MAT_INT64_T
+#ifdef HAVE_MATIO_INT64_T
         case MAT_C_INT64:
             matvar->data_type = MAT_T_INT64;
             matvar->data_size = sizeof(mat_int64_t);
             break;
-#endif /* HAVE_MAT_INT64_T */
-#ifdef HAVE_MAT_UINT64_T
+#endif /* HAVE_MATIO_INT64_T */
+#ifdef HAVE_MATIO_UINT64_T
         case MAT_C_UINT64:
             matvar->data_type = MAT_T_UINT64;
             matvar->data_size = sizeof(mat_uint64_t);
             break;
-#endif /* HAVE_MAT_UINT64_T */
+#endif /* HAVE_MATIO_UINT64_T */
         case MAT_C_INT32:
             matvar->data_type = MAT_T_INT32;
             matvar->data_size = sizeof(mat_int32_t);
