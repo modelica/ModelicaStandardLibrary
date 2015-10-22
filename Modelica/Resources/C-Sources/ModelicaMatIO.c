@@ -74,7 +74,11 @@
 #define EXTENDED_SPARSE 1
 
 /* Have asprintf */
+#if defined(__CYGWIN__)
+#define HAVE_ASPRINTF 1
+#else
 #undef HAVE_ASPRINTF
+#endif
 
 /* Have long long / long double */
 #if defined (_WIN32)
@@ -109,7 +113,11 @@
 #define HAVE_STRING_H 1
 
 /* Have vasprintf */
+#if defined(__CYGWIN__)
+#define HAVE_VASPRINTF 1
+#else
 #undef HAVE_VASPRINTF
+#endif
 
 /* Have va_copy */
 #if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
