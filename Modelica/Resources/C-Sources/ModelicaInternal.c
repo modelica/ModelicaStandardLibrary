@@ -131,6 +131,10 @@ MODELICA_EXPORT void ModelicaInternal_getenv(const char* name, int convertToSlas
     ModelicaNotExistError("ModelicaInternal_getenv"); }
 MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash) {
     ModelicaNotExistError("ModelicaInternal_setenv"); }
+MODELICA_EXPORT int ModelicaInternal_getpid(void) {
+    ModelicaNotExistError("ModelicaInternal_getpid"); }
+MODELICA_EXPORT void ModelicaInternal_getTime(int* ms, int* sec, int* min, int* hour, int* mday, int* mon, int* year) {
+    ModelicaNotExistError("ModelicaInternal_getTime"); }
 #else
 
 #define uthash_fatal(msg) ModelicaFormatMessage("Error: %s\n", msg); break
