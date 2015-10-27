@@ -7,6 +7,9 @@
        Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
+                     Added nonnull attribute (ticket #1436)
+
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH
                      Revised the first version
 
@@ -14,7 +17,7 @@
                      Implemented a first version
 
    Copyright (C) 2008, Modelica Association and DLR
-   Copyright (C) 2013, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2015, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -61,6 +64,18 @@
 extern "C" {
 #endif
 
+/*
+ * Non-NULL pointers need to be passed to external functions.
+ *
+ * The following macro handles the nonnull attribute for GNU C to tell the
+ * compiler to check all pointer arguments for non-NULL.
+ */
+#if defined(__GNUC__)
+#define MODELICA_NONNULLATTR __attribute__((nonnull))
+#else
+#define MODELICA_NONNULLATTR
+#endif
+
 void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  const char* fileName,
                                                  double* table, size_t nRow,
@@ -68,7 +83,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  double startTime,
                                                  int* columns,
                                                  size_t nCols, int smoothness,
-                                                 int extrapolation);
+                                                 int extrapolation) MODELICA_NONNULLATTR;
   /* Initialize 1-dim. table where first column is time
 
      -> tableName: Name of table
@@ -157,7 +172,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                double* table, size_t nRow,
                                                size_t nColumn,
                                                int* columns,
-                                               size_t nCols, int smoothness);
+                                               size_t nCols, int smoothness) MODELICA_NONNULLATTR;
   /* Initialize 1-dim. table defined by matrix, where first column
      is x-axis and further columns of matrix are interpolated
 
@@ -216,7 +231,7 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* tableID, int icol,
 void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                                                const char* fileName,
                                                double* table, size_t nRow,
-                                               size_t nColumn, int smoothness);
+                                               size_t nColumn, int smoothness) MODELICA_NONNULLATTR;
   /* Initialize 2-dim. table defined by matrix, where first column
      is x-axis, first row is y-axis and the matrix elements are the
      z-values.
