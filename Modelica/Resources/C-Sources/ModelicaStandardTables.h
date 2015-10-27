@@ -8,7 +8,7 @@
 
    Release Notes:
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
-                     Added nonnull attribute (ticket #1436)
+                     Added nonnull attribute/annotations (ticket #1436)
 
       Apr. 09, 2013: by Thomas Beutlich, ITI GmbH
                      Revised the first version
@@ -65,7 +65,8 @@ extern "C" {
 #endif
 
 /*
- * Non-NULL pointers need to be passed to external functions.
+ * Non-null pointers and esp. null-terminated strings need to be passed to
+ * external functions.
  *
  * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
  */

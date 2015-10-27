@@ -23,7 +23,7 @@
 
     Release Notes:
       Oct. 27, 2015, by Thomas Beutlich, ITI GmbH
-        Added nonnull attribute (ticket #1436)
+        Added nonnull attributes/annotations (ticket #1436)
 
       Oct. 05, 2015, by Thomas Beutlich, ITI GmbH
         Added functions ModelicaInternal_getpid/_getTime from ModelicaRandom.c
@@ -193,7 +193,7 @@ MODELICA_EXPORT void ModelicaInternal_getTime(int* ms, int* sec, int* min, int* 
 #endif
 
 /*
- * Non-NULL pointers and esp. null-terminated strings need to be passed to
+ * Non-null pointers and esp. null-terminated strings need to be passed to
  * external functions.
  *
  * The following macros handle nonnull attributes for GNU C and Microsoft SAL.

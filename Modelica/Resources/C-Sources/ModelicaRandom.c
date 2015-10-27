@@ -14,7 +14,7 @@
 
    Release Notes:
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
-                     Added nonnull attribute (ticket #1436)
+                     Added nonnull attribute/annotations (ticket #1436)
 
       Feb. 17, 2015: by Andreas Kloeckner and Martin Otter, DLR-SR
                      Implemented a first version
@@ -154,7 +154,7 @@ static void deleteCS(void) {
 #endif
 
 /*
- * Non-NULL pointers need to be passed to external functions.
+ * Non-null pointers need to be passed to external functions.
  *
  * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
  */
