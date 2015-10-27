@@ -5,6 +5,7 @@
    to define the system calls of the operating system
 
     _MSC_VER       : Microsoft Visual C++
+    __GNUC__       : GNU C compiler
     MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                      Useful definitions:
                      - "static" that is all functions become static
@@ -158,11 +159,11 @@ MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* str
         result = strcmp(string1, string2);
     }
     else {
-        while (tolower(*string1) == tolower(*string2) && *string1 != '\0') {
+        while (tolower((unsigned char)*string1) == tolower((unsigned char)*string2) && *string1 != '\0') {
             string1++;
             string2++;
         }
-        result = (int)(tolower(*string1)) - (int)(tolower(*string2));
+        result = (int)(tolower((unsigned char)*string1)) - (int)(tolower((unsigned char)*string2));
     }
 
     if ( result < 0 ) {
@@ -181,7 +182,7 @@ MODELICA_EXPORT int ModelicaStrings_compare(const char* string1, const char* str
 
 MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(const char* string, int i) {
     /* Return index in string after skipping ws, or position of terminating nul. */
-    while (string[i-1] != '\0' && isspace(string[i-1])) {
+    while (string[i-1] != '\0' && isspace((unsigned char)string[i-1])) {
         ++i;
     }
     return i;
@@ -198,7 +199,7 @@ static int SkipNonWhiteSpaceSeparator(const char* string, int i, const char* sep
     /* Return index in string of first character which is ws or character in separators,
        or position of terminating nul.
      */
-    while (string[i-1] != '\0' && (isspace(string[i-1]) || InSet(string, i, separators))) {
+    while (string[i-1] != '\0' && (isspace((unsigned char)string[i-1]) || InSet(string, i, separators))) {
         ++i;
     }
     return i;
@@ -240,7 +241,7 @@ static int MatchUnsignedInteger(const char* string, int start) {
      */
     const char* begin = &string[start-1];
     const char* p = begin;
-    while (*p != '\0' && isdigit(*p)) {
+    while (*p != '\0' && isdigit((unsigned char)*p)) {
         ++p;
     }
     return (int) (p - begin);
@@ -252,12 +253,12 @@ MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int star
     int token_start = ModelicaStrings_skipWhiteSpace(string, startIndex);
     /* Index of first char of token, after ws. */
 
-    if (isalpha(string[token_start-1])) {
+    if (isalpha((unsigned char)string[token_start-1])) {
         /* Identifier has begun. */
         int token_length = 1;
         while (string[token_start+token_length-1] != '\0' &&
-            (isalpha(string[token_start+token_length-1]) ||
-            isdigit(string[token_start+token_length-1]) ||
+            (isalpha((unsigned char)string[token_start+token_length-1]) ||
+            isdigit((unsigned char)string[token_start+token_length-1]) ||
             string[token_start+token_length-1] == '_')) {
             ++token_length;
         }
