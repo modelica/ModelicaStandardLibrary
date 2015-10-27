@@ -6,7 +6,6 @@
        Modelica.Blocks.Tables.CombiTable1Ds
        Modelica.Blocks.Tables.CombiTable2D
 
-
    The following #define's are available.
 
     NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
@@ -18,7 +17,6 @@
                             arrays are stored in a global hash table in order to
                             avoid superfluous file input access and to decrease the
                             utilized memory (tickets #1110 and #1550).
-
 
    Release Notes:
       Aug. 31, 2015: by Thomas Beutlich, ITI GmbH.
@@ -444,13 +442,13 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                                                  double startTime, int* cols,
                                                  size_t nCols, int smoothness,
                                                  int extrapolation) {
-    CombiTimeTable* tableID = calloc(1, sizeof(CombiTimeTable));
+    CombiTimeTable* tableID = (CombiTimeTable*)calloc(1, sizeof(CombiTimeTable));
     if (tableID != NULL) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->extrapolation = (enum Extrapolation)extrapolation;
         tableID->nCols = nCols;
         if (nCols > 0) {
-            tableID->cols = malloc(tableID->nCols*sizeof(int));
+            tableID->cols = (int*)malloc(tableID->nCols*sizeof(int));
             if (tableID->cols != NULL) {
                 memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
             }
@@ -465,7 +463,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName = malloc((strlen(tableName) + 1)*sizeof(char));
+                tableID->tableName = (char*)malloc((strlen(tableName) + 1)*sizeof(char));
                 if (tableID->tableName != NULL) {
                     strcpy(tableID->tableName, tableName);
                 }
@@ -477,7 +475,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     return NULL;
                 }
-                tableID->fileName = malloc((strlen(fileName) + 1)*sizeof(char));
+                tableID->fileName = (char*)malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName != NULL) {
                     strcpy(tableID->fileName, fileName);
                 }
@@ -532,7 +530,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                         }
                     }
 #if !defined(NO_TABLE_COPY)
-                    tableID->table = malloc(
+                    tableID->table = (double*)malloc(
                         tableID->nRow*tableID->nCol*sizeof(double));
                     if (tableID->table != NULL) {
                         memcpy(tableID->table, table, tableID->nRow*
@@ -565,7 +563,7 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                     }
                     else {
                         /* Need to transpose */
-                        double* tableT = malloc(dim[0]*dim[1]*sizeof(double));
+                        double* tableT = (double*)malloc(dim[0]*dim[1]*sizeof(double));
                         if (tableT != NULL) {
                             memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
@@ -1278,7 +1276,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 }
             }
             /* Once again with storage of indices of event intervals */
-            tableID->intervals = calloc(tableID->maxEvents,
+            tableID->intervals = (Interval*)calloc(tableID->maxEvents,
                 sizeof(Interval));
             if (tableID->intervals == NULL) {
                 ModelicaError("Memory allocation error\n");
@@ -1551,12 +1549,12 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                double* table, size_t nRow,
                                                size_t nColumn, int* cols,
                                                size_t nCols, int smoothness) {
-    CombiTable1D* tableID = calloc(1, sizeof(CombiTable1D));
+    CombiTable1D* tableID = (CombiTable1D*)calloc(1, sizeof(CombiTable1D));
     if (tableID != NULL) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->nCols = nCols;
         if (nCols > 0) {
-            tableID->cols = malloc(tableID->nCols*sizeof(int));
+            tableID->cols = (int*)malloc(tableID->nCols*sizeof(int));
             if (tableID->cols != NULL) {
                 memcpy(tableID->cols, cols, tableID->nCols*sizeof(int));
             }
@@ -1570,7 +1568,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName = malloc(
+                tableID->tableName = (char*)malloc(
                     (strlen(tableName) + 1)*sizeof(char));
                 if (tableID->tableName != NULL) {
                     strcpy(tableID->tableName, tableName);
@@ -1583,7 +1581,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     return NULL;
                 }
-                tableID->fileName = malloc(
+                tableID->fileName = (char*)malloc(
                     (strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName != NULL) {
                     strcpy(tableID->fileName, fileName);
@@ -1639,7 +1637,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                         }
                     }
 #if !defined(NO_TABLE_COPY)
-                    tableID->table = malloc(
+                    tableID->table = (double*)malloc(
                         tableID->nRow*tableID->nCol*sizeof(double));
                     if (tableID->table != NULL) {
                         memcpy(tableID->table, table, tableID->nRow*
@@ -1672,7 +1670,7 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                     }
                     else {
                         /* Need to transpose */
-                        double* tableT = malloc(dim[0]*dim[1]*sizeof(double));
+                        double* tableT = (double*)malloc(dim[0]*dim[1]*sizeof(double));
                         if (tableT != NULL) {
                             memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
@@ -2026,14 +2024,14 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                                                const char* fileName,
                                                double* table, size_t nRow,
                                                size_t nColumn, int smoothness) {
-    CombiTable2D* tableID = calloc(1, sizeof(CombiTable2D));
+    CombiTable2D* tableID = (CombiTable2D*)calloc(1, sizeof(CombiTable2D));
     if (tableID != NULL) {
         tableID->smoothness = (enum Smoothness)smoothness;
         tableID->source = getTableSource(tableName, fileName);
 
         switch (tableID->source) {
             case TABLESOURCE_FILE:
-                tableID->tableName = malloc(
+                tableID->tableName = (char*)malloc(
                     (strlen(tableName) + 1)*sizeof(char));
                 if (tableID->tableName != NULL) {
                     strcpy(tableID->tableName, tableName);
@@ -2043,7 +2041,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                     ModelicaError("Memory allocation error\n");
                     return NULL;
                 }
-                tableID->fileName = malloc((strlen(fileName) + 1)*sizeof(char));
+                tableID->fileName = (char*)malloc((strlen(fileName) + 1)*sizeof(char));
                 if (tableID->fileName != NULL) {
                     strcpy(tableID->fileName, fileName);
                 }
@@ -2075,7 +2073,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                         }
                     }
 #if !defined(NO_TABLE_COPY)
-                    tableID->table = malloc(
+                    tableID->table = (double*)malloc(
                         tableID->nRow*tableID->nCol*sizeof(double));
                     if (tableID->table != NULL) {
                         memcpy(tableID->table, table, tableID->nRow*
@@ -2105,7 +2103,7 @@ void* ModelicaStandardTables_CombiTable2D_init(const char* tableName,
                     }
                     else {
                         /* Need to transpose */
-                        double* tableT = malloc(dim[0]*dim[1]*sizeof(double));
+                        double* tableT = (double*)malloc(dim[0]*dim[1]*sizeof(double));
                         if (tableT != NULL) {
                             memcpy(tableT, tableID->table, dim[0]*dim[1]*sizeof(double));
                             tableID->table = tableT;
@@ -3032,8 +3030,8 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
     if (tableID != NULL) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
-        char* tableName;
-        char* tableDummyName = "NoName";
+        const char* tableName;
+        const char* tableDummyName = "NoName";
 
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
@@ -3118,8 +3116,8 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
     if (tableID != NULL) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
-        char* tableName;
-        char* tableDummyName = "NoName";
+        const char* tableName;
+        const char* tableDummyName = "NoName";
 
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
@@ -3167,8 +3165,8 @@ static int isValidCombiTable2D(const CombiTable2D* tableID) {
     if (tableID != NULL) {
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
-        char* tableName;
-        char* tableDummyName = "NoName";
+        const char* tableName;
+        const char* tableDummyName = "NoName";
 
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
@@ -3281,12 +3279,12 @@ static CubicHermite1D* akimaSpline1DInit(const double* table, size_t nRow,
         size_t col;
 
         /* Actually there is no need for consecutive memory */
-        spline = malloc((nRow - 1)*nCols*sizeof(CubicHermite1D));
+        spline = (CubicHermite1D*)malloc((nRow - 1)*nCols*sizeof(CubicHermite1D));
         if (spline == NULL) {
             return NULL;
         }
 
-        d = malloc((nRow + 3)*sizeof(double));
+        d = (double*)malloc((nRow + 3)*sizeof(double));
         if (d == NULL) {
             free(spline);
             return NULL;
@@ -3364,12 +3362,12 @@ static CubicHermite1D* fritschButlandSpline1DInit(const double* table,
         size_t col;
 
         /* Actually there is no need for consecutive memory */
-        spline = malloc((nRow - 1)*nCols*sizeof(CubicHermite1D));
+        spline = (CubicHermite1D*)malloc((nRow - 1)*nCols*sizeof(CubicHermite1D));
         if (spline == NULL) {
             return NULL;
         }
 
-        d = malloc((nRow - 1)*sizeof(double));
+        d = (double*)malloc((nRow - 1)*sizeof(double));
         if (d == NULL) {
             free(spline);
             return NULL;
@@ -3483,12 +3481,12 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         int cols = 2;
 
         /* Need to transpose */
-        double* tableT = malloc(2*(nCol - 1)*sizeof(double));
+        double* tableT = (double*)malloc(2*(nCol - 1)*sizeof(double));
         if (tableT == NULL) {
             return NULL;
         }
 
-        spline = malloc((nCol - 1)*sizeof(CubicHermite2D));
+        spline = (CubicHermite2D*)malloc((nCol - 1)*sizeof(CubicHermite2D));
         if (spline == NULL) {
             free(tableT);
             return NULL;
@@ -3520,7 +3518,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         size_t i;
         int cols = 2;
 
-        spline = malloc((nRow - 1)*sizeof(CubicHermite2D));
+        spline = (CubicHermite2D*)malloc((nRow - 1)*sizeof(CubicHermite2D));
         if (spline == NULL) {
             return NULL;
         }
@@ -3556,7 +3554,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         */
 
         /* Copy of x coordinates with extrapolated boundary coordinates */
-        x = malloc((nRow + 3)*sizeof(double));
+        x = (double*)malloc((nRow + 3)*sizeof(double));
         if (x == NULL) {
             return NULL;
         }
@@ -3581,7 +3579,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         }
 
         /* Copy of y coordinates with extrapolated boundary coordinates */
-        y = malloc((nCol + 3)*sizeof(double));
+        y = (double*)malloc((nCol + 3)*sizeof(double));
         if (y == NULL) {
             free(x);
             return NULL;
@@ -3605,7 +3603,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         }
 
         /* Copy of table with extrapolated boundary values */
-        tableEx = malloc((nRow + 3)*(nCol + 3)*sizeof(double));
+        tableEx = (double*)malloc((nRow + 3)*(nCol + 3)*sizeof(double));
         if (tableEx == NULL) {
             free(y);
             free(x);
@@ -3658,7 +3656,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
             }
         }
 
-        dz_dx = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
+        dz_dx = (double*)malloc((nRow - 1)*(nCol - 1)*sizeof(double));
         if (dz_dx == NULL) {
             free(tableEx);
             free(y);
@@ -3666,7 +3664,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
             return NULL;
         }
 
-        dz_dy = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
+        dz_dy = (double*)malloc((nRow - 1)*(nCol - 1)*sizeof(double));
         if (dz_dy == NULL) {
             free(dz_dx);
             free(tableEx);
@@ -3675,7 +3673,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
             return NULL;
         }
 
-        d2z_dxdy = malloc((nRow - 1)*(nCol - 1)*sizeof(double));
+        d2z_dxdy = (double*)malloc((nRow - 1)*(nCol - 1)*sizeof(double));
         if (d2z_dxdy == NULL) {
             free(dz_dy);
             free(dz_dx);
@@ -3767,7 +3765,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         free(x);
 
         /* Actually there is no need for consecutive memory */
-        spline = malloc((nRow - 2)*(nCol - 2)*sizeof(CubicHermite2D));
+        spline = (CubicHermite2D*)malloc((nRow - 2)*(nCol - 2)*sizeof(CubicHermite2D));
         if (spline == NULL) {
             free(dz_dx);
             free(dz_dy);
@@ -4054,7 +4052,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        table = malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
+        table = (double*)malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
         if (table == NULL) {
             Mat_VarFree(matvar);
             (void)Mat_Close(mat);
@@ -4126,7 +4124,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        buf = malloc(LINE_BUFFER_LENGTH*sizeof(char));
+        buf = (char*)malloc(LINE_BUFFER_LENGTH*sizeof(char));
         if (buf == NULL) {
             fclose(fp);
             ModelicaError("Memory allocation error\n");
@@ -4240,7 +4238,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                 size_t i = 0;
                 size_t j = 0;
 
-                table = malloc(nRow*nCol*sizeof(double));
+                table = (double*)malloc(nRow*nCol*sizeof(double));
                 if (table == NULL) {
                     *_nRow = 0;
                     *_nCol = 0;
@@ -4298,7 +4296,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             TABLE(i, j) = strtod(token, &endptr);
                         }
                         else {
-                            char* token2 = malloc(
+                            char* token2 = (char*)malloc(
                                 (strlen(token) + 1)*sizeof(char));
                             if (token2 != NULL) {
                                 char* p;
@@ -4451,7 +4449,7 @@ static int readLine(char** buf, int* bufLen, FILE* fp) {
 
         oldBufLen = *bufLen;
         *bufLen *= 2;
-        tmp = realloc(*buf, (size_t)*bufLen);
+        tmp = (char*)realloc(*buf, (size_t)*bufLen);
         if (tmp == NULL) {
             fclose(fp);
             free(*buf);
