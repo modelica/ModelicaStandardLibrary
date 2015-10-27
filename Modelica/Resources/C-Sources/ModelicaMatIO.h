@@ -131,7 +131,7 @@ typedef uint8_t mat_uint8_t;
 #if defined(__cplusplus)
 #define EXTERN extern "C"
 #else
-#define EXTERN extern
+#define EXTERN
 #endif
 
 /** @defgroup MAT Matlab MAT File I/O Library */
