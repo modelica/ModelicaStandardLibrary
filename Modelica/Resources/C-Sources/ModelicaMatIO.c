@@ -1430,19 +1430,11 @@ InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
 #endif
 #if !defined(HAVE_VSNPRINTF) && !defined(vsnprintf)
 #    define vsnprintf mat_vsnprintf
-#    ifdef  __cplusplus
-         extern "C" int vsnprintf(char *,size_t,const char *,va_list);
-#    else
-         extern int vsnprintf(char *,size_t,const char *,va_list);
-#    endif
+     EXTERN int vsnprintf(char *,size_t,const char *,va_list);
 #endif
 #if !defined(HAVE_SNPRINTF) && !defined(snprintf)
 #    define snprintf mat_snprintf
-#    ifdef  __cplusplus
-         extern "C" int snprintf(char *str,size_t size,const char *format,...);
-#    else
-         extern int snprintf(char *str,size_t size,const char *format,...);
-#    endif
+     EXTERN int snprintf(char *str,size_t size,const char *format,...);
 #endif
 #if !defined(HAVE_VASPRINTF) && !defined(vasprintf)
 #    define vasprintf mat_vasprintf
