@@ -64,30 +64,45 @@
 #include <locale.h>
 
 /*
- * Non-NULL pointers need to be passed to external functions.
+ * Non-NULL pointers and esp. null-terminated strings need to be passed to
+ * external functions.
  *
- * The following macro handles the nonnull attribute for GNU C to tell the
- * compiler to check all pointer arguments for non-NULL.
+ * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
  */
 #if defined(__GNUC__)
 #define MODELICA_NONNULLATTR __attribute__((nonnull))
+#if defined(__GNUC_MINOR__) && (__GNUC__ > 3 && __GNUC_MINOR__ > 8)
+#define MODELICA_RETURNNONNULLATTR __attribute__((returns_nonnull))
+#else
+#define MODELICA_RETURNNONNULLATTR
+#endif
+#elif defined(__ATTR_SAL)
+#define MODELICA_NONNULLATTR
+#define MODELICA_RETURNNONNULLATTR _Ret_z_ /* _Ret_notnull_ and null-terminated */
 #else
 #define MODELICA_NONNULLATTR
+#define MODELICA_RETURNNONNULLATTR
+#endif
+#if !defined(__ATTR_SAL)
+#define _In_z_
+#define _Out_
 #endif
 
-MODELICA_EXPORT const char* ModelicaStrings_substring(const char* string, int startIndex,
-    int endIndex) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_length(const char* string) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(const char* string, int i) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanIdentifier(const char* string, int startIndex, int* nextIndex,
-    const char** identifier) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIndex, int unsignedNumber,
-    int* nextIndex, int* integerNumber) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex, int unsignedNumber,
-    int* nextIndex, double* number) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaStrings_scanString(const char* string, int startIndex,
-    int* nextIndex, const char** result) MODELICA_NONNULLATTR;
-MODELICA_EXPORT int ModelicaStrings_hashString(const char* str) MODELICA_NONNULLATTR;
+MODELICA_EXPORT MODELICA_RETURNNONNULLATTR const char* ModelicaStrings_substring(
+    _In_z_ const char* string, int startIndex, int endIndex) MODELICA_NONNULLATTR;
+MODELICA_EXPORT int ModelicaStrings_length(_In_z_ const char* string) MODELICA_NONNULLATTR;
+MODELICA_EXPORT int ModelicaStrings_skipWhiteSpace(_In_z_ const char* string,
+    int i) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaStrings_scanIdentifier(_In_z_ const char* string,
+    int startIndex, _Out_ int* nextIndex, _Out_ const char** identifier) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaStrings_scanInteger(_In_z_ const char* string,
+    int startIndex, int unsignedNumber, _Out_ int* nextIndex,
+    _Out_ int* integerNumber) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaStrings_scanReal(_In_z_ const char* string, int startIndex,
+    int unsignedNumber, _Out_ int* nextIndex, _Out_ double* number) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaStrings_scanString(_In_z_ const char* string, int startIndex,
+    _Out_ int* nextIndex, _Out_ const char** result) MODELICA_NONNULLATTR;
+MODELICA_EXPORT int ModelicaStrings_hashString(_In_z_ const char* str) MODELICA_NONNULLATTR;
 
 MODELICA_EXPORT const char* ModelicaStrings_substring(const char* string, int startIndex, int endIndex) {
     /* Return string1(startIndex:endIndex) if endIndex >= startIndex,

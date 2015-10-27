@@ -156,20 +156,28 @@ static void deleteCS(void) {
 /*
  * Non-NULL pointers need to be passed to external functions.
  *
- * The following macro handles the nonnull attribute for GNU C to tell the
- * compiler to check all pointer arguments for non-NULL.
+ * The following macros handle nonnull attributes for GNU C and Microsoft SAL.
  */
 #if defined(__GNUC__)
 #define MODELICA_NONNULLATTR __attribute__((nonnull))
 #else
 #define MODELICA_NONNULLATTR
 #endif
+#if !defined(__ATTR_SAL)
+#define _In_
+#define _Out_
+#endif
 
-MODELICA_EXPORT void ModelicaRandom_xorshift64star(int state_in[], int state_out[], double* y) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaRandom_xorshift128plus(int state_in[], int state_out[], double* y) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaRandom_xorshift1024star(int state_in[], int state_out[], double* y) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaRandom_setInternalState_xorshift1024star(int* state, size_t nState, int id) MODELICA_NONNULLATTR;
-MODELICA_EXPORT void ModelicaRandom_convertRealToIntegers(double d, int i[]) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaRandom_xorshift64star(_In_ int state_in[],
+    _Out_ int state_out[], _Out_ double* y) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaRandom_xorshift128plus(_In_ int state_in[],
+    _Out_ int state_out[], _Out_ double* y) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaRandom_xorshift1024star(_In_ int state_in[],
+    _Out_ int state_out[], _Out_ double* y) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaRandom_setInternalState_xorshift1024star(
+    _In_ int* state, size_t nState, int id) MODELICA_NONNULLATTR;
+MODELICA_EXPORT void ModelicaRandom_convertRealToIntegers(double d,
+    _Out_ int i[]) MODELICA_NONNULLATTR;
 
 /* XORSHIFT ALGORITHMS */
 
