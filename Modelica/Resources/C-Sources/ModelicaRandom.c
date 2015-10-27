@@ -47,15 +47,9 @@
 
 /* Have RANDOM int64 / uint64 */
 #if defined (_WIN32)
-#if defined(_MSC_VER)
+#if defined(_MSC_VER) || defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__)
 #define HAVE_RANDOM_INT64_T 1
 #define HAVE_RANDOM_UINT64_T 1
-#elif defined(__WATCOMC__)
-#define HAVE_RANDOM_INT64_T 1
-#define HAVE_RANDOM_UINT64_T 1
-#elif defined(__BORLANDC__)
-#undef HAVE_RANDOM_INT64_T
-#undef HAVE_RANDOM_UINT64_T
 #else
 #undef HAVE_RANDOM_INT64_T
 #undef HAVE_RANDOM_UINT64_T
