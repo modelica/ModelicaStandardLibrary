@@ -79,12 +79,12 @@
 #if defined(_WIN32)
 #if defined(_MSC_VER) && _MSC_VER >= 1600
 #define HAVE_MATIO_STDINT_H 1
-#elif defined(__WATCOMC__)
+#elif defined(__WATCOMC__) || defined(__MINGW32__) || defined(__CYGWIN__)
 #define HAVE_MATIO_STDINT_H 1
 #else
 #undef HAVE_MATIO_STDINT_H
 #endif
-#elif !defined(__VXWORKS__)
+#elif defined(__GNUC__) && !defined(__VXWORKS__)
 #define HAVE_MATIO_STDINT_H 1
 #else
 #undef HAVE_MATIO_STDINT_H
