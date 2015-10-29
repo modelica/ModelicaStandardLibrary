@@ -8052,7 +8052,7 @@ For details of the arguments, see documentation of dgbsv.
               equed,
               R,
               C,
-              B,
+              Bwork,
               lda,
               X,
               lda,
