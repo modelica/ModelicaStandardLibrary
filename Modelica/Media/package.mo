@@ -5296,7 +5296,7 @@ are described in
     redeclare function extends setState_dTX
       "Set the thermodynamic state record from d and T (X not needed)"
     algorithm
-      state := ThermodynamicState(p=((d - reference_d) + (state.T - reference_T)
+      state := ThermodynamicState(p=((d - reference_d) + (T - reference_T)
         *beta_const*reference_d)/(reference_d*kappa_const) + reference_p, T=T);
     end setState_dTX;
 
