@@ -554,9 +554,10 @@ package Basic "Basic electrical components"
 
   initial equation
     for s in 1:N loop
-      for z in 1:N loop
-        Lm[z, s] = if (z >= s) then L[(s - 1)*N + z - div((s - 1)*s, 2)] else
-          Lm[s, z];
+      Lm[s,s] = L[(s - 1)*N - div((s - 1)*s, 2) + s];
+      for z in s + 1:N loop
+        Lm[s,z] = L[(s - 1)*N - div((s - 1)*s, 2) + z];
+        Lm[z,s] = L[(s - 1)*N - div((s - 1)*s, 2) + z];
       end for;
     end for;
 
