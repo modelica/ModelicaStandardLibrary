@@ -259,8 +259,10 @@ algorithm
   // if both oldName and newName are in the current directory
   // use Internal.renameFile
   if Strings.find(oldName,"/") == 0 and Strings.find(newName,"/") == 0 then
-     Modelica.Utilities.Internal.FileSystem.rename(
-                     oldName, newName);
+     if replace then
+        Files.remove(newName);
+     end if;
+     Internal.FileSystem.rename(oldName, newName);
   else
      Files.copy(oldName, newName, replace);
      Files.remove(oldName);
