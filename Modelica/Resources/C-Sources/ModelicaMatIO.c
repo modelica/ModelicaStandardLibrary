@@ -8970,6 +8970,8 @@ void      WriteInfo5(mat_t *mat, matvar_t *matvar);
 #ifndef MAT4_H
 #define MAT4_H
 
+EXTERN mat_t *Mat_Create4(const char* matname);
+int  Mat_VarWrite4(mat_t *mat,matvar_t *matvar);
 void Read4(mat_t *mat, matvar_t *matvar);
 int  ReadData4(mat_t *mat,matvar_t *matvar,void *data,
          int *start,int *stride,int *edge);
@@ -9121,6 +9123,7 @@ Mat_CreateVer(const char *matname,const char *hdr_str,enum mat_ft mat_file_ver)
 
     switch ( mat_file_ver ) {
         case MAT_FT_MAT4:
+            mat = Mat_Create4(matname);
             break;
         case MAT_FT_MAT5:
             mat = Mat_Create5(matname,hdr_str);
@@ -9228,11 +9231,12 @@ Mat_Open(const char *matname,int mode)
 
         Mat_Rewind(mat);
         var = Mat_VarReadNextInfo4(mat);
-        if ( NULL == var ) {
+        if ( NULL == var &&
+             bytesread != 0 ) { /* Accept 0 bytes files as a valid V4 file */
             /* Does not seem to be a valid V4 file */
             Mat_Close(mat);
             mat = NULL;
-            Mat_Critical("%s does not seem to be a valid MAT file",matname);
+            Mat_Critical("\"%s\" does not seem to be a valid MAT file",matname);
         } else {
             Mat_VarFree(var);
             Mat_Rewind(mat);
@@ -9743,9 +9747,14 @@ Mat_VarDelete(mat_t *mat, const char *name)
 {
     int   err = 1;
     enum mat_ft mat_file_ver = MAT_FT_DEFAULT;
-    char *tmp_name, *new_name, *temp;
+    char *tmp_name, *new_name;
     mat_t *tmp;
     matvar_t *matvar;
+#if defined(_WIN32)
+    char template[10] = "matXXXXXX";
+#else
+    char *temp;
+#endif
 
     if ( NULL == mat || NULL == name )
         return err;
@@ -9762,14 +9771,18 @@ Mat_VarDelete(mat_t *mat, const char *name)
             break;
     }
 
+#if defined(_WIN32)
+    tmp_name = _mktemp(template);
+#else
     temp     = NULL;
     tmp_name = tmpnam(temp);
-    if (tmp_name) {
+#endif
+    if (tmp_name != NULL) {
         tmp = Mat_CreateVer(tmp_name,mat->header,mat_file_ver);
         if ( tmp != NULL ) {
             while ( NULL != (matvar = Mat_VarReadNext(mat)) ) {
                 if ( strcmp(matvar->name,name) )
-                    Mat_VarWrite(tmp,matvar,0);
+                    Mat_VarWrite(tmp,matvar,MAT_COMPRESSION_NONE);
                 else
                     err = 0;
                 Mat_VarFree(matvar);
@@ -10615,8 +10628,6 @@ Mat_VarReadNextInfo( mat_t *mat )
 matvar_t *
 Mat_VarReadInfo( mat_t *mat, const char *name )
 {
-
-    long  fpos;
     matvar_t *matvar = NULL;
 
     if ( (mat == NULL) || (name == NULL) )
@@ -10639,7 +10650,7 @@ Mat_VarReadInfo( mat_t *mat, const char *name )
             }
         } while ( NULL == matvar && mat->next_index < mat->num_datasets);
     } else {
-        fpos = ftell(mat->fp);
+        long fpos = ftell(mat->fp);
         fseek(mat->fp,mat->bof,SEEK_SET);
         do {
             matvar = Mat_VarReadNextInfo(mat);
@@ -10651,7 +10662,7 @@ Mat_VarReadInfo( mat_t *mat, const char *name )
                     Mat_VarFree(matvar);
                     matvar = NULL;
                 }
-            } else {
+            } else if (!feof((FILE *)mat->fp)) {
                 Mat_Critical("An error occurred in reading the MAT file");
                 break;
             }
@@ -10831,14 +10842,16 @@ Mat_VarWrite(mat_t *mat,matvar_t *matvar,enum matio_compression compress)
 {
     if ( mat == NULL || matvar == NULL )
         return -1;
+    else if ( mat->version == MAT_FT_MAT4 )
+        return Mat_VarWrite4(mat,matvar);
     else if ( mat->version == MAT_FT_MAT5 )
-        Mat_VarWrite5(mat,matvar,compress);
+        return Mat_VarWrite5(mat,matvar,compress);
 #if defined(HAVE_HDF5)
     else if ( mat->version == MAT_FT_MAT73 )
-        Mat_VarWrite73(mat,matvar,compress);
+        return Mat_VarWrite73(mat,matvar,compress);
 #endif
 
-    return 0;
+    return 1;
 }
 /* -------------------------------
  * ---------- mat4.c
@@ -10852,6 +10865,132 @@ Mat_VarWrite(mat_t *mat,matvar_t *matvar,enum matio_compression compress)
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+
+/** @if mat_devman
+ * @brief Creates a new Matlab MAT version 4 file
+ *
+ * Tries to create a new Matlab MAT file with the given name.
+ * @ingroup MAT
+ * @param matname Name of MAT file to create
+ * @return A pointer to the MAT file or NULL if it failed.  This is not a
+ * simple FILE * and should not be used as one.
+ * @endif
+ */
+mat_t *
+Mat_Create4(const char* matname)
+{
+    FILE *fp = NULL;
+    mat_t *mat = NULL;
+
+    fp = fopen(matname,"wb");
+    if ( !fp )
+        return NULL;
+
+    mat = malloc(sizeof(*mat));
+    if ( NULL == mat ) {
+        fclose(fp);
+        Mat_Critical("Couldn't allocate memory for the MAT file");
+        return NULL;
+    }
+
+    mat->header        = NULL;
+    mat->subsys_offset = NULL;
+    mat->fp            = fp;
+    mat->version       = MAT_FT_MAT4;
+    mat->byteswap      = 0;
+    mat->bof           = 0;
+    mat->next_index    = 0;
+    mat->refs_id       = -1;
+    mat->filename      = strdup_printf("%s",matname);
+    mat->mode          = 0;
+
+    Mat_Rewind(mat);
+
+    return mat;
+}
+
+/** @if mat_devman
+ * @brief Writes a matlab variable to a version 4 matlab file
+ *
+ * @ingroup mat_internal
+ * @param mat MAT file pointer
+ * @param matvar pointer to the mat variable
+ * @retval 0 on success
+ * @endif
+ */
+int
+Mat_VarWrite4(mat_t *mat,matvar_t *matvar)
+{
+    typedef struct {
+        mat_int32_t type;
+        mat_int32_t mrows;
+        mat_int32_t ncols;
+        mat_int32_t imagf;
+        mat_int32_t namelen;
+    } Fmatrix;
+
+    mat_int32_t nmemb = 1, i;
+    mat_complex_split_t *complex_data = NULL;
+    Fmatrix x;
+
+    if ( NULL == mat || NULL == matvar || NULL == matvar->name || matvar->rank != 2 )
+        return -1;
+
+    if (matvar->isComplex) {
+        mat_complex_split_t *complex_data = matvar->data;
+        if ( NULL == complex_data )
+            return 1;
+    }
+
+    switch ( matvar->data_type ) {
+        case MAT_T_DOUBLE:
+            x.type = 0;
+            break;
+        case MAT_T_SINGLE:
+            x.type = 10;
+            break;
+        case MAT_T_INT32:
+            x.type = 20;
+            break;
+        case MAT_T_INT16:
+            x.type = 30;
+            break;
+        case MAT_T_UINT16:
+            x.type = 40;
+            break;
+        case MAT_T_UINT8:
+            x.type = 50;
+            break;
+        default:
+            return 2;
+    }
+
+    for ( i = 0; i < matvar->rank; i++ ) {
+        mat_int32_t dim;
+        dim = (mat_int32_t)matvar->dims[i];
+        nmemb *= dim;
+    }
+
+    /* FIXME: SEEK_END is not Guaranteed by the C standard */
+    fseek(mat->fp,0,SEEK_END);         /* Always write at end of file */
+
+    if (mat->byteswap)
+        x.type += 1000;
+    x.mrows = (mat_int32_t)matvar->dims[0];
+    x.ncols = (mat_int32_t)matvar->dims[1];
+    x.imagf = matvar->isComplex ? 1 : 0;
+    x.namelen = (mat_int32_t)strlen(matvar->name) + 1;
+    fwrite(&x, sizeof(Fmatrix), 1, mat->fp);
+    fwrite(matvar->name, sizeof(char), x.namelen, mat->fp);
+    if (matvar->isComplex) {
+        fwrite(complex_data->Re, matvar->data_size, nmemb, mat->fp);
+        fwrite(complex_data->Im, matvar->data_size, nmemb, mat->fp);
+    }
+    else {
+        fwrite(matvar->data, matvar->data_size, nmemb, mat->fp);
+    }
+    return 0;
+}
 
 /** @if mat_devman
  * @brief Reads the data of a version 4 MAT file variable
@@ -13876,7 +14015,7 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
         case MAT_C_INT8:
         case MAT_C_UINT8:
         {
-            /* WriteCompressedData makes sure uncomressed data is aligned
+            /* WriteCompressedData makes sure uncompressed data is aligned
              * on an 8-byte boundary */
             if ( matvar->isComplex ) {
                 mat_complex_split_t *complex_data = matvar->data;
@@ -14327,7 +14466,7 @@ WriteCompressedStructField(mat_t *mat,matvar_t *matvar,z_stream *z)
         case MAT_C_INT8:
         case MAT_C_UINT8:
         {
-            /* WriteCompressedData makes sure uncomressed data is aligned
+            /* WriteCompressedData makes sure uncompressed data is aligned
              * on an 8-byte boundary */
             if ( matvar->isComplex ) {
                 mat_complex_split_t *complex_data = matvar->data;
@@ -16743,7 +16882,7 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
             case MAT_C_INT8:
             case MAT_C_UINT8:
             {
-                /* WriteCompressedData makes sure uncomressed data is aligned
+                /* WriteCompressedData makes sure uncompressed data is aligned
                  * on an 8-byte boundary */
                 if ( matvar->isComplex ) {
                     mat_complex_split_t *complex_data = matvar->data;
@@ -20427,10 +20566,10 @@ Mat_VarGetCell(matvar_t *matvar,int index)
  * @ingroup MAT
  * @param matvar Cell Array matlab variable
  * @param start vector of length rank with 0-relative starting coordinates for
- *              each diemnsion.
- * @param stride vector of length rank with strides for each diemnsion.
+ *              each dimension.
+ * @param stride vector of length rank with strides for each dimension.
  * @param edge vector of length rank with the number of elements to read in
- *              each diemnsion.
+ *              each dimension.
  * @returns an array of pointers to the cells
  */
 matvar_t **
@@ -20843,10 +20982,10 @@ Mat_VarGetStructField(matvar_t *matvar,void *name_or_index,int opt,int index)
  * @ingroup MAT
  * @param matvar Structure matlab variable
  * @param start vector of length rank with 0-relative starting coordinates for
- *              each diemnsion.
- * @param stride vector of length rank with strides for each diemnsion.
+ *              each dimension.
+ * @param stride vector of length rank with strides for each dimension.
  * @param edge vector of length rank with the number of elements to read in
- *              each diemnsion.
+ *              each dimension.
  * @param copy_fields 1 to copy the fields, 0 to just set pointers to them.
  * @returns A new structure array with fields indexed from @c matvar.
  */
