@@ -384,10 +384,10 @@ This can be recommended by having  <code><strong>annotation</strong> choicesAllM
 </pre>
 <h5>Related annotations:</h5>
 <ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
 </html>"));
   end dateModified;
@@ -1239,6 +1239,48 @@ When the variable to which this annotation is attached in the declaration cannot
 </html>"));
   end unassignedMessage;
 
+  class uses "uses"
+    extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+Defines that classes within this top-level class uses a specific version of another top-level class
+</p>
+
+<h4>Examples</h4>
+
+<pre>
+<b>model</b> A
+  <b>annotation</b>(version=\"1.0\",
+     uses(Modelica(version=\"1.5\")));
+  ...
+<b>end</b> A;
+
+<b>model</b> B
+  <b>annotation</b>(uses(Modelica(version=\"2.1 Beta 1\")));
+  ...
+<b>end</b> B;
+</pre>
+
+<h4>Description</h4>
+
+<ul>
+<li> <code>uses(IDENT (version = VERSION-NUMBER) )</code><br>
+     Defines that classes within this top-level class uses version
+     VERSION-NUMBER of classes within the top-level class IDENT.
+     The annotations uses and conversion may contain several different sub-entries.</li>
+</ul>
+
+<h5>Related annotations:</h5>
+<ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
+</ul>
+</html>"));
+  end uses;
+
   class version "version"
     extends ModelicaReference.Icons.Information;
 
@@ -1341,10 +1383,10 @@ This allows a tool to access multiple versions of the same package.
 </p>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
 </ul>
 </html>"));
   end version;
@@ -1353,7 +1395,7 @@ This allows a tool to access multiple versions of the same package.
     extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>Defines the optional build number of the library.</p>
+<p>Defines the optional build number of the library. <em>(This is a deprecated annotation. It should  no longer be used, since it will be removed in one of the next Modelica releases.)</em></p>
 <h4>Syntax</h4>
 <blockquote><pre>
 <b>annotation</b>&quot;(&quot; versionBuild &quot;=&quot; INTEGER &quot;)&quot;
@@ -1379,10 +1421,11 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
 </pre>
 <h5>Related annotations:</h5>
 <ul>
-  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
+  <li><a href=\"modelica://ModelicaReference.Annotations.versionDate\">versionDate</a></li>
 </ul>
 </html>"));
   end versionBuild;
@@ -1410,8 +1453,8 @@ A &ldquo;<code>versionBuild</code>&rdquo; number A that is higher as &ldquo;<cod
   <b>end</b> Modelica;</pre>
 <h5>Related annotations:</h5>
 <ul>
+  <li><a href=\"modelica://ModelicaReference.Annotations.uses\">uses</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.version\">version</a></li>
-  <li><a href=\"modelica://ModelicaReference.Annotations.versionBuild\">versionBuild</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.dateModified\">dateModified</a></li>
   <li><a href=\"modelica://ModelicaReference.Annotations.revisionId\">revisionId</a></li>
 </ul>
@@ -1425,7 +1468,6 @@ Annotations are intended for storing extra information about a model, such as gr
 </p>
 </html>"));
 end Annotations;
-
 
 package Classes "Classes (model, function, ...)"
   extends ModelicaReference.Icons.Information;
@@ -2229,6 +2271,7 @@ Moreover, they have additional properties called enhancements.
 </p>
 </html>"));
 end Classes;
+
 
 
 package Operators "Operators (+, der, size, ...)"
