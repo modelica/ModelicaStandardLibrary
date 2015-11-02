@@ -1,4 +1,4 @@
-Multi star points are connected by resistors. This model is required to operate multi pwithin Modelica.Electrical;
+within Modelica.Electrical;
 
 
 package MultiPhase "Library for electrical components of one or more phases"
