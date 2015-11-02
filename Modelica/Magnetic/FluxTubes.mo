@@ -24,6 +24,8 @@ Following below, the concept of magnetic flux tubes is outlined in short. For a 
 <IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/FluxTubeConcept/magnetic_flux_tube_schematic.png\" ALT=\"Magnetic flux tube\">
 </p>
 
+
+
 <p>
 For a region with an approximately homogeneous distribution of the magnetic field strength <b>H</b> and the magnetic flux density <b>B</b> through cross sectional area <i>A</i> at each length coordinate <i>s</i>  (<i>A</i> perpendicular to the direction of the magnetic field lines), a magnetic reluctance <i>R<sub>m</sub></i> can be defined:</p>
 
@@ -90,7 +92,7 @@ Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechan
 </p>
 
 <p>
-where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
+where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[KEQ+12]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
 </p>
 
 <p>
@@ -110,49 +112,467 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
 </html>"));
     end ReluctanceForceCalculation;
 
+    package Hysteresis
+      extends Modelica.Icons.Info;
+      package StaticHysteresis "Static Hysteresis"
+        extends Modelica.Icons.Info;
+        class Tellinen "Tellinen Hysteresis Model"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+<p>
+<b><span style=\"color: #008000;\">The Tellinen hysteresis model</span></b>
+</p>
+
+<p>
+The Tellinen hysteresis model is described in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the linmiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positiv saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
+</p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"<tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/Eqn_Tellinen01.png\"/> </p></td>
+</tr>
+</table>
+
+<p>
+Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting branches of the hysteresis loop with respect to the magnetic field stregth H, as illustrated in Fig 1.
+</p>
+<p>
+<b>Fig. 1:</b> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t). </p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"<tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
+</tr>
+</table>
+</html>"));
+        end Tellinen;
+
+        class Preisach "Preisach Hysteresis Model"
+          extends Modelica.Icons.Information;
+
+          annotation (Documentation(info="<html>
+<h4><font color=\"#008000\">The Preisach hysteresis model</font></h4>
+
+<p>
+This section gives an very brief overview of the Preisach hysteresis model, which is explained in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Pr35, Ma03, Zi12]</a>. The classical Preisach hysteresis model describes the course of magnetic flux density B(t) of a ferromagnetic core material as a function of the course of the mangetic field stregth H(t) and its history. The model assumes an infinite set of elementary hysteresis operators &gamma;&alpha;&beta;. The simple rectangular pattern of the output &gamma;&alpha;&beta;H(t) of such an operator with its upper and lower switching limits &alpha; and &beta; is shown Fig. 1.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 1: </b>Characteristics of an elementary hysteresis operator.</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/preisach_elementaryOperator.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+Due to &alpha;&ge;&beta;, the switching limits &alpha; and &beta; span a right triangular region, oftern referred to as Preisach plane (see Fig. 2a). For each single point (&alpha;,&beta;) on this plane exactly one elementary hysteresis operator is defined with exactly the switching limits of &alpha; and &beta;.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 2:</b> Preisach Plane (a) and exemplary plot of the Preisach distribution function P(&alpha;,&beta;) (b)</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/preisach_PlaneAndDist.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+Additionally, the Preisach distribution function P(&alpha;,&beta;) is defined over the Preisach plane, which gives each operator an individual weight (see Fig. 2b). The Preisach plane can be separated into two regions. The S+ region, in which all the operators being in the &QUOT;+1&QUOT; state and the S- region, in which all the operators being in the &QUOT;-1&QUOT; state. The line L(t), which separates the regions S+ and S- develops along with the variation of the magnetic field strength H(t) and holds information about its history. The current magnetic flux density can than be computed as follows:
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/Eqn_PreisachBt.png\">
+    </td>
+  </tr>
+</table> 
+
+<h4><font color=\"#008000\">Hysteresis shape and computing of the double integral</font></h4>
+
+<p>
+The equation above shows, that the double integral of P(&alpha;,&beta;) have to be computed in every time step to compute B(t) according to the Preisach hysteresis model. Typically, the Preisach distribution function is not analytically integrable twice. A numerical double integration in every time step would be very computationally intensive. Therefore, an analytical description of the Everett function <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> is used to define the hysteresis shape.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/Eqn_EverettFcn.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+The Everett function returns the change in magnetization which results whenn all elementary hysteresis operators of the region R switch from \"-1\" to the \"+1\" state (see Fig 3.). The entire Region S+ can be now be decomposed into several smaller triangular regions similar to R. This way the magnetization B(t) can be efficiently evaluated without the need of the numerical integration of the Preisach distribution function.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 3:</b> Preisach plane and region R over which P(&alpha;,&beta;) is integrated to obtain E(H1,H2)</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Preisach/EverettRegion.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+According to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> the used analytical form of the Everett function is parameterized by 8 parameters. Several parameter sets were identified to fit measured or published static hysteresis behavior of different materials. These predefined parameter sets are stored in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\"><code>FluxTubes.Material.HysteresisEverettParameter</code></a> library and can be used with the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\"><code>GenericHystPreisachEverett</code></a> flux tube element. Additionaly, also the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\"><code>GenericHystTellinenEverett</code></a> element can use this library.
+</p>
+
+<p></p>
+</html>"));
+        end Preisach;
+      end StaticHysteresis;
+
+      class DynamicHysteresis "Dynamic Hysteresis (Eddy Currents)"
+        extends Modelica.Icons.Information;
+        annotation (Documentation(info="<html>
+
+<h4><font color=\"#008000\">Dynamic Hysteresis (Eddy Currents)</font></h4>
+
+<p>
+Some of the hysteresis flux tubes elements of the package <a href=\"FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> are capable of simulating eddy currents (dynamic hysteresis) additional to the static hysteresis behavior of the core material. The computation of eddy currents can be activated via the switch <code>includeEddyCurrents</code> in the \"LossesAndHeat\" tab of the corresponding elements parameter dialog. The total magnetic field strength <code>H</code> of the element is the sum of the ferromagnetic portion <code>Hstat</code> and the eddy current portion <code>Heddy:</code>
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/Eqn_EddyCurrent_Ht.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+The eddy current portion of the magnetic field strength is the product of the classical eddy current factor (<code>&sigma;<sub>cl</sub></code>) <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[BE01,Te98]</a> and the time derivative of the magnetic flux density B(t):
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/Eqn_EddyCurrent_Heddy.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+Where <code>&sigma;</code> is the electrical conductivity and <code>d</code> the thickness of the used electric steel sheets. Fig. 1 shows the decomposition of an exemplary dynamic hysteresis in its static and eddy current portion.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 1:</b> Static and dynamic portion of the hysteresis B(H)</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/Eddy_BHBHstatBHeddy.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+The following two figures show a comparison between measured and simulated dynamic hysteresis at several frequencies. The measurements were performed with a 25 cm Epstein frame  according to DIN EN 60404-2. The magnetic core was made up of four layers of M330-50A steel sheet. The primary Winding of the used Epstein frame had 720 turns. The primary voltage was adjusted so that the magnetic excitation was about Hmax = 400 A/m, but 72 V in maximum. The simulation results (see Fig. 3) were generated with a simple model of this setup using the <a href=\"FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> hysteresis flux tube element for modeling the magnetic core.
+</p>
+
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 2:</b> Dynamic hysteresis measurements with an 25 cm Epstein frame according to DIN EN 60404-2 (Material: M330-50A, 4 Sheets)</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/EddyCurrent_Epstein_Meas.png\">
+    </td>
+  </tr>
+</table> 
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 3:</b> Simulation results of a 25 cm Epstein frame model according to the measurement setup of Fig. 1</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/DynamicHysteresis/EddyCurrent_Epstein_Sim.png\">
+    </td>
+  </tr>
+</table> 
+
+
+</html>"));
+      end DynamicHysteresis;
+
+      class HysteresisLosses "Hysteresis losses"
+        extends Modelica.Icons.Information;
+        annotation (Documentation(info="<html>
+<p><b><font style=\"color: #008000; \">Hysteresis power losses</font></b> </p>
+<p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hsysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>). </p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/Eqn_LossPower01.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+The two componenets <code>LossPowerStat</code> and <code>LossPowerEddy</code> can be calculated as follows.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/Eqn_LossPower02.png\">
+    </td>
+  </tr>
+</table> 
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/Eqn_LossPower03.png\">
+    </td>
+  </tr>
+</table>
+
+<p>
+Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.DynamicHysteresis\">UsersGuide.Hysteresis.DynamicHysteresis</a>) and V the volume of the core material. The equations show that <code>LossPowerStat</code> acts as power sink and power source (magnetic energy storage) whereas <code>LossPowerEddy</code> is always positive (Power sink). By means of an simple example the following figures show the time course of the magntix flux density,  the magnetic field strength and the hysteresis losses. The pulsuating course of the power loss (see Fig. 3c) makes it difficult to estimate an average loss. For this reason, the hysteresis flux tube elements are capable of dircetly computing the moving average of the power losses. Therefore, <code>t_avg</code> of the \"LossesAndHeat\" tab of the elements parameter dialog may be adjusted to set an adequate time interval (see Fig. 3d).
+</p>
+
+
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 1:</b> Diagram of a simple transformer with ferromagnetic core (model available at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.TransformerWithHysteresis\">Examples.Hysteresis.TransformerWithHysteresis</a>)</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis01.png\">
+    </td>
+  </tr>
+</table> 
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 2:</b> Simulated total dynamic hysteres loop with its static and eddy current fractions</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis02.png\">
+    </td>
+  </tr>
+</table> 
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 3:</b> Simulated outputs of the <code>Core</code> component of Fig. 1</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis03.png\">
+    </td>
+  </tr>
+</table> 
+
+</html>
+
+"));
+      end HysteresisLosses;
+      annotation (Documentation(info="<html>
+
+<h4><font color=\"#008000\">Introduction</font></h4>
+
+<p>
+The elements provided in the package Shapes.HysteresisAndMagnets allow for consideration of ferromagnetic and dynamic hysteresis during the simulation of electromagnetic networks. The ferromagnetic hysteresis is a material property of the core material and frequency independent. Due to eddy currents the static ferromagnetic hysteresis is superposed by a frequency dependent hysteresis when the ferromagnetic material is exposed to an alternating magnetic field. Fig 1 exemplarily shows the simulated hysteresis characteristics of a simple inductor with an iron core for three different excitation frequencies. Thereby, the 0 Hz hysteresis loop represents the static ferromagnetic hysteresis of the core material. The widening of the loops for higher frequencies is due to eddy currents induced in the core material.
+</p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <caption align=\"bottom\"><b>Fig. 1:</b> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hystersis.InductorWithHysteresis</a>)</td>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png\">
+   </td>
+  </tr>
+</table>
+
+
+<p>
+Several models to describe the static hysteresis behavior of ferromagnetic materials are known. In this library two of them are implemented. The simple but fast <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a> and the more accurate but complex <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. Click the links for a short descripten of both models.
+</p>
+
+<h4><font color=\"#008000\">Flux tube elements of the Package HysteresisAndMagnets</font></h4>
+
+
+<table border=1 cellspacing=0 cellpadding=2>
+ <tr>
+  <th>Name / Icon</th><th>Description</th>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenSoft\">GenericHystTellinenSoft</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenS.png\">
+  </td>
+  <td valign=\"top\">
+  Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust.
+  </td>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenH.png\">
+  </td>
+  <td valign=\"top\">
+  Flux tube element for modeling the ferromagnetic (static) hysteresis of hard magnetic materials. The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters.
+  </td>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenE.png\">
+  </td>
+  <td valign=\"top\">
+  Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function, which is also used to parameterize the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a> model. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
+  </td>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenT.png\">
+  </td>
+  <td valign=\"top\">
+  Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The rising and falling branch of the limiting ferromagnetic hysteresis loop are specified by table data. Therefore, almost any hysteresis shapes are possible. A library with predefined tables can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a>.
+  </td>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystPreisachE.png\">
+  </td>
+  <td valign=\"top\">
+  Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
+  </td>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet\">GenericHystTellinenPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png\">
+  </td>
+  <td valign=\"top\">
+  Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100&percnt; and and adapted icon for better readability of the diagram. 
+  </td>
+ </tr>
+
+ <tr>
+  <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericLinearPermanentMagnet\">GenericLinearPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericLinearPM.png\">
+  </td>
+  <td valign=\"top\">
+  Simple model of a linear permanent Magnet. Typical characteristics of common permanent magnetic materials can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HardMagnetic\">FluxTubes.Material.HardMagnetic</a>.
+  </td>
+ </tr>
+
+</table>
+
+</html>"));
+    end Hysteresis;
+
     class Literature "Literature"
       extends Modelica.Icons.References;
 
       annotation (Documentation(info="<html>
 <h4>Literature</h4>
 <ul>
-<li> Usage of the Modelica Magnetic library is described in:
-<dl>
-<dt>[B&ouml;08] B&ouml;drich, T.:</dt>
-<dd> <b>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</b>.
-     Modelica 2008 Conference, Bielefeld, Germany,
-     pp. 221-227, March 3-4, 2008.
-     Download from:
-     <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf</a>
-     </dd>
-</dl>
+<li><b> Usage of the Modelica Magnetic library is described in:</b>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">    
+    <tr>
+      <td valign=\"top\">[B&ouml;08]</td>
+      <td valign=\"top\">B&ouml;drich, T.:
+        <i>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</i>,
+        Modelica 2008 Conference, Bielefeld, Germany,pp. 221-227, March 3-4, 2008. Download from: <a href=\"https://www.modelica.org/events/modelica2008/Proceedings/sessions/session2d2.pdf\">https://www.modelica.org/events/modelica2008/&shy;Proceedings/sessions/session2d2.pdf</a> 
+    </tr>
+</table><br>
+
 </li>
-<li> The method of magnetic flux tubes as well as derivation of the permeance of many flux tube shapes is explained in detail in:
-<dl>
-<dt>[Ro41] Roters, H.:</dt>
-<dd> <b>Electromagnetic Devices</b>.
-New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
-</dd>
-</dl>
+<li><b>The method of magnetic flux tubes as well as derivation of the permeance of many flux tube shapes is explained in detail in:</b>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[Ro41]</td>
+      <td valign=\"top\">Roters, H.:
+        <i>Electromagnetic Devices</i>,
+        New York: John Wiley &amp; Sons 1941 (8th Printing 1961) 
+    </tr>
+</table><br>
 </li>
-<li> Structure, properties, applications and design of electromagnetic (reluctance type) actuators are thoroughly described in:
-<dl>
-<dt>[Ka08] Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.:</dt>
-<dd><b>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</b>.
-3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German)
-<br>&nbsp;</dd>
-<dt>[Ro00] Roschke, T.:</dt>
-<dd><b>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</b>.
-    Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German)</dd>
-</dl>
+
+<li><b>Structure, properties, applications and design of electromagnetic (reluctance type) actuators are thoroughly described in:</b>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[KEQ+12]</td>
+      <td valign=\"top\">Kallenbach, E.; Eick, R.; Quendt, P.; Str&ouml;hla, T.; Feindt, K.; Kallenbach, M.; Radler, O.:
+        <i>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</i>,
+        3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German).
+    </tr>
+
+    <tr>
+      <td valign=\"top\">[Ro00]</td>
+      <td valign=\"top\">Roschke, T.:
+        <i>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</i>,
+        Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German).
+    </tr>
+</table><br>
 </li>
-<li> Application of the method of magnetic flux tubes to the design of rotational electrical machines is explained for example in:
-<dl>
-<dt>[HM94] Hendershot, J.R. Jr.; Miller, T.J.E.:</dt>
-<dd> <b>Design of Brushless Permanent-Magnet Motors</b>.
-Magna Physics Publishing and Oxford University Press 1994
-</dd>
-</dl>
+
+<li><b> Application of the method of magnetic flux tubes to the design of rotational electrical machines is explained for example in:</b>
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[HM94]</td>
+      <td valign=\"top\">Hendershot, J.R. Jr.; Miller, T.J.E.:
+        <i>Design of Brushless Permanent-Magnet Motors</i>,
+        Magna Physics Publishing and Oxford University Press 1994. 
+    </tr>
+</table><br>
+</li>
+
+<li><b>Information related to the implemented hysteresis models can be found in:</b> 
+
+<br><table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <td valign=\"top\">[BE01]</td>
+      <td valign=\"top\">Bergqvist, A. J.; Engdahl, S. G.:
+        <i>A Homogenization Procedure of Field Quantities in Laminated Electric Steel</i>,
+        IEEE Transactions on Magnetics, vol.37, no.5, pp.3329-3331, 2001.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Te98]</td>
+      <td valign=\"top\">Tellinen, J:
+        <i>A simple scalar model for magnetic hysteresis</i>,
+        IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Pr35]</td>
+      <td valign=\"top\">Preisach, F.:
+        <i>&Uuml;ber die magnetische Nachwirkung</i>,
+        Zeitschrift f&uuml;r Physik A Hadrons and Nuclei, vol. 94, pp. 277-302, 1935.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Ma03]</td>
+      <td valign=\"top\">Mayergoyz, I.:
+        <i>Mathematical Models of Hysteresis and their Application</i>,
+        Elsevier, 2003.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[Va01]</td>
+      <td valign=\"top\">VAC Vacuumschmelze: 
+        <i>Soft Magnetic Cobalt-Iron-Alloys</i>, 2001.
+        Download from: <a  href=\"http://www.vacuumschmelze.com/fileadmin/docroot/medialib/documents/broschueren/htbrosch/Pht-004_e.pdf\">http://www.vacuumschmelze.com/fileadmin/&shy;docroot/medialib/documents/&shy;broschueren/htbrosch/Pht-004_e.pdf</a></td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[YUY89]</td>
+      <td valign=\"top\">Yamaguchi, T.; Ueda, F.; Yamamoto, E.:
+        <i>Simulation of Hysteresis Characteristics of Core Materials Using the Everett Function</i>,
+        IEEE Translation Journal on Magnetics in Japan, vol.4, no.6, pp.353-359, 1989.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[ZB12]</td>
+      <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
+        <i>Magnetic Hysteresis Models for Modelica</i>,
+        Proc. of the 9th Modelica Conference, Munich, Germany, pp. 151-158, September 3-5, 2012. Download from: <a  href=\"http://www.ep.liu.se/ecp/076/014/ecp12076014.pdf\">http://www.ep.liu.se/ecp/&shy;076/014/ecp12076014.pdf</a></td>
+    </tr>
+    <tr>
+      <td valign=\"top\">[ZB14]</td>
+      <td valign=\"top\">Ziske, J.; B&ouml;drich, T.:
+        <i>http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf</i>,
+        Proc. of the 10th Modelica Conference, Lund, Sweden, pp. 165-172, March 10-12, 2014. Download from: <a  href=\"http://www.ep.liu.se/ecp/096/017/ecp14096017.pdf\">http://www.ep.liu.se/ecp/&shy;096/017/ecp14096017.pdf</a></td>
+    </tr>
+
+</table><br>
 </li>
 
 </ul>
@@ -164,21 +584,34 @@ Magna Physics Publishing and Oxford University Press 1994
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
+
+<h5>Version 3.2.2, 2014-12-05 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>
+
 <ul>
-<li>Added constant
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a></li>
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a></li>
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a></li>
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a></li>
+<li>Added package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a></li>
+<li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape\">FluxTubes.Interfaces.PartialFixedShape</a> for differentiability</li>
+<li>Updated <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">FluxTubes.UsersGuide.Literature</a></li>
+</ul>
+
+<h5>Version 3.2.2, 2014-01-15 (Christian&nbsp;Kral)</h5>
+
+<ul>
+<li>Added constant 
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance\">permeance model</a></li>
-<li>Added
+<li>Added 
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube\">GenericFluxTube</a></li>
 <li>Added parameter <code>useConductance</code> including alternative parameterization in
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">EddyCurrent</a></li>
-<li>Added
+<li>Added 
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Idle\">Idle</a></li>
-<li>Added
+<li>Added 
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Short\">Short</a></li>
-<li>Added
+<li>Added 
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.Crossing\">Crossing</a></li>
-
 </ul>
 
 <h5>Version 1.5, 2013-01-04 (Martin&nbsp;Otter, Thomas&nbsp;B&ouml;drich, Johannes&nbsp;Ziske)</h5>
@@ -187,7 +620,7 @@ Magna Physics Publishing and Oxford University Press 1994
 <li>Fixed initial parameter values</li>
 </ul>
 
-<h5>Verskon 1.4, 2011-08-01 (Thomas&nbsp;B&ouml;drich)</h5>
+<h5>Version 1.4, 2011-08-01 (Thomas&nbsp;B&ouml;drich)</h5>
 <ul>
 <li>MagneticPort declared with MagneticPotential instead of MagneticPotentialDifference</li>
 </ul>
@@ -237,7 +670,7 @@ Magna Physics Publishing and Oxford University Press 1994
 <h4>Contact</h4>
 
 <dl>
-<dt><b>Main Author:</b></dt>
+<dt><b>Main Authors:</b></dt>
 <dd>
     <a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\">Thomas B&ouml;drich</a><br>
     Dresden University of Technology<br>
@@ -245,7 +678,17 @@ Magna Physics Publishing and Oxford University Press 1994
     01062 Dresden, Germany<br>
     Phone: +49 - 351 - 463 36296<br>
     Fax: +49 - 351 - 463 37183<br>
-    email: <A HREF=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</A><br></dd>
+    email: <A HREF=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</A><br>
+</dd>
+<dd>
+    <a href=\"http://www.ifte.de/mitarbeiter/ziske.html\">Johannes Ziske</a><br>
+    Dresden University of Technology<br>
+    Institute of Electromechanical and Electronic Design<br>
+    01062 Dresden, Germany<br>
+    Phone: +49 - 351 - 463 35250<br>
+    Fax: +49 - 351 - 463 37183<br>
+    email: <A HREF=\"mailto:Johannes.Ziske@tu-dresden.de\">Johannes.Ziske@tu-dresden.de</A><br>
+</dd>
 </dl>
 
 <p><b>Acknowledgements:</b></p>
@@ -278,8 +721,8 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
       "Inductor with saturation in the ferromagnetic core"
       extends Modelica.Icons.Example;
 
-      Modelica.Magnetic.FluxTubes.Basic.Ground ground_m annotation (Placement(
-            transformation(extent={{50,-30},{70,-10}})));
+      FluxTubes.Basic.Ground ground_m annotation (Placement(transformation(
+              extent={{50,-30},{70,-10}}, rotation=0)));
       Modelica.Electrical.Analog.Sources.SineVoltage source(
         freqHz=50,
         phase=pi/2,
@@ -290,10 +733,10 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
             rotation=270)));
       Modelica.Electrical.Analog.Basic.Resistor r(R=7.5)
         "Inductor coil resistance" annotation (Placement(transformation(extent=
-                {{-61,10},{-41,30}})));
-      Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(N=600, i(
-            fixed=true)) "Inductor coil" annotation (Placement(transformation(
-              extent={{-30,0},{-10,20}})));
+                {{-61,10},{-41,30}}, rotation=0)));
+      FluxTubes.Basic.ElectroMagneticConverter coil(N=600, i(fixed=true))
+        "Inductor coil" annotation (Placement(transformation(extent={{-30,0},{-10,
+                20}}, rotation=0)));
       Basic.ConstantReluctance r_mLeak(R_m=1.2e6) "Constant leakage reluctance"
         annotation (Placement(transformation(
             origin={10,10},
@@ -306,7 +749,8 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
         mu_rConst=1,
         l=0.0001)
         "Reluctance of small parasitic air gap (ferromagnetic core packeted from single sheets)"
-        annotation (Placement(transformation(extent={{26,10},{46,30}})));
+        annotation (Placement(transformation(extent={{26,10},{46,30}}, rotation=
+               0)));
       Shapes.FixedShape.Cuboid r_mFe(
         mu_rConst=1000,
         a=0.025,
@@ -314,8 +758,7 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
         nonLinearPermeability=true,
         l=4*0.065,
         material=
-            Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.ElectricSheet.M350_50A(),
-
+            Material.SoftMagnetic.ElectricSheet.M350_50A(),
         B(start=0)) "Reluctance of ferromagnetic inductor core" annotation (
           Placement(transformation(
             origin={60,10},
@@ -323,7 +766,7 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
             rotation=270)));
 
       Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
-            transformation(extent={{-90,-30},{-70,-10}})));
+            transformation(extent={{-90,-30},{-70,-10}}, rotation=0)));
 
     equation
       connect(source.p, r.p)
@@ -345,10 +788,12 @@ This user's guide gives a short introduction to the underlying concept of <b>mag
         annotation (Line(points={{60,0},{-10,0},{-10,4}}, color={255,127,0}));
       connect(ground.p, source.n) annotation (Line(
           points={{-80,-10},{-80,0}},
-          color={0,0,255}));
+          color={0,0,255},
+          smooth=Smooth.None));
       connect(ground_m.port, r_mFe.port_n) annotation (Line(
           points={{60,-10},{60,0}},
-          color={255,127,0}));
+          color={255,127,0},
+          smooth=Smooth.None));
       annotation (experiment(StopTime=0.1, Tolerance=1e-007), Documentation(
             info="<html>
 <p>
@@ -362,7 +807,7 @@ This model demonstrates the effects of non-linear magnetisation characteristics 
 </pre>
 
 <p>
-The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
+The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient inital design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
 </p>
 
 <h4>Note</h4>
@@ -383,15 +828,14 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
         extends Modelica.Icons.Example;
 
         Modelica.Electrical.Analog.Basic.Ground pmGround annotation (Placement(
-              transformation(extent={{-70,-100},{-50,-80}})));
-        Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
-          pmActuator(x(start=0), material=
-              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB())
+              transformation(extent={{-70,-100},{-50,-80}}, rotation=0)));
+        FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator pmActuator(x(start=0),
+            material=Material.HardMagnetic.PlasticNdFeB())
           "Moving coil actuator described with permeance model" annotation (
-            Placement(transformation(extent={{-20,-70},{0,-50}})));
+            Placement(transformation(extent={{-20,-70},{0,-50}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed pmFixedPos(s0=0)
           "Fixed armature position" annotation (Placement(transformation(extent=
-                 {{10,-70},{30,-50}})));
+                 {{10,-70},{30,-50}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent pmRampCurrent(
           I=-6,
           duration=6,
@@ -401,10 +845,10 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Electrical.Analog.Basic.Ground cGround annotation (Placement(
-              transformation(extent={{-70,-20},{-50,0}})));
+              transformation(extent={{-70,-20},{-50,0}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed cFixedPos(s0=0)
           "Fixed armature position" annotation (Placement(transformation(extent=
-                 {{10,10},{30,30}})));
+                 {{10,10},{30,30}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.RampCurrent cRampCurrent(
           I=-6,
           duration=6,
@@ -413,18 +857,19 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
               origin={-60,20},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator
-          cActuator "Moving coil actuator described with converter constant"
-          annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+        FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator cActuator
+          "Moving coil actuator described with converter constant" annotation (
+            Placement(transformation(extent={{-20,10},{0,30}}, rotation=0)));
         Modelica.Blocks.Tables.CombiTable1Ds comparisonWithFEA(table=[-3, -9.65653;
               -2.5, -8.28587; -2, -6.82002; -1.5, -5.25898; -1, -3.60274; -0.5,
               -1.85131; 0, -0.00468; 0.5, 1.93714; 1, 3.97415; 1.5, 6.10636; 2,
               8.33376; 2.5, 10.65636; 3, 13.07415])
           "Column 1: current, col. 2: force; mu_rFe=const.=1000 in FEA model"
-          annotation (Placement(transformation(extent={{40,50},{60,70}})));
+          annotation (Placement(transformation(extent={{40,50},{60,70}},
+                rotation=0)));
         Modelica.Electrical.Analog.Sensors.CurrentSensor iSensor
           "Input value for look-up table with FEA results" annotation (
-            Placement(transformation(extent={{-50,40},{-30,20}})));
+            Placement(transformation(extent={{-50,40},{-30,20}}, rotation=0)));
       equation
         connect(pmFixedPos.flange, pmActuator.flange)
           annotation (Line(points={{20,-60},{0,-60}}, color={0,127,0}));
@@ -477,11 +922,10 @@ Simulation of the force-current characteristics of both converter models with th
         extends Modelica.Icons.Example;
 
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
-              transformation(extent={{-70,-30},{-50,-10}})));
-        Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
-          actuator(x(start=0), material=
-              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB())
-          annotation (Placement(transformation(extent={{-30,0},{-10,20}})));
+              transformation(extent={{-70,-30},{-50,-10}}, rotation=0)));
+        FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator actuator(x(start=0),
+            material=Material.HardMagnetic.PlasticNdFeB()) annotation (
+            Placement(transformation(extent={{-30,0},{-10,20}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.ConstantCurrent source(I=3)
           annotation (Placement(transformation(
               origin={-60,10},
@@ -492,9 +936,10 @@ Simulation of the force-current characteristics of both converter models with th
           duration=8,
           offset=-3.995e-3,
           startTime=-4) annotation (Placement(transformation(extent={{70,0},{50,
-                  20}})));
+                  20}}, rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position feedX(exact=true)
-          annotation (Placement(transformation(extent={{30,0},{10,20}})));
+          annotation (Placement(transformation(extent={{30,0},{10,20}},
+                rotation=0)));
         Modelica.Blocks.Tables.CombiTable1Ds comparisonWithFEA(table=[-0.004, -8.8729,
               -9.07503, 0.00332; -0.0035, -9.05239, -9.25042, 0.00352; -0.003,
               -9.1915, -9.38558, 0.00371; -0.0025, -9.28247, -9.47266, 0.0039;
@@ -506,7 +951,8 @@ Simulation of the force-current characteristics of both converter models with th
               0.00581; 0.003, -9.23707, -9.38112, 0.006; 0.0035, -9.09497, -9.23417,
               0.00619; 0.004, -8.91839, -9.05337, 0.00638])
           "Column 1: position, col.2: force with non-linear stator iron, col.3: force with mu_rFe=const.=1000, col.4: inductance with mu_rFe=const.=1000"
-          annotation (Placement(transformation(extent={{50,40},{70,60}})));
+          annotation (Placement(transformation(extent={{50,40},{70,60}},
+                rotation=0)));
       equation
         connect(ground.p, source.n)
           annotation (Line(points={{-60,-10},{-60,0}}, color={0,0,255}));
@@ -547,44 +993,41 @@ Simulation of the force-stroke characteristic of the <a href=\"modelica://Modeli
         extends Modelica.Icons.Example;
 
         Modelica.Electrical.Analog.Basic.Ground pmGround annotation (Placement(
-              transformation(extent={{-80,-70},{-60,-50}})));
+              transformation(extent={{-80,-70},{-60,-50}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage pmSource(startTime=0, V=
               pmActuator.R*1.5) "Steady state current 1.5A" annotation (
             Placement(transformation(
               origin={-70,-30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator
-          pmActuator(
-          material=
-              Modelica.Magnetic.FluxTubes.Material.HardMagnetic.PlasticNdFeB(),
+        FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator pmActuator(
+          material=Material.HardMagnetic.PlasticNdFeB(),
           x(start=pmActuator.x_min, fixed=true),
           armature(v(fixed=true)),
           coil(i(fixed=true)))
           "Moving coil actuator described with permeance model" annotation (
-            Placement(transformation(extent={{-40,-40},{-20,-20}})));
+            Placement(transformation(extent={{-40,-40},{-20,-20}}, rotation=0)));
 
         Modelica.Mechanics.Translational.Components.Mass pmLoad(m=0.05)
           "Load to be moved in addition to the armature mass" annotation (
-            Placement(transformation(extent={{0,-40},{20,-20}})));
+            Placement(transformation(extent={{0,-40},{20,-20}}, rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground cGround annotation (Placement(
-              transformation(extent={{-80,0},{-60,20}})));
+              transformation(extent={{-80,0},{-60,20}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage cSource(startTime=0, V=
               cActuator.R*1.5) "Steady state current 1.5A" annotation (
             Placement(transformation(
               origin={-70,40},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator
-          cActuator(
+        FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator cActuator(
           x(start=cActuator.x_min, fixed=true),
           armature(v(fixed=true)),
           l(i(start=0, fixed=true)))
           "Moving coil actuator described with converter constant" annotation (
-            Placement(transformation(extent={{-40,30},{-20,50}})));
+            Placement(transformation(extent={{-40,30},{-20,50}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass cLoad(m=0.05)
           "Load to be moved in addition to the armature mass" annotation (
-            Placement(transformation(extent={{0,30},{20,50}})));
+            Placement(transformation(extent={{0,30},{20,50}}, rotation=0)));
       equation
         connect(pmLoad.flange_a, pmActuator.flange)
           annotation (Line(points={{0,-30},{-20,-30}}, color={0,127,0}));
@@ -665,8 +1108,8 @@ Whereas the steady state current is the same in both models, the steady state ac
           parameter SI.Length l_FeOut=4e-3
             "Radial thickness of outer back iron (for estimation of leakage permeance)";
 
-          parameter Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData
-            material=Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData()
+          parameter FluxTubes.Material.HardMagnetic.BaseData material=
+              Material.HardMagnetic.BaseData()
             "Ferromagnetic material characteristics"
             annotation (choicesAllMatching=true, Dialog(group="Material"));
 
@@ -691,16 +1134,14 @@ Whereas the steady state current is the same in both models, the steady state ac
 
           SI.Inductance L "Coil inductance";
 
-          Modelica.Magnetic.FluxTubes.Sources.ConstantMagneticPotentialDifference
-            mmf_PM(final V_m=material.H_cB*l_PM)
-            "Permanent magnet's magnetomotive force" annotation (Placement(
-                transformation(
+          FluxTubes.Sources.ConstantMagneticPotentialDifference mmf_PM(final V_m=
+               material.H_cB*l_PM) "Permanent magnet's magnetomotive force"
+            annotation (Placement(transformation(
                 origin={10,20},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
 
-          Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper
-            armature(
+          FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper armature(
             final L=0,
             final m=m_a,
             final c=c,
@@ -709,7 +1150,8 @@ Whereas the steady state current is the same in both models, the steady state ac
             final x_max=x_max,
             final x_min=x_min)
             "Inertia of moving coil + coil carrier; stoppers at end of stroke range"
-            annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+            annotation (Placement(transformation(extent={{60,-10},{80,10}},
+                  rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R) annotation (
               Placement(transformation(
                 origin={-80,30},
@@ -717,14 +1159,13 @@ Whereas the steady state current is the same in both models, the steady state ac
                 rotation=270)));
 
           Basic.Ground ground annotation (Placement(transformation(extent={{30,
-                    -38},{50,-18}})));
-          Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
-              final N=N) annotation (Placement(transformation(
+                    -38},{50,-18}}, rotation=0)));
+          FluxTubes.Basic.ElectroMagneticConverter coil(final N=N) annotation (
+              Placement(transformation(
                 origin={0,-20},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux
-            g_ma(
+          FluxTubes.Shapes.Force.HollowCylinderRadialFlux g_ma(
             final dlBydx=1,
             final l=t/2 + x,
             final r_i=r_core,
@@ -734,8 +1175,7 @@ Whereas the steady state current is the same in both models, the steady state ac
                 origin={-20,0},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderRadialFlux
-            g_mb(
+          FluxTubes.Shapes.Force.HollowCylinderRadialFlux g_mb(
             final r_i=r_core,
             final r_o=r_core + l_air + l_PM,
             final dlBydx=-1,
@@ -745,8 +1185,7 @@ Whereas the steady state current is the same in both models, the steady state ac
                 origin={30,0},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces
-            g_mLeak1(
+          FluxTubes.Shapes.Leakage.CoaxCylindersEndFaces g_mLeak1(
             final r_1=r_core + l_air + l_PM,
             final r_2=r_core + l_air + l_PM + l_FeOut,
             final r_0=r_core)
@@ -755,8 +1194,8 @@ Whereas the steady state current is the same in both models, the steady state ac
                 origin={-60,10},
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.HalfCylinder g_mLeak2(
-              final l=2*pi*(r_core + (l_air + l_PM)/2))
+          FluxTubes.Shapes.Leakage.HalfCylinder g_mLeak2(final l=2*pi*(r_core +
+                (l_air + l_PM)/2))
             "Leakage between edges of ferromagnetic stator core and outer back iron"
             annotation (Placement(transformation(
                 origin={-40,10},
@@ -765,20 +1204,21 @@ Whereas the steady state current is the same in both models, the steady state ac
 
           Modelica.Electrical.Analog.Interfaces.PositivePin p
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-110,50},{-90,70}})));
+                    {{-110,50},{-90,70}}, rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-90,-70},{-110,-50}})));
+                    {{-90,-70},{-110,-50}}, rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
             "Flange of component" annotation (Placement(transformation(extent={
-                    {90,-10},{110,10}})));
+                    {90,-10},{110,10}}, rotation=0)));
         equation
           x = flange.s;
           L = coil.N^2*(g_ma.G_m + g_mLeak1.G_m + g_mLeak2.G_m);
 
           connect(armature.flange_b, flange) annotation (Line(
               points={{80,0},{100,0}},
-              color={0,127,0}));
+              color={0,127,0},
+              pattern=LinePattern.None));
           connect(r.p, p) annotation (Line(points={{-80,40},{-80,60},{-100,60}},
                 color={0,0,255}));
           connect(armature.flange_a, g_mb.flange)
@@ -810,7 +1250,8 @@ Whereas the steady state current is the same in both models, the steady state ac
                 color={0,0,255}));
           connect(ground.port, g_mb.port_n) annotation (Line(
               points={{40,-18},{40,-10},{30,-10}},
-              color={255,127,0}));
+              color={255,127,0},
+              smooth=Smooth.None));
           annotation (Documentation(info="<html>
 <p>
 In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
@@ -894,9 +1335,8 @@ Both force components are properly considered with a simple permeance model as s
 
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
             "Coil resistance" annotation (Placement(transformation(extent={{-90,
-                    50},{-70,70}})));
-          Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper
-            armature(
+                    50},{-70,70}}, rotation=0)));
+          FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper armature(
             final m=m_a,
             final x_max=x_max,
             final x_min=x_min,
@@ -904,23 +1344,24 @@ Both force components are properly considered with a simple permeance model as s
             final c=c,
             final d=d,
             n=2) "Armature inertia with stoppers at end of stroke range"
-            annotation (Placement(transformation(extent={{60,-10},{80,10}})));
+            annotation (Placement(transformation(extent={{60,-10},{80,10}},
+                  rotation=0)));
 
           Modelica.Electrical.Analog.Basic.Inductor l(final L=L)
             "Coil inductance" annotation (Placement(transformation(extent={{-60,
-                    50},{-40,70}})));
+                    50},{-40,70}}, rotation=0)));
           Modelica.Electrical.Analog.Basic.TranslationalEMF
             electroTranslationalConverter(final k=k) annotation (Placement(
-                transformation(extent={{-40,-10},{-20,10}})));
+                transformation(extent={{-40,-10},{-20,10}}, rotation=0)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-110,50},{-90,70}})));
+                    {{-110,50},{-90,70}}, rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-90,-70},{-110,-50}})));
+                    {{-90,-70},{-110,-50}}, rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
             "Flange of component" annotation (Placement(transformation(extent={
-                    {90,-10},{110,10}})));
+                    {90,-10},{110,10}}, rotation=0)));
         equation
           flange.s = x;
 
@@ -997,17 +1438,18 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
           height=-(advancedSolenoid.x_max - advancedSolenoid.x_min),
           offset=advancedSolenoid.x_max)
           "Prescribed armature position, slow enforced motion from x_max to x_min"
-          annotation (Placement(transformation(extent={{80,-10},{60,10}})));
+          annotation (Placement(transformation(extent={{80,-10},{60,10}},
+                rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground advancedGround annotation (
-            Placement(transformation(extent={{-80,10},{-60,30}})));
+            Placement(transformation(extent={{-80,10},{-60,30}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step)
           annotation (Placement(transformation(
               origin={-70,50},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid
-          advancedSolenoid annotation (Placement(transformation(extent={{-40,40},
-                  {-20,60}})));
+        FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid advancedSolenoid
+          annotation (Placement(transformation(extent={{-40,40},{-20,60}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position advancedFeed_x(f_crit=
              1000, exact=false)
                                annotation (Placement(transformation(
@@ -1015,15 +1457,15 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
               extent={{-10,-10},{10,10}},
               rotation=180)));
         Modelica.Electrical.Analog.Basic.Ground simpleGround annotation (
-            Placement(transformation(extent={{-80,-90},{-60,-70}})));
+            Placement(transformation(extent={{-80,-90},{-60,-70}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step)
           annotation (Placement(transformation(
               origin={-70,-50},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid
-          simpleSolenoid annotation (Placement(transformation(extent={{-40,-60},
-                  {-20,-40}})));
+        FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid simpleSolenoid
+          annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Sources.Position simpleFeed_x(f_crit=
               1000, exact=false) annotation (Placement(transformation(
               origin={0,-50},
@@ -1044,7 +1486,8 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
               0.0045, -4.0912, 6.2747e-005, 0.04205; 0.00475, -3.7456,
               6.1231e-005, 0.040733; 0.005, -3.5869, 5.9691e-005, 0.039467])
           "Valid for u_source=12V only; column 1: position, col.2: force, col.3: armature flux, col.4: inductance"
-          annotation (Placement(transformation(extent={{60,60},{80,80}})));
+          annotation (Placement(transformation(extent={{60,60},{80,80}},
+                rotation=0)));
       equation
         connect(advancedGround.p, advancedSource.n)
           annotation (Line(points={{-70,30},{-70,40}}, color={0,0,255}));
@@ -1120,31 +1563,31 @@ As mentioned in the description of both magnetic network models, one can tell th
         parameter SI.Voltage v_step=12 "Applied voltage";
 
         Modelica.Electrical.Analog.Basic.Ground advancedGround annotation (
-            Placement(transformation(extent={{-70,-10},{-50,10}})));
+            Placement(transformation(extent={{-70,-10},{-50,10}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage advancedSource(V=v_step)
           annotation (Placement(transformation(
               origin={-60,30},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid
-          advancedSolenoid(x(fixed=true)) annotation (Placement(transformation(
-                extent={{-20,20},{0,40}})));
+        FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid advancedSolenoid(x(fixed=
+                true)) annotation (Placement(transformation(extent={{-20,20},{0,
+                  40}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass advancedLoad(m=0.01)
           "translatory load to be pulled horizontally" annotation (Placement(
-              transformation(extent={{20,20},{40,40}})));
+              transformation(extent={{20,20},{40,40}}, rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground simpleGround annotation (
-            Placement(transformation(extent={{-70,-90},{-50,-70}})));
+            Placement(transformation(extent={{-70,-90},{-50,-70}}, rotation=0)));
         Modelica.Electrical.Analog.Sources.StepVoltage simpleSource(V=v_step)
           annotation (Placement(transformation(
               origin={-60,-50},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid
-          simpleSolenoid(x(fixed=true)) annotation (Placement(transformation(
-                extent={{-20,-60},{0,-40}})));
+        FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid simpleSolenoid(x(fixed=
+                true)) annotation (Placement(transformation(extent={{-20,-60},{0,
+                  -40}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.Mass simpleLoad(m=0.01)
           "translatory load to be pulled horizontally" annotation (Placement(
-              transformation(extent={{20,-60},{40,-40}})));
+              transformation(extent={{20,-60},{40,-40}}, rotation=0)));
         Modelica.Blocks.Sources.CombiTimeTable comparisonWithFEA(
           table=[0, 0, 0, 0.005; 2.61165e-007, 7.93537e-005, -1.97914e-005,
               0.005; 2.61165e-007, 7.93537e-005, -1.97914e-005, 0.005; 0.0001,
@@ -1501,7 +1944,8 @@ As mentioned in the description of both magnetic network models, one can tell th
           columns=2:4,
           extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint)
           "Valid for u_source=12VDC and m_load=0.01kg only; column 2: current, col.3: force, col.4: position"
-          annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+          annotation (Placement(transformation(extent={{-40,60},{-20,80}},
+                rotation=0)));
 
       equation
         connect(advancedGround.p, advancedSource.n)
@@ -1582,11 +2026,10 @@ The characteristic current drop during pull-in is due to both armature motion an
           parameter SI.Length t_airPar=0.65e-3
             "Radial thickness of parasitic air gap due to slide guiding";
 
-          parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
-            material=
-              Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
+          parameter FluxTubes.Material.SoftMagnetic.BaseData material=
+              Material.SoftMagnetic.Steel.Steel_9SMnPb28()
             "Ferromagnetic material characteristics"
-            annotation (choicesAllMatching=true,Dialog(group="Material"));
+            annotation (choicesAllMatching=true, Dialog(group="Material"));
 
           //armature
           parameter SI.Radius r_arm=5e-3 "Armature radius = pole radius"
@@ -1614,29 +2057,27 @@ The characteristic current drop during pull-in is due to both armature motion an
             "Density for calculation of armature mass from geometry";
 
         public
-          Modelica.Magnetic.FluxTubes.Basic.Ground ground annotation (Placement(
-                transformation(extent={{50,10},{70,30}})));
-          Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
-              final N=N, i(fixed=true)) "Electro-magnetic converter"
-            annotation (Placement(transformation(
+          FluxTubes.Basic.Ground ground annotation (Placement(transformation(
+                  extent={{50,10},{70,30}}, rotation=0)));
+          FluxTubes.Basic.ElectroMagneticConverter coil(final N=N, i(fixed=true))
+            "Electro-magnetic converter" annotation (Placement(transformation(
                 origin={0,20},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
           Modelica.Electrical.Analog.Basic.Resistor r(final R=R)
             "Coil resistance" annotation (Placement(transformation(extent={{-70,
-                    -30},{-50,-10}})));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFeYokeSide(
+                    -30},{-50,-10}}, rotation=0)));
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeYokeSide(
             final nonLinearPermeability=true,
             final material=material,
             final l=l_yoke - (t_poleBot + t_yokeBot)/2,
             final r_i=r_yokeIn,
             final r_o=r_yokeOut)
             "Permeance of of hollow cylindric section of ferromagnetic yoke"
-            annotation (Placement(transformation(extent={{-10,80},{10,100}})));
+            annotation (Placement(transformation(extent={{-10,80},{10,100}},
+                  rotation=0)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFeArm(
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeArm(
             final nonLinearPermeability=true,
             final material=material,
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
@@ -1648,8 +2089,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 extent={{-10,-10},{10,10}},
                 rotation=180)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderAxialFlux
-            g_mAirWork(
+          FluxTubes.Shapes.Force.HollowCylinderAxialFlux g_mAirWork(
             final mu_r=1,
             final dlBydx=1,
             final r_i=0,
@@ -1661,8 +2101,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 origin={-30,30},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            g_mFeYokeBot(
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mFeYokeBot(
             final nonLinearPermeability=true,
             final material=material,
             final l=t_yokeBot,
@@ -1674,8 +2113,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            g_mAirPar(
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mAirPar(
             final nonLinearPermeability=false,
             final mu_rConst=1,
             final l=t_yokeBot,
@@ -1686,8 +2124,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 origin={80,50},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            g_mFePoleBot(
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mFePoleBot(
             final l=t_poleBot,
             final r_i=r_arm,
             final r_o=r_yokeIn,
@@ -1698,8 +2135,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFePole(
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFePole(
             final nonLinearPermeability=true,
             final material=material,
             final l=l_pole,
@@ -1710,8 +2146,7 @@ The characteristic current drop during pull-in is due to both armature motion an
                 extent={{10,-10},{-10,10}},
                 rotation=270)));
 
-          Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper
-            armature(
+          FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper armature(
             final m=rho_steel*l_arm*pi*r_arm^2,
             final x_max=x_max,
             final x_min=x_min,
@@ -1721,23 +2156,23 @@ The characteristic current drop during pull-in is due to both armature motion an
             n=2,
             v(fixed=true))
             "Inertia of armature and stoppers at end of stroke range"
-            annotation (Placement(transformation(extent={{64,-10},{84,10}})));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(l=
-               2*pi*(r_arm + t_airPar/2))
+            annotation (Placement(transformation(extent={{64,-10},{84,10}},
+                  rotation=0)));
+          FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(l=2*pi*(r_arm +
+                t_airPar/2))
             "Leakage permeance between inner edge of yoke bore and armature side face"
             annotation (Placement(transformation(
                 origin={60,50},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder
-            g_mLeak2(final l=2*pi*r_arm, final ratio=8)
+          FluxTubes.Shapes.Leakage.QuarterHollowCylinder g_mLeak2(final l=2*pi*
+                r_arm, final ratio=8)
             "Leakage permeance between inner side of yoke bottom and armature side (r_i = t_airPar)"
             annotation (Placement(transformation(
                 origin={40,50},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles
-            g_mLeakWork(
+          FluxTubes.Shapes.Force.LeakageAroundPoles g_mLeakWork(
             final mu_r=1,
             final dlBydx=1,
             final w=2*pi*(r_arm + 0.0015),
@@ -1751,13 +2186,13 @@ The characteristic current drop during pull-in is due to both armature motion an
                 rotation=180)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-110,50},{-90,70}})));
+                    {{-110,50},{-90,70}}, rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-90,-70},{-110,-50}})));
+                    {{-90,-70},{-110,-50}}, rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
             "Flange of component" annotation (Placement(transformation(extent={
-                    {90,-10},{110,10}})));
+                    {90,-10},{110,10}}, rotation=0)));
         equation
           x = flange.s;
           connect(r.p, p) annotation (Line(points={{-70,-20},{-90,-20},{-90,60},
@@ -1803,7 +2238,8 @@ The characteristic current drop during pull-in is due to both armature motion an
                   {6,35},{6,30}}, color={255,127,0}));
           connect(ground.port, g_mLeak1.port_p) annotation (Line(
               points={{60,30},{60,40}},
-              color={255,127,0}));
+              color={255,127,0},
+              smooth=Smooth.None));
           annotation (Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
@@ -1906,11 +2342,10 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           parameter SI.Length t_airPar=0.65e-3
             "Radial thickness of parasitic air gap due to slide guiding";
 
-          parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
-            material=
-              Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
+          parameter FluxTubes.Material.SoftMagnetic.BaseData material=
+              Material.SoftMagnetic.Steel.Steel_9SMnPb28()
             "Ferromagnetic material characteristics"
-            annotation (choicesAllMatching=true,Dialog(group="Material"));
+            annotation (choicesAllMatching=true, Dialog(group="Material"));
 
           //armature
           parameter SI.Radius r_arm=5e-3 "Armature radius = pole radius"
@@ -1942,10 +2377,9 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             "Density for calculation of armature mass from geometry";
 
         public
-          Modelica.Magnetic.FluxTubes.Basic.Ground ground annotation (Placement(
-                transformation(extent={{42,2},{62,22}})));
-          Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil1(
-              final N=N/2, i(fixed=true))
+          FluxTubes.Basic.Ground ground annotation (Placement(transformation(
+                  extent={{42,2},{62,22}}, rotation=0)));
+          FluxTubes.Basic.ElectroMagneticConverter coil1(final N=N/2, i(fixed=true))
             "Electro-magnetic conversion in first half of coil" annotation (
               Placement(transformation(
                 origin={-46,20},
@@ -1953,19 +2387,18 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 rotation=90)));
           Modelica.Electrical.Analog.Basic.Resistor r_1(final R=R)
             "Resistance of first half of coil" annotation (Placement(
-                transformation(extent={{-84,-30},{-64,-10}})));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFeYokeSide1(
+                transformation(extent={{-84,-30},{-64,-10}}, rotation=0)));
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeYokeSide1(
             final l=l_yoke/2 - t_poleBot/2,
             final r_i=r_yokeIn,
             final r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
             "Permeance of of first half of yoke's hollow cylindric section"
-            annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
+            annotation (Placement(transformation(extent={{-50,70},{-30,90}},
+                  rotation=0)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFeArm(
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeArm(
             final r_i=0,
             final l=l_yoke - (t_yokeBot + t_poleBot)/2 - l_pole - (x_max +
                 x_min)/2,
@@ -1977,8 +2410,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.Force.HollowCylinderAxialFlux
-            g_mAirWork(
+          FluxTubes.Shapes.Force.HollowCylinderAxialFlux g_mAirWork(
             final r_o=r_arm,
             final useSupport=false,
             final mu_r=1,
@@ -1990,8 +2422,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 origin={-20,30},
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            g_mFeYokeBot(
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mFeYokeBot(
             final l=t_yokeBot,
             final r_i=r_arm + t_airPar,
             final r_o=r_yokeIn,
@@ -2003,8 +2434,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            g_mAirPar(
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mAirPar(
             final l=t_yokeBot,
             final r_i=r_arm,
             final r_o=r_arm + t_airPar,
@@ -2015,8 +2445,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 origin={74,40},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            g_mFePoleBot(
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux g_mFePoleBot(
             final l=t_poleBot,
             final r_i=r_arm,
             final r_o=r_yokeIn,
@@ -2027,8 +2456,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
 
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFePole(
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFePole(
             final l=l_pole,
             final r_o=r_arm,
             final nonLinearPermeability=true,
@@ -2039,8 +2467,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 extent={{-10,10},{10,-10}},
                 rotation=180)));
 
-          Modelica.Magnetic.FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper
-            armature(
+          FluxTubes.Examples.Utilities.TranslatoryArmatureAndStopper armature(
             final x_max=x_max,
             final x_min=x_min,
             final m=rho_steel*l_arm*pi*r_arm^2,
@@ -2050,23 +2477,23 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             n=2,
             v(fixed=true))
             "Inertia of armature and stoppers at end of stroke range"
-            annotation (Placement(transformation(extent={{64,-10},{84,10}})));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(
-              final l=2*pi*(r_arm + t_airPar/2))
+            annotation (Placement(transformation(extent={{64,-10},{84,10}},
+                  rotation=0)));
+          FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak1(final l=2*pi*(r_arm +
+                t_airPar/2))
             "Leakage permeance between inner edge of yoke bore and armature side face"
             annotation (Placement(transformation(
                 origin={60,40},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterHollowCylinder
-            g_mLeak2(final ratio=8, final l=2*pi*r_arm)
+          FluxTubes.Shapes.Leakage.QuarterHollowCylinder g_mLeak2(final ratio=8,
+              final l=2*pi*r_arm)
             "Leakage permeance between inner side of yoke bottom and armature side (r_i = t_airPar)"
             annotation (Placement(transformation(
                 origin={46,40},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil2(
-              final N=N/2, i(fixed=true))
+          FluxTubes.Basic.ElectroMagneticConverter coil2(final N=N/2, i(fixed=true))
             "Electro-magnetic conversion in first half of coil" annotation (
               Placement(transformation(
                 origin={30,20},
@@ -2075,9 +2502,8 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           Modelica.Electrical.Analog.Basic.Capacitor c_par1(final C=C_par, v(
                 start=0, fixed=true))
             "Parasitic capacitance assigned to first half of coil" annotation (
-              Placement(transformation(extent={{-60,-50},{-40,-30}})));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux
-            G_mLeakRad(
+              Placement(transformation(extent={{-60,-50},{-40,-30}}, rotation=0)));
+          FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux G_mLeakRad(
             final mu_rConst=1,
             final r_i=r_arm,
             final r_o=r_yokeIn,
@@ -2088,38 +2514,37 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 origin={0,56},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux
-            g_mFeYokeSide2(
+          FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux g_mFeYokeSide2(
             final l=l_yoke/2 - t_yokeBot/2,
             final r_i=r_yokeIn,
             r_o=r_yokeOut,
             final nonLinearPermeability=true,
             final material=material)
             "Permeance of of second half of yoke's hollow cylindric section"
-            annotation (Placement(transformation(extent={{20,70},{40,90}})));
+            annotation (Placement(transformation(extent={{20,70},{40,90}},
+                  rotation=0)));
 
           Modelica.Electrical.Analog.Basic.Capacitor c_par2(final C=C_par, v(
                 start=0, fixed=true))
             "Parasitic capacitance assigned to second half of coil" annotation (
-             Placement(transformation(extent={{16,-50},{36,-30}})));
+             Placement(transformation(extent={{16,-50},{36,-30}}, rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_par1(final R=R_par)
             "Parasitic resistance assigned to first half of coil" annotation (
-              Placement(transformation(extent={{-84,-50},{-64,-30}})));
+              Placement(transformation(extent={{-84,-50},{-64,-30}}, rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_par2(final R=R_par)
             "Parasitic resistance assigned to second half of coil" annotation (
-              Placement(transformation(extent={{-8,-50},{12,-30}})));
+              Placement(transformation(extent={{-8,-50},{12,-30}}, rotation=0)));
           Modelica.Electrical.Analog.Basic.Resistor r_2(final R=R)
             "Resistance of second half of coil" annotation (Placement(
-                transformation(extent={{-8,-30},{12,-10}})));
-          Modelica.Magnetic.FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak3(
-              final l=2*pi*(r_arm + t_airPar/2))
+                transformation(extent={{-8,-30},{12,-10}}, rotation=0)));
+          FluxTubes.Shapes.Leakage.QuarterCylinder g_mLeak3(final l=2*pi*(r_arm +
+                t_airPar/2))
             "Leakage permeance between outer edge of yoke bore and armature side face"
             annotation (Placement(transformation(
                 origin={88,40},
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
-          Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles
-            g_mLeakWork(
+          FluxTubes.Shapes.Force.LeakageAroundPoles g_mLeakWork(
             final w=2*pi*(r_arm + 0.0015),
             final r=0.003,
             final useSupport=false,
@@ -2133,13 +2558,13 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 rotation=180)));
           Modelica.Electrical.Analog.Interfaces.PositivePin p
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-110,50},{-90,70}})));
+                    {{-110,50},{-90,70}}, rotation=0)));
           Modelica.Electrical.Analog.Interfaces.NegativePin n
             "Electrical connector" annotation (Placement(transformation(extent=
-                    {{-90,-70},{-110,-50}})));
+                    {{-90,-70},{-110,-50}}, rotation=0)));
           Modelica.Mechanics.Translational.Interfaces.Flange_b flange
             "Flange of component" annotation (Placement(transformation(extent={
-                    {90,-10},{110,10}})));
+                    {90,-10},{110,10}}, rotation=0)));
         equation
           x = flange.s;
           Psi_tot = coil1.Psi + coil2.Psi;
@@ -2165,8 +2590,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(coil2.port_p, g_mFeArm.port_p)
             annotation (Line(points={{24,30},{20,30}}, color={255,127,0}));
           connect(G_mLeakRad.port_p, g_mFeArm.port_n) annotation (Line(points={{
-                  0,46},{0,46},{0,30}},
-                                         color={255,127,0}));
+                  0,46},{0,46},{0,30}},  color={255,127,0}));
           connect(g_mAirWork.port_p, g_mFeArm.port_n)
             annotation (Line(points={{-10,30},{0,30}}, color={255,127,0}));
           connect(coil1.port_n, g_mAirWork.port_n)
@@ -2182,8 +2606,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           connect(g_mFePoleBot.port_n, g_mFeYokeSide1.port_p) annotation (Line(
                 points={{-78,66},{-78,80},{-50,80}}, color={255,127,0}));
           connect(g_mFeYokeSide1.port_n, G_mLeakRad.port_n) annotation (Line(
-                points={{-30,80},{0,80},{0,66}},
-                                                 color={255,127,0}));
+                points={{-30,80},{0,80},{0,66}}, color={255,127,0}));
           connect(g_mFeYokeSide1.port_n, g_mFeYokeSide2.port_p)
             annotation (Line(points={{-30,80},{20,80}}, color={255,127,0}));
           connect(g_mFeYokeSide2.port_n, g_mFeYokeBot.port_n)
@@ -2216,7 +2639,8 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                   {-52,10}}, color={0,0,255}));
           connect(ground.port, g_mLeak2.port_p) annotation (Line(
               points={{52,22},{52,30},{46,30}},
-              color={255,127,0}));
+              color={255,127,0},
+              smooth=Smooth.None));
           annotation (Icon(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
@@ -2309,6 +2733,1667 @@ The differences between these two models in static behaviour can be analysed and
 </html>"));
     end SolenoidActuator;
 
+    package Hysteresis
+      extends Modelica.Icons.ExamplesPackage;
+
+      model HysteresisModelComparison
+        "Comparison of the different hysteresis models"
+        extends Modelica.Icons.Example;
+        Modelica.Blocks.Sources.TimeTable timeTable(table=[0.0,0.0; 1,500; 3,-500;
+              5,500; 6,-24; 7,24; 8,-24; 9,24; 10,-24; 11,24; 12,-24; 13,24; 14,
+              -24; 15,24])
+          annotation (Placement(transformation(extent={{-88,62},{-76,74}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance W1(N=1) "Winding 1"
+          annotation (Placement(transformation(extent={{2,58},{22,78}})));
+        Modelica.Electrical.Analog.Basic.Ground elGnd1
+          annotation (Placement(transformation(extent={{-24,38},{-4,58}})));
+        Basic.Ground magGnd1
+          annotation (Placement(transformation(extent={{12,38},{32,58}})));
+        Modelica.Electrical.Analog.Basic.Resistor R1(R=1)
+          annotation (Placement(transformation(extent={{-22,68},{-2,88}})));
+        Modelica.Electrical.Analog.Sources.SignalVoltage V1 annotation (
+            Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={-28,68})));
+        Basic.ElectroMagneticConverterWithLeakageInductance W2(N=1) "Winding 1"
+          annotation (Placement(transformation(extent={{2,8},{22,28}})));
+        Modelica.Electrical.Analog.Basic.Ground elGnd2
+          annotation (Placement(transformation(extent={{-22,-12},{-2,8}})));
+        Shapes.HysteresisAndMagnets.GenericHystTellinenTable TellinenTable(
+          includeEddyCurrents=false,
+          sigma=1,
+          K=100,
+          mat=FluxTubes.Material.HysteresisTableData.M330_50A(),
+          l=1,
+          MagRel(fixed=true, start=0))
+               annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={40,28})));
+        Basic.Ground magGnd2
+          annotation (Placement(transformation(extent={{12,-12},{32,8}})));
+        Modelica.Electrical.Analog.Basic.Resistor R2(R=1)
+          annotation (Placement(transformation(extent={{-22,18},{-2,38}})));
+        Modelica.Electrical.Analog.Sources.SignalVoltage V2 annotation (
+            Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={-28,18})));
+        Basic.ElectroMagneticConverterWithLeakageInductance W3(N=1) "Winding 1"
+          annotation (Placement(transformation(extent={{2,-44},{22,-24}})));
+        Modelica.Electrical.Analog.Basic.Ground elGnd3
+          annotation (Placement(transformation(extent={{-22,-64},{-2,-44}})));
+        Shapes.HysteresisAndMagnets.GenericHystPreisachEverett PreisachEverett(
+          includeEddyCurrents=false,
+          sigma=1,
+          mat=FluxTubes.Material.HysteresisEverettParameter.M330_50A(),
+          l=1,
+          MagRel(fixed=true, start=0))
+               annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={40,-24})));
+        Basic.Ground magGnd3
+          annotation (Placement(transformation(extent={{12,-64},{32,-44}})));
+        Modelica.Electrical.Analog.Basic.Resistor R3(R=1)
+          annotation (Placement(transformation(extent={{-22,-34},{-2,-14}})));
+        Modelica.Electrical.Analog.Sources.SignalVoltage V3 annotation (
+            Placement(transformation(
+              extent={{10,-10},{-10,10}},
+              rotation=90,
+              origin={-28,-34})));
+        Modelica.Blocks.Math.Gain gain(k=1)
+          annotation (Placement(transformation(extent={{-68,62},{-56,74}})));
+        Shapes.HysteresisAndMagnets.GenericHystTellinenSoft TellinenSoft(
+          l=1,
+          Js=1.35,
+          Br=1.0,
+          Hc=40,
+          K=100,
+          MagRel(fixed=true, start=0))
+          annotation (Placement(transformation(extent={{30,70},{50,90}})));
+      equation
+        connect(W1.port_n, magGnd1.port) annotation (Line(
+            points={{22,62},{22,58}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(R1.n, W1.p) annotation (Line(
+            points={{-2,78},{2,78},{2,74}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(W1.n, elGnd1.p) annotation (Line(
+            points={{2,62},{2,58},{-14,58}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(V1.p, R1.p) annotation (Line(
+            points={{-28,78},{-22,78}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(elGnd1.p, V1.n) annotation (Line(
+            points={{-14,58},{-28,58}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(W2.port_n, magGnd2.port) annotation (Line(
+            points={{22,12},{22,8}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(W2.port_p, TellinenTable.port_p) annotation (Line(
+            points={{22,24},{22,28},{30,28}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(R2.n, W2.p) annotation (Line(
+            points={{-2,28},{2,28},{2,24}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(W2.n, elGnd2.p) annotation (Line(
+            points={{2,12},{2,8},{-12,8}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(V2.p, R2.p) annotation (Line(
+            points={{-28,28},{-22,28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(elGnd2.p, V2.n) annotation (Line(
+            points={{-12,8},{-28,8}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(TellinenTable.port_n, magGnd2.port) annotation (Line(
+            points={{50,28},{54,28},{54,8},{22,8}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(V2.v, V1.v) annotation (Line(
+            points={{-35,18},{-44,18},{-44,68},{-35,68}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(W3.port_n, magGnd3.port) annotation (Line(
+            points={{22,-40},{22,-44}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(W3.port_p, PreisachEverett.port_p) annotation (Line(
+            points={{22,-28},{22,-24},{30,-24}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(R3.n, W3.p) annotation (Line(
+            points={{-2,-24},{2,-24},{2,-28}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(W3.n, elGnd3.p) annotation (Line(
+            points={{2,-40},{2,-44},{-12,-44}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(V3.p, R3.p) annotation (Line(
+            points={{-28,-24},{-22,-24}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(elGnd3.p, V3.n) annotation (Line(
+            points={{-12,-44},{-28,-44}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(PreisachEverett.port_n, magGnd3.port) annotation (Line(
+            points={{50,-24},{54,-24},{54,-44},{22,-44}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(V3.v, V1.v) annotation (Line(
+            points={{-35,-34},{-44,-34},{-44,68},{-35,68}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(timeTable.y, gain.u) annotation (Line(
+            points={{-75.4,68},{-69.2,68}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(gain.y, V1.v) annotation (Line(
+            points={{-55.4,68},{-35,68}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(W1.port_p, TellinenSoft.port_p) annotation (Line(points={{22,74},
+                {22,80},{30,80}}, color={255,127,0}));
+        connect(magGnd1.port, TellinenSoft.port_n) annotation (Line(points={{22,
+                58},{54,58},{54,80},{50,80}}, color={255,127,0}));
+        annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})),            Documentation(info="
+<html>
+<p>
+Use the following simulation settings:
+</p>
+<ul>
+  <li>Stop time: 14 s</li>
+  <li>Number of intervals: 5000</li>
+  <li>Tolerance: 1e-5</li>
+</ul>
+<p>
+This example compares the behavior of three different hysteresis mdoels due to the exact same input magnetic field strength. The three different models are:
+</p>
+<ol>
+  <li>Model=GenericHystTellinenSoft, Tellinen hysteresis model, the upper and lower branch of the limiting hysteresis loop is roughly approximated with simple hyperbolic tangent functions (Fig1. c)</li>
+  <li>Model=GenericHystTellinenTable, Tellinen hysteresis model, the upper and lower branch of the limiting hysteresis loop can be defined with almost arbitrary table data (Fig1. d)</li>
+  <li>Model=GenericHystPreisachEverett,Preisach hysteresis model, the hysteresis shape is defined by the Everett function (Fig1. e)</li>
+</ol>
+<p>
+Compared to the complex Preisach hysteresis model the Tellinen model is very simple and thus computationally more effective and stable. It is sufficient for many applications. But the Tellinen model has inherently a problem with small periodic input field variations at locations where the outer hysteresis loop has large slopes. In such a case, the simulated minor loops settle to the center of the hysteresis envelope curve, whereas the minor loops of the Preisach model stay constant ('property of equal vertical chords', <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ma03]</a>). The input signal of the example (Fig.1 a) corresponds to that case and Fig. 1 b-e shows the behavior of the different models.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 1: </b>Simulated magnetic flux densities B of different hysteresis models (b) due to an applied mangetic field strength shown in (a). Corresponding B(H) loops of the hysteresis models GenericHystTellinenSoft (c), GenericHystTellinenTable (d) and GenericHystPreisachEverett (e).</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/HysteresisModelComparison/plot1.png\">
+    </td>
+  </tr>
+</table> 
+</html>
+"));
+      end HysteresisModelComparison;
+
+      model InductorWithHysteresis
+        extends Modelica.Icons.Example;
+        Basic.Ground mag_ground
+          annotation (Placement(transformation(extent={{0,-32},{20,-12}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance Winding(i(fixed=
+                true), N=10)
+          annotation (Placement(transformation(extent={{-10,4},{10,24}})));
+        Modelica.Electrical.Analog.Basic.Ground el_ground
+          annotation (Placement(transformation(extent={{-48,-32},{-28,-12}})));
+        Modelica.Electrical.Analog.Basic.Resistor R(R=0.1)
+          annotation (Placement(transformation(extent={{-34,10},{-14,30}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(freqHz=200, V=5)
+                        annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-38,4})));
+        Shapes.HysteresisAndMagnets.GenericHystTellinenEverett Core(
+          mat=FluxTubes.Material.HysteresisEverettParameter.M330_50A(),
+          A=4e-4,
+          MagRel(fixed=true, start=0),
+          includeEddyCurrents=true,
+          derHstat(fixed=true),
+          l=0.1)
+          annotation (Placement(transformation(extent={{20,10},{40,30}})));
+      equation
+        connect(Winding.port_n, mag_ground.port) annotation (Line(
+            points={{10,8},{10,-12}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(SineVoltage.p, R.p) annotation (Line(
+            points={{-38,14},{-38,20},{-34,20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(SineVoltage.n, el_ground.p) annotation (Line(
+            points={{-38,-6},{-38,-12}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Winding.n, el_ground.p) annotation (Line(
+            points={{-10,8},{-10,-12},{-38,-12}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(R.n, Winding.p) annotation (Line(
+            points={{-14,20},{-10,20}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Winding.port_p, Core.port_p) annotation (Line(points={{10,20},{
+                15,20},{20,20}}, color={255,127,0}));
+        connect(mag_ground.port, Core.port_n) annotation (Line(points={{10,-12},
+                {46,-12},{46,20},{40,20}}, color={255,127,0}));
+        annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-004), Diagram(
+              coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+                  100,100}})),                                                                                  Documentation(info="<html>
+<p>
+This is a simple model of an inductor with a ferromagnetic core. The used GenericHystTellinenEverett model considers the ferromagnetic hysteresis, eddy currents and remanence of the core material. For example you can simulate the model for 0.02s and plot Core.B vs. Core.H to visualize the resulting hysteresis loops.
+</p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><b>Fig. 1: </b>Results Core.B(t) and Core.B(H) of the magnetic Core.</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/InductorWithHysteresis/plot1.png\">
+    </td>
+  </tr>
+</table> 
+</html>
+"));
+      end InductorWithHysteresis;
+
+      model SinglePhaseTransformerWithHysteresis1
+        extends Modelica.Icons.Example;
+        Basic.Ground mag_ground
+          annotation (Placement(transformation(extent={{-22,-20},{-2,0}})));
+        Basic.ElectroMagneticConverterWithLeakageInductance WindingPrim(
+                       N=10, i(fixed=true))
+          annotation (Placement(transformation(extent={{-32,16},{-12,36}})));
+        Modelica.Electrical.Analog.Basic.Ground el_ground1
+          annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
+        Modelica.Electrical.Analog.Basic.Resistor Rprim(R=0.05)
+          annotation (Placement(transformation(extent={{-56,22},{-36,42}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(      freqHz=
+             400, V=8)  annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-60,16})));
+        Basic.ElectroMagneticConverterWithLeakageInductance WindingSec(
+                       N=10, i(fixed=true))
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+              rotation=180,
+              origin={30,26})));
+        Modelica.Electrical.Analog.Basic.Resistor Rsec(R=2)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={56,32})));
+        Modelica.Electrical.Analog.Basic.Ground el_ground2
+          annotation (Placement(transformation(extent={{30,-20},{50,0}})));
+        Shapes.HysteresisAndMagnets.GenericHystTellinenTable Core(
+          asc(fixed=false),
+          mat=FluxTubes.Material.HysteresisTableData.M330_50A(),
+          includeEddyCurrents=true,
+          l=0.2,
+          A=5e-4,
+          MagRel(start=0.5, fixed=true))
+          annotation (Placement(transformation(extent={{-6,22},{14,42}})));
+      equation
+        connect(WindingPrim.port_n, mag_ground.port)
+                                                 annotation (Line(
+            points={{-12,20},{-12,0}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(SineVoltage.p, Rprim.p)
+                                    annotation (Line(
+            points={{-60,26},{-60,32},{-56,32}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(SineVoltage.n, el_ground1.p)
+                                            annotation (Line(
+            points={{-60,6},{-60,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(WindingPrim.n, el_ground1.p)
+                                        annotation (Line(
+            points={{-32,20},{-32,0},{-60,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Rprim.n, WindingPrim.p)
+                                annotation (Line(
+            points={{-36,32},{-32,32}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(WindingSec.port_n, mag_ground.port) annotation (Line(
+            points={{20,20},{20,0},{-12,0}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(WindingSec.p, Rsec.p)
+                                    annotation (Line(
+            points={{40,32},{46,32}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(WindingSec.n, el_ground2.p) annotation (Line(
+            points={{40,20},{40,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Rsec.n, el_ground2.p)
+                                    annotation (Line(
+            points={{66,32},{70,32},{70,0},{40,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(WindingPrim.port_p, Core.port_p) annotation (Line(
+            points={{-12,32},{-6,32}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        connect(Core.port_n, WindingSec.port_p) annotation (Line(
+            points={{14,32},{20,32}},
+            color={255,127,0},
+            smooth=Smooth.None));
+        annotation (experiment(StartTime=0, StopTime=0.02, Interval=4e-6, Tolerance=1e-006), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                            graphics), Documentation(info="<html>
+<p>
+This simple model of an single phase transformer shows the inrush currents due to the remanence of the core material (M330-50A). For an accurate modelling of the core material the GenericHystTellinenTable hysteresis flux tube element is used. The initial magnetization MagRel of the Core component is set to 80%. Simulation settings:
+</p>
+<ul>
+  <li>Stop time: 0.02 s</li>
+  <li>Number of intervals: 5000</li>
+  <li>Tolerance: 1e-6</li>
+</ul>
+<p>
+Then plot the flux density of the Core Core.B over the magnetic field strength Core.H and additionally the time course of the primary and secondary current and e.g. the power consumption of the iron core Core.LossPower (see the following figures).
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis1/plot01.png\" Hspace=\"10\" Vspace=\"10\">
+    </td>
+  </tr>
+</table> 
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis1/plot02.png\" Hspace=\"10\" Vspace=\"10\">
+    </td>
+  </tr>
+</table> 
+
+</html>
+
+"));
+      end SinglePhaseTransformerWithHysteresis1;
+
+      model SinglePhaseTransformerWithHysteresis2
+        extends Modelica.Icons.Example;
+        Modelica.Electrical.Analog.Basic.Ground el_ground1
+          annotation (Placement(transformation(extent={{-90,-20},{-70,0}})));
+        Modelica.Electrical.Analog.Basic.Resistor Rprim(R=0.05)
+          annotation (Placement(transformation(extent={{-54,22},{-34,42}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage(      freqHz=
+             400, V=6)  annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-80,16})));
+        Modelica.Electrical.Analog.Basic.Resistor Rsec(R=2)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={30,32})));
+        Modelica.Electrical.Analog.Basic.Ground el_ground2
+          annotation (Placement(transformation(extent={{2,-20},{22,0}})));
+        Components.Transformer1PhaseWithHysteresis tr(
+          mat=FluxTubes.Material.HysteresisEverettParameter.M330_50A(),
+          MagRelFixed=true,
+          IpFixed=true,
+          EddyCurrents=false,
+          HFixed=false)
+          annotation (Placement(transformation(extent={{-20,22},{0,42}})));
+      equation
+        connect(SineVoltage.p, Rprim.p)
+                                    annotation (Line(
+            points={{-80,26},{-80,32},{-54,32}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(SineVoltage.n, el_ground1.p)
+                                            annotation (Line(
+            points={{-80,6},{-80,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Rsec.n, el_ground2.p)
+                                    annotation (Line(
+            points={{40,32},{60,32},{60,0},{12,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(Rprim.n, tr.p_A) annotation (Line(
+            points={{-34,32},{-20,32}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(tr.p_N, el_ground1.p) annotation (Line(
+            points={{-16,22},{-28,22},{-28,0},{-80,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(tr.p_a, Rsec.p) annotation (Line(
+            points={{0,32},{20,32}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(tr.p_n, el_ground2.p) annotation (Line(
+            points={{-4,22},{12,22},{12,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        annotation (experiment(StartTime=0, StopTime=0.1, Interval=2e-5, Tolerance=1e-004), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                            graphics), Documentation(info="<html>
+<p>
+A simple model of an single phase transformer (similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">SinglePhaseTransformerWithHysteresis1</a> but with separate transformer model: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer1PhaseWithHysteresis\">Transformer1PhaseWithHysteresis</a>). Use the simulation settings:
+</p>
+<ul>
+  <li>Stop time: 0.1 s</li>
+  <li>Number of intervals: 5000.</li>
+</ul>
+<p>
+The figure shows the magnetic hysteresis in the transformer core. In (a) the consideration of the eddy currents is switched off, in (b) it is enabled. 
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/SinglePhaseTransformerWithHysteresis2/plot1.png\" Hspace=\"10\" Vspace=\"10\">
+    </td>
+  </tr>
+</table> 
+
+</html>"));
+      end SinglePhaseTransformerWithHysteresis2;
+
+      model ThreePhaseTransformerWithRectifier
+        "3 Phase transformer (including hysteresis effect) with rectifier"
+        import Modelica.Magnetic.FluxTubes;
+        extends Modelica.Icons.Example;
+
+        Modelica.Electrical.Analog.Basic.Ground G1
+          annotation (Placement(transformation(extent={{-141,-91},{-121,-71}})));
+        Modelica.Electrical.Analog.Basic.Ground G2
+          annotation (Placement(transformation(extent={{-37,-91},{-17,-71}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage VA(
+          offset=0,
+          freqHz=50,
+          V=50)      annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-131,-40})));
+        Components.Transformer3PhaseYyWithHysteresis
+                                           TR3PhaseYy(
+          EddyCurrents=true,
+          N_p=200,
+          N_s=10,
+          mat=FluxTubes.Material.HysteresisEverettParameter.M330_50A(),
+          sigma=2.2e6,
+          HFixed={true,true,true},
+          MagRelFixed={true,true,false},
+          IprimFixed={true,true,true},
+          IsecFixed={true,false,false},
+          useHeatPort=false,
+          MagRelStart={-0.4,0.8,-0.4},
+          l1=0.2,
+          l2=0.15,
+          a=0.04,
+          b=0.04,
+          t=0.0005)
+          annotation (Placement(transformation(extent={{-41,-16},{-21,4}})));
+        Modelica.Electrical.Analog.Sources.SineVoltage VB(
+          offset=0,
+          freqHz=VA.freqHz,
+          V=50,
+          phase=4.1887902047864)
+                     annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-110,-40})));
+        Modelica.Electrical.Analog.Sources.SineVoltage VC(
+          offset=0,
+          freqHz=VA.freqHz,
+          V=50,
+          phase=2.0943951023932)
+                     annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={-90,-40})));
+        Modelica.Electrical.Analog.Basic.Resistor RA(R=0)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={-71,9})));
+        Modelica.Electrical.Analog.Basic.Resistor RB(R=RA.R)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={-71,-6})));
+        Modelica.Electrical.Analog.Basic.Resistor RC(R=RA.R)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0,
+              origin={-71,-21})));
+        Modelica.Electrical.Analog.Ideal.IdealDiode D1(Vknee=0.7)
+                                                       annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={29,19})));
+        Modelica.Electrical.Analog.Ideal.IdealDiode D2(Vknee=0.7)
+                                                       annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={29,-31})));
+        Modelica.Electrical.Analog.Basic.Resistor RL(R=5)
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={116,-7})));
+        Modelica.Electrical.Analog.Ideal.IdealDiode D3(Vknee=0.7)
+                                                       annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={49,19})));
+        Modelica.Electrical.Analog.Ideal.IdealDiode D4(Vknee=0.7)
+                                                       annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={49,-31})));
+        Modelica.Electrical.Analog.Ideal.IdealDiode D5(Vknee=0.7)
+                                                       annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={69,19})));
+        Modelica.Electrical.Analog.Ideal.IdealDiode D6(Vknee=0.7)
+                                                       annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={69,-31})));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C=1e-6, v(fixed=
+                true))                                                annotation (
+           Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={89,19})));
+        Modelica.Electrical.Analog.Basic.Inductor inductor(L=1e-3)
+          annotation (Placement(transformation(extent={{-11,-1},{9,19}})));
+        Modelica.Electrical.Analog.Basic.Inductor inductor1(L=1e-3)
+          annotation (Placement(transformation(extent={{-11,-16},{9,4}})));
+        Modelica.Electrical.Analog.Basic.Inductor inductor2(L=1e-3)
+          annotation (Placement(transformation(extent={{-10,-32},{10,-12}})));
+        Modelica.Electrical.Analog.Basic.Capacitor capacitor2(C=1e-6, v(fixed=
+                true))                                                annotation (
+           Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=270,
+              origin={89,-31})));
+        Modelica.Blocks.Sources.RealExpression rExp1(y=TR3PhaseYy.LossPowerStat)
+          annotation (Placement(transformation(extent={{-111,67},{-80,83}})));
+        Modelica.Blocks.Sources.RealExpression rExp2(y=TR3PhaseYy.LossPowerEddy)
+          annotation (Placement(transformation(extent={{-111,47},{-79,63}})));
+        Modelica.Blocks.Sources.RealExpression rExp3(y=TR3PhaseYy.LossPowerWinding)
+          annotation (Placement(transformation(extent={{-111,27},{-79,43}})));
+        Modelica.Blocks.Continuous.Filter PdissStatAvg(f_cut=10)
+          "Approx. average static hysteresis losses"
+          annotation (Placement(transformation(extent={{-48,70},{-38,80}})));
+        Modelica.Blocks.Continuous.Filter PdissEddyAvg(f_cut=10)
+          "Approx. average eddy current losses"
+          annotation (Placement(transformation(extent={{-48,50},{-38,60}})));
+        Modelica.Blocks.Continuous.Filter PdissCopAvg(f_cut=10)
+          "Approx. average copper losses"
+          annotation (Placement(transformation(extent={{-48,30},{-38,40}})));
+      equation
+        connect(VA.n, G1.p)          annotation (Line(
+            points={{-131,-50},{-131,-71}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(VB.n, G1.p) annotation (Line(
+            points={{-110,-50},{-110,-71},{-131,-71}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(VC.n, G1.p) annotation (Line(
+            points={{-90,-50},{-90,-71},{-131,-71}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RA.n, TR3PhaseYy.p_A)
+                              annotation (Line(
+            points={{-61,9},{-51,9},{-51,0},{-41,0}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RA.p, VA.p) annotation (Line(
+            points={{-81,9},{-131,9},{-131,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RB.n, TR3PhaseYy.p_B)
+                              annotation (Line(
+            points={{-61,-6},{-41,-6}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RB.p, VB.p) annotation (Line(
+            points={{-81,-6},{-110,-6},{-110,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(VC.p, RC.p) annotation (Line(
+            points={{-90,-30},{-90,-21},{-81,-21}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RC.n, TR3PhaseYy.p_C)
+                              annotation (Line(
+            points={{-61,-21},{-51,-21},{-51,-12},{-41,-12}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D2.n, D1.p) annotation (Line(
+            points={{29,-21},{29,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D4.n, D3.p) annotation (Line(
+            points={{49,-21},{49,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D6.n, D5.p) annotation (Line(
+            points={{69,-21},{69,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D2.p, D4.p) annotation (Line(
+            points={{29,-41},{49,-41}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D4.p, D6.p) annotation (Line(
+            points={{49,-41},{69,-41}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D1.n, D3.n) annotation (Line(
+            points={{29,29},{49,29}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D3.n, D5.n) annotation (Line(
+            points={{49,29},{69,29}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(D5.n, capacitor1.p) annotation (Line(
+            points={{69,29},{89,29}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RL.p, capacitor1.p)   annotation (Line(
+            points={{116,3},{116,29},{89,29}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(TR3PhaseYy.p_a, inductor.p) annotation (Line(
+            points={{-21,0},{-11,0},{-11,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(TR3PhaseYy.p_b, inductor1.p) annotation (Line(
+            points={{-21,-6},{-11,-6}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(inductor1.n, D3.p) annotation (Line(
+            points={{9,-6},{49,-6},{49,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(inductor2.p, TR3PhaseYy.p_c) annotation (Line(
+            points={{-10,-22},{-11,-22},{-11,-12},{-21,-12}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(inductor2.n, D6.n) annotation (Line(
+            points={{10,-22},{10,-11},{69,-11},{69,-21}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(capacitor2.n, D6.p) annotation (Line(
+            points={{89,-41},{69,-41}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(capacitor2.p, capacitor1.n) annotation (Line(
+            points={{89,-21},{89,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(inductor.n, D1.p) annotation (Line(
+            points={{9,9},{9,-1},{29,-1},{29,9}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(RL.n, capacitor2.n) annotation (Line(
+            points={{116,-17},{116,-41},{89,-41}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(TR3PhaseYy.pN, G1.p) annotation (Line(
+            points={{-35,-16},{-35,-71},{-131,-71}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(TR3PhaseYy.pn, G2.p) annotation (Line(
+            points={{-27,-16},{-27,-71}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(G2.p, capacitor2.p) annotation (Line(
+            points={{-27,-71},{102,-71},{102,-21},{89,-21}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(rExp3.y, PdissCopAvg.u)
+          annotation (Line(points={{-77.4,35},{-49,35}}, color={0,0,127}));
+        connect(rExp2.y, PdissEddyAvg.u)
+          annotation (Line(points={{-77.4,55},{-49,55}}, color={0,0,127}));
+        connect(rExp1.y, PdissStatAvg.u) annotation (Line(points={{-78.45,75},{-63.725,
+                75},{-49,75}}, color={0,0,127}));
+        annotation (experiment(StartTime=0, StopTime=0.2, Interval=1e-4, Tolerance=1e-006), Diagram(coordinateSystem(
+              preserveAspectRatio=false,
+              extent={{-150,-100},{150,100}},
+              grid={1,1})),           Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={1,1})),
+          Documentation(info="
+<html>
+<p>
+This is a model of a three-phase transformer and rectifier unit using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis\">Transformer3PhaseYyWithHysteresis</a> model. Use the following simulation settings:
+</p>
+
+<ul>
+  <li>Stop time: 0.2 s</li>
+  <li>Number of intervals: 5000</li>
+  <li>Tolerance: 1e-6</li>
+</ul>
+
+<p>
+An example simulation shows the transformer inrush currents due to an initially magnetized transformer core.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 1:</b> Transformer inrush currents due to initial magnetization of the magnetic core; (a) transformer primary currents; (b)  transformer secondary currents; (c) flux densities of the transformer legs; (d) B(H) hysteresis loops of transformer leg one.; (e) instantaneous static hysteresis, eddy current and copper losses of the transformer; (f) approximated average static hysteresis, eddy current and copper losses of the transformer</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/ThreePhaseTransformerWithRectifier/plot01.png\" Hspace=\"10\" Vspace=\"10\">
+    </td>
+  </tr>
+</table> 
+</html>
+"));
+      end ThreePhaseTransformerWithRectifier;
+
+      package Components "Components to be used in examples"
+
+        model Transformer1PhaseWithHysteresis
+          "Single Phase transformer with ferromagnetic core and hysteresis"
+
+          Modelica.Electrical.Analog.Interfaces.NegativePin p_N
+            "Negativ Pin of primary Winding"
+            annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_A
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin p_n
+            "Negative Pin of secondary Winding"
+            annotation (Placement(transformation(extent={{50,-110},{70,-90}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_a
+            "Positive Pin of secondary Winding"
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+
+          Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature Temp
+            annotation (Placement(transformation(extent={{-94,-44},{-86,-36}})));
+
+          // Tab: Electrical //Group:Primary Winding
+          parameter Integer N_p=10 "Primary turns"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.Length l_p(displayUnit="mm") = 1.2*2*(a+b)
+            "Mean primary turn length"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.Length d_p(displayUnit="mm") = 0.5e-3
+            "Wire diameter of primary turns"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.Resistivity rho_p = 1.678e-8
+            "Resistivity of primary winding (at 20degC)"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.LinearTemperatureCoefficient alpha_p = 0
+            "Temperature coefficient of primary turns" annotation(Dialog(tab="Electrical", group="Primary Winding"));
+
+          // Tab: Electrical //Group:Secondary Winding
+          parameter Integer N_s=10 "Secondary turns"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+          parameter SI.Length l_s(displayUnit="mm") = l_p
+            "Mean secondary turn length"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+          parameter SI.Length d_s(displayUnit="mm") = d_p
+            "Wire diameter of secondary turns"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+          parameter SI.Resistivity rho_s = rho_p
+            "Resistivity of secondary winding (at 20degC)"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+
+          parameter SI.LinearTemperatureCoefficient alpha_s = alpha_p
+            "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+
+          parameter SI.Length l1(displayUnit="mm") = 40e-3
+            "Mean Length l1 of core"                                                 annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png"));
+          parameter SI.Length l2(displayUnit="mm") = 60e-3
+            "Mean Length l2 of core"                                                annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core"  annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length b(displayUnit="mm") = 10e-3 "Width of core"  annotation (Dialog(tab="Core", group="Geometry"));
+
+          //
+          parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
+              FluxTubes.Material.HysteresisEverettParameter.BaseData()
+            "Parameter set of ferromagnetic Hysteresis" annotation (Dialog(tab="Core",
+                group="Material"), choicesAllMatching=true);
+
+          output SI.Voltage v_p "Primary voltage drop";
+          output SI.Voltage v_s "secondary voltage drop";
+
+          output SI.Resistance R_p "Primary resistance of Winding";
+          output SI.Resistance R_s "Secondary resistance of Winding";
+
+          output SI.Current i_p "Primary current";
+          output SI.Current i_s "Secondary current";
+
+          output SI.MagneticFluxDensity B "Magnetic Flux Density of Core";
+          output SI.MagneticFieldStrength Hstat
+            "Ferromagnetic portion of magnetic field strength";
+          output SI.MagneticFieldStrength Heddy
+            "Eddy current portion of magnetic field strength";
+          output SI.MagneticFieldStrength H
+            "Total magnetic field strength of core";
+
+          //output SI.Resistance R_p
+
+          parameter Real MagRelStart=0 "Initial magnetization of Core (-1..1)"
+            annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean MagRelFixed = false "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+
+          parameter SI.MagneticFieldStrength HStart=0
+            "Initial magnetic field strength of Core"
+            annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean HFixed = false "Fixed"
+            annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+          parameter SI.ElectricCurrent IpStart=0
+            "Initial primary current through winding"                                     annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean IpFixed = false "Fixed" annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+
+          output SI.Power LossPowerWinding "Winding lossses";
+          output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
+          output SI.Power LossPowerEddy "Eddy current losses";
+
+          extends Interfaces.ConditionalHeatPort;
+          parameter Boolean EddyCurrents = false "Enable eddy currents"
+            annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
+          parameter SI.Conductivity sigma = mat.sigma
+            "Conductivity of core material"                                           annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+          parameter SI.Length t(displayUnit="mm") = 0.5e-3
+            "Tickness of lamination"                                                annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"
+                                                                                                  annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_lp=10e-6
+            "Cross section of leakage of primary Winding"                                               annotation (Dialog(tab="Leakage"));
+          parameter Real mu_relp=1
+            "Constant relative permeability of primary leakage (>0 required)"                            annotation (Dialog(tab="Leakage"));
+          parameter SI.Length L_ls=10e-3
+            "Length of leakage of secondary Winding"                               annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_ls=10e-6
+            "Cross section of leakage of secondary Winding"                            annotation (Dialog(tab="Leakage"));
+          parameter Real mu_rels=1
+            "Constant relative permeability of secondary leakage (>0 required)"
+                                                                                                           annotation (Dialog(tab="Leakage"));
+
+        protected
+          Basic.Ground ground
+            annotation (Placement(transformation(extent={{-10,-46},{10,-26}})));
+          Basic.ElectroMagneticConverterWithLeakageInductance Wp(N=N_p,
+            L=L_lp,
+            A=A_lp,
+            mu_rel=mu_relp,
+            i(start=IpStart, fixed=IpFixed))
+            annotation (Placement(transformation(extent={{-60,-16},{-40,4}})));
+          Basic.ElectroMagneticConverterWithLeakageInductance Ws(N=N_s,
+            L=L_ls,
+            mu_rel=mu_rels,
+            A=A_ls)
+            annotation (Placement(transformation(extent={{60,-16},{40,4}})));
+
+          Modelica.Electrical.Analog.Basic.Resistor Rp(
+            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            useHeatPort=true,
+            alpha=alpha_p,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{-90,-10},{-70,10}})));
+          Modelica.Electrical.Analog.Basic.Resistor Rs(
+            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            useHeatPort=true,
+            alpha=alpha_s,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{68,-10},{88,10}})));
+
+        public
+          Shapes.HysteresisAndMagnets.GenericHystTellinenEverett Core(
+            mat=mat,
+            l=2*(l1 + l2),
+            A=a*b,
+            includeEddyCurrents=EddyCurrents,
+            sigma=sigma,
+            d=t,
+            H(start=HStart, fixed=HFixed),
+            MagRel(start=MagRelStart, fixed=MagRelFixed))
+            annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+        equation
+          v_p = p_A.v-p_N.v;
+          i_p = Rp.i;
+          R_p = Rp.R_actual;
+
+          v_s = p_a.v-p_n.v;
+          i_s = Rs.i;
+          R_s = Rs.R_actual;
+
+          B = Core.B;
+          Hstat = Core.Hstat;
+          Heddy = Core.Heddy;
+          H = Core.H;
+          //der(MagRel)=0;
+
+          Temp.T = if useHeatPort then T_heatPort else T;
+
+          LossPowerWinding = Rp.LossPower + Rs.LossPower; //AvgWinding.y;
+          LossPowerStat = Core.LossPowerStat;
+          LossPowerEddy = Core.LossPowerEddy;
+          LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
+
+          connect(Wp.port_n, ground.port)        annotation (Line(
+              points={{-40,-12},{-40,-26},{0,-26}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(Rp.n, Wp.p)         annotation (Line(
+              points={{-70,0},{-60,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Rp.p, p_A)  annotation (Line(
+              points={{-90,0},{-100,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Rs.n, p_a)  annotation (Line(
+              points={{88,0},{100,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Wp.n, p_N)  annotation (Line(
+              points={{-60,-12},{-60,-100}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Temp.port, Rp.heatPort)  annotation (Line(
+              points={{-86,-40},{-80,-40},{-80,-10}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(Rs.heatPort, Temp.port)  annotation (Line(
+              points={{78,-10},{78,-40},{-86,-40}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(Ws.port_n, ground.port) annotation (Line(
+              points={{40,-12},{40,-26},{0,-26}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(Ws.n, Rs.p) annotation (Line(
+              points={{60,-12},{68,-12},{68,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(p_n, Ws.p) annotation (Line(
+              points={{60,-100},{52,-100},{52,4},{60,4},{60,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Core.port_p, Wp.port_p)
+            annotation (Line(points={{-10,10},{-40,10},{-40,0}}, color={255,127,0}));
+          connect(Core.port_n, Ws.port_p)
+            annotation (Line(points={{10,10},{40,10},{40,0}}, color={255,127,0}));
+          annotation (defaultComponentName="tr", Diagram(coordinateSystem(
+                  preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
+                                                                    Icon(graphics={
+                Polygon(
+                  points={{50,60},{30,40},{30,-40},{50,-60},{50,60}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder),
+                Polygon(
+                  points={{-50,60},{-30,40},{-30,-40},{-50,-60},{-50,60}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder),
+                Rectangle(
+                  extent={{-68,36},{-12,-36}},
+                  lineColor={0,128,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={0,128,255}),
+                Rectangle(
+                  extent={{20,20},{60,-20}},
+                  lineColor={128,0,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={128,0,255}),
+                Text(
+                  extent={{0,100},{0,60}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Polygon(
+                  points={{-10,60},{10,40},{10,-20},{-10,-40},{-10,60}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  origin={10,-50},
+                  rotation=90),
+                Polygon(
+                  points={{-10,20},{-30,0},{-30,-60},{-10,-80},{-10,-44.0625},{-10,20}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  origin={-30,70},
+                  rotation=90)}),
+            Documentation(info="<html>
+<p>
+Simple model of a single phase transformer with a primary and a secondary winding and a magnetic core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this element considers static and dynamic hysteresis.
+</p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <caption align=\"bottom\"><b>Fig. 1:</b> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer1PhaseWithHysteresis/Core_SinglePhase.png\">
+   </td>
+  </tr>
+</table>
+
+</html>"));
+        end Transformer1PhaseWithHysteresis;
+
+        model Transformer3PhaseYyWithHysteresis
+          "Three phase transfomer in Yy configuration"
+
+          Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature Temp
+            annotation (Placement(transformation(extent={{-166,14},{-154,26}})));
+
+          // Tab: Electrical //Group:Primary Winding
+          parameter Integer N_p=10 "Primary turns"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.Length l_p(displayUnit="mm") = 1.2*2*(a+b)
+            "Mean primary turn length"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.Length d_p(displayUnit="mm") = 0.5e-3
+            "Wire diameter of primary turns"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.Resistivity rho_p = 1.678e-8
+            "Resistivity of primary winding (at 20degC)"
+            annotation(Dialog(tab="Electrical", group="Primary Winding"));
+          parameter SI.LinearTemperatureCoefficient alpha_p = 0
+            "Temperature coefficient of primary turns" annotation(Dialog(tab="Electrical", group="Primary Winding"));
+
+          // Tab: Electrical //Group:Secondary Winding
+          parameter Integer N_s=10 "Secondary turns"
+             annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+          parameter SI.Length l_s(displayUnit="mm") = l_p
+            "Mean secondary turn length"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+          parameter SI.Length d_s(displayUnit="mm") = d_p
+            "Wire diameter of secondary turns"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+          parameter SI.Resistivity rho_s = rho_p
+            "Resistivity of secondary winding (at 20degC)"
+            annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+
+          parameter SI.LinearTemperatureCoefficient alpha_s = alpha_p
+            "Temperature coefficient of secondary turns" annotation(Dialog(tab="Electrical", group="Secondary Winding"));
+
+          parameter SI.Length l1(displayUnit="mm") = 40e-3
+            "Mean length l1 of core"                                                 annotation (Dialog(tab="Core", group="Geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png"));
+          parameter SI.Length l2(displayUnit="mm") = 60e-3
+            "Mean length l2 of core"                                                annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length a(displayUnit="mm") = 15e-3 "Height of core"  annotation (Dialog(tab="Core", group="Geometry"));
+          parameter SI.Length b(displayUnit="mm") = 10e-3 "Width of core"  annotation (Dialog(tab="Core", group="Geometry"));
+
+          parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
+              FluxTubes.Material.HysteresisEverettParameter.BaseData()
+            "Core Material" annotation (Dialog(tab="Core", group="Material"),
+              choicesAllMatching=true);
+
+          output SI.Voltage v_p[3] "Voltage drop of primary winding 1-3";
+          output SI.Voltage v_s[3] "Voltage drop of secondary winding 1-3";
+
+          output SI.Resistance R_p[3] "Resistance of primary winding 1-3";
+          output SI.Resistance R_s[3] "Resistance of secondary winding 1-3";
+
+          output SI.Current i_p[3] "Current in primary winding 1-3";
+          output SI.Current i_s[3] "Current in secondary winding 1-3";
+
+          output SI.MagneticFluxDensity B[3]
+            "Magnetic Flux Density in core portions 1-3";
+          output SI.MagneticFlux Phi[3]
+            "Magnetic Flux through core portions 1-3";
+
+          output SI.MagneticFieldStrength Hstat[3]
+            "Ferromagnetic portion of magnetic field strength";
+          output SI.MagneticFieldStrength Heddy[3]
+            "Eddy current portion of magnetic field strength";
+          output SI.MagneticFieldStrength H[3]
+            "Total magnetic field strength of core";
+
+          //output SI.Resistance R_p
+
+          parameter Real MagRelStart[3]={0,0,0}
+            "Initial magnetization of Core (-1..1)"      annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean MagRelFixed[3] = {false,false,false} "Fixed" annotation (Dialog(tab="Core", group="Initialization"));
+
+          parameter SI.MagneticFieldStrength HStart[3]={0,0,0}
+            "Initial magnetic field strength of Core"  annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean HFixed[3] = {false,false,false} "Fixed"  annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+
+          parameter SI.ElectricCurrent IprimStart[3]={0,0,0}
+            "Initial current of primary Windings"  annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean IprimFixed[3] = {false,false,false} "Fixed"  annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+
+          parameter SI.ElectricCurrent IsecStart[3]={0,0,0}
+            "Initial current of secondary Windings"   annotation (Dialog(tab="Core", group="Initialization"));
+          parameter Boolean IsecFixed[3] = {false,false,false} "Fixed"  annotation (Dialog(tab="Core", group="Initialization"),choices(checkBox=true));
+
+          output SI.Power LossPowerWinding "Winding lossses";
+          output SI.Power LossPowerStat "Ferromagnetic hysteresis losses";
+          output SI.Power LossPowerEddy "Eddy current losses";
+
+          extends Interfaces.ConditionalHeatPort;
+          parameter Boolean EddyCurrents = false "Enable eddy currents"  annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), choices(checkBox=true));
+          parameter SI.Conductivity sigma = mat.sigma
+            "Conductivity of core material"                                           annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+          parameter SI.Length t(displayUnit="mm") = 0.5e-3
+            "Tickness of lamination"                                                annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
+
+          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"
+                                                                                 annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_lp=10e-6
+            "Cross section of leakage of primary Winding"                            annotation (Dialog(tab="Leakage"));
+          parameter Real mu_relp=1
+            "Constant relative permeability of primary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
+          parameter SI.Length L_ls=10e-3
+            "Cross section of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_ls=10e-6 "Length of leakage of secondary Winding"
+                                                                                annotation (Dialog(tab="Leakage"));
+          parameter Real mu_rels=1
+            "Constant relative permeability of secondary leakage (>0 required)"
+                                                                                annotation (Dialog(tab="Leakage"));
+
+        protected
+          Shapes.HysteresisAndMagnets.GenericHystTellinenEverett CoreA(
+            mat=mat,
+            A=a*b,
+            sigma=sigma,
+            d=t,
+            useHeatPort=false,
+            includeEddyCurrents=EddyCurrents,
+            l=l1 + 2*l2,
+            H(start=HStart[1], fixed=HFixed[1]),
+            MagRel(start=MagRelStart[1], fixed=MagRelFixed[1])) annotation (
+              Placement(transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=0,
+                origin={-40,114})));
+          Shapes.HysteresisAndMagnets.GenericHystTellinenEverett CoreB(
+            mat=mat,
+            A=a*b,
+            sigma=sigma,
+            d=t,
+            useHeatPort=false,
+            includeEddyCurrents=EddyCurrents,
+            l=l2,
+            H(start=HStart[2], fixed=HFixed[2]),
+            MagRel(start=MagRelStart[2], fixed=MagRelFixed[2])) annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={10,92})));
+
+          Shapes.HysteresisAndMagnets.GenericHystTellinenEverett CoreC(
+            mat=mat,
+            A=a*b,
+            includeEddyCurrents=EddyCurrents,
+            sigma=sigma,
+            d=t,
+            l=l1 + 2*l2,
+            H(start=HStart[3], fixed=HFixed[3]),
+            MagRel(start=MagRelStart[3], fixed=MagRelFixed[3]))
+            annotation (Placement(transformation(extent={{70,104},{90,124}})));
+
+          Basic.Ground ground
+            annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
+
+          Basic.ElectroMagneticConverterWithLeakageInductance WA(N=N_p,
+            L=L_lp,
+            A=A_lp,
+            mu_rel=mu_relp,
+            i(start=IprimStart[1], fixed=IprimFixed[1]))
+            annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
+
+          Basic.ElectroMagneticConverterWithLeakageInductance WB(N=N_p,
+            L=L_lp,
+            A=A_lp,
+            mu_rel=mu_relp,
+            i(start=IprimStart[2], fixed=IprimFixed[2]))
+            annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+
+          Basic.ElectroMagneticConverterWithLeakageInductance WC(N=N_p,
+            L=L_lp,
+            A=A_lp,
+            mu_rel=mu_relp,
+            i(start=IprimStart[3], fixed=IprimFixed[3]))
+            annotation (Placement(transformation(extent={{110,40},{130,60}})));
+
+           Basic.ElectroMagneticConverterWithLeakageInductance Wa(N=N_s,
+            L=L_ls,
+            A=A_ls,
+            mu_rel=mu_rels,
+            i(start=IsecStart[1], fixed=IsecFixed[1]))
+            annotation (Placement(transformation(extent={{-110,-20},{-90,0}})));
+
+           Basic.ElectroMagneticConverterWithLeakageInductance Wb(N=N_s,
+            L=L_ls,
+            A=A_ls,
+            mu_rel=mu_rels,
+            i(start=IsecStart[1], fixed=IsecFixed[1]))
+            annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
+
+          Basic.ElectroMagneticConverterWithLeakageInductance Wc(N=N_s,
+            L=L_ls,
+            A=A_ls,
+            mu_rel=mu_rels,
+            i(start=IsecStart[1], fixed=IsecFixed[1]))
+            annotation (Placement(transformation(extent={{110,-20},{130,0}})));
+
+          Modelica.Electrical.Analog.Basic.Resistor RA(
+            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            useHeatPort=true,
+            alpha=alpha_p,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{-140,50},{-120,70}})));
+          Modelica.Electrical.Analog.Basic.Resistor Ra(
+            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            useHeatPort=true,
+            alpha=alpha_s,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{-120,-10},{-140,10}})));
+
+          Modelica.Electrical.Analog.Basic.Resistor RB(
+            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            useHeatPort=true,
+            alpha=alpha_p,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+          Modelica.Electrical.Analog.Basic.Resistor Rb(
+            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            useHeatPort=true,
+            alpha=alpha_s,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{-20,-10},{-40,10}})));
+
+          Modelica.Electrical.Analog.Basic.Resistor Rc(
+            R=rho_s*N_s*l_s/(pi/4*d_s^2),
+            useHeatPort=true,
+            alpha=alpha_s,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+
+          Modelica.Electrical.Analog.Basic.Resistor RC(
+            R=rho_p*N_p*l_p/(pi/4*d_p^2),
+            useHeatPort=true,
+            alpha=alpha_p,
+            T_ref=293.15)
+            annotation (Placement(transformation(extent={{80,50},{100,70}})));
+          Shapes.FixedShape.Cuboid Leakage(
+            nonLinearPermeability=false,
+            mu_rConst=1,
+            l=l2,
+            a=a,
+            b=b/1000)
+            annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=270,
+                origin={32,90})));
+
+        public
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_A
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{-170,50},{-150,70}}),
+                iconTransformation(extent={{-110,50},{-90,70}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_B
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{-70,50},{-50,70}}),
+                iconTransformation(extent={{-110,-10},{-90,10}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_C
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{50,50},{70,70}}),
+                iconTransformation(extent={{-110,-70},{-90,-50}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_a
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{-170,-10},{-150,10}}),
+                iconTransformation(extent={{90,50},{110,70}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_b
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{-70,-10},{-50,10}}),
+                iconTransformation(extent={{90,-10},{110,10}})));
+          Modelica.Electrical.Analog.Interfaces.PositivePin p_c
+            "Positive Pin of primary Winding"
+            annotation (Placement(transformation(extent={{50,-10},{70,10}}),
+                iconTransformation(extent={{90,-70},{110,-50}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pn
+            "Star point of secondary windings"
+            annotation (Placement(transformation(extent={{-120,-44},{-100,-24}}),
+                iconTransformation(extent={{30,-110},{50,-90}})));
+          Modelica.Electrical.Analog.Interfaces.NegativePin pN
+            "Star point of primary windings"
+            annotation (Placement(transformation(extent={{-120,20},{-100,40}}),
+                iconTransformation(extent={{-50,-110},{-30,-90}})));
+
+        equation
+          v_p[1] = RA.p.v-WA.n.v;
+          v_p[2] = RB.p.v-WB.n.v;
+          v_p[3] = RC.p.v-WC.n.v;
+          i_p[1] = RA.i;
+          i_p[2] = RB.i;
+          i_p[3] = RC.i;
+          R_p[1] = RA.R_actual;
+          R_p[2] = RB.R_actual;
+          R_p[3] = RC.R_actual;
+
+          v_s[1] = Ra.n.v-Wa.n.v;
+          v_s[2] = Ra.n.v-Wa.n.v;
+          v_s[3] = Ra.n.v-Wa.n.v;
+          i_s[1] = Ra.i;
+          i_s[2] = Rb.i;
+          i_s[3] = Rc.i;
+          R_s[1] = Ra.R_actual;
+          R_s[2] = Rb.R_actual;
+          R_s[3] = Rc.R_actual;
+
+          B[1] = CoreA.B;
+          B[2] = CoreB.B;
+          B[3] = CoreC.B;
+
+          Phi[1] = CoreA.Phi;
+          Phi[2] = CoreB.Phi;
+          Phi[3] = CoreC.Phi;
+
+          Hstat[1] = CoreA.Hstat;
+          Hstat[2] = CoreB.Hstat;
+          Hstat[3] = CoreC.Hstat;
+          Heddy[1] = CoreA.Heddy;
+          Heddy[2] = CoreB.Heddy;
+          Heddy[3] = CoreC.Heddy;
+          H[1] = CoreA.H;
+          H[2] = CoreB.H;
+          H[3] = CoreC.H;
+
+          Temp.T = if useHeatPort then T_heatPort else T;
+
+          LossPowerWinding = RA.LossPower + RB.LossPower + RC.LossPower + Ra.LossPower + Rb.LossPower + Rc.LossPower;
+          LossPowerStat = CoreA.LossPowerStat + CoreB.LossPowerStat + CoreC.LossPowerStat;
+          LossPowerEddy = CoreA.LossPowerEddy + CoreB.LossPowerEddy + CoreC.LossPowerEddy;
+          LossPower = LossPowerWinding + LossPowerEddy + LossPowerStat;
+
+          connect(WA.port_n, Wa.port_p) annotation (Line(
+              points={{-90,44},{-90,-4}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(WA.p, RA.n) annotation (Line(
+              points={{-110,56},{-116,56},{-116,60},{-120,60}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(RA.p, p_A) annotation (Line(
+              points={{-140,60},{-160,60}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(WB.p, RB.n) annotation (Line(
+              points={{-10,56},{-16,56},{-16,60},{-20,60}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(WC.p, RC.n) annotation (Line(
+              points={{110,56},{104,56},{104,60},{100,60}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(WB.port_p, CoreB.port_n) annotation (Line(
+              points={{10,56},{10,82}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(WB.port_n, Wb.port_p) annotation (Line(
+              points={{10,44},{10,-4}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(Wa.port_n, ground.port) annotation (Line(
+              points={{-90,-16},{-90,-60},{10,-60}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(ground.port, Wb.port_n) annotation (Line(
+              points={{10,-60},{10,-16}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(Wc.port_n, ground.port) annotation (Line(
+              points={{130,-16},{130,-60},{10,-60}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(Wc.port_p, WC.port_n) annotation (Line(
+              points={{130,-4},{130,44}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(WC.port_p, CoreC.port_n) annotation (Line(
+              points={{130,56},{130,114},{90,114}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(p_B, RB.p) annotation (Line(
+              points={{-60,60},{-40,60}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(p_C, RC.p) annotation (Line(
+              points={{60,60},{80,60}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Temp.port, RA.heatPort) annotation (Line(
+              points={{-154,20},{-130,20},{-130,50}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(RB.heatPort, Temp.port) annotation (Line(
+              points={{-30,50},{-30,20},{-154,20}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(RC.heatPort, Temp.port) annotation (Line(
+              points={{90,50},{90,20},{-154,20}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(Rc.heatPort, Temp.port) annotation (Line(
+              points={{90,-10},{46,-10},{46,20},{-154,20}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(Rb.heatPort, Temp.port) annotation (Line(
+              points={{-30,-10},{-80,-10},{-80,20},{-154,20}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(Ra.heatPort, Temp.port) annotation (Line(
+              points={{-130,-10},{-146,-10},{-146,20},{-154,20}},
+              color={191,0,0},
+              smooth=Smooth.None));
+          connect(Ra.p, Wa.p) annotation (Line(
+              points={{-120,0},{-110,0},{-110,-4}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Rb.p, Wb.p) annotation (Line(
+              points={{-20,0},{-10,0},{-10,-4}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Rc.p, Wc.p) annotation (Line(
+              points={{100,0},{110,0},{110,-4}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Ra.n, p_a) annotation (Line(
+              points={{-140,0},{-160,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Rb.n, p_b) annotation (Line(
+              points={{-40,0},{-60,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Rc.n, p_c) annotation (Line(
+              points={{80,0},{60,0}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Leakage.port_n, ground.port) annotation (Line(
+              points={{32,80},{32,-60},{10,-60}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(WA.port_p, CoreA.port_n) annotation (Line(
+              points={{-90,56},{-90,114},{-50,114}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(CoreA.port_p, CoreB.port_p) annotation (Line(
+              points={{-30,114},{10,114},{10,102}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(CoreC.port_p, CoreA.port_p) annotation (Line(
+              points={{70,114},{-30,114}},
+              color={255,127,0},
+              smooth=Smooth.None));
+          connect(Leakage.port_p, CoreC.port_p) annotation (Line(
+              points={{32,100},{32,114},{70,114}},
+              color={255,127,0},
+              smooth=Smooth.None));
+
+          connect(WA.n, pN) annotation (Line(
+              points={{-110,44},{-110,30}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(pN, WC.n) annotation (Line(
+              points={{-110,30},{110,30},{110,44}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(pN, WB.n) annotation (Line(
+              points={{-110,30},{-10,30},{-10,44}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Wa.n, pn) annotation (Line(
+              points={{-110,-16},{-110,-34}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(pn, Wb.n) annotation (Line(
+              points={{-110,-34},{-10,-34},{-10,-16}},
+              color={0,0,255},
+              smooth=Smooth.None));
+          connect(Wc.n, pn) annotation (Line(
+              points={{110,-16},{110,-34},{-110,-34}},
+              color={0,0,255},
+              smooth=Smooth.None));
+
+          annotation (defaultComponentName="T3PhaseYyHyst", Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,
+                    -200},{200,200}}),
+                                 graphics), Icon(graphics={
+                Polygon(
+                  points={{70,60},{50,40},{50,-40},{70,-60},{70,60}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder),
+                Polygon(
+                  points={{-70,60},{-50,40},{-50,-40},{-70,-60},{-70,60}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder),
+                Rectangle(
+                  extent={{-74,36},{-46,-36}},
+                  lineColor={128,0,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={128,0,255}),
+                Text(
+                  extent={{0,140},{0,100}},
+                  lineColor={0,0,255},
+                  textString="%name"),
+                Polygon(
+                  points={{-20,10},{0,-10},{1.22465e-016,-50},{-10,-60},{-20,-60},{-20,10}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  origin={-60,-40},
+                  rotation=90),
+                Polygon(
+                  points={{-10,40},{0,50},{10,40},{10,-40},{0,-50},{-10,-40},{-10,40}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder),
+                Polygon(
+                  points={{-20,-10},{0,10},{0,50},{-10,60},{-20,60},{-20,-10}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  origin={60,-40},
+                  rotation=90),
+                Polygon(
+                  points={{20,10},{0,-10},{0,-50},{10,-60},{20,-60},{20,10}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  origin={-60,40},
+                  rotation=90),
+                Polygon(
+                  points={{20,-10},{0,10},{0,50},{10,60},{20,60},{20,-10}},
+                  lineColor={0,0,0},
+                  smooth=Smooth.None,
+                  fillColor={255,128,0},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  origin={60,40},
+                  rotation=90),
+                Rectangle(
+                  extent={{-80,26},{-40,-26}},
+                  lineColor={0,128,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={0,128,255}),
+                Rectangle(
+                  extent={{-14,36},{14,-36}},
+                  lineColor={128,0,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={128,0,255}),
+                Rectangle(
+                  extent={{-20,26},{20,-26}},
+                  lineColor={0,128,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={0,128,255}),
+                Rectangle(
+                  extent={{46,36},{74,-36}},
+                  lineColor={128,0,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={128,0,255}),
+                Rectangle(
+                  extent={{40,26},{80,-26}},
+                  lineColor={0,128,255},
+                  fillPattern=FillPattern.VerticalCylinder,
+                  fillColor={0,128,255})}),
+            Documentation(info="<html>
+<p>
+Simple model of a three phase transformer with primary and a secondary windings and a magnetic E-I shaped core. The core is modeled with <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a> flux tube elements. Thus, this model considers static and dynamic hysteresis as well as initial flux.
+</p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <caption align=\"bottom\"><b>Fig. 1:</b> Sketch of the modelled transformer with magnetic core, primary and secondary winding</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/Components/Transformer3PhaseYyWithHysteresis/Core_ThreePhase1.png\">
+   </td>
+  </tr>
+</table>
+</html>
+"));
+        end Transformer3PhaseYyWithHysteresis;
+      end Components;
+
+    end Hysteresis;
+
     package Utilities "Utilities to be used in examples"
       extends Modelica.Icons.UtilitiesPackage;
 
@@ -2338,27 +4423,32 @@ The differences between these two models in static behaviour can be analysed and
         Modelica.SIunits.Acceleration a(start=0)
           "Absolute acceleration of components (= der(v))";
         Modelica.Mechanics.Translational.Components.Mass mass(final L=L, final
-            m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+            m=m) annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a
-          annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
+          annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange_b
-          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+          annotation (Placement(transformation(extent={{90,-10},{110,10}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed limit_xMin(s0=x_min)
-          annotation (Placement(transformation(extent={{-80,-50},{-60,-30}})));
+          annotation (Placement(transformation(extent={{-80,-50},{-60,-30}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Components.Fixed limit_xMax(s0=x_max)
-          annotation (Placement(transformation(extent={{60,-50},{80,-30}})));
+          annotation (Placement(transformation(extent={{60,-50},{80,-30}},
+                rotation=0)));
         Modelica.Mechanics.Translational.Components.ElastoGap stopper_xMax(
           final c=c,
           final d=d,
           final n=n,
           final s_rel0=0) annotation (Placement(transformation(extent={{50,-30},
-                  {70,-10}})));
+                  {70,-10}}, rotation=0)));
         Modelica.Mechanics.Translational.Components.ElastoGap stopper_xMin(
           final c=c,
           final d=d,
           final n=n,
           final s_rel0=0) annotation (Placement(transformation(extent={{-70,-30},
-                  {-50,-10}})));
+                  {-50,-10}}, rotation=0)));
 
       equation
         mass.s = s;
@@ -2443,7 +4533,7 @@ The differences between these two models in static behaviour can be analysed and
               extent={{-100,-100},{100,-140}},
               lineColor={0,0,0},
               textString="m=%m"),
-            Line(points={{-50,-80},{30,-80}}),
+            Line(points={{-50,-80},{30,-80}}, color={0,0,0}),
             Polygon(
               points={{60,-80},{30,-70},{30,-90},{60,-80}},
               lineColor={128,128,128},
@@ -2554,9 +4644,8 @@ This package contains examples to demonstrate the usage of the flux tubes compon
 
     model Ground "Zero magnetic potential"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port
-        annotation (Placement(transformation(extent={{-10,110},{10,90}},
-              rotation=-0)));
+      FluxTubes.Interfaces.PositiveMagneticPort port annotation (Placement(
+            transformation(extent={{-10,110},{10,90}}, rotation=-0)));
     equation
       port.V_m = 0;
       annotation (
@@ -2596,20 +4685,20 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
                   textString="port.V_m = 0")}));
     end Ground;
 
-    model ElectroMagneticConverter "Electro-magnetic energy conversion"
+    model ElectroMagneticConverter "Ideal electro-magnetic energy conversion"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port" annotation (Placement(transformation(extent={{
-                90,50},{110,70}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port" annotation (Placement(transformation(extent={{
-                110,-70},{90,-50}})));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
+        annotation (Placement(transformation(extent={{90,50},{110,70}},
+              rotation=0)));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port"
+        annotation (Placement(transformation(extent={{110,-70},{90,-50}},
+              rotation=0)));
       Modelica.Electrical.Analog.Interfaces.PositivePin p
         "Positive electric pin" annotation (Placement(transformation(extent={{-90,
-                50},{-110,70}})));
+                50},{-110,70}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
         "Negative electric pin" annotation (Placement(transformation(extent={{-110,
-                -70},{-90,-50}})));
+                -70},{-90,-50}}, rotation=0)));
       SI.Voltage v "Voltage";
       SI.Current i(start=0, stateSelect=StateSelect.prefer) "Current";
       SI.MagneticPotentialDifference V_m "Magnetic potential difference";
@@ -2771,9 +4860,211 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
 </html>"));
     end ElectroMagneticConverter;
 
+    model ElectroMagneticConverterWithLeakageInductance
+      "Electro-magnetic energy conversion with a leakage inductance"
+
+      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
+        "Positive magnetic port" annotation (Placement(transformation(extent={{
+                90,50},{110,70}}, rotation=0)));
+      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
+        "Negative magnetic port" annotation (Placement(transformation(extent={{
+                110,-70},{90,-50}}, rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.PositivePin p
+        "Positive electric pin" annotation (Placement(transformation(extent={{-90,
+                50},{-110,70}}, rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n
+        "Negative electric pin" annotation (Placement(transformation(extent={{-110,
+                -70},{-90,-50}}, rotation=0)));
+      SI.Voltage v "Voltage";
+      SI.Current i(start=0, stateSelect=StateSelect.prefer) "Current";
+      SI.MagneticPotentialDifference V_m "Magnetic potential difference";
+      SI.MagneticFlux Phi(stateSelect=StateSelect.never)
+        "Total Magnetic flux coupled into magnetic circuit (= Phi_ind + Phi_leak)";
+      SI.MagneticFlux Phi_ind(stateSelect=StateSelect.never)
+        "Magnetic flux of converter";
+      SI.MagneticFlux Phi_leak(stateSelect=StateSelect.never)
+        "Magnetic flux of leakage inductance";
+      parameter Real N(start=1, min=Modelica.Constants.eps) "Number of turns";
+
+      parameter SI.Length L=10e-3 "Length in direction of flux"
+        annotation (Dialog(tab="LeakageInductance"));
+      parameter SI.Area A=10e-6 "Area of cross-section"
+        annotation (Dialog(tab="LeakageInductance"));
+      parameter SI.RelativePermeability mu_rel(min=Modelica.Constants.eps)=
+           1
+        "Constant relative permeability of leackage inductance (> 0 required)"
+        annotation (Dialog(tab="LeakageInductance"));
+      final parameter SI.Permeance G_m=Modelica.Constants.mue_0*
+          mu_rel*A/L "Magnetic permeance of leackage inductance";
+
+      //for information only:
+      SI.MagneticFlux Psi "Flux linkage for information only";
+      SI.Inductance L_stat "Static inductance abs(Psi/i) for information only";
+
+    protected
+      constant Real eps=100*Modelica.Constants.eps;
+    equation
+      v = p.v - n.v;
+      0 = p.i + n.i;
+      i = p.i;
+
+      V_m = port_p.V_m - port_n.V_m;
+      0 = port_p.Phi + port_n.Phi;
+      Phi = port_p.Phi;
+
+      //converter equations:
+      V_m = i*N "Ampere's law";
+      N*der(Phi_ind) = -v "Faraday's law";
+
+      // leackage equations
+      Phi_leak = G_m*V_m;
+      Phi = Phi_ind + Phi_leak;
+
+      //for information only:
+      Psi = N*Phi_ind;
+      //use of abs() for positive results; due to Modelica sign conventions for flow into connectors:
+      L_stat = noEvent(if abs(i) > eps then abs(Psi/i) else abs(Psi/eps));
+
+      annotation (
+        defaultComponentName="converter",
+        Diagram(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Polygon(
+              points={{-134,63},{-124,60},{-134,57},{-134,63}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-150,60},{-125,60}}, color={160,160,164}),
+            Polygon(
+              points={{141,-57},{151,-60},{141,-63},{141,-57}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{125,-60},{150,-60}}, color={160,160,164}),
+            Text(
+              extent={{128,-56},{144,-41}},
+              lineColor={160,160,164},
+              textString="Phi"),
+            Text(
+              extent={{128,64},{145,79}},
+              lineColor={0,0,0},
+              textString="Phi"),
+            Line(points={{-150,-59},{-125,-59}}, color={160,160,164}),
+            Polygon(
+              points={{-140,-56},{-150,-59},{-140,-62},{-140,-56}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-141,-56},{-124,-41}},
+              lineColor={160,160,164},
+              textString="i"),
+            Text(
+              extent={{-150,63},{-133,78}},
+              lineColor={160,160,164},
+              textString="i"),
+            Line(points={{124,61},{149,61}}, color={160,160,164}),
+            Polygon(
+              points={{134,64},{124,61},{134,58},{134,64}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid)}),
+        Icon(coordinateSystem(
+            preserveAspectRatio=false,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-70,100},{70,-100}},
+              lineColor={0,0,255},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(extent={{-50,0},{-30,20}}, lineColor={0,0,255}),
+            Line(points={{-40,60},{-40,40}}, color={0,0,255}),
+            Ellipse(extent={{-50,20},{-30,40}}, lineColor={0,0,255}),
+            Ellipse(extent={{-50,-20},{-30,0}}, lineColor={0,0,255}),
+            Ellipse(extent={{-50,-40},{-30,-20}}, lineColor={0,0,255}),
+            Line(points={{-40,-40},{-40,-60}}, color={0,0,255}),
+            Rectangle(
+              extent={{-54,40},{-40,-40}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-40,60},{-92,60}}, color={0,0,255}),
+            Line(points={{-40,-60},{-90,-60}}, color={0,0,255}),
+            Line(
+              points={{0,100},{-70,100}},
+              color={0,0,255},
+              pattern=LinePattern.Dash),
+            Line(
+              points={{-70,100},{-70,-100}},
+              color={0,0,255},
+              pattern=LinePattern.Dash),
+            Line(
+              points={{0,-100},{-70,-100}},
+              color={0,0,255},
+              pattern=LinePattern.Dash),
+            Line(
+              points={{70,100},{0,100}},
+              color={255,127,0},
+              pattern=LinePattern.Dash),
+            Line(
+              points={{70,-100},{0,-100}},
+              color={255,127,0},
+              pattern=LinePattern.Dash),
+            Line(
+              points={{70,100},{70,-100}},
+              color={255,127,0},
+              pattern=LinePattern.Dash),
+            Ellipse(extent={{-4,-34},{64,34}}, lineColor={255,127,0}),
+            Line(points={{30,-60},{30,-34}}, color={255,127,0}),
+            Line(points={{18,0},{42,0}}, color={255,127,0}),
+            Line(points={{42,10},{42,-12}}, color={255,127,0}),
+            Line(points={{30,34},{30,60}}, color={255,127,0}),
+            Line(points={{30,60},{100,60}}, color={255,127,0}),
+            Line(points={{30,-60},{90,-60}}, color={255,127,0}),
+            Text(
+              extent={{-150,150},{150,110}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(points={{18,10},{18,-12}}, color={255,127,0}),
+            Line(points={{-90,30},{-90,-30}}, color={0,0,255}),
+            Polygon(
+              points={{-90,-30},{-84,-10},{-96,-10},{-90,-30}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{130,32},{130,-28}}, color={255,128,0}),
+            Polygon(
+              points={{130,-28},{136,-8},{124,-8},{130,-28}},
+              lineColor={255,128,0},
+              fillColor={255,128,0},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{92,28},{108,-24}},
+              lineColor={255,128,0},
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{100,28},{100,50}},
+              color={255,128,0},
+              smooth=Smooth.None),
+            Line(
+              points={{100,-24},{100,-50}},
+              color={255,128,0},
+              smooth=Smooth.None)}),
+        Documentation(info="<html>
+<p>
+Same as <a href=\"FluxTubes.Basic.ElectroMagneticConverter\">ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
+</p>
+</html>"));
+    end ElectroMagneticConverterWithLeakageInductance;
+
     model ConstantReluctance "Constant reluctance"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
 
       parameter SI.Reluctance R_m=1 "Magnetic reluctance";
 
@@ -2802,7 +5093,7 @@ This constant reluctance is provided for test purposes and simple magnetic netwo
 
     model ConstantPermeance "Constant permeance"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
 
       parameter SI.Permeance G_m=1 "Magnetic permeance";
 
@@ -2838,7 +5129,7 @@ This constant permeance is provided for test purposes and simple magnetic networ
     model LeakageWithCoefficient
       "Leakage reluctance with respect to the reluctance of a useful flux path (not for dynamic simulation of actuators)"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+      extends FluxTubes.Interfaces.PartialLeakage;
 
       parameter SI.CouplingCoefficient c_usefulFlux=0.7
         "Ratio useful flux/(leakage flux + useful flux) = useful flux/total flux";
@@ -2869,7 +5160,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
     model EddyCurrent
       "For modelling of eddy current in a conductive magnetic flux tube"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
         final T=273.15);
 
@@ -2926,11 +5217,13 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 <ul>
 <li>Added parameter <code>useConductance</code> including alternative parameterization</li>
 </ul>
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end EddyCurrent;
 
     model Idle "Idle running branch"
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
     equation
       Phi = 0;
       annotation (
@@ -2969,7 +5262,7 @@ This is a simple idle running branch.
     end Idle;
 
     model Short "Short cut branch"
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
     equation
       connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
               100,0}}, color={255,128,0}));
@@ -3001,26 +5294,28 @@ This is a simple short cut branch.
 
     model Crossing "Crossing of two branches"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p1
+      FluxTubes.Interfaces.PositiveMagneticPort port_p1
         "Positive port_p1 connected with port_p2"
         annotation (Placement(transformation(extent={{-110,90},{-90,110}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p2
+      FluxTubes.Interfaces.PositiveMagneticPort port_p2
         "Positive port_p2 connected with port_p1"
         annotation (Placement(transformation(extent={{90,-110},{110,-90}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n1
+      FluxTubes.Interfaces.NegativeMagneticPort port_n1
         "Negative port_n1 connected with port_n2"
         annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n2
+      FluxTubes.Interfaces.NegativeMagneticPort port_n2
         "Negative port_n2 connected with port_n1"
         annotation (Placement(transformation(extent={{90,90},{110,110}})));
 
     equation
       connect(port_p1, port_p2) annotation (Line(
           points={{-100,100},{-100,20},{0,20},{0,-20},{100,-20},{100,-100}},
-          color={255,128,0}));
+          color={255,128,0},
+          smooth=Smooth.None));
       connect(port_n1, port_n2) annotation (Line(
           points={{-100,-100},{-100,0},{100,0},{100,100}},
-          color={255,128,0}));
+          color={255,128,0},
+          smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={
             Text(
@@ -3034,10 +5329,12 @@ This is a simple short cut branch.
               fillPattern=FillPattern.Solid),
           Line(
               points={{100,100},{100,40},{-100,-40},{-100,-100}},
-              color={255,128,0}),
+              color={255,128,0},
+              smooth=Smooth.None),
           Line(
               points={{-100,100},{-100,40},{100,-40},{100,-100}},
-              color={255,128,0})}),                              Documentation(
+              color={255,128,0},
+              smooth=Smooth.None)}),                              Documentation(
             info="<html>
 <p>
 This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
@@ -3055,7 +5352,9 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
 <li>Added crossing model</li>
 </ul>
 
-</html>"));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end Crossing;
   end Basic;
 
@@ -3070,7 +5369,7 @@ This is a simple crossing of two branches. The ports <code>port_p1</code> and <c
       model GenericFluxTube
         "Flux tube with fixed cross-section and length; linear or non-linear material characteristics"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+        extends FluxTubes.Interfaces.PartialFixedShape;
 
         parameter SI.Length l=0.01 "Length in direction of flux"
           annotation(Dialog(group="Fixed geometry", groupImage=
@@ -3097,7 +5396,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model Cuboid
         "Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+        extends FluxTubes.Interfaces.PartialFixedShape;
 
         parameter SI.Length l=0.01 "Length in direction of flux" annotation (
             Dialog(group="Fixed geometry", groupImage=
@@ -3121,7 +5420,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+        extends FluxTubes.Interfaces.PartialFixedShape;
 
         parameter SI.Length l=0.01 "Axial length (in direction of flux)"
           annotation (Dialog(group="Fixed geometry", groupImage=
@@ -3150,7 +5449,7 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
       model HollowCylinderRadialFlux
         "Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
+        extends FluxTubes.Interfaces.PartialFixedShape;
 
         parameter SI.Length l=0.01 "Width (orthogonal to flux direction)"
                                                  annotation (Dialog(group=
@@ -3181,7 +5480,6 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 </html>"));
       end HollowCylinderRadialFlux;
 
-
       annotation (Documentation(info="<html>
 <p>
 Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation\">UsersGuide.ReluctanceForceCalculation</a> for an explanation of the different flux tube categories and resulting sub-packages.
@@ -3203,7 +5501,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
       model HollowCylinderAxialFlux
         "(Hollow) cylinder with axial flux; constant permeability"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+        extends FluxTubes.Interfaces.PartialForce;
 
         SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
               group="Variable geometry", groupImage=
@@ -3234,7 +5532,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model HollowCylinderRadialFlux
         "Hollow cylinder with radial flux; constant permeability"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+        extends FluxTubes.Interfaces.PartialForce;
 
         SI.Length l=s "Axial length (orthogonal to direction of flux)"
           annotation (Dialog(group="Variable geometry", groupImage=
@@ -3267,7 +5565,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model CuboidParallelFlux
         "Cuboid with flux in direction of motion, e.g., air gap with rectangular cross-section; constant permeability"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+        extends FluxTubes.Interfaces.PartialForce;
 
         SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
               group="Variable geometry", groupImage=
@@ -3298,7 +5596,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model CuboidOrthogonalFlux
         "Cuboid with flux orthogonal to direction of motion; constant permeability"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+        extends FluxTubes.Interfaces.PartialForce;
 
         SI.Length l=s "Length in direction of motion (orthogonal to flux)"
           annotation (Dialog(group="Variable geometry", groupImage=
@@ -3330,7 +5628,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model LeakageAroundPoles
         "Leakage flux tube around cylindrical or prismatic poles"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
+        extends FluxTubes.Interfaces.PartialForce;
         SI.Length l=s "Axial length (in direction of flux)" annotation (Dialog(
               group="Variable geometry", groupImage=
                 "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/LeakageAroundPoles.png"));
@@ -3394,7 +5692,7 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
       model QuarterCylinder
         "Leakage flux from one edge to the opposite plane through a quarter cylinder"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edge and plane)"
@@ -3413,7 +5711,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model QuarterHollowCylinder
         "Leakage flux in circumferential direction through a quarter hollow cylinder"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
@@ -3433,7 +5731,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
       model HalfCylinder "Leakage flux through the edges of a half cylinder"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edges)"
@@ -3453,7 +5751,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model HalfHollowCylinder
         "Leakage flux in circumferential direction through a half hollow cylinder"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length l=0.1
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
@@ -3474,7 +5772,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model QuarterSphere
         "Leakage flux through the corners of a quarter sphere"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r=0.005 "Radius of quarter sphere"
           annotation (Dialog(group="Parameters", groupImage=
@@ -3493,7 +5791,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model QuarterHollowSphere
         "Leakage flux through the edges of a quarter hollow sphere"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
@@ -3512,7 +5810,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model EighthOfSphere
         "Leakage flux through one edge and the opposite plane of an eighth of a sphere"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r=0.01 "Radius of eighth of sphere"
           annotation (Dialog(group="Parameters", groupImage=
@@ -3531,7 +5829,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model EighthOfHollowSphere
         "Leakage flux through one edge and the opposite plane of an eighth of a hollow sphere"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length t(start=0.01) "Thickness of spherical shell"
           annotation (Dialog(group="Parameters", groupImage=
@@ -3550,7 +5848,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
       model CoaxCylindersEndFaces
         "Leakage flux between the end planes of a inner solid cylinder and a coaxial outer hollow cylinder"
 
-        extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
+        extends FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r_0=10e-3 "Radius of inner solid cylinder"
           annotation (Dialog(group="Parameters", groupImage=
@@ -3590,6 +5888,590 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
 </html>"));
     end Leakage;
 
+    package HysteresisAndMagnets
+      "Flux tube elements for modelling ferromagnetic hysteresis, eddy currents and permanent magnets"
+      extends Modelica.Icons.VariantsPackage;
+      model GenericHystTellinenSoft
+        "Generic flux tube with soft magnetic hysteresis based on the Tellinen model and simple tanh()-functions"
+        // Dialog Group Hysteresis
+        parameter SI.MagneticFluxDensity Js = 1.8 "Saturation polarization" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis2.png"));
+        parameter SI.MagneticFluxDensity Br=0.9 "Remanence" annotation (Dialog(group="Hysteresis"));
+        parameter SI.MagneticFieldStrength Hc=120 "Coercitivity" annotation (Dialog(group="Hysteresis"));
+        parameter Real K=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
+
+        extends Interfaces.PartialGenericHysteresisTellinen(mu0=K*mu_0);
+
+      protected
+        parameter SI.MagneticFluxDensity eps=Js/1000;
+        //parameter Real mu0(final unit="N/A2")=K*mu_0;
+        parameter Real H0=0.5*Modelica.Math.log((1 + Br/Js)/(1 - Br/Js));
+        parameter Real M=H0/Hc;
+        constant SI.MagneticFieldStrength unitH = 1;
+
+      equation
+        hystR = Js*tanh((M*Hstat - H0)/unitH) + mu0*Hstat - eps/2;
+        hystF = Js*tanh((M*Hstat + H0)/unitH) + mu0*Hstat + eps/2;
+
+        annotation (defaultComponentName="Core", Documentation(info="<html>
+Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations. </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"<tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/> </p><p><br><b>Fig. 1:</b> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis </p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/> </p>
+<p><br>An overview over of available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>. </p>
+</td>
+</tr>
+</table>
+</html>"),       Icon(graphics={Text(
+                extent={{40,0},{40,-30}},
+                lineColor={255,128,0},
+                textString="TS")}));
+      end GenericHystTellinenSoft;
+
+      model GenericHystTellinenHard
+        "Generic flux tube with hard magnetic hysteresis based on the Tellinen model and simple tanh()-functions"
+
+        extends Interfaces.PartialGenericHysteresisTellinen(mu0=K*mu_0);
+
+        //Hysteresis parameter
+        parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
+        parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
+        parameter Real M = 10/Hc "Slope of tanh()-function" annotation (Dialog(group="Hysteresis"));
+        parameter Real K=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
+
+      protected
+        final parameter SI.MagneticFluxDensity eps = Br/1000;
+        //final parameter Real mu0(final unit="N/A2") = K*mu_0;
+        final parameter SI.MagneticFieldStrength H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
+        constant SI.MagneticFieldStrength unitH = 1;
+
+        Real tanhR;
+        Real tanhF;
+
+      equation
+        tanhR = tanh((M*H - H0)/unitH);
+        tanhF = tanh((M*H + H0)/unitH);
+        hystR = Br*tanhR + mu0*H - eps/2;
+        hystF = Br*tanhF + mu0*H + eps/2;
+
+       annotation (defaultComponentName="Core", Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                  -100},{100,100}}), graphics={
+              Rectangle(
+                extent={{-70,32},{70,-30}},
+                lineColor={255,128,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(
+                points={{70,0},{100,0}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Line(
+                points={{-90,0},{-70,0}},
+                color={255,128,0},
+                smooth=Smooth.None),   Line(
+                points={{-30,-20},{-14,-20},{-6,-16},{2,0},{10,16},{18,20},{26,20}},
+                color={255,128,0},
+                smooth=Smooth.Bezier,
+                origin={-14,0},
+                rotation=180),     Line(
+                points={{-18,-20},{-2,-20},{6,-16},{14,0},{22,16},{30,20},{38,
+                    20}},
+                color={255,128,0},
+                smooth=Smooth.Bezier),
+              Line(
+                points={{-18,-20},{-42,-20}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Line(
+                points={{16,20},{40,20}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Text(
+                extent={{40,-2},{40,-30}},
+                lineColor={255,128,0},
+                textString="TH")}),    Documentation(info="<html>
+<p>
+  Flux tube element for modeling the ferromagnetic (static) hysteresis of hard magnetic materials. The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop is described by simple hyperbolic tangent functions with 4 parameters.
+</p>
+
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <caption align=\"bottom\"><b>Fig. 1:</b> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png\">
+   </td>
+  </tr>
+</table>
+
+<p>
+An overview of all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
+</p>
+</html>"));
+      end GenericHystTellinenHard;
+
+      model GenericHystTellinenEverett
+        "Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and the Everett fucntion [Ya89])"
+
+        parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
+            FluxTubes.Material.HysteresisEverettParameter.BaseData()
+          "Material properties"
+          annotation (Dialog(group="Material"), choicesAllMatching=true);
+        extends Interfaces.PartialGenericHysteresisTellinen(mu0=mat.K*mu_0, sigma=mat.sigma);
+
+      protected
+        parameter SI.MagneticFluxDensity Js = 0.5 * FluxTubes.Utilities.everett(
+                                                           mat.Hsat,-mat.Hsat, mat, false)
+          "Saturation polarization";
+        //final parameter Real mu0 = mat.K * mu_0;
+        parameter SI.MagneticFluxDensity eps=mat.M/1000;
+        parameter Real P1 = (mat.M*mat.r*(2/pi*atan(mat.q*(mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(mat.Hsat-mat.Hc))+exp(-mat.p2*(mat.Hsat-mat.Hc)))));
+        parameter Real P4 = (mat.M*mat.r*(2/pi*atan(mat.q*(-mat.Hsat-mat.Hc))+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*(-mat.Hsat-mat.Hc))+exp(-mat.p2*(-mat.Hsat-mat.Hc)))));
+
+        SI.MagneticFieldStrength H2;
+        SI.MagneticFieldStrength H3;
+        Real P2;
+        Real P3;
+        Real H_lim;
+        constant SI.MagneticFluxDensity unitT = 1;
+
+      equation
+        H_lim = if Hstat<-mat.Hsat then -mat.Hsat elseif Hstat>mat.Hsat then mat.Hsat else Hstat;
+        H2 = H_lim-mat.Hc;
+        H3 = -H_lim-mat.Hc;
+
+        P2 = (mat.M*mat.r*(2/pi*atan(mat.q*H2)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H2)+exp(-mat.p2*H2))));
+        P3 = (mat.M*mat.r*(2/pi*atan(mat.q*H3)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H3)+exp(-mat.p2*H3))));
+
+        hystR = -Js + unitT*(P1*P2-P3*P4) + mu0*Hstat - eps/2;
+        hystF =  Js + unitT*(P4*P2-P3*P1) + mu0*Hstat + eps/2;
+
+        annotation (defaultComponentName="Core", Icon(graphics={Text(
+                extent={{40,0},{40,-30}},
+                lineColor={255,128,0},
+                textString="TE")}),
+          Documentation(info="<html>
+
+<p>
+Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function, which is also used to parameterize the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a> model. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
+</p>
+ 
+
+<p>
+An overview of all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
+</p>
+
+</html>"));
+      end GenericHystTellinenEverett;
+
+      model GenericHystTellinenTable
+        "Generic flux tube with ferromagnetic hysteresis based on the Tellinen model and table data"
+
+        parameter FluxTubes.Material.HysteresisTableData.BaseData mat=
+            FluxTubes.Material.HysteresisTableData.BaseData()
+          annotation (choicesAllMatching=true, Dialog(group="Hysteresis"));
+        parameter Real K = 1
+          "Slope of hysteresis in the saturation region (K*mu_0)"                    annotation(Dialog(group="Hysteresis"));
+
+        extends Interfaces.PartialGenericHysteresisTellinen(mu0=mu_0*K, sigma=mat.sigma);
+
+      protected
+        constant SI.MagneticFluxDensity unitT=1;
+        parameter SI.MagneticFluxDensity eps = unitT*mat.tabris[size(mat.tabris,1),2]/1000;
+
+        Modelica.Blocks.Tables.CombiTable1D tabris(
+          table=mat.tabris,
+          smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
+
+        Modelica.Blocks.Tables.CombiTable1D tabfal(
+          table=mat.tabfal,
+          smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative);
+
+      equation
+        tabris.u[1]=Hstat;
+        tabfal.u[1]=Hstat;
+
+        hystR = unitT*tabris.y[1]+mu0*Hstat-eps;
+        hystF = unitT*tabfal.y[1]+mu0*Hstat+eps;
+
+        annotation (defaultComponentName="Core", Icon(graphics={Text(
+                extent={{40,0},{40,-30}},
+                lineColor={255,128,0},
+                textString="TT")}),
+          Documentation(info="<html>
+
+<p>
+Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The rising and falling branch of the limiting ferromagnetic hysteresis loop are specified by table data. Therefore, almost any hysteresis shapes are possible. A library with predefined tables can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a>.
+
+<p>
+An overview of all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
+</p>
+
+</html>"));
+      end GenericHystTellinenTable;
+
+      model GenericHystPreisachEverett
+        "Generic flux tube with ferromagnetic hysteresis based on the Preisach model and the Everett function [Ya89])"
+
+        parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
+            FluxTubes.Material.HysteresisEverettParameter.BaseData()
+          "Preisach Parameters"
+          annotation (Dialog(group="Material"), choicesAllMatching=true);
+
+        parameter Integer Count=100 "Length of history array" annotation(Dialog(group="Advanced"));
+        parameter SI.MagneticFieldStrength eps=1e-5
+          "Tolerance in Preisach history"                                           annotation(Dialog(group="Advanced"));
+        parameter SI.Time t1=1e-6 "Initialization time" annotation(Dialog(group="Advanced"));
+
+        extends Interfaces.PartialGenericHysteresis(sigma=mat.sigma);
+
+      protected
+        final parameter Real mu0=mat.K*Modelica.Constants.mue_0;
+
+        SI.MagneticFluxDensity J "Polarisation";
+        SI.MagneticFieldStrength hmax(start=0, min=0) "maximum value of h";
+
+        SI.MagneticFieldStrength alpha
+          "Current alpha coordinate of Everett-Function everett(alpha,beta)";
+        SI.MagneticFieldStrength beta
+          "Current beta coordinate of Everett-Function everett(alpha,beta)";
+
+        Boolean asc(start=true, fixed=true) "=asc without chatter";
+        Boolean asc2 "Hstat is ascending der(Hstat)>0";
+        Boolean delAsc(start=false)
+          "whipeout history vertex at ascending Hstat";
+        Boolean delDesc(start=false)
+          "whipeout history vertex at descending Hstat";
+        Boolean del(start=false) "delAsc or delDesc";
+        Boolean init(start=false, fixed=true)
+          "If init=1 then J runs on the initial magnetization curve";
+        Boolean evInit(start=false) "Event init=0 -> init=1";
+        Boolean evAsc(start=false) "Event asc=0 -> asc=1";
+        Boolean evDesc(start=false) "Event asc=1 -> asc=0";
+
+        SI.MagneticFieldStrength aSav[Count]
+          "1xCount array of alpha history (vertices on Preisach Plane)";
+        SI.MagneticFieldStrength bSav[Count]
+          "1xCount array of beta history (verttices on Preisach Plane)";
+
+        SI.MagneticFluxDensity E "Everett function";
+        SI.MagneticFieldStrength H1 "Term for computing the Everett function";
+        SI.MagneticFieldStrength H2 "Term for computing the Everett function";
+        SI.MagneticFieldStrength H3 "Term for computing the Everett function";
+        SI.MagneticFieldStrength H4 "Term for computing the Everett function";
+        constant SI.MagneticFluxDensity unitT=1;
+
+        Real v(start=0,  fixed=true, final unit="1");
+
+        constant Real pi=Modelica.Constants.pi;
+
+        Boolean init2(start=false, fixed=true);
+        Boolean init3;
+        SI.MagneticFieldStrength x(start=0)
+          "Variable for initialization of the Preisach model";
+        discrete Real aSavI;
+        discrete Real bSavI;
+        discrete Real bI;
+        discrete Real hmaxI;
+
+      initial equation
+        J = 0.5*(FluxTubes.Utilities.everett(
+                H,
+                -mat.Hsat,
+                mat,
+                false)*(1 - MagRel) - FluxTubes.Utilities.everett(
+                mat.Hsat,
+                H,
+                mat,
+                false)*(1 + MagRel) + FluxTubes.Utilities.everett(
+                mat.Hsat,
+                -mat.Hsat,
+                mat,
+                false)*MagRel);
+        J = FluxTubes.Utilities.initPreisach(
+                x,
+                H,
+                mat);
+        aSav=fill( mat.Hsat,Count);
+        bSav=fill(-mat.Hsat,Count);
+        beta=alpha;
+        hmax=mat.Hsat;
+
+      equation
+        init2 = time > 1.5*t1;
+        init3 = edge(init2);
+
+        der(x) = 0;
+        when init2 then
+          hmaxI = abs(Hstat)+abs(x);
+          if hmax<eps then
+            aSavI = mat.Hsat;
+            bSavI = -mat.Hsat;
+          elseif asc and x<0 then
+            aSavI = mat.Hsat;
+            bSavI = -hmax;
+          elseif asc and x>0 then
+            aSavI = hmax;
+            bSavI = alpha;
+          elseif not asc and x<0 then
+            aSavI = alpha;
+            bSavI = -hmax;
+          else
+            aSavI = hmax;
+            bSavI = -mat.Hsat;
+          end if;
+          bI = if asc then bSav[1] else aSav[1];
+        end when;
+
+        alpha = if Hstat<=-mat.Hsat then -mat.Hsat elseif Hstat>=mat.Hsat then mat.Hsat else Hstat;
+
+        asc2 = der(Hstat)>0;
+        der(v)= if (asc2 and v<1) then 0.5/t1 elseif (not asc2 and v>0) then -0.5/t1 else 0;
+        asc = v>0.5;
+
+        evAsc = (not pre(asc)) and asc;
+        evDesc = pre(asc) and (not asc);
+
+        der(beta) = if init then -der(alpha) else 0;
+
+        delAsc = (alpha > pre(aSav[1]));
+        delDesc = (alpha < pre(bSav[1]));
+        del = delAsc or delDesc or evInit;
+
+        init = (abs(alpha) >= pre(hmax)) and time>2*t1;
+
+        evInit = init and not pre(init);
+
+        when init3 or (change(asc) and pre(init)) then
+          hmax = if init3 then hmaxI else abs(Hstat);
+        end when;
+
+        //##### bSav #####
+        when {init3, evAsc, del} then
+          if init3 then
+            bSav=cat(1,{bSavI},fill(-mat.Hsat,Count-1));
+          elseif evAsc then
+            bSav = if (alpha-eps)>pre(bSav[1]) then cat(1,{alpha},pre(bSav[1:end-1])) else pre(bSav);
+          elseif del then
+            bSav = cat(1,pre(bSav[2:end]),{-mat.Hsat});
+          else
+            bSav = pre(bSav);
+          end if;
+        end when;
+
+        //##### REINIT aSav #####
+        when {init3, evDesc, del} then
+          if init3 then
+            aSav=cat(1,{aSavI},fill(mat.Hsat,Count-1));
+          elseif evDesc then
+            aSav = if (alpha+eps)<pre(aSav[1]) then cat(1,{alpha},pre(aSav[1:end-1])) else pre(aSav);
+          elseif del then
+            aSav = cat(1,pre(aSav[2:end]),{mat.Hsat});
+          else
+            aSav = pre(aSav);
+          end if;
+        end when;
+
+        // #### beta ####
+        when {init3, change(asc), evInit, del} then
+          reinit(beta, if init3 then bI elseif change(asc) then alpha elseif evInit then -alpha elseif asc then bSav[1] else aSav[1]);
+        end when;
+
+        H1= -beta-mat.Hc;
+        H2= alpha-mat.Hc;
+        H3= -alpha-mat.Hc;
+        H4= beta-mat.Hc;
+
+        E = unitT*
+            ((mat.M*mat.r*(2/pi*atan(mat.q*H1)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H1)+exp(-mat.p2*H1))))*
+            (mat.M*mat.r*(2/pi*atan(mat.q*H2)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H2)+exp(-mat.p2*H2))))-
+            (mat.M*mat.r*(2/pi*atan(mat.q*H3)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H3)+exp(-mat.p2*H3))))*
+            (mat.M*mat.r*(2/pi*atan(mat.q*H4)+1)+(2*mat.M*(1-mat.r))/(1+1/2*(exp(-mat.p1*H4)+exp(-mat.p2*H4)))));
+
+        der(J) = (if init then 0.5 else 1) * der(E);
+        B = J + mu0 * Hstat;
+
+        annotation (defaultComponentName="Core", Icon(graphics={Text(
+                extent={{40,0},{40,-30}},
+                lineColor={255,128,0},
+                textString="PE")}),
+          Documentation(info="<html>
+<p>
+Flux tube element for modeling magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the
+<a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. The Shape of the limiting ferromagnetic hysteresis loop is specified by an analytical description of the Everett function. A library of predefined parameter sets can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a>.
+</p>
+
+<p>
+An overview over all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
+</p>
+
+</html>"));
+      end GenericHystPreisachEverett;
+
+      model GenericHystTellinenPermanentMagnet
+        "Permanent magnet based on the Tellinen hysteresis model"
+
+        extends FluxTubes.Interfaces.PartialGenericHysteresisTellinen(mu0=K*
+              Modelica.Constants.mue_0, MagRel(start=-100, fixed=true));
+
+        parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
+        parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
+        parameter Real M(final unit="1") = unitH*10/Hc
+          "Slope of tanh()-function"                                              annotation (Dialog(group="Hysteresis"));
+        parameter Real K(final unit="1")=1 "mu_0 multiplier" annotation (Dialog(group="Hysteresis"));
+
+      protected
+        constant SI.MagneticFieldStrength unitH = 1;
+        parameter SI.MagneticFluxDensity eps= Br/1000;
+        parameter SI.MagneticFieldStrength H0= 0.5*log((1+mu0*Hc/Br)/(1-mu0*Hc/Br)) + M*Hc;
+
+      equation
+        hystR = Br*tanh((M*H - H0)/unitH) + mu0*H - eps/2;
+        hystF = Br*tanh((M*H + H0)/unitH) + mu0*H + eps/2;
+
+        annotation (defaultComponentName="PM",
+                    Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                  -100},{100,100}}), graphics={
+              Rectangle(
+                extent={{-70,30},{70,-30}},
+                lineColor={255,128,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(
+                points={{70,0},{100,0}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Rectangle(
+                extent={{34,20},{60,-20}},
+                lineColor={0,127,0},
+                fillColor={0,127,0},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-20,13},{20,-13}},
+                lineColor={0,0,0},
+                textStyle={TextStyle.Bold},
+                fillPattern=FillPattern.Solid,
+                fillColor={0,127,0},
+                origin={47,0},
+                rotation=90,
+                textString="S"),   Line(
+                points={{-38,-20},{-4,-20},{4,-16},{12,0},{20,16},{28,20},{36,
+                    20}},
+                color={255,128,0},
+                smooth=Smooth.Bezier), Line(
+                points={{-42,-20},{-14,-20},{-6,-16},{2,0},{10,16},{18,20},{28,
+                    20}},
+                color={255,128,0},
+                smooth=Smooth.Bezier,
+                origin={-6,0},
+                rotation=180),
+              Line(
+                points={{-100,0},{-70,0}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Rectangle(
+                extent={{-60,20},{-34,-20}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-20,13},{20,-13}},
+                lineColor={0,0,0},
+                textStyle={TextStyle.Bold},
+                fillPattern=FillPattern.Solid,
+                fillColor={0,127,0},
+                textString="N",
+                origin={-47,0},
+                rotation=90),
+              Text(
+                extent={{22,0},{22,-18}},
+                lineColor={255,128,0},
+                textString="TH")}),    Documentation(info="<html>
+
+<p>
+Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100&percnt; and and adapted icon for better readability of the diagram. 
+</p>
+
+<p>
+An overview over all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
+</p>
+
+</html>"));
+      end GenericHystTellinenPermanentMagnet;
+
+      model GenericLinearPermanentMagnet
+        "Permanent Magnet with linear characteristic"
+        extends Interfaces.PartialGeneric;
+
+        parameter Material.HardMagnetic.BaseData mat=
+            Material.HardMagnetic.BaseData() "Material"   annotation (Dialog(group="Material"),choicesAllMatching=true);
+
+        output SI.MagneticFieldStrength H;
+        output SI.MagneticFluxDensity B;
+
+      equation
+        V_m = H*l;
+        Phi = B*A;
+        B = -mat.B_r+mu_0*mat.mu_r*H;
+        annotation (defaultComponentName="PM",Icon(graphics={
+              Rectangle(
+                extent={{-70,30},{70,-30}},
+                lineColor={255,128,0},
+                fillColor={255,255,255},
+                fillPattern=FillPattern.Solid),
+              Line(
+                points={{-100,0},{-70,0}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Line(
+                points={{70,0},{100,0}},
+                color={255,128,0},
+                smooth=Smooth.None),
+              Rectangle(
+                extent={{-60,20},{-34,-20}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-20,13},{20,-13}},
+                lineColor={0,0,0},
+                textStyle={TextStyle.Bold},
+                fillPattern=FillPattern.Solid,
+                fillColor={0,127,0},
+                textString="N",
+                origin={-47,0},
+                rotation=90),
+              Rectangle(
+                extent={{34,20},{60,-20}},
+                lineColor={0,127,0},
+                fillColor={0,127,0},
+                fillPattern=FillPattern.Solid),
+              Text(
+                extent={{-20,13},{20,-13}},
+                lineColor={0,0,0},
+                textStyle={TextStyle.Bold},
+                fillPattern=FillPattern.Solid,
+                fillColor={0,127,0},
+                origin={47,0},
+                rotation=90,
+                textString="S")}),
+          Documentation(info="<html>
+<p>
+Simple model of a linear permanent Magnet. Typical characteristics of common permanent magnetic materials can be found at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HardMagnetic\">FluxTubes.Material.HardMagnetic</a>.
+</p>
+
+<p>
+An overview over all available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>.
+</p>
+
+</html>"));
+      end GenericLinearPermanentMagnet;
+
+      annotation (Documentation(info="<html>
+
+<p>
+Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a> for an explanation of the Content of the package.
+</p>
+
+</html>"));
+    end HysteresisAndMagnets;
   end Shapes;
 
   package Material
@@ -3623,7 +6505,7 @@ The parameters needed for <a href=\"modelica://Modelica.Magnetic.FluxTubes.Mater
       package Steel "Various ferromagnetic steels"
         extends Modelica.Icons.MaterialPropertiesPackage;
         record Steel_9SMnPb28 "9SMnPb28 (1.0718)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=400,
             B_myMax=1.488,
             c_a=1200,
@@ -3637,7 +6519,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         end Steel_9SMnPb28;
 
         record Steel_9SMn28K "9SMn28k (1.0715)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=500,
             B_myMax=1.036,
             c_a=43414,
@@ -3651,7 +6533,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         end Steel_9SMn28K;
 
         record DC01 "DC01 (1.0330, previously St2)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=5,
             B_myMax=1.1,
             c_a=6450,
@@ -3665,7 +6547,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         end DC01;
 
         record DC03 "DC03 (1.0347, previously St3)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=0,
             B_myMax=1.05,
             c_a=27790,
@@ -3679,7 +6561,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         end DC03;
 
         record X6Cr17 "X6Cr17 (1.4016)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=274,
             B_myMax=1.1,
             c_a=970,
@@ -3693,7 +6575,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         end X6Cr17;
 
         record AISI_1008 "AISI 1008 (1.0204)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=200,
             B_myMax=1.17,
             c_a=8100,
@@ -3707,7 +6589,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         end AISI_1008;
 
         record AISI_12L14 "AISI 12L14 (1.0718)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=10,
             B_myMax=0.94,
             c_a=5900,
@@ -3730,7 +6612,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         extends Modelica.Icons.MaterialPropertiesPackage;
 
         record M330_50A "M330-50A (1.0809) @ 50Hz"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=500,
             B_myMax=0.7,
             c_a=24000,
@@ -3747,7 +6629,7 @@ Sample: complete core after machining and packet assembling<br>
         end M330_50A;
 
         record M350_50A "M350-50A (1.0810) @ 50Hz"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=1210,
             B_myMax=1.16,
             c_a=24630,
@@ -3765,7 +6647,7 @@ Measurement: Epstein frame
         end M350_50A;
 
         record M530_50A "M530-50A (1.0813) @ 50Hz"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=2120,
             B_myMax=1.25,
             c_a=12400,
@@ -3783,7 +6665,7 @@ Measurement: Epstein frame
         end M530_50A;
 
         record M700_100A "M700-100A (1.0826) @ 50Hz"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=1120,
             B_myMax=1.2,
             c_a=20750,
@@ -3801,7 +6683,7 @@ Measurement: Epstein frame
         end M700_100A;
 
         record M940_100A "M940-100A @ 50Hz"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=680,
             B_myMax=1.26,
             c_a=17760,
@@ -3829,7 +6711,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         extends Modelica.Icons.MaterialPropertiesPackage;
 
         record RFe80 "Hyperm 0 (RFe80)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=123,
             B_myMax=1.27,
             c_a=44410,
@@ -3846,7 +6728,7 @@ Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
         end RFe80;
 
         record VacoferS2 "VACOFER S2 (99.95% Fe)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=2666,
             B_myMax=1.15,
             c_a=187000,
@@ -3869,7 +6751,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
         extends Modelica.Icons.MaterialPropertiesPackage;
 
         record Vacoflux50 "Vacoflux 50 (50% CoFe)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=3850,
             B_myMax=1.75,
             c_a=11790,
@@ -3890,7 +6772,7 @@ Source of B(H) characteristics: VACUUMSCHMELZE GmbH &amp; Co. KG, Germany
         extends Modelica.Icons.MaterialPropertiesPackage;
 
         record MuMetall "MUMETALL (77% NiFe)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=27300,
             B_myMax=0.46,
             c_a=1037500,
@@ -3910,7 +6792,7 @@ Source of B(H) characteristics:
         end MuMetall;
 
         record Permenorm3601K3 "PERMENORM 3601 K3 (36% NiFe)"
-          extends Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData(
+          extends FluxTubes.Material.SoftMagnetic.BaseData(
             mu_i=3000,
             B_myMax=0.67,
             c_a=50000,
@@ -4028,7 +6910,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end BaseData;
 
       record NdFeB "NdFeB sintered; exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=900000,
           B_rRef=1.2,
           T_ref=20 + 273.15,
@@ -4041,7 +6923,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end NdFeB;
 
       record Sm2Co17 "Sm2Co17 sintered, exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=750000,
           B_rRef=1.02,
           T_ref=20 + 273.15,
@@ -4054,7 +6936,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end Sm2Co17;
 
       record SmCo5 "SmCo5 sintered, exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=720000,
           B_rRef=0.95,
           T_ref=20 + 273.15,
@@ -4067,7 +6949,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end SmCo5;
 
       record PlasticNdFeB "Plastic-bonded NdFeB, exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=400000,
           B_rRef=0.58,
           T_ref=20 + 273.15,
@@ -4080,7 +6962,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end PlasticNdFeB;
 
       record PlasticSmCo "Plastic-bonded Sm-Co, exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=385000,
           B_rRef=0.57,
           T_ref=20 + 273.15,
@@ -4093,7 +6975,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end PlasticSmCo;
 
       record HardFerrite "Hard ferrite sintered, exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=170000,
           B_rRef=0.38,
           T_ref=20 + 273.15,
@@ -4106,7 +6988,7 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
       end HardFerrite;
 
       record PlasticHardFerrite "Plastic-bonded hard ferrite, exemplary values"
-        extends Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData(
+        extends FluxTubes.Material.HardMagnetic.BaseData(
           H_cBRef=130000,
           B_rRef=0.21,
           T_ref=20 + 273.15,
@@ -4134,6 +7016,855 @@ Additional user-specific materials can be defined as needed.
 </p>
 </html>"));
     end HardMagnetic;
+
+    package HysteresisEverettParameter
+      "Parameter sets for an analytical description of the Everett function"
+      extends Modelica.Icons.MaterialPropertiesPackage;
+      record BaseData "Base Data Record"
+        parameter SI.MagneticFieldStrength Hsat=100
+          "Hysteresis region between -Hsat .. Hsat";
+        parameter Real M(final unit="1")=0.95
+          "Related to saturation value of magnetization";
+        parameter Real r(final unit="1")=0.55
+          "Proportion of the straight region in the vicinity of Hc";
+        parameter Real q(final unit="m/A")=2.4e-1
+          "Slope of the straight region in the vicinity of Hc";
+        parameter Real p1(final unit="m/A")=1.2e-1 "Sharpness of major loop";
+        parameter Real p2(final unit="m/A")=8e-1 "Sharpness of major loop";
+        parameter SI.MagneticFieldStrength Hc=7.4 "Major loop coercivity";
+        parameter Real K(final unit="1")=1
+          "Slope in saturation regeion mue_0*K";
+        parameter SI.Conductivity sigma = 1
+          "Electrical conductivity of material";
+
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_BaseData.png\">
+   </td>
+  </tr>
+</table>
+</html>
+"));
+      end BaseData;
+
+      record Vacoflux17 "Vacoflux17"
+        extends BaseData(
+          M = 0.919590,
+          r = 0.728070,
+          q = 0.015757,
+          p1 = 0.016407,
+          p2 = 0.001049,
+          Hc = 98.0842,
+          K = 110,
+          Hsat = 1000,
+          sigma = 2.56e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_Vacoflux17.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end Vacoflux17;
+
+      record Vacodur50 "Vacodur50"
+        extends BaseData(
+          M = 1.002,
+          r = 1.0835,
+          q = 0.052305,
+          p1 = 0.79581,
+          p2 = 0.00898,
+          Hc = 133.5884,
+          K = 160,
+          Hsat = 800,
+          sigma=2.38e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_Vacodur50.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end Vacodur50;
+
+      record M270_50A "M270-50A"
+        extends BaseData(
+          Hsat = 650,
+          M = 0.980890,
+          r = 0.429330,
+          q = 0.027285,
+          p1 = 0.48567,
+          p2 = 0.000549,
+          Hc = 24.4948,
+          K = 50,
+          sigma = 1.72e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M270-50A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M270_50A;
+
+      record M330_50A "M330-50A"
+        extends BaseData(
+          Hsat = 650,
+          M = 0.967,
+          r = 0.502560,
+          q = 0.039964,
+          p1 = 0.188070,
+          p2 = 0.000781,
+          Hc = 42.2283,
+          K = 50,
+          sigma = 2.2e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M330-50A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M330_50A;
+
+      record M400_50A "M400-50A"
+        extends BaseData(
+          Hsat = 700,
+          M = 0.96642,
+          r = 0.44216,
+          q = 0.027763,
+          p1 = 0.29943,
+          p2 = 0.000757,
+          Hc = 43.2967,
+          K = 50,
+          sigma = 2.22e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M400-50A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M400_50A;
+
+      record M400_50AP "M400-50AP"
+        extends BaseData(
+          Hsat = 600,
+          M = 1.0013,
+          r = 0.42687,
+          q = 0.034302,
+          p1 = 0.31794,
+          p2 = 0.000759,
+          Hc = 36.204,
+          K = 50,
+          sigma = 2.22e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M400-50AP.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M400_50AP;
+
+      record M800_65A "M800-65A"
+        extends BaseData(
+          Hsat = 700,
+          M = 1.146100,
+          r = 0.160700,
+          q = 0.012965,
+          p1 = 0.183490,
+          p2 = 0.000425,
+          Hc = 100.0602,
+          K = 50,
+          sigma = 3.27e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisEverettParameter/hyst_M800-65A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M800_65A;
+      annotation (Documentation(info="<html>
+<p>These parameter records contain the parameters which adapt the analytical Everett function to a specific hysteresis shape (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> for a detailed description of that function). The Everett function is used to define the shape of the ferromagnetic hysteresis of the <code><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.GenericHystTellinenEverett\">GenericHystTellinenEverett</a></code> and the <code><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.GenericHystPreisachEverett\">GenericHystPreisachEverett</a></code> flux tube elements.</p>
+</html>"));
+    end HysteresisEverettParameter;
+
+    package HysteresisTableData
+      extends Modelica.Icons.MaterialPropertiesPackage;
+      record BaseData "hysteresis table data"
+
+        extends Modelica.Icons.Record;
+
+        parameter Real[:,:] tabris=[
+          -10000000, -0.8000;
+          -1000, -0.8000;
+          -300, -0.8000;
+          -200, -0.8000;
+          -190, -0.8000;
+          -180, -0.8000;
+          -160, -0.7999;
+          -150, -0.7998;
+          -140, -0.7997;
+          -130, -0.7996;
+          -120, -0.7993;
+          -110, -0.7989;
+          -100, -0.7982;
+          -90, -0.7971;
+          -80, -0.7953;
+          -70, -0.7924;
+          -60, -0.7878;
+          -50, -0.7802;
+          -40, -0.7680;
+          -30, -0.7486;
+          -20, -0.7180;
+          -10, -0.6708;
+          0, -0.6000;
+          10, -0.4983;
+          20, -0.3611;
+          30, -0.1908;
+          40, 0.0000;
+          50, 0.1908;
+          60, 0.3611;
+          70, 0.4983;
+          80, 0.6000;
+          90, 0.6708;
+          100, 0.7180;
+          110, 0.7486;
+          120, 0.7680;
+          130, 0.7802;
+          140, 0.7878;
+          150, 0.7924;
+          160, 0.7953;
+          170, 0.7971;
+          180, 0.7982;
+          190, 0.7989;
+          200, 0.7993;
+          300, 0.8000;
+          1000, 0.8000;
+          10000000, 0.8000]
+          "table data of the rising (lower) branch of the hysteresis envelope curve (H, B)";
+
+        parameter Real[:,:] tabfal=[
+          -10000000, -0.8000;
+          -1000, -0.8000;
+          -300, -0.8000;
+          -200, -0.7993;
+          -190, -0.7989;
+          -180, -0.7982;
+          -170, -0.7971;
+          -160, -0.7953;
+          -150, -0.7924;
+          -140, -0.7878;
+          -130, -0.7802;
+          -120, -0.7680;
+          -110, -0.7486;
+          -100, -0.7180;
+          -90, -0.6708;
+          -80, -0.6000;
+          -70, -0.4983;
+          -60, -0.3611;
+          -50, -0.1908;
+          -40, 0.0000;
+          -30, 0.1908;
+          -20, 0.3611;
+          -10, 0.4983;
+          0, 0.6000;
+          10, 0.6708;
+          20, 0.7180;
+          30, 0.7486;
+          40, 0.7680;
+          50, 0.7802;
+          60, 0.7878;
+          70, 0.7924;
+          80, 0.7953;
+          90, 0.7971;
+          100, 0.7982;
+          110, 0.7989;
+          120, 0.7993;
+          130, 0.7996;
+          140, 0.7997;
+          150, 0.7998;
+          160, 0.7999;
+          180, 0.8000;
+          190, 0.8000;
+          200, 0.8000;
+          300, 0.8000;
+          1000, 0.8000;
+          10000000, 0.8000]
+          "table data of the falling (upper) branch of the hysteresis envelope curve (H, B)";
+        parameter SI.Conductivity sigma = 1;
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_BaseData.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end BaseData;
+
+      record Vacoflux17 "Vacoflux17"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-1e7,-1.577; -1000.000,-1.577; -800.000,-1.577; -655.738,-1.555;
+              -505.647,-1.526; -374.499,-1.483; -253.552,-1.417; -135.519,-1.315;
+              -88.889,-1.221; -45.173,-1.097; -20.401,-0.967; 11.658,-0.770; 69.945,
+              -0.269; 102.004,0.138; 122.404,0.429; 145.719,0.690; 177.778,0.887;
+              211.293,1.025; 253.552,1.148; 306.011,1.243; 376.463,1.340; 480.978,
+              1.422; 673.913,1.528; 800.000,1.577; 1000.000,1.577; 1e7,1.577],
+          tabfal=[-1e7,-1.577; -1000.000,-1.577; -800.000,-1.577; -576.505,-1.477;
+              -409.072,-1.377; -292.851,-1.245; -213.838,-1.046; -176.321,-0.858;
+              -147.177,-0.661; -122.404,-0.414; -103.461,-0.109; -85.975,0.138;
+              -71.403,0.298; -48.087,0.516; -10.200,0.807; 27.687,1.032; 93.261,
+              1.250; 145.719,1.344; 192.350,1.388; 264.841,1.453; 351.184,1.497;
+              543.534,1.555; 657.609,1.572; 800.000,1.577; 1000.000,1.577; 1e7,1.577],
+          sigma=2.56e6);
+
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacoflux17.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end Vacoflux17;
+
+      record Vacoflux48 "Vacoflux48"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-1500,-2.22424; -1000,-2.22424; -798.541,-2.22424; -641.021,-2.19521;
+              -476.208,-2.15167; -320.146,-2.09361; -187.42,-1.9775; -134.913,-1.93396;
+              -98.4503,-1.87591; -66.3628,-1.8106; -43.0264,-1.73803; -24.0656,-1.66546;
+              -8.02188,-1.59289; 3.64631,-1.51306; 16.773,-1.41147; 22.6071,-1.32438;
+              25.5242,-1.23004; 29.8997,-0.33019; 35.7338,0.56241; 43.0264,1.15022;
+              51.7776,1.38244; 61.9872,1.52758; 72.1969,1.62917; 88.2407,1.71626;
+              107.201,1.78157; 123.245,1.83237; 149.499,1.90493; 177.211,1.94848;
+              207.84,1.99202; 244.303,2.0283; 292.434,2.07184; 352.233,2.10813;
+              433.911,2.14441; 512.671,2.17344; 597.265,2.19521; 706.655,2.21698;
+              800,2.23149; 1000,2.23149; 1500,2.23149],
+          tabfal=[-1500,-2.22424; -1000,-2.22424; -798.541,-2.22424; -641.021,-2.19521;
+              -476.208,-2.15167; -320.146,-2.07184; -187.42,-1.92671; -136.372,-1.84688;
+              -111.577,-1.78882; -91.1577,-1.709; -76.5725,-1.63643; -57.6117,-1.49129;
+              -44.485,-1.28084; -38.6509,-0.94703; -31.3582,-0.09797; -25.5242,0.83091;
+              -19.6901,1.36792; -13.856,1.44775; -2.18778,1.52758; 8.02188,1.61466;
+              28.4412,1.67997; 64.9043,1.78882; 95.5333,1.8579; 126.162,1.91945;
+              159.708,1.96163; 207.84,2.00653; 244.303,2.03585; 292.434,2.07184;
+              352.233,2.10813; 433.911,2.14441; 512.671,2.17344; 597.265,2.19521;
+              706.655,2.21698; 800,2.23149; 1000,2.23149; 1500,2.23149],
+          sigma=2.27e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacoflux48.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end Vacoflux48;
+
+      record Vacodur50 "Vacodur50"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-10000000.000,-2.137; -1500.000,-2.137; -1000.000,-2.137; -798.541,
+              -2.137; -632.270,-2.108; -464.540,-2.072; -283.683,-1.999; -145.123,
+              -1.912; -34.275,-1.825; 24.066,-1.716; 45.944,-1.644; 67.821,-1.549;
+              85.324,-1.419; 101.367,-1.208; 121.787,-0.584; 131.996,-0.004; 146.582,
+              0.795; 158.250,1.208; 175.752,1.586; 185.962,1.673; 206.381,1.753;
+              235.552,1.847; 279.307,1.912; 347.858,1.970; 467.457,2.036; 594.348,
+              2.072; 798.541,2.123; 1000.000,2.123; 1500.000,2.123; 10000000.000,
+              2.123],
+          tabfal=[-10000000.000,-2.137; -1500.000,-2.137; -1000.000,-2.137; -795.624,
+              -2.130; -627.894,-2.094; -464.540,-2.036; -330.356,-1.963; -282.224,
+              -1.927; -247.220,-1.876; -203.464,-1.753; -178.669,-1.629; -168.459,
+              -1.477; -158.250,-1.274; -148.040,-0.983; -142.206,-0.541; -131.996,
+              -0.105; -121.787,0.483; -102.826,1.085; -85.324,1.390; -53.236,1.578;
+              -10.939,1.738; 56.153,1.825; 127.621,1.898; 200.547,1.941; 299.727,
+              2.007; 385.779,2.043; 468.915,2.057; 800.000,2.123; 1000.000,2.123;
+              1500.000,2.123; 10000000.000,2.123],
+          sigma=2.38e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_Vacodur50.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end Vacodur50;
+
+      record M270_50A "M270-50A"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-50000,-2.36142149079005; -37500,-2.34572149079005; -25000,-2.20784143083814;
+              -12500,-1.94778131093431; -9500,-1.85604366776894; -9000,-1.83955155226256;
+              -8500,-1.82258455430894; -8000,-1.80507033229993; -7500,-1.78711018607209;
+              -7000,-1.76854566993810; -6500,-1.74932788983047; -6000,-1.72941810924188;
+              -5500,-1.70874679619234; -5000,-1.68715955603320; -4500,-1.66464746674895;
+              -4000,-1.64100464903791; -3500,-1.61593724456462; -3000,-1.58926699830608;
+              -2500,-1.56035493729185; -2000,-1.52877764744974; -1500,-1.49303148569657;
+              -1000,-1.45033726325941; -500,-1.39107814253068; -475,-1.38697746828591;
+              -450,-1.38267482765617; -425,-1.37833105973775; -400,-1.37377662153415;
+              -375,-1.36882438008219; -350,-1.36356879129129; -325,-1.35799622091367;
+              -300,-1.35190077460742; -275,-1.34512176251881; -250,-1.33773575415686;
+              -225,-1.32942423700513; -200,-1.31952959523452; -175,-1.30728420632473;
+              -150,-1.29378356382414; -125,-1.27626065020945; -100,-1.25268401433474;
+              -75,-1.22153894002743; -50,-1.17227751254882; -45,-1.16075298668474;
+              -40,-1.14606393745292; -35,-1.13142982553525; -30,-1.11531942595351;
+              -25,-1.09396956307260; -20,-1.07095509280378; -15,-1.04859501123272;
+              -10,-1.02107504052280; -5,-0.989392176805378; 0,-0.959829637667445;
+              5,-0.908604709968595; 10,-0.846864392654515; 15,-0.749655834487944;
+              20,-0.398773687293659; 25,0.373311242081990; 30,0.590020294584589;
+              35,0.671821320404104; 40,0.736659219518838; 45,0.791353153207790;
+              50,0.838655490546030; 75,0.988585111647679; 100,1.07559475808794;
+              125,1.13210758630769; 150,1.17332186681192; 175,1.20616261336206;
+              200,1.23146912912525; 225,1.25215125877909; 250,1.26844972752130;
+              275,1.28315829857436; 300,1.29515203325250; 325,1.30647370432217;
+              350,1.31576370455381; 375,1.32425072416663; 400,1.33229409096317;
+              425,1.34007989376204; 450,1.34727951499250; 475,1.35321892573422;
+              500,1.35863485716407; 1000,1.43330411726965; 1500,1.48096951700072;
+              2000,1.51920274857903; 2500,1.55230032928980; 3000,1.58218256821786;
+              3500,1.60957343077396; 4000,1.63525269735252; 4500,1.65934255632023;
+              5000,1.68218796544641; 5500,1.70405627320433; 6000,1.72494039832143;
+              6500,1.74511951283721; 7000,1.76457818244663; 7500,1.78337203170120;
+              8000,1.80154227627029; 8500,1.81922495056038; 9000,1.83634585185398;
+              9500,1.85301443870688; 12500,1.94475208187226; 25000,2.20481220177608;
+              37500,2.34269226172799; 50000,2.35839226172799],
+          tabfal=[-50000,-2.36142149079005; -37500,-2.34572149079005; -25000,-2.20784143083814;
+              -12500,-1.94778131093431; -9500,-1.85604366776894; -9000,-1.83942307876298;
+              -8500,-1.82229989817775; -8000,-1.80468156576120; -7500,-1.78650645752764;
+              -7000,-1.76779510063662; -6500,-1.74834500001267; -6000,-1.72817242280115;
+              -5500,-1.70728853838413; -5000,-1.68540616617853; -4500,-1.66253513933876;
+              -4000,-1.63841123419282; -3500,-1.61289397609053; -3000,-1.58542016678115;
+              -2500,-1.55553231646565; -2000,-1.52241494895645; -1500,-1.48420672559264;
+              -1000,-1.43662690910042; -500,-1.36140193513238; -475,-1.35578382798670;
+              -450,-1.34963814839912; -425,-1.34267878891743; -400,-1.33485841403481;
+              -375,-1.32703597143112; -350,-1.31847214273919; -325,-1.30814609379248;
+              -300,-1.29797786984086; -275,-1.28582125972062; -250,-1.27062684432575;
+              -225,-1.25467155812574; -200,-1.23320681958327; -175,-1.20836849729829;
+              -150,-1.17466441368633; -125,-1.13213335917786; -100,-1.07327113174349;
+              -75,-0.983943258578330; -50,-0.831860723978254; -45,-0.791174630360292;
+              -40,-0.730860778213513; -35,-0.648944604927353; -30,-0.539436531904091;
+              -25,-0.297969678679362; -20,0.423561463624426; -15,0.783143776259089;
+              -10,0.870481236955322; -5,0.919860864365896; 0,0.958355916902741;
+              5,0.995210026018745; 10,1.02830008136892; 15,1.05003168490807; 20,
+              1.07204589744377; 25,1.09488735273993; 30,1.11425511031784; 35,1.13333619269922;
+              40,1.14706537678261; 45,1.16224717605861; 50,1.17393024108665; 75,
+              1.22100249420562; 100,1.25247361546262; 125,1.27577025429942; 150,
+              1.29301878595457; 175,1.30648315753826; 200,1.31783072682881; 225,
+              1.32740651813805; 250,1.33561633582420; 275,1.34310089621653; 300,
+              1.34973173145922; 325,1.35576000065507; 350,1.36138307638896; 375,
+              1.36668264869560; 400,1.37167426041476; 425,1.37635180685877; 450,
+              1.38069509895108; 475,1.38477922097523; 500,1.38869331314083; 1000,
+              1.44801140511640; 1500,1.49066348689616; 2000,1.52647802510402; 2500,
+              1.55811034242703; 3000,1.58688253425227; 3500,1.61359336867843; 4000,
+              1.63866877100998; 4500,1.66232889093008; 5000,1.68483122212201; 5500,
+              1.70635087911731; 6000,1.72703063606343; 6500,1.74700304982812; 7000,
+              1.76618126253122; 7500,1.78476734506602; 8000,1.80273806456998; 8500,
+              1.82018416370832; 9000,1.83715524334565; 9500,1.85361777911541; 12500,
+              1.94535542228079; 25000,2.20541554218462; 37500,2.34329560213653;
+              50000,2.35899560213653],
+          sigma=1.72e6);
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M270-50A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M270_50A;
+
+      record M330_50A "M330-50A"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-50000,-2.44743549087484; -37500,-2.43173549087484; -25000,-2.29175406960198;
+              -12500,-2.02749122705627; -9500,-1.93424060373981; -9000,-1.91734557383536;
+              -8500,-1.90003831579647; -8000,-1.88228336311722; -7500,-1.86410325306585;
+              -7000,-1.84544168583579; -6500,-1.82622653273328; -6000,-1.80643712142018;
+              -5500,-1.78596588967781; -5000,-1.76475673275961; -4500,-1.74274295978669;
+              -4000,-1.71958116023747; -3500,-1.69519681691703; -3000,-1.66922815434013;
+              -2500,-1.64113365434545; -2000,-1.61012556776875; -1500,-1.57460825746692;
+              -1000,-1.53154975676172; -500,-1.47050141163166; -475,-1.46622093109730;
+              -450,-1.46200139454249; -425,-1.45756401383884; -400,-1.45283335606619;
+              -375,-1.44773279142268; -350,-1.44239226856165; -325,-1.43674835101656;
+              -300,-1.43044338373318; -275,-1.42369405062971; -250,-1.41658602660702;
+              -225,-1.40843067805861; -200,-1.39918824257754; -175,-1.38897584817539;
+              -150,-1.37684878370263; -125,-1.36190318298965; -100,-1.34364363168061;
+              -75,-1.32096745150757; -50,-1.28806145284464; -45,-1.28061490419651;
+              -40,-1.27162255870714; -35,-1.26154821540497; -30,-1.25078841368914;
+              -25,-1.23833667771816; -20,-1.22599711027031; -15,-1.21088890996667;
+              -10,-1.19741834476920; -5,-1.17811735498978; 0,-1.15454734935544;
+              5,-1.13014547258613; 10,-1.10617621802212; 15,-1.06773732096551; 20,
+              -1.02246701683548; 25,-0.902119509520453; 30,-0.558593283376474; 35,
+              -0.158787116256930; 40,0.113151131584899; 45,0.336783141080566; 50,
+              0.541865704013350; 75,0.955840735658849; 100,1.08873353832287; 125,
+              1.16057378694876; 150,1.21270126546580; 175,1.24969229404607; 200,
+              1.27939785471278; 225,1.30397489820994; 250,1.32243760947971; 275,
+              1.33988626282660; 300,1.35445139381851; 325,1.36639472361266; 350,
+              1.37831513730715; 375,1.38815641351734; 400,1.39715852973264; 425,
+              1.40525966753328; 450,1.41256069744102; 475,1.42022154092164; 500,
+              1.42690491746546; 1000,1.50993903640482; 1500,1.56009261898428; 2000,
+              1.59913154972533; 2500,1.63215979009916; 3000,1.66178246326100; 3500,
+              1.68850800352239; 4000,1.71272916087899; 4500,1.73572148025338; 5000,
+              1.75764646474993; 5500,1.77872746673938; 6000,1.79900863540491; 6500,
+              1.81866581587930; 7000,1.83769268690732; 7500,1.85624654695152; 8000,
+              1.87427340278025; 8500,1.89178891688000; 9000,1.90886536500246; 9500,
+              1.92560023719942; 12500,2.01885086051588; 25000,2.28311370306159;
+              37500,2.42309512433445; 50000,2.43879512433445],
+          tabfal=[-50000,-2.44743549087484; -37500,-2.43173549087484; -25000,-2.29175406960198;
+              -12500,-2.02749122705627; -9500,-1.93424060373981; -9000,-1.91734557383536;
+              -8500,-1.90003831579647; -8000,-1.88228336311722; -7500,-1.86396184546015;
+              -7000,-1.84524857210249; -6500,-1.82591070525470; -6000,-1.80594439934052;
+              -5500,-1.78531310330034; -5000,-1.76382025520505; -4500,-1.74142910912243;
+              -4000,-1.71783221361736; -3500,-1.69280878752801; -3000,-1.66591530113576;
+              -2500,-1.63649294648485; -2000,-1.60339863123377; -1500,-1.56442149385622;
+              -1000,-1.51441561468259; -500,-1.43080809535224; -475,-1.42450289449529;
+              -450,-1.41732721660085; -425,-1.40951882234757; -400,-1.40118064526704;
+              -375,-1.39220914273277; -350,-1.38211113291766; -325,-1.37125742032855;
+              -300,-1.35917182037113; -275,-1.34411680370286; -250,-1.32861822862062;
+              -225,-1.30745835828352; -200,-1.28557369127376; -175,-1.25419814205060;
+              -150,-1.21937409523818; -125,-1.16769743255509; -100,-1.08621953798151;
+              -75,-0.949248973899088; -50,-0.463062524232745; -45,-0.241397022221927;
+              -40,-0.0917328024445698; -35,0.182881911670973; -30,0.647941622043669;
+              -25,0.925720611599761; -20,1.01589911772097; -15,1.06212781456762;
+              -10,1.09723124440593; -5,1.13156726933814; 0,1.15460822013300; 5,1.17506808994058;
+              10,1.19012140311265; 15,1.20695474596496; 20,1.22235157331926; 25,
+              1.23492992961726; 30,1.24500433228815; 35,1.25511140047050; 40,1.26642123811028;
+              45,1.27567122597037; 50,1.28254253926943; 75,1.31450423011738; 100,
+              1.33781959105884; 125,1.35535350494447; 150,1.37076038889320; 175,
+              1.38300521211089; 200,1.39317334290652; 225,1.40231271538781; 250,
+              1.41003370402153; 275,1.41775224948779; 300,1.42443612181079; 325,
+              1.43071011319246; 350,1.43632820821805; 375,1.44160298825063; 400,
+              1.44689685195180; 425,1.45157598310516; 450,1.45604404631093; 475,
+              1.46029335493483; 500,1.46434035987343; 1000,1.52527944546714; 1500,
+              1.56827087926856; 2000,1.60364207715609; 2500,1.63460389841854; 3000,
+              1.66261092660742; 3500,1.68850800352239; 4000,1.71272916087899; 4500,
+              1.73572148025338; 5000,1.75764646474993; 5500,1.77872746673938; 6000,
+              1.79900863540491; 6500,1.81866581587930; 7000,1.83769268690732; 7500,
+              1.85624654695152; 8000,1.87427340278025; 8500,1.89178891688000; 9000,
+              1.90886536500246; 9500,1.92560023719942; 12500,2.01885086051588; 25000,
+              2.28311370306159; 37500,2.42309512433445; 50000,2.43879512433445],
+          sigma=2.2e6);
+
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M330-50A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M330_50A;
+
+      record M400_50A "M400-50A"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-50000,-2.40794008749097; -37500,-2.39224008749097; -25000,-2.24695058192848;
+              -12500,-1.97207157080350; -9500,-1.87499912679850; -9000,-1.85751518672007;
+              -8500,-1.83965523812239; -8000,-1.82141038807705; -7500,-1.80269741316036;
+              -7000,-1.78361027358886; -6500,-1.76397706310715; -6000,-1.74376646292382;
+              -5500,-1.72310546808403; -5000,-1.70181437219379; -4500,-1.67962462884578;
+              -4000,-1.65666284827733; -3500,-1.63264436534337; -3000,-1.60708993405725;
+              -2500,-1.57974973637101; -2000,-1.54982226707762; -1500,-1.51586253475425;
+              -1000,-1.47496092753935; -500,-1.41663981975470; -475,-1.41272678886742;
+              -450,-1.40867695906844; -425,-1.40429024210058; -400,-1.39949573135137;
+              -375,-1.39437411472418; -350,-1.38910109228470; -325,-1.38358638889354;
+              -300,-1.37741291943839; -275,-1.37055394225841; -250,-1.36313596477737;
+              -225,-1.35455952163501; -200,-1.34470907175791; -175,-1.33378230144229;
+              -150,-1.32070821907347; -125,-1.30469411228698; -100,-1.28463220674296;
+              -75,-1.25712368223457; -50,-1.22156402021633; -45,-1.21248835333625;
+              -40,-1.20398927138400; -35,-1.19366676583453; -30,-1.18308077897121;
+              -25,-1.17112000211898; -20,-1.15424024453449; -15,-1.13849009536025;
+              -10,-1.12200378482708; -5,-1.10250992067697; 0,-1.08424243844649;
+              5,-1.05584135449536; 10,-1.02126486868300; 15,-0.992421905049552;
+              20,-0.949405100423591; 25,-0.900754074748590; 30,-0.793043668212206;
+              35,-0.543461193341693; 40,0.0460983803994556; 45,0.349171417184043;
+              50,0.500051423262693; 75,0.858218702672487; 100,0.988821492542939;
+              125,1.07418126307667; 150,1.12775610877896; 175,1.16833527822034;
+              200,1.19966429488883; 225,1.22449543932453; 250,1.24530028024648;
+              275,1.26418294609521; 300,1.27970325326426; 325,1.29226375074143;
+              350,1.30381327176382; 375,1.31461362475715; 400,1.32412514622875;
+              425,1.33300046485911; 450,1.34137963352322; 475,1.34908136246852;
+              500,1.35559133448013; 1000,1.44068827636001; 1500,1.49232320632115;
+              2000,1.53261053126646; 2500,1.56686963341284; 3000,1.59719357713455;
+              3500,1.62461949559943; 4000,1.65018830452586; 4500,1.67439400887558;
+              5000,1.69730736756213; 5500,1.71941215481472; 6000,1.74068353487267;
+              6500,1.76130076608619; 7000,1.78127426070862; 7500,1.80062725888872;
+              8000,1.81956050551157; 8500,1.83806221770118; 9000,1.85616144832625;
+              9500,1.87384237012775; 12500,1.97091481413274; 25000,2.24579382525772;
+              37500,2.39108333082021; 50000,2.40678333082021],
+          tabfal=[-50000,-2.40794008749097; -37500,-2.39224008749097; -25000,-2.24695058192848;
+              -12500,-1.97207157080350; -9500,-1.87499912679850; -9000,-1.85723961648917;
+              -8500,-1.83914182012976; -8000,-1.82064286718470; -7500,-1.80170149544270;
+              -7000,-1.78229030140852; -6500,-1.76238978953953; -6000,-1.74186533334584;
+              -5500,-1.72064937133164; -5000,-1.69867319886329; -4500,-1.67570536641489;
+              -4000,-1.65154759695206; -3500,-1.62602751204391; -3000,-1.59846991740992;
+              -2500,-1.56817580922799; -2000,-1.53394382544710; -1500,-1.49351750990638;
+              -1000,-1.44179121964259; -500,-1.35699503821154; -475,-1.35058208948424;
+              -450,-1.34305096520136; -425,-1.33434484732302; -400,-1.32567786111080;
+              -375,-1.31566996645446; -350,-1.30487255910588; -325,-1.29319860879985;
+              -300,-1.28023272360678; -275,-1.26390126428613; -250,-1.24676054534940;
+              -225,-1.22561280869116; -200,-1.19976520976629; -175,-1.16838696849014;
+              -150,-1.12556294836344; -125,-1.06829053659527; -100,-0.985799775563185;
+              -75,-0.852111241109577; -50,-0.492720171584574; -45,-0.278242753704216;
+              -40,0.0448369570554025; -35,0.641381355833371; -30,0.802736389022337;
+              -25,0.893394884424712; -20,0.949121302392295; -15,1.00155835207574;
+              -10,1.03239600457521; -5,1.05524756193883; 0,1.08419795677726; 5,1.10137204522905;
+              10,1.12479679237370; 15,1.13871579138954; 20,1.15405008546833; 25,
+              1.16800772243013; 30,1.18098283835024; 35,1.19282831091812; 40,1.20269143661662;
+              45,1.21148630541073; 50,1.22169947272959; 75,1.25854635534815; 100,
+              1.28423656861203; 125,1.30451634362611; 150,1.32044675392559; 175,
+              1.33356822941784; 200,1.34416172543795; 225,1.35388748675014; 250,
+              1.36266379345288; 275,1.37005108590170; 300,1.37691263179040; 325,
+              1.38311998030807; 350,1.38871246553893; 375,1.39407316354554; 400,
+              1.39913287717800; 425,1.40385644364325; 450,1.40820401223748; 475,
+              1.41229579159378; 500,1.41636730911577; 1000,1.47444101764742; 1500,
+              1.51537103879942; 2000,1.54920274539220; 2500,1.57895514526599; 3000,
+              1.60622369280379; 3500,1.63168409169342; 4000,1.65582030634452; 4500,
+              1.67885056600531; 5000,1.70095243004908; 5500,1.72241606513783; 6000,
+              1.74315976223534; 6500,1.76320320694510; 7000,1.78274594002133; 7500,
+              1.80182103074219; 8000,1.82045219174860; 8500,1.83870653811386; 9000,
+              1.85653503322130; 9500,1.87395783314220; 12500,1.97103027714719; 25000,
+              2.24590928827217; 37500,2.39119879383466; 50000,2.40689879383466],
+          sigma=3.22e6);
+
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M400-50A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M400_50A;
+
+      record M400_50AP "M400-50AP"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-50000,-2.46382892861845; -37500,-2.44812892861845; -25000,-2.30818994558873;
+              -12500,-2.04401197952928; -9500,-1.95079191174787; -9000,-1.93387674112452;
+              -8500,-1.91672556778064; -8000,-1.89896942464980; -7500,-1.88073461400595;
+              -7000,-1.86206758074805; -6500,-1.84279298755417; -6000,-1.82293917426668;
+              -5500,-1.80230388639417; -5000,-1.78099763229757; -4500,-1.75874869462130;
+              -4000,-1.73550951637937; -3500,-1.71090173903357; -3000,-1.68470473348043;
+              -2500,-1.65633183092179; -2000,-1.62508354107692; -1500,-1.58945673773091;
+              -1000,-1.54678762740518; -500,-1.48805055931781; -475,-1.48423891995731;
+              -450,-1.48004980187494; -425,-1.47566539435348; -400,-1.47112736749377;
+              -375,-1.46629117626267; -350,-1.46106365058826; -325,-1.45578439873425;
+              -300,-1.45024393347103; -275,-1.44384833074375; -250,-1.43686477876995;
+              -225,-1.42915277935868; -200,-1.42063394319262; -175,-1.41108689895730;
+              -150,-1.39962738080824; -125,-1.38553227888587; -100,-1.36815309444647;
+              -75,-1.34451261907668; -50,-1.31064672792780; -45,-1.30130000392603;
+              -40,-1.29011128031286; -35,-1.27641439332424; -30,-1.26334375372063;
+              -25,-1.25166624249455; -20,-1.23641244162183; -15,-1.22034808978838;
+              -10,-1.20576927906433; -5,-1.18337366296358; 0,-1.15820720032109;
+              5,-1.12319720329000; 10,-1.09595857510564; 15,-1.05606410752299; 20,
+              -0.999110118045015; 25,-0.888838803452849; 30,-0.579572416199649;
+              35,0.108724547956082; 40,0.497629081605811; 45,0.619843487025022;
+              50,0.710919795734406; 75,1.00699336611590; 100,1.11949200274764; 125,
+              1.19303802014454; 150,1.24146292713087; 175,1.27893709765235; 200,
+              1.30790216535830; 225,1.33049099545422; 250,1.34886614236863; 275,
+              1.36515185404256; 300,1.37866255521476; 325,1.39070623112655; 350,
+              1.40108019942174; 375,1.41015975780422; 400,1.41863013677997; 425,
+              1.42680652152224; 450,1.43405894041434; 475,1.44096910543117; 500,
+              1.44716608767129; 1000,1.52657859162748; 1500,1.57566132262307; 2000,
+              1.61442921237017; 2500,1.64765924917206; 3000,1.67728059650028; 3500,
+              1.70449246758517; 4000,1.72974728303406; 4500,1.75356276150791; 5000,
+              1.77613593000974; 5500,1.79734490172157; 6000,1.81785143984963; 6500,
+              1.83764169193727; 7000,1.85684560873870; 7500,1.87546284116314; 8000,
+              1.89361565580100; 8500,1.91130272210699; 9000,1.92850585042699; 9500,
+              1.94523522262764; 12500,2.03845529040904; 25000,2.30263325646849;
+              37500,2.44257223949821; 50000,2.45827223949821],
+          tabfal=[-50000,-2.46382892861845; -37500,-2.44812892861845; -25000,-2.30818994558873;
+              -12500,-2.04401197952928; -9500,-1.95079191174787; -9000,-1.93383868193463;
+              -8500,-1.91641714272642; -8000,-1.89859545198052; -7500,-1.88022305703523;
+              -7000,-1.86140480107545; -6500,-1.84194696861618; -6000,-1.82178502031352;
+              -5500,-1.80099882340133; -5000,-1.77933152536594; -4500,-1.75675721368131;
+              -4000,-1.73300740439535; -3500,-1.70779475482113; -3000,-1.68069079162634;
+              -2500,-1.65105957378560; -2000,-1.61796187192022; -1500,-1.57931567521232;
+              -1000,-1.53046463851206; -500,-1.45119364742972; -475,-1.44514068330733;
+              -450,-1.43819841365508; -425,-1.43082858336197; -400,-1.42333429622881;
+              -375,-1.41500193723060; -350,-1.40572943265705; -325,-1.39506609342774;
+              -300,-1.38381293060116; -275,-1.37034205983274; -250,-1.35502271722346;
+              -225,-1.33563207501628; -200,-1.31379388380889; -175,-1.28690380857075;
+              -150,-1.25062187633717; -125,-1.20172681221045; -100,-1.13058070927231;
+              -75,-1.01847079254535; -50,-0.773262273660970; -45,-0.670922877950458;
+              -40,-0.520873450464802; -35,-0.215347366687344; -30,0.233189343929989;
+              -25,0.824474360863061; -20,0.971400317810317; -15,1.03213316422303;
+              -10,1.07516463012753; -5,1.10780824092723; 0,1.14713548342183; 5,1.16795524606017;
+              10,1.19579823142800; 15,1.21532492908983; 20,1.23368599507119; 25,
+              1.24744497272300; 30,1.26055274055566; 35,1.27386822207864; 40,1.28475215847344;
+              45,1.29572380774099; 50,1.30298288864754; 75,1.33896606719870; 100,
+              1.36309730594176; 125,1.38096649430808; 150,1.39488378292637; 175,
+              1.40671263362037; 200,1.41681797855726; 225,1.42518599056065; 250,
+              1.43272842101261; 275,1.43951928933170; 300,1.44587724763213; 325,
+              1.45187209472306; 350,1.45721096962617; 375,1.46226908169060; 400,
+              1.46714904797764; 425,1.47155977424238; 450,1.47587033754042; 475,
+              1.48001915913557; 500,1.48395824378596; 1000,1.54292152451423; 1500,
+              1.58537041880632; 2000,1.62086780535223; 2500,1.65195517411888; 3000,
+              1.68019216457496; 3500,1.70625619278504; 4000,1.73080495757818; 4500,
+              1.75401239418427; 5000,1.77613593000974; 5500,1.79734490172157; 6000,
+              1.81785143984963; 6500,1.83764169193727; 7000,1.85684560873870; 7500,
+              1.87546284116314; 8000,1.89361565580100; 8500,1.91130272210699; 9000,
+              1.92850585042699; 9500,1.94523522262764; 12500,2.03845529040904; 25000,
+              2.30263325646849; 37500,2.44257223949821; 50000,2.45827223949821],
+          sigma=2.22e6);
+
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M400-50AP.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M400_50AP;
+
+      record M800_65A "M800-65A"
+        extends FluxTubes.Material.HysteresisTableData.BaseData(
+          tabris=[-50000,-2.41999852648723; -37500,-2.40429852648723; -25000,-2.27880094925962;
+              -12500,-2.04350579480440; -9500,-1.96068353920052; -9000,-1.94568995233264;
+              -8500,-1.93041822970326; -8000,-1.91475949701547; -7500,-1.89874433390909;
+              -7000,-1.88236828095776; -6500,-1.86537308304654; -6000,-1.84783939049721;
+              -5500,-1.82981032196217; -5000,-1.81107184740532; -4500,-1.79159897726765;
+              -4000,-1.77123035482398; -3500,-1.74979929331988; -3000,-1.72692693859863;
+              -2500,-1.70207572583859; -2000,-1.67452174917622; -1500,-1.64239094777668;
+              -1000,-1.60247237131668; -500,-1.54533600718972; -475,-1.54168227527625;
+              -450,-1.53757207272177; -425,-1.53354365522856; -400,-1.52930457910108;
+              -375,-1.52501703732544; -350,-1.52047052595297; -325,-1.51534762021198;
+              -300,-1.50988805208212; -275,-1.50448604508862; -250,-1.49864942593720;
+              -225,-1.49267327153294; -200,-1.48607902904147; -175,-1.47826700048845;
+              -150,-1.47049749975416; -125,-1.46165991590660; -100,-1.45073713730738;
+              -75,-1.43953712623273; -50,-1.42606350889752; -45,-1.42306059615738;
+              -40,-1.42003788116232; -35,-1.41677039682308; -30,-1.41311031012442;
+              -25,-1.40937572039118; -20,-1.40539518874169; -15,-1.40139646331311;
+              -10,-1.39733567044656; -5,-1.39316537981227; 0,-1.38859559387787;
+              5,-1.38393180627993; 10,-1.37910270072745; 15,-1.37303527101498; 20,
+              -1.36647146416808; 25,-1.36003055780954; 30,-1.35246976780151; 35,
+              -1.34480250683144; 40,-1.33661841921041; 45,-1.32660958220509; 50,
+              -1.31553366281474; 75,-1.20910700118601; 100,0.532882913959500; 125,
+              1.02662015074423; 150,1.14103374810766; 175,1.21035479681112; 200,
+              1.26117867073488; 225,1.29990005326361; 250,1.32928682416420; 275,
+              1.35349589983733; 300,1.37497864892124; 325,1.39154723105790; 350,
+              1.40623400788508; 375,1.41962698015960; 400,1.43092716185703; 425,
+              1.44180550696708; 450,1.45154225103006; 475,1.46045094827107; 500,
+              1.46827716942789; 1000,1.56502686789323; 1500,1.61813266260293; 2000,
+              1.65691785176050; 2500,1.68862359484650; 3000,1.71602291200781; 3500,
+              1.74076601755817; 4000,1.76360452982075; 4500,1.78385282919978; 5000,
+              1.80316458712648; 5500,1.82176933161498; 6000,1.83977798278110; 6500,
+              1.85715410433795; 7000,1.87401121805731; 7500,1.89035061534208; 8000,
+              1.90631333368602; 8500,1.92193342101337; 9000,1.93701667085534; 9500,
+              1.95187443686403; 12500,2.03469669246791; 25000,2.26999184692313;
+              37500,2.39548942415074; 50000,2.41118942415074],
+          tabfal=[-50000,-2.41999852648723; -37500,-2.40429852648723; -25000,-2.27880094925962;
+              -12500,-2.04350579480440; -9500,-1.96068353920052; -9000,-1.94559764965089;
+              -8500,-1.93012471087006; -8000,-1.91431436677689; -7500,-1.89804454750764;
+              -7000,-1.88136056469418; -6500,-1.86414170412796; -6000,-1.84629637075897;
+              -5500,-1.82783197926636; -5000,-1.80860853371515; -4500,-1.78849721730208;
+              -4000,-1.76727398124316; -3500,-1.74455485772303; -3000,-1.71995764003778;
+              -2500,-1.69263734912522; -2000,-1.66110452490584; -1500,-1.62250111260705;
+              -1000,-1.56951283599084; -500,-1.47373308898170; -475,-1.46574359498977;
+              -450,-1.45725321084224; -425,-1.44792419910822; -400,-1.43731948098116;
+              -375,-1.42607124814977; -350,-1.41341880892223; -325,-1.39822468414060;
+              -300,-1.38205239395401; -275,-1.36124323845596; -250,-1.33769536106313;
+              -225,-1.30626151822381; -200,-1.27091203465938; -175,-1.22139379835218;
+              -150,-1.15427523748093; -125,-1.02992248377946; -100,-0.608768490711078;
+              -75,1.18882367706862; -50,1.30642658694914; -45,1.31694528126388;
+              -40,1.32814566191774; -35,1.33514513339720; -30,1.34371244491101;
+              -25,1.35168731983670; -20,1.35843175053249; -15,1.36469564105692;
+              -10,1.37097132070720; -5,1.37590996027985; 0,1.38027193786232; 5,1.38486560748417;
+              10,1.38948101768076; 15,1.39350772834206; 20,1.39753051177479; 25,
+              1.40117224620763; 30,1.40481398064048; 35,1.40851870679405; 40,1.41223590538195;
+              45,1.41547339350741; 50,1.41852318447409; 75,1.43211067244877; 100,
+              1.44427442904375; 125,1.45435264246972; 150,1.46359132926859; 175,
+              1.47161026636863; 200,1.47874657754524; 225,1.48569764333275; 250,
+              1.49197145197213; 275,1.49786150413129; 300,1.50347448393359; 325,
+              1.50857087126280; 350,1.51349777185305; 375,1.51810575247842; 400,
+              1.52254893507848; 425,1.52673061275018; 450,1.53104072452336; 475,
+              1.53492503963004; 500,1.53857480545245; 1000,1.59579332675057; 1500,
+              1.63555234030539; 2000,1.66746001465413; 2500,1.69491356421077; 3000,
+              1.71953285083828; 3500,1.74228408813402; 4000,1.76364065532799; 4500,
+              1.78385282919978; 5000,1.80316458712648; 5500,1.82176933161498; 6000,
+              1.83977798278110; 6500,1.85715410433795; 7000,1.87401121805731; 7500,
+              1.89035061534208; 8000,1.90631333368602; 8500,1.92193342101337; 9000,
+              1.93701667085534; 9500,1.95187443686403; 12500,2.03469669246791; 25000,
+              2.26999184692313; 37500,2.39548942415074; 50000,2.41118942415074],
+          sigma=3.27e6);
+
+        annotation (Documentation(info="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/hysttd_M800-65A.png\">
+   </td>
+  </tr>
+</table>
+</html>"));
+      end M800_65A;
+      annotation (Documentation(info="<html>
+<p>
+Material table data for the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenTable\">GenericHystTellinenTable</a> flux tube element. The records contain two data tables <code>tabris</code> and <code>tabfal</code> describing the rising and the falling branch of the hysteresis envelope curve of the corresponding material. The first colum is the magnetic field strength H and has to be strictly monotonically increasing. The second collumn contains the corresponding values of the magnetic fluxdensity B. Both curves may not intersect each other.
+</p>
+
+<p>
+Fig. 1 and Fig. 2 show library entries based on own measurements of several steel sheet qualities in two different ranges of the magnetic field strength. For the measurements a 25 cm Epstein frame was used according to DIN EN 60404-2. 
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 1:</b> Static hysteresis envelope curves of several steel sheets</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops01.png\">
+    </td>
+  </tr>
+</table>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 2:</b> Static hysteresis envelope curves of several steel sheets</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops02.png\">
+    </td>
+  </tr>
+</table> 
+
+<p>
+Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt-iron-alloys which were extracted from <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Va01]</a>.
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+<caption align=\"bottom\"><b>Fig. 3:</b> Soft magnetic cobalt iron library entries <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Va01]</a></caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Material/HysteresisTableData/StaticLoops03.png\">
+    </td>
+  </tr>
+</table> 
+
+</html>
+
+"));
+    end HysteresisTableData;
     annotation (Documentation(info="<html>
 </html>"));
   end Material;
@@ -4149,7 +7880,7 @@ Additional user-specific materials can be defined as needed.
     end MagneticPort;
 
     connector PositiveMagneticPort "Positive magnetic port"
-      extends Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort;
+      extends FluxTubes.Interfaces.MagneticPort;
 
       annotation (
         defaultComponentName="port_p",
@@ -4172,7 +7903,7 @@ Additional user-specific materials can be defined as needed.
     end PositiveMagneticPort;
 
     connector NegativeMagneticPort "Negative magnetic port"
-      extends Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort;
+      extends FluxTubes.Interfaces.MagneticPort;
 
       annotation (
         defaultComponentName="port_n",
@@ -4197,12 +7928,12 @@ Additional user-specific materials can be defined as needed.
     partial model PartialTwoPortsElementary
       "Partial component with two magnetic ports p and n for textual programming"
 
-      Modelica.Magnetic.FluxTubes.Interfaces.PositiveMagneticPort port_p
-        "Positive magnetic port" annotation (Placement(transformation(extent={{
-                -110,-10},{-90,10}})));
-      Modelica.Magnetic.FluxTubes.Interfaces.NegativeMagneticPort port_n
-        "Negative magnetic port" annotation (Placement(transformation(extent={{
-                90,-10},{110,10}})));
+      FluxTubes.Interfaces.PositiveMagneticPort port_p "Positive magnetic port"
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
+              rotation=0)));
+      FluxTubes.Interfaces.NegativeMagneticPort port_n "Negative magnetic port"
+        annotation (Placement(transformation(extent={{90,-10},{110,10}},
+              rotation=0)));
 
       annotation (Documentation(info="<html>
 <p>
@@ -4216,7 +7947,7 @@ connector port_n.
     partial model PartialTwoPorts
       "Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       SI.MagneticPotentialDifference V_m
         "Magnetic potential difference between both ports";
       SI.MagneticFlux Phi(start=0) "Magnetic flux from port_p to port_n";
@@ -4237,7 +7968,7 @@ This magnetic flux is provided explicitly as flux Phi.
     partial model PartialFixedShape
       "Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
 
       parameter Boolean nonLinearPermeability=true
         "= true, if non-linear rel. permeability is used, otherwise constant rel. permeability"
@@ -4246,10 +7977,10 @@ This magnetic flux is provided explicitly as flux Phi.
         "Constant relative permeability; used if nonLinearPermeability = false"
         annotation (Dialog(group="Material", enable=not nonLinearPermeability));
 
-      parameter Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData
-        material=Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData()
+      parameter FluxTubes.Material.SoftMagnetic.BaseData material=
+          Material.SoftMagnetic.BaseData()
         "Ferromagnetic material characteristics; used if nonLinearPermeability = true"
-        annotation (choicesAllMatching=true,Dialog(group="Material", enable=
+        annotation (choicesAllMatching=true, Dialog(group="Material", enable=
               nonLinearPermeability));
 
       SI.Reluctance R_m "Magnetic reluctance";
@@ -4260,15 +7991,14 @@ This magnetic flux is provided explicitly as flux Phi.
 
       SI.RelativePermeability mu_r "Relative magnetic permeability";
 
+    protected
+      Real B_N "Absolute value of normalized B";
+
     equation
+      B_N = abs(B/material.B_myMax);
       mu_r = if nonLinearPermeability then
-        Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.mu_rApprox(
-            B,
-            material.mu_i,
-            material.B_myMax,
-            material.c_a,
-            material.c_b,
-            material.n) else mu_rConst;
+        1 + (material.mu_i - 1 + material.c_a*B_N)/(1 + material.c_b*B_N + B_N^material.n) else mu_rConst;
+
       R_m = 1/G_m;
       V_m = Phi*R_m;
       B = Phi/A;
@@ -4297,7 +8027,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
     partial model PartialForce
       "Base class for flux tubes with reluctance force generation; constant permeability"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
 
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
@@ -4319,10 +8049,10 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 
       Modelica.Mechanics.Translational.Interfaces.Flange_b flange
         "Generated reluctance force at armature position" annotation (Placement(
-            transformation(extent={{-10,90},{10,110}})));
+            transformation(extent={{-10,90},{10,110}}, rotation=0)));
       Modelica.Mechanics.Translational.Interfaces.Support support(s=s_support,
           f=-flange.f) if useSupport "Support/housing of component" annotation (
-         Placement(transformation(extent={{-10,-110},{10,-90}})));
+         Placement(transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
 
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
@@ -4351,11 +8081,11 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             extent={{-150,-80},{150,-40}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-10,-100},{-30,-120}}),
-          Line(points={{-30,-100},{-50,-120}}),
-          Line(points={{-30,-100},{30,-100}}),
-          Line(points={{10,-100},{-10,-120}}),
-          Line(points={{30,-100},{10,-120}}),
+          Line(points={{-10,-100},{-30,-120}}, color={0,0,0}),
+          Line(points={{-30,-100},{-50,-120}}, color={0,0,0}),
+          Line(points={{-30,-100},{30,-100}}, color={0,0,0}),
+          Line(points={{10,-100},{-10,-120}}, color={0,0,0}),
+          Line(points={{30,-100},{10,-120}}, color={0,0,0}),
           Rectangle(
             extent={{-70,30},{-30,-30}},
             lineColor={255,128,0},
@@ -4375,7 +8105,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
     partial model PartialLeakage
       "Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts;
+      extends FluxTubes.Interfaces.PartialTwoPorts;
 
       SI.Reluctance R_m "Magnetic reluctance";
       SI.Permeance G_m "Magnetic permeance";
@@ -4403,6 +8133,190 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 </p>
 </html>"));
     end PartialLeakage;
+
+    partial model PartialGeneric "Partial Tellinen hysteresis model"
+      extends Interfaces.PartialTwoPorts;
+
+      // Group Fixed Geometry (Cuboid)
+      parameter SI.Length l=0.1 "Length in direction of flux" annotation (Dialog(group="Fixed geometry", groupImage=
+              "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Interfaces/GenericParallelFlux.png"));
+
+      parameter SI.Area A=1e-4 "Area of cross section" annotation (Dialog(group="Fixed geometry", groupImage=
+              "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/GenericParallelFlux.png"));
+      final parameter SI.Volume V = A * l "Volume of FluxTube";
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-140,40},{140,80}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{-70,0},{-100,0}},color={255,128,0}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={255,128,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{70,0},{100,0}},color={255,128,0})}),
+                                     Documentation(info="<html>
+
+</dl></html>"));
+    end PartialGeneric;
+
+    partial model ConditionalHeatPort
+      "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
+
+      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab="Losses and Heat", group="HeatPort"));
+      parameter Modelica.SIunits.Temperature T=293.15
+        "Fixed device temperature if useHeatPort = false" annotation(Dialog(tab="Losses and Heat", group="HeatPort", enable=not useHeatPort));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
+        annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+            iconTransformation(extent={{-10,-110},{10,-90}})));
+      Modelica.SIunits.Power LossPower
+        "Loss power leaving component via HeatPort";
+      Modelica.SIunits.Temperature T_heatPort "Temperature of HeatPort";
+    equation
+      if not useHeatPort then
+         T_heatPort = T;
+      end if;
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),                                                                 graphics),
+        Documentation(revisions="<html>
+<ul>
+<li><i> February 17, 2009   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>",     info="<html>
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
+<b>T_heatPort</b> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+</html>"));
+    end ConditionalHeatPort;
+
+    partial model PartialGenericHysteresis "Partial hysteresis model"
+      extends Interfaces.PartialGeneric;
+      extends Interfaces.ConditionalHeatPort(final T=293.15);
+
+      parameter Boolean includeEddyCurrents = false
+        "=true, if eddy current losses are enabled"
+      annotation(Dialog(tab="Losses and Heat", group="Eddy Currents"), Evaluate=true, HideResult=true, choices(checkBox=true));
+
+      parameter SI.Conductivity sigma=10e6 "Conductivity of core material" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
+      parameter SI.Length d = 0.5e-3 "Tickness of lamination" annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=includeEddyCurrents));
+
+      output SI.MagneticFieldStrength H(start=0) "Magnetic field strength";
+      output SI.MagneticFieldStrength Hstat
+        "Static (ferromagnetic) portion of the magnetic field strength";
+      output SI.MagneticFieldStrength Heddy
+        "Dynamic (eddy currents) portion of the magnetic field strength";
+      output SI.MagneticFluxDensity B "Magnetic flux density";
+      output Real MagRel(final quantity="Relative magnetization", final unit="1", start=0, min=-1, max=1)
+        "Relative magnetization at initialization (-1..1)";
+      output SI.Power LossPowerStat "Ferromagnetic (static) hysteresis losses";
+      output SI.Power LossPowerEddy
+        "Eddy current losses (dynamic hysteresis losses)";
+      //output SI.Power LossPower "Total power loss of core (ferromagnetic + eddy currents)"; // defined in ConditionalHeatPort
+      Real derHstat(start=0, fixed=true, unit="A/(m.s)")=der(Hstat);
+
+    protected
+      final parameter Real eddyCurrentFactor(final unit="S.m") = (sigma * d^2)/12;
+
+    equation
+      der(MagRel)=0;
+
+      H = Hstat + Heddy;
+      H = V_m/l;
+      Phi = B*A;
+
+      Heddy = if includeEddyCurrents then eddyCurrentFactor* der(B)  else 0;
+
+      LossPowerStat = Hstat * der(B) * V;
+      LossPowerEddy = Heddy * der(B) * V;
+      LossPower = LossPowerStat + LossPowerEddy;
+      annotation (Icon(graphics={Line(
+              points={{-30,-20},{-14,-20},{-6,-16},{2,0},{10,16},{18,20},{26,20}},
+              color={255,128,0},
+              smooth=Smooth.Bezier), Line(
+              points={{-30,-20},{-14,-20},{-6,-16},{2,0},{10,16},{18,20},{26,20}},
+              color={255,128,0},
+              smooth=Smooth.Bezier,
+              origin={-4,0},
+              rotation=180)}));
+    end PartialGenericHysteresis;
+
+    partial model PartialGenericHysteresisTellinen
+      "Partial Tellinen hysteresis model"
+      extends Interfaces.PartialGenericHysteresis;
+
+      //Real MagRel(start=0, min=-100, max=100) "Relative magnetization at initialization (-100-100%)";
+      output Boolean asc(start=true) "True when der(Hstat)>0";
+    protected
+      SI.MagneticFluxDensity hystR "Rising branch of limiting hysteresis loop";
+      SI.MagneticFluxDensity hystF "Falling branch of limiting hysteresis loop";
+
+      SI.MagneticFluxDensity diffHyst
+        "Distance between rising and falling limiting hysteresis branch at the current operating point";
+      Real dHyst(final quantity="MagneticFluxDensitySlope", final unit="T/s")
+        "Slope of the Rising (when der(H)>0) or Falling (when der(H)<0) limiting hysteresis branch at the current operating point";
+      Real k;
+
+      parameter Real mu0(final unit="N/A2") = mu_0;
+
+    initial equation
+
+      B = (hystR+hystF)/2 + MagRel*diffHyst/2;
+
+    equation
+
+      asc = der(Hstat) > 0;
+
+      der(B) = k * dHyst + mu0 * der(Hstat);
+
+      diffHyst = hystF - hystR;
+
+      if initial() then
+        k = 0.01;
+        dHyst = 0;
+      elseif asc then
+        dHyst = der(hystR-mu0*Hstat);
+        k = max(0.01,(hystF - B)/diffHyst);
+      else
+        dHyst = der(hystF-mu0*Hstat);
+        k = max(0.01, (B - hystR)/diffHyst);
+      end if;
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics),
+                                     Documentation(info="<html>
+<dl><dt>A reluctance with the Tellinen hysteresis model. The major hysteresis loop ist defined by the hyperbolic tangent function.</dt>
+</dl><p><h4>The Tellinen Hysteresis Model</h4></p>
+<dl><dt>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</dt>
+<dl><dt>diffHyst = hystF - hystR;</dt>
+<dl><dt>dhR = hystF - b;</dt>
+<dl><dt>dhF = b - hystR;</dt>
+<dl><dt>if the magnetic field itensity increases (der(h)&GT;0)</dt>
+<dl><dt>der(b) = dhR/diffHyst * der(hystR);</dt>
+<dl><dt>if the magnetex field itensity decreases (der(h)&LT;0)</dt>
+<dl><dt>der(b) = dhF/diffHyst * der(hystF);</dt>
+<dl><dt><img src=\"modelica://HysteresisTest/pics/tellinen01.png\"/></dt>
+<dd>Fig.1 - Description of the Tellinen hysteresis model. </dd>
+</dl></html>"));
+    end PartialGenericHysteresisTellinen;
     annotation (Documentation(info="<html>
 <p>
 This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
@@ -4417,7 +8331,7 @@ This package contains connectors for the magnetic domain and partial models for 
 
     model ConstantMagneticPotentialDifference "Constant magnetomotive force"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       parameter SI.MagneticPotentialDifference V_m
         "Magnetic potential difference";
       SI.MagneticFlux Phi "Magnetic flux from port_p to port_n";
@@ -4469,7 +8383,7 @@ For modelling of reluctance actuators with this source component it is assumed t
     model SignalMagneticPotentialDifference
       "Signal-controlled magnetomotive force"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       Modelica.Blocks.Interfaces.RealInput V_m(unit="A")
         "Magnetic potential difference"
         annotation (Placement(transformation(
@@ -4529,7 +8443,7 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
 
     model ConstantMagneticFlux "Source of constant magnetic flux"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       parameter SI.MagneticFlux Phi=1 "Magnetic flux";
       SI.MagneticPotentialDifference V_m
         "Magnetic potential difference between both ports";
@@ -4574,7 +8488,7 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
 
     model SignalMagneticFlux "Signal-controlled magnetic flux source"
 
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       Modelica.Blocks.Interfaces.RealInput Phi(unit="Wb") "Magnetic flux" annotation (
           Placement(transformation(
             origin={0,90},
@@ -4630,7 +8544,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
     model MagneticPotentialDifferenceSensor
       "Sensor to measure magnetic potential difference"
       extends Modelica.Icons.RotationalSensor;
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
 
       Modelica.Blocks.Interfaces.RealOutput V_m(final quantity=
             "MagneticPotential", final unit="A")
@@ -4654,9 +8568,9 @@ This package contains sources of a magnetic potential difference or a magnetic f
               extent={{-52,1},{48,-57}},
               lineColor={0,0,0},
               textString="V_m"),
-            Line(points={{-70,0},{-90,0}}),
-            Line(points={{70,0},{90,0}}),
-            Line(points={{0,-90},{0,-70}}),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{0,-90},{0,-70}}, color={0,0,0}),
             Text(
               extent={{-150,120},{150,80}},
               textString="%name",
@@ -4664,11 +8578,11 @@ This package contains sources of a magnetic potential difference or a magnetic f
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={Line(points={{-70,0},{-100,0}}, color={255,
               128,0}),Line(points={{70,0},{100,0}}, color={255,128,0}),Line(
-              points={{0,-100},{0,-70}})}));
+              points={{0,-100},{0,-70}}, color={0,0,0})}));
     end MagneticPotentialDifferenceSensor;
 
     model MagneticFluxSensor "Sensor to measure magnetic flux"
-      extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
+      extends FluxTubes.Interfaces.PartialTwoPortsElementary;
       extends Modelica.Icons.RotationalSensor;
 
       Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux",
@@ -4684,8 +8598,9 @@ This package contains sources of a magnetic potential difference or a magnetic f
       0 = port_p.Phi + port_n.Phi;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}}),Line(points={{-70,0},{-90,0}}),Line(
-              points={{70,0},{90,0}}),Text(extent={{-29,-11},{30,
+                -100},{100,100}}), graphics={Line(points={{0,-100},{0,-70}},
+              color={0,0,0}),Line(points={{-70,0},{-90,0}}, color={0,0,0}),Line(
+              points={{70,0},{90,0}}, color={0,0,0}),Text(extent={{-29,-11},{30,
               -70}}, textString="Phi"),Text(
                   extent={{-150,120},{150,80}},
                   textString="%name",
@@ -4698,6 +8613,76 @@ For analysis of magnetic networks, only magnetic potential differences and magne
 </html>"));
   end Sensors;
 
+  package Utilities
+    extends Modelica.Icons.Package;
+    function everett "Everett function, see [YUY89]"
+      input SI.MagneticFieldStrength a_;
+      input SI.MagneticFieldStrength b_;
+      input FluxTubes.Material.HysteresisEverettParameter.BaseData p;
+      input Boolean mirror "If true then J(a,b)=-J(b,a) else J(a,b)=0 for a<b";
+
+      output SI.MagneticFluxDensity J "Magnetic plarisation";
+
+    protected
+      SI.MagneticFieldStrength a;
+      SI.MagneticFieldStrength b;
+      SI.MagneticFieldStrength h1;
+      SI.MagneticFieldStrength h2;
+      SI.MagneticFieldStrength h3;
+      SI.MagneticFieldStrength h4;
+      constant Real pi=Modelica.Constants.pi;
+      constant SI.MagneticFluxDensity unitT=1;
+
+    algorithm
+      if a_>=b_ or mirror then
+
+        a :=if a_ > p.Hsat then p.Hsat elseif a_ < -p.Hsat then -p.Hsat else a_;
+        b :=if b_ > p.Hsat then p.Hsat elseif b_ < -p.Hsat then -p.Hsat else b_;
+
+        h1:=-b-p.Hc;
+        h2:=a-p.Hc;
+        h3:=-a-p.Hc;
+        h4:=b-p.Hc;
+
+        J:= unitT*(
+            (p.M*p.r*(2/pi*atan(p.q*h1)+1)+(2*p.M*(1-p.r))/(1+1/2*(exp(-p.p1*h1)+exp(-p.p2*h1))))*
+            (p.M*p.r*(2/pi*atan(p.q*h2)+1)+(2*p.M*(1-p.r))/(1+1/2*(exp(-p.p1*h2)+exp(-p.p2*h2))))-
+            (p.M*p.r*(2/pi*atan(p.q*h3)+1)+(2*p.M*(1-p.r))/(1+1/2*(exp(-p.p1*h3)+exp(-p.p2*h3))))*
+            (p.M*p.r*(2/pi*atan(p.q*h4)+1)+(2*p.M*(1-p.r))/(1+1/2*(exp(-p.p1*h4)+exp(-p.p2*h4)))));
+      else
+        J:=0;
+      end if;
+      annotation (Documentation(info="<html>
+</html>"));
+    end everett;
+
+    function initPreisach
+      "Function used for the initialization of the Preisach hysteresis model GenericHystPreisachEverett"
+
+      input SI.MagneticFieldStrength x;
+      input SI.MagneticFieldStrength H;
+      input FluxTubes.Material.HysteresisEverettParameter.BaseData p;
+      output SI.MagneticFluxDensity B;
+
+    protected
+      SI.MagneticFieldStrength hmax;
+      SI.MagneticFieldStrength H_l;
+
+    algorithm
+      H_l :=if H <= -p.Hsat then -p.Hsat elseif H >= p.Hsat then p.Hsat else H;
+      hmax :=abs(H) + abs(x);
+      B := if x < 0
+      then
+         -0.5*everett(hmax,-hmax,p,false)
+         + everett(H_l, -hmax, p, false)
+         + p.K*mu_0*H
+      else
+        0.5*everett(hmax, -hmax, p, false)
+         - everett(hmax, H_l, p, false) + p.K*mu_0*H;
+
+    end initPreisach;
+
+  end Utilities;
   annotation (Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <i>rotational</i> electrical machines.
@@ -4710,7 +8695,7 @@ This library contains components for modelling of electromagnetic devices with l
 </p>
 
 <p>
-Copyright &copy; 2005-2013, Modelica Association and Thomas B&ouml;drich.
+Copyright &copy; 2005-2014, Modelica Association and Thomas B&ouml;drich.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
