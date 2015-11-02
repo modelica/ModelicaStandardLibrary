@@ -872,7 +872,7 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString="R=%R"}),
+              textString="R=%R")}),
         Documentation(info="<html>
 <p>
 Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
