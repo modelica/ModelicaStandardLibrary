@@ -2343,7 +2343,7 @@ or arrays.
       </tr>
   <tr><td>[..]</td>
       <td>[1,2;3,4]</td>
-      <td>Matrix constructor; \",\" separates rows, \";\" separates columns</td></tr>
+      <td>Matrix constructor; \",\" separates columns, \";\" separates rows</td></tr>
   <tr><td>{..}</td>
       <td>{{1,2}, {3,4}}</td>
       <td>Array constructor; every {..} adds one dimension</td></tr>
