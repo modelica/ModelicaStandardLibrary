@@ -1,4 +1,4 @@
-within Modelica.Electrical;
+Multi star points are connected by resistors. This model is required to operate multi pwithin Modelica.Electrical;
 
 
 package MultiPhase "Library for electrical components of one or more phases"
@@ -864,7 +864,15 @@ Delta (polygon) connection of a multi phase circuit consiting of multiple base s
               points={{-40,40},{0,0},{40,40},{0,0},{0,-40}},
               color={0,0,255},
               origin={60,0},
-              rotation=90)}),
+              rotation=90),
+            Text(
+              extent={{-100,60},{100,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-100,-110},{100,-70}},
+              lineColor={0,0,0},
+              textString="R=%R"}),
         Documentation(info="<html>
 <p>
 Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
