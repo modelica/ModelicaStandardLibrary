@@ -19,6 +19,10 @@
                             utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Nov. 03, 2015: by Thomas Beutlich, ITI GmbH.
+                     Added range checks for column indices of CombiTimeTable and
+                     CombiTable1D (ticket #1816)
+
       Aug. 31, 2015: by Thomas Beutlich, ITI GmbH.
                      Fixed event detection of CombiTimeTable when using a fixed time
                      step integrator with a step size greater than the event
@@ -3032,6 +3036,7 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
         const size_t nCol = tableID->nCol;
         const char* tableName;
         const char* tableDummyName = "NoName";
+        size_t iCol;
 
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
@@ -3048,6 +3053,16 @@ static int isValidCombiTimeTable(const CombiTimeTable* tableID) {
                 (unsigned long)nRow, (unsigned long)nCol);
             isValid = 0;
             return isValid;
+        }
+
+        /* Check column indices */
+        for (iCol = 0; iCol < tableID->nCols; ++iCol) {
+            const size_t col = (size_t)tableID->cols[iCol];
+            if (col < 1 || col > tableID->nCol) {
+                ModelicaFormatError("The column index %d is out of range "
+                    "for table matrix \"%s(%lu,%lu)\".\n", tableID->cols[iCol],
+                    tableName, (unsigned long)nRow, (unsigned long)nCol);
+            }
         }
 
         if (tableID->table != NULL && nRow > 1) {
@@ -3118,6 +3133,7 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
         const size_t nCol = tableID->nCol;
         const char* tableName;
         const char* tableDummyName = "NoName";
+        size_t iCol;
 
         if (tableID->source == TABLESOURCE_MODEL) {
             tableName = tableDummyName;
@@ -3134,6 +3150,16 @@ static int isValidCombiTable1D(const CombiTable1D* tableID) {
                 (unsigned long)nRow, (unsigned long)nCol);
             isValid = 0;
             return isValid;
+        }
+
+        /* Check column indices */
+        for (iCol = 0; iCol < tableID->nCols; ++iCol) {
+            const size_t col = (size_t)tableID->cols[iCol];
+            if (col < 1 || col > tableID->nCol) {
+                ModelicaFormatError("The column index %d is out of range "
+                    "for table matrix \"%s(%lu,%lu)\".\n", tableID->cols[iCol],
+                    tableName, (unsigned long)nRow, (unsigned long)nCol);
+            }
         }
 
         if (tableID->table != NULL) {
