@@ -49,8 +49,6 @@ package Constants
     "Electric constant";
   final constant NonSI.Temperature_degC T_zero=-273.15
     "Absolute zero temperature";
-  final constant SI.ElectricCharge q0 = 1.602176620898e-19
-    "Atomic unit of charge";
   annotation (
     Documentation(info="<html>
 <p>

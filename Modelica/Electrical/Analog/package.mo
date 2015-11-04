@@ -1,6 +1,7 @@
 within Modelica.Electrical;
 package Analog "Library for analog electrical models"
 import SI = Modelica.SIunits;
+import Modelica.Constants.k "Boltzmann's constant, [J/K]";
 
 
 extends Modelica.Icons.Package;

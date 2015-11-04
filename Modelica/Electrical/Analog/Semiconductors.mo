@@ -765,8 +765,8 @@ model HeatingDiode "Simple diode with heating port"
   Modelica.SIunits.Temperature vt_t "Temperature voltage";
   Modelica.SIunits.Current id "diode current";
   protected
-  Real k=Modelica.Constants.k "Boltzmann's constant, J/K";
-  Real q=Modelica.Constants.q0 "Electron charge, As";
+  final constant Real q=Modelica.Constants.F/Modelica.Constants.N_A
+      "Electron charge, [As]";
   Modelica.SIunits.Temperature htemp "auxiliary temperature";
   Real aux;
   Real auxp;
@@ -1171,11 +1171,12 @@ end HeatingDiode;
           parameter Real EG=1.11 "Energy gap for temperature effect on Is";
           parameter Real NF=1.0 "Forward current emission coefficient";
           parameter Real NR=1.0 "Reverse current emission coefficient";
-          parameter Real K=Modelica.Constants.k "Boltzmann's constant";
-          parameter Real q=Modelica.Constants.q0 "Elementary electronic charge";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
-          /*protected*/
+  protected
+          final constant Real q=Modelica.Constants.F/Modelica.Constants.N_A
+      "Electron charge, [As]";
+  public
           Real vbc;
           Real vbe;
           Real qbk;
@@ -1193,7 +1194,7 @@ end HeatingDiode;
           Real vt_t;
           Real hexp;
           Real htempexp;
-  public
+
           Modelica.Electrical.Analog.Interfaces.Pin C "Collector"
             annotation (Placement(transformation(extent={{90,40},{110,60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Base"
@@ -1215,7 +1216,7 @@ end HeatingDiode;
           is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
           br_t = Br*pow((T_heatPort/Tnom), XTB);
           bf_t = Bf*pow((T_heatPort/Tnom), XTB);
-          vt_t = (K/q)*T_heatPort;
+          vt_t = (k/q)*T_heatPort;
 
           ibc = smooth(1,(if (vbc/(NR*vt_t) < EMin) then is_t*(ExMin*(vbc/(NR*vt_t) -
             EMin + 1) - 1) + vbc*Gbc else if (vbc/(NR*vt_t) > EMax) then is_t*(
@@ -1339,11 +1340,11 @@ end HeatingDiode;
           parameter Real EG=1.11 "Energy gap for temperature effect on Is";
           parameter Real NF=1.0 "Forward current emission coefficient";
           parameter Real NR=1.0 "Reverse current emission coefficient";
-          parameter Real K=Modelica.Constants.k "Boltzmann's constant";
-          parameter Real q=Modelica.Constants.q0 "Elementary electronic charge";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
+          final constant Real q=Modelica.Constants.F/Modelica.Constants.N_A
+      "Electron charge, [As]";
           Real vcb;
           Real veb;
           Real qbk;
@@ -1383,7 +1384,7 @@ end HeatingDiode;
           is_t = Is*pow((T_heatPort/Tnom), XTI)*htempexp;
           br_t = Br*pow((T_heatPort/Tnom), XTB);
           bf_t = Bf*pow((T_heatPort/Tnom), XTB);
-          vt_t = (K/q)*T_heatPort;
+          vt_t = (k/q)*T_heatPort;
 
           icb = smooth(1,(if (vcb/(NR*vt_t) < EMin) then is_t*(ExMin*(vcb/(NR*vt_t) -
             EMin + 1) - 1) + vcb*Gbc else if (vcb/(NR*vt_t) > EMax) then is_t*(
@@ -1795,7 +1796,7 @@ public
     parameter SIunits.Voltage Vf = 0.7 "Forward voltage";
     parameter SIunits.Current Ids = 1.e-13 "Reverse saturation current";
     parameter SIunits.Resistance Rs = 16 "Ohmic resistance";
-    parameter SIunits.Voltage Vt = Modelica.Constants.k * T/Modelica.Constants.q0
+    parameter SIunits.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
       "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
     parameter Real N = 1 "Emission coefficient";
     parameter SIunits.Voltage Bv = 100 "Reverse breakdown voltage";
