@@ -3,6 +3,7 @@ package Semiconductors
   "Semiconductor devices such as diode, MOS and bipolar transistor"
   extends Modelica.Icons.Package;
   import Modelica.SIunits;
+  import Modelica.Constants.k "Boltzmann's constant, [J/K]";
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
