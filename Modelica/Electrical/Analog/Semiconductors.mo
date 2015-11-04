@@ -765,8 +765,8 @@ model HeatingDiode "Simple diode with heating port"
   Modelica.SIunits.Temperature vt_t "Temperature voltage";
   Modelica.SIunits.Current id "diode current";
   protected
-  Real k=1.380662e-23 "Boltzmann's constant, J/K";
-  Real q=1.6021892e-19 "Electron charge, As";
+  Real k=Modelica.Constants.k "Boltzmann's constant, J/K";
+  Real q=Modelica.Constants.q0 "Electron charge, As";
   Modelica.SIunits.Temperature htemp "auxiliary temperature";
   Real aux;
   Real auxp;
@@ -1171,8 +1171,8 @@ end HeatingDiode;
           parameter Real EG=1.11 "Energy gap for temperature effect on Is";
           parameter Real NF=1.0 "Forward current emission coefficient";
           parameter Real NR=1.0 "Reverse current emission coefficient";
-          parameter Real K=1.3806226e-23 "Boltzmann's constant";
-          parameter Real q=1.6021918e-19 "Elementary electronic charge";
+          parameter Real K=Modelica.Constants.k "Boltzmann's constant";
+          parameter Real q=Modelica.Constants.q0 "Elementary electronic charge";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
           /*protected*/
@@ -1339,8 +1339,8 @@ end HeatingDiode;
           parameter Real EG=1.11 "Energy gap for temperature effect on Is";
           parameter Real NF=1.0 "Forward current emission coefficient";
           parameter Real NR=1.0 "Reverse current emission coefficient";
-          parameter Real K=1.3806226e-23 "Boltzmann's constant";
-          parameter Real q=1.6021918e-19 "Elementary electronic charge";
+          parameter Real K=Modelica.Constants.k "Boltzmann's constant";
+          parameter Real q=Modelica.Constants.q0 "Elementary electronic charge";
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
@@ -1795,34 +1795,33 @@ public
     parameter SIunits.Voltage Vf = 0.7 "Forward voltage";
     parameter SIunits.Current Ids = 1.e-13 "Reverse saturation current";
     parameter SIunits.Resistance Rs = 16 "Ohmic resistance";
-    parameter SIunits.Voltage Vt = Modelica.Constants.k * T/q
-    "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
+    parameter SIunits.Voltage Vt = Modelica.Constants.k * T/Modelica.Constants.q0
+      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
     parameter Real N = 1 "Emission coefficient";
     parameter SIunits.Voltage Bv = 100 "Reverse breakdown voltage";
     parameter SIunits.Conductance Gp = 1e-6
-    "Parallel conductance for numerical stability";
+      "Parallel conductance for numerical stability";
     SIunits.Voltage vd "Voltage across pure diode part";
     SIunits.Current id "diode current";
   protected
     parameter SIunits.Voltage VdMax = Vf + (N*Vt)
-    "Linear continuation threshold";
+      "Linear continuation threshold";
     parameter SIunits.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
-    "Current at threshold";
+      "Current at threshold";
     parameter SIunits.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
-    "Conductance at threshold";
-    constant Real q = 1.60217646e-19 "Elementary charge (Coulombs)";
+      "Conductance at threshold";
 
   equation
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
         -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
         Ids * (exp(vd/(N*Vt)) - 1)
-      else 
-        //Forward biased region after conduction
+      else
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
