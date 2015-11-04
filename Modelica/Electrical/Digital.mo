@@ -2,6 +2,7 @@ within Modelica.Electrical;
 package Digital
   "Library for digital electrical components based on the VHDL standard with 9-valued logic and conversion to 2-,3-,4-valued logic"
   extends Modelica.Icons.Package;
+  import SI = Modelica.SIunits;
 
     package UsersGuide "User's Guide"
       extends Modelica.Icons.Information;
@@ -1278,7 +1279,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-          parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
+          parameter SI.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
             D.Interfaces.DigitalInput d0 annotation (Placement(transformation(
                     extent={{-110,60},{-90,80}})));
@@ -1449,7 +1450,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-          parameter Modelica.SIunits.Time delayTime=0 "Delay time";
+          parameter SI.Time delayTime=0 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value of output";
           D.Basic.Nor Nor1   annotation (Placement(transformation(extent={{-40,42},
                       {0,82}})));
@@ -1541,7 +1542,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-          parameter Modelica.SIunits.Time delayTime=0.01 "Delay time";
+          parameter SI.Time delayTime=0.01 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value";
           D.Interfaces.DigitalInput s   annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
@@ -1647,7 +1648,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-          parameter Modelica.SIunits.Time Tdel=0.01 "Delay time";
+          parameter SI.Time Tdel=0.01 "Delay time";
           parameter L QInit=L.'U' "Initial value";
           D.Interfaces.DigitalInput d   annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
@@ -1736,7 +1737,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         import D = Modelica.Electrical.Digital;
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
-          parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
+          parameter SI.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
           D.Interfaces.DigitalInput j   annotation (Placement(transformation(extent=
                      {{-110,60},{-90,80}})));
@@ -2369,7 +2370,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Integer n=3 "Number of bits";
-          parameter Modelica.SIunits.Time delayTime=0.001 "Delay of each JKFF";
+          parameter SI.Time delayTime=0.001 "Delay of each JKFF";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
           D.Interfaces.DigitalInput enable
                                         annotation (Placement(transformation(extent=
@@ -2879,8 +2880,8 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
         partial block DelayParams "Definition of delay parameters"
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          parameter Modelica.SIunits.Time tLH(start=0) "Rise inertial delay";
-          parameter Modelica.SIunits.Time tHL(start=0) "Fall inertial delay";
+          parameter SI.Time tLH(start=0) "Rise inertial delay";
+          parameter SI.Time tHL(start=0) "Fall inertial delay";
           parameter L y0=L.'U' "Initial value of output";
           annotation (Documentation(info="<html>
 <p>DelayParams is a partial model for providing delay times and inertial values. It is used in components of the package Gates which need the same parameters. The partial model does not have any behavior or equations.</p>
@@ -2891,7 +2892,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
-          parameter Modelica.SIunits.Time delayTime(start=0) "delay time";
+          parameter SI.Time delayTime(start=0) "delay time";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
           constant D.Interfaces.Logic LogicValues[:]=L.'U':L.'-';
     protected
@@ -2945,13 +2946,13 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
       import D = Modelica.Electrical.Digital;
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO;
-          parameter Modelica.SIunits.Time delayTime(start=0)
+          parameter SI.Time delayTime(start=0)
         "Minimum time to hold value";
           parameter D.Interfaces.Logic y0=L.'U' "Initial value of output y";
     protected
           D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
           D.Interfaces.Logic x_old(start=y0, fixed=true);
-          discrete Modelica.SIunits.Time t_next(start=delayTime, fixed=true);
+          discrete SI.Time t_next(start=delayTime, fixed=true);
 
         algorithm
           when delayTime > 0 and change(x) then
@@ -3008,17 +3009,17 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true),y(start=y0, fixed=true));
-          parameter Modelica.SIunits.Time tLH(start=0) "rise inertial delay";
-          parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
+          parameter SI.Time tLH(start=0) "rise inertial delay";
+          parameter SI.Time tHL(start=0) "fall inertial delay";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected
           constant Integer delayTable[L,L]=Modelica.Electrical.Digital.Tables.DelayTable
         "specification of delay according to signal change";
-          Modelica.SIunits.Time delayTime;
+          SI.Time delayTime;
           D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
           D.Interfaces.Logic y_old(start=y0, fixed=true);
           Integer lh;
-          discrete Modelica.SIunits.Time t_next;
+          discrete SI.Time t_next;
 
         algorithm
           when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
@@ -3104,8 +3105,8 @@ is used, if it is zero, the input is not delayed.
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-          parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+          parameter SI.Time tHL=0 "High->Low delay";
+          parameter SI.Time tLH=0 "Low->High delay";
           parameter Integer n(min=1) = 1 "Data width";
           D.Interfaces.DigitalInput x[n]
             annotation (Placement(transformation(extent={{-100,-12},{-76,12}}),
@@ -4152,13 +4153,13 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           parameter Real width(
             final min=Modelica.Constants.small,
             final max=100, start=50) "Widths of pulses in % of periods";
-          parameter Modelica.SIunits.Time period(final min=Modelica.Constants.small, start=1)
+          parameter SI.Time period(final min=Modelica.Constants.small, start=1)
         "Time for one period";
-          parameter Modelica.SIunits.Time startTime(start=0)
+          parameter SI.Time startTime(start=0)
         "Output = quiet for time < startTime";
           parameter D.Interfaces.Logic pulse(start=L.'0') "pulsed value";
           parameter D.Interfaces.Logic quiet(start=L.'1') "quiet value";
-          Modelica.SIunits.Time T0(final start=startTime, fixed=true)
+          SI.Time T0(final start=startTime, fixed=true)
         "Start time of current period";
           parameter Integer nperiod(start=-1)
         "Number of periods (< 0 means infinite number of periods)";
@@ -4241,9 +4242,9 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         model Clock "Digital Clock Source"
           import D = Modelica.Electrical.Digital;
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          parameter Modelica.SIunits.Time startTime(start=0)
+          parameter SI.Time startTime(start=0)
         "Output = offset for time < startTime";
-          parameter Modelica.SIunits.Time period(
+          parameter SI.Time period(
             final min=Modelica.Constants.small, start=1) "Time for one period";
           parameter Real width(
             final min=Modelica.Constants.small,
@@ -4252,9 +4253,9 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}})));
     protected
-          Modelica.SIunits.Time t_i(final start=startTime, fixed=true)
+          SI.Time t_i(final start=startTime, fixed=true)
         "Start time of current period";
-          Modelica.SIunits.Time t_width=period*width/100;
+          SI.Time t_width=period*width/100;
         equation
           when sample(startTime, period) then
             t_i =  time;
@@ -5125,8 +5126,8 @@ Clock transition definitions:
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-          parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+          parameter SI.Time tHL=0 "High->Low delay";
+          parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
@@ -5566,8 +5567,8 @@ Clock transition definitions:
           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           import S = Modelica.Electrical.Digital.Interfaces.Strength;
           import T = Modelica.Electrical.Digital.Tables;
-          parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-          parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+          parameter SI.Time tHL=0 "High->Low delay";
+          parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
@@ -5983,8 +5984,8 @@ Clock transition definitions:
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-          parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+          parameter SI.Time tHL=0 "High->Low delay";
+          parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
@@ -6426,8 +6427,8 @@ Clock transition definitions:
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-          parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-          parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+          parameter SI.Time tHL=0 "High->Low delay";
+          parameter SI.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
         "output strength";
           parameter Integer n(min=1) = 1 "data width";
@@ -6655,8 +6656,8 @@ Clock transition definitions:
     import S = Modelica.Electrical.Digital.Interfaces.Strength;
 
     model NXFERGATE "Transfergate with enable active high"
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6740,8 +6741,8 @@ Clock transition definitions:
 
     model NRXFERGATE
       "Transfergate with enable active high. Output strength reduced."
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6825,8 +6826,8 @@ Clock transition definitions:
     end NRXFERGATE;
 
     model PXFERGATE "Transfergate with enable active low"
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6910,8 +6911,8 @@ Clock transition definitions:
 
     model PRXFERGATE
       "Transfergate with enable active low. Output strength reduced."
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
             iconTransformation(extent={{-100,60},{-80,80}})));
@@ -6994,8 +6995,8 @@ Clock transition definitions:
     end PRXFERGATE;
 
     model BUF3S "Tristate buffer with enable active high"
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
@@ -7075,8 +7076,8 @@ Clock transition definitions:
     end BUF3S;
 
     model BUF3SL "Tristate buffer with enable active low"
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
@@ -7156,8 +7157,8 @@ Clock transition definitions:
     end BUF3SL;
 
     model INV3S "Tristate Inverter with enable active high"
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
@@ -7242,8 +7243,8 @@ Clock transition definitions:
     end INV3S;
 
     model INV3SL "Tristate inverter with enable active low"
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       D.Interfaces.DigitalInput enable
         annotation (Placement(transformation(extent={{-100,60},{-80,80}}),
@@ -7372,8 +7373,8 @@ Wires n input signals in one output signal, without delay.
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
 
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
@@ -7624,8 +7625,8 @@ Firstly Write is carried out, then Read.</b></p>
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
 
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
@@ -7801,8 +7802,8 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
       import L = Modelica.Electrical.Digital.Interfaces.Logic;
       import S = Modelica.Electrical.Digital.Interfaces.Strength;
       import T = Modelica.Electrical.Digital.Tables;
-      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
-      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter SI.Time tHL=0 "High->Low delay";
+      parameter SI.Time tLH=0 "Low->High delay";
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       D.Interfaces.DigitalInput in1 "data input 1"
         annotation (Placement(transformation(extent={{-100,40},{-80,60}}),
