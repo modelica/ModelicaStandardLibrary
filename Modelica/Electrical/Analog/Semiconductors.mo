@@ -1788,55 +1788,56 @@ public
   end SimpleTriac;
 
   model Diode2 "Improved diode model"
-     import Modelica.SIunits;
-      extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-       T=293.15);
-      parameter SIunits.Voltage Vf = 0.7 "Forward voltage";
-      parameter SIunits.Current Ids = 1.e-13 "Reverse saturation current";
-      parameter SIunits.Resistance Rs = 16 "Ohmic resistance";
-      parameter SIunits.Voltage Vt = Modelica.Constants.k * T/q
-      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
-      parameter Real N = 1 "Emission coefficient";
-      parameter SIunits.Voltage Bv = 100 "Reverse breakdown voltage";
-      parameter SIunits.Conductance Gp = 1e-6
-      "Parallel conductance for numerical stability";
-      SIunits.Voltage vd "Voltage across pure diode part";
-      SIunits.Current id "diode current";
+    import Modelica.SIunits;
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
+     T=293.15);
+    parameter SIunits.Voltage Vf = 0.7 "Forward voltage";
+    parameter SIunits.Current Ids = 1.e-13 "Reverse saturation current";
+    parameter SIunits.Resistance Rs = 16 "Ohmic resistance";
+    parameter SIunits.Voltage Vt = Modelica.Constants.k * T/q
+    "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
+    parameter Real N = 1 "Emission coefficient";
+    parameter SIunits.Voltage Bv = 100 "Reverse breakdown voltage";
+    parameter SIunits.Conductance Gp = 1e-6
+    "Parallel conductance for numerical stability";
+    SIunits.Voltage vd "Voltage across pure diode part";
+    SIunits.Current id "diode current";
   protected
-      parameter SIunits.Voltage VdMax = Vf + (N*Vt)
-      "Linear continuation threshold";
-      parameter SIunits.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
-      "Current at threshold";
-      parameter SIunits.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
-      "Conductance at threshold";
-      constant Real q = 1.60217646e-19 "Elementary charge (Coulombs)";
+    parameter SIunits.Voltage VdMax = Vf + (N*Vt)
+    "Linear continuation threshold";
+    parameter SIunits.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
+    "Current at threshold";
+    parameter SIunits.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
+    "Conductance at threshold";
+    constant Real q = 1.60217646e-19 "Elementary charge (Coulombs)";
 
   equation
-      id = smooth(1,
-                 if vd < -Bv / 2 then
-                     -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))
-                 elseif vd < VdMax then
-                     Ids * (exp(vd/(N*Vt)) - 1)
-                 else
-                     iVdMax + (vd - VdMax) * diVdMax);                        //Lower half of reverse biased region including breakdown.
-                                                 //Upper half of reverse biased region, and forward biased region before conduction.
-                                                        //Forward biased region after conduction
+    id = smooth(1,
+      if vd < -Bv / 2 then
+        //Lower half of reverse biased region including breakdown.
+        -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))
+      elseif vd < VdMax then
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        Ids * (exp(vd/(N*Vt)) - 1)
+      else 
+        //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
-      v = vd + id * Rs;
-      i = id + v*Gp;
-      LossPower=i*v;
+    v = vd + id * Rs;
+    i = id + v*Gp;
+    LossPower=i*v;
 
-      assert(Bv>0, "Bv must be greater than zero", AssertionLevel.error);
-      assert(Vf>0, "Vf must be greater than zero", AssertionLevel.error);
-      assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
+    assert(Bv>0, "Bv must be greater than zero", AssertionLevel.error);
+    assert(Vf>0, "Vf must be greater than zero", AssertionLevel.error);
+    assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
     annotation (
       Documentation(info="<html>
 <p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter. The model is divided into three parts:</p>
 <ul>
 <li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
-<li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1</li>
-<li>forward biased region after conduction: iVdMax + (vd-VdMax) * diVdMax</li>
+<li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
+<li>forward biased region after conduction: iVdMax + (vd - VdMax) * diVdMax</li>
 </ul>
 <p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",
