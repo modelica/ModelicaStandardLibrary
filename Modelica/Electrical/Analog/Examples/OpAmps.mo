@@ -1,7 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 package OpAmps
   extends Modelica.Icons.ExamplesPackage;
-
   model InvertingAmp "Inverting amplifier"
     extends Modelica.Icons.Example;
     parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
@@ -145,8 +144,8 @@ package OpAmps
     connect(ground.p, vOut.n) annotation (Line(
         points={{-10,-80},{50,-80},{50,-30}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                          <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
                          </html>"),
       experiment(
@@ -222,8 +221,8 @@ Documentation(info="<html>
     connect(ground.p, rl.n) annotation (Line(
         points={{-10,-80},{30,-80},{30,-28}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
     <p>This is a voltage follower. It reproduces the input voltage at the output without loading the input voltage source with a stiff output.</p>
                          </html>"),
       experiment(
@@ -294,8 +293,8 @@ Documentation(info="<html>
     connect(vOut.n, ground.p) annotation (Line(
         points={{50,-30},{50,-80},{-10,-80}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This is a (inverting) differentiating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
                         </html>"),
       experiment(
@@ -369,8 +368,8 @@ Documentation(info="<html>
     connect(ground.p, vOut.n) annotation (Line(
         points={{-10,-80},{50,-80},{50,-30}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This is an (inverting) integrating amplifier. Resistance R can be chosen, capacitance C is defined by the desired time constant resp. frequency.</p>
                         </html>"),
       experiment(
@@ -453,8 +452,8 @@ Documentation(info="<html>
     connect(ground.p, vOut.n) annotation (Line(
         points={{-10,-80},{50,-80},{50,-30}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                          <p>This is a (inverting) low pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
                          </html>"),
       experiment(
@@ -534,8 +533,8 @@ Documentation(info="<html>
     connect(ground.p, vOut.n) annotation (Line(
         points={{-10,-80},{50,-80},{50,-30}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                          <p>This is a (inverting) high pass filter. Resistance R1 can be chosen, resistance R2 is defined by the desired amplification k, capacitance C is defined by the desired cut-off frequency.</p>
                          </html>"),
       experiment(
@@ -575,12 +574,12 @@ Documentation(info="<html>
           extent={{-10,10},{10,-10}},
           rotation=270,
           origin={50,-20})));
-    Modelica.Electrical.Analog.Basic.Potentiometer potentiometer(R=R, rConstant
-        =k) annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Basic.Potentiometer potentiometer(R=R, rConstant=
+         k) annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
           origin={-10,-30})));
-    Modelica.Electrical.Analog.Sources.SupplyVoltage supplyVoltage(Vps=Vps, Vns
-        =Vns) annotation (Placement(transformation(
+    Modelica.Electrical.Analog.Sources.SupplyVoltage supplyVoltage(Vps=Vps, Vns=
+         Vns) annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           origin={-10,-50})));
   equation
@@ -608,8 +607,8 @@ Documentation(info="<html>
     connect(ground.p, supplyVoltage.ground) annotation (Line(
         points={{-10,-80},{-10,-50}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This is a comparator. Resistance R1 can be chosen, resistance R2 is defined by the desired reference voltage Vref (between Vn and Vp). The output switches between Vn for input voltage &LT; Vref and Vp for input voltage &GT; Vref.</p>
                         </html>"),
       experiment(
@@ -688,8 +687,8 @@ Documentation(info="<html>
     connect(opAmp.out, vOut.p) annotation (Line(
         points={{20,0},{50,0},{50,-10}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This is a (inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vn for input voltage &GT; 0 + vHys and Vp for input voltage &LT; vHys*Vns/Vps.</p>
                         </html>"),
       experiment(
@@ -767,8 +766,8 @@ Documentation(info="<html>
     connect(r1.p, vIn.p) annotation (Line(
         points={{-40,20},{-80,20},{-80,10}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This is a (non-inverting) Schmitt trigger. Resistance R1 can be chosen, resistance R2 is defined by the desired hysteresis. The output gets Vp for input voltage &GT; vHys and Vn for input voltage &LT; vHys*Vns/Vps.</p>
                         </html>"),
       experiment(
@@ -843,8 +842,8 @@ Documentation(info="<html>
     connect(r.n, c.p) annotation (Line(
         points={{0,20},{-30,20},{-30,-30}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This is a Multivibrator with Schmitt Trigger according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 6.5.3</p>
                         </html>"),
@@ -943,8 +942,8 @@ Documentation(info="<html>
     connect(ground.p, vOutTriangle.n) annotation (Line(
         points={{0,-40},{60,-40},{60,-28}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                         <p>This signal generator consists of a Schmitt Trigger and an integrator. The output of the first OpAmp (Schmidt Trigger) s a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
                         <p>The switching level of the comparator defines the ampltude of the triangle, the frequency is defined by: f = Vps/VAmp/(4*R*C) according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
@@ -1037,8 +1036,8 @@ Documentation(info="<html>
     connect(r.n, vOut.p) annotation (Line(
         points={{10,0},{60,0},{60,-10}},
         color={0,0,255}));
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
                        <p>This is an LC oscillator according to:</p>
                        <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.1</p>
                        </html>"),
