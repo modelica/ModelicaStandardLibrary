@@ -3,43 +3,43 @@ model CompareTransformers
   "Transformer circuit to show the magnetization facilities"
 
   extends Modelica.Icons.Example;
-  constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
-  parameter Modelica.SIunits.Voltage Vdc=0.1 "DC offset of voltage source";
-  parameter Modelica.SIunits.Voltage Vpeak=0.1 "Peak voltage of voltage source";
-  parameter Modelica.SIunits.Frequency f=10 "Frequency of voltage source";
-  parameter Modelica.SIunits.Angle phi0=pi/2 "Phase of voltage source";
+  constant SI.Angle pi = Modelica.Constants.pi;
+  parameter SI.Voltage Vdc=0.1 "DC offset of voltage source";
+  parameter SI.Voltage Vpeak=0.1 "Peak voltage of voltage source";
+  parameter SI.Frequency f=10 "Frequency of voltage source";
+  parameter SI.Angle phi0=pi/2 "Phase of voltage source";
   parameter Real n=2 "Turns ratio primary:secondary voltage";
-  parameter Modelica.SIunits.Resistance R1=0.01
+  parameter SI.Resistance R1=0.01
     "Primary resistance w.r.t. primary side";
-  parameter Modelica.SIunits.Inductance L1sigma=0.05/(2*pi*f)
+  parameter SI.Inductance L1sigma=0.05/(2*pi*f)
     "Primary leakage inductance w.r.t. primary side";
-  parameter Modelica.SIunits.Inductance Lm1= 10./(2*pi*f)
+  parameter SI.Inductance Lm1= 10./(2*pi*f)
     "Magnetizing inductance w.r.t. primary side";
-  parameter Modelica.SIunits.Inductance L2sigma=0.05/(2*pi*f)/n^2
+  parameter SI.Inductance L2sigma=0.05/(2*pi*f)/n^2
     "Secondary leakage inductance w.r.t. secondary side";
-  parameter Modelica.SIunits.Resistance R2=0.01/n^2
+  parameter SI.Resistance R2=0.01/n^2
     "Secondary resistance w.r.t. secondary side";
-  parameter Modelica.SIunits.Resistance RL=1/n^2 "Load resistance";
-  final parameter Modelica.SIunits.Inductance L1=L1sigma + M*n
+  parameter SI.Resistance RL=1/n^2 "Load resistance";
+  final parameter SI.Inductance L1=L1sigma + M*n
     "Primary no-load inductance";
-  final parameter Modelica.SIunits.Inductance L2=L2sigma + M/n
+  final parameter SI.Inductance L2=L2sigma + M/n
     "Secondary no-load inductance";
-  final parameter Modelica.SIunits.Inductance M=Lm1/n "Mutual inductance";
-  output Modelica.SIunits.Voltage v1B = resistor11.n.v
+  final parameter SI.Inductance M=Lm1/n "Mutual inductance";
+  output SI.Voltage v1B = resistor11.n.v
     "Primary voltage, basic transformer";
-  output Modelica.SIunits.Current i1B = resistor11.i
+  output SI.Current i1B = resistor11.i
     "Primary current, basic transformer";
-  output Modelica.SIunits.Voltage v2B = resistor12.p.v
+  output SI.Voltage v2B = resistor12.p.v
     "Secondary voltage, basic transformer";
-  output Modelica.SIunits.Current i2B = resistor12.i
+  output SI.Current i2B = resistor12.i
     "Secondary current, basic transformer";
-  output Modelica.SIunits.Voltage v1I = resistor21.n.v
+  output SI.Voltage v1I = resistor21.n.v
     "Primary voltage, basic transformer";
-  output Modelica.SIunits.Current i1I = resistor21.i
+  output SI.Current i1I = resistor21.i
     "Primary current, basic transformer";
-  output Modelica.SIunits.Voltage v2I = resistor22.p.v
+  output SI.Voltage v2I = resistor22.p.v
     "Secondary voltage, basic transformer";
-  output Modelica.SIunits.Current i2I = resistor22.i
+  output SI.Current i2I = resistor22.i
     "Secondary current, basic transformer";
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage1(
     V=Vpeak,

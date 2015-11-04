@@ -4,13 +4,13 @@ package Interfaces
   extends Modelica.Icons.InterfacesPackage;
 
   connector Pin "Pin of an electrical component"
-    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+    SI.Voltage v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
   to define the zero potential of the electrical circuit, or
 - a connector of an electrical component is not connected.");
-    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+    flow SI.Current i "Current flowing into the pin" annotation (
         unassignedMessage="An electrical current cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -44,13 +44,13 @@ The reason could be that
   end Pin;
 
   connector PositivePin "Positive pin of an electric component"
-    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+    SI.Voltage v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
   to define the zero potential of the electrical circuit, or
 - a connector of an electrical component is not connected.");
-    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+    flow SI.Current i "Current flowing into the pin" annotation (
         unassignedMessage="An electrical current cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -84,13 +84,13 @@ The reason could be that
   end PositivePin;
 
   connector NegativePin "Negative pin of an electric component"
-    Modelica.SIunits.Voltage v "Potential at the pin" annotation (
+    SI.Voltage v "Potential at the pin" annotation (
         unassignedMessage="An electrical potential cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
   to define the zero potential of the electrical circuit, or
 - a connector of an electrical component is not connected.");
-    flow Modelica.SIunits.Current i "Current flowing into the pin" annotation (
+    flow SI.Current i "Current flowing into the pin" annotation (
         unassignedMessage="An electrical current cannot be uniquely calculated.
 The reason could be that
 - a ground object is missing (Modelica.Electrical.Analog.Basic.Ground)
@@ -306,15 +306,15 @@ The reason could be that
 
     parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-    parameter Modelica.SIunits.Temperature T=293.15
+    parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort
       "Conditional heat port"
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
-    Modelica.SIunits.Power LossPower
+    SI.Power LossPower
       "Loss power leaving component via heatPort";
-    Modelica.SIunits.Temperature T_heatPort "Temperature of heatPort";
+    SI.Temperature T_heatPort "Temperature of heatPort";
   equation
     if not useHeatPort then
        T_heatPort = T;

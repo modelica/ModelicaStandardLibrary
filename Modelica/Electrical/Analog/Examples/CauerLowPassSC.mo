@@ -4,8 +4,8 @@ model CauerLowPassSC
   extends Modelica.Icons.Example;
 
 model Rn "Negative resistance"
-  parameter Modelica.SIunits.Time clock=1 "Clock";
-  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
+  parameter SI.Time clock=1 "Clock";
+  parameter SI.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock)
     annotation (Placement(transformation(extent={{-10,50},{10,70}})));
@@ -81,8 +81,8 @@ end Rn;
 
 model Rp "Positive resistance"
 
-  parameter Modelica.SIunits.Time clock=1 "Clock";
-  parameter Modelica.SIunits.Resistance R(min=Modelica.Constants.eps)=1
+  parameter SI.Time clock=1 "Clock";
+  parameter SI.Resistance R(min=Modelica.Constants.eps)=1
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock)
     annotation (Placement(transformation(extent={{-10,50},{10,70}})));
@@ -156,15 +156,15 @@ equation
 </html>"));
 end Rp;
 
-  parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";
-  parameter Modelica.SIunits.Capacitance l2=0.8586 "filter coefficient i2";
-  parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1)
+  parameter SI.Capacitance l1=1.304 "filter coefficient i1";
+  parameter SI.Capacitance l2=0.8586 "filter coefficient i2";
+  parameter SI.Capacitance c1=1.072 "filter coefficient c1";
+  parameter SI.Capacitance c2=1/(1.704992^2*l1)
     "filter coefficient c2";
-  parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
+  parameter SI.Capacitance c3=1.682 "filter coefficient c3";
+  parameter SI.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
-  parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
+  parameter SI.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2,v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{-193,30},{-173,50}})));
   Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2,v(start=0, fixed=true))

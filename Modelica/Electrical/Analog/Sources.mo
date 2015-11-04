@@ -2300,8 +2300,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
   end TableCurrent;
 
   model SupplyVoltage "Supply voltage (positive and negative)"
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
     Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin pin_n

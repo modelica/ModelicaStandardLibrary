@@ -2,17 +2,16 @@ within Modelica.Electrical.Analog;
 package Semiconductors
   "Semiconductor devices such as diode, MOS and bipolar transistor"
   extends Modelica.Icons.Package;
-  import Modelica.SIunits;
   import Modelica.Constants.k "Boltzmann's constant, [J/K]";
 
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SIunits.Current Ids=1.e-6 "Saturation current";
-    parameter SIunits.Voltage Vt=0.04
+    parameter SI.Current Ids=1.e-6 "Saturation current";
+    parameter SI.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
-    parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
+    parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
        T=293.15);
   equation
@@ -77,15 +76,15 @@ package Semiconductors
 
  model ZDiode "Zener diode with 3 working areas"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-   parameter SIunits.Current Ids=1.e-6 "Saturation current";
-   parameter SIunits.Voltage Vt=0.04
+   parameter SI.Current Ids=1.e-6 "Saturation current";
+   parameter SI.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
    parameter Real Maxexp(final min=Modelica.Constants.small) = 30
       "Max. exponent for linear continuation";
-   parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
-   parameter SIunits.Voltage Bv=5.1
+   parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
+   parameter SI.Voltage Bv=5.1
       "Breakthrough voltage = Zener- or Z-voltage";
-   parameter SIunits.Current Ibv=0.7 "Breakthrough knee current";
+   parameter SI.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
       T=293.15);
@@ -157,16 +156,16 @@ model PMOS "Simple MOS Transistor"
             -40},{110,-60}})));
   Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
             -10},{110,10}})));
-  parameter SIunits.Length W=20.0e-6 "Width";
-  parameter SIunits.Length L=6.0e-6 "Length";
-  parameter SIunits.Transconductance Beta=0.0105e-3
+  parameter SI.Length W=20.0e-6 "Width";
+  parameter SI.Length L=6.0e-6 "Length";
+  parameter SI.Transconductance Beta=0.0105e-3
       "Transconductance parameter";
-  parameter SIunits.Voltage Vt=-1.0 "Zero bias threshold voltage";
+  parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
   parameter Real K2=0.41 "Bulk threshold parameter";
   parameter Real K5=0.839 "Reduction of pinch-off region";
-  parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
-  parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
-  parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+  parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+  parameter SI.Length dL=-2.1e-6 "Shortening of channel";
+  parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
      T=293.15);
   protected
@@ -298,15 +297,15 @@ model NMOS "Simple MOS Transistor"
             -40},{110,-60}})));
   Interfaces.Pin B "Bulk" annotation (Placement(transformation(extent={{90,
             -10},{110,10}})));
-  parameter SIunits.Length W=20.e-6 "Width";
-  parameter SIunits.Length L=6.e-6 "Length";
-  parameter SIunits.Transconductance Beta=0.041e-3 "Transconductance parameter";
-  parameter SIunits.Voltage Vt=0.8 "Zero bias threshold voltage";
+  parameter SI.Length W=20.e-6 "Width";
+  parameter SI.Length L=6.e-6 "Length";
+  parameter SI.Transconductance Beta=0.041e-3 "Transconductance parameter";
+  parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
   parameter Real K2=1.144 "Bulk threshold parameter";
   parameter Real K5=0.7311 "Reduction of pinch-off region";
-  parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
-  parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
-  parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+  parameter SI.Length dW=-2.5e-6 "narrowing of channel";
+  parameter SI.Length dL=-1.5e-6 "shortening of channel";
+  parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
   protected
   Real v;
@@ -438,25 +437,25 @@ end NMOS;
 model NPN "Simple BJT according to Ebers-Moll"
   parameter Real Bf=50 "Forward beta";
   parameter Real Br=0.1 "Reverse beta";
-  parameter SIunits.Current Is=1.e-16 "Transport saturation current";
-  parameter SIunits.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
-  parameter SIunits.Time Tauf=0.12e-9 "Ideal forward transit time";
-  parameter SIunits.Time Taur=5e-9 "Ideal reverse transit time";
-  parameter SIunits.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-  parameter SIunits.Capacitance Cje=0.4e-12
+  parameter SI.Current Is=1.e-16 "Transport saturation current";
+  parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
+  parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
+  parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
+  parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
+  parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
-  parameter SIunits.Capacitance Cjc=0.5e-12
+  parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-  parameter SIunits.Voltage Phie=0.8 "Base-emitter diffusion voltage";
+  parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
   parameter Real Me=0.4 "Base-emitter gradation exponent";
-  parameter SIunits.Voltage Phic=0.8 "Base-collector diffusion voltage";
+  parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
   parameter Real Mc=0.333 "Base-collector gradation exponent";
-  parameter SIunits.Conductance Gbc=1e-15 "Base-collector conductance";
-  parameter SIunits.Conductance Gbe=1e-15 "Base-emitter conductance";
-  parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
+  parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
+  parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
+  parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  parameter SIunits.Voltage IC=0 "Initial Value";
+  parameter SI.Voltage IC=0 "Initial Value";
   parameter Boolean UIC = false;
 
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
@@ -599,22 +598,22 @@ end NPN;
 model PNP "Simple BJT according to Ebers-Moll"
   parameter Real Bf=50 "Forward beta";
   parameter Real Br=0.1 "Reverse beta";
-  parameter SIunits.Current Is=1.e-16 "Transport saturation current";
-  parameter SIunits.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
-  parameter SIunits.Time Tauf=0.12e-9 "Ideal forward transit time";
-  parameter SIunits.Time Taur=5e-9 "Ideal reverse transit time";
-  parameter SIunits.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-  parameter SIunits.Capacitance Cje=0.4e-12
+  parameter SI.Current Is=1.e-16 "Transport saturation current";
+  parameter SI.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
+  parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
+  parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
+  parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
+  parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
-  parameter SIunits.Capacitance Cjc=0.5e-12
+  parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-  parameter SIunits.Voltage Phie=0.8 "Base-emitter diffusion voltage";
+  parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
   parameter Real Me=0.4 "Base-emitter gradation exponent";
-  parameter SIunits.Voltage Phic=0.8 "Base-collector diffusion voltage";
+  parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
   parameter Real Mc=0.333 "Base-collector gradation exponent";
-  parameter SIunits.Conductance Gbc=1e-15 "Base-collector conductance";
-  parameter SIunits.Conductance Gbe=1e-15 "Base-emitter conductance";
-  parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
+  parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
+  parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
+  parameter SI.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=293.15);
@@ -751,24 +750,24 @@ end PNP;
 
 model HeatingDiode "Simple diode with heating port"
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  parameter SIunits.Current Ids=1.e-6 "Saturation current";
-  /* parameter SIunits.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
+  parameter SI.Current Ids=1.e-6 "Saturation current";
+  /* parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)"; */
   parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
-  parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
+  parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
   parameter Real EG=1.11 "activation energy";
   parameter Real N=1 "Emission coefficient";
-  parameter SIunits.Temperature TNOM=300.15
+  parameter SI.Temperature TNOM=300.15
       "Parameter measurement temperature";
   parameter Real XTI=3 "Temperature exponent of saturation current";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
 
-  SIunits.Temperature vt_t "Temperature voltage";
-  SIunits.Current id "diode current";
+  SI.Temperature vt_t "Temperature voltage";
+  SI.Current id "diode current";
   protected
-  final constant SIunits.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
+  final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
       "Electron charge, [As]";
-  SIunits.Temperature htemp "auxiliary temperature";
+  SI.Temperature htemp "auxiliary temperature";
   Real aux;
   Real auxp;
   Real maxexp=exp(Maxexp);
@@ -858,19 +857,19 @@ end HeatingDiode;
             annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
             annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          parameter SIunits.Length W=20.e-6 "Width";
-          parameter SIunits.Length L=6.e-6 "Length";
-          parameter SIunits.Transconductance Beta=0.041e-3
+          parameter SI.Length W=20.e-6 "Width";
+          parameter SI.Length L=6.e-6 "Length";
+          parameter SI.Transconductance Beta=0.041e-3
       "Transconductance parameter";
-          parameter SIunits.Voltage Vt=0.8
+          parameter SI.Voltage Vt=0.8
       "Zero bias threshold voltage";
           parameter Real K2=1.144 "Bulk threshold parameter";
           parameter Real K5=0.7311 "Reduction of pinch-off region";
-          parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
-          parameter SIunits.Length dL=-1.5e-6 "Shortening of channel";
-          parameter SIunits.Resistance RDS=1.e+7
+          parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+          parameter SI.Length dL=-1.5e-6 "Shortening of channel";
+          parameter SI.Resistance RDS=1.e+7
       "Drain-Source-Resistance";
-          parameter SIunits.Temperature Tnom=300.15
+          parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
           parameter Real kk2=6.0e-4 "Fitting parameter for K2";
@@ -1006,19 +1005,19 @@ end HeatingDiode;
             annotation (Placement(transformation(extent={{90,-40},{110,-60}})));
           Modelica.Electrical.Analog.Interfaces.Pin B "Bulk"
             annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-          parameter SIunits.Length W=20.0e-6 "Width";
-          parameter SIunits.Length L=6.0e-6 "Length";
-          parameter SIunits.Transconductance Beta=0.0105e-3
+          parameter SI.Length W=20.0e-6 "Width";
+          parameter SI.Length L=6.0e-6 "Length";
+          parameter SI.Transconductance Beta=0.0105e-3
       "Transconductance parameter";
-          parameter SIunits.Voltage Vt=-1.0
+          parameter SI.Voltage Vt=-1.0
       "Zero bias threshold voltage";
           parameter Real K2=0.41 "Bulk threshold parameter";
           parameter Real K5=0.839 "Reduction of pinch-off region";
-          parameter SIunits.Length dW=-2.5e-6 "Narrowing of channel";
-          parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
-          parameter SIunits.Resistance RDS=1.e+7
+          parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
+          parameter SI.Length dL=-2.1e-6 "Shortening of channel";
+          parameter SI.Resistance RDS=1.e+7
       "Drain-Source-Resistance";
-          parameter SIunits.Temperature Tnom=300.15
+          parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
           parameter Real kk2=6.2e-4 "Fitting parameter for K2";
@@ -1137,35 +1136,35 @@ end HeatingDiode;
     "Simple NPN BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SIunits.Current Is=1.e-16
+          parameter SI.Current Is=1.e-16
       "Transport saturation current";
-          parameter SIunits.InversePotential Vak=0.02
+          parameter SI.InversePotential Vak=0.02
       "Early voltage (inverse), 1/Volt";
-          parameter SIunits.Time Tauf=0.12e-9
+          parameter SI.Time Tauf=0.12e-9
       "Ideal forward transit time";
-          parameter SIunits.Time Taur=5e-9
+          parameter SI.Time Taur=5e-9
       "Ideal reverse transit time";
-          parameter SIunits.Capacitance Ccs=1e-12
+          parameter SI.Capacitance Ccs=1e-12
       "Collector-substrate(ground) cap.";
-          parameter SIunits.Capacitance Cje=0.4e-12
+          parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
-          parameter SIunits.Capacitance Cjc=0.5e-12
+          parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-          parameter SIunits.Voltage Phie=0.8
+          parameter SI.Voltage Phie=0.8
       "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SIunits.Voltage Phic=0.8
+          parameter SI.Voltage Phic=0.8
       "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SIunits.Conductance Gbc=1e-15
+          parameter SI.Conductance Gbc=1e-15
       "Base-collector conductance";
-          parameter SIunits.Conductance Gbe=1e-15
+          parameter SI.Conductance Gbe=1e-15
       "Base-emitter conductance";
           parameter Real EMin=-100
       "if x < EMin, the exp(x) function is linearized";
           parameter Real EMax=40
       "if x > EMax, the exp(x) function is linearized";
-          parameter SIunits.Temperature Tnom=300.15
+          parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
@@ -1175,7 +1174,7 @@ end HeatingDiode;
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
-          final constant SIunits.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
+          final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
       "Electron charge, [As]";
   public
           Real vbc;
@@ -1306,35 +1305,35 @@ end HeatingDiode;
     "Simple PNP BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SIunits.Current Is=1.e-16
+          parameter SI.Current Is=1.e-16
       "Transport saturation current";
-          parameter SIunits.InversePotential Vak=0.02
+          parameter SI.InversePotential Vak=0.02
       "Early voltage (inverse), 1/Volt";
-          parameter SIunits.Time Tauf=0.12e-9
+          parameter SI.Time Tauf=0.12e-9
       "Ideal forward transit time";
-          parameter SIunits.Time Taur=5e-9
+          parameter SI.Time Taur=5e-9
       "Ideal reverse transit time";
-          parameter SIunits.Capacitance Ccs=1e-12
+          parameter SI.Capacitance Ccs=1e-12
       "Collector-substrate(ground) cap.";
-          parameter SIunits.Capacitance Cje=0.4e-12
+          parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
-          parameter SIunits.Capacitance Cjc=0.5e-12
+          parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-          parameter SIunits.Voltage Phie=0.8
+          parameter SI.Voltage Phie=0.8
       "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SIunits.Voltage Phic=0.8
+          parameter SI.Voltage Phic=0.8
       "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SIunits.Conductance Gbc=1e-15
+          parameter SI.Conductance Gbc=1e-15
       "Base-collector conductance";
-          parameter SIunits.Conductance Gbe=1e-15
+          parameter SI.Conductance Gbe=1e-15
       "Base-emitter conductance";
           parameter Real EMin=-100
       "if x < EMin, the exp(x) function is linearized";
           parameter Real EMax=40
       "if x > EMax, the exp(x) function is linearized";
-          parameter SIunits.Temperature Tnom=300.15
+          parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real XTI=3 "Temperature exponent for effect on Is";
           parameter Real XTB=0 "Forward and reverse beta temperature exponent";
@@ -1344,7 +1343,7 @@ end HeatingDiode;
           extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
              useHeatPort=true);
   protected
-          final constant SIunits.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
+          final constant SI.ElectricCharge q=Modelica.Constants.F/Modelica.Constants.N_A
       "Electron charge, [As]";
           Real vcb;
           Real veb;
@@ -1494,21 +1493,21 @@ protected
 
 public
   model Thyristor "Simple Thyristor Model"
-    parameter SIunits.Voltage VDRM(final min=0) = 100
+    parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
-    parameter SIunits.Voltage VRRM(final min=0) = 100
+    parameter SI.Voltage VRRM(final min=0) = 100
       "Reverse breakthrough voltage";
-    parameter SIunits.Current IDRM=0.1 "Saturation current";
-    parameter SIunits.Voltage VTM= 1.7 "Conducting voltage";
-    parameter SIunits.Current IH=6e-3 "Holding current";
-    parameter SIunits.Current ITM= 25 "Conducting current";
+    parameter SI.Current IDRM=0.1 "Saturation current";
+    parameter SI.Voltage VTM= 1.7 "Conducting voltage";
+    parameter SI.Current IH=6e-3 "Holding current";
+    parameter SI.Current ITM= 25 "Conducting current";
 
-    parameter SIunits.Voltage VGT= 0.7 "Gate trigger voltage";
-    parameter SIunits.Current IGT= 5e-3 "Gate trigger current";
+    parameter SI.Voltage VGT= 0.7 "Gate trigger voltage";
+    parameter SI.Current IGT= 5e-3 "Gate trigger current";
 
-    parameter SIunits.Time TON = 1e-6 "Switch on time";
-    parameter SIunits.Time TOFF = 15e-6 "Switch off time";
-    parameter SIunits.Voltage Vt=0.04
+    parameter SI.Time TON = 1e-6 "Switch on time";
+    parameter SI.Time TOFF = 15e-6 "Switch off time";
+    parameter SI.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
@@ -1532,11 +1531,11 @@ public
               {80,100}})));
 
   protected
-    parameter SIunits.Voltage Von=5;
-    parameter SIunits.Voltage Voff= 1.5;
-    parameter SIunits.Resistance Ron=(VTM-0.7)/ITM
+    parameter SI.Voltage Von=5;
+    parameter SI.Voltage Voff= 1.5;
+    parameter SI.Resistance Ron=(VTM-0.7)/ITM
       "Forward conducting mode resistance";
-    parameter SIunits.Resistance Roff=(VDRM^2)/VTM/IH
+    parameter SI.Resistance Roff=(VDRM^2)/VTM/IH
       "Blocking mode resistance";
 
   equation
@@ -1666,21 +1665,21 @@ public
 
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
 
-    parameter SIunits.Voltage VDRM(final min=0) = 100
+    parameter SI.Voltage VDRM(final min=0) = 100
       "Forward breakthrough voltage";
-    parameter SIunits.Voltage VRRM(final min=0) = 100
+    parameter SI.Voltage VRRM(final min=0) = 100
       "Reverse breakthrough voltage";
-    parameter SIunits.Current IDRM=0.1 "Saturation current";
-    parameter SIunits.Voltage VTM= 1.7 "Conducting voltage";
-    parameter SIunits.Current IH=6e-3 "Holding current";
-    parameter SIunits.Current ITM= 25 "Conducting current";
+    parameter SI.Current IDRM=0.1 "Saturation current";
+    parameter SI.Voltage VTM= 1.7 "Conducting voltage";
+    parameter SI.Current IH=6e-3 "Holding current";
+    parameter SI.Current ITM= 25 "Conducting current";
 
-    parameter SIunits.Voltage VGT= 0.7 "Gate trigger voltage";
-    parameter SIunits.Current IGT= 5e-3 "Gate trigger current";
+    parameter SI.Voltage VGT= 0.7 "Gate trigger voltage";
+    parameter SI.Current IGT= 5e-3 "Gate trigger current";
 
-    parameter SIunits.Time TON = 1e-6 "Switch on time";
-    parameter SIunits.Time TOFF = 15e-6 "Switch off time";
-    parameter SIunits.Voltage Vt=0.04
+    parameter SI.Time TON = 1e-6 "Switch on time";
+    parameter SI.Time TOFF = 15e-6 "Switch off time";
+    parameter SI.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
 
@@ -1708,7 +1707,7 @@ public
 
   parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter SIunits.Temperature T=293.15
+  parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
@@ -1793,23 +1792,23 @@ public
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
      T=293.15);
-    parameter SIunits.Voltage Vf = 0.7 "Forward voltage";
-    parameter SIunits.Current Ids = 1.e-13 "Reverse saturation current";
-    parameter SIunits.Resistance Rs = 16 "Ohmic resistance";
-    parameter SIunits.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
+    parameter SI.Voltage Vf = 0.7 "Forward voltage";
+    parameter SI.Current Ids = 1.e-13 "Reverse saturation current";
+    parameter SI.Resistance Rs = 16 "Ohmic resistance";
+    parameter SI.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
       "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
     parameter Real N = 1 "Emission coefficient";
-    parameter SIunits.Voltage Bv = 100 "Reverse breakdown voltage";
-    parameter SIunits.Conductance Gp = 1e-6
+    parameter SI.Voltage Bv = 100 "Reverse breakdown voltage";
+    parameter SI.Conductance Gp = 1e-6
       "Parallel conductance for numerical stability";
-    SIunits.Voltage vd "Voltage across pure diode part";
-    SIunits.Current id "diode current";
+    SI.Voltage vd "Voltage across pure diode part";
+    SI.Current id "diode current";
   protected
-    parameter SIunits.Voltage VdMax = Vf + (N*Vt)
+    parameter SI.Voltage VdMax = Vf + (N*Vt)
       "Linear continuation threshold";
-    parameter SIunits.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
+    parameter SI.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
       "Current at threshold";
-    parameter SIunits.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
+    parameter SI.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
       "Conductance at threshold";
 
   equation

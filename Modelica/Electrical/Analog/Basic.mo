@@ -51,15 +51,15 @@ package Basic "Basic electrical components"
   end Ground;
 
   model Resistor "Ideal linear electrical resistor"
-    parameter Modelica.SIunits.Resistance R(start=1)
+    parameter SI.Resistance R(start=1)
       "Resistance at temperature T_ref";
-    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    Modelica.SIunits.Resistance R_actual
+    SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
 
   equation
@@ -113,15 +113,15 @@ package Basic "Basic electrical components"
   end Resistor;
 
   model HeatingResistor "Temperature dependent electrical resistor"
-    parameter Modelica.SIunits.Resistance R_ref(start=1)
+    parameter SI.Resistance R_ref(start=1)
       "Resistance at temperature T_ref";
-    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref,
         useHeatPort=true);
-    Modelica.SIunits.Resistance R
+    SI.Resistance R
       "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
   equation
     assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
@@ -196,14 +196,14 @@ package Basic "Basic electrical components"
   end HeatingResistor;
 
   model Conductor "Ideal linear electrical conductor"
-    parameter Modelica.SIunits.Conductance G(start=1)
+    parameter SI.Conductance G(start=1)
       "Conductance at temperature T_ref";
-    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    Modelica.SIunits.Conductance G_actual
+    SI.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
 
   equation
@@ -351,17 +351,17 @@ package Basic "Basic electrical components"
 
   model SaturatingInductor "Simple model of an inductor with saturation"
     extends Modelica.Electrical.Analog.Interfaces.OnePort(i(start=0));
-    parameter Modelica.SIunits.Current Inom(start=1) "Nominal current";
-    parameter Modelica.SIunits.Inductance Lnom(start=1)
+    parameter SI.Current Inom(start=1) "Nominal current";
+    parameter SI.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
-    parameter Modelica.SIunits.Inductance Lzer(start=2*Lnom)
+    parameter SI.Inductance Lzer(start=2*Lnom)
       "Inductance near current=0";
-    parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
+    parameter SI.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
-    Modelica.SIunits.Inductance Lact(start=Lzer) "Present inductance";
-    Modelica.SIunits.MagneticFlux Psi "Present flux";
+    SI.Inductance Lact(start=Lzer) "Present inductance";
+    SI.MagneticFlux Psi "Present flux";
   protected
-    parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
+    parameter SI.Current Ipar(start=Inom/10, fixed=false);
   initial equation
     (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2 -
       Modelica.Math.atan(Ipar/Inom));
@@ -539,17 +539,17 @@ package Basic "Basic electrical components"
   protected
     parameter Integer dimL=div(N*(N + 1), 2);
   public
-    parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
+    parameter SI.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "Inductances and coupling inductances";
     Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
       annotation (Placement(transformation(extent={{-80,-40},{-62,40}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
       annotation (Placement(transformation(extent={{62,-40},{80,40}})));
 
-    Modelica.SIunits.Voltage v[N] "Voltage drop over inductors";
-    Modelica.SIunits.Current i[N](each start=0, fixed=true)
+    SI.Voltage v[N] "Voltage drop over inductors";
+    SI.Current i[N](each start=0, fixed=true)
       "Current through inductors";
-    parameter Modelica.SIunits.Inductance Lm[N, N](each final fixed=false)
+    parameter SI.Inductance Lm[N, N](each final fixed=false)
       "Complete symmetric inductance matrix, calculated internally";
 
   initial equation
@@ -883,13 +883,13 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
       Evaluate=true,
       HideResult=true,
       choices(checkBox=true));
-    parameter Modelica.SIunits.ElectricalForceConstant k(start=1)
+    parameter SI.ElectricalForceConstant k(start=1)
       "Transformation coefficient";
 
-    Modelica.SIunits.Voltage v "Voltage drop between the two pins";
-    Modelica.SIunits.Current i "Current flowing from positive to negative pin";
-    Modelica.SIunits.Position s "Position of flange relative to support";
-    Modelica.SIunits.Velocity vel "Velocity of flange relative to support";
+    SI.Voltage v "Voltage drop between the two pins";
+    SI.Current i "Current flowing from positive to negative pin";
+    SI.Position s "Position of flange relative to support";
+    SI.Velocity vel "Velocity of flange relative to support";
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(
@@ -1414,16 +1414,16 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Voltage v_neg;
 
     // input stage
-    Modelica.SIunits.Voltage v_vos;
-    Modelica.SIunits.Voltage v_3;
-    Modelica.SIunits.Voltage v_in;
-    Modelica.SIunits.Voltage v_4;
+    SI.Voltage v_vos;
+    SI.Voltage v_3;
+    SI.Voltage v_in;
+    SI.Voltage v_4;
 
-    Modelica.SIunits.Current i_vos;
-    Modelica.SIunits.Current i_3;
-    Modelica.SIunits.Current i_r2;
-    Modelica.SIunits.Current i_c3;
-    Modelica.SIunits.Current i_4;
+    SI.Current i_vos;
+    SI.Current i_3;
+    SI.Current i_r2;
+    SI.Current i_c3;
+    SI.Current i_4;
 
     // frequency response
     Real q_fr1;
@@ -1441,9 +1441,9 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Voltage x "auxiliary variable for slew rate";
 
     // output stage
-    Modelica.SIunits.Voltage v_out;
+    SI.Voltage v_out;
 
-    Modelica.SIunits.Current i_out;
+    SI.Current i_out;
 
     // functions
     function FCNiout_limit "Internal limitation function"
@@ -1613,12 +1613,12 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 
   model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
-    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    Modelica.SIunits.Resistance R_actual
+    SI.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput R(unit="Ohm") annotation (Placement(
           transformation(
@@ -1679,12 +1679,12 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 
   model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
-    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.Temperature T_ref=300.15 "Reference temperature";
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    Modelica.SIunits.Conductance G_actual
+    SI.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation (Placement(
           transformation(
@@ -1749,10 +1749,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
           origin={0,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps
+    parameter SI.Capacitance Cmin=Modelica.Constants.eps
       "lower bound for variable capacitance";
-    Modelica.SIunits.ElectricCharge Q;
-    parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
+    SI.ElectricCharge Q;
+    parameter SI.Voltage IC=0 "Initial Value";
     parameter Boolean UIC=false;
   initial equation
     if UIC then
@@ -1814,10 +1814,10 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
           origin={0,108},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    Modelica.SIunits.MagneticFlux Psi;
-    parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps
+    SI.MagneticFlux Psi;
+    parameter SI.Inductance Lmin=Modelica.Constants.eps
       "lower bound for variable inductance";
-    parameter Modelica.SIunits.Current IC=0 "Initial Value";
+    parameter SI.Current IC=0 "Initial Value";
     parameter Boolean UIC=false;
   initial equation
     if UIC then
@@ -1880,10 +1880,10 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
   end VariableInductor;
 
   model Potentiometer "Adjustable resistor"
-    parameter Modelica.SIunits.Resistance R(start=1)
+    parameter SI.Resistance R(start=1)
       "Resistance at temperature T_ref";
-    parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.Temperature T_ref=293.15 "Reference temperature";
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     parameter Boolean useRinput=false "use input for 0<r<1 (else constant)"
@@ -1895,9 +1895,9 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
       final min=0,
       final max=1) = 0.5 "Contact between n (r=0) and p (r=1)"
       annotation (Dialog(group="potentiometer", enable=not useRinput));
-    Modelica.SIunits.Resistance Rp
+    SI.Resistance Rp
       "Actual resistance between pin_p and contact";
-    Modelica.SIunits.Resistance Rn
+    SI.Resistance Rn
       "Actual resistance between contact and pin_n";
     Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));

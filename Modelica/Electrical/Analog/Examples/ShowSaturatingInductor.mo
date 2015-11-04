@@ -2,18 +2,18 @@ within Modelica.Electrical.Analog.Examples;
 model ShowSaturatingInductor
   "Simple demo to show behaviour of SaturatingInductor component"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Inductance Lzer=2 "Inductance near current=0";
-  parameter Modelica.SIunits.Inductance Lnom=1
+  parameter SI.Inductance Lzer=2 "Inductance near current=0";
+  parameter SI.Inductance Lnom=1
     "Nominal inductance at Nominal current";
-  parameter Modelica.SIunits.Current Inom=1 "Nominal current";
-  parameter Modelica.SIunits.Inductance Linf=0.5 "Inductance at large currents";
-  parameter Modelica.SIunits.Voltage U=1.25 "Source voltage (peak)";
-  parameter Modelica.SIunits.Frequency f=1/(2*Modelica.Constants.pi)
+  parameter SI.Current Inom=1 "Nominal current";
+  parameter SI.Inductance Linf=0.5 "Inductance at large currents";
+  parameter SI.Voltage U=1.25 "Source voltage (peak)";
+  parameter SI.Frequency f=1/(2*Modelica.Constants.pi)
     "Source frequency";
-  parameter Modelica.SIunits.Angle phase=Modelica.Constants.pi/2
+  parameter SI.Angle phase=Modelica.Constants.pi/2
     "Source voltage phase shift";
-  //output Modelica.SIunits.Voltage v "Voltage drop over saturating inductor";
-  //output Modelica.SIunits.Current i "Current across saturating inductor";
+  //output SI.Voltage v "Voltage drop over saturating inductor";
+  //output SI.Current i "Current across saturating inductor";
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(
     V=U,
     phase=phase,

@@ -11,10 +11,10 @@ package Lines
           transformation(extent={{90,-10},{110,10}})));
     Modelica.Electrical.Analog.Interfaces.Pin p3 annotation (Placement(
           transformation(extent={{-10,-110},{10,-90}})));
-    Modelica.SIunits.Voltage v13;
-    Modelica.SIunits.Voltage v23;
-    Modelica.SIunits.Current i1;
-    Modelica.SIunits.Current i2;
+    SI.Voltage v13;
+    SI.Voltage v23;
+    SI.Current i1;
+    SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
       unit="Ohm/m",
@@ -31,22 +31,22 @@ package Lines
       final min=Modelica.Constants.small,
       unit="F/m",
       start=1) "Capacitance per meter";
-    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small,
+    parameter SI.Length length(final min=Modelica.Constants.small,
         start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R=0
+    parameter SI.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G=0
+    parameter SI.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
       choices(checkBox=true));
-    parameter Modelica.SIunits.Temperature T=293.15
+    parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter Modelica.SIunits.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
@@ -147,7 +147,7 @@ package Lines
 
   model M_OLine "Multiple OLine"
 
-    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small)=
+    parameter SI.Length length(final min=Modelica.Constants.small)=
          0.1 "Length of line";
     parameter Integer N(final min=2) = 5 "Number of lumped segments";
     parameter Integer lines(final min=2) = 4 "Number of lines";
@@ -172,19 +172,19 @@ package Lines
       each final min=Modelica.Constants.small,
       each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
       7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R=0
+    parameter SI.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G=0
+    parameter SI.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
       choices(checkBox=true));
-    parameter Modelica.SIunits.Temperature T=293.15
+    parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter Modelica.SIunits.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
@@ -205,19 +205,19 @@ package Lines
         "Inductance matrix";
       parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Conductance matrix";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R
+      parameter SI.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G
+      parameter SI.LinearTemperatureCoefficient alpha_G
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
       parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      parameter Modelica.SIunits.Temperature T=293.15
+      parameter SI.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
         annotation (Dialog(enable=not useHeatPort));
-      parameter Modelica.SIunits.Temperature T_ref;
+      parameter SI.Temperature T_ref;
 
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
         useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
@@ -305,17 +305,17 @@ package Lines
       parameter Real Rl[lines]=fill(1, lines) "Resistance matrix";
       parameter Real Ll[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Inductance matrix";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R
+      parameter SI.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
       parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
         annotation (
         Evaluate=true,
         HideResult=true,
         choices(checkBox=true));
-      parameter Modelica.SIunits.Temperature T=293.15
+      parameter SI.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
         annotation (Dialog(enable=not useHeatPort));
-      parameter Modelica.SIunits.Temperature T_ref;
+      parameter SI.Temperature T_ref;
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
         useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
                 -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
@@ -517,10 +517,10 @@ package Lines
     Modelica.Electrical.Analog.Interfaces.Pin p3 annotation (Placement(
           transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-10,-110},{10,-90}})));
-    Modelica.SIunits.Voltage v13;
-    Modelica.SIunits.Voltage v23;
-    Modelica.SIunits.Current i1;
-    Modelica.SIunits.Current i2;
+    SI.Voltage v13;
+    SI.Voltage v23;
+    SI.Current i1;
+    SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
       unit="Ohm/m",
@@ -529,20 +529,20 @@ package Lines
       final min=Modelica.Constants.small,
       unit="F/m",
       start=1) "Capacitance per meter";
-    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small,
+    parameter SI.Length length(final min=Modelica.Constants.small,
         start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
-    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+    parameter SI.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
       annotation (
       Evaluate=true,
       HideResult=true,
       choices(checkBox=true));
-    parameter Modelica.SIunits.Temperature T=293.15
+    parameter SI.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
       annotation (Dialog(enable=not useHeatPort));
-    parameter Modelica.SIunits.Temperature T_ref=300.15;
+    parameter SI.Temperature T_ref=300.15;
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
@@ -631,12 +631,12 @@ The capacitances are calculated with: C=c*length/N.
     "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
 
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    parameter Modelica.SIunits.Resistance Z0(start=1)
+    parameter SI.Resistance Z0(start=1)
       "Characteristic impedance";
-    parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
+    parameter SI.Time TD(start=1) "Transmission delay";
   protected
-    Modelica.SIunits.Voltage er;
-    Modelica.SIunits.Voltage es;
+    SI.Voltage er;
+    SI.Voltage es;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(TD > 0, "TD has to be positive");
@@ -703,14 +703,14 @@ The capacitances are calculated with: C=c*length/N.
     "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL"
 
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    parameter Modelica.SIunits.Resistance Z0(start=1)
+    parameter SI.Resistance Z0(start=1)
       "Characteristic impedance";
-    parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
+    parameter SI.Frequency F(start=1) "Frequency";
     parameter Real NL(start=1) "Normalized length";
   protected
-    Modelica.SIunits.Voltage er;
-    Modelica.SIunits.Voltage es;
-    parameter Modelica.SIunits.Time TD=NL/F;
+    SI.Voltage er;
+    SI.Voltage es;
+    parameter SI.Time TD=NL/F;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
@@ -773,12 +773,12 @@ The capacitances are calculated with: C=c*length/N.
   model TLine3
     "Lossless transmission line with characteristic impedance Z0 and frequency F"
     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-    parameter Modelica.SIunits.Resistance Z0(start=1) "Natural impedance";
-    parameter Modelica.SIunits.Frequency F(start=1) "Frequency";
+    parameter SI.Resistance Z0(start=1) "Natural impedance";
+    parameter SI.Frequency F(start=1) "Frequency";
   protected
-    Modelica.SIunits.Voltage er;
-    Modelica.SIunits.Voltage es;
-    parameter Modelica.SIunits.Time TD=1/F/4;
+    SI.Voltage er;
+    SI.Voltage es;
+    parameter SI.Time TD=1/F/4;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F has to be positive");

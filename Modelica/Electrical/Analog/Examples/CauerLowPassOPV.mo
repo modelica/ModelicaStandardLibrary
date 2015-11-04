@@ -2,15 +2,15 @@ within Modelica.Electrical.Analog.Examples;
 model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
   extends Modelica.Icons.Example;
 
-  parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";
-  parameter Modelica.SIunits.Capacitance l2=0.8586 "filter coefficient i2";
-  parameter Modelica.SIunits.Capacitance c1=1.072 "filter coefficient c1";
-  parameter Modelica.SIunits.Capacitance c2=1/(1.704992^2*l1)
+  parameter SI.Capacitance l1=1.304 "filter coefficient i1";
+  parameter SI.Capacitance l2=0.8586 "filter coefficient i2";
+  parameter SI.Capacitance c1=1.072 "filter coefficient c1";
+  parameter SI.Capacitance c2=1/(1.704992^2*l1)
     "filter coefficient c2";
-  parameter Modelica.SIunits.Capacitance c3=1.682 "filter coefficient c3";
-  parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
+  parameter SI.Capacitance c3=1.682 "filter coefficient c3";
+  parameter SI.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
-  parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
+  parameter SI.Capacitance c5=0.7262 "filter coefficient c5";
   Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2, v(start=0, fixed=true))
     annotation (Placement(transformation(extent={{-192,10},{-172,30}})));
   Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2, v(start=0, fixed=true))

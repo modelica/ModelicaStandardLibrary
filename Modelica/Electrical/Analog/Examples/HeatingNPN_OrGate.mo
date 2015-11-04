@@ -1,8 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model HeatingNPN_OrGate "Heating NPN Or Gate"
   extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Capacitance CapVal=0 annotation(Evaluate=true);
-  parameter Modelica.SIunits.Time tauVal=0 annotation(Evaluate=true);
+  parameter SI.Capacitance CapVal=0 annotation(Evaluate=true);
+  parameter SI.Time tauVal=0 annotation(Evaluate=true);
 
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=0.1)
   annotation (Placement(transformation(

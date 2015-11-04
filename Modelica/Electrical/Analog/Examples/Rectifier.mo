@@ -2,18 +2,18 @@ within Modelica.Electrical.Analog.Examples;
 model Rectifier "B6 diode bridge"
   extends Modelica.Icons.Example;
   import Modelica.Electrical.Analog.Ideal;
-  parameter Modelica.SIunits.Voltage VAC=400 "RMS line-to-line";
-  parameter Modelica.SIunits.Frequency f=50 "line frequency";
-  parameter Modelica.SIunits.Inductance LAC=60E-6 "line inductor";
-  parameter Modelica.SIunits.Resistance Ron=1E-3 "diode forward resistance";
-  parameter Modelica.SIunits.Conductance Goff=1E-3 "diode backward conductance";
-  parameter Modelica.SIunits.Voltage Vknee=2 "diode threshold voltage";
-  parameter Modelica.SIunits.Capacitance CDC=15E-3 "DC capacitance";
-  parameter Modelica.SIunits.Current IDC=500 "load current";
-  output Modelica.SIunits.Voltage uDC;
-  output Modelica.SIunits.Current iAC[3];
-  output Modelica.SIunits.Voltage uAC[3];
-  output Modelica.SIunits.Power Losses;
+  parameter SI.Voltage VAC=400 "RMS line-to-line";
+  parameter SI.Frequency f=50 "line frequency";
+  parameter SI.Inductance LAC=60E-6 "line inductor";
+  parameter SI.Resistance Ron=1E-3 "diode forward resistance";
+  parameter SI.Conductance Goff=1E-3 "diode backward conductance";
+  parameter SI.Voltage Vknee=2 "diode threshold voltage";
+  parameter SI.Capacitance CDC=15E-3 "DC capacitance";
+  parameter SI.Current IDC=500 "load current";
+  output SI.Voltage uDC;
+  output SI.Current iAC[3];
+  output SI.Voltage uAC[3];
+  output SI.Power Losses;
 
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(freqHz=f,
        V=VAC*sqrt(2/3))

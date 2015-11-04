@@ -6,11 +6,11 @@ package Ideal
 
   model IdealDiode "Ideal diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Forward state-on differential resistance (closed diode resistance)";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Backward state-off conductance (opened diode conductance)";
-    parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
+    parameter SI.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     Boolean off(start=true) "Switching state";
@@ -20,8 +20,8 @@ package Ideal
     /* s = 0: knee point
      s < 0: below knee point, diode conducting
      s > 0: above knee point, diode locking */
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     off = s < 0;
     v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -125,11 +125,11 @@ behavior is <b>not</b> modelled.
 
   model IdealThyristor "Ideal thyristor"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened thyristor conductance";
-    parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
+    parameter SI.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -142,8 +142,8 @@ behavior is <b>not</b> modelled.
   protected
     Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     off = s < 0 or pre(off) and not fire;
     v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -250,11 +250,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model IdealGTOThyristor "Ideal GTO thyristor"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed thyristor resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened thyristor conductance";
-    parameter Modelica.SIunits.Voltage Vknee(final min=0) = 0
+    parameter SI.Voltage Vknee(final min=0) = 0
       "Forward threshold voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
@@ -267,8 +267,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   protected
     Real s(final unit="1")
       "Auxiliary variable: if on then current, if opened then voltage";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     off = s < 0 or not fire;
     v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
@@ -413,8 +413,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     0 = p.i + n2.i + n1.i;
 
@@ -516,8 +516,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     Real s2(final unit="1");
     Real s3(final unit="1");
     Real s4(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     p1.v - n1.v = (s1*unitCurrent)*(if (control) then 1 else Ron);
     p2.v - n2.v = (s2*unitCurrent)*(if (control) then 1 else Ron);
@@ -624,8 +624,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   protected
     Real s1(final unit="1");
     Real s2(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     control.i = 0;
     0 = p.i + n2.i + n1.i;
@@ -731,8 +731,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     Real s2(final unit="1");
     Real s3(final unit="1");
     Real s4(final unit="1") "Auxiliary variables";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     control.i = 0;
 
@@ -1005,7 +1005,7 @@ are possible.
     SI.Voltage vin "input voltage";
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
 
   equation
     in_p.i = 0;
@@ -1093,18 +1093,18 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     parameter Real V0=15000.0 "No-load amplification";
     parameter Boolean useSupply=false
       "Use supply pins (otherwise constant supply" annotation (Evaluate=true);
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply voltage"
+    parameter SI.Voltage Vps=+15 "Positive supply voltage"
       annotation (Dialog(enable=not useSupply));
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply voltage"
+    parameter SI.Voltage Vns=-15 "Negative supply voltage"
       annotation (Dialog(enable=not useSupply));
-    Modelica.SIunits.Voltage vps "Positive supply voltage";
-    Modelica.SIunits.Voltage vns "Negative supply voltage";
-    Modelica.SIunits.Voltage v_in=in_p.v - in_n.v "Input voltage difference";
-    Modelica.SIunits.Voltage v_out=out.v "Output voltage to ground";
-    Modelica.SIunits.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
-    Modelica.SIunits.Power p_out=out.v*out.i "Output power";
-    Modelica.SIunits.Power p_s=-(p_in + p_out) "Supply power";
-    Modelica.SIunits.Current i_s=p_s/(vps - vns) "Supply current";
+    SI.Voltage vps "Positive supply voltage";
+    SI.Voltage vns "Negative supply voltage";
+    SI.Voltage v_in=in_p.v - in_n.v "Input voltage difference";
+    SI.Voltage v_out=out.v "Output voltage to ground";
+    SI.Power p_in=in_p.v*in_p.i + in_n.v*in_n.i "Input power";
+    SI.Power p_out=out.v*out.i "Output power";
+    SI.Power p_s=-(p_in + p_out) "Supply power";
+    SI.Current i_s=p_s/(vps - vns) "Supply current";
     Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
             extent={{-90,-70},{-110,-50}})));
@@ -1165,12 +1165,12 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
     parameter Real n(start=1) "Turns ratio primary:secondary voltage";
     parameter Boolean considerMagnetization=false
       "Choice of considering magnetization";
-    parameter Modelica.SIunits.Inductance Lm1(start=1)
+    parameter SI.Inductance Lm1(start=1)
       "Magnetization inductance w.r.t. primary side"
       annotation (Dialog(enable=considerMagnetization));
   protected
-    Modelica.SIunits.Current im1 "Magnetization current w.r.t. primary side";
-    Modelica.SIunits.MagneticFlux psim1 "Magnetic flux w.r.t. primary side";
+    SI.Current im1 "Magnetization current w.r.t. primary side";
+    SI.MagneticFlux psim1 "Magnetic flux w.r.t. primary side";
   equation
     im1 = i1 + i2/n;
     if considerMagnetization then
@@ -1438,8 +1438,8 @@ where the constant <i>G</i> is called the gyration conductance.
           rotation=270)));
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     v = (s*unitCurrent)*(if control then 1 else Ron);
     i = (s*unitVoltage)*(if control then Goff else 1);
@@ -1519,8 +1519,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           rotation=270)));
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     v = (s*unitCurrent)*(if control then Ron else 1);
     i = (s*unitVoltage)*(if control then 1 else Goff);
@@ -1603,8 +1603,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           rotation=90)));
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     control.i = 0;
     0 = p.i + n.i;
@@ -1688,8 +1688,8 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           rotation=90)));
   protected
     Real s(final unit="1") "Auxiliary variable";
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     control.i = 0;
     0 = p.i + n.i;
@@ -1754,13 +1754,13 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model OpenerWithArc "Ideal opening switch with simple arc model"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron=1E-5 "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff=1E-5
+    parameter SI.Resistance Ron=1E-5 "Closed switch resistance";
+    parameter SI.Conductance Goff=1E-5
       "Opened switch conductance";
-    parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
-    parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
+    parameter SI.Voltage V0(start=30) "Initial arc voltage";
+    parameter SI.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
-    parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
+    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
@@ -1773,7 +1773,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   protected
     Boolean off=control;
     Boolean on=not off;
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
+    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true, fixed=true);
   equation
     when edge(off) then
@@ -1883,13 +1883,13 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model CloserWithArc "Ideal closing switch with simple arc model"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter Modelica.SIunits.Resistance Ron=1E-5 "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff=1E-5
+    parameter SI.Resistance Ron=1E-5 "Closed switch resistance";
+    parameter SI.Conductance Goff=1E-5
       "Opened switch conductance";
-    parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
-    parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
+    parameter SI.Voltage V0(start=30) "Initial arc voltage";
+    parameter SI.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
-    parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
+    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
@@ -1902,7 +1902,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   protected
     Boolean on=control;
     Boolean off(start=false, fixed=true);
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
+    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true, fixed=true);
   equation
     off = not on;
@@ -2010,15 +2010,15 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter SI.Voltage level=0.5 "Switch level";
+    parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
-    parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
+    parameter SI.Voltage V0(start=30) "Initial arc voltage";
+    parameter SI.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
-    parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
+    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
@@ -2031,14 +2031,14 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.SIunits.Current i;
-    Modelica.SIunits.Voltage v;
+    SI.Current i;
+    SI.Voltage v;
   protected
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
     Boolean off=(control.v > level);
     Boolean on=not off;
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
+    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true);
   equation
     control.i = 0;
@@ -2135,15 +2135,15 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
 
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
+    parameter SI.Voltage level=0.5 "Switch level";
+    parameter SI.Resistance Ron(final min=0) = 1.E-5
       "Closed switch resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
+    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    parameter Modelica.SIunits.Voltage V0(start=30) "Initial arc voltage";
-    parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
+    parameter SI.Voltage V0(start=30) "Initial arc voltage";
+    parameter SI.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
-    parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
+    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
           293.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
@@ -2156,14 +2156,14 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.SIunits.Current i;
-    Modelica.SIunits.Voltage v;
+    SI.Current i;
+    SI.Voltage v;
   protected
-    constant Modelica.SIunits.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant Modelica.SIunits.Current unitCurrent=1 annotation (HideResult=true);
+    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
+    constant SI.Current unitCurrent=1 annotation (HideResult=true);
     Boolean off(start=false, fixed=true);
     Boolean on=not off;
-    discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
+    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
     Boolean quenched(start=true, fixed=true);
   equation
     off = (control.v < level);
@@ -2258,17 +2258,17 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model IdealTriac "Ideal triac, based on ideal thyristors"
 
-    parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.e-5
+    parameter SI.Resistance Ron(final min=0) = 1.e-5
       "Closed triac resistance";
-    parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.e-5
+    parameter SI.Conductance Goff(final min=0) = 1.e-5
       "Opened triac conductance";
-    parameter Modelica.SIunits.Voltage Vknee(
+    parameter SI.Voltage Vknee(
       final min=0,
       start=0) = 0.8 "Threshold voltage for positive and negative phase";
 
-    parameter Modelica.SIunits.Resistance Rdis=100
+    parameter SI.Resistance Rdis=100
       "Resistance of disturbance elimination";
-    parameter Modelica.SIunits.Capacitance Cdis=0.005
+    parameter SI.Capacitance Cdis=0.005
       "Capacity of disturbance elimination";
 
     Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor(
@@ -2399,11 +2399,11 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           origin={0,90})));
     parameter Integer N(final min=1, start=8)
       "Resolution in bits - output signal width";
-    parameter Modelica.SIunits.Voltage VRefHigh(start=10)
+    parameter SI.Voltage VRefHigh(start=10)
       "High reference voltage";
-    parameter Modelica.SIunits.Voltage VRefLow(final max=VRefHigh, start=0)
+    parameter SI.Voltage VRefLow(final max=VRefHigh, start=0)
       "Low reference voltage";
-    parameter Modelica.SIunits.Resistance Rin(start=10^6) "Input resistance";
+    parameter SI.Resistance Rin(start=10^6) "Input resistance";
     Integer z(start=0, fixed=true);
     Real u;
 
@@ -2491,10 +2491,10 @@ Hence the output will change instantaneously when the trigger signal rises.
             extent={{60,-80},{80,-60}}), iconTransformation(extent=
               {{60,-80},{80,-60}})));
 
-    Modelica.SIunits.Voltage vout(start=0, fixed=true);
+    SI.Voltage vout(start=0, fixed=true);
     Real y(start=0, fixed=true);
     parameter Integer N(final min=1, start=8) "Resolution - input signal width";
-    parameter Modelica.SIunits.Voltage Vref(start=10) "Reference voltage";
+    parameter SI.Voltage Vref(start=10) "Reference voltage";
 
   algorithm
     when trig == L.'1' or trig == L.'H' then

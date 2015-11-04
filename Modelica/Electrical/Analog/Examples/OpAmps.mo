@@ -3,13 +3,13 @@ package OpAmps
   extends Modelica.Icons.ExamplesPackage;
   model InvertingAmp "Inverting amplifier"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=k*R1;
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=k*R1;
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -77,13 +77,13 @@ package OpAmps
 
   model NonInvertingAmp "Non-inverting amplifier"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=(k - 1)*R1;
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=(k - 1)*R1;
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -157,13 +157,13 @@ package OpAmps
 
   model VoltageFollower "Reproduce input voltage"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
-    parameter Modelica.SIunits.Resistance Ri=1
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Resistance Ri=1
       "Inner resistance of input voltage source";
-    parameter Modelica.SIunits.Resistance Rl=1 "Load resistance";
+    parameter SI.Resistance Rl=1 "Load resistance";
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -235,13 +235,13 @@ package OpAmps
   model Differentiator "Differentiating amplifier"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter Modelica.SIunits.Resistance R=1000;
-    parameter Modelica.SIunits.Capacitance C=k/(2*pi*f*R);
+    parameter SI.Resistance R=1000;
+    parameter SI.Capacitance C=k/(2*pi*f*R);
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -307,13 +307,13 @@ package OpAmps
   model Integrator "Integrating amplifier"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=2 "Desired amplification";
-    parameter Modelica.SIunits.Resistance R=1000;
-    parameter Modelica.SIunits.Capacitance C=1/k/(2*pi*f*R);
+    parameter SI.Resistance R=1000;
+    parameter SI.Capacitance C=1/k/(2*pi*f*R);
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -382,15 +382,15 @@ package OpAmps
   model LowPass "Low-pass filter"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=1 "Desired amplification";
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=k*R1;
-    parameter Modelica.SIunits.Frequency fG=f/10;
-    parameter Modelica.SIunits.Capacitance C=1/(2*pi*fG*R2);
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=k*R1;
+    parameter SI.Frequency fG=f/10;
+    parameter SI.Capacitance C=1/(2*pi*fG*R2);
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -466,15 +466,15 @@ package OpAmps
   model HighPass "High-pass filter"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
     parameter Real k=1 "Desired amplification";
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=k*R1;
-    parameter Modelica.SIunits.Frequency fG=f/10;
-    parameter Modelica.SIunits.Capacitance C=1/(2*pi*fG*R1);
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=k*R1;
+    parameter SI.Frequency fG=f/10;
+    parameter SI.Capacitance C=1/(2*pi*fG*R1);
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -546,13 +546,13 @@ package OpAmps
 
   model Comparator "Comparator"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
-    parameter Modelica.SIunits.Voltage Vref=0 "Reference voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage Vref=0 "Reference voltage";
     parameter Real k=(Vref - Vns)/(Vps - Vns);
-    parameter Modelica.SIunits.Resistance R=1000;
+    parameter SI.Resistance R=1000;
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,10},{20,-10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -620,14 +620,14 @@ package OpAmps
 
   model InvertingSchmittTrigger "Schmitt trigger with hysteresis"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
-    parameter Modelica.SIunits.Voltage vHys=1 "(positive) hysteresis voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage vHys=1 "(positive) hysteresis voltage";
     parameter Real k=vHys/Vps;
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=(1 - k)/k*R1;
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=(1 - k)/k*R1;
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -700,14 +700,14 @@ package OpAmps
 
   model SchmittTrigger "Schmitt trigger with hysteresis"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage Vin=5 "Amplitude of input voltage";
-    parameter Modelica.SIunits.Frequency f=10 "Frequency of input voltage";
-    parameter Modelica.SIunits.Voltage vHys=1 "(positive) hysteresis voltage";
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage Vin=5 "Amplitude of input voltage";
+    parameter SI.Frequency f=10 "Frequency of input voltage";
+    parameter SI.Voltage vHys=1 "(positive) hysteresis voltage";
     parameter Real k=vHys/Vps;
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=R1/k;
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=R1/k;
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(
       Vps=Vps,
       Vns=Vns,
@@ -779,13 +779,13 @@ package OpAmps
 
   model Multivibrator "Multivibrator with Schmidt Trigger"
     extends Modelica.Icons.Example;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Frequency f=10 "Desired frequency";
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=1000;
-    parameter Modelica.SIunits.Resistance R=1000;
-    parameter Modelica.SIunits.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2));
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Frequency f=10 "Desired frequency";
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=1000;
+    parameter SI.Resistance R=1000;
+    parameter SI.Capacitance C=1/f/(2*R*log(1 + 2*R1/R2));
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp(Vps=Vps, Vns=
           Vns) annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     Modelica.Electrical.Analog.Basic.Ground ground
@@ -858,14 +858,14 @@ package OpAmps
     "Rectangle-Triangle generatorSchmitt trigger with hysteresis"
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.Voltage Vps=+15 "Positive supply";
-    parameter Modelica.SIunits.Voltage Vns=-15 "Negative supply";
-    parameter Modelica.SIunits.Voltage VAmp=10 "Amplitude of output";
-    parameter Modelica.SIunits.Resistance R1=1000;
-    parameter Modelica.SIunits.Resistance R2=R1*Vps/VAmp;
-    parameter Modelica.SIunits.Frequency f=10 "Desired frequency";
-    parameter Modelica.SIunits.Resistance R=1000;
-    parameter Modelica.SIunits.Capacitance C=Vps/VAmp/(4*f*R);
+    parameter SI.Voltage Vps=+15 "Positive supply";
+    parameter SI.Voltage Vns=-15 "Negative supply";
+    parameter SI.Voltage VAmp=10 "Amplitude of output";
+    parameter SI.Resistance R1=1000;
+    parameter SI.Resistance R2=R1*Vps/VAmp;
+    parameter SI.Frequency f=10 "Desired frequency";
+    parameter SI.Resistance R=1000;
+    parameter SI.Capacitance C=Vps/VAmp/(4*f*R);
     Modelica.Electrical.Analog.Ideal.IdealizedOpAmpLimted opAmp1(Vps=Vps, Vns=
           Vns)
       annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
@@ -958,14 +958,14 @@ package OpAmps
   model LCOscillator
     extends Modelica.Icons.Example;
     import Modelica.Constants.pi;
-    parameter Modelica.SIunits.Voltage VAmp=10 "Amplitude of output";
-    parameter Modelica.SIunits.Frequency f=1000 "Desired frequency";
+    parameter SI.Voltage VAmp=10 "Amplitude of output";
+    parameter SI.Frequency f=1000 "Desired frequency";
     parameter Real A=1.001;
-    parameter Modelica.SIunits.Inductance L=0.001;
-    parameter Modelica.SIunits.Capacitance C=1/((2*pi*f)^2*L);
-    parameter Modelica.SIunits.Resistance R=10000.0;
-    parameter Modelica.SIunits.Resistance R1=10000.0;
-    parameter Modelica.SIunits.Resistance R2=(A - 1)*R1;
+    parameter SI.Inductance L=0.001;
+    parameter SI.Capacitance C=1/((2*pi*f)^2*L);
+    parameter SI.Resistance R=10000.0;
+    parameter SI.Resistance R1=10000.0;
+    parameter SI.Resistance R2=(A - 1)*R1;
     parameter Real gamma=(1 - A)/(2*R*C);
     Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
           transformation(
