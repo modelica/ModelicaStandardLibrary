@@ -4212,124 +4212,124 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor = {255,255,255},
           extent = {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-100,-10},{-50,10}}),
-      Rectangle(lineColor = {64,64,64},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{50,-10},{100,10}}),
-        Rectangle(lineColor = {160,160,164},
-          fillColor = {160,160,164},
-          fillPattern = FillPattern.Solid,
-          extent = {{-50,100},{50,105}}),
-        Rectangle(lineColor = {160,160,164},
-          fillColor = {160,160,164},
-          fillPattern = FillPattern.Solid,
-          extent = {{-50,-105},{50,-100}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-80,60},{-50,70}}),
-        Line(points = {{-90,40},{-70,40}}),
-        Line(points = {{-80,50},{-60,50}}),
-        Line(points = {{-70,50},{-70,40}}),
-        Line(points = {{-80,80},{-59,80}}),
-        Line(points = {{-70,90},{-70,80}}),
-        Line(points = {{-26,-42},{-32,-2}},
-          color = {0,0,255},
-          pattern = LinePattern.Dot),
-        Text(lineColor = {0,0,255},
-          extent = {{58,-78},{98,-66}},
-          textString = "ring gear"),
-        Text(lineColor = {0,0,255},
-          extent = {{-112,87},{-56,111}},
-          textString = "planet carrier "),
-        Text(lineColor = {0,0,255},
-          extent = {{-47,-56},{-3,-42}},
-          textString = "sun gear"),
-        Polygon(lineColor = {128,128,128},
-          fillColor = {128,128,128},
-          fillPattern = FillPattern.Solid,
-          points = {{58,130},{28,140},{28,120},{58,130}}),
-        Line(points = {{-52,130},{28,130}}),
-        Line(points = {{-92,93},{-70,80}},
-          color = {0,0,255},
-          pattern = LinePattern.Dot),
-        Polygon(lineColor = {128,128,128},
-          fillColor = {128,128,128},
-          fillPattern = FillPattern.Solid,
-          points = {{-7,-86},{-27,-81},{-27,-91},{-7,-86}}),
-        Line(points = {{-97,-86},{-26,-86}},
-          color = {128,128,128}),
-        Text(lineColor = {128,128,128},
-          extent = {{-96,-84},{-28,-71}},
-          textString = "rotation axis"),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,48},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,82},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,59},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-4},{20,4}}),
-        Rectangle(origin = {-30,73},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-3},{20,3}}),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(origin = {-30,32},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,23},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-3},{20,3}}),
-        Rectangle(origin = {-30,-10},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-4},{20,4}}),
-        Rectangle(origin = {-30,-34},
-          fillColor = {102,102,102},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,-25},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-3},{20,3}}),
-        Rectangle(origin = {-30,8},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-4},{20,4}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{10,-100},{50,100}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{10,-100},{50,100}}),
-        Line(points = {{36,-26},{64,-60}},
-          color = {0,0,255},
-          pattern = LinePattern.Dot)}));
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-100,-10},{-50,10}}),
+      Rectangle(lineColor=  {64,64,64},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{50,-10},{100,10}}),
+        Rectangle(lineColor=  {160,160,164},
+          fillColor=  {160,160,164},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-50,100},{50,105}}),
+        Rectangle(lineColor=  {160,160,164},
+          fillColor=  {160,160,164},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-50,-105},{50,-100}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-80,60},{-50,70}}),
+        Line(points=  {{-90,40},{-70,40}}),
+        Line(points=  {{-80,50},{-60,50}}),
+        Line(points=  {{-70,50},{-70,40}}),
+        Line(points=  {{-80,80},{-59,80}}),
+        Line(points=  {{-70,90},{-70,80}}),
+        Line(points=  {{-26,-42},{-32,-2}},
+          color=  {0,0,255},
+          pattern=  LinePattern.Dot),
+        Text(lineColor=  {0,0,255},
+          extent=  {{58,-78},{98,-66}},
+          textString=  "ring gear"),
+        Text(lineColor=  {0,0,255},
+          extent=  {{-112,87},{-56,111}},
+          textString=  "planet carrier "),
+        Text(lineColor=  {0,0,255},
+          extent=  {{-47,-56},{-3,-42}},
+          textString=  "sun gear"),
+        Polygon(lineColor=  {128,128,128},
+          fillColor=  {128,128,128},
+          fillPattern=  FillPattern.Solid,
+          points=  {{58,130},{28,140},{28,120},{58,130}}),
+        Line(points=  {{-52,130},{28,130}}),
+        Line(points=  {{-92,93},{-70,80}},
+          color=  {0,0,255},
+          pattern=  LinePattern.Dot),
+        Polygon(lineColor=  {128,128,128},
+          fillColor=  {128,128,128},
+          fillPattern=  FillPattern.Solid,
+          points=  {{-7,-86},{-27,-81},{-27,-91},{-7,-86}}),
+        Line(points=  {{-97,-86},{-26,-86}},
+          color=  {128,128,128}),
+        Text(lineColor=  {128,128,128},
+          extent=  {{-96,-84},{-28,-71}},
+          textString=  "rotation axis"),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,48},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,82},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,59},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-4},{20,4}}),
+        Rectangle(origin=  {-30,73},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-3},{20,3}}),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(origin=  {-30,32},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,23},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-3},{20,3}}),
+        Rectangle(origin=  {-30,-10},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-4},{20,4}}),
+        Rectangle(origin=  {-30,-34},
+          fillColor=  {102,102,102},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,-25},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-3},{20,3}}),
+        Rectangle(origin=  {-30,8},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-4},{20,4}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{10,-100},{50,100}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{10,-100},{50,100}}),
+        Line(points=  {{36,-26},{64,-60}},
+          color=  {0,0,255},
+          pattern=  LinePattern.Dot)}));
     end IdealPlanetary;
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
@@ -6104,8 +6104,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       if TorqueDirection then
         tau = tau_nominal*(w/w_nominal)^2;
       else
-        tau = tau_nominal*smooth(1, if w >= 0 then (w/w_nominal)^2 else -(w/
-          w_nominal)^2);
+        tau = tau_nominal*smooth(1, if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
       end if;
       annotation (
         Icon(
@@ -6130,11 +6129,25 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       extends Rotational.Interfaces.PartialTorque;
       parameter Modelica.SIunits.Torque tau_constant
         "Constant torque (if negative, torque is acting as load)";
+      parameter Boolean TorqueDirection=true
+        "Same direction of torque in both directions of rotation";
+      parameter Modelica.SIunits.AngularVelocity w_min(min=Modelica.Constants.eps)=0.001
+        "Minimum speed for regularization around zero"
+      annotation(Dialog(enable = not TorqueDirection));
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity of flange with respect to support (= der(phi))";
       Modelica.SIunits.Torque tau
         "Accelerating torque acting at flange (= -flange.tau)";
     equation
+      w = der(phi);
       tau = -flange.tau;
-      tau = tau_constant;
+      if TorqueDirection then
+        tau = tau_constant;
+      else
+        tau = smooth(1, if (w > w_min) then +tau_constant
+           else if (w < -w_min) then -tau_constant
+           else tau_constant*w/w_min);
+      end if;
       annotation (Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6145,12 +6158,12 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
                 color={0,0,127}),
               Text(
                 extent={{-124.0,-40.0},{120.0,-16.0}},
-                textString="%tau_constant")}), Documentation(info="<HTML>
-<p>
-Model of constant torque, not dependent on angular velocity of flange.<br>
-Positive torque acts accelerating.
-</p>
-</HTML>"));
+                textString="%tau_constant")}), Documentation(info="<html>
+<p>Model of constant torque, not dependent on angular velocity of flange.<br>
+Positive torque acts accelerating. </p>
+<p>Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not. <br>
+In case TorqueDirection = false, the acting torque is linearly regularized around zero speed (below parameter w_min).</p>
+</html>"));
     end ConstantTorque;
 
     model ConstantSpeed "Constant speed, not dependent on torque"
