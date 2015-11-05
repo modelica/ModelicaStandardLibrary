@@ -7,7 +7,8 @@ package Semiconductors
   model Diode "Simple diode"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     parameter SI.Current Ids=1.e-6 "Saturation current";
-    parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
+    parameter SI.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
     parameter Real Maxexp(final min=Modelica.Constants.small) = 15
       "Max. exponent for linear continuation";
     parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
@@ -76,11 +77,13 @@ package Semiconductors
  model ZDiode "Zener diode with 3 working areas"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
    parameter SI.Current Ids=1.e-6 "Saturation current";
-   parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
+   parameter SI.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
    parameter Real Maxexp(final min=Modelica.Constants.small) = 30
       "Max. exponent for linear continuation";
    parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
-   parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
+   parameter SI.Voltage Bv=5.1
+      "Breakthrough voltage = Zener- or Z-voltage";
    parameter SI.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
@@ -155,7 +158,8 @@ model PMOS "Simple MOS Transistor"
             -10},{110,10}})));
   parameter SI.Length W=20.0e-6 "Width";
   parameter SI.Length L=6.0e-6 "Length";
-  parameter SI.Transconductance Beta=0.0105e-3 "Transconductance parameter";
+  parameter SI.Transconductance Beta=0.0105e-3
+      "Transconductance parameter";
   parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
   parameter Real K2=0.41 "Bulk threshold parameter";
   parameter Real K5=0.839 "Reduction of pinch-off region";
@@ -438,8 +442,10 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
   parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
   parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-  parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
-  parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
+  parameter SI.Capacitance Cje=0.4e-12
+      "Base-emitter zero bias depletion cap.";
+  parameter SI.Capacitance Cjc=0.5e-12
+      "Base-coll. zero bias depletion cap.";
   parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
   parameter Real Me=0.4 "Base-emitter gradation exponent";
   parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
@@ -597,8 +603,10 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
   parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
   parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
-  parameter SI.Capacitance Cje=0.4e-12 "Base-emitter zero bias depletion cap.";
-  parameter SI.Capacitance Cjc=0.5e-12 "Base-coll. zero bias depletion cap.";
+  parameter SI.Capacitance Cje=0.4e-12
+      "Base-emitter zero bias depletion cap.";
+  parameter SI.Capacitance Cjc=0.5e-12
+      "Base-coll. zero bias depletion cap.";
   parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
   parameter Real Me=0.4 "Base-emitter gradation exponent";
   parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
@@ -749,7 +757,8 @@ model HeatingDiode "Simple diode with heating port"
   parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
   parameter Real EG=1.11 "activation energy";
   parameter Real N=1 "Emission coefficient";
-  parameter SI.Temperature TNOM=300.15 "Parameter measurement temperature";
+  parameter SI.Temperature TNOM=300.15
+      "Parameter measurement temperature";
   parameter Real XTI=3 "Temperature exponent of saturation current";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(useHeatPort=true);
 
@@ -852,12 +861,14 @@ end HeatingDiode;
           parameter SI.Length L=6.e-6 "Length";
           parameter SI.Transconductance Beta=0.041e-3
       "Transconductance parameter";
-          parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
+          parameter SI.Voltage Vt=0.8
+      "Zero bias threshold voltage";
           parameter Real K2=1.144 "Bulk threshold parameter";
           parameter Real K5=0.7311 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+          parameter SI.Resistance RDS=1.e+7
+      "Drain-Source-Resistance";
           parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
@@ -998,12 +1009,14 @@ end HeatingDiode;
           parameter SI.Length L=6.0e-6 "Length";
           parameter SI.Transconductance Beta=0.0105e-3
       "Transconductance parameter";
-          parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
+          parameter SI.Voltage Vt=-1.0
+      "Zero bias threshold voltage";
           parameter Real K2=0.41 "Bulk threshold parameter";
           parameter Real K5=0.839 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
+          parameter SI.Resistance RDS=1.e+7
+      "Drain-Source-Resistance";
           parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
@@ -1123,22 +1136,30 @@ end HeatingDiode;
     "Simple NPN BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1.e-16 "Transport saturation current";
+          parameter SI.Current Is=1.e-16
+      "Transport saturation current";
           parameter SI.InversePotential Vak=0.02
       "Early voltage (inverse), 1/Volt";
-          parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
-          parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
-          parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
+          parameter SI.Time Tauf=0.12e-9
+      "Ideal forward transit time";
+          parameter SI.Time Taur=5e-9
+      "Ideal reverse transit time";
+          parameter SI.Capacitance Ccs=1e-12
+      "Collector-substrate(ground) cap.";
           parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
           parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-          parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
+          parameter SI.Voltage Phie=0.8
+      "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
+          parameter SI.Voltage Phic=0.8
+      "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
-          parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
+          parameter SI.Conductance Gbc=1e-15
+      "Base-collector conductance";
+          parameter SI.Conductance Gbe=1e-15
+      "Base-emitter conductance";
           parameter Real EMin=-100
       "if x < EMin, the exp(x) function is linearized";
           parameter Real EMax=40
@@ -1284,22 +1305,30 @@ end HeatingDiode;
     "Simple PNP BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1.e-16 "Transport saturation current";
+          parameter SI.Current Is=1.e-16
+      "Transport saturation current";
           parameter SI.InversePotential Vak=0.02
       "Early voltage (inverse), 1/Volt";
-          parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
-          parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
-          parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
+          parameter SI.Time Tauf=0.12e-9
+      "Ideal forward transit time";
+          parameter SI.Time Taur=5e-9
+      "Ideal reverse transit time";
+          parameter SI.Capacitance Ccs=1e-12
+      "Collector-substrate(ground) cap.";
           parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
           parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-          parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
+          parameter SI.Voltage Phie=0.8
+      "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
+          parameter SI.Voltage Phic=0.8
+      "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
-          parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
+          parameter SI.Conductance Gbc=1e-15
+      "Base-collector conductance";
+          parameter SI.Conductance Gbe=1e-15
+      "Base-emitter conductance";
           parameter Real EMin=-100
       "if x < EMin, the exp(x) function is linearized";
           parameter Real EMax=40
@@ -1464,8 +1493,10 @@ protected
 
 public
   model Thyristor "Simple Thyristor Model"
-    parameter SI.Voltage VDRM(final min=0) = 100 "Forward breakthrough voltage";
-    parameter SI.Voltage VRRM(final min=0) = 100 "Reverse breakthrough voltage";
+    parameter SI.Voltage VDRM(final min=0) = 100
+      "Forward breakthrough voltage";
+    parameter SI.Voltage VRRM(final min=0) = 100
+      "Reverse breakthrough voltage";
     parameter SI.Current IDRM=0.1 "Saturation current";
     parameter SI.Voltage VTM= 1.7 "Conducting voltage";
     parameter SI.Current IH=6e-3 "Holding current";
@@ -1476,7 +1507,8 @@ public
 
     parameter SI.Time TON = 1e-6 "Switch on time";
     parameter SI.Time TOFF = 15e-6 "Switch off time";
-    parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
+    parameter SI.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     Real iGK "gate current";
@@ -1503,7 +1535,8 @@ public
     parameter SI.Voltage Voff= 1.5;
     parameter SI.Resistance Ron=(VTM-0.7)/ITM
       "Forward conducting mode resistance";
-    parameter SI.Resistance Roff=(VDRM^2)/VTM/IH "Blocking mode resistance";
+    parameter SI.Resistance Roff=(VDRM^2)/VTM/IH
+      "Blocking mode resistance";
 
   equation
     //Kirchhoff's equations
@@ -1632,8 +1665,10 @@ public
 
   model SimpleTriac "Simple triac, based on Semiconductors.Thyristor model"
 
-    parameter SI.Voltage VDRM(final min=0) = 100 "Forward breakthrough voltage";
-    parameter SI.Voltage VRRM(final min=0) = 100 "Reverse breakthrough voltage";
+    parameter SI.Voltage VDRM(final min=0) = 100
+      "Forward breakthrough voltage";
+    parameter SI.Voltage VRRM(final min=0) = 100
+      "Reverse breakthrough voltage";
     parameter SI.Current IDRM=0.1 "Saturation current";
     parameter SI.Voltage VTM= 1.7 "Conducting voltage";
     parameter SI.Current IH=6e-3 "Holding current";
@@ -1644,7 +1679,8 @@ public
 
     parameter SI.Time TON = 1e-6 "Switch on time";
     parameter SI.Time TOFF = 15e-6 "Switch off time";
-    parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
+    parameter SI.Voltage Vt=0.04
+      "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
 
     Modelica.Electrical.Analog.Interfaces.NegativePin n "Cathode"
@@ -1768,24 +1804,24 @@ public
     SI.Voltage vd "Voltage across pure diode part";
     SI.Current id "diode current";
   protected
-    SI.Voltage VdMax = Vf + (N*Vt_applied) "Linear continuation threshold";
-    SI.Current iVdMax = Ids * (exp(VdMax/(N*Vt_applied)) - 1)
+    parameter SI.Voltage VdMax = Vf + (N*Vt)
+      "Linear continuation threshold";
+    parameter SI.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
       "Current at threshold";
-    SI.Conductance diVdMax = Ids * exp(VdMax/(N*Vt_applied))/(N*Vt_applied)
+    parameter SI.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
       "Conductance at threshold";
-    SI.Voltage Vt_applied;
+
   equation
-    Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
-      elseif vd < VdMax then
-        Ids * (exp(vd/(N*Vt_applied)) - 1)
-      else
-        iVdMax + (vd - VdMax) * diVdMax);
         //Lower half of reverse biased region including breakdown.
+        -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))
+      elseif vd < VdMax then
         //Upper half of reverse biased region, and forward biased region before conduction.
+        Ids * (exp(vd/(N*Vt)) - 1)
+      else
         //Forward biased region after conduction
+        iVdMax + (vd - VdMax) * diVdMax);
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -1796,29 +1832,25 @@ public
     assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
     annotation (
       Documentation(info="<html>
-<p><span style=\"font-family: MS Shell Dlg 2;\">This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</span></p>
+<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter. The model is divided into three parts:</p>
 <ul>
 <li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
 <li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
 <li>forward biased region after conduction: iVdMax + (vd - VdMax) * diVdMax</li>
 </ul>
-<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k*T/q, where</p>
-<ul>
-<li>k is Boltzmann&apos;s constant</li>
-<li>T is the heat port temperature.</li>
-<li>q is the electron charge.</li>
-</ul>
+<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",
    revisions="<html>
 <ul>
-<li><i>November 2015 </i>
-by Stefan Vorkoetter <br>implemented dynamic temperature dependency</br></li>
-<li><i>November 2015</i>
-by Kristin Majetta <br> defined parameter Vt based on fixed temperature</br></li>
-<li><i>June 2014</i>
-by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss <br>implemented</br></li>
-<li><i>October 2011</i>
-Stefan Vorkoetter - new model proposed.</li>
+<li><i> March 11, 2009   </i>
+       by Christoph Clauss<br> conditional heat port added<br>
+       </li>
+<li><i> November 15, 2005   </i>
+       by Christoph Clauss<br> smooth function added<br>
+       </li>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> implemented<br>
+       </li>
 </ul>
 </html>"),
       Icon(coordinateSystem(
