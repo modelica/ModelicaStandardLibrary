@@ -19,6 +19,10 @@
                             utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Nov. 05, 2015: by Thomas Beutlich, ITI GmbH
+                     Added support of 1D tables with single row and spline
+                     interpolation (ticket #1820)
+
       Nov. 03, 2015: by Thomas Beutlich, ITI GmbH.
                      Added range checks for column indices of CombiTimeTable and
                      CombiTable1D (ticket #1816)
@@ -498,9 +502,12 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                 tableID->nRow = nRow;
                 tableID->nCol = nColumn;
                 tableID->table = table;
-                if (tableID->nRow == 2) {
-                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
-                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                    tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                    if (tableID->nRow == 1) {
+                        tableID->smoothness = CONSTANT_SEGMENTS;
+                    }
+                    else if (tableID->nRow == 2) {
                         tableID->smoothness = LINEAR_SEGMENTS;
                     }
                 }
@@ -585,9 +592,12 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
                             return NULL;
                         }
                     }
-                    if (tableID->nRow == 2) {
-                        if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
-                            tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        if (tableID->nRow == 1) {
+                            tableID->smoothness = CONSTANT_SEGMENTS;
+                        }
+                        else if (tableID->nRow == 2) {
                             tableID->smoothness = LINEAR_SEGMENTS;
                         }
                     }
@@ -1511,9 +1521,12 @@ double ModelicaStandardTables_CombiTimeTable_read(void* _tableID, int force,
             if (tableID->table == NULL) {
                 return 0.; /* Error */
             }
-            if (tableID->nRow == 2) {
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
-                    tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+            if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                if (tableID->nRow == 1) {
+                    tableID->smoothness = CONSTANT_SEGMENTS;
+                }
+                else if (tableID->nRow == 2) {
                     tableID->smoothness = LINEAR_SEGMENTS;
                 }
             }
@@ -1605,9 +1618,12 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                 tableID->nRow = nRow;
                 tableID->nCol = nColumn;
                 tableID->table = table;
-                if (tableID->nRow == 2) {
-                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
-                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                    tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                    if (tableID->nRow == 1) {
+                        tableID->smoothness = CONSTANT_SEGMENTS;
+                    }
+                    else if (tableID->nRow == 2) {
                         tableID->smoothness = LINEAR_SEGMENTS;
                     }
                 }
@@ -1692,9 +1708,12 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                             return NULL;
                         }
                     }
-                    if (tableID->nRow == 2) {
-                        if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
-                            tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                    if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                        tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                        if (tableID->nRow == 1) {
+                            tableID->smoothness = CONSTANT_SEGMENTS;
+                        }
+                        else if (tableID->nRow == 2) {
                             tableID->smoothness = LINEAR_SEGMENTS;
                         }
                     }
@@ -1987,9 +2006,12 @@ double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
             if (tableID->table == NULL) {
                 return 0.; /* Error */
             }
-            if (tableID->nRow == 2) {
-                if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
-                    tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+            if (tableID->smoothness == CONTINUOUS_DERIVATIVE ||
+                tableID->smoothness == MONOTONE_CONTINUOUS_DERIVATIVE) {
+                if (tableID->nRow == 1) {
+                    tableID->smoothness = CONSTANT_SEGMENTS;
+                }
+                else if (tableID->nRow == 2) {
                     tableID->smoothness = LINEAR_SEGMENTS;
                 }
             }
