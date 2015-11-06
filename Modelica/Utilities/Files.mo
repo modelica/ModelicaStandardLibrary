@@ -373,6 +373,7 @@ function removeFile "Remove file (ignore call, if it does not exist)"
                                           fileName);
 algorithm
   if fileType == Types.FileType.RegularFile then
+     Streams.close(fileName);
      Modelica.Utilities.Internal.FileSystem.removeFile(
                          fileName);
   elseif fileType == Types.FileType.Directory then
