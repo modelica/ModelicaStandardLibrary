@@ -53,7 +53,7 @@ function command "Execute command in default shell"
   extends Modelica.Icons.Function;
   input String string "String to be passed to shell";
   output Integer result "Return value from command (depends on environment)";
-  external "C" result = system(string) annotation(Library="ModelicaExternalC");
+  external "C" result = system(string) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
 
 </html>"));
