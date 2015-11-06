@@ -403,6 +403,7 @@ MODELICA_EXPORT void ModelicaInternal_rename(const char* oldName, const char* ne
 
 MODELICA_EXPORT void ModelicaInternal_removeFile(const char* file) {
     /* Remove file */
+    ModelicaStreams_closeFile(file);
     if ( remove(file) != 0 ) {
         ModelicaFormatError("Not possible to remove file \"%s\":\n%s",
             file, strerror(errno));
