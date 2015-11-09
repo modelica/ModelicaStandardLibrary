@@ -363,9 +363,9 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
       parameter Boolean useInnerPortProperties=false
         "=true to take port properties for flow models from internal control volumes"
         annotation(Dialog(tab="Advanced"),Evaluate=true);
-      Medium.ThermodynamicState state_a
+      Medium.ThermodynamicState state_a(p(start=p_a_start))
         "state defined by volume outside port_a";
-      Medium.ThermodynamicState state_b
+      Medium.ThermodynamicState state_b(p(start=p_b_start))
         "state defined by volume outside port_b";
       Medium.ThermodynamicState[nFM+1] statesFM
         "state vector for flowModel model";
