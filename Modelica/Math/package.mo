@@ -227,7 +227,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 
   function norm "Return the p-norm of a vector"
     extends Modelica.Icons.Function;
-    input Real v[:] "Vector";
+    input Real v[:] "Real vector";
     input Real p(min=1) = 2
       "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
     output Real result=0.0 "p-norm of vector v";
@@ -306,7 +306,7 @@ Note, for any vector norm the following inequality holds:
   function length
     "Return length of a vector (better as norm(), if further symbolic processing is performed)"
     extends Modelica.Icons.Function;
-    input Real v[:] "Vector";
+    input Real v[:] "Real vector";
     output Real result "Length of vector v";
   algorithm
     result := sqrt(v*v);
@@ -340,7 +340,7 @@ not the case with function norm(..).
   function normalize
     "Return normalized vector such that length = 1 and prevent zero-division for zero vector"
     extends Modelica.Icons.Function;
-    input Real v[:] "Vector";
+    input Real v[:] "Real vector";
     input Real eps(min=0.0)=100*Modelica.Constants.eps
       "if |v| < eps then result = v/eps";
     output Real result[size(v, 1)] "Input vector v normalized to length=1";
@@ -392,7 +392,7 @@ function normalizeWithAssert
     "Return normalized vector such that length = 1 (trigger an assert for zero vector)"
   import Modelica.Math.Vectors.length;
   extends Modelica.Icons.Function;
-  input Real v[:] "Vector";
+  input Real v[:] "Real vector";
   output Real result[size(v, 1)] "Input vector v normalized to length=1";
 
 algorithm
@@ -430,7 +430,7 @@ end normalizeWithAssert;
 
   function reverse "Reverse vector elements (e.g., v[1] becomes last element)"
     extends Modelica.Icons.Function;
-    input Real v[:] "Vector";
+    input Real v[:] "Real vector";
     output Real result[size(v, 1)] "Elements of vector v in reversed order";
 
   algorithm
@@ -454,7 +454,7 @@ vector elements in reverse order.
 
   function sort "Sort elements of vector in ascending or descending order"
     extends Modelica.Icons.Function;
-    input Real v[:] "Vector to be sorted";
+    input Real v[:] "Real vector to be sorted";
     input Boolean ascending=true
       "= true if ascending order, otherwise descending order";
     output Real sorted_v[size(v, 1)]=v "Sorted vector";
@@ -535,7 +535,7 @@ to the original vector are given, such that sorted_v = v[indices].
   function find "Find element in a vector"
     extends Modelica.Icons.Function;
     input Real e "Search for e";
-    input Real v[:] "Integer vector";
+    input Real v[:] "Real vector";
     input Real eps(min=0) = 0
       "Element e is equal to a element v[i] of vector v if abs(e-v[i]) <= eps";
     output Integer result
