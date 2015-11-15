@@ -4106,8 +4106,7 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
       if ForceDirection then
         f = -f_nominal*(v/v_nominal)^2;
       else
-        f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/
-          v_nominal)^2);
+        f = -f_nominal*smooth(1, if v >= 0 then (v/v_nominal)^2 else -(v/v_nominal)^2);
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(
@@ -4136,8 +4135,8 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
                   textString="%f_constant")}), Documentation(info="<html>
 <p>Model of constant force, not dependent on velocity of flange.</p>
 <p>Please note:<br>
-Positive force brakes in positive direction of movement, but accelerates in reverse direction of movement.<br>
-Negative force accelerates in positive direction of movement, but brakes in reverse direction of movement.</p>
+Positive force accelerates in positive direction of movement, but brakes in reverse direction of movement.<br>
+Negative force brakes in positive direction of movement, but accelerates in reverse direction of movement.</p>
 </html>"));
     end ConstantForce;
 
@@ -4156,11 +4155,11 @@ Negative force accelerates in positive direction of movement, but brakes in reve
     equation
       v = der(s);
       if reg==Modelica.Blocks.Types.Regularization.Linear then
-        f = f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
-        f = f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else sin(pi/2*v/v0)));
+        f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else sin(pi/2*v/v0)));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
-        f = f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - cos(pi/2*v/v0)));
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - cos(pi/2*v/v0)));
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -4171,8 +4170,8 @@ Negative force accelerates in positive direction of movement, but brakes in reve
                 color={0,0,0})}), Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
-Positive force brakes in both directions of movement.<br>
-Negative force acceleractes in both directions of movement.</p>
+Positive force acceleractes in both directions of movement.<br>
+Negative force brakes in both directions of movement.</p>
 <p>Around zero speed regularization avoids numerical problems.</p>
 </html>"));
     end SignForce;

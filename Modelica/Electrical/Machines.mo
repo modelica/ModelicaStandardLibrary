@@ -1180,8 +1180,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{12,-50},{32,-30}})));
         Mechanics.Translational.Components.Mass mass(m=JLoad/r^2)
           annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-        Mechanics.Translational.Sources.SignForce signForce(        f_nominal=TLoad/r, v0(
-              displayUnit="m/s") = 0.01*wNominal*r)
+        Mechanics.Translational.Sources.SignForce signForce(                           v0(
+              displayUnit="m/s") = 0.01*wNominal*r, f_nominal=-TLoad/r)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
       initial equation
         aimc.is[1:2] = zeros(2);
