@@ -4133,13 +4133,49 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
               color={0,0,255}),Text(
                   extent={{-118,58},{126,34}},
                   lineColor={0,0,0},
-                  textString="%f_constant")}), Documentation(info="<HTML>
-<p>
-Model of constant force, not dependent on velocity of flange.<br>
-Positive force acts accelerating.
-</p>
-</HTML>"));
+                  textString="%f_constant")}), Documentation(info="<html>
+<p>Model of constant force, not dependent on velocity of flange.</p>
+<p>Please note:<br>
+Positive force brakes in positive direction of movement, but accelerates in reverse direction of movement.<br>
+Negative force accelerates in positive direction of movement, but brakes in reverse direction of movement.</p>
+</html>"));
     end ConstantForce;
+
+    model SignForce "Constant force changing sign with speed"
+      extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
+      import Modelica.Constants.pi;
+      parameter Modelica.SIunits.Force f_nominal
+        "Nominal force (if negative, force is acting as load)";
+      parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Sine
+        "Type of regularization"  annotation(Evaluate=true);
+      parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
+        "Regularization below v0";
+    Modelica.SIunits.Velocity v
+        "Velocity of flange with respect to support (= der(s))";
+
+    equation
+      v = der(s);
+      if reg==Modelica.Blocks.Types.Regularization.Linear then
+        f = f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
+      elseif reg==Modelica.Blocks.Types.Regularization.Sine then
+        f = f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else sin(pi/2*v/v0)));
+      else//if reg==Modelica.Blocks.Types.Regularization.CoSine
+        f = f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - cos(pi/2*v/v0)));
+      end if;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+              Line(
+                points={{-100,0},{100,0}},
+                color={0,0,127}),
+            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}},
+                color={0,0,0})}), Documentation(info="<html>
+<p>Model of constant force which changes sign with direction of movement.</p>
+<p>Please note:<br>
+Positive force brakes in both directions of movement.<br>
+Negative force acceleractes in both directions of movement.</p>
+<p>Around zero speed regularization avoids numerical problems.</p>
+</html>"));
+    end SignForce;
 
     model ConstantSpeed "Constant speed, not dependent on force"
       extends Modelica.Mechanics.Translational.Interfaces.PartialForce;

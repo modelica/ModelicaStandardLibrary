@@ -4202,15 +4202,15 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(origin=  {-30,65},
-          fillColor=  {192,192,192},
-          extent=  {{-20,-19},{20,19}}),
-        Rectangle(origin=  {-30,-1},
-          fillColor=  {255,255,255},
-          extent=  {{-20,-35},{20,35}}),
-        Rectangle(lineColor=  {64,64,64},
-          fillColor=  {255,255,255},
-          extent=  {{10,-100},{50,100}})}),
+        Rectangle(origin = {-30,65},
+          fillColor = {192,192,192},
+          extent = {{-20,-19},{20,19}}),
+        Rectangle(origin = {-30,-1},
+          fillColor = {255,255,255},
+          extent = {{-20,-35},{20,35}}),
+        Rectangle(lineColor = {64,64,64},
+          fillColor = {255,255,255},
+          extent = {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(lineColor=  {64,64,64},
           fillColor=  {192,192,192},
@@ -6162,7 +6162,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
         "Constant torque (if negative, torque is acting as load in positive direction of rotation)";
       parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Sine
         "Type of regularization"  annotation(Evaluate=true);
-      parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps)
+      parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps, start=0.1)
         "Regularization below w0";
       Modelica.SIunits.AngularVelocity w
         "Angular velocity of flange with respect to support (= der(phi))";
@@ -7451,13 +7451,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin=  {-35,40},
-            fillColor=  {255,255,255},
-            extent=  {{-15,-61},{15,60}}),
+            origin = {-35,40},
+            fillColor = {255,255,255},
+            extent = {{-15,-61},{15,60}}),
           Rectangle(
-            origin=  {35,21},
-            fillColor=  {255,255,255},
-            extent=  {{-15,-61},{15,60}})}), Documentation(
+            origin = {35,21},
+            fillColor = {255,255,255},
+            extent = {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.
