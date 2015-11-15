@@ -6176,7 +6176,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
         tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else sin(pi/2*w/w0)));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
-        tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else sign(w)*(1 - cos(pi/2*w/w0))));
+        tau = tau_constant*(if abs(w)>=w0 then sign(w) else sign(w)*(1 - cos(pi/2*w/w0)));
       end if;
       annotation (Icon(
           coordinateSystem(
