@@ -4145,7 +4145,7 @@ Negative force brakes in positive direction of movement, but accelerates in reve
       import Modelica.Constants.pi;
       parameter Modelica.SIunits.Force f_nominal
         "Nominal force (if negative, force is acting as load)";
-      parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Sine
+      parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Exp
         "Type of regularization"  annotation(Evaluate=true);
       parameter Modelica.SIunits.Velocity v0(final min=Modelica.Constants.eps, start=0.1)
         "Regularization below v0";
@@ -4154,10 +4154,12 @@ Negative force brakes in positive direction of movement, but accelerates in reve
 
     equation
       v = der(s);
-      if reg==Modelica.Blocks.Types.Regularization.Linear then
-        f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
+      if reg==Modelica.Blocks.Types.Regularization.Exp then
+        f = -f_nominal*(2/(1+exp(-v/(0.01*v0)))-1);
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
         f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else sin(pi/2*v/v0)));
+      elseif reg==Modelica.Blocks.Types.Regularization.Linear then
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
         f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - cos(pi/2*v/v0)));
       end if;

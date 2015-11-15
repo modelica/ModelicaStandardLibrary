@@ -113,8 +113,9 @@ initialization definition.
     annotation (Evaluate=true);
 
   type Regularization = enumeration(
-      Linear "Linear ragularization",
+      Exp "Exponential regularization (smooth)",
       Sine "Sinusoidal regularization (smooth 1st derivative)",
+      Linear "Linear ragularization",
       Cosine "Cosine regularization")
     "Enumeration defining the regularization around zero";
   class ExternalCombiTimeTable
