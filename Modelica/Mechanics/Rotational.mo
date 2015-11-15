@@ -6160,6 +6160,8 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       import Modelica.Constants.pi;
       parameter Modelica.SIunits.Torque tau_constant
         "Constant torque (if negative, torque is acting as load in positive direction of rotation)";
+      parameter Modelica.Blocks.Types.Regularization reg=Modelica.Blocks.Types.Regularization.Sine
+        "Type of regularization"  annotation(Evaluate=true);
       parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps)
         "Regularization below w0";
       Modelica.SIunits.AngularVelocity w
@@ -6169,7 +6171,11 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
     equation
       w = der(phi);
       tau = -flange.tau;
-      tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else sin(pi/2*w/w0)));
+      if reg==Modelica.Blocks.Types.Regularization.Linear then
+        tau = tau_constant*(if abs(w)>=w0 then sign(w) else (w/w0));
+      else//if reg==Modelica.Blocks.Types.Regularization.Sine
+        tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else sin(pi/2*w/w0)));
+      end if;
       annotation (Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6192,7 +6198,7 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
 <p>Please note:<br>
 Positive torque accelerates in both directions of rotation.<br>
 Negative torque brakes in both directions of rotation.</p>
-<p>Around zero speed, a smooth regularization avoids numerical problems.</p>
+<p>Around zero speed regularization avoids numerical problems.</p>
 </html>"));
     end SignTorque;
 
