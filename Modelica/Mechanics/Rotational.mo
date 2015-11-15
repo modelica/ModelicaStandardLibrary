@@ -4202,15 +4202,15 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{10,-100},{50,100}})}),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(lineColor=  {64,64,64},
           fillColor=  {192,192,192},
@@ -6128,12 +6128,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
     model ConstantTorque "Constant torque, not dependent on speed"
       extends Rotational.Interfaces.PartialTorque;
       parameter Modelica.SIunits.Torque tau_constant
-        "Constant torque (if negative, torque is acting as load)";
-      parameter Boolean TorqueDirection=true
-        "Same direction of torque in both directions of rotation";
-      parameter Modelica.SIunits.AngularVelocity w_min(min=Modelica.Constants.eps)=0.001
-        "Minimum speed for regularization around zero"
-      annotation(Dialog(enable = not TorqueDirection));
+        "Constant torque (if negative, torque is acting as load in positive direction of rotation)";
       Modelica.SIunits.AngularVelocity w
         "Angular velocity of flange with respect to support (= der(phi))";
       Modelica.SIunits.Torque tau
@@ -6141,13 +6136,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
     equation
       w = der(phi);
       tau = -flange.tau;
-      if TorqueDirection then
-        tau = tau_constant;
-      else
-        tau = smooth(1, if (w > w_min) then +tau_constant
-           else if (w < -w_min) then -tau_constant
-           else tau_constant*w/w_min);
-      end if;
+      tau = tau_constant;
       annotation (Icon(
           coordinateSystem(
             preserveAspectRatio=true,
@@ -6159,12 +6148,53 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
               Text(
                 extent={{-124.0,-40.0},{120.0,-16.0}},
                 textString="%tau_constant")}), Documentation(info="<html>
-<p>Model of constant torque, not dependent on angular velocity of flange.<br>
-Positive torque acts accelerating. </p>
-<p>Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not. <br>
-In case TorqueDirection = false, the acting torque is linearly regularized around zero speed (below parameter w_min).</p>
+<p>Model of constant torque, not dependent on angular velocity of flange.</p>
+<p>Please note:<br>
+Positive torque accelerates in positive direction of rotation, but brakes in reverse direction of rotation.<br>
+Negative torque brakes in positive direction of rotation, but accelerates in reverse direction of rotation.</p>
 </html>"));
     end ConstantTorque;
+
+    model SignTorque "Constant torque changing sign with speed"
+      extends Rotational.Interfaces.PartialTorque;
+      import Modelica.Constants.pi;
+      parameter Modelica.SIunits.Torque tau_constant
+        "Constant torque (if negative, torque is acting as load in positive direction of rotation)";
+      parameter Modelica.SIunits.AngularVelocity w0(final min=Modelica.Constants.eps)
+        "Regularization below w0";
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity of flange with respect to support (= der(phi))";
+      Modelica.SIunits.Torque tau
+        "Accelerating torque acting at flange (= -flange.tau)";
+    equation
+      w = der(phi);
+      tau = -flange.tau;
+      tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else sin(pi/2*w/w0)));
+      annotation (Icon(
+          coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}}),
+            graphics={
+              Text(
+                extent={{-124.0,-40.0},{120.0,-16.0}},
+                textString="%tau_constant"),
+              Line(
+                points={{-100,0},{100,0}},
+                color={0,0,127}),
+              Line(
+                points={{-100,0},{100,0}},
+                color={0,0,127},
+              origin={0,0},
+              rotation=90),
+            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}},
+                color={0,0,0})}),              Documentation(info="<html>
+<p>Model of constant torque which changes sign with direction of rotation.</p>
+<p>Please note:<br>
+Positive torque accelerates in both directions of rotation.<br>
+Negative torque brakes in both directions of rotation.</p>
+<p>Around zero speed, a smooth regularization avoids numerical problems.</p>
+</html>"));
+    end SignTorque;
 
     model ConstantSpeed "Constant speed, not dependent on torque"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
@@ -7413,13 +7443,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin = {-35,40},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}}),
+            origin=  {-35,40},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}}),
           Rectangle(
-            origin = {35,21},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}})}), Documentation(
+            origin=  {35,21},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.

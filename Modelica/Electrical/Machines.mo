@@ -1106,8 +1106,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 </HTML>"));
       end AIMC_Inverter;
 
-      model AIMC_ConveyorBelt
-        "Test example: AsynchronousInductionMachineSquirrelCage with inverter"
+      model AIMC_Crane
+        "Test example: AsynchronousInductionMachineSquirrelCage with inverter driving a crane"
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VNominal=100
@@ -1145,13 +1145,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Blocks.Sources.Trapezoid dutyCycle(
-          amplitude=fNominal,
-          rising=1,
-          width=3,
-          falling=1,
-          period=10)
-          annotation (Placement(transformation(extent={{-80,50},{-60,70}})));
+        Blocks.Sources.CombiTimeTable
+                                 dutyCycle(table=[0,0; 1,1; 4,1; 5,0; 10,0; 11,
+              -1; 14,-1; 15,0; 20,0], extrapolation=Modelica.Blocks.Types.Extrapolation.Periodic)
+          annotation (Placement(transformation(extent={{-100,50},{-80,70}})));
         Machines.Utilities.VfController vfController(
           final m=m,
           VNominal=VNominal,
@@ -1171,15 +1168,17 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               rotation=270)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
           annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-        Mechanics.Rotational.Sources.ConstantTorque loadTorque(
+        Mechanics.Rotational.Sources.SignTorque     loadTorque(
           useSupport=false,
           tau_constant=-TLoad,
-          TorqueDirection=false)
+          w0=0.1)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+        Blocks.Math.Gain gain(k=fNominal)
+          annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
       initial equation
         aimc.is[1:2] = zeros(2);
         aimc.ir = zeros(2);
@@ -1189,8 +1188,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{0,70},{0,90},{-50,90}}, color={0,0,255}));
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-        connect(dutyCycle.y, vfController.u)
-          annotation (Line(points={{-59,60},{-42,60}}, color={0,0,255}));
         connect(vfController.y, signalVoltage.v)
           annotation (Line(points={{-19,60},{-7,60}}, color={0,0,255}));
         connect(loadTorque.flange, loadInertia.flange_b)
@@ -1209,12 +1206,16 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,255}));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
+        connect(vfController.u, gain.y)
+          annotation (Line(points={{-42,60},{-49,60}}, color={0,0,127}));
+        connect(dutyCycle.y[1], gain.u)
+          annotation (Line(points={{-79,60},{-72,60}}, color={0,0,127}));
         annotation (experiment(StopTime=20, Interval=0.001),  Documentation(
               info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.<br>
-The mechanical load is a constant torque like a conveyor belt (with regularization around zeri speed).<br>
+The mechanical load is a constant torque like a crane (with regularization around zero speed).<br>
 Simulate for 20 seconds and plot (versus time):
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -1222,8 +1223,10 @@ Simulate for 20 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),__Dymola_experimentSetupOutput);
-      end AIMC_ConveyorBelt;
+</HTML>"),__Dymola_experimentSetupOutput,
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})));
+      end AIMC_Crane;
 
       model AIMC_Steinmetz
         "AsynchronousInductionMachineSquirrelCage Steinmetz-connection"
@@ -2463,224 +2466,6 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
 </html>"));
       end SMPM_VoltageSource;
 
-      model SMPM_ConveyorBelt
-        "Test example: PermanentMagnetSynchronousInductionMachine fed by FOC"
-        extends Modelica.Icons.Example;
-        import Modelica.Constants.pi;
-        constant Integer m=3 "Number of phases";
-        parameter Modelica.SIunits.Current Idq[2]={-53.5, 84.6}
-          "Desired d- and q-current";
-        parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
-          "Nominal speed";
-        parameter Modelica.SIunits.Torque TNominal=181.4 "Nominal torque";
-        parameter Modelica.SIunits.Inertia JLoad=0.29
-          "Load's moment of inertia";
-        parameter Modelica.SIunits.Time Tm=(smpmData.Jr + JLoad)*wNominal/TNominal
-          "Mechanical time constant";
-        parameter Modelica.SIunits.Time TS=(smpm.Lssigma + smpm.Lmd)/smpm.Rs
-          "Time constant of process";
-        parameter Real kR=wNominal/Idq[2]*Tm/TS/2
-          "Proportional gain of controller";
-        parameter Modelica.SIunits.Time Ti=4*TS
-          "Time constant of integral controller";
-        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
-          smpm(
-          phiMechanical(start=0, fixed=true),
-          wMechanical(start=0, fixed=true),
-          useSupport=false,
-          useThermalPort=false,
-          p=smpmData.p,
-          fsNominal=smpmData.fsNominal,
-          Rs=smpmData.Rs,
-          TsRef=smpmData.TsRef,
-          Lszero=smpmData.Lszero,
-          Lssigma=smpmData.Lssigma,
-          Jr=smpmData.Jr,
-          Js=smpmData.Js,
-          frictionParameters=smpmData.frictionParameters,
-          statorCoreParameters=smpmData.statorCoreParameters,
-          strayLoadParameters=smpmData.strayLoadParameters,
-          VsOpenCircuit=smpmData.VsOpenCircuit,
-          Lmd=smpmData.Lmd,
-          Lmq=smpmData.Lmq,
-          useDamperCage=smpmData.useDamperCage,
-          Lrsigmad=smpmData.Lrsigmad,
-          Lrsigmaq=smpmData.Lrsigmaq,
-          Rrd=smpmData.Rrd,
-          Rrq=smpmData.Rrq,
-          TrRef=smpmData.TrRef,
-          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
-          TsOperational=293.15,
-          alpha20s=smpmData.alpha20s,
-          TrOperational=293.15,
-          alpha20r=smpmData.alpha20r) annotation (Placement(transformation(
-                extent={{-20,-50},{0,-30}})));
-
-        Modelica.Electrical.MultiPhase.Sources.SignalVoltage signalVoltage(
-            final m=m) annotation (Placement(transformation(
-              origin={-10,50},
-              extent={{10,10},{-10,-10}},
-              rotation=270)));
-        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
-            Placement(transformation(extent={{-50,80},{-70,100}})));
-        Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
-              transformation(
-              origin={-90,90},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
-        Modelica.Blocks.Sources.Constant id(k=Idq[1])
-          annotation (Placement(transformation(extent={{-90,60},{-70,80}})));
-        Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
-          annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
-        Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={10,0})));
-        Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=JLoad)
-          annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
-        Mechanics.Rotational.Sources.ConstantTorque loadTorque(
-                                   tau_constant=-TNominal,
-          TorqueDirection=false,
-          w_min(displayUnit="rpm") = 0.1*wNominal)
-          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
-        Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=270,
-              origin={-10,0})));
-        Machines.Utilities.VoltageController voltageController(
-          p=smpm.p,
-          Ld=smpm.Lssigma + smpm.Lmd,
-          Lq=smpm.Lssigma + smpm.Lmq,
-          Rs=Machines.Thermal.convertResistance(
-                    smpm.Rs,
-                    smpm.TsRef,
-                    smpm.alpha20s,
-                    smpm.TsOperational),
-          fsNominal=smpm.fsNominal,
-          VsOpenCircuit=smpm.VsOpenCircuit)
-          annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
-        Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={30,0})));
-        parameter Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
-          smpmData(useDamperCage=false)
-          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
-        Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor annotation (
-            Placement(transformation(
-              origin={-10,20},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
-        Blocks.Continuous.LimPID PID(
-          k=kR,
-          controllerType=Modelica.Blocks.Types.SimpleController.PI,
-          Ti=Ti,
-          yMax=1.5*Idq[2],
-          initType=Modelica.Blocks.Types.InitPID.InitialOutput)
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={-80,-60})));
-        Blocks.Sources.Trapezoid dutyCycle(
-          amplitude=wNominal,
-          rising=1,
-          width=3,
-          falling=1,
-          period=10)
-          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={-80,-90})));
-        Analog.Basic.Ground                     groundM annotation (Placement(
-              transformation(
-              origin={-80,-28},
-              extent={{-10,-10},{10,10}},
-              rotation=270)));
-        MultiPhase.Basic.Star                     starM(final m=m) annotation (
-            Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={-60,-10})));
-        Sensors.VoltageQuasiRMSSensor          voltageQuasiRMSSensor
-          annotation (Placement(transformation(
-              extent={{-10,10},{10,-10}},
-              rotation=180,
-              origin={-30,-10})));
-      initial equation
-        smpm.is[1:2] = zeros(2);
-
-      equation
-        connect(star.pin_n, ground.p)
-          annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
-        connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
-            points={{-16,-30},{-16,-30}},
-            color={0,0,255}));
-        connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
-            points={{-4,-30},{-4,-30}},
-            color={0,0,255}));
-        connect(loadTorque.flange, inertiaLoad.flange_b)
-          annotation (Line(points={{80,-40},{80,-40},{70,-40}}));
-        connect(smpm.flange, angleSensor.flange) annotation (Line(
-            points={{0,-40},{10,-40},{10,-10}}));
-        connect(star.plug_p, signalVoltage.plug_n) annotation (Line(
-            points={{-50,90},{-10,90},{-10,60}},
-            color={0,0,255}));
-        connect(currentSensor.plug_n, terminalBox.plugSupply) annotation (Line(
-            points={{-10,-10},{-10,-28}},
-            color={0,0,255}));
-        connect(id.y, voltageController.id_rms) annotation (Line(
-            points={{-69,70},{-60,70},{-60,56},{-52,56}},
-            color={0,0,127}));
-        connect(angleSensor.phi, voltageController.phi) annotation (Line(
-            points={{10,11},{10,30},{-34,30},{-34,38}},
-            color={0,0,127}));
-        connect(voltageController.y, signalVoltage.v) annotation (Line(
-            points={{-29,50},{-17,50}},
-            color={0,0,127}));
-        connect(currentSensor.i, voltageController.iActual) annotation (Line(
-            points={{-21,1.9984e-015},{-46,1.9984e-015},{-46,38}},
-            color={0,0,127}));
-        connect(speedSensor.flange, smpm.flange) annotation (Line(
-            points={{30,-10},{30,-40},{0,-40}}));
-        connect(currentQuasiRMSSensor.plug_n, currentSensor.plug_p) annotation (
-           Line(
-            points={{-10,10},{-10,10}},
-            color={0,0,255}));
-        connect(signalVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (
-           Line(
-            points={{-10,40},{-10,30}},
-            color={0,0,255}));
-        connect(smpm.flange, inertiaLoad.flange_a)
-          annotation (Line(points={{0,-40},{50,-40}},          color={0,0,0}));
-        connect(starM.plug_p,voltageQuasiRMSSensor. plug_n) annotation (Line(
-            points={{-50,-10},{-40,-10}},
-            color={0,0,255}));
-        connect(groundM.p,starM. pin_n) annotation (Line(
-            points={{-70,-28},{-70,-10}},
-            color={0,0,255}));
-        connect(voltageQuasiRMSSensor.plug_p, currentSensor.plug_n) annotation
-          (Line(points={{-20,-10},{-16,-10},{-10,-10}}, color={0,0,255}));
-        connect(PID.y, voltageController.iq_rms) annotation (Line(points={{-80,
-                -49},{-80,-49},{-80,-42},{-80,-40},{-90,-40},{-90,30},{-60,30},
-                {-60,44},{-52,44}}, color={0,0,127}));
-        connect(PID.u_s, dutyCycle.y)
-          annotation (Line(points={{-80,-72},{-80,-79}}, color={0,0,127}));
-        connect(speedSensor.w, PID.u_m) annotation (Line(points={{30,11},{30,20},
-                {40,20},{40,-60},{-68,-60}}, color={0,0,127}));
-        annotation (experiment(StopTime=20, Interval=0.001),  Documentation(
-              info="<html>
-<p>
-A synchronous induction machine with permanent magnets accelerates a constant load (like a conveyor belt) from standstill.
-The rms values of d- and q-current in rotor fixed coordinate system are controlled by the voltageController,
-and the output voltages fed to the machine. The d-current is set constant, the q-current is defined by a speed controller.</p>
-<p>
-Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
-</p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
-          __Dymola_experimentSetupOutput);
-      end SMPM_ConveyorBelt;
 
       model SMPM_Braking
         "Test example: PermanentMagnetSynchronousInductionMachine acting as brake"
