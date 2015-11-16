@@ -966,4 +966,12 @@ double mydummyfunc(double* dummy_in) {
         thickness=0.0625));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test75;
+
+  model Test76 "Single row, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,1,2,3],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test76;
 end CombiTimeTable;

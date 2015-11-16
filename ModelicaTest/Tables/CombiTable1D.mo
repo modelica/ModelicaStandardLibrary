@@ -45,11 +45,11 @@ package CombiTable1D
     extends Test0(t_new(table=[0.3, 0, 0; 0.4, 1, -1; 0.5, 0, 0; 0.6, -1, 1;
             0.7, 0, 0], smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Continuous.Der d_t_new2
-      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+      annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
   equation
     t_new.u[2] = time;
     connect(t_new.y[2], d_t_new2.u) annotation (Line(
-        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        points={{-19,10},{-14,10},{-7,10},{-7,-20},{-2,-20}},
         color={0,0,127},
         thickness=0.0625));
     annotation (experiment(StartTime=0, StopTime=1));
@@ -71,11 +71,11 @@ package CombiTable1D
         columns={2,3},
         smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
     Modelica.Blocks.Continuous.Der d_t_new2
-      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+      annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
   equation
     t_new.u[2] = time;
     connect(t_new.y[2], d_t_new2.u) annotation (Line(
-        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        points={{-19,10},{-14,10},{-7,10},{-7,-20},{-2,-20}},
         color={0,0,127},
         thickness=0.0625));
     annotation (experiment(StartTime=0, StopTime=1));
@@ -167,11 +167,11 @@ package CombiTable1D
         fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test.txt"),
         columns={2,2500}));
     Modelica.Blocks.Continuous.Der d_t_new2
-      annotation (Placement(transformation(extent={{-60,25},{-40,45}})));
+      annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
   equation
     t_new.u[2] = time;
     connect(t_new.y[2], d_t_new2.u) annotation (Line(
-        points={{-84,35},{-79,35},{-63,35},{-58,35}},
+        points={{-19,10},{-14,10},{-7,10},{-7,-20},{-2,-20}},
         color={0,0,127},
         thickness=0.0625));
     annotation (experiment(StartTime=0, StopTime=1));
@@ -279,4 +279,20 @@ double mydummyfunc(double* dummy_in) {
       smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test28;
+
+  model Test29 "Single row, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,1,2],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Continuous.Der d_t_new2
+      annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+  equation
+    t_new.u[2] = time;
+    connect(t_new.y[2], d_t_new2.u) annotation (Line(
+        points={{-19,10},{-14,10},{-7,10},{-7,-20},{-2,-20}},
+        color={0,0,127},
+        thickness=0.0625));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test29;
 end CombiTable1D;

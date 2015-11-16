@@ -63,7 +63,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   equation
-
     connect(clock.y, t_new.u2) annotation (Line(
         points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
         color={0,0,127},
@@ -91,7 +90,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock1.y, t_new.u1) annotation (Line(
         points={{-59,30},{-52,30},{-52,16},{-42,16}},
         color={0,0,127},
@@ -118,7 +116,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -145,7 +142,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(const.y, t_new.u1) annotation (Line(
         points={{-59,30},{-52,30},{-52,16},{-42,16}},
         color={0,0,127},
@@ -172,7 +168,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock2.y, t_new.u2) annotation (Line(
         points={{-59,-10},{-52,-10},{-52,4},{-42,4}},
         color={0,0,127},
@@ -200,7 +195,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Constant const(k=2)
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -228,7 +222,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(const.y, t_new.u1) annotation (Line(
         points={{-59,30},{-52,30},{-52,16},{-42,16}},
         color={0,0,127},
@@ -256,7 +249,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock1.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -279,7 +271,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock1.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -302,7 +293,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock1.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -325,7 +315,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock1.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -361,7 +350,6 @@ package CombiTable2D
     Modelica.Blocks.Sources.Clock clock2
       annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   equation
-
     connect(clock1.y, t_new.u1) annotation (Line(
         points={{-59,30},{-50,30},{-50,16},{-42,16}},
         color={0,0,127},
@@ -654,7 +642,7 @@ double mydummyfunc(double dummy_in) {
     annotation (experiment(StartTime=0, StopTime=1.0));
   end Test18_usertab;
 
-  model Test19 "Ticket #1307, Constant 2D"
+  model Test19 "Constant 2D (Ticket #1307)"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
       table=[1,1;2,4;3,9;4,16],
@@ -712,7 +700,7 @@ double mydummyfunc(double dummy_in) {
       annotation (experiment(StartTime=0, StopTime=6));
   end Test19;
 
-  model Test20 "Ticket #1307, Bilinear"
+  model Test20 "Bilinear (Ticket #1307)"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
       table=[1,1;2,4;3,9;4,16]) annotation(Placement(transformation(extent={{-95,60},{-75,80}})));
@@ -790,7 +778,7 @@ double mydummyfunc(double dummy_in) {
       annotation (experiment(StartTime=0, StopTime=6));
   end Test20;
 
-  model Test21 "Ticket #1307, Akima2D"
+  model Test21 "Akima2D (Ticket #1307)"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Tables.CombiTable2D combiTable2D1D(
       table=[1,1;2,4;3,9;4,16],
@@ -873,7 +861,7 @@ double mydummyfunc(double dummy_in) {
       annotation (experiment(StartTime=0, StopTime=6));
   end Test21;
 
-  model Test22 "Ticket #1465, Akima extrapolation of either u1 xor u2"
+  model Test22 "Akima extrapolation of either u1 xor u2 (Ticket #1465)"
     extends Modelica.Icons.Example;
     parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
     parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
@@ -990,7 +978,7 @@ double mydummyfunc(double dummy_in) {
       experiment(StartTime=0, StopTime=1));
   end Test22;
 
-  model Test23 "Ticket #1465, Derivative of Akima extrapolation"
+  model Test23 "Derivative of Akima extrapolation (Ticket #1465)"
     extends Modelica.Icons.Example;
     parameter Real tableR[4,4] = [0,75,83,88;18,778,773,769;28,970,-950,938;33,860,1030,1039] "Table matrix for right extrapolation";
     parameter Real tableL[4,4] = [0,75,80,88;18,1039,1030,860;23,938,-950,970;33,769,773,778] "Table matrix for left extrapolation";
@@ -1081,4 +1069,151 @@ double mydummyfunc(double dummy_in) {
         thickness=0.015625));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test23;
+
+  model Test24 "2x3 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0,1;0.5,1,2],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test24;
+
+  model Test25 "3x2 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0.5;0,1;1,2],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test25;
+
+  model Test26 "2x4 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0,0.5,1;0.5,1,2,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test26;
+
+  model Test27 "4x2 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0.5;0,1;0.5,2;1,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test27;
+
+  model Test28 "3x3 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0,1;0,0,1;1,1,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test28;
+
+  model Test29 "3x4 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0,0.5,1;0,1,2,1;1,1,1,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test29;
+
+  model Test30 "4x3 table, Akima (Ticket #1820)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,0,1;0,1,1;0.5,2,1;1,1,1],
+      smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative));
+    Modelica.Blocks.Sources.Clock clock1
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Modelica.Blocks.Sources.Clock clock2
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  equation
+    connect(clock1.y, t_new.u1) annotation (Line(
+        points={{-59,30},{-50,30},{-50,16},{-42,16}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(clock2.y, t_new.u2) annotation (Line(
+        points={{-59,-10},{-50,-10},{-50,4},{-42,4}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (experiment(StartTime=0, StopTime=1));
+  end Test30;
 end CombiTable2D;
