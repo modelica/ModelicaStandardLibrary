@@ -3519,7 +3519,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       improve the numerics in certain situations.
                       (b) Improved regularization of the valve characteristics in some cases
                       so that it is twice differentiable (smooth=2),
-                      instead of continuous (smooth=0).</td>
+                      instead of continuous ().</td>
                       </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Fluid.Sources.</b></td></tr>
@@ -4666,7 +4666,7 @@ The following changes are present for the whole library:
 
 <li> All non-standard annotations removed by:<br>
          (1) Removing the annotation since without effect
-                 (e.g., \"__Dymola_experimentSetupOutput\", \"Window\", \"Terminal\" removed).<br>
+                 (e.g., \"\", \"Window\", \"Terminal\" removed).<br>
          (2) Renaming the annotation to a standard name (e.g., \"Hide\" renamed to \"HideResult\").<br>
          (3) Renaming the annotation to a vendor specific name
                  (e.g., \"checkBox\" renamed to \"__Dymola_checkBox\").<br>&nbsp; </li>

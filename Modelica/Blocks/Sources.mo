@@ -472,8 +472,7 @@ The Real output y is a step signal:
           Line(
             points={{-40,-20},{-40,-70}},
             color={95,95,95},
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            thickness=0.25),
           Polygon(
             points={{-40,-70},{-42,-60},{-38,-60},{-40,-70},{-40,-70}},
             lineColor={95,95,95},
@@ -499,8 +498,7 @@ The Real output y is a step signal:
           Line(
             points={{-19,-20},{50,-20}},
             color={95,95,95},
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            thickness=0.25),
           Line(
             points={{50,50},{101,50}},
             color={0,0,255},
@@ -508,8 +506,7 @@ The Real output y is a step signal:
           Line(
             points={{50,50},{50,-20}},
             color={95,95,95},
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            thickness=0.25),
           Polygon(
             points={{50,-20},{42,-18},{42,-22},{50,-20}},
             lineColor={95,95,95},
@@ -1417,9 +1414,7 @@ The Real output y is a saw tooth signal:
             fillPattern=FillPattern.Solid),
           Line(
             points={{-46,-30},{-46,-70}},
-            color={95,95,95},
-            pattern=LinePattern.Solid,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Polygon(
             points={{-46,-70},{-48,-60},{-44,-60},{-46,-70},{-46,-70}},
             lineColor={95,95,95},
@@ -1473,9 +1468,7 @@ The Real output y is a saw tooth signal:
             pattern=LinePattern.Dash),
           Line(
             points={{-40,40},{-40,-30}},
-            color={95,95,95},
-            pattern=LinePattern.Solid,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Text(
             extent={{-77,11},{-44,1}},
             lineColor={0,0,0},
