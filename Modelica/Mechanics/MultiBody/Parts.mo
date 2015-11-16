@@ -2256,7 +2256,6 @@ November 3-4, 2003, pp. 149-158</p>
             Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={64,64,64},
-              fillPattern=FillPattern.None,
               radius=10),
             Rectangle(
               extent={{-100,10},{-50,-10}},
@@ -2379,7 +2378,6 @@ November 3-4, 2003, pp. 149-158</p>
           Rectangle(
             extent={{-50,50},{50,-50}},
             lineColor={64,64,64},
-            fillPattern=FillPattern.None,
             radius=10),
           Rectangle(
             extent={{-100,10},{-50,-10}},

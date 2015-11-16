@@ -471,9 +471,7 @@ The Real output y is a step signal:
             fillPattern=FillPattern.Solid),
           Line(
             points={{-40,-20},{-40,-70}},
-            color={95,95,95},
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Polygon(
             points={{-40,-70},{-42,-60},{-38,-60},{-40,-70},{-40,-70}},
             lineColor={95,95,95},
@@ -498,18 +496,14 @@ The Real output y is a step signal:
           Line(points={{-20,-20},{-20,-70}}, color={95,95,95}),
           Line(
             points={{-19,-20},{50,-20}},
-            color={95,95,95},
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Line(
             points={{50,50},{101,50}},
             color={0,0,255},
             thickness=0.5),
           Line(
             points={{50,50},{50,-20}},
-            color={95,95,95},
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Polygon(
             points={{50,-20},{42,-18},{42,-22},{50,-20}},
             lineColor={95,95,95},
@@ -1417,9 +1411,7 @@ The Real output y is a saw tooth signal:
             fillPattern=FillPattern.Solid),
           Line(
             points={{-46,-30},{-46,-70}},
-            color={95,95,95},
-            pattern=LinePattern.Solid,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Polygon(
             points={{-46,-70},{-48,-60},{-44,-60},{-46,-70},{-46,-70}},
             lineColor={95,95,95},
@@ -1473,9 +1465,7 @@ The Real output y is a saw tooth signal:
             pattern=LinePattern.Dash),
           Line(
             points={{-40,40},{-40,-30}},
-            color={95,95,95},
-            pattern=LinePattern.Solid,
-            arrow={Arrow.None,Arrow.None}),
+            color={95,95,95}),
           Text(
             extent={{-77,11},{-44,1}},
             lineColor={0,0,0},
@@ -1630,8 +1620,7 @@ The Real output y is a trapezoid signal:
             fillPattern=FillPattern.Solid),
           Line(
             points={{-80,0},{-70,0},{-70,70},{-30,70},{-30,0},{20,0},{20,-70},{
-                60,-70},{60,0},{68,0}},
-            thickness=0.25),
+                60,-70},{60,0},{68,0}}),
           Text(
             extent={{2,80},{80,20}},
             lineColor={192,192,192},
@@ -1883,8 +1872,7 @@ a flange according to a given acceleration.
           Line(points={{-90,0},{17,0}}, color={192,192,192}),
           Line(
             points={{-80,0},{-70,0},{-70,70},{-50,70},{-50,0},{-15,0},{-15,-70},
-                {5,-70},{5,0},{18,0}},
-            thickness=0.25),
+                {5,-70},{5,0},{18,0}}),
           Text(
             extent={{34,96},{94,66}},
             lineColor={0,0,0},

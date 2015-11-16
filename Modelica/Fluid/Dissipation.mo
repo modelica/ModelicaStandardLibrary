@@ -11243,19 +11243,15 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.Dash),
                 Line(
                   points={{-62,-26},{60,-36}},
-                  pattern=LinePattern.Solid,
                   thickness=1),
                 Line(
                   points={{-62,24},{60,14}},
-                  pattern=LinePattern.Solid,
                   thickness=1),
                 Line(
                   points={{-60,-16},{62,-26}},
-                  pattern=LinePattern.Solid,
                   thickness=1),
                 Line(
                   points={{-60,34},{62,24}},
-                  pattern=LinePattern.Solid,
                   thickness=1),
                 Ellipse(
                   extent={{38,64},{78,24}},

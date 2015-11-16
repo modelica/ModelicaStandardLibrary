@@ -483,8 +483,7 @@ Example:
 </html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(
-                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
-                  thickness=0.25),Text(
+                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}}),Text(
                   extent={{-150,150},{150,110}},
                   textString="%name",
                   lineColor={0,0,255})}),
@@ -494,8 +493,7 @@ Example:
                   lineColor={0,0,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(
-                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}},
-                  thickness=0.25)}));
+                  points={{26,42},{-34,42},{6,2},{-34,-38},{26,-38}})}));
     end Sum;
 
     block Feedback
@@ -561,8 +559,6 @@ result in the following equation:
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(
                   extent={{-20,20},{20,-20}},
-                  pattern=LinePattern.Solid,
-                  lineThickness=0.25,
                   fillColor={235,235,235},
                   fillPattern=FillPattern.Solid,
                   lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,

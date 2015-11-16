@@ -7007,8 +7007,6 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
         Modelica.SIunits.Voltage vDC=dc_p.v-dc_n.v "DC voltage";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                  {{-100,-100},{100,100}})));
       end DCtwoPin;
 
       partial model DCpin "Single DC pin"

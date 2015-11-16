@@ -2105,10 +2105,7 @@ in the other flange connector.
                       graphics={
           Line(
             points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},
-                {100,0}},
-            pattern=LinePattern.Solid,
-            thickness=0.25,
-            arrow={Arrow.None,Arrow.None}),
+                {100,0}}),
           Text(
             extent={{-150,56},{150,96}},
             textString="%name",

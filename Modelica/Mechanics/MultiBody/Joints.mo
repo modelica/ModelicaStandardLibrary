@@ -632,7 +632,6 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           Rectangle(
             extent={{-100,-60},{-20,60}},
             lineColor={64,64,64},
-            fillPattern=FillPattern.None,
             radius=10),
           Rectangle(
             extent={{-20,10},{20,-10}},
@@ -648,7 +647,6 @@ definition of the axes vectors n in the revolute joints of the planar loop.
           Rectangle(
             extent={{20,-60},{100,60}},
             lineColor={64,64,64},
-            fillPattern=FillPattern.None,
             radius=10)}),
       Documentation(info="<HTML>
 <p>
@@ -800,7 +798,6 @@ vector \"n\" defining the cylinder axis
           Rectangle(
             extent={{-30,-30},{100,30}},
             lineColor={64,64,64},
-            fillPattern=FillPattern.None,
             radius=10),
           Rectangle(
             extent={{-100,-50},{0,50}},
@@ -811,7 +808,6 @@ vector \"n\" defining the cylinder axis
           Rectangle(
             extent={{-100,-50},{0,50}},
             lineColor={64,64,64},
-            fillPattern=FillPattern.None,
             radius=10),
           Text(
             extent={{-150,100},{150,60}},
@@ -8085,7 +8081,6 @@ position a degree of freedom is lost.
             Rectangle(
               extent={{-100,-60},{-30,60}},
               lineColor={64,64,64},
-              fillPattern=FillPattern.None,
               radius=10),
             Rectangle(
               extent={{-30,10},{10,-10}},
@@ -8101,7 +8096,6 @@ position a degree of freedom is lost.
             Rectangle(
               extent={{30,-60},{100,60}},
               lineColor={64,64,64},
-              fillPattern=FillPattern.None,
               radius=10),
             Line(points={{-60,60},{-60,96}}),
             Line(points={{-20,70},{-60,70}}),

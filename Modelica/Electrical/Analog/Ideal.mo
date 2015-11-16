@@ -1308,16 +1308,12 @@ where the constant <i>G</i> is called the gyration conductance.
           Rectangle(
             extent={{-80,-40},{-41,40}},
             lineColor={255,255,255},
-            pattern=LinePattern.Solid,
-            lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
             points={{20,63},{30,60},{20,57},{20,63}},
-            pattern=LinePattern.Solid,
-            lineThickness=0.25,
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
@@ -1325,8 +1321,6 @@ where the constant <i>G</i> is called the gyration conductance.
           Rectangle(
             extent={{80,-40},{40,40}},
             lineColor={255,255,255},
-            pattern=LinePattern.Solid,
-            lineThickness=0.25,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{90,50},{40,50},{40,-50},{90,-50}}, color={0,0,255}),

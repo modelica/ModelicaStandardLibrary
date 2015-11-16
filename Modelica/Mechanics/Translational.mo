@@ -3177,14 +3177,8 @@ between the stops.</i> </li>
                   lineColor={0,0,0},
                   fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(
-                  points={{-111,43},{-111,50}},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-151,49},{-113,49}},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Text(
+                  points={{-111,43},{-111,50}}),Line(
+                  points={{-151,49},{-113,49}}),Text(
                   extent={{-149,51},{-126,60}},
                   textString="s min",
                   lineColor={0,0,255}),Polygon(
@@ -3196,14 +3190,8 @@ between the stops.</i> </li>
                   lineColor={0,0,0},
                   fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(
-                  points={{124,39},{124,87}},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-19,78},{121,78}},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Text(
+                  points={{124,39},{124,87}}),Line(
+                  points={{-19,78},{121,78}}),Text(
                   extent={{-17,83},{6,92}},
                   textString="s max",
                   lineColor={0,0,255}),Polygon(
@@ -3211,14 +3199,8 @@ between the stops.</i> </li>
                   lineColor={0,0,0},
                   fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Line(
-                  points={{5,26},{5,63}},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-77,58},{-1,58}},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Text(
+                  points={{5,26},{5,63}}),Line(
+                  points={{-77,58},{-1,58}}),Text(
                   extent={{-75,60},{-38,71}},
                   textString="Position s",
                   lineColor={0,0,255}),Polygon(
@@ -4168,8 +4150,7 @@ Negative force brakes in positive direction of movement, but accelerates in reve
               Line(
                 points={{-100,0},{100,0}},
                 color={0,0,127}),
-            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}},
-                color={0,0,0})}), Documentation(info="<html>
+            Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}})}), Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
 Positive force acceleractes in both directions of movement.<br>

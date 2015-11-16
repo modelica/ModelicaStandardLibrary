@@ -1280,8 +1280,6 @@ produced by the motor).
             Rectangle(
               extent={{-100,-100},{100,100}},
               lineColor={0,0,0},
-              pattern=LinePattern.Solid,
-              lineThickness=0.25,
               fillColor={235,235,235},
               fillPattern=FillPattern.Solid),
             Rectangle(

@@ -68,8 +68,7 @@ package Semiconductors
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
+            fillColor={255,0,0}),
           Line(points={{-96,0},{96,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
   end Diode;
@@ -140,8 +139,7 @@ package Semiconductors
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
+            fillColor={255,0,0}),
           Line(points={{-99,0},{96,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
  end ZDiode;
@@ -841,8 +839,7 @@ The thermal power is calculated by <i>i*v</i>.
         Polygon(
           points={{30,0},{-30,40},{-30,-40},{30,0}},
           lineColor={0,0,255},
-          fillColor={255,0,0},
-          fillPattern=FillPattern.None),
+          fillColor={255,0,0}),
         Line(points={{-96,0},{96,0}}, color={0,0,255}),
         Line(points={{30,40},{30,-40}}, color={0,0,255})}));
 end HeatingDiode;
@@ -1879,8 +1876,7 @@ public
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
+            fillColor={255,0,0}),
           Line(points={{-96,0},{96,0}}, color={0,0,255}),
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
   end Diode2;

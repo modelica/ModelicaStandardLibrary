@@ -107,7 +107,7 @@ and the cut-torque is acting. This component has a non-filled rectangular icon.
   connector Frame_resolve
     "Coordinate system fixed to the component used to express in which coordinate system a vector is resolved (non-filled rectangular icon)"
     extends Frame;
-  
+
     annotation (defaultComponentName="frame_resolve",
       Icon(coordinateSystem(
             preserveAspectRatio=true,
