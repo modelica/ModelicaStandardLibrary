@@ -201,7 +201,7 @@ package Functions
     input SI.MolarMass M "Molar mass of gas";
     input SI.MolarVolume Vc "Critical molar volume of gas";
     input Real w "Acentric factor of gas";
-    input Interfaces.PartialMedium.DipoleMoment mu
+    input Modelica.Media.Interfaces.Types.DipoleMoment mu
       "Dipole moment of gas molecule";
     input Real k =  0.0 "Special correction for highly polar substances";
     output SI.DynamicViscosity eta "Dynamic viscosity of gas";
@@ -253,13 +253,14 @@ transform the formula to SI units:
   function thermalConductivityEstimate
     "Thermal conductivity of polyatomic gases(Eucken and Modified Eucken correlation)"
     extends Modelica.Icons.Function;
-    input Interfaces.PartialMedium.SpecificHeatCapacity Cp
+    input Modelica.Media.Interfaces.Types.SpecificHeatCapacity Cp
       "Constant pressure heat capacity";
-    input Interfaces.PartialMedium.DynamicViscosity eta "Dynamic viscosity";
+    input Modelica.Media.Interfaces.Types.DynamicViscosity eta
+      "Dynamic viscosity";
     input Integer method(min=1,max=2)=1
       "1: Eucken Method, 2: Modified Eucken Method";
     input IdealGases.Common.DataRecord data "Ideal gas data";
-    output Interfaces.PartialMedium.ThermalConductivity lambda
+    output Modelica.Media.Interfaces.Types.ThermalConductivity lambda
       "Thermal conductivity [W/(m.k)]";
   algorithm
     lambda := if method == 1 then eta*(Cp - data.R + (9/4)*data.R) else eta*(Cp
