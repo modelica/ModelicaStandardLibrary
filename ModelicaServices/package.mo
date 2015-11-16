@@ -1,7 +1,7 @@
 within ;
-package ModelicaServices "ModelicaServices - Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+package ModelicaServices "ModelicaServices (Default implementation) - Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
 extends Modelica.Icons.Package;
-constant String target="SimulationX"
+constant String target="Default"
   "Target of this ModelicaServices implementation";
 
 
@@ -643,86 +643,36 @@ The design of the Animation.Shape component is from Hilding Elmqvist, Dassault S
 
     end Contact;
   annotation (DocumentationClass=true);
-end UsersGuide;
+  end UsersGuide;
+
 
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
   model Shape
     "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
-    extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
-    import SI = Modelica.SIunits;
-    output Real RCalc[3,3] "Orientation object to rotate the world frame into the object frame" annotation(HideResult=false);
-    output SI.Position rCalc[3] "Position vector from origin of world frame to origin of object frame, resolved in world frame" annotation(HideResult=false);
-    output SI.Position r_shapeCalc[3] "Position vector from origin of object frame to shape origin, resolved in object frame" annotation(HideResult=false);
-    output Real lengthDirectionCalc[3] "Vector in length direction, resolved in object frame" annotation(HideResult=false);
-    output Real widthDirectionCalc[3] "Vector in width direction, resolved in object frame" annotation(HideResult=false);
-    output SI.Length lengthCalc "Length of visual object" annotation(HideResult=false); 
-    output SI.Length widthCalc "Width of visual object" annotation(HideResult=false);
-    output SI.Length heightCalc "Height of visual object" annotation(HideResult=false);
-    output Real extraCalc "Additional size data for some of the shape types" annotation(HideResult=false);
-    output Real colorCalc[3] "Color of shape" annotation(HideResult=false);
-    output Real alphaCalc "Alpha value of shape" annotation(HideResult=false);
-    output Real specularCoefficientCalc "Reflection of ambient light (= 0: light is completely absorbed)" annotation(HideResult=false);
-    equation
-      RCalc=R.T;
-      rCalc=r;
-      r_shapeCalc=r_shape;
-      lengthDirectionCalc=lengthDirection;
-      widthDirectionCalc=widthDirection;
-      lengthCalc=length;
-      widthCalc=width;
-      heightCalc=height;
-      extraCalc=extra;
-      colorCalc=color;
-      alphaCalc=1;
-      specularCoefficientCalc=specularCoefficient;
+    extends
+      Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
+
     annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})), Documentation(info="<html>
+          extent={{-100,-100},{100,100}}),
+          graphics={Text(
+            extent={{-150,-110},{150,-140}},
+            lineColor={0,0,0},
+            textString="default")}), Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
 </html>"));
-  end Shape;
+
+    end Shape;
 
   model Surface
     "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
     extends Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface;
-    import SI = Modelica.SIunits;
-    import Modelica.Mechanics.MultiBody.Frames;
-    import Modelica.Mechanics.MultiBody.Types;
-    input Frames.Orientation R=Frames.nullRotation() "Orientation object to rotate the world frame into the surface frame" annotation(Dialog(group="Surface frame"));
-    input Modelica.SIunits.Position r_0[3]={0,0,0} "Position vector from origin of world frame to origin of surface frame, resolved in world frame" annotation(Dialog(group="Surface frame"));
-    parameter Integer nu=2 "Number of points in u-Dimension" annotation(Dialog(group="Surface properties"));
-    parameter Integer nv=2 "Number of points in v-Dimension" annotation(Dialog(group="Surface properties"));
-    replaceable function surfaceCharacteristic = Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic "Function defining the surface characteristic" annotation(choicesAllMatching=true,Dialog(group="Surface properties"));
-    parameter Boolean wireframe=false "= true: 3D model will be displayed without faces" annotation (Dialog(group="Material properties"),choices(checkBox=true));
-    parameter Boolean multiColoredSurface=false "= true: Color is defined for each surface point" annotation(Dialog(group="Material properties"),choices(checkBox=true));
-    input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(colorSelector=true,group="Material properties", enable=not multiColoredSurface));
-    input Types.SpecularCoefficient specularCoefficient = 0.7 "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(group="Material properties"));
-    input Real transparency=0 "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)" annotation(Dialog(group="Material properties"));
-    output Real RCalc[3,3] "Orientation object to rotate the world frame into the surface frame" annotation(HideResult=false);
-    output SI.Position rCalc[3] "Position vector from origin of world frame to origin of surface frame, resolved in world frame"  annotation(HideResult=false);
-    output SI.Position X[nu,nv] "[nu,nv] positions of points in x-Direction resolved in surface frame" annotation(HideResult=false);
-    output SI.Position Y[nu,nv] "[nu,nv] positions of points in y-Direction resolved in surface frame" annotation(HideResult=false);
-    output SI.Position Z[nu,nv] "[nu,nv] positions of points in z-Direction resolved in surface frame" annotation(HideResult=false);
-    output Real C[if multiColoredSurface then nu else 0,if multiColoredSurface then nv else 0,3] "[nu,nv,3] Color array, defining the color for each surface point" annotation(HideResult=false);
-    output Real colorCalc[3] if not multiColoredSurface "Color of surface" annotation(HideResult=false);
-    output Real alphaCalc "Alpha value of surface" annotation(HideResult=false);
-    output Real specularCoefficientCalc "Reflection of ambient light (= 0: light is completely absorbed)" annotation(HideResult=false);
-    protected
-      parameter Modelica.Mechanics.MultiBody.Types.ShapeType shapeType="surfacematerial";
-      parameter SI.Position r[3]=r_0 "Position vector from origin of world frame to origin of surface frame, resolved in world frame";
-    equation
-      RCalc=R.T;
-      rCalc=r_0;
-      (X,Y,Z,C)=surfaceCharacteristic(nu,nv,multiColoredSurface);
-      colorCalc=color;
-      alphaCalc=1-transparency;
-      specularCoefficientCalc=specularCoefficient;
+
     annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
@@ -732,8 +682,8 @@ The interface of this model is defined at
 </p>
 
 </html>"));
-  end Surface;
-end Animation;
+    end Surface;
+  end Animation;
 
 
 package ExternalReferences "Library of functions to access external resources"
@@ -751,8 +701,8 @@ The interface of this model is documented at
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
 </p>
 </html>"));
-  end loadResource;
-end ExternalReferences;
+    end loadResource;
+  end ExternalReferences;
 
 
 package Machine
@@ -773,7 +723,7 @@ but indirectly via the alias definition in
 <a href=\"modelica://Modelica.Constants\">Modelica.Constants</a>.
 </p>
 </html>"));
-end Machine;
+  end Machine;
 
 
 package Types "Library of types with vendor specific choices"
@@ -796,11 +746,10 @@ For details, see chapter 16.8.2 \"Solver Method\" in the Modelica Language
 Specification (version &ge; 3.3).
 </p>
 </html>"));
-end Types;
+  end Types;
 
 
 annotation (
-  __Dymola_Protection(hideFromBrowser=true),
   Protection(access=Access.hide),
   preferredView="info",
   version="3.2.1",
@@ -850,7 +799,8 @@ These are:
 </ul>
 
 <p>
-This implementation is targeted for SimulationX.
+This is the default implementation, if no tool-specific implementation is available.
+This ModelicaServices package provides only \"dummy\" models that do nothing.
 </p>
 
 <p>

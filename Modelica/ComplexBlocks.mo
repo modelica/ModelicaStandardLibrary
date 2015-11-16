@@ -561,6 +561,7 @@ result in the following equation:
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Ellipse(
                   extent={{-20,20},{20,-20}},
+                  pattern=LinePattern.Solid,
                   lineThickness=0.25,
                   fillColor={235,235,235},
                   fillPattern=FillPattern.Solid,

@@ -157,6 +157,7 @@ package Icons "Library of icons"
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
+            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),   Documentation(info="<html>
 <p>Standard package icon.</p>
@@ -358,6 +359,7 @@ package Icons "Library of icons"
           radius=25),
         Rectangle(
           lineColor={215,215,215},
+          fillPattern=FillPattern.None,
           extent={{-100,-100},{100,100}},
           radius=25),
         Ellipse(
@@ -806,6 +808,7 @@ corresponding library in a future release.
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
+            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),   Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>
@@ -827,6 +830,7 @@ corresponding library in a future release.
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
+            fillPattern=FillPattern.None,
             extent={{-100.0,-100.0},{100.0,100.0}},
             radius=25.0)}),   Documentation(info="<html>
 <p>This icon of a package will be removed in future versions of the library.</p>

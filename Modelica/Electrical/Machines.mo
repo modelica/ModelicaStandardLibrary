@@ -1211,7 +1211,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(dutyCycle.y[1], gain.u)
           annotation (Line(points={{-79,60},{-72,60}}, color={0,0,127}));
         connect(aimc.flange, idealGearR2T.flangeR)
-          annotation (Line(points={{0,-40},{12,-40}}));
+          annotation (Line(points={{0,-40},{12,-40}}, color={0,0,0}));
         connect(idealGearR2T.flangeT, mass.flange_a)
           annotation (Line(points={{32,-40},{36,-40},{40,-40}}, color={0,127,0}));
         connect(mass.flange_b, signForce.flange)
@@ -1230,7 +1230,9 @@ Simulate for 20 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),__Dymola_experimentSetupOutput,
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}})));
       end AIMC_Conveyor;
 
       model AIMC_Steinmetz
@@ -2589,7 +2591,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(variableResistor.n, diodeBridge2mPulse.dc_n)
           annotation (Line(points={{0,60},{0,50},{-4,50},{-4,40}}, color={0,0,255}));
         connect(smpm.flange, inertiaLoad.flange_a)
-          annotation (Line(points={{0,-40},{50,-40}}));
+          annotation (Line(points={{0,-40},{50,-40}},         color={0,0,0}));
         connect(gain.u, speedSensor.w)
           annotation (Line(points={{40,18},{40,11}},      color={0,0,127}));
         connect(limiter.u, gain.y)
@@ -2608,7 +2610,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Line(points={{-20,-10},{-20,-10},{-10,-10}}, color={0,0,
                 255}));
         connect(smpm.flange, speedSensor.flange)
-          annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
+          annotation (Line(points={{0,-40},{40,-40},{40,-10}}, color={0,0,0}));
         annotation (experiment(StopTime=0.8, Interval=0.001), Documentation(
               info="<html>
 <p>
@@ -2617,7 +2619,9 @@ Since induced voltage is reduced proportional to falling speed, the braking resi
 <p>
 Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a> are used.
 </p>
-</html>"));
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}})),
+          __Dymola_experimentSetupOutput);
       end SMPM_Braking;
 
       model SMEE_Generator
