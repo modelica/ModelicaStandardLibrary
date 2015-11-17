@@ -419,6 +419,7 @@ package CombiTable2D
                 Y[i, j]);
         end for;
       end for;
+      C := fill({0,200,0}, 0, 0);
     end tableSurface;
 
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
@@ -493,6 +494,7 @@ package CombiTable2D
                 Y[i, j]);
         end for;
       end for;
+      C := fill({0,200,0}, 0, 0);
     end tableSurface;
 
     Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
