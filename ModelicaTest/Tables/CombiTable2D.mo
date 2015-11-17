@@ -381,9 +381,10 @@ package CombiTable2D
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Integer forceRead "Force reading of table data";
+      input Boolean verboseRead = true "Verbose read";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead) annotation (Library="ModelicaStandardTables");
+        forceRead, verboseRead) annotation (Library="ModelicaStandardTables");
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -454,9 +455,10 @@ package CombiTable2D
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Integer forceRead "Force reading of table data";
+      input Boolean verboseRead = true "Verbose read";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead) annotation (Library="ModelicaStandardTables");
+        forceRead, verboseRead) annotation (Library="ModelicaStandardTables");
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -527,9 +529,10 @@ package CombiTable2D
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
       input Integer forceRead "Force reading of table data";
+      input Boolean verboseRead = true "Verbose read";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead) annotation (Library="ModelicaStandardTables");
+        forceRead, verboseRead) annotation (Library="ModelicaStandardTables");
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
