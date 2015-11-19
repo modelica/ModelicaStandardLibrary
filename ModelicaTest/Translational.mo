@@ -203,7 +203,6 @@ extends Modelica.Icons.ExamplesPackage;
       annotation(experiment(StopTime=1.0));
     end TwoMassesEquationsFullInitialInconsistent;
 
-
     model TwoMassesEquationsReducedSteadyState
       "Steady state conditions for states after index reduction"
       extends Modelica.Icons.Example;
@@ -322,4 +321,52 @@ extends Modelica.Icons.ExamplesPackage;
     end TwoMassesEquations;
   end BaseClasses;
 
+  model TestBraking
+    extends Modelica.Icons.Example;
+    Modelica.Mechanics.Translational.Components.Mass mass1(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+    Modelica.Mechanics.Translational.Sources.LinearSpeedDependentForce
+      linearSpeedDependentForce(f_nominal=-100, v_nominal=100)
+      annotation (Placement(transformation(extent={{40,50},{20,70}})));
+    Modelica.Mechanics.Translational.Components.Mass mass2(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Mechanics.Translational.Sources.QuadraticSpeedDependentForce
+      quadraticSpeedDependentForce(f_nominal=-100, v_nominal=100)
+      annotation (Placement(transformation(extent={{40,20},{20,40}})));
+    Modelica.Mechanics.Translational.Components.Mass mass3(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
+        f_constant=-100)
+      annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+    Modelica.Mechanics.Translational.Components.Mass mass4(
+      m=1,
+      s(fixed=true, start=0),
+      v(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+    Modelica.Mechanics.Translational.Sources.SignForce signForce(f_nominal=-100,
+        v0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
+  equation
+    connect(mass1.flange_b, linearSpeedDependentForce.flange)
+      annotation (Line(points={{-20,60},{20,60}}, color={0,127,0}));
+    connect(quadraticSpeedDependentForce.flange, mass2.flange_b)
+      annotation (Line(points={{20,30},{-20,30}}, color={0,127,0}));
+    connect(constantForce.flange, mass3.flange_b)
+      annotation (Line(points={{20,0},{-20,0}}, color={0,127,0}));
+    connect(signForce.flange, mass4.flange_b)
+      annotation (Line(points={{20,-30},{0,-30},{-20,-30}}, color={0,127,0}));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+              100}})),
+      experiment(StopTime=2),
+      __Dymola_experimentSetupOutput);
+  end TestBraking;
 end Translational;

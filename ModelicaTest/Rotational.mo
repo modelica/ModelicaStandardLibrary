@@ -2099,4 +2099,53 @@ they were not deleted yet.")}));
         smooth=Smooth.None));
     annotation (experiment(StopTime=1.1));
   end TestFriction;
+
+  model TestBraking
+    extends Modelica.Icons.Example;
+    Modelica.Mechanics.Rotational.Components.Inertia inertia1(
+      J=1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+    Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
+      linearSpeedDependentTorque(w_nominal=100, tau_nominal=-100)
+      annotation (Placement(transformation(extent={{40,50},{20,70}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2(
+      J=1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+      quadraticSpeedDependentTorque(tau_nominal=-100, w_nominal=100)
+      annotation (Placement(transformation(extent={{40,20},{20,40}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia3(
+      J=1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
+        tau_constant=-100)
+      annotation (Placement(transformation(extent={{40,-10},{20,10}})));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia4(
+      J=1,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=100))
+      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
+    Modelica.Mechanics.Rotational.Sources.SignTorque signTorque(tau_constant=-100,
+        w0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
+  equation
+    connect(inertia1.flange_b, linearSpeedDependentTorque.flange)
+      annotation (Line(points={{-20,60},{0,60},{20,60}}, color={0,0,0}));
+    connect(inertia2.flange_b, quadraticSpeedDependentTorque.flange)
+      annotation (Line(points={{-20,30},{0,30},{20,30}}, color={0,0,0}));
+    connect(inertia3.flange_b, constantTorque.flange)
+      annotation (Line(points={{-20,0},{0,0},{20,0}}, color={0,0,0}));
+    connect(signTorque.flange, inertia4.flange_b)
+      annotation (Line(points={{20,-30},{0,-30},{-20,-30}}, color={0,0,0}));
+    annotation (
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}})),
+      experiment(StopTime=2),
+      __Dymola_experimentSetupOutput);
+  end TestBraking;
 end Rotational;
