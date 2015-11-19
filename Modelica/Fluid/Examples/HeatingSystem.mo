@@ -101,7 +101,9 @@ public
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     use_HeatTransfer=true,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
-    p_a_start=110000)
+    p_a_start=110000,
+    state_a(p(start=110000)),
+    state_b(p(start=110000)))
     annotation (Placement(transformation(extent={{20,-80},{0,-60}}, rotation=
             0)));
 
