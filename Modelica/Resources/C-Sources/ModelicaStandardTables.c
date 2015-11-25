@@ -4036,6 +4036,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
     if (tableName != NULL && fileName != NULL && _nRow != NULL && _nCol != NULL) {
         mat_t* mat;
         matvar_t* matvar;
+        matvar_t* matvarRoot;
         size_t nRow, nCol;
         int tableReadError = 0;
         char* tableNameCopy;
@@ -4059,8 +4060,8 @@ static double* readMatTable(const char* tableName, const char* fileName,
         }
 
         token = strtok(tableNameCopy, ".");
-        matvar = Mat_VarReadInfo(mat, token == NULL ? tableName : token);
-        if (matvar == NULL) {
+        matvarRoot = Mat_VarReadInfo(mat, token == NULL ? tableName : token);
+        if (matvarRoot == NULL) {
             free(tableNameCopy);
             (void)Mat_Close(mat);
             ModelicaFormatError(
@@ -4069,8 +4070,9 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
+        matvar = matvarRoot;
         token = strtok(NULL, ".");
-        /* Get field if array is of struct class and of 1x1 size */
+        /* Get field while matvar is of struct class and of 1x1 size */
         while (token != NULL && matvar != NULL &&
             matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
             matvar->dims[0] == 1 && matvar->dims[1] == 1) {
@@ -4079,27 +4081,27 @@ static double* readMatTable(const char* tableName, const char* fileName,
         }
         free(tableNameCopy);
 
-        /* Check if array is a matrix */
+        /* Check if matvar is a matrix */
         if (matvar->rank != 2) {
-            Mat_VarFree(matvar);
+            Mat_VarFree(matvarRoot);
             (void)Mat_Close(mat);
             ModelicaFormatError(
                 "Table array \"%s\" has not the required rank 2.\n", tableName);
             return NULL;
         }
 
-        /* Check if array is of double precision class (and thus non-sparse) */
+        /* Check if matvar is of double precision class (and thus non-sparse) */
         if (matvar->class_type != MAT_C_DOUBLE) {
-            Mat_VarFree(matvar);
+            Mat_VarFree(matvarRoot);
             (void)Mat_Close(mat);
             ModelicaFormatError("Table matrix \"%s\" has not the required "
                 "double precision class.\n", tableName);
             return NULL;
         }
 
-        /* Check if array is purely real-valued */
+        /* Check if matvar is purely real-valued */
         if (matvar->isComplex) {
-            Mat_VarFree(matvar);
+            Mat_VarFree(matvarRoot);
             (void)Mat_Close(mat);
             ModelicaFormatError("Table matrix \"%s\" must not be complex.\n",
                 tableName);
@@ -4108,7 +4110,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
 
         table = (double*)malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
         if (table == NULL) {
-            Mat_VarFree(matvar);
+            Mat_VarFree(matvarRoot);
             (void)Mat_Close(mat);
             ModelicaError("Memory allocation error\n");
             return NULL;
@@ -4125,7 +4127,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
             tableReadError = Mat_VarReadData(mat, matvar, table, start, stride, edge);
         }
 
-        Mat_VarFree(matvar);
+        Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
 
         if (tableReadError == 0) {
