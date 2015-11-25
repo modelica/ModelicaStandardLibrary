@@ -58,7 +58,7 @@
       Sep. 24, 2004: by Martin Otter, DLR
                      Final cleaning up of the code
 
-      Sep.  9, 2004: by Dag Bruck, Dynasim AB.
+      Sep.  9, 2004: by Dag Bruck, Dynasim AB
                      Implementation of scan functions
 
       Aug. 19, 2004: by Martin Otter, DLR
