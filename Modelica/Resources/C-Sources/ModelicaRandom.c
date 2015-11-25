@@ -1,27 +1,7 @@
-/* External functions for Modelica.Math.Random library
+/* ModelicaRandom.c - External functions for Modelica.Math.Random library
 
-   The functions in this file are non-portable. The following #define's are used
-   to define the system calls of the operating system
-
-    _MSC_VER       : Microsoft Visual C++
-    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
-                     Useful definitions:
-                     - "static" that is all functions become static
-                       (useful if file is included with other C-sources for an
-                        embedded system)
-                     - "__declspec(dllexport)" if included in a DLL and the
-                       functions shall be visible outside of the DLL
-
-   Release Notes:
-      Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
-                     Added nonnull attribute/annotations (ticket #1436)
-
-      Feb. 17, 2015: by Andreas Kloeckner and Martin Otter, DLR-SR
-                     Implemented a first version
-
-   This file is licensed under the BSD 2-Clause License:
-
-   Copyright (C) 2015, DLR and Modelica Association.
+   Copyright (C) 2015, Modelica Association and DLR
+   All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are met:
@@ -44,6 +24,27 @@
    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+
+/* The functions in this file are non-portable. The following #define's are used
+   to define the system calls of the operating system
+
+   _MSC_VER       : Microsoft Visual C++
+   MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
+                    Useful definitions:
+                    - "static" that is all functions become static
+                      (useful if file is included with other C-sources for an
+                       embedded system)
+                    - "__declspec(dllexport)" if included in a DLL and the
+                      functions shall be visible outside of the DLL
+
+   Release Notes:
+      Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
+                     Added nonnull attribute/annotations (ticket #1436)
+
+      Feb. 17, 2015: by Andreas Kloeckner and Martin Otter, DLR-SR
+                     Implemented a first version
+*/
+
 #if !defined(MODELICA_EXPORT)
 #   define MODELICA_EXPORT
 #endif

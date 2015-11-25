@@ -1778,7 +1778,7 @@ table   { solid #000; border-collapse: collapse;}
 <p>All files in this directory (Modelica) and in all
 subdirectories, especially all files that build package \"Modelica\" and all
 files in \"Modelica/Resources/*\" and \"Modelica/help\" are licensed by the <b><u>Modelica Association</u></b> under the <b><u>Modelica License 2</u></b> (with exception of files
-\"Modelica/Resources/C-Sources/win32_dirent.*, ModelicaMatIO.*, ModelicaStandardTables.*, gconstructor.h, uthash.h\").</p>
+\"Modelica/Resources/C-Sources/win32_dirent.*, ModelicaInternal.c, ModelicaMatIO.*, ModelicaRandom.c, ModelicaStandardTables.*, ModelicaStrings.c, ModelicaUtilities.h, gconstructor.h, uthash.h\").</p>
 
 <p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
 Modelica Association<br>
@@ -1790,9 +1790,9 @@ email: Board@Modelica.org<br>
 web: <a href=\"https://www.Modelica.org\">https://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
-Copyright &copy; 1998-2014,
+Copyright &copy; 1998-2015,
 ABB, Austrian Institute of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, Modelon,
-TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
+TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation
 </p>
 
 <p>

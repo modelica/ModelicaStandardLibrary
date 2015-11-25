@@ -1,46 +1,46 @@
-/*
- * Copyright (C) 2005-2013 Christopher C. Hulbert
- *
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- *    1. Redistributions of source code must retain the above copyright notice,
- *       this list of conditions and the following disclaimer.
- *
- *    2. Redistributions in binary form must reproduce the above copyright
- *       notice, this list of conditions and the following disclaimer in the
- *       documentation and/or other materials provided with the distribution.
- *
- * THIS SOFTWARE IS PROVIDED BY CHRISTOPHER C. HULBERT ``AS IS'' AND ANY
- * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- * DISCLAIMED. IN NO EVENT SHALL CHRISTOPHER C. HULBERT OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
+/* ModelicaMatIO.c - MAT file I/O functions
+
+   Copyright (C) 2005-2013, Christopher C. Hulbert
+   Copyright (C) 2013-2015, Modelica Association and ITI GmbH
+   All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+   ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+   WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+   FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+   CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 
 /*
-  This file was created by concatenation of the following C source files of the
-  MAT file I/O library from <http://sourceforge.net/projects/matio/>:
+   This file was created by concatenation of the following C source files of the
+   MAT file I/O library from <http://sourceforge.net/projects/matio/>:
 
-  endian.c
-  inflate.c
-  io.c
-  read_data.c
-  snprintf.c
-  mat.c
-  mat4.c
-  mat5.c
-  mat73.c
-  matvar_cell.c
-  matvar_struct.c
+   endian.c
+   inflate.c
+   io.c
+   read_data.c
+   snprintf.c
+   mat.c
+   mat4.c
+   mat5.c
+   mat73.c
+   matvar_cell.c
+   matvar_struct.c
 */
 
 /*
@@ -48,11 +48,11 @@
    formats require additional preprocessor options and third-party libraries.
    The following #define's are available.
 
-    NO_FILE_SYSTEM: A file system is not present (e.g. on dSPACE or xPC).
-    HAVE_ZLIB=1   : Enables the support of v7 MAT-files
-                    The zlib (>= v1.2.3) library is required.
-    HAVE_HDF5=1   : Enables the support of v7.3 MAT-files
-                    The hdf5 (>= v1.8) and szip libraries are required.
+   NO_FILE_SYSTEM: A file system is not present (e.g. on dSPACE or xPC).
+   HAVE_ZLIB=1   : Enables the support of v7 MAT-files
+                   The zlib (>= v1.2.3) library is required.
+   HAVE_HDF5=1   : Enables the support of v7.3 MAT-files
+                   The hdf5 (>= v1.8) and szip libraries are required.
 */
 
 #include "ModelicaUtilities.h"
