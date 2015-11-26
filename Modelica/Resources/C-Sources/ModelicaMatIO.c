@@ -16226,11 +16226,11 @@ ReadData5(mat_t *mat,matvar_t *matvar,void *data,
                 ReadCompressedDataSlab2(mat,&z,complex_data->Im,
                     matvar->class_type,matvar->data_type,matvar->dims,
                     start,stride,edge);
-                inflateEnd(&z);
             } else {
                 ReadCompressedDataSlab2(mat,&z,data,matvar->class_type,
                     matvar->data_type,matvar->dims,start,stride,edge);
             }
+            inflateEnd(&z);
         }
 #endif
     } else {
@@ -16286,12 +16286,12 @@ ReadData5(mat_t *mat,matvar_t *matvar,void *data,
                 ReadCompressedDataSlabN(mat,&z,complex_data->Im,
                     matvar->class_type,matvar->data_type,matvar->rank,
                     matvar->dims,start,stride,edge);
-                inflateEnd(&z);
             } else {
                 ReadCompressedDataSlabN(mat,&z,data,matvar->class_type,
                     matvar->data_type,matvar->rank,matvar->dims,
                     start,stride,edge);
             }
+            inflateEnd(&z);
         }
 #endif
     }
