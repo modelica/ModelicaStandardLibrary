@@ -109,13 +109,18 @@ of magnitude.
       nPorts=2)
       annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
+      mC_scaled(nominal = 100),
+      medium(Xi(nominal=0.01)),
       C_start={1.519E-3},
       V=100,
       redeclare package Medium = Medium,
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_portsData=false,
       nPorts=4) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
+
     Pipes.DynamicPipe ductOut(
+      mCs_scaled(each nominal = 0.01),
+      mediums(each Xi(nominal = 0.01)),
       redeclare package Medium = Medium,
       diameter=0.15,
       redeclare model FlowModel =
@@ -124,6 +129,7 @@ of magnitude.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
       length=5) "Outlet duct"
       annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
+
     Sensors.TraceSubstances traceDuctIn(redeclare package Medium = Medium)
       "Trace substance at duct inlet"
       annotation (Placement(transformation(extent={{-54,0},{-34,20}})));
@@ -157,7 +163,10 @@ of magnitude.
       yMin=-1,
       Ti=10,
       k=10)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+
     Pipes.DynamicPipe ductIn(
+      mCs_scaled(each nominal = 0.01),
+      mediums(each Xi(nominal = 0.01)),
       redeclare package Medium = Medium,
       diameter=0.15,
       redeclare model FlowModel =
@@ -166,6 +175,7 @@ of magnitude.
       modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
       length=5) "Inlet duct"
       annotation (Placement(transformation(extent={{-38,-40},{-18,-20}})));
+
     Sensors.TraceSubstances traceDuctOut(redeclare package Medium = Medium)
       "Trace substance at duct outlet"
       annotation (Placement(transformation(extent={{-20,0},{0,20}})));
