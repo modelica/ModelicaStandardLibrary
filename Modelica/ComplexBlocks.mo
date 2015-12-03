@@ -71,8 +71,8 @@ This library contains blocks for processing complex signals.
       extends Modelica.Icons.Example;
       Modelica.Blocks.Sources.Ramp len(duration=1, offset=1E-6) annotation (
           Placement(transformation(extent={{-80,10},{-60,30}})));
-      Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration
-          =1) annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
+      Modelica.Blocks.Sources.Ramp phi(height=4*Modelica.Constants.pi, duration=
+           1) annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
       Modelica.ComplexBlocks.ComplexMath.PolarToComplex polarToComplex
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Modelica.ComplexBlocks.ComplexMath.ComplexToReal complexToReal
@@ -91,6 +91,54 @@ This library contains blocks for processing complex signals.
 Plotting the imaginary part versus the real part, you will see an Archimedean spiral.</p>
 </html>"), experiment(StopTime=1.01, Interval=0.001));
     end TestConversionBlock;
+
+    model ShowTransferFunction
+      extends Modelica.Icons.Example;
+      parameter Real d=1/sqrt(2);
+      parameter Real b[:]={1};
+      parameter Real a[:]={1,2*d,1};
+      parameter Real wMin=0.01;
+      parameter Real wMax=100;
+      Real lg_w=log10(logFrequencySweep.y);
+      Real dB=20*log10(complexToPolar.len);
+      Modelica.SIunits.Angle phi(displayUnit="deg")=complexToPolar.phi;
+      Modelica.ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+        duration=1,
+        wMin=wMin,
+        wMax=wMax)
+        annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
+      Modelica.ComplexBlocks.Sources.ComplexConstant const(k(re=1, im=0))
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+      Modelica.ComplexBlocks.ComplexMath.TransferFunction transferFunction(b=b,
+          a=a)
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+    equation
+      connect(const.y, transferFunction.u)
+        annotation (Line(points={{-59,0},{-50.5,0},{-42,0}}, color={85,170,255}));
+      connect(logFrequencySweep.y, transferFunction.w)
+        annotation (Line(points={{-59,-30},{-30,-30},{-30,-12}}, color={0,0,127}));
+      connect(transferFunction.y, complexToPolar.u)
+        annotation (Line(points={{-19,0},{-2,0}},        color={85,170,255}));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}})),
+        experiment(__Dymola_NumberOfIntervals=1000),
+        __Dymola_experimentSetupOutput,
+        Documentation(info="<html>
+<p>This example shows the response of a PT2 defined by its transfer function</p>
+<pre>
+            1
+H(jw)=-------------------
+      1 + 2 d jw + (jw)^2
+</pre>
+<p>Frequency performs a loagirthmic ramp from 0.01 to 100 s^-1.</p>
+<p>
+Plot the magnitude locus (in dB) dB versus lg_w and the phase locus versus lg_w.
+</p>
+</html>"));
+    end ShowTransferFunction;
     annotation (Documentation(info="<html>
 <p>This library demonstrates the usage of Complex blocks.</p>
 </html>"));
@@ -562,8 +610,8 @@ result in the following equation:
                   fillColor={235,235,235},
                   fillPattern=FillPattern.Solid,
                   lineColor={0,0,255}),Line(points={{-60,0},{-20,0}}, color={0,
-              0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points
-              ={{0,-20},{0,-60}}, color={0,0,255}),Text(
+              0,255}),Line(points={{20,0},{80,0}}, color={0,0,255}),Line(points=
+               {{0,-20},{0,-60}}, color={0,0,255}),Text(
                   extent={{-12,10},{84,-84}},
                   lineColor={0,0,0},
                   textString="-")}));
@@ -620,8 +668,8 @@ result in the following equation:
                   lineColor={0,0,127},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-              color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color
-              ={0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
+              color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color=
+               {0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
                   extent={{-38,34},{38,-34}},
@@ -653,8 +701,8 @@ result in the following equation:
                   lineColor={0,0,127},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),Line(points={{50,0},{100,0}},
-              color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color
-              ={0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
+              color={0,0,255}),Line(points={{-100,60},{-74,24},{-44,24}}, color=
+               {0,0,127}),Line(points={{-100,-60},{-74,-28},{-42,-28}}, color={
               0,0,127}),Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
               Line(points={{50,0},{100,0}}, color={0,0,127}),Text(
                   extent={{-38,34},{38,-34}},
@@ -1918,6 +1966,44 @@ zero or negative.
 <p>Converts the Complex input <i>u</i> to the Real outputs <i>len</i> (length, absolute) and <i>phi</i> (angle, argument).</p>
 </html>"));
     end ComplexToPolar;
+
+    block TransferFunction
+      extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
+      import Modelica.ComplexMath.j;
+      import Modelica.ComplexMath.'sum';
+      parameter Real b[:]={1}
+        "Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})";
+      parameter Real a[:]={1}
+        "Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})";
+      Modelica.Blocks.Interfaces.RealInput w "Frequency input" annotation (Placement(transformation(
+            extent={{-20,-20},{20,20}},
+            rotation=90,
+            origin={0,-120})));
+    equation
+      y = u*'sum'({b[i]*(j*w)^(i-1) for i in 1:size(b,1)})/
+            'sum'({a[i]*(j*w)^(i-1) for i in 1:size(a,1)});
+      annotation (Icon(graphics={
+          Text(
+            lineColor={0,0,127},
+            extent={{-90,10},{90,90}},
+              textString="b(jw)"),
+            Line(visible=true,
+              points={{-80,0},{80,0}},
+              color={0,0,127}),
+          Text(
+            lineColor={0,0,127},
+            extent={{-90,-90},{90,-10}},
+              textString="a(jw)")}), Documentation(info="<html>
+<p>
+The complex input u is multiplied by the complex transfer function (depending on frequncy input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
+</p>
+<pre>
+           b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
+   y(jw) = ------------------------------------------------- * u(jw)
+           a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
+</pre>
+</html>"));
+    end TransferFunction;
     annotation (Documentation(info="<html>
 <p>
 This package contains basic <b>mathematical operations</b>,
@@ -2164,6 +2250,24 @@ The output y is a complex phasor with constant magnitude, spinning with constant
 
 </html>"));
     end ComplexRotatingPhasor;
+
+    block LogFrequencySweep "Logarithmic frequency sweep"
+      extends Modelica.Blocks.Interfaces.SO;
+      import Modelica.Constants.eps;
+      parameter Real wMin(min=eps) "Lower frequency border";
+      parameter Real wMax(min=(1+eps)*wMin) "Upper frequency border";
+      parameter Modelica.SIunits.Time duration(min=0.0, start=1)
+        "Duration of ramp (= 0.0 gives a Step)";
+    equation
+      y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/duration));
+       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}})), Documentation(info="<html>
+<p>The output performs a logarithmic freqency sweep:<br>
+The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
+The output is the decimal power of this logarithmic ramp.
+</p>
+</html>"));
+    end LogFrequencySweep;
   end Sources;
   annotation (Documentation(info="<html>
 <p>This library hosts blocks using Complex inputs and outputs.</p>
