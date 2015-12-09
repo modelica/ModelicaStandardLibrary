@@ -3,6 +3,9 @@ Vectors
 Matrices
 Nonlinear
 BooleanVectors
+Random
+Distributions
+Special
 isEqual
 isPowerOf2
 sin
