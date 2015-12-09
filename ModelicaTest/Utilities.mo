@@ -17,6 +17,8 @@ package Utilities "Test functions for Modelica.Utilities"
     Boolean b;
     String svec[2];
     Types.TokenValue token;
+    Integer hash1;
+    Integer hash2;
   algorithm
     Streams.print("... Test of Modelica.Utilities.Strings");
     Streams.print("... Test of Modelica.Utilities.Strings", logFile);
@@ -204,6 +206,12 @@ package Utilities "Test functions for Modelica.Utilities"
 
     Strings.scanNoToken("  abc = 3;   ", 11);
 
+    Streams.print("\n... Demonstrate how to compute a hash value from a string:");
+    hash1 :=Modelica.Utilities.Strings.hashString("this is a test");
+    hash2 :=Modelica.Utilities.Strings.hashString("Controller.noise1");
+    Streams.print("    hash1 = " + String(hash1));
+    Streams.print("    hash2 = " + String(hash2));
+
     ok := true;
   end Strings;
 
@@ -274,6 +282,39 @@ package Utilities "Test functions for Modelica.Utilities"
 
     ok := true;
   end Streams;
+
+  function System "Test functions of Modelica.Utilities.System"
+    import Modelica.Utilities.Streams;
+    input String logFile="ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    output Boolean ok;
+  protected
+    Integer ms;
+    Integer sec;
+    Integer min;
+    Integer hour;
+    Integer day;
+    Integer mon;
+    Integer year;
+    Integer pid;
+  algorithm
+    Streams.print("... Test of Modelica.Utilities.System");
+    Streams.print("... Test of Modelica.Utilities.System", logFile);
+
+    (ms,sec,min,hour,day,mon,year) :=Modelica.Utilities.System.getTime();
+    Streams.print("    ms   = " + String(ms));
+    Streams.print("    sec  = " + String(sec));
+    Streams.print("    min  = " + String(min));
+    Streams.print("    hour = " + String(hour));
+    Streams.print("    day  = " + String(day));
+    Streams.print("    mon  = " + String(mon));
+    Streams.print("    year = " + String(year));
+
+    pid :=Modelica.Utilities.System.getPid();
+    Streams.print("    pid  = " + String(pid));
+
+    ok := true;
+  end System;
 
   function Internal "Test functions of Modelica.Utilities.Internal"
     extends Modelica.Icons.Function;
