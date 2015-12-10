@@ -473,6 +473,8 @@ MODELICA_EXPORT double ModelicaRandom_impureRandom_xorshift1024star(int id) {
     return y;
 }
 
+int  ModelicaInternal_getpid(void);
+void ModelicaInternal_getTime(int* ms, int* sec, int* min, int* hour, int* mday, int* mon, int* year);
 
 MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed() {
    /* Creates an automatic integer seed (typically from the current time and process id) */
@@ -481,8 +483,8 @@ MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed() {
    int pid;
    int seed;
 
-   ModelicaRandom_getTime(&ms, &sec, &min, &hour, &mday, &mon, &year);
-   pid = ModelicaRandom_getpid();
+   ModelicaInternal_getTime(&ms, &sec, &min, &hour, &mday, &mon, &year);
+   pid = ModelicaInternal_getpid();
 
    /* Check that worst case combination can be included in an Integer:
 
