@@ -1053,19 +1053,16 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
     end initialStateWithXorshift64star;
 
     function automaticGlobalSeed
-      "Creates an automatic integer seed from the current time and process id (= impure function)"
+      "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
       output Integer seed "Automatically generated seed";
-    protected
-      Integer ms,sec,min,hour "Current system time";
-      Integer pid "Current process ID";
+
+      /*
+  external "C" seed = ModelicaRandom_automaticGlobalSeed() annotation (Library="ModelicaExternalC");
+  */
     algorithm
-      /* Temporarily deactivated, since getTime and getPid are not yet in the Dymola distribution
-  (ms,sec,min,hour) := Modelica.Utilities.System.getTime();
-  pid := Modelica.Utilities.System.getPid();
-  seed := 1 + ms + 1000*sec + 1000*60*min + 1000*60*60*hour
-            + 6007*pid;
-            */
+      /* Temporarily deactivated, since ModelicaRandom_automaticGlobalSeed not yet in the Dymola distribution */
       seed :=101;
+
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1073,17 +1070,14 @@ seed = Utilities.<b>automaticGlobalSeed</b>();
 </pre></blockquote>
 
 <h4>Description</h4>
-<p>Returns an automatically computed seed (Integer) from:</p>
+<p>Returns an automatically computed seed (Integer). Typically, this seed is computed from:</p>
 <ol>
 <li> The current localtime by computing the number of milli-seconds up to the current hour</li>
 <li> The process id (added to the first part by multiplying it with the prime number 6007).</li>
 </ol>
-<p>Check that worst case combination can be included in an Integer:</p>
-<blockquote>
-<p>1000*60*60 = 3.6e6 &LT; 2^31 = 2147483648 (2.1e9)</p>
-</blockquote>
 <p>
-Everything is added to 1, in order to guard against the very unlikely case that the sum is zero.
+If getTime and getPid functions are not available on the target where this Modelica function
+is called, other means to compute a seed may be used.
 </p>
 
 <p>
@@ -1102,7 +1096,7 @@ This function should be only called once during initialization.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
+<a href=\"modelica://Modelica_Noise.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
@@ -1116,7 +1110,7 @@ This function should be only called once during initialization.
 
 <table border=0>
 <tr><td valign=\"top\">
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
+         <img src=\"modelica://Modelica_Noise/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
