@@ -473,7 +473,27 @@ MODELICA_EXPORT double ModelicaRandom_impureRandom_xorshift1024star(int id) {
     return y;
 }
 
-/* original algorithms */
+
+MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed() {
+   /* Creates an automatic integer seed (typically from the current time and process id) */
+
+   int ms, sec, min, hour, mday, mon, year;
+   int pid;
+   int seed;
+
+   ModelicaRandom_getTime(&ms, &sec, &min, &hour, &mday, &mon, &year);
+   pid = ModelicaRandom_getpid();
+
+   /* Check that worst case combination can be included in an Integer:
+
+         1000*60*60 = 3.6e6 < 2^31 = 2147483648 (2.1e9)
+
+      Everything is added to 1, in order to guard against the very unlikely case that the sum is zero.
+   */
+   seed = 1 + ms + 1000*sec + 1000*60*min + 1000*60*60*hour + 6007*pid;
+   return seed;
+}
+
 
 MODELICA_EXPORT void ModelicaRandom_convertRealToIntegers(double d, int i[]) {
     /* Cast a double to two integers */
