@@ -1830,7 +1830,7 @@ public
     assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
     annotation (
       Documentation(info="<html>
-<p><span style=\"font-family: MS Shell Dlg 2;\">This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</span></p>
+<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
 <ul>
 <li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
 <li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
