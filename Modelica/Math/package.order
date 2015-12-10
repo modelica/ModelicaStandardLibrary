@@ -6,6 +6,7 @@ BooleanVectors
 Random
 Distributions
 Special
+FastFourierTransform
 isEqual
 isPowerOf2
 sin
