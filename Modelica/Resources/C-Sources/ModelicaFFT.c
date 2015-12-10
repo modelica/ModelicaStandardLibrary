@@ -449,15 +449,15 @@ static void kf_factor(int n,int * facbuf) {
     do {
         while (n % p) {
             switch (p) {
-            case 4:
-                p = 2;
-                break;
-            case 2:
-                p = 3;
-                break;
-            default:
-                p += 2;
-                break;
+                case 4:
+                    p = 2;
+                    break;
+                case 2:
+                    p = 3;
+                    break;
+                default:
+                    p += 2;
+                    break;
             }
             if (p > floor_sqrt)
                 p = n;          /* no more factors, skip to end */
