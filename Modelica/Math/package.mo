@@ -6,90 +6,6 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Package;
 
 
-package Icons "Icons for Math"
-  extends Modelica.Icons.IconsPackage;
-
-  partial function AxisLeft
-    "Basic icon for mathematical function with y-axis on left side"
-
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
-          Polygon(
-            points={{-80,90},{-88,68},{-72,68},{-80,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,
-            95,95}),Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
-            points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
-                extent={{-75,104},{-55,84}},
-                lineColor={95,95,95},
-                textString="y"),Polygon(
-                points={{-80,98},{-86,82},{-74,82},{-80,98}},
-                lineColor={95,95,95},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-<p>
-Icon for a mathematical function, consisting of an y-axis on the left side.
-It is expected, that an x-axis is added and a plot of the function.
-</p>
-</html>"));
-  end AxisLeft;
-
-  partial function AxisCenter
-    "Basic icon for mathematical function with y-axis in the center"
-
-    annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{0,-80},{0,68}}, color={192,192,192}),
-          Polygon(
-            points={{0,90},{-8,68},{8,68},{0,90}},
-            lineColor={192,192,192},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(graphics={Line(points={{0,80},{-8,80}}, color={95,95,95}),Line(
-            points={{0,-80},{-8,-80}}, color={95,95,95}),Line(points={{0,-90},{
-            0,84}}, color={95,95,95}),Text(
-                extent={{5,104},{25,84}},
-                lineColor={95,95,95},
-                textString="y"),Polygon(
-                points={{0,98},{-6,82},{6,82},{0,98}},
-                lineColor={95,95,95},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-<p>
-Icon for a mathematical function, consisting of an y-axis in the middle.
-It is expected, that an x-axis is added and a plot of the function.
-</p>
-</html>"));
-  end AxisCenter;
-
-end Icons;
-
 
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
@@ -992,7 +908,16 @@ This library provides functions operating on vectors:
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
-</HTML>"));
+</HTML>"),
+    Icon(graphics={Rectangle(
+          extent={{-16,66},{14,18}},
+          lineColor={95,95,95},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid), Rectangle(
+          extent={{-16,-14},{14,-62}},
+          lineColor={95,95,95},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid)}));
 end Vectors;
 
 
@@ -11812,9 +11737,113 @@ Note: A' is a short hand notation of transpose(A):
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Vectors\">Vectors</a>
 
-</html>"));
+</html>"), Icon(graphics={
+        Rectangle(
+          extent={{-60,66},{-30,18}},
+          lineColor={95,95,95},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{28,66},{58,18}},
+          lineColor={95,95,95},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{-60,-18},{-30,-66}},
+          lineColor={95,95,95},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid),
+        Rectangle(
+          extent={{28,-18},{58,-66}},
+          lineColor={95,95,95},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.Solid)}));
 end Matrices;
 
+
+package Icons "Icons for Math"
+  extends Modelica.Icons.IconsPackage;
+
+  partial function AxisLeft
+    "Basic icon for mathematical function with y-axis on left side"
+
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
+          Polygon(
+            points={{-80,90},{-88,68},{-72,68},{-80,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Line(points={{-80,80},{-88,80}}, color={95,
+            95,95}),Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),Line(
+            points={{-80,-90},{-80,84}}, color={95,95,95}),Text(
+                extent={{-75,104},{-55,84}},
+                lineColor={95,95,95},
+                textString="y"),Polygon(
+                points={{-80,98},{-86,82},{-74,82},{-80,98}},
+                lineColor={95,95,95},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+Icon for a mathematical function, consisting of an y-axis on the left side.
+It is expected, that an x-axis is added and a plot of the function.
+</p>
+</html>"));
+  end AxisLeft;
+
+  partial function AxisCenter
+    "Basic icon for mathematical function with y-axis in the center"
+
+    annotation (
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+          Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{0,-80},{0,68}}, color={192,192,192}),
+          Polygon(
+            points={{0,90},{-8,68},{8,68},{0,90}},
+            lineColor={192,192,192},
+            fillColor={192,192,192},
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(graphics={Line(points={{0,80},{-8,80}}, color={95,95,95}),Line(
+            points={{0,-80},{-8,-80}}, color={95,95,95}),Line(points={{0,-90},{
+            0,84}}, color={95,95,95}),Text(
+                extent={{5,104},{25,84}},
+                lineColor={95,95,95},
+                textString="y"),Polygon(
+                points={{0,98},{-6,82},{6,82},{0,98}},
+                lineColor={95,95,95},
+                fillColor={95,95,95},
+                fillPattern=FillPattern.Solid)}),
+      Documentation(info="<html>
+<p>
+Icon for a mathematical function, consisting of an y-axis in the middle.
+It is expected, that an x-axis is added and a plot of the function.
+</p>
+</html>"));
+  end AxisCenter;
+
+end Icons;
 
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;

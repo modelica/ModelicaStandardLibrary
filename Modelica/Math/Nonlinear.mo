@@ -434,7 +434,8 @@ to a function, see, .e.g.,
   function quadratureLobatto
     "Return the integral of an integrand function using an adaptive Lobatto rule"
     extends Modelica.Icons.Function;
-    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f "Integrand function";
+    input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction f
+      "Integrand function";
     input Real a "Lower limit of integration interval";
     input Real b "Upper limit of integration interval";
     input Real tolerance = 100*Modelica.Constants.eps
@@ -825,5 +826,10 @@ or the Modelica Language  Specification, Chapter 12.4.2.
 <li><i>June 2002 </i> by Gerhard Schillhuber (master thesis at DLR-RM):<br>
        Adaptive quadrature to compute the curve length of a Spline.</li>
 </ul>
-</html>"));
+</html>"), Icon(graphics={       Polygon(points={{-44,-52},{-44,-26},{-17.1,
+              44.4},{-11.4,52.6},{-5.8,57.1},{-0.2,57.8},{5.4,54.6},{11.1,47.7},
+              {16.7,37.4},{23.1,22.1},{31.17,-0.8},{48,-52},{-44,-52}},
+          lineColor={135,135,135},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.Solid)}));
 end Nonlinear;

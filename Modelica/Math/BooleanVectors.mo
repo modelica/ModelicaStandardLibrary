@@ -135,7 +135,7 @@ function enumerate
   output Integer enumerated[size(b, 1)]
       "Indices of the true entries (increasing order; 0 for false entries)";
 
-protected
+  protected
   Integer count;
 
 algorithm
@@ -233,7 +233,7 @@ function index "Returns the indices of the true entries of a Boolean vector"
   input Boolean b[:] "Boolean vector";
   output Integer indices[countTrue(b)] "Indices of the true entries";
 
-protected
+  protected
   Integer count;
 
 algorithm
@@ -324,5 +324,13 @@ end oneTrue;
 This library provides functions operating on vectors that have
 a Boolean vector as input argument.
 </p>
-</html>"));
+</html>"), Icon(graphics={Rectangle(
+          extent={{-16,62},{14,14}},
+          lineColor={255,0,255},
+          fillColor={255,0,255},
+          fillPattern=FillPattern.Solid), Rectangle(
+          extent={{-16,-18},{14,-66}},
+          lineColor={255,0,255},
+          fillColor={255,0,255},
+          fillPattern=FillPattern.Solid)}));
 end BooleanVectors;
