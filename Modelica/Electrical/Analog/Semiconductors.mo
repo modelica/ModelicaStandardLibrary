@@ -1801,24 +1801,25 @@ public
     SI.Voltage vd "Voltage across pure diode part";
     SI.Current id "diode current";
   protected
-    parameter SI.Voltage VdMax = Vf + (N*Vt)
+    SI.Voltage VdMax=Vf + (N*Vt_applied)
       "Linear continuation threshold";
-    parameter SI.Current iVdMax = Ids * (exp(VdMax/(N*Vt)) - 1)
+    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1)
       "Current at threshold";
-    parameter SI.Conductance diVdMax = Ids * exp(VdMax/(N*Vt))/(N*Vt)
-      "Conductance at threshold";
-
+    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*
+        Vt_applied) "Conductance at threshold";
+    SI.Voltage Vt_applied;
   equation
+    Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
     id = smooth(1,
       if vd < -Bv / 2 then
-        //Lower half of reverse biased region including breakdown.
-        -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))
+        -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
       elseif vd < VdMax then
-        //Upper half of reverse biased region, and forward biased region before conduction.
-        Ids * (exp(vd/(N*Vt)) - 1)
+        Ids * (exp(vd/(N*Vt_applied)) - 1)
       else
-        //Forward biased region after conduction
         iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
 
     v = vd + id * Rs;
     i = id + v*Gp;
@@ -1829,25 +1830,29 @@ public
     assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
     annotation (
       Documentation(info="<html>
-<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. It was proposed by Stefan Vorkoetter. The model is divided into three parts:</p>
+<p><span style=\"font-family: MS Shell Dlg 2;\">This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</span></p>
 <ul>
 <li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
 <li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
 <li>forward biased region after conduction: iVdMax + (vd - VdMax) * diVdMax</li>
 </ul>
-<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k*T/q, where</p>
+<ul>
+<li>k is Boltzmann&apos;s constant</li>
+<li>T is the heat port temperature.</li>
+<li>q is the electron charge.</li>
+</ul>
 </html>",
    revisions="<html>
 <ul>
-<li><i> March 11, 2009   </i>
-       by Christoph Clauss<br> conditional heat port added<br>
-       </li>
-<li><i> November 15, 2005   </i>
-       by Christoph Clauss<br> smooth function added<br>
-       </li>
-<li><i> 1998   </i>
-       by Christoph Clauss<br> implemented<br>
-       </li>
+<li><i>November 2015 </i>
+by Stefan Vorkoetter <br>implemented dynamic temperature dependency</br></li>
+<li><i>November 2015</i>
+by Kristin Majetta <br> defined parameter Vt based on fixed temperature</br></li>
+<li><i>June 2014</i>
+by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss <br>implemented</br></li>
+<li><i>October 2011</i>
+Stefan Vorkoetter - new model proposed.</li>
 </ul>
 </html>"),
       Icon(coordinateSystem(
@@ -1876,9 +1881,11 @@ public
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
             lineColor={0,0,255},
-            fillColor={255,0,0}),
+            fillColor={255,0,0},
+            fillPattern=FillPattern.None),
           Line(points={{-96,0},{96,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255})}));
+          Line(points={{30,40},{30,-40}}, color={0,0,255})}),
+      uses(Modelica(version="3.2.2")));
   end Diode2;
   annotation (
     Documentation(info="<html>
