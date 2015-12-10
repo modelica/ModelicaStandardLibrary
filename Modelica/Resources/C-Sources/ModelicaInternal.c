@@ -37,6 +37,8 @@
    _MSC_VER       : Microsoft Visual C++
    __GNUC__       : GNU C compiler
    NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
+   NO_PID         : No getpid is present
+   NO_TIME        : No API to retrieve current time
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definitions:
                     - "static" that is all functions become static
@@ -46,6 +48,9 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Dec. 10, 2015: by Martin Otter, DLR
+                     Added flags NO_PID and NO_TIME ()
+
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
                      Added nonnull attributes/annotations (ticket #1436)
 
@@ -1157,14 +1162,27 @@ MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value
 /* Some parts from: http://nadeausoftware.com/articles/2012/04/c_c_tip_how_measure_elapsed_real_time_benchmarking */
 
 MODELICA_EXPORT int ModelicaInternal_getpid(void) {
+#if defined(NO_PID)
+    return 0;
+#else
 #if defined(_POSIX_) || defined(__GNUC__) || defined(__WATCOMC__) || defined(__BORLANDC__) || defined(__LCC__)
     return getpid();
 #else
     return _getpid();
 #endif
+#endif
 }
 
 MODELICA_EXPORT void ModelicaInternal_getTime(int* ms, int* sec, int* min, int* hour, int* mday, int* mon, int* year) {
+#if defined(NO_TIME)
+    *ms   = 0;
+    *sec  = 0;
+    *min  = 0;
+    *hour = 0;
+    *mday = 0;
+    *mon  = 0;
+    *year = 0;
+#else
     struct tm* tlocal;
     time_t calendarTime;
     int ms0;
@@ -1205,6 +1223,7 @@ MODELICA_EXPORT void ModelicaInternal_getTime(int* ms, int* sec, int* min, int* 
     *mday = tlocal->tm_mday;
     *mon = tlocal->tm_mon;
     *year = tlocal->tm_year;
+#endif
 }
 
 #endif
