@@ -240,7 +240,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm
       N_const =                                                                     N_nominal
       "Constant rotational speed" annotation(Dialog(enable = not use_N_in));
-    Modelica.Blocks.Interfaces.RealInput N_in(unit="1/min") if use_N_in
+    Modelica.Blocks.Interfaces.RealInput N_in(unit="rev/min") if use_N_in
       "Prescribed rotational speed"
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
@@ -251,7 +251,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
           origin={0,100})));
 
   protected
-    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="1/min")
+    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="rev/min")
       "Needed to connect to conditional connector";
   equation
     // Connect statement active only if use_p_in = true

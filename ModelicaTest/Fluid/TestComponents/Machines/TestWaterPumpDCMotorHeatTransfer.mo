@@ -51,10 +51,10 @@ model TestWaterPumpDCMotorHeatTransfer
     Jr=0.1,
     inertiaRotor(w(
         fixed=true,
-        displayUnit="1/min",
+        displayUnit="rev/min",
         start=0.10471975511966)),
     VaNominal=400,
-    wNominal(displayUnit="1/min") = 157.07963267949,
+    wNominal(displayUnit="rev/min") = 157.07963267949,
     Ra=10,
     IaNominal=10,
     phiMechanical(fixed=true),

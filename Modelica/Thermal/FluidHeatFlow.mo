@@ -2000,7 +2000,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
     model IdealPump "Model of an ideal pump"
 
       extends Interfaces.Partials.TwoPort(final tapT=1);
-      parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="1/min")
+      parameter Modelica.SIunits.AngularVelocity wNominal(start=1, displayUnit="rev/min")
         "Nominal speed"
           annotation(Dialog(group="Pump characteristic"));
       parameter Modelica.SIunits.Pressure dp0(start=2)

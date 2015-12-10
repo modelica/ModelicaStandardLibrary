@@ -174,7 +174,7 @@ the result as output signal.
 
     block To_rpm "Convert from radian per second to revolutions per minute"
       extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rad/s"),
-          y(unit="1/min"));
+          y(unit="rev/min"));
     equation
       y = SI.Conversions.to_rpm(u);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -184,7 +184,7 @@ the result as output signal.
                   textString="rad/s"),Text(
                   extent={{100,-42},{-62,-74}},
                   lineColor={0,0,0},
-                  textString="1/min")}), Documentation(info="<html>
+                  textString="rev/min")}), Documentation(info="<html>
 <p>
 This block converts the input signal from radian per second to revolutions per minute and returns
 the result as output signal.
@@ -193,7 +193,7 @@ the result as output signal.
     end To_rpm;
 
     block From_rpm "Convert from revolutions per minute to radian per second"
-      extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="1/min"),
+      extends Modelica.Blocks.Interfaces.PartialConversionBlock(u(unit="rev/min"),
           y(unit="rad/s"));
     equation
       y = SI.Conversions.from_rpm(u);
@@ -201,7 +201,7 @@ the result as output signal.
                 -100},{100,100}}), graphics={Text(
                   extent={{50,84},{-94,56}},
                   lineColor={0,0,0},
-                  textString="1/min"),Text(
+                  textString="rev/min"),Text(
                   extent={{94,-42},{-26,-74}},
                   lineColor={0,0,0},
                   textString="rad/s")}), Documentation(info="<html>

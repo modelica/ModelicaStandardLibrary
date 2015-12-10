@@ -282,7 +282,7 @@ end UsersGuide;
       type Angle_deg = Real (final quantity="Angle", final unit="deg")
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit=
-                 "1/min")
+                 "rev/min")
         "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min";
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h")
         "Velocity in kilometers per hour";
@@ -525,7 +525,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
               textString="rad/s"), Text(
               extent={{100,-52},{-40,-98}},
               lineColor={0,0,0},
-              textString="1/min")}));
+              textString="rev/min")}));
     end to_rpm;
 
     function from_rpm
@@ -539,7 +539,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
                 -100},{100,100}}), graphics={Text(
               extent={{14,100},{-102,56}},
               lineColor={0,0,0},
-              textString="1/min"), Text(
+              textString="rev/min"), Text(
               extent={{100,-56},{-32,-102}},
               lineColor={0,0,0},
               textString="rad/s")}));

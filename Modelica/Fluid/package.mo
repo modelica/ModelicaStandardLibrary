@@ -1287,7 +1287,7 @@ Modelica.Fluid was further improved:
      Resized input connector, so that it has the same size as the
      standard input connectors.<br>
      Changed icon text to input connector to \"N_in [rpm]\".<br>
-     Added unit 1/min to the external and internal input connector.</li>
+     Added unit rev/min to the external and internal input connector.</li>
 
 <li> PartialValve<br>
      fillcolor=white added to icon<br>

@@ -414,7 +414,7 @@ This is the library of electric machine models.
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
@@ -537,7 +537,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Time tStart1=0.1 "Start time";
         parameter Modelica.SIunits.Time tStart2=2.0 "Start time from Y to D";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
@@ -664,7 +664,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Time tStart2=2.0
           "Start time of bypass transformer";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
@@ -861,7 +861,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Time tStart2=1.0
           "Start time of shorting starting resistance";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
@@ -1245,11 +1245,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Motor's running capacitor";
         parameter Modelica.SIunits.Capacitance Cs=5*Cr
           "Motor's (additional) starting capacitor";
-        parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wSwitch(displayUnit="rev/min")=
              1350*2*Modelica.Constants.pi/60
           "Speed for switching off the starting capacitor";
         parameter Modelica.SIunits.Torque TLoad=2/3*161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1462.5*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
@@ -1457,7 +1457,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Simulated current";
         output Modelica.SIunits.Current I_meas=combiTable1Ds.y[1]
           "Measured current";
-        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="1/min")=
+        output Modelica.SIunits.AngularVelocity w_sim(displayUnit="rev/min")=
           aimc.wMechanical "Simulated speed";
         output Modelica.SIunits.AngularVelocity w_meas=combiTable1Ds.y[2]
           "Measured speed";
@@ -1688,7 +1688,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/aimc.p;
         parameter Modelica.SIunits.Time tStart=0.5 "Start time";
         parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
@@ -2627,7 +2627,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
-        parameter Modelica.SIunits.AngularVelocity wActual(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wActual(displayUnit="rev/min")=
              1499*2*Modelica.Constants.pi/60 "Actual speed";
         parameter Modelica.SIunits.Current Ie=19 "Excitation current";
         parameter Modelica.SIunits.Current Ie0=10 "Initial excitation current";
@@ -3506,7 +3506,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
         parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
         parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1410*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
@@ -3608,7 +3608,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         parameter Modelica.SIunits.Time tStart=0.1 "Start of resistance ramp";
         parameter Modelica.SIunits.Time tRamp=0.9 "Resistance ramp";
         parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="rev/min")=
              1410*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
@@ -11038,7 +11038,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
       extends Modelica.Icons.Record;
       parameter Modelica.SIunits.Power PRef(min=0) = 0
         "Reference friction losses at wRef";
-      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="1/min", min=
+      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="rev/min", min=
             Modelica.Constants.small)
         "Reference angular velocity that the PRef refer to";
       parameter Real power_w(min=Modelica.Constants.small) = 2
@@ -11080,7 +11080,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
         "Reference stray load losses at IRef and wRef";
       parameter Modelica.SIunits.Current IRef(min=Modelica.Constants.small)
         "Reference RMS current that PRef refers to";
-      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="1/min", min=
+      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="rev/min", min=
             Modelica.Constants.small)
         "Reference angular velocity that PRef refers to";
       parameter Real power_w(min=Modelica.Constants.small) = 1
@@ -11137,7 +11137,7 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">c
         "Reference stator RMS current that PRef refers to";
       parameter Real power_I(min=Modelica.Constants.small) = 2
         "Exponent of permanent magnet loss torque w.r.t. stator current";
-      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="1/min", min=
+      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="rev/min", min=
             Modelica.Constants.small)
         "Reference angular velocity that PRef refers to";
       parameter Real power_w(min=Modelica.Constants.small) = 1
@@ -12919,7 +12919,7 @@ Connector for Space Phasors:
       output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi -
         internalSupport.phi "Mechanical angle of rotor against stator";
       output Modelica.SIunits.AngularVelocity wMechanical(
-        displayUnit="1/min",
+        displayUnit="rev/min",
         start=0) = der(phiMechanical)
         "Mechanical angular velocity of rotor against stator";
       output Modelica.SIunits.Torque tauElectrical=inertiaRotor.flange_a.tau
@@ -13541,7 +13541,7 @@ Interfaces and partial models for induction machines
       parameter Modelica.SIunits.Current IaNominal(start=100)
         "Nominal armature current (>0..Motor, <0..Generator)"
         annotation (Dialog(tab="Nominal parameters"));
-      parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min",
+      parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="rev/min",
           start=1425*2*pi/60) "Nominal speed"
         annotation (Dialog(tab="Nominal parameters"));
       parameter Modelica.SIunits.Temperature TaNominal(start=293.15)
@@ -14812,7 +14812,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Current IaNominal=100
           "Nominal armature current (>0..Motor, <0..Generator)"
           annotation (Dialog(tab="Nominal parameters"));
-        parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="rev/min")=
              1425*2*pi/60 "Nominal speed"
           annotation (Dialog(tab="Nominal parameters"));
         parameter Modelica.SIunits.Temperature TaNominal=293.15

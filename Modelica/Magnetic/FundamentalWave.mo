@@ -1037,7 +1037,7 @@ In this example the eddy current losses are implemented in two different ways. C
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         parameter Integer p=2 "Number of pole pairs";
@@ -1239,7 +1239,7 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
              1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
         parameter Integer p=2 "Number of pole pairs";
@@ -1512,7 +1512,7 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
              Modelica.SIunits.Conversions.from_rpm(1440.45)
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
@@ -1739,7 +1739,7 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Time tRheostat=1.0
           "Time of shortening the rheostat";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
-        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
+        parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="rev/min")=
              Modelica.SIunits.Conversions.from_rpm(1440.45)
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
@@ -6913,7 +6913,7 @@ This model is mainly used to extend from in order build more complex - equation 
         internalSupport.phi "Mechanical angle of rotor against stator";
       output Modelica.SIunits.AngularVelocity wMechanical(
         start=0,
-        displayUnit="1/min") = der(phiMechanical)
+        displayUnit="rev/min") = der(phiMechanical)
         "Mechanical angular velocity of rotor against stator";
       output Modelica.SIunits.Torque tauElectrical=inertiaRotor.flange_a.tau
         "Electromagnetic torque";
