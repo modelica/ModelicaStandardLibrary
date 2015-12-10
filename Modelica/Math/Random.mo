@@ -1059,11 +1059,13 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
       Integer ms,sec,min,hour "Current system time";
       Integer pid "Current process ID";
     algorithm
-      (ms,sec,min,hour) := Modelica.Utilities.System.getTime();
-      pid := Modelica.Utilities.System.getPid();
-      seed := 1 + ms + 1000*sec + 1000*60*min + 1000*60*60*hour
-                + 6007*pid;
-
+      /* Temporarily deactivated, since getTime and getPid are not yet in the Dymola distribution
+  (ms,sec,min,hour) := Modelica.Utilities.System.getTime();
+  pid := Modelica.Utilities.System.getPid();
+  seed := 1 + ms + 1000*sec + 1000*60*min + 1000*60*60*hour
+            + 6007*pid;
+            */
+      seed :=101;
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

@@ -1140,7 +1140,1517 @@ just potential signals. The user might still add different signal names.
 </html>"), experiment(StopTime=2));
   end BusUsage;
 
+  package NoiseExamples
+    "Library of examples to demonstrate the usage of package Blocks.Noise"
+    extends Modelica.Icons.ExamplesPackage;
 
+    model UniformNoise
+      "Demonstrates the most simple usage of the UniformNoise block"
+      extends Modelica.Icons.Example;
+
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+      Modelica.Blocks.Noise.UniformNoise uniformNoise(
+        samplePeriod=0.02, y_min=-1, y_max=3)
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+     annotation (experiment(StopTime=2),    Documentation(info="<html>
+<p>
+This example demonstrates the most simple usage of the
+<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a>
+block:
+</p>
+
+<ul>
+<li> <b>globalSeed</b> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
+     block with default options (just dragged from sublibrary Noise).</li>
+<li> <b>genericNoise</b> is an instance of
+     <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a> with
+     samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
+</ul>
+
+<p>
+At every 0.02 seconds a time event occurs and a uniform random number in the band between
+-1 ... 3 is drawn. This random number is held constant until the next sample instant.
+The result of a simulation is shown in the next diagram:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
+</blockquote>
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end UniformNoise;
+
+    model AutomaticSeed
+      "Demonstrates noise with startTime and automatic local seed for UniformNoise"
+      import Modelica;
+       extends Modelica.Icons.Example;
+       parameter Real startTime = 0.5 "Start time of noise";
+       parameter Real y_off = -1.0 "Output of block before startTime";
+
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false, enableNoise=true)
+        annotation (Placement(transformation(extent={{60,60},{80,80}})));
+
+      Modelica.Blocks.Noise.UniformNoise automaticSeed1(
+        samplePeriod=0.01,
+        startTime=startTime,
+        y_off=y_off,
+        y_min=-1, y_max=3)
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+      Modelica.Blocks.Noise.UniformNoise automaticSeed2(
+        samplePeriod=0.01,
+        startTime=startTime,
+        y_off=y_off,y_min=-1, y_max=3)
+        annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
+      Modelica.Blocks.Noise.UniformNoise automaticSeed3(
+        samplePeriod=0.01,
+        startTime=startTime,
+        y_off=y_off, y_min=-1, y_max=3)
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+      Modelica.Blocks.Noise.UniformNoise manualSeed1(
+        samplePeriod=0.01,
+        startTime=startTime,
+        y_off=y_off,
+        useAutomaticLocalSeed=false,
+        fixedLocalSeed=1,y_min=-1, y_max=3,
+        enableNoise=true)
+        annotation (Placement(transformation(extent={{0,20},{20,40}})));
+      Modelica.Blocks.Noise.UniformNoise manualSeed2(
+        samplePeriod=0.01,
+        startTime=startTime,
+        y_off=y_off,
+        useAutomaticLocalSeed=false,
+        fixedLocalSeed=2,y_min=-1, y_max=3)
+        annotation (Placement(transformation(extent={{0,-20},{20,0}})));
+      Modelica.Blocks.Noise.UniformNoise manualSeed3(
+        samplePeriod=0.01,
+        startTime=startTime,
+        y_off=y_off,
+        useAutomaticLocalSeed=false,y_min=-1, y_max=3,
+        fixedLocalSeed=3)
+        annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
+     annotation (experiment(StopTime=2),    Documentation(info="<html>
+<p>
+This example demonstrates manual and automatic seed selection of
+<a href=\"Modelica.Blocks.Noise.UniformNoise\">UniformNoise</a> blocks, as well
+as starting the noise at startTime = 0.5 s with an output value of y = -1 before this
+time. All noise blocks in this example generate uniform noise in the
+band y_min=-1 .. y_max=3 with samplePeriod = 0.01 s.
+</p>
+
+<p>
+The blocks automaticSeed1, automaticSeed2, automaticSeed3 use the default
+option to automatically initialize the pseudo random number generators
+of the respective block. As a result, different noise is generated, see next
+diagram:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed1.png\">
+</blockquote></p>
+
+<p>
+The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the local seed
+(useAutomaticLocalSeed = false). They use a fixedLocalSeed of 1, 2, and 3 respectively.
+Again, different noise is generated, see next diagram:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed2.png\">
+</blockquote></p>
+
+<p>
+Try to set fixedLocalSeed = 1 in block manualSeed2. As a result, the blocks manualSeed1 and
+manualSeed2 will produce exactly the same noise.
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end AutomaticSeed;
+
+    model Distributions
+      "Demonstrates noise with different types of distributions"
+      extends Modelica.Icons.Example;
+      parameter Modelica.SIunits.Period samplePeriod=0.02
+        "Sample period of all blocks";
+      parameter Real y_min = -1 "Minimum value of band for random values";
+      parameter Real y_max = 3 "Maximum value of band for random values";
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=
+            false)
+        annotation (Placement(transformation(extent={{40,60},{60,80}})));
+
+      Integer n=if time < 0.5 then 12 else 2;
+
+      Modelica.Blocks.Noise.UniformNoise uniformNoise(
+        useAutomaticLocalSeed=false,
+        fixedLocalSeed=1,
+        samplePeriod=samplePeriod,
+        y_min=y_min,
+        y_max=y_max)
+        annotation (Placement(transformation(extent={{-60,70},{-40,90}})));
+      Modelica.Blocks.Noise.TruncatedNormalNoise truncatedNormalNoise(
+        useAutomaticLocalSeed=false,
+        fixedLocalSeed=1,
+        samplePeriod=samplePeriod,
+        y_min=y_min,
+        y_max=y_max)
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+     annotation (experiment(StopTime=2),    Documentation(info="<html>
+<p>
+This example demonstrates different noise distributions methods that can be selected
+for a Noise block. Both noise blocks use samplePeriod = 0.02 s, y_min=-1, y_max=3, and have
+identical fixedLocalSeed. This means that the same random numbers are drawn for the blocks.
+However, the random numbers are differently transformed according to the selected distributions 
+(uniform and truncated normal distribution), and therefore the blocks have different output values.
+Simulation results are shown in the next diagram:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Distributions.png\">
+</blockquote></p>
+
+<p>
+As can be seen, uniform noise is distributed evenly between -1 and 3, and
+truncated normal distriution has more values centered around the mean value 1.
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end Distributions;
+
+    model UniformNoiseProperties
+      "Demonstrates the computation of properties for uniformally distributed noise"
+      extends Modelica.Icons.Example;
+      parameter Real y_min = 0 "Minimum value of band";
+      parameter Real y_max = 6 "Maximum value of band";
+      parameter Real pMean = (y_min + y_max)/2
+        "Theoretical mean value of uniform distribution";
+      parameter Real var =  (y_max - y_min)^2/12
+        "Theoretical variance of uniform distribution";
+      parameter Real std =  sqrt(var)
+        "Theoretical standard deviation of uniform distribution";
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed
+        annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      Modelica.Blocks.Noise.UniformNoise noise(
+        samplePeriod=0.001,
+        y_min=y_min,
+        y_max=y_max,
+        useAutomaticLocalSeed=false)
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+      Modelica.Blocks.Math.ContinuousMean mean
+        annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+      Modelica.Blocks.Math.Variance variance
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+      Modelica.Blocks.Math.MultiProduct theoreticalVariance(nu=2)
+        annotation (Placement(transformation(extent={{28,-36},{40,-24}})));
+      Modelica.Blocks.Math.Feedback meanError
+        annotation (Placement(transformation(extent={{40,60},{60,80}})));
+      Modelica.Blocks.Sources.Constant theoreticalMean(k=pMean)
+        annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+      Modelica.Blocks.Math.Feedback varianceError
+        annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      Modelica.Blocks.Sources.Constant theoreticalSigma(k=std)
+        annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+      Modelica.Blocks.Math.StandardDeviation standardDeviation
+        annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+      Modelica.Blocks.Math.Feedback sigmaError
+        annotation (Placement(transformation(extent={{40,-60},{60,-80}})));
+    equation
+      connect(noise.y, mean.u) annotation (Line(
+          points={{-59,70},{-42,70}},
+          color={0,0,127}));
+      connect(noise.y, variance.u) annotation (Line(
+          points={{-59,70},{-52,70},{-52,10},{-42,10}},
+          color={0,0,127}));
+      connect(mean.y, meanError.u1) annotation (Line(
+          points={{-19,70},{42,70}},
+          color={0,0,127}));
+      connect(theoreticalMean.y, meanError.u2) annotation (Line(
+          points={{11,50},{50,50},{50,62}},
+          color={0,0,127}));
+      connect(theoreticalSigma.y, theoreticalVariance.u[1]) annotation (Line(
+          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}},
+          color={0,0,127}));
+      connect(theoreticalSigma.y, theoreticalVariance.u[2]) annotation (Line(
+          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}},
+          color={0,0,127}));
+      connect(variance.y, varianceError.u1) annotation (Line(
+          points={{-19,10},{42,10}},
+          color={0,0,127}));
+      connect(theoreticalVariance.y, varianceError.u2) annotation (Line(
+          points={{41.02,-30},{50,-30},{50,2}},
+          color={0,0,127}));
+      connect(noise.y, standardDeviation.u) annotation (Line(
+          points={{-59,70},{-52,70},{-52,-70},{-42,-70}},
+          color={0,0,127}));
+      connect(standardDeviation.y, sigmaError.u1) annotation (Line(
+          points={{-19,-70},{42,-70}},
+          color={0,0,127}));
+      connect(theoreticalSigma.y, sigmaError.u2) annotation (Line(
+          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}},
+          color={0,0,127}));
+     annotation (experiment(StopTime=20, Interval=0.4e-2, Tolerance=1e-009),
+        Documentation(info="<html>
+<p>
+This example demonstrates statistical properties of the
+<a href=\"modelica://Modelica.Blocks.Noise.GenericNoise\">Blocks.Noise.GenericNoise</a> block
+using a <b>uniform</b> random number distribution.
+Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
+is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Statistics\">Blocks.Statistics</a>.
+Simulation results are shown in the next diagram:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoiseProperties1.png\"/>
+</blockquote></p>
+
+<p>
+The mean value of a uniform noise in the range 0 .. 6 is 3 and its variance is
+3 as well. The simulation results above show good agreement (after a short initial phase).
+This demonstrates that the random number generator and the mapping to a uniform
+distribution have good statistical properties.
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end UniformNoiseProperties;
+
+    model NormalNoiseProperties
+      "Demonstrates the computation of properties for normally distributed noise"
+      extends Modelica.Icons.Example;
+      parameter Real mu = 3 "Mean value for normal distribution";
+      parameter Real sigma = 1 "Standard deviation for normal distribution";
+      parameter Real pMean = mu "Theoretical mean value of normal distribution";
+      parameter Real var =  sigma^2
+        "Theoretical variance of uniform distribution";
+      parameter Real std =  sigma
+        "Theoretical standard deviation of normal distribution";
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed
+        annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      Modelica.Blocks.Noise.NormalNoise noise(
+        samplePeriod=0.001,
+        mu=mu,
+        sigma=sigma,
+        useAutomaticLocalSeed=false)
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+      Modelica.Blocks.Math.ContinuousMean mean
+        annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+      Modelica.Blocks.Math.Variance variance
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
+      Modelica.Blocks.Math.MultiProduct theoreticalVariance(nu=2)
+        annotation (Placement(transformation(extent={{28,-36},{40,-24}})));
+      Modelica.Blocks.Math.Feedback meanError
+        annotation (Placement(transformation(extent={{40,60},{60,80}})));
+      Modelica.Blocks.Sources.Constant theoreticalMean(k=pMean)
+        annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+      Modelica.Blocks.Math.Feedback varianceError
+        annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      Modelica.Blocks.Sources.Constant theoreticalSigma(k=std)
+        annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+      Modelica.Blocks.Math.StandardDeviation standardDeviation
+        annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+      Modelica.Blocks.Math.Feedback sigmaError
+        annotation (Placement(transformation(extent={{40,-60},{60,-80}})));
+    equation
+      connect(noise.y, mean.u) annotation (Line(
+          points={{-59,70},{-42,70}},
+          color={0,0,127}));
+      connect(noise.y, variance.u) annotation (Line(
+          points={{-59,70},{-52,70},{-52,10},{-42,10}},
+          color={0,0,127}));
+      connect(mean.y, meanError.u1) annotation (Line(
+          points={{-19,70},{42,70}},
+          color={0,0,127}));
+      connect(theoreticalMean.y, meanError.u2) annotation (Line(
+          points={{11,50},{50,50},{50,62}},
+          color={0,0,127}));
+      connect(theoreticalSigma.y, theoreticalVariance.u[1]) annotation (Line(
+          points={{11,-30},{24,-30},{24,-27.9},{28,-27.9}},
+          color={0,0,127}));
+      connect(theoreticalSigma.y, theoreticalVariance.u[2]) annotation (Line(
+          points={{11,-30},{24,-30},{24,-32.1},{28,-32.1}},
+          color={0,0,127}));
+      connect(variance.y, varianceError.u1) annotation (Line(
+          points={{-19,10},{42,10}},
+          color={0,0,127}));
+      connect(theoreticalVariance.y, varianceError.u2) annotation (Line(
+          points={{41.02,-30},{50,-30},{50,2}},
+          color={0,0,127}));
+      connect(noise.y, standardDeviation.u) annotation (Line(
+          points={{-59,70},{-52,70},{-52,-70},{-42,-70}},
+          color={0,0,127}));
+      connect(standardDeviation.y, sigmaError.u1) annotation (Line(
+          points={{-19,-70},{42,-70}},
+          color={0,0,127}));
+      connect(theoreticalSigma.y, sigmaError.u2) annotation (Line(
+          points={{11,-30},{18,-30},{18,-42},{50,-42},{50,-62}},
+          color={0,0,127}));
+     annotation (experiment(StopTime=20, Interval=0.4e-2, Tolerance=1e-009),
+    Documentation(info="<html>
+<p>
+This example demonstrates statistical properties of the
+<a href=\"modelica://Modelica.Blocks.Noise.NormalNoise\">Blocks.Noise.NormalNoise</a> block
+using a <b>normal</b> random number distribution with mu=3, sigma=1.
+From the generated noise the mean and the variance
+is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Statistics\">Blocks.Statistics</a>.
+Simulation results are shown in the next diagram:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/NormalNoiseProperties1.png\">
+</blockquote></p>
+
+<p>
+The mean value of a normal noise with mu=3 is 3 and the variance of normal noise
+is sigma^2, so 1. The simulation results above show good agreement (after a short initial phase).
+This demonstrates that the random number generator and the mapping to a normal
+distribution have good statistical properties.
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end NormalNoiseProperties;
+
+    model Densities
+      "Demonstrates how to compute distribution densities (= Probability Density Function)"
+      extends Modelica.Icons.Example;
+
+      Utilities.UniformDensity
+                        uniformDensity(u_min=-4, u_max=4)
+        annotation (Placement(transformation(extent={{10,20},{30,40}})));
+      Modelica.Blocks.Sources.Clock clock
+    annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
+      Modelica.Blocks.Sources.Constant const(k=-10)
+    annotation (Placement(transformation(extent={{-80,-30},{-60,-10}})));
+      Modelica.Blocks.Math.Add add
+    annotation (Placement(transformation(extent={{-46,-10},{-26,10}})));
+      Utilities.NormalDensity
+                        normalDensity(mu=0, sigma=2)
+        annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      Utilities.WeibullDensity
+                        weibullDensity(lambda=3, k=1.5)
+        annotation (Placement(transformation(extent={{10,-40},{30,-20}})));
+    equation
+      connect(clock.y, add.u1) annotation (Line(
+      points={{-59,20},{-53.5,20},{-53.5,6},{-48,6}},
+      color={0,0,127}));
+      connect(const.y, add.u2) annotation (Line(
+      points={{-59,-20},{-54,-20},{-54,-6},{-48,-6}},
+      color={0,0,127}));
+      connect(add.y, uniformDensity.u) annotation (Line(
+      points={{-25,0},{-14,0},{-14,30},{8,30}},
+      color={0,0,127}));
+      connect(add.y, normalDensity.u) annotation (Line(
+      points={{-25,0},{8,0}},
+      color={0,0,127}));
+      connect(add.y, weibullDensity.u) annotation (Line(
+      points={{-25,0},{-14,0},{-14,-30},{8,-30}},
+      color={0,0,127}));
+     annotation (experiment(StopTime=20, Interval=2e-2),
+        Documentation(info="<html>
+<p>
+This example demonstrates how to compute the probability density functions (pdfs) of
+various distributions.
+In the following diagram simulations results for the uniform, normal, and Weibull distribution
+are shown. The outputs of the blocks are the pdfs that are plotted over one of the
+inputs:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Densities.png\">
+</blockquote></p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end Densities;
+
+    model ImpureGenerator
+      "Demonstrates the usage of the impure random number generator"
+      extends Modelica.Icons.Example;
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=
+            false) annotation (Placement(transformation(extent={{20,40},{40,60}})));
+
+      Utilities.ImpureRandom impureRandom(samplePeriod=0.01)
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+     annotation (experiment(StopTime=2),    Documentation(info="<html>
+<p>
+This example demonstrates how to use the 
+<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom(..)</a> function
+to generate random values at event instants. Typically, this approach is only
+used when implementing an own, specialized block that needs a random number
+generator. Simulation results are shown in the next figure:
+</p>
+
+<p><blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ImpureGenerator.png\">
+</blockquote>
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end ImpureGenerator;
+
+    model ActuatorWithNoise
+      "Demonstrates how to model measurement noise in an actuator"
+    extends Modelica.Icons.Example;
+      Utilities.Parts.MotorWithCurrentControl Motor
+        annotation (Placement(transformation(extent={{-86,-10},{-66,10}})));
+      Utilities.Parts.Controller controller
+        annotation (Placement(transformation(extent={{0,60},{20,80}})));
+      Modelica.Blocks.Sources.Step     Speed(startTime=0.5, height=50)
+        annotation (Placement(transformation(extent={{-72,66},{-52,86}})));
+      Modelica.Mechanics.Rotational.Components.Gearbox gearbox(
+        lossTable=[0,0.85,0.8,0.1,0.1],
+        c=1e6,
+        d=1e4,
+        ratio=10,
+        w_rel(fixed=true),
+        b=0.0017453292519943,
+        phi_rel(fixed=true))
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+      Modelica.Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=
+            300) annotation (Placement(transformation(extent={{-32,-10},{-12,10}})));
+      Modelica.Mechanics.Translational.Components.Mass mass(m=100)
+        annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+      Modelica.Mechanics.Translational.Sources.ConstantForce constantForce(
+          f_constant=10000) annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            origin={86,0})));
+      Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter(Rising=50)
+        annotation (Placement(transformation(extent={{-40,66},{-20,86}})));
+      Modelica.Mechanics.Translational.Components.Mass rodMass(m=3)
+        annotation (Placement(transformation(extent={{-4,-10},{16,10}})));
+      Modelica.Mechanics.Translational.Components.SpringDamper elastoGap(c=1e8, d=
+            1e5,
+        v_rel(fixed=true),
+        s_rel(fixed=true))
+                 annotation (Placement(transformation(extent={{22,-10},{42,10}})));
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed(enableNoise=true)
+        annotation (Placement(transformation(extent={{60,60},{80,80}})));
+    equation
+      connect(controller.y1, Motor.iq_rms1) annotation (Line(
+          points={{21,70},{30,70},{30,20},{-96,20},{-96,6},{-88,6}},
+          color={0,0,127}));
+      connect(Motor.phi, controller.positionMeasured) annotation (Line(
+          points={{-71,8},{-66,8},{-66,52},{-12,52},{-12,64},{-2,64},{-2,64}},
+          color={0,0,127}));
+      connect(Motor.flange, gearbox.flange_a) annotation (Line(
+          points={{-66,0},{-60,0}}));
+      connect(gearbox.flange_b, idealGearR2T.flangeR) annotation (Line(
+          points={{-40,0},{-32,0}}));
+      connect(constantForce.flange, mass.flange_b) annotation (Line(
+          points={{76,0},{70,0}},
+          color={0,127,0}));
+      connect(Speed.y, slewRateLimiter.u) annotation (Line(
+          points={{-51,76},{-42,76}},
+          color={0,0,127}));
+      connect(slewRateLimiter.y, controller.positionReference) annotation (Line(
+          points={{-19,76},{-2,76}},
+          color={0,0,127}));
+      connect(rodMass.flange_a, idealGearR2T.flangeT) annotation (Line(
+          points={{-4,0},{-12,0}},
+          color={0,127,0}));
+      connect(rodMass.flange_b, elastoGap.flange_a) annotation (Line(
+          points={{16,0},{22,0}},
+          color={0,127,0}));
+      connect(elastoGap.flange_b, mass.flange_a) annotation (Line(
+          points={{42,0},{50,0}},
+          color={0,127,0}));
+      annotation (
+        experiment(StopTime=8, Interval = 0.01, Tolerance=1e-005),
+        Documentation(info="<html>
+<p>
+This example models an actuator with a noisy sensor (which is in the Motor component):
+</p>
+
+<blockquote>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ActuatorNoiseDiagram.png\"/>
+</p></blockquote>
+
+<p>
+The drive train consists of a synchronous motor with a current controller (= Motor) and a gear box.
+The gearbox drives a rod through a linear translation model. Softly attached to the rod is
+another mass representing the actual actuator (= mass). The actuator is loaded with a constant force.
+</p>
+
+<p>
+The whole drive is steered by a rate limited speed step command through a controller model.
+In the Motor the shaft angle is measured and this measurement signal is modelled by adding
+additive noise to the Motor angle.
+</p>
+
+<p>
+In the following figure, the position of the actuator and the Motor output torque are
+shown with and without noise. The noise is not very strong, such that it has no visible effect
+on the position of the actuator. The effect of the noise can be seen in the Motor torque.
+</p>
+
+<blockquote><p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ActuatorNoise.png\"/>
+</p></blockquote>
+
+<p>
+Note, the noise in all components can be easily switched off by setting parameter
+enableNoise = false in the globalSeed component.
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end ActuatorWithNoise;
+
+    model DrydenContinuousTurbulence
+      "Demonstrates how to model wind turbulence for aircraft with the BandLimitedWhiteNoise block (a simple model of vertical Dryden gust speed at low altitudes < 1000 ft)"
+      extends Modelica.Icons.Example;
+      import SI = Modelica.SIunits;
+      import Modelica.Constants.pi;
+
+      parameter SI.Velocity V =            140 * 0.5144
+        "Airspeed of aircraft (typically 140kts during approach)";
+      parameter SI.Velocity sigma = 0.1 *   30 * 0.5144
+        "Turbulence intensity (=0.1 * wind at 20 ft, typically 30 kt)";
+      parameter SI.Length   L =            600 * 0.3048
+        "Scale length (= flight altitude)";
+
+      Modelica.Blocks.Continuous.TransferFunction Hw(b=sigma*sqrt(L/pi/V)*{sqrt(3)*
+            L/V,1}, a={L^2/V^2,2*L/V,1},
+        initType=Modelica.Blocks.Types.Init.InitialState)
+        "Transfer function of vertical turbulence speed according to MIL-F-8785C"
+        annotation (Placement(transformation(extent={{-10,0},{10,20}})));
+      Modelica.Blocks.Noise.BandLimitedWhiteNoise whiteNoise(samplePeriod
+          =0.005)
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
+      Modelica.Blocks.Math.Gain compareToSpeed(k=1/V)
+        annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      inner Modelica.Blocks.Noise.GlobalSeed globalSeed
+        annotation (Placement(transformation(extent={{40,60},{60,80}})));
+    equation
+      connect(whiteNoise.y, Hw.u) annotation (Line(
+          points={{-39,10},{-12,10}},
+          color={0,0,127}));
+      connect(Hw.y, compareToSpeed.u) annotation (Line(
+          points={{11,10},{38,10}},
+          color={0,0,127}));
+      annotation (experiment(StopTime=100),
+     Documentation(info="<html>
+<p>
+This example shows how to use the
+<a href=\"modelica://Modelica.Blocks.Noise.BandLimitedWhiteNoise\">BandLimitedWhiteNoise</a>
+to feed a Dryden continuous turbulence model. This model is used to describe turbulent wind at low altitudes
+that varies randomly in space
+(see also <a href=\"https://en.wikipedia.org/wiki/Continuous_gusts\">wikipedia</a>).
+</p>
+
+<h4>
+Turbulence model for vertical gust speed at low altitudes
+</h4>
+
+<p>
+The turbulence model of the Dryden form is defined by the power spectral density of the vertical turbulent velocity:
+</p>
+
+<blockquote><p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/equation-erVWhiWU.png\" alt=\"Phi_w(Omega)=sigma^2*L_w/pi*((1+3*(L_w*Omega)^2)/(1+(L_w*Omega)^2)^2)\"/>
+</p></blockquote>
+
+<p>
+The spectrum is parametrized with the following parameters:
+</p>
+
+<ul>
+<li> Lw is the turbulence scale. <br>In low altitudes, it is equal to the flight altitude.</li>
+<li> sigma is the turbulence intensity. <br>In low altitudes, it is equal to 1/10 of the
+     wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
+<li> Omega is the spatial frequency. <br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
+<li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
+<li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).
+</ul>
+
+<p>
+Using spectral factorization and a fixed airspeed V of the aircraft, a concrete forming filter for the vertical turbulence can be found as
+</p>
+
+<blockquote><p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/equation-W0zl2Gay.png\" alt=\"H_w(s) = sigma*sqrt(L_w/(pi*V)) * ((1 + sqrt(3)*L_w/V*s) / (1+L_w/V*s)^2)\"/>,
+</p></blockquote>
+
+<p>
+for which V * (H_w(i Omega/V) * H_w(-i Omega/V) = Phi_w(Omega).
+</p>
+
+<h4>
+The input to the filter
+</h4>
+
+<p>
+The input to the filter is white noise with a normal distribution, zero mean, and a power spectral density of 1.
+That means, for a sampling time of 1s, it is parameterized with mean=0 and variance=1.
+However, in order to account for the change of noise power due to sampling, the noise must be scaled with sqrt(samplePeriod).
+This is done automatically in the
+<a href=\"modelica://Modelica.Blocks.Noise.BandLimitedWhiteNoise\">BandLimitedWhiteNoise</a> block.
+</p>
+
+<h4>Example output</h4>
+
+<blockquote>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/DrydenContinuousTurbulence.png\"/>
+</p></blockquote>
+
+<h4>
+Reference
+</h4>
+
+<ol>
+<li>Dryden Wind Turbulence model in US military standard
+    <a href=\"http://everyspec.com/MIL-SPECS/MIL-SPECS-MIL-F/MIL-F-8785C_5295/\">MIL-F-8785</a>.</li>
+</ol>
+</html>"));
+    end DrydenContinuousTurbulence;
+
+    package Utilities "Library of utility models used in the examples"
+      extends Modelica.Icons.UtilitiesPackage;
+
+      block UniformDensity "Calculates the density of a uniform distribution"
+        import distribution = Modelica.Math.Distributions.Uniform.density;
+        extends Modelica.Blocks.Icons.Block;
+
+        parameter Real u_min "Lower limit of u";
+        parameter Real u_max "Upper limit of u";
+
+        Modelica.Blocks.Interfaces.RealInput u "Real input signal" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.RealOutput y
+          "Density of the input signal according to the uniform probability density function"
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+      equation
+        y = distribution(u, u_min, u_max);
+
+        annotation (Icon(graphics={
+              Polygon(
+                points={{0,94},{-8,72},{8,72},{0,94}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{-86,-82},{72,-82}},
+                                            color={192,192,192}),
+              Polygon(
+                points={{92,-82},{70,-74},{70,-90},{92,-82}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+          Line( points={{-70,-75.953},{-66.5,-75.8975},{-63,-75.7852},{-59.5,
+                -75.5674},{-56,-75.1631},{-52.5,-74.4442},{-49,-73.2213},{
+                -45.5,-71.2318},{-42,-68.1385},{-38.5,-63.5468},{-35,-57.0467},
+                {-31.5,-48.2849},{-28,-37.0617},{-24.5,-23.4388},{-21,-7.8318},
+                {-17.5,8.9428},{-14,25.695},{-10.5,40.9771},{-7,53.2797},{
+                -3.5,61.2739},{0,64.047},{3.5,61.2739},{7,53.2797},{10.5,
+                40.9771},{14,25.695},{17.5,8.9428},{21,-7.8318},{24.5,
+                -23.4388},{28,-37.0617},{31.5,-48.2849},{35,-57.0467},{38.5,
+                -63.5468},{42,-68.1385},{45.5,-71.2318},{49,-73.2213},{52.5,
+                -74.4442},{56,-75.1631},{59.5,-75.5674},{63,-75.7852},{66.5,
+                -75.8975},{70,-75.953}},
+                smooth=Smooth.Bezier)}), Documentation(info="<html>
+<p>
+This block determines the probability density y of a uniform distribution for the given input signal u
+(for details of this density function see
+<a href=\"Modelica.Math.Distributions.Uniform.density\">Math.Distributions.Uniform.density</a>).
+</p>
+
+<p>
+This block is demonstrated in the example
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
+</p>
+</html>",       revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+      end UniformDensity;
+
+      block NormalDensity "Calculates the density of a normal distribution"
+        import distribution = Modelica.Math.Distributions.Normal.density;
+        extends Modelica.Blocks.Icons.Block;
+
+        parameter Real mu "Expectation (mean) value of the normal distribution";
+        parameter Real sigma "Standard deviation of the normal distribution";
+
+        Modelica.Blocks.Interfaces.RealInput u "Real input signal" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.RealOutput y
+          "Density of the input signal according to the normal probability density function"
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+      equation
+        y = distribution(u, mu, sigma);
+
+        annotation (Icon(graphics={
+              Polygon(
+                points={{0,94},{-8,72},{8,72},{0,94}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{-86,-82},{72,-82}},
+                                            color={192,192,192}),
+              Polygon(
+                points={{92,-82},{70,-74},{70,-90},{92,-82}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+          Line( points={{-70,-75.953},{-66.5,-75.8975},{-63,-75.7852},{-59.5,
+                -75.5674},{-56,-75.1631},{-52.5,-74.4442},{-49,-73.2213},{
+                -45.5,-71.2318},{-42,-68.1385},{-38.5,-63.5468},{-35,-57.0467},
+                {-31.5,-48.2849},{-28,-37.0617},{-24.5,-23.4388},{-21,-7.8318},
+                {-17.5,8.9428},{-14,25.695},{-10.5,40.9771},{-7,53.2797},{
+                -3.5,61.2739},{0,64.047},{3.5,61.2739},{7,53.2797},{10.5,
+                40.9771},{14,25.695},{17.5,8.9428},{21,-7.8318},{24.5,
+                -23.4388},{28,-37.0617},{31.5,-48.2849},{35,-57.0467},{38.5,
+                -63.5468},{42,-68.1385},{45.5,-71.2318},{49,-73.2213},{52.5,
+                -74.4442},{56,-75.1631},{59.5,-75.5674},{63,-75.7852},{66.5,
+                -75.8975},{70,-75.953}},
+                smooth=Smooth.Bezier)}), Documentation(info="<html>
+<p>
+This block determines the probability density y of a normal distribution for the given input signal u
+(for details of this density function see
+<a href=\"Modelica.Math.Distributions.Normal.density\">Math.Distributions.Normal.density</a>).
+</p>
+
+<p>
+This block is demonstrated in the example
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
+</p>
+</html>",       revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+      end NormalDensity;
+
+      block WeibullDensity "Calculates the density of a Weibull distribution"
+        import distribution = Modelica.Math.Distributions.Weibull.density;
+        extends Modelica.Blocks.Icons.Block;
+
+        parameter Real lambda(min=0)
+          "Scale parameter of the Weibull distribution";
+        parameter Real k(min=0) "Shape parameter of the Weibull distribution";
+
+        Modelica.Blocks.Interfaces.RealInput u "Real input signal" annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        Modelica.Blocks.Interfaces.RealOutput y
+          "Density of the input signal according to the Weibull probability density function"
+          annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+      equation
+        y = distribution(u, lambda, k);
+
+        annotation (Icon(graphics={
+              Polygon(
+                points={{0,94},{-8,72},{8,72},{0,94}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+              Line(points={{0,76},{0,-72}},     color={192,192,192}),
+              Line(points={{-86,-82},{72,-82}},
+                                            color={192,192,192}),
+              Polygon(
+                points={{92,-82},{70,-74},{70,-90},{92,-82}},
+                lineColor={192,192,192},
+                fillColor={192,192,192},
+                fillPattern=FillPattern.Solid),
+          Line( points={{-70,-75.953},{-66.5,-75.8975},{-63,-75.7852},{-59.5,
+                -75.5674},{-56,-75.1631},{-52.5,-74.4442},{-49,-73.2213},{
+                -45.5,-71.2318},{-42,-68.1385},{-38.5,-63.5468},{-35,-57.0467},
+                {-31.5,-48.2849},{-28,-37.0617},{-24.5,-23.4388},{-21,-7.8318},
+                {-17.5,8.9428},{-14,25.695},{-10.5,40.9771},{-7,53.2797},{
+                -3.5,61.2739},{0,64.047},{3.5,61.2739},{7,53.2797},{10.5,
+                40.9771},{14,25.695},{17.5,8.9428},{21,-7.8318},{24.5,
+                -23.4388},{28,-37.0617},{31.5,-48.2849},{35,-57.0467},{38.5,
+                -63.5468},{42,-68.1385},{45.5,-71.2318},{49,-73.2213},{52.5,
+                -74.4442},{56,-75.1631},{59.5,-75.5674},{63,-75.7852},{66.5,
+                -75.8975},{70,-75.953}},
+                smooth=Smooth.Bezier)}), Documentation(info="<html>
+<p>
+This block determines the probability density y of a Weibull distribution for the given input signal u
+(for details of this density function see
+<a href=\"Modelica.Math.Distributions.Weibull.density\">Math.Distributions.Weibull.density</a>).
+</p>
+
+<p>
+This block is demonstrated in the example
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
+</p>
+</html>",       revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+      end WeibullDensity;
+
+      block ImpureRandom
+        "Block generating random numbers with the impure random number generator"
+        extends Modelica.Blocks.Interfaces.SO;
+
+        parameter Modelica.SIunits.Period samplePeriod
+          "Sample period for random number generation";
+
+      protected
+         outer Modelica.Blocks.Noise.GlobalSeed globalSeed;
+
+      equation
+         when {initial(), sample(samplePeriod,samplePeriod)} then
+            y = Modelica.Math.Random.Utilities.impureRandom(globalSeed.id_impure);
+         end when;
+        annotation (Documentation(info="<html>
+<p>
+This block demonstrates how to implement a block using the impure
+random number generator. This block is used in the example
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ImpureGenerator\">Examples.NoiseExamples.ImpureGenerator</a>.
+</p>
+</html>",       revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+      end ImpureRandom;
+
+      package Parts "Parts for use in the ActuatorWithNoise examples"
+
+        model MotorWithCurrentControl
+          "Synchronous induction machine with current controller and measurement noise"
+          extends Modelica.Electrical.Machines.Icons.TransientMachine;
+          constant Integer m=3 "Number of phases";
+          parameter Modelica.SIunits.Voltage VNominal=100
+            "Nominal RMS voltage per phase";
+          parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+          parameter Modelica.SIunits.Frequency f=50 "Actual frequency";
+          parameter Modelica.SIunits.Time tRamp=1 "Frequency ramp";
+          parameter Modelica.SIunits.Torque TLoad=181.4 "Nominal load torque";
+          parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
+          parameter Modelica.SIunits.Inertia JLoad=0.29
+            "Load's moment of inertia";
+
+          Modelica.SIunits.Angle phi_motor "Rotational Position";
+          Modelica.SIunits.AngularVelocity w "Rotational Speed";
+          Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
+            smpm(
+            p=smpmData.p,
+            fsNominal=smpmData.fsNominal,
+            Rs=smpmData.Rs,
+            TsRef=smpmData.TsRef,
+            Lszero=smpmData.Lszero,
+            Lssigma=smpmData.Lssigma,
+            Jr=smpmData.Jr,    Js=smpmData.Js,
+            frictionParameters=smpmData.frictionParameters,
+            wMechanical(fixed=true),
+            statorCoreParameters=smpmData.statorCoreParameters,
+            strayLoadParameters=smpmData.strayLoadParameters,
+            VsOpenCircuit=smpmData.VsOpenCircuit,
+            Lmd=smpmData.Lmd,
+            Lmq=smpmData.Lmq,
+            useDamperCage=smpmData.useDamperCage,
+            Lrsigmad=smpmData.Lrsigmad,
+            Lrsigmaq=smpmData.Lrsigmaq,
+            Rrd=smpmData.Rrd,
+            Rrq=smpmData.Rrq,
+            TrRef=smpmData.TrRef,
+            permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters,
+            phiMechanical(fixed=true),
+            TsOperational=293.15,
+            alpha20s=smpmData.alpha20s,
+            TrOperational=293.15,
+            alpha20r=smpmData.alpha20r)
+            annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+          Modelica.Electrical.MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
+            annotation (Placement(transformation(
+                origin={-10,50},
+                extent={{-10,10},{10,-10}},
+                rotation=270)));
+          Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+            annotation (Placement(transformation(extent={{-50,80},{-70,100}})));
+          Modelica.Electrical.Analog.Basic.Ground ground
+            annotation (Placement(transformation(
+                origin={-90,90},
+                extent={{-10,-10},{10,10}},
+                rotation=270)));
+          Modelica.Electrical.Machines.Utilities.CurrentController currentController(p=smpm.p)
+            annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+          Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor voltageQuasiRMSSensor
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=180,
+                origin={-30,-10})));
+          Modelica.Electrical.MultiPhase.Basic.Star starM(final m=m) annotation (Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=180,
+                origin={-60,-10})));
+          Modelica.Electrical.Analog.Basic.Ground groundM
+            annotation (Placement(transformation(
+                origin={-80,-28},
+                extent={{-10,-10},{10,10}},
+                rotation=270)));
+          Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(
+              terminalConnection="Y") annotation (Placement(transformation(extent={{-20,
+                    -30},{0,-10}})));
+          Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smpm.p)
+            annotation (Placement(transformation(
+                origin={20,-40},
+                extent={{-10,10},{10,-10}},
+                rotation=270)));
+          Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={10,0})));
+          Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor annotation (
+              Placement(transformation(
+                extent={{10,10},{-10,-10}},
+                rotation=180,
+                origin={40,-60})));
+          Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
+              Placement(transformation(
+                extent={{-10,-10},{10,10}},
+                rotation=90,
+                origin={30,0})));
+          Modelica.Mechanics.Rotational.Components.Inertia inertiaLoad(J=0.29)
+            annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
+          parameter
+            Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+            smpmData(useDamperCage=false)
+            annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+          Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
+            annotation (Placement(transformation(
+                origin={-10,0},
+                extent={{-10,-10},{10,10}},
+                rotation=270)));
+          Modelica.Blocks.Sources.Constant id(k=0)
+            annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+          Modelica.Blocks.Interfaces.RealInput iq_rms1 annotation (Placement(
+                transformation(extent={{-140,40},{-100,80}}),iconTransformation(extent={{-140,40},
+                    {-100,80}})));
+          Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
+            "Right flange of shaft"
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
+          Modelica.Blocks.Interfaces.RealOutput phi
+            "Absolute angle of flange as output signal" annotation (Placement(
+                transformation(
+                extent={{-10,-10},{10,10}},
+                origin={110,80}), iconTransformation(extent={{40,70},{60,90}})));
+          Modelica.Blocks.Math.Add addNoise
+            annotation (Placement(transformation(extent={{60,70},{80,90}})));
+          Modelica.Blocks.Noise.UniformNoise UniformNoise(
+            samplePeriod=1/200,
+            y_min=-0.01,
+            y_max=0.01)
+            annotation (Placement(transformation(extent={{26,76},{46,96}})));
+        equation
+          w = speedSensor.w;
+          phi_motor = angleSensor.phi;
+          connect(star.pin_n, ground.p)
+            annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
+          connect(rotorDisplacementAngle.plug_n, smpm.plug_sn)    annotation (Line(
+                points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
+          connect(rotorDisplacementAngle.plug_p, smpm.plug_sp)    annotation (Line(
+                points={{14,-30},{-4,-30}}, color={0,0,255}));
+          connect(terminalBox.plug_sn, smpm.plug_sn)   annotation (Line(
+              points={{-16,-30},{-16,-30}},
+              color={0,0,255}));
+          connect(terminalBox.plug_sp, smpm.plug_sp)   annotation (Line(
+              points={{-4,-30},{-4,-30}},
+              color={0,0,255}));
+          connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
+              points={{0,-40},{10,-40}}));
+          connect(signalCurrent.plug_p, star.plug_p) annotation (Line(
+              points={{-10,60},{-10,90},{-50,90}},
+              color={0,0,255}));
+          connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
+              points={{10,-10},{10,-40}}));
+          connect(angleSensor.phi, currentController.phi) annotation (Line(
+              points={{10,11},{10,30},{-40,30},{-40,38}},
+              color={0,0,127}));
+          connect(groundM.p, terminalBox.starpoint) annotation (Line(
+              points={{-70,-28},{-19,-28}},
+              color={0,0,255}));
+          connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
+              points={{0,-40},{30,-40},{30,-60}}));
+          connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
+              Line(
+              points={{-20,-10},{-10,-10},{-10,-28}},
+              color={0,0,255}));
+          connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
+              points={{-50,-10},{-40,-10}},
+              color={0,0,255}));
+          connect(starM.pin_n, groundM.p) annotation (Line(
+              points={{-70,-10},{-70,-28}},
+              color={0,0,255}));
+          connect(currentController.y, signalCurrent.i) annotation (Line(
+              points={{-29,50},{-17,50}},
+              color={0,0,127}));
+          connect(speedSensor.flange, smpm.flange) annotation (Line(
+              points={{30,-10},{30,-40},{0,-40}}));
+          connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
+              points={{50,-60},{50,-40}}));
+          connect(signalCurrent.plug_n, currentQuasiRMSSensor.plug_p) annotation (
+             Line(
+              points={{-10,40},{-10,10}},
+              color={0,0,255}));
+          connect(currentQuasiRMSSensor.plug_n, voltageQuasiRMSSensor.plug_p)
+            annotation (Line(
+              points={{-10,-10},{-20,-10}},
+              color={0,0,255}));
+          connect(id.y, currentController.id_rms) annotation (Line(
+              points={{-79,30},{-70,30},{-70,56},{-52,56}},
+              color={0,0,127}));
+          connect(currentController.iq_rms, iq_rms1) annotation (Line(
+              points={{-52,44},{-76,44},{-76,60},{-120,60}},
+              color={0,0,127}));
+          connect(inertiaLoad.flange_b, flange) annotation (Line(
+              points={{70,-40},{86,-40},{86,0},{100,0}}));
+          connect(angleSensor.phi, addNoise.u2) annotation (Line(
+              points={{10,11},{10,30},{52,30},{52,74},{58,74}},
+              color={0,0,127}));
+          connect(addNoise.y, phi) annotation (Line(
+              points={{81,80},{110,80}},
+              color={0,0,127}));
+          connect(UniformNoise.y, addNoise.u1) annotation (Line(
+              points={{47,86},{58,86}},
+              color={0,0,127}));
+          annotation (
+            Documentation(info="<html>
+<p>
+A synchronous induction machine with permanent magnets, current controller and
+measurement noise of &plusmn;0.01 rad accelerates a quadratic speed dependent load from standstill.
+The rms values of d- and q-current in rotor fixed coordinate system are converted to three-phase currents,
+and fed to the machine. The result shows that the torque is influenced by the q-current,
+whereas the stator voltage is influenced by the d-current.
+</p>
+
+<p>
+Default machine parameters of model
+<a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>
+are used.
+</p>
+
+<p>
+This motor is used in the
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise\">Examples.NoiseExamples.ActuatorWithNoise</a>
+actuator example
+</p>
+</html>",         revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                    100}}), graphics={Rectangle(
+                  extent={{40,50},{-100,100}},
+                  fillColor={255,170,85},
+                  fillPattern=FillPattern.Solid,
+                  pattern=LinePattern.None,
+                  lineColor={0,0,0}),           Text(
+                extent={{-150,150},{150,110}},
+                textString="%name",
+                lineColor={0,0,255})}));
+        end MotorWithCurrentControl;
+
+        model Controller "Simple position controller for actuator"
+
+          Modelica.Blocks.Continuous.PI speed_PI(k=10, T=5e-2,
+            initType=Modelica.Blocks.Types.Init.InitialOutput)
+            annotation (Placement(transformation(extent={{38,-10},{58,10}})));
+          Modelica.Blocks.Math.Feedback speedFeedback
+            annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+          Modelica.Blocks.Continuous.Derivative positionToSpeed(initType=Modelica.Blocks.Types.Init.InitialOutput,
+              T=0.01)
+            annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
+          Modelica.Blocks.Interfaces.RealInput positionMeasured
+            "Position signal of motor"
+            annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+          Modelica.Blocks.Interfaces.RealInput positionReference
+            "Reference position"
+            annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+          Modelica.Blocks.Interfaces.RealOutput y1
+            "Connector of Real output signal"
+            annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+          Modelica.Blocks.Continuous.PI position_PI(T=5e-1, k=3,
+            initType=Modelica.Blocks.Types.Init.InitialState)
+            annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
+          Modelica.Blocks.Math.Feedback positionFeedback
+            annotation (Placement(transformation(extent={{-90,50},{-70,70}})));
+          Modelica.Blocks.Continuous.FirstOrder busdelay(T=1e-3, initType=Modelica.Blocks.Types.Init.InitialOutput)
+            annotation (Placement(transformation(extent={{68,-10},{88,10}})));
+        equation
+          connect(speedFeedback.y, speed_PI.u) annotation (Line(
+              points={{29,0},{36,0}},
+              color={0,0,127}));
+          connect(positionFeedback.u2, positionToSpeed.u) annotation (Line(
+              points={{-80,52},{-80,-60},{-62,-60}},
+              color={0,0,127}));
+          connect(positionReference, positionFeedback.u1) annotation (Line(
+              points={{-120,60},{-88,60}},
+              color={0,0,127}));
+          connect(positionFeedback.y, position_PI.u) annotation (Line(
+              points={{-71,60},{-62,60}},
+              color={0,0,127}));
+          connect(position_PI.y, speedFeedback.u1) annotation (Line(
+              points={{-39,60},{0,60},{0,0},{12,0}},
+              color={0,0,127}));
+          connect(speed_PI.y, busdelay.u) annotation (Line(
+              points={{59,0},{66,0}},
+              color={0,0,127}));
+          connect(y1, busdelay.y) annotation (Line(
+              points={{110,0},{89,0}},
+              color={0,0,127}));
+          connect(positionMeasured, positionToSpeed.u) annotation (Line(
+              points={{-120,-60},{-62,-60}},
+              color={0,0,127}));
+          connect(positionToSpeed.y, speedFeedback.u2) annotation (Line(
+              points={{-39,-60},{20,-60},{20,-8}},
+              color={0,0,127}));
+          annotation ( Icon(coordinateSystem(
+                  preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
+                Rectangle(extent={{-100,100},{100,-100}}, lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                Text(
+                  extent={{-40,50},{40,-30}},
+                  lineColor={0,0,255},
+                  textString="PI"),             Text(
+                extent={{-150,150},{150,110}},
+                textString="%name",
+                lineColor={0,0,255})}),
+            Documentation(revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>",         info="<html>
+<p>
+A simple position controller for a drive system.
+This controller is used in the
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise\">Examples.NoiseExamples.ActuatorWithNoise</a>
+actuator example
+</p>
+</html>"));
+        end Controller;
+      annotation (Documentation(revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>",       info="<html>
+<p>
+Parts used in the
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ActuatorWithNoise\">Examples.NoiseExamples.ActuatorWithNoise</a>
+actuator example
+</p>
+</html>"));
+      end Parts;
+    annotation (Documentation(info="<html>
+<p>
+This package contains utility models that are used for the examples.
+</p>
+</html>",     revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+    end Utilities;
+  annotation (Documentation(info="<html>
+<p>
+This package contains various example models that demonstrates how
+to utilize the blocks from sublibrary
+<a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
+</p>
+</html>",   revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
+</html>"));
+  end NoiseExamples;
 
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
