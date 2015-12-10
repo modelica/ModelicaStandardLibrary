@@ -2467,11 +2467,99 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Examples</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">NoiseExamples</td>
+    <td valign=\"top\"> Several examples to demonstrate the usage of the blocks in the
+                      new sublibrary Blocks.Noise.</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Interfaces</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">PartialNoise</td>
+    <td valign=\"top\"> Partial noise generator (base class of the noise generators in Blocks.Noise)</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Math</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">ContinuousMean</td>
+    <td valign=\"top\"> Calculates the empirical expectation (mean) value of its input signal</td></tr>
+<tr><td valign=\"top\" width=\"150\">Variance</td>
+    <td valign=\"top\"> Calculates the empirical variance of its input signal</td></tr>
+<tr><td valign=\"top\" width=\"150\">StandardDeviation</td>
+    <td valign=\"top\"> Calculates the empirical standard deviation of its input signal</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Noise</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">GlobalSeed</td>
+    <td valign=\"top\"> Defines global settings for the blocks of sublibrary Noise,
+                      especially a global seed value is defined</td></tr>
+<tr><td valign=\"top\" width=\"150\">UniformNoise</td>
+    <td valign=\"top\"> Noise generator with uniform distribution</td></tr>
+<tr><td valign=\"top\" width=\"150\">NormalNoise</td>
+    <td valign=\"top\"> Noise generator with normal distribution</td></tr>
+<tr><td valign=\"top\" width=\"150\">TruncatedNormalNoise</td>
+    <td valign=\"top\"> Noise generator with truncated normal distribution</td></tr>
+<tr><td valign=\"top\" width=\"150\">BandLimitedWhiteNoise</td>
+    <td valign=\"top\"> Noise generator to produce band-limited white noise with normal distribution</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">balanceABC</td>
     <td valign=\"top\"> Return a balanced form of a system [A,B;C,0]
                       to improve its condition by a state transformation</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Random.Generators.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">Xorshift64star</td>
+    <td valign=\"top\"> Random number generator xorshift64*</td></tr>
+<tr><td valign=\"top\" width=\"150\">Xorshift128plus </td>
+    <td valign=\"top\"> Random number generator xorshift128+</td></tr>
+<tr><td valign=\"top\" width=\"150\">Xorshift1024star</td>
+    <td valign=\"top\"> Random number generator xorshift1024*</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Random.Utilities.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">initialStateWithXorshift64star</td>
+    <td valign=\"top\"> Return an initial state vector for a random number generator (based on xorshift64star algorithm)</td></tr>
+<tr><td valign=\"top\" width=\"150\">automaticGlobalSeed </td>
+    <td valign=\"top\"> Creates an automatic integer seed from the current time and process id (= impure function)</td></tr>
+<tr><td valign=\"top\" width=\"150\">automaticLocalSeed </td>
+    <td valign=\"top\"> Creates an automatic local seed from the instance name</td></tr>
+<tr><td valign=\"top\" width=\"150\">initializeImpureRandom </td>
+    <td valign=\"top\"> Initializes the internal state of the impure random number generator</td></tr>
+<tr><td valign=\"top\" width=\"150\">impureRandom</td>
+    <td valign=\"top\"> Impure random number generator (with hidden state vector)</td></tr>
+<tr><td valign=\"top\" width=\"150\">impureRandomInteger </td>
+    <td valign=\"top\"> Impure random number generator for integer values (with hidden state vector)</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Distributions.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">Uniform</td>
+    <td valign=\"top\"> Library of uniform distribution functions (functions: density, cumulative, quantile)</td></tr>
+<tr><td valign=\"top\" width=\"150\">Normal</td>
+    <td valign=\"top\"> Library of normal distribution functions (functions: density, cumulative, quantile)</td></tr>
+<tr><td valign=\"top\" width=\"150\">TruncatedNormal </td>
+    <td valign=\"top\"> Library of truncated normal distribution functions (functions: density, cumulative, quantile)</td></tr>
+<tr><td valign=\"top\" width=\"150\">Weibull</td>
+    <td valign=\"top\"> Library of Weibull distribution functions (functions: density, cumulative, quantile)</td></tr>
+<tr><td valign=\"top\" width=\"150\">TruncatedWeibull </td>
+    <td valign=\"top\"> Library of truncated Weibull distribution functions (functions: density, cumulative, quantile)</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Special.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">erf</td>
+    <td valign=\"top\">Error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*d</td></tr>
+<tr><td valign=\"top\" width=\"150\">erfc</td>
+    <td valign=\"top\">Complementary error function erfc(u) = 1 - erf(u)</td></tr>
+<tr><td valign=\"top\" width=\"150\">erfInv</td>
+    <td valign=\"top\">Inverse error function: u = erf(erfInv(u))</td></tr>
+<tr><td valign=\"top\" width=\"150\">erfcInv </td>
+    <td valign=\"top\">Inverse complementary error function: u = erfc(erfcInv(u))</td></tr>
+<tr><td valign=\"top\" width=\"150\">sinc </td>
+    <td valign=\"top\">Unnormalized sinc function: sinc(u) = sin(u)/u</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Utilities.Strings.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">hashString</td>
+    <td valign=\"top\">Creates a hash value of a String</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Utilities.System.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">getTime</td>
+    <td valign=\"top\">Retrieves the local time (in the local time zone)</td></tr>
+<tr><td valign=\"top\" width=\"150\">getPid</td>
+    <td valign=\"top\">Retrieves the current process id</td></tr>
 </table>
+
+
 
 </html>"));
 end Version_3_2_2;
