@@ -2548,6 +2548,14 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">sinc </td>
     <td valign=\"top\">Unnormalized sinc function: sinc(u) = sin(u)/u</td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Math.FastFourierTransform.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">realFFTinfo </td>
+    <td valign=\"top\">Print information about real FFT for given f_max and f_resolution</td></tr>
+<tr><td valign=\"top\" width=\"150\">realFFTsamplePoints </td>
+    <td valign=\"top\">Return number of sample points for a real FFT</td></tr>
+<tr><td valign=\"top\" width=\"150\">realFFT</td>
+    <td valign=\"top\">Return amplitude and phase vectors for a real FFT</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Strings.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">hashString</td>
     <td valign=\"top\">Creates a hash value of a String</td></tr>
@@ -2558,9 +2566,6 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">getPid</td>
     <td valign=\"top\">Retrieves the current process id</td></tr>
 </table>
-
-
-
 </html>"));
 end Version_3_2_2;
 
