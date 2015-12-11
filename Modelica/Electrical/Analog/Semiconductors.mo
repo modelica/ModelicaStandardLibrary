@@ -119,11 +119,11 @@ package Semiconductors
       Documentation(info="<html>
 <p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
 <ul>
-<li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
-<li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
-<li>forward biased region after conduction: iVdMax + (vd - VdMax) * diVdMax</li>
+<li>lower half of reversed bias region including breakdown: -Ids&middot;(exp(-(vd+Bv)/(N&middot;Vt)) + 1 - 2&middot;exp(-Bv/(2&middot;N&middot;Vt)))</li>
+<li>upper half of reverse biased region and forward biased region before conduction: Ids&middot;(exp(vd/(N&middot;Vt)) - 1)</li>
+<li>forward biased region after conduction: iVdMax + (vd - VdMax)&middot;diVdMax</li>
 </ul>
-<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k*T/q, where</p>
+<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k&middot;T/q, where</p>
 <ul>
 <li>k is Boltzmann&apos;s constant</li>
 <li>T is the heat port temperature.</li>
