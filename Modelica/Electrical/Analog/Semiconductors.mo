@@ -73,16 +73,115 @@ package Semiconductors
           Line(points={{30,40},{30,-40}}, color={0,0,255})}));
   end Diode;
 
+  model Diode2 "Improved diode model"
+    extends Modelica.Electrical.Analog.Interfaces.OnePort;
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
+     T=293.15);
+    parameter SI.Voltage Vf = 0.7 "Forward voltage";
+    parameter SI.Current Ids = 1.e-13 "Reverse saturation current";
+    parameter SI.Resistance Rs = 16 "Ohmic resistance";
+    parameter SI.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
+      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
+    parameter Real N = 1 "Emission coefficient";
+    parameter SI.Voltage Bv = 100 "Reverse breakdown voltage";
+    parameter SI.Conductance Gp = 1e-6
+      "Parallel conductance for numerical stability";
+    SI.Voltage vd "Voltage across pure diode part";
+    SI.Current id "diode current";
+  protected
+    SI.Voltage VdMax=Vf + (N*Vt_applied) "Linear continuation threshold";
+    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1)
+      "Current at threshold";
+    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*
+        Vt_applied) "Conductance at threshold";
+    SI.Voltage Vt_applied;
+  equation
+    Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
+    id = smooth(1,
+      if vd < -Bv / 2 then
+        -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
+      elseif vd < VdMax then
+        Ids * (exp(vd/(N*Vt_applied)) - 1)
+      else
+        iVdMax + (vd - VdMax) * diVdMax);
+        //Lower half of reverse biased region including breakdown.
+        //Upper half of reverse biased region, and forward biased region before conduction.
+        //Forward biased region after conduction
+
+    v = vd + id * Rs;
+    i = id + v*Gp;
+    LossPower=i*v;
+
+    assert(Bv>0, "Bv must be greater than zero", AssertionLevel.error);
+    assert(Vf>0, "Vf must be greater than zero", AssertionLevel.error);
+    assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
+    annotation (
+      Documentation(info="<html>
+<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
+<ul>
+<li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
+<li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
+<li>forward biased region after conduction: iVdMax + (vd - VdMax) * diVdMax</li>
+</ul>
+<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k*T/q, where</p>
+<ul>
+<li>k is Boltzmann&apos;s constant</li>
+<li>T is the heat port temperature.</li>
+<li>q is the electron charge.</li>
+</ul>
+</html>",
+   revisions="<html>
+<ul>
+<li><i>November 2015 </i>
+by Stefan Vorkoetter <br>implemented dynamic temperature dependency</br></li>
+<li><i>November 2015</i>
+by Kristin Majetta <br> defined parameter Vt based on fixed temperature</br></li>
+<li><i>June 2014</i>
+by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss <br>implemented</br></li>
+<li><i>October 2011</i>
+Stefan Vorkoetter - new model proposed.</li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Line(points={{-90,0},{40,0}}, color={0,0,255}),
+          Line(points={{40,0},{90,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255}),
+          Text(
+            extent={{-154,100},{146,60}},
+            textString="%name",
+            lineColor={0,0,255}),
+          Line(
+            visible=useHeatPort,
+            points={{0,-100},{0,-20}},
+            color={127,0,0},
+            pattern=LinePattern.Dot)}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}}), graphics={
+          Polygon(
+            points={{30,0},{-30,40},{-30,-40},{30,0}},
+            lineColor={0,0,255},
+            fillColor={255,0,0},
+            fillPattern=FillPattern.None),
+          Line(points={{-96,0},{96,0}}, color={0,0,255}),
+          Line(points={{30,40},{30,-40}}, color={0,0,255})}));
+  end Diode2;
+
  model ZDiode "Zener diode with 3 working areas"
    extends Modelica.Electrical.Analog.Interfaces.OnePort;
    parameter SI.Current Ids=1.e-6 "Saturation current";
-   parameter SI.Voltage Vt=0.04
-      "Voltage equivalent of temperature (kT/qn)";
+   parameter SI.Voltage Vt=0.04 "Voltage equivalent of temperature (kT/qn)";
    parameter Real Maxexp(final min=Modelica.Constants.small) = 30
       "Max. exponent for linear continuation";
    parameter SI.Resistance R=1.e8 "Parallel ohmic resistance";
-   parameter SI.Voltage Bv=5.1
-      "Breakthrough voltage = Zener- or Z-voltage";
+   parameter SI.Voltage Bv=5.1 "Breakthrough voltage = Zener- or Z-voltage";
    parameter SI.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
@@ -1785,107 +1884,6 @@ public
 </html>"));
   end SimpleTriac;
 
-  model Diode2 "Improved diode model"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     T=293.15);
-    parameter SI.Voltage Vf = 0.7 "Forward voltage";
-    parameter SI.Current Ids = 1.e-13 "Reverse saturation current";
-    parameter SI.Resistance Rs = 16 "Ohmic resistance";
-    parameter SI.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
-      "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
-    parameter Real N = 1 "Emission coefficient";
-    parameter SI.Voltage Bv = 100 "Reverse breakdown voltage";
-    parameter SI.Conductance Gp = 1e-6
-      "Parallel conductance for numerical stability";
-    SI.Voltage vd "Voltage across pure diode part";
-    SI.Current id "diode current";
-  protected
-    SI.Voltage VdMax=Vf + (N*Vt_applied)
-      "Linear continuation threshold";
-    SI.Current iVdMax=Ids*(exp(VdMax/(N*Vt_applied)) - 1)
-      "Current at threshold";
-    SI.Conductance diVdMax=Ids*exp(VdMax/(N*Vt_applied))/(N*
-        Vt_applied) "Conductance at threshold";
-    SI.Voltage Vt_applied;
-  equation
-    Vt_applied = if useHeatPort then Modelica.Constants.R * T_heatPort/Modelica.Constants.F else Vt;
-    id = smooth(1,
-      if vd < -Bv / 2 then
-        -Ids * (exp(-(vd+Bv)/(N*Vt_applied)) + 1 - 2*exp(-Bv/(2*N*Vt_applied)))
-      elseif vd < VdMax then
-        Ids * (exp(vd/(N*Vt_applied)) - 1)
-      else
-        iVdMax + (vd - VdMax) * diVdMax);
-        //Lower half of reverse biased region including breakdown.
-        //Upper half of reverse biased region, and forward biased region before conduction.
-        //Forward biased region after conduction
-
-    v = vd + id * Rs;
-    i = id + v*Gp;
-    LossPower=i*v;
-
-    assert(Bv>0, "Bv must be greater than zero", AssertionLevel.error);
-    assert(Vf>0, "Vf must be greater than zero", AssertionLevel.error);
-    assert(Vt>0, "Vt must be greater than zero", AssertionLevel.error);
-    annotation (
-      Documentation(info="<html>
-<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
-<ul>
-<li>lower half of reversed bias region including breakdown: -Ids * (exp(-(vd+Bv)/(N*Vt)) + 1 - 2*exp(-Bv/(2*N*Vt)))</li>
-<li>upper half of reverse biased region and forward biased region before conduction: Ids * (exp(vd/(N*Vt)) - 1)</li>
-<li>forward biased region after conduction: iVdMax + (vd - VdMax) * diVdMax</li>
-</ul>
-<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k*T/q, where</p>
-<ul>
-<li>k is Boltzmann&apos;s constant</li>
-<li>T is the heat port temperature.</li>
-<li>q is the electron charge.</li>
-</ul>
-</html>",
-   revisions="<html>
-<ul>
-<li><i>November 2015 </i>
-by Stefan Vorkoetter <br>implemented dynamic temperature dependency</br></li>
-<li><i>November 2015</i>
-by Kristin Majetta <br> defined parameter Vt based on fixed temperature</br></li>
-<li><i>June 2014</i>
-by Stefan Vorkoetter, Kristin Majetta, and Christoph Clauss <br>implemented</br></li>
-<li><i>October 2011</i>
-Stefan Vorkoetter - new model proposed.</li>
-</ul>
-</html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{40,0}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Text(
-            extent={{-154,100},{146,60}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,-20}},
-            color={127,0,0},
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,255},
-            fillColor={255,0,0},
-            fillPattern=FillPattern.None),
-          Line(points={{-96,0},{96,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255})}));
-  end Diode2;
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>
