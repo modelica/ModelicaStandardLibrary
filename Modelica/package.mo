@@ -1103,8 +1103,10 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
      (text string <code>%name</code>) in <b>blue color</b>.
      Parameter values, e.g., resistance, mass, gear ratio, are displayed
      in the icon in <b>black color</b> in a smaller font size as the instance name.</li>
-<li> Comments and annotations always start with a capital letter, e.g.,
-     <code><b>parameter</b> Real a = 1 \"Arbitrary factor\";</code></li>
+<li> Comments and annotations should start with a capital letter, for example: <br>
+     <code><b>parameter</b> Real a = 1 \"Arbitrary factor\";</code>.<br>
+     For Boolean parameters, the description string should start with \"= true: ..\", for example:<br>
+     <code><b>parameter</b> Boolean useHeatPort = false \"= true, if heatPort is enabled\";</code>.</li>
 </ol>
 
 </html>"));

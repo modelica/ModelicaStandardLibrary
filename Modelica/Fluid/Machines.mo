@@ -6,8 +6,8 @@ package Machines
     "varying cylindric volume depending on the position of the piston"
     import Modelica.Constants.pi;
 
-    parameter SI.Area pistonCrossArea "cross sectional area of piston";
-    parameter SI.Volume clearance "remaining volume at zero piston stroke";
+    parameter SI.Area pistonCrossArea "Cross sectional area of piston";
+    parameter SI.Volume clearance "Remaining volume at zero piston stroke";
 
     SI.Volume V "fluid volume";
 
