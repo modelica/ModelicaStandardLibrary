@@ -112,23 +112,13 @@ as output.
       "Connector of Real input signal used as minimum of input u"
                                 annotation (Placement(transformation(extent={{
               -140,-100},{-100,-60}})));
-  protected
-    Real uMax;
-    Real uMin;
-
   equation
-    if strict then
-      uMax = noEvent(max(limit1, limit2));
-      uMin = noEvent(min(limit1, limit2));
-    else
-      uMax = max(limit1, limit2);
-      uMin = min(limit1, limit2);
-    end if;
+    assert(limit1 > limit2, "Limits limit1/limit2 are not consistent");
 
     if strict then
-       y = homotopy(actual=  smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=y);
+       y = homotopy(actual=  smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=y);
     else
-       y = homotopy(actual=  smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=y);
+       y = homotopy(actual=  smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=y);
     end if;
 
     annotation (
@@ -221,13 +211,15 @@ is passed as output.
       "Derivative time constant";
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+  protected
+    Real val=(u-y)/Td;
   initial equation
       y = u;
   equation
     if strict then
-      der(y) = smooth(1, noEvent(min(max((u - y)/Td, Falling), Rising)));
+      der(y) = smooth(1,noEvent(if val<Falling then Falling else if val>Rising then Rising else val));
     else
-      der(y) = smooth(1, min(max((u - y)/Td, Falling), Rising));
+      der(y) = if val<Falling then Falling else if val>Rising then Rising else val;
     end if;
     annotation (Icon(graphics={
       Line(points={{-90,0},{68,0}}, color={192,192,192}),
