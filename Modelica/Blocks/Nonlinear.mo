@@ -190,11 +190,11 @@ is passed as output.
           Text(
             extent={{46,-6},{68,-18}},
             lineColor={128,128,128},
-            textString="inPort"),
+            textString="input"),
           Text(
             extent={{-30,70},{-5,50}},
             lineColor={128,128,128},
-            textString="outPort"),
+            textString="output"),
           Text(
             extent={{-66,-40},{-26,-20}},
             lineColor={128,128,128},
@@ -394,7 +394,7 @@ The Input signal is delayed by a given time instant, or more precisely:
           Text(
             extent={{-75,98},{-46,78}},
             lineColor={0,0,255},
-            textString="outPort"),
+            textString="output"),
           Polygon(
             points={{-80,96},{-86,80},{-74,80},{-80,96}},
             lineColor={192,192,192},
@@ -415,7 +415,7 @@ The Input signal is delayed by a given time instant, or more precisely:
           Text(
             extent={{-24,98},{-2,78}},
             lineColor={0,0,0},
-            textString="inPort"),
+            textString="input"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
                 59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
@@ -650,7 +650,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
           Text(
             extent={{-75,98},{-46,78}},
             lineColor={0,0,255},
-            textString="outPort"),
+            textString="output"),
           Polygon(
             points={{-80,96},{-86,80},{-74,80},{-80,96}},
             lineColor={192,192,192},
@@ -671,7 +671,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
           Text(
             extent={{-24,98},{-2,78}},
             lineColor={0,0,0},
-            textString="inPort"),
+            textString="input"),
           Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
                 59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
@@ -752,7 +752,7 @@ the following relationship:
       Text(
         extent={{-69,98},{-40,78}},
         lineColor={0,0,255},
-        textString="outPort"),
+        textString="output"),
       Line(points={{-64,0},{-52.7,34.2},{-45.5,53.1},{-39.1,66.4},{-33.4,
             74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
             59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
@@ -782,7 +782,7 @@ the following relationship:
       Text(
         extent={{-24,98},{-2,78}},
         lineColor={0,0,0},
-        textString="inPort"),
+        textString="input"),
       Polygon(
         points={{-80,-26},{-88,-24},{-88,-28},{-80,-26}},
         lineColor={192,192,192},

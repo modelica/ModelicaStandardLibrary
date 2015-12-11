@@ -308,8 +308,7 @@ states can be set as start values of <b>x</b>.</p>
       Documentation(info="<html>
 <p>
 The <b>discrete state space</b> block defines the relation
-between the input u=inPort.signal and the output
-y=outPort.signal in state space form:
+between the input u and the output y in state space form:
 </p>
 <pre>
     x = A * pre(x) + B * u
