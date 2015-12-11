@@ -1174,18 +1174,20 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
       extends Modelica.Icons.Package;
 
       function jet "Returns the \"jet\" color map"
-      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+        extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+        import Modelica.Utilities.Streams.print;
       protected
-         Real a=ceil(n_colors/4);
-         Real d=1/a;
-         Real b=ceil(a/2);
-         Real c=floor(a/2);
-         Real v1[:]={1-(b-i)*d for i in 1:b};
-         Real v2[:]=0+d:d:1;
-         Real v3[:]=1-d:-d:0;
-         Real v4[:]={0.5+(c-i)*d for i in 1:c};
-         Real cm[integer(ceil(n_colors/4))*4,3];
+         Real    a=ceil(n_colors/4);
+         Real    d=1/a;
+         Integer b=integer(ceil(a/2));
+         Integer c=integer(floor(a/2));
+         Real    v1[:]={1-(b-i)*d for i in 1:b};
+         Real    v2[:]=0+d:d:1;
+         Real    v3[:]=1-d:-d:0;
+         Real    v4[:]={0.5+(c-i)*d for i in 1:c};
+         Real    cm[integer(ceil(n_colors/4))*4,3];
       algorithm
+        print("...... 1");
          cm:=255*[zeros(size(v1,1)),zeros(size(v1,1)),  v1;
                   zeros(size(v2,1)), v2,  fill(1., size(v2,1));
                   v2,              fill(1, size(v2,1)), v3;
@@ -1503,6 +1505,7 @@ respective function:
       Real xHeading=x+width/2;
       Real yHeading=y-1.2*fontHeight;
     algorithm
+      print("... 1");
       if headerType==HeaderType.svgBeginAndEnd or
          headerType==HeaderType.svgBegin then
          Modelica.Utilities.Files.remove(fileName);
