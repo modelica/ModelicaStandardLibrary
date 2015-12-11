@@ -206,11 +206,13 @@ package Utilities "Test functions for Modelica.Utilities"
 
     Strings.scanNoToken("  abc = 3;   ", 11);
 
-    Streams.print("\n... Demonstrate how to compute a hash value from a string:");
-    hash1 :=Modelica.Utilities.Strings.hashString("this is a test");
-    hash2 :=Modelica.Utilities.Strings.hashString("Controller.noise1");
-    Streams.print("    hash1 = " + String(hash1));
-    Streams.print("    hash2 = " + String(hash2));
+    /*
+  Streams.print("\n... Demonstrate how to compute a hash value from a string:");
+  hash1 :=Modelica.Utilities.Strings.hashString("this is a test");
+  hash2 :=Modelica.Utilities.Strings.hashString("Controller.noise1");
+  Streams.print("    hash1 = " + String(hash1));
+  Streams.print("    hash2 = " + String(hash2));
+  */
 
     ok := true;
   end Strings;
@@ -414,4 +416,52 @@ package Utilities "Test functions for Modelica.Utilities"
     result := ModelicaTest.Utilities.Internal(logFile);
     ok := true;
   end testAll;
+
+  model TestStrings
+    extends Modelica.Icons.Example;
+
+    Boolean result;
+  algorithm
+    when initial() then
+      result := ModelicaTest.Utilities.Strings();
+    end when;
+
+    annotation (experiment(StopTime=0));
+  end TestStrings;
+
+  model TestSteams
+    extends Modelica.Icons.Example;
+
+    Boolean result;
+  algorithm
+    when initial() then
+      result := ModelicaTest.Utilities.Streams();
+    end when;
+
+    annotation (experiment(StopTime=0));
+  end TestSteams;
+
+  model TestInternal
+    extends Modelica.Icons.Example;
+
+    Boolean result;
+  algorithm
+    when initial() then
+      result := ModelicaTest.Utilities.Internal();
+    end when;
+
+    annotation (experiment(StopTime=0));
+  end TestInternal;
+
+  model TestFiles
+    extends Modelica.Icons.Example;
+
+    Boolean result;
+  algorithm
+    when initial() then
+      result := ModelicaTest.Utilities.Files();
+    end when;
+
+    annotation (experiment(StopTime=0));
+  end TestFiles;
 end Utilities;

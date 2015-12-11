@@ -35,6 +35,13 @@ algorithm
   result := ModelicaTest.Math.Matrices(logFile);
   result := ModelicaTest.Math.Matrices2();
   result := ModelicaTest.Math.Vectors();
+  result := ModelicaTest.Math.colorMapToSvg();
+
+  result := ModelicaTest.Math.Random.randomNumbers();
+  result := ModelicaTest.Math.Random.special();
+  result := ModelicaTest.Math.Random.distributions();
+  result := ModelicaTest.Math.Random.truncatedDistributions();
+
   result := ModelicaTest.Utilities.testAll(logFile);
   result := ModelicaTest.ComplexMath.ComplexFunctions(logFile);
   result := ModelicaTest.ComplexMath.ComplexOperations();

@@ -175,4 +175,28 @@ extends Modelica.Icons.Package;
   algorithm
      success:=true;
   end ComplexOperations;
+
+  model TestComplexFunctions
+    extends Modelica.Icons.Example;
+
+    Boolean result;
+  algorithm
+    when initial() then
+      result := ModelicaTest.ComplexMath.ComplexFunctions();
+    end when;
+
+    annotation (experiment(StopTime=0));
+  end TestComplexFunctions;
+
+  model TestComplexOperations
+    extends Modelica.Icons.Example;
+
+    Boolean result;
+  algorithm
+    when initial() then
+      result := ModelicaTest.ComplexMath.ComplexFunctions();
+    end when;
+
+    annotation (experiment(StopTime=0));
+  end TestComplexOperations;
 end ComplexMath;
