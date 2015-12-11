@@ -11,24 +11,17 @@ package Nonlinear
       "= true, if strict limits with noEvent(..)"
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Boolean limitsAtInit=true
-      "= false, if limits are ignored during initialization (i.e., y=u)"
-          annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         extends Interfaces.SISO;
 
       equation
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
-        if initial() and not limitsAtInit then
-           y = u;
-           assert(u >= uMin - 0.01*abs(uMin) and
-                  u <= uMax + 0.01*abs(uMax),
-                 "Limiter: During initialization the limits have been ignored.\n"+
-                 "However, the result is that the input u is not within the required limits:\n"+
-                 "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
-        elseif strict then
-           y = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u));
+        if strict then
+           y = homotopy(actual=  smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=y);
         else
-           y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
+           y = homotopy(actual=  smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=y);
         end if;
         annotation (
           Documentation(info="<html>
@@ -109,8 +102,8 @@ as output.
     parameter Boolean strict=false "= true, if strict limits with noEvent(..)"
       annotation (Evaluate=true, choices(checkBox=true));
     parameter Boolean limitsAtInit=true
-      "= false, if limits are ignored during initialization (i.e., y=u)"
-      annotation (Evaluate=true, choices(checkBox=true));
+      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
                                 annotation (Placement(transformation(extent={{
@@ -132,18 +125,12 @@ as output.
       uMin = min(limit1, limit2);
     end if;
 
-    if initial() and not limitsAtInit then
-       y = u;
-       assert(u >= uMin - 0.01*abs(uMin) and
-              u <= uMax + 0.01*abs(uMax),
-             "VariableLimiter: During initialization the limits have been ignored.\n"+
-             "However, the result is that the input u is not within the required limits:\n"+
-             "  u = " + String(u) + ", uMin = " + String(uMin) + ", uMax = " + String(uMax));
-    elseif strict then
-      y = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u));
+    if strict then
+       y = homotopy(actual=  smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=y);
     else
-       y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
+       y = homotopy(actual=  smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=y);
     end if;
+
     annotation (
       Documentation(info="<html>
 <p>
@@ -288,18 +275,17 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true
-      "= false, if dead zone is ignored during initialization (i.e., y=u)";
+      "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
+          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+
         extends Interfaces.SISO;
 
       equation
         assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
 
-        if initial() and not deadZoneAtInit then
-           y = u;
-        else
-           y = smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0);
-        end if;
+        y = homotopy(actual=smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0), simplified=y);
+
         annotation (
           Documentation(info="<html>
 <p>
