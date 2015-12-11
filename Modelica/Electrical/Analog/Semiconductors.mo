@@ -78,7 +78,7 @@ package Semiconductors
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
      T=293.15);
     parameter SI.Voltage Vf = 0.7 "Forward voltage";
-    parameter SI.Current Ids = 1.e-13 "Reverse saturation current";
+    parameter SI.Current Ids = 1e-13 "Reverse saturation current";
     parameter SI.Resistance Rs = 16 "Ohmic resistance";
     parameter SI.Voltage Vt = Modelica.Constants.R * T/Modelica.Constants.F
       "Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC)";
