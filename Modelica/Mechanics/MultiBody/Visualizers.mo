@@ -1175,7 +1175,6 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 
       function jet "Returns the \"jet\" color map"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
-        import Modelica.Utilities.Streams.print;
       protected
          Real    a=ceil(n_colors/4);
          Real    d=1/a;
@@ -1187,7 +1186,6 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
          Real    v4[:]={0.5+(c-i)*d for i in 1:c};
          Real    cm[integer(ceil(n_colors/4))*4,3];
       algorithm
-        print("...... 1");
          cm:=255*[zeros(size(v1,1)),zeros(size(v1,1)),  v1;
                   zeros(size(v2,1)), v2,  fill(1., size(v2,1));
                   v2,              fill(1, size(v2,1)), v3;
@@ -1505,7 +1503,6 @@ respective function:
       Real xHeading=x+width/2;
       Real yHeading=y-1.2*fontHeight;
     algorithm
-      print("... 1");
       if headerType==HeaderType.svgBeginAndEnd or
          headerType==HeaderType.svgBegin then
          Modelica.Utilities.Files.remove(fileName);
