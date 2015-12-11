@@ -542,7 +542,7 @@ with a specific unit to an output signal in another unit
   end UnitConversions;
 
   block InverseBlockConstraints
-    "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
+    "Construct inverse model by requiring that two inputs and two outputs are identical"
 
     Modelica.Blocks.Interfaces.RealInput u1 "Input signal 1 (u1 = u2)"
       annotation (Placement(transformation(extent={{-240,-20},{-200,20}}), iconTransformation(extent={{-240,-20},{-200,20}})));
@@ -550,7 +550,7 @@ with a specific unit to an output signal in another unit
       annotation (Placement(transformation(extent={{-140,-20},{-180,20}}), iconTransformation(extent={{-140,-20},{-180,20}})));
     Modelica.Blocks.Interfaces.RealOutput y1 "Output signal 1 (y1 = y2)"
       annotation (Placement(transformation(extent={{200,-10},{220,10}}), iconTransformation(extent={{200,-10},{220,10}})));
-    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y2 = y2)"
+    Modelica.Blocks.Interfaces.RealOutput y2 "Output signal 2 (y1 = y2)"
       annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
           origin={170,0}), iconTransformation(extent={{180,-10},{160,10}})));
