@@ -1,9 +1,8 @@
 within Modelica.Electrical.Analog.Examples;
 model CompareTransformers
   "Transformer circuit to show the magnetization facilities"
-
+  import Modelica.Constants.pi;  
   extends Modelica.Icons.Example;
-  constant SI.Angle pi = Modelica.Constants.pi;
   parameter SI.Voltage Vdc=0.1 "DC offset of voltage source";
   parameter SI.Voltage Vpeak=0.1 "Peak voltage of voltage source";
   parameter SI.Frequency f=10 "Frequency of voltage source";

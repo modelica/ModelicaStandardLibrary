@@ -1583,6 +1583,7 @@ states and of the \"Advanced\" menu parameters, see model
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
     import Modelica.SIunits.Conversions.to_unit1;
+    import Modelica.Constants.pi;      
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -1671,7 +1672,6 @@ states and of the \"Advanced\" menu parameters, see model
       annotation (Evaluate=true, Dialog(tab="Advanced", enable=not
             useQuaternions));
 
-    constant Real pi=Modelica.Constants.pi;
     final parameter SI.Distance radius=diameter/2 "Radius of cylinder";
     final parameter SI.Distance innerRadius=innerDiameter/2
       "Inner-Radius of cylinder";

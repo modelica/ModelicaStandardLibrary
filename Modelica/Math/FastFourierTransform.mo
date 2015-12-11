@@ -9,6 +9,7 @@ package FastFourierTransform
 
     model RealFFT1
       "Example demonstrating the use of an FFT calculation during simulation"
+      import Modelica.Constants.pi;      
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Frequency f_max = 4
         "Maximum frequency of interest";
@@ -36,7 +37,6 @@ package FastFourierTransform
       Integer iTick(start=0, fixed=true);
       Real A[nf](each start=0, each fixed=true) "FFT amplitudes";
       Real y_buf[ns](each start=0, each fixed=true);
-      constant Real pi = Modelica.Constants.pi;
     initial equation
       for i in 1:nfi loop
          fi[i] = (i-1)*f_resolution;

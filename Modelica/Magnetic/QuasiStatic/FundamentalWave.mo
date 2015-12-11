@@ -5287,8 +5287,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       partial model PartialBasicMachine
         "Partial model for quasi static multi phase machines"
         import Modelica;
+        import Modelica.Constants.pi;
         extends Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
-        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         parameter Integer m(min=3) = 3 "Number of stator phases";
         // Mechanical parameters
         parameter Modelica.SIunits.Inertia Jr(start=0.29) "Rotor inertia";
@@ -5477,6 +5477,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               extent={{-10,-10},{10,10}},
               origin={90,-30})));
       protected
+        constant Real pi = Modelica.Constants.pi;
         replaceable
           Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
           internalThermalPort(final m=m)
@@ -6273,7 +6274,7 @@ The partial two port elementary model extends from the partial two port model an
   package Utilities "Utilities for quasi static fundamental wave machines"
     extends Modelica.Icons.Package;
     block VfController "Voltage-Frequency-Controller"
-      constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+      import Modelica.Constants.pi;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Angle orientation[m]=-
           Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)

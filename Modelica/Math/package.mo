@@ -12370,6 +12370,7 @@ end atan2;
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
   import Modelica.Math;
+  import Modelica.Constants.pi;      
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1;
   input Real u2;
@@ -12377,7 +12378,6 @@ function atan3
   output Modelica.SIunits.Angle y;
 
 protected
-  constant Real pi=Modelica.Constants.pi;
   constant Real pi2=2*pi;
   Real w;
 algorithm

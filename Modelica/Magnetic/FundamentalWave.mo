@@ -2535,8 +2535,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),
-              Text(
+"),           Text(
                 extent={{40,-44},{100,-52}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -3202,16 +3201,14 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),
-              Text(
+"),           Text(
                 extent={{10,-52},{70,-60}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),
-              Rectangle(
+"),           Rectangle(
                 extent={{-50,-60},{100,-100}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -3710,16 +3707,14 @@ Simulate for 1.5 seconds and plot (versus time):
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
-"),
-              Text(
+"),           Text(
                 extent={{40,-54},{100,-62}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
                       fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
-"),
-              Rectangle(
+"),           Rectangle(
                 extent={{-20,-60},{100,-100}},
                       lineColor={0,0,0},
                       fillColor={255,255,170},
@@ -6856,8 +6851,8 @@ This model is mainly used to extend from in order build more complex - equation 
 
     partial model PartialBasicInductionMachine
       "Partial model for induction machine"
+      import Modelica.Constants.pi;
       extends Modelica.Electrical.Machines.Icons.FundamentalWaveMachine;
-      constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Integer m(min=3) = 3 "Number of stator phases";
       // Mechanical parameters
       parameter Modelica.SIunits.Inertia Jr(start=0.29) "Rotor inertia";
@@ -7020,6 +7015,7 @@ This model is mainly used to extend from in order build more complex - equation 
             extent={{-10,-10},{10,10}},
             origin={90,-30})));
     protected
+      constant Real pi = Modelica.Constants.pi;
       replaceable
         Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
         internalThermalPort(final m=m)
@@ -7064,7 +7060,7 @@ This model is mainly used to extend from in order build more complex - equation 
           points={{50,60},{50,50},{60,50},{60,-100}}));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{60,60},{60,50},{50,50},{50,-80},{-40,-80},{-40,-90}},
+          points={{60,60},{60,50},{50,50},{50,-80},{-39.6,-80},{-39.6,-90}},
           color={191,0,0}));
       connect(friction.support, internalSupport) annotation (Line(
           points={{90,-40},{90,-70},{60,-70},{60,-100}}));
@@ -7074,7 +7070,7 @@ This model is mainly used to extend from in order build more complex - equation 
           points={{90,-20},{90,0}}));
       connect(friction.heatPort, internalThermalPort.heatPortFriction)
         annotation (Line(
-          points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-90}},
+          points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-91.6}},
           color={191,0,0}));
       connect(groundS.port_p, airGap.port_sp) annotation (Line(
           points={{-30,10},{-10,10}},
@@ -7087,11 +7083,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={255,128,0}));
       connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding)
         annotation (Line(
-          points={{-10,44},{-40,44},{-40,-90}},
+          points={{-10,44},{-40.4,44},{-40.4,-89.2}},
           color={191,0,0}));
       connect(stator.heatPortCore, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{-10,36},{-40,36},{-40,-90}},
+          points={{-10,36},{-39.6,36},{-39.6,-89.2}},
           color={191,0,0}));
       annotation (Documentation(info="<HTML>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
@@ -7211,7 +7207,6 @@ i.e., with small derivatives.
     end PositivePortInterface;
 
     model NegativePortInterface "Negative port interface to FluxTubes"
-      import Interfaces;
 
       Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort port
         "FundamentalWave port"

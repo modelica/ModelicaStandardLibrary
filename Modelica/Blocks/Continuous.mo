@@ -1408,7 +1408,8 @@ the model.
     "Output the input signal filtered with a low pass Butterworth filter of any order"
 
     import Modelica.Blocks.Types.Init;
-
+    import Modelica.Constants.pi;
+    
     extends Modelica.Blocks.Interfaces.SISO;
 
     parameter Integer n(min=1) = 2 "Order of filter";
@@ -1436,7 +1437,6 @@ the model.
     output Real xr(start=xr_start)
       "state of real pole for uneven order otherwise dummy";
   protected
-    constant Real pi=Modelica.Constants.pi;
     parameter Integer m=integer(n/2);
     parameter Boolean evenOrder = 2*m == n;
     parameter Real w=2*pi*f;
@@ -2164,6 +2164,7 @@ The development of this block was partially funded by BMBF within the
 
       function Butterworth
           "Return base filter coefficients of Butterworth filter (= low pass filter with w_cut = 1 rad/s)"
+        import Modelica.Constants.pi;          
         extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
@@ -2182,7 +2183,6 @@ The development of this block was partially funded by BMBF within the
             "[p] coefficients of denominator first order polynomials (a*p + 1)";
         Real den2[size(c0, 1),2]
             "[p^2, p] coefficients of denominator second order polynomials (b*p^2 + a*p + 1)";
-        constant Real pi=Modelica.Constants.pi;
       algorithm
         for i in 1:size(c0, 1) loop
           den2[i, 1] := 1.0;
@@ -2218,7 +2218,9 @@ The development of this block was partially funded by BMBF within the
 
       function ChebyshevI
           "Return base filter coefficients of Chebyshev I filter (= low pass filter with w_cut = 1 rad/s)"
-          import Modelica.Math.asinh;
+        import Modelica.Math.asinh;
+        import Modelica.Constants.pi;          
+          
         extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
@@ -2240,7 +2242,6 @@ The development of this block was partially funded by BMBF within the
             "[p] coefficients of denominator first order polynomials (a*p + 1)";
         Real den2[size(c0, 1),2]
             "[p^2, p] coefficients of denominator second order polynomials (b*p^2 + a*p + 1)";
-        constant Real pi=Modelica.Constants.pi;
       algorithm
           epsilon := sqrt(10^(A_ripple/10) - 1);
           fac := asinh(1/epsilon)/order;
@@ -2285,6 +2286,7 @@ The development of this block was partially funded by BMBF within the
           extends Modelica.Icons.InternalPackage;
       function lowPass
           "Return low pass filter coefficients at given cut-off frequency"
+        import Modelica.Constants.pi;                    
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2301,7 +2303,6 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^1 term if conjugate complex pole";
 
         protected
-        constant Real pi=Modelica.Constants.pi;
         Modelica.SIunits.AngularVelocity w_cut=2*pi*f_cut
             "Cut-off angular frequency";
         Real w_cut2=w_cut*w_cut;
@@ -2321,6 +2322,7 @@ The development of this block was partially funded by BMBF within the
 
       function highPass
           "Return high pass filter coefficients at given cut-off frequency"
+        import Modelica.Constants.pi;                    
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2337,7 +2339,6 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^1 term if conjugate complex pole";
 
         protected
-        constant Real pi=Modelica.Constants.pi;
         Modelica.SIunits.AngularVelocity w_cut=2*pi*f_cut
             "Cut-off angular frequency";
         Real w_cut2=w_cut*w_cut;
@@ -2371,6 +2372,7 @@ The development of this block was partially funded by BMBF within the
 
       function bandPass
           "Return band pass filter coefficients at given cut-off frequency"
+        import Modelica.Constants.pi;                    
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2389,7 +2391,6 @@ The development of this block was partially funded by BMBF within the
             "Coefficients of s^1 term if conjugate complex pole";
         output Real cn "Numerator coefficient of the PT2 terms";
         protected
-        constant Real pi=Modelica.Constants.pi;
         Modelica.SIunits.Frequency f0 = sqrt(f_min*f_max);
         Modelica.SIunits.AngularVelocity w_cut=2*pi*f0
             "Cut-off angular frequency";
@@ -2461,6 +2462,7 @@ The development of this block was partially funded by BMBF within the
 
       function bandStop
           "Return band stop filter coefficients at given cut-off frequency"
+        import Modelica.Constants.pi;                    
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2478,7 +2480,6 @@ The development of this block was partially funded by BMBF within the
         output Real c1[size(cr_in,1) + 2*size(c0_in,1)]
             "Coefficients of s^1 term if conjugate complex pole";
         protected
-        constant Real pi=Modelica.Constants.pi;
         Modelica.SIunits.Frequency f0 = sqrt(f_min*f_max);
         Modelica.SIunits.AngularVelocity w_cut=2*pi*f0
             "Cut-off angular frequency";

@@ -261,7 +261,7 @@ package Utilities "Utility models for Examples.Loops"
   end Cylinder;
 
   model GasForce "Simple gas force computation for combustion engine"
-
+    import Modelica.Constants.pi;      
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
     parameter SI.Diameter d "Diameter of cylinder";
@@ -270,7 +270,6 @@ package Utilities "Utility models for Examples.Loops"
     parameter SIunits.Volume k1=1
       "Volume V = k0 + k1*(1-x), with x = 1 + s_rel/L";
     parameter SIunits.HeatCapacity k=1 "Gas constant (p*V = k*T)";
-    constant Real pi=Modelica.Constants.pi;
 
     // Only for compatibility reasons
     Real x "Normalized position of cylinder";
@@ -358,6 +357,7 @@ package Utilities "Utility models for Examples.Loops"
   end GasForce;
 
   model GasForce2 "Rough approximation of gas force in a cylinder"
+   import Modelica.Constants.pi;      
 
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
@@ -373,7 +373,6 @@ package Utilities "Utility models for Examples.Loops"
   parameter Real k1=1;
   parameter Real k=1;
 */
-    constant Real pi=Modelica.Constants.pi;
     Real x "Normalized position of cylinder (= 1 - s_rel/L)";
     SI.Density dens;
     Modelica.SIunits.AbsolutePressure press "Cylinder pressure";

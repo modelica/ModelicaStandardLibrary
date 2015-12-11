@@ -3096,14 +3096,13 @@ The corresponding SPICE description
     end V_constant;
 
     model V_sin "Sinusoidal voltage source"
+      import Modelica.Constants.pi;  
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Voltage VO=0.0 "Offset";
       parameter SI.Voltage VA=0.0 "Amplitude";
       parameter SI.Frequency FREQ(start=1) "Frequency";
       parameter SI.Time TD=0.0 "Delay";
       parameter SI.Damping THETA=0.0 "Damping factor";
-    protected
-        constant Real pi=Modelica.Constants.pi;
     equation
         assert(FREQ>0, "Frequency less or equal zero");
         v = VO + (if time < TD then 0 else VA*
@@ -3401,14 +3400,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     end V_pwl;
 
     model V_sffm "Single-frequency FM voltage source"
+      import Modelica.Constants.pi;  
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Voltage VO = 0 "Offset";
       parameter SI.Voltage VA = 0 "Amplitude";
       parameter SI.Frequency FC( start=0) "Carrier frequency";
       parameter Real MDI=0 "Modulation index";
       parameter SI.Frequency FS= FC "Signal frequency";
-    protected
-        constant Real pi=Modelica.Constants.pi;
     equation
       v = VO + VA *Modelica.Math.sin( 2 *pi * FC *time + MDI *Modelica.Math.sin(2 *pi *FS *time));
       annotation (
@@ -3473,15 +3471,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
    end I_constant;
 
     model I_sin "Sinusoidal current source"
-
+      import Modelica.Constants.pi;  
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Current IO=0 "Offset";
       parameter SI.Current IA=0 "Amplitude";
       parameter SI.Frequency FREQ(start=1) "Frequency";
       parameter SI.Time TD=0.0 "Delay";
       parameter SI.Damping THETA=0.0 "Damping factor";
-    protected
-        constant Real pi=Modelica.Constants.pi;
     equation
         assert(FREQ>0, "Frequency less or equal zero");
         i = IO + (if time < TD then 0 else IA*
@@ -3773,15 +3769,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     end I_pwl;
 
     model I_sffm "Single-frequency FM current source"
+      import Modelica.Constants.pi;  
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Current IO = 0 "Offset";
       parameter SI.Current IA = 0 "Amplitude";
       parameter SI.Frequency FC( start=0) "Carrier frequency";
       parameter Real MDI=0 "Modulation index";
       parameter SI.Frequency FS= FC "Signal frequency";
-
-    protected
-        constant Real pi=Modelica.Constants.pi;
     equation
       i = IO + IA *Modelica.Math.sin( 2 *pi * FC *time + MDI *Modelica.Math.sin(2 *pi *FS *time));
       annotation (

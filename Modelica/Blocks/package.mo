@@ -299,10 +299,11 @@ discontinuous control signal.
 
   model FilterWithRiseTime
     "Demonstrates to use the rise time instead of the cut-off frequency to define a filter"
+    import Modelica.Constants.pi;
     extends Modelica.Icons.Example;
     parameter Integer order=2 "Filter order";
     parameter Modelica.SIunits.Time riseTime=2 "Time to reach the step input";
-    constant Real pi=Modelica.Constants.pi;
+
     Continuous.Filter filter_fac5(f_cut=5/(2*pi*riseTime), order=order)
       annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
     Sources.Step step(startTime=1)
@@ -1863,10 +1864,11 @@ enableNoise = false in the globalSeed component.
         initType=Modelica.Blocks.Types.Init.InitialState)
         "Transfer function of vertical turbulence speed according to MIL-F-8785C"
         annotation (Placement(transformation(extent={{-10,0},{10,20}})));
-      Modelica.Blocks.Noise.BandLimitedWhiteNoise whiteNoise(samplePeriod
-          =0.005)
+      Modelica.Blocks.Noise.BandLimitedWhiteNoise whiteNoise(samplePeriod=
+           0.005)
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
-      Modelica.Blocks.Math.Gain compareToSpeed(k=1/V)
+      constant Modelica.SIunits.Velocity unitVelocity = 1 annotation(HideResult=true);
+      Modelica.Blocks.Math.Gain compareToSpeed(k=unitVelocity/V)
         annotation (Placement(transformation(extent={{40,0},{60,20}})));
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed
         annotation (Placement(transformation(extent={{40,60},{60,80}})));

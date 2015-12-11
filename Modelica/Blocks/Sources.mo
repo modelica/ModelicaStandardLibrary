@@ -549,15 +549,13 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
   end Ramp;
 
   block Sine "Generate sine signal"
+    import Modelica.Constants.pi;  
     parameter Real amplitude=1 "Amplitude of sine wave";
     parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
     extends Interfaces.SO;
-  protected
-    constant Real pi=Modelica.Constants.pi;
-
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
       *pi*freqHz*(time - startTime) + phase));
@@ -661,15 +659,13 @@ The Real output y is a sine signal:
   end Sine;
 
   block Cosine "Generate cosine signal"
+    import Modelica.Constants.pi;  
     parameter Real amplitude=1 "Amplitude of cosine wave";
     parameter SIunits.Frequency freqHz(start=1) "Frequency of cosine wave";
     parameter SIunits.Angle phase=0 "Phase of cosine wave";
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
     extends Interfaces.SO;
-  protected
-    constant Real pi=Modelica.Constants.pi;
-
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
       *pi*freqHz*(time - startTime) + phase));
@@ -765,6 +761,7 @@ The Real output y is a cosine signal:
   end Cosine;
 
   block ExpSine "Generate exponentially damped sine signal"
+    import Modelica.Constants.pi;  
     parameter Real amplitude=1 "Amplitude of sine wave";
     parameter SIunits.Frequency freqHz(start=2) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
@@ -773,9 +770,6 @@ The Real output y is a cosine signal:
     parameter Real offset=0 "Offset of output signal";
     parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
     extends Interfaces.SO;
-  protected
-    constant Real pi=Modelica.Constants.pi;
-
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.exp(-
       (time - startTime)*damping)*Modelica.Math.sin(2*pi*freqHz*(time -

@@ -2184,6 +2184,7 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
 
       package QuadraticTurbulent
         "Pipe wall friction for turbulent flow in circular tubes (simple characteristic, mu not used)"
+        import Modelica.Constants.pi;  
 
         extends PartialWallFriction(
                   final use_mu = false,
@@ -2196,7 +2197,6 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
           import Modelica.Math;
         protected
-          constant Real pi = Modelica.Constants.pi;
           Real zeta;
           Real k_inv;
         algorithm
@@ -2222,10 +2222,10 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
 
         redeclare function extends pressureLoss_m_flow
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction"
+          import Modelica.Constants.pi;  
           import Modelica.Math;
 
         protected
-          constant Real pi = Modelica.Constants.pi;
           Real zeta;
           Real k;
         algorithm
@@ -2252,8 +2252,8 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
         redeclare function extends massFlowRate_dp_staticHead
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head"
           import Modelica.Math;
+          import Modelica.Constants.pi;  
         protected
-          constant Real pi = Modelica.Constants.pi;
           Real zeta = (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           // WARNING: The following equation is only correct for circular tubes!
           Real k_inv = (pi*diameter*diameter)^2/(8*zeta);
@@ -2331,8 +2331,8 @@ This component describes only the <b>Hagen-Poiseuille</b> equation.
         redeclare function extends pressureLoss_m_flow_staticHead
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head"
           import Modelica.Math;
+          import Modelica.Constants.pi;  
         protected
-          constant Real pi = Modelica.Constants.pi;
           Real zeta = (length/diameter)/(2*Math.log10(3.7 /(roughness/diameter)))^2;
           // WARNING: The following equation is only correct for circular tubes!
           Real k = 8*zeta/(pi*diameter*diameter)^2;
@@ -2441,7 +2441,6 @@ Reynolds numbers, i.e., the values at the right ordinate where
           "Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction"
           import Modelica.Math;
         protected
-          constant Real pi=Modelica.Constants.pi;
           Real zeta;
           Real k0;
           Real k_inv;
@@ -2501,9 +2500,9 @@ Laminar region:
         redeclare function extends pressureLoss_m_flow
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction"
           import Modelica.Math;
+          import Modelica.Constants.pi;  
 
         protected
-          constant Real pi=Modelica.Constants.pi;
           Real zeta;
           Real k0;
           Real k;
@@ -2988,8 +2987,8 @@ identical to laminar wall friction.
         redeclare function extends pressureLoss_m_flow
           "Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction"
           import Modelica.Math;
+          import Modelica.Constants.pi;  
         protected
-          constant Real pi = Modelica.Constants.pi;
           Real Delta = roughness/diameter "Relative roughness";
           SI.ReynoldsNumber Re1 = min(745*Math.exp(if Delta <= 0.0065 then 1 else 0.0065/Delta), Re_turbulent)
             "Re leaving laminar curve";

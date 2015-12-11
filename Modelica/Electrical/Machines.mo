@@ -1111,6 +1111,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Frequency unitFrequency=1 annotation(HideResult=true);
         parameter Modelica.SIunits.Voltage VNominal=100
           "Nominal RMS voltage per phase";
         parameter Modelica.SIunits.Frequency fNominal=aimcData.fsNominal
@@ -1174,7 +1175,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{-20,-34},{0,-14}})));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
-        Blocks.Math.Gain gain(k=fNominal)
+        Blocks.Math.Gain gain(k=fNominal/unitFrequency)
           annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
         Mechanics.Translational.Components.IdealGearR2T idealGearR2T(ratio=1/r)
           annotation (Placement(transformation(extent={{12,-50},{32,-30}})));
@@ -2476,6 +2477,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         extends Modelica.Icons.Example;
         import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
+        constant Real unitK( unit="rad/(s.Ohm)")=1 annotation(HideResult=true);
         parameter Modelica.SIunits.Resistance R=1 "Nominal braking resistance";
         parameter Modelica.SIunits.AngularVelocity wNominal=2*pi*smpmData.fsNominal/smpmData.p
           "Nominal speed";
@@ -2543,7 +2545,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               origin={-10,30})));
         Analog.Basic.VariableResistor variableResistor
           annotation (Placement(transformation(extent={{-20,50},{0,70}})));
-        Blocks.Math.Gain          gain(k=R/wNominal)
+        Blocks.Math.Gain          gain(k=unitK*R/wNominal)
                                        annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
@@ -5332,7 +5334,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,255}));
         connect(rotorCore.heatPort, internalThermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{10,-40},{0,-40},{0,-80}},
+            points={{10,-40},{0.4,-40},{0.4,-80.8}},
             color={191,0,0}));
         connect(rr.heatPort, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
@@ -10371,8 +10373,8 @@ This package contains sensors that are useful when modelling machines.
       extends Modelica.Icons.Package;
       model SpacePhasor
         "Physical transformation: three phase <-> space phasors"
+        import Modelica.Constants.pi;
         constant Integer m=3 "Number of phases";
-        constant Real pi=Modelica.Constants.pi;
         parameter Real turnsRatio=1 "Turns ratio";
         Modelica.SIunits.Voltage v[m] "Instantaneous phase voltages";
         Modelica.SIunits.Current i[m] "Instantaneous phase currents";
@@ -10452,7 +10454,7 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
       end SpacePhasor;
 
       model Rotator "Rotates space phasor"
-        constant Real pi=Modelica.Constants.pi;
+        import Modelica.Constants.pi;
       protected
         Real RotationMatrix[2, 2]={{+cos(-angle),-sin(-angle)},{+sin(-angle),+
             cos(-angle)}};
@@ -10803,12 +10805,12 @@ the first element representing the real part and the second element representing
       extends Modelica.Icons.Package;
       function ToSpacePhasor
         "Conversion from multi phase input to space phasor and zero sequence component"
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
         input Real x[:] "Multi phase (voltage or current) input";
         output Real y[2] "Space phasor";
         output Real y0 "Zero sequence component (of voltage or current)";
       protected
-        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         parameter Integer m=size(x, 1) "Number of phases";
         parameter Modelica.SIunits.Angle phi[m]=
             Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
@@ -10825,13 +10827,13 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
 
       function FromSpacePhasor
         "Conversion from space phasor and zero sequence component to multi phase"
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
         input Real x[2] "Space phasor";
         input Real x0 "Zero sequence component";
         input Integer m "Number of phases";
         output Real y[m] "Multi phase output";
       protected
-        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         parameter Modelica.SIunits.Angle phi[m]=
             Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
         parameter Real TransformationMatrix[2, m]=2/m*{+cos(+phi),+sin(+phi)};
@@ -10902,7 +10904,6 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
         input Modelica.SIunits.Angle angle "Angle of space phasor";
         output Real x[2] "Real and imaginary part of space phasor";
       protected
-        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         constant Real small=Modelica.Constants.small;
       algorithm
         x := absolute*{cos(angle),sin(angle)};
@@ -10931,13 +10932,13 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
 
       function activePower
         "Calculate active power of voltage and current input"
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
         input Modelica.SIunits.Voltage v[m] "phase voltages";
         input Modelica.SIunits.Current i[m] "phase currents";
         output Modelica.SIunits.Power p "Active power";
       protected
         constant Integer m=3 "Number of phases";
-        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         Modelica.SIunits.Voltage v_[2] "Voltage space phasor";
         Modelica.SIunits.Current i_[2] "Current space phasor";
       algorithm
@@ -12904,8 +12905,8 @@ Connector for Space Phasors:
     end SpacePhasor;
 
     partial model PartialBasicMachine "Partial model for all machines"
+      import Modelica.Constants.pi;
       extends Machines.Icons.TransientMachine;
-      constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Modelica.SIunits.Inertia Jr "Rotor's moment of inertia";
       parameter Boolean useSupport=false
         "Enable / disable (=fixed stator) support" annotation (Evaluate=true);
@@ -13120,6 +13121,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
             rotation=270,
             origin={-30,-80})));
     protected
+      constant Real pi = Modelica.Constants.pi;
       replaceable
         Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
         internalThermalPort(final m=m)
@@ -13159,19 +13161,19 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={0,0,255}));
       connect(statorCore.heatPort, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{10,40},{50,40},{50,-80},{0,-80}},
+          points={{10,40},{50,40},{50,-79.2},{0.4,-79.2}},
           color={191,0,0}));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{90,70},{90,60},{50,60},{50,-80},{0,-80}},
+          points={{90,70},{90,60},{50,60},{50,-80},{0.4,-80}},
           color={191,0,0}));
       connect(rs.heatPort, internalThermalPort.heatPortStatorWinding)
         annotation (Line(
-          points={{50,70},{50,-80},{0,-80}},
+          points={{50,70},{50,-79.2},{-0.4,-79.2}},
           color={191,0,0}));
       connect(friction.heatPort, internalThermalPort.heatPortFriction)
         annotation (Line(
-          points={{80,-50},{50,-50},{50,-80},{0,-80}},
+          points={{80,-50},{50,-50},{50,-81.6},{0,-81.6}},
           color={191,0,0}));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
           points={{80,90},{100,90},{100,40},{90,40},{90,0}}));
@@ -13628,6 +13630,7 @@ Interfaces and partial models for induction machines
             rotation=270,
             origin={-30,-80})));
     protected
+      constant Real pi = Modelica.Constants.pi;
       constant Boolean quasiStationary=false "No electrical transients if true"
         annotation (Evaluate=true);
       parameter Modelica.SIunits.Voltage ViNominal "Nominal induced Voltage";
@@ -13667,23 +13670,23 @@ Interfaces and partial models for induction machines
           points={{-10,80},{-10,60}},
           color={0,0,255}));
       connect(core.heatPort, internalThermalPort.heatPortCore) annotation (Line(
-          points={{10,70},{10,40},{50,40},{50,-80},{0,-80}},
+          points={{10,70},{10,40},{50,40},{50,-79.2},{0.4,-79.2}},
           color={191,0,0}));
       connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (
           Line(
-          points={{-10,50},{-10,40},{50,40},{50,-80},{0,-80}},
+          points={{-10,50},{-10,40},{50,40},{50,-78.4},{0,-78.4}},
           color={191,0,0}));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{90,50},{90,40},{50,40},{50,-80},{0,-80}},
+          points={{90,50},{90,40},{50,40},{50,-80},{0.4,-80}},
           color={191,0,0}));
       connect(friction.heatPort, internalThermalPort.heatPortFriction)
         annotation (Line(
-          points={{80,-50},{50,-50},{50,-80},{0,-80}},
+          points={{80,-50},{50,-50},{50,-80.8},{0.4,-80.8}},
           color={191,0,0}));
       connect(ra.heatPort, internalThermalPort.heatPortArmature) annotation (
           Line(
-          points={{50,50},{50,-80},{0,-80}},
+          points={{50,50},{50,-79.2},{-0.4,-79.2}},
           color={191,0,0}));
       connect(inertiaRotor.flange_b, strayLoad.flange) annotation (Line(
           points={{90,0},{92,0},{92,30},{100,30},{100,70},{80,70}}));
@@ -14970,8 +14973,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
     end ParameterRecords;
 
     block VfController "Voltage-Frequency-Controller"
+      import Modelica.Constants.pi;
       extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
-      constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Angle orientation[m]=-
           Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)

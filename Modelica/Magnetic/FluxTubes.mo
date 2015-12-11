@@ -5912,6 +5912,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
       model GenericHystPreisachEverett
         "Generic flux tube with ferromagnetic hysteresis based on the Preisach model and the Everett function [Ya89])"
+        import Modelica.Constants.pi;  
 
         parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
             FluxTubes.Material.HysteresisEverettParameter.BaseData()
@@ -5962,8 +5963,6 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         constant SI.MagneticFluxDensity unitT=1;
 
         Real v(start=0,  fixed=true, final unit="1");
-
-        constant Real pi=Modelica.Constants.pi;
 
         Boolean init2(start=false, fixed=true);
         Boolean init3;
@@ -8408,6 +8407,7 @@ For analysis of magnetic networks, only magnetic potential differences and magne
   package Utilities
     extends Modelica.Icons.Package;
     function everett "Everett function, see [YUY89]"
+      import Modelica.Constants.pi;  
       input SI.MagneticFieldStrength a_;
       input SI.MagneticFieldStrength b_;
       input FluxTubes.Material.HysteresisEverettParameter.BaseData p;
@@ -8422,7 +8422,6 @@ For analysis of magnetic networks, only magnetic potential differences and magne
       SI.MagneticFieldStrength h2;
       SI.MagneticFieldStrength h3;
       SI.MagneticFieldStrength h4;
-      constant Real pi=Modelica.Constants.pi;
       constant SI.MagneticFluxDensity unitT=1;
 
     algorithm

@@ -1329,7 +1329,7 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
       function massFlowRate_dp_and_Re
         "Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))"
               extends Modelica.Icons.Function;
-
+        import Modelica.Constants.pi;  
         input SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
         input SI.Density rho_a "Density at port_a";
         input SI.Density rho_b "Density at port_b";
@@ -1344,7 +1344,6 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
 
       protected
-        constant Real pi=Modelica.Constants.pi;
         Real k0=2*data.c0/(pi*data.D_Re^3);
         Real k1 = lossConstant_D_zeta(if data.zeta1_at_a then data.diameter_a else data.diameter_b,data.zeta1);
         Real k2 = lossConstant_D_zeta(if data.zeta2_at_a then data.diameter_a else data.diameter_b,data.zeta2);
@@ -1470,7 +1469,7 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
       function pressureLoss_m_flow_and_Re
         "Return pressure drop from constant loss factor, mass flow rate and Re (dp = f(m_flow))"
               extends Modelica.Icons.Function;
-
+        import Modelica.Constants.pi;  
         input SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
         input SI.Density rho_a "Density at port_a";
         input SI.Density rho_b "Density at port_b";
@@ -1485,7 +1484,6 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
 
       protected
-        constant Real pi=Modelica.Constants.pi;
         Real k0 = 2*data.c0/(pi*data.D_Re^3);
         Real k1 = lossConstant_D_zeta(if data.zeta1_at_a then data.diameter_a else data.diameter_b,data.zeta1);
         Real k2 = lossConstant_D_zeta(if data.zeta2_at_a then data.diameter_a else data.diameter_b,data.zeta2);
