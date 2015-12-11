@@ -1113,8 +1113,7 @@ The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input 
     parameter Medium.ThermodynamicState state_dp_small=Medium.setState_pTX(
                          Medium.reference_p,
                          Medium.reference_T,
-                         Medium.reference_X) "Medium state to compute dp_small"
-                                                                                annotation(HideResult=true);
+                         Medium.reference_X) "Medium state to compute dp_small";
     Medium.Density d_a
       "Density at port_a when fluid is flowing from port_a to port_b";
     Medium.Density d_b

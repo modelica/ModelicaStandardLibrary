@@ -8545,7 +8545,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
         parameter Boolean lateralSlidingConstraint = true
         "= true, if lateral sliding constraint taken into account, = false if lateral force = 0 (needed to avoid overconstraining if two ideal rolling wheels are connect on one axis)"
-                                                                                                            annotation(choices(checkBox=true),HideResult=true,Evaluate=true);
+                                                                                                            annotation(choices(checkBox=true),Evaluate=true);
 
         // Contact force
         SI.Force f_wheel_0[3]
@@ -8637,9 +8637,9 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
        import SI = Modelica.SIunits;
        import Modelica.Mechanics.MultiBody.Frames;
 
-       input SI.Position r_a_0[3] annotation(HideResult=true,Dialog);
-       input SI.Position r_b_0[3] annotation(HideResult=true,Dialog);
-       input Frames.Orientation R_a annotation(HideResult=true,Dialog);
+       input SI.Position r_a_0[3] annotation(Dialog);
+       input SI.Position r_b_0[3] annotation(Dialog);
+       input Frames.Orientation R_a annotation(Dialog);
 
        Modelica.Blocks.Interfaces.RealOutput r_rel_a[3](each final quantity="Length", each final unit="m") annotation (Placement(transformation(extent={{100,-10},
                  {120,10}})));
@@ -8671,9 +8671,9 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
          annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
        Frames.Orientation R_rel
-        "Relative orientation object to rotate from frame_a to frame_b"      annotation(HideResult=true);
+        "Relative orientation object to rotate from frame_a to frame_b";
        Frames.Orientation R_rel_inv
-        "Relative orientation object to rotate from frame_b to frame_a"      annotation(HideResult=true);
+        "Relative orientation object to rotate from frame_b to frame_a";
 
        Blocks.Interfaces.RealOutput angle[3](each final quantity="Angle", each final unit="rad") annotation (Placement(transformation(
              extent={{-10,-10},{10,10}},
@@ -8710,8 +8710,8 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
        import SI = Modelica.SIunits;
        import Modelica.Mechanics.MultiBody.Frames;
 
-       input Frames.Orientation R_a annotation(HideResult=true, Dialog);
-       input Frames.Orientation R_b annotation(HideResult=true, Dialog);
+       input Frames.Orientation R_a annotation(Dialog);
+       input Frames.Orientation R_b annotation(Dialog);
 
        Modelica.Blocks.Interfaces.RealOutput w_rel_b[3](each final quantity="AngularVelocity", each final unit="rad/s") annotation (Placement(transformation(extent={{100,-10},
                  {120,10}})));

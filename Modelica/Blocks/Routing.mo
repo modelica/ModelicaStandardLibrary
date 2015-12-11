@@ -991,14 +991,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
   end DeMultiplex6;
 
   model RealPassThrough "Pass a Real signal through without modification"
-
-    extends Modelica.Blocks.Icons.Block;
-
-    Modelica.Blocks.Interfaces.RealInput u "Input signal"
-      annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
-              20}})));
-    Modelica.Blocks.Interfaces.RealOutput y "Output signal"
-      annotation (HideResult=true, Placement(transformation(extent={{100,-10},{120,10}})));
+    extends Modelica.Blocks.Interfaces.SISO;
   equation
     y = u;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1030,12 +1023,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
   end IntegerPassThrough;
 
   model BooleanPassThrough "Pass a Boolean signal through without modification"
-    extends Modelica.Blocks.Icons.BooleanBlock;
-
-    Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.BooleanOutput y "Output signal"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
+    extends Modelica.Blocks.Interfaces.BooleanSISO;
   equation
     y = u;
     annotation (                         Documentation(info="<html>

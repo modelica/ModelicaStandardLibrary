@@ -4981,7 +4981,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
 
       parameter Boolean useConductance = false
         "Use conductance instead of geometry data and rho"
-        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+        annotation(Evaluate=true, choices(checkBox=true));
       parameter Modelica.SIunits.Conductance G(min=0) = 1/0.098e-6
         "Equivalent loss conductance G=A/rho/l"
         annotation(Dialog(enable=useConductance),Evaluate=true);
@@ -5912,7 +5912,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
 
       model GenericHystPreisachEverett
         "Generic flux tube with ferromagnetic hysteresis based on the Preisach model and the Everett function [Ya89])"
-        import Modelica.Constants.pi;  
+        import Modelica.Constants.pi;
 
         parameter FluxTubes.Material.HysteresisEverettParameter.BaseData mat=
             FluxTubes.Material.HysteresisEverettParameter.BaseData()
@@ -8407,7 +8407,7 @@ For analysis of magnetic networks, only magnetic potential differences and magne
   package Utilities
     extends Modelica.Icons.Package;
     function everett "Everett function, see [YUY89]"
-      import Modelica.Constants.pi;  
+      import Modelica.Constants.pi;
       input SI.MagneticFieldStrength a_;
       input SI.MagneticFieldStrength b_;
       input FluxTubes.Material.HysteresisEverettParameter.BaseData p;

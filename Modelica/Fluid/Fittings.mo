@@ -182,7 +182,7 @@ The details of the model are described in the
                            Medium.reference_p,
                            Medium.reference_T,
                            Medium.reference_X)
-        "Medium state to compute dp_small"                                        annotation(HideResult=true);
+        "Medium state to compute dp_small";
       parameter Medium.AbsolutePressure dp_small(min=0)=
                  Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                    Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
@@ -1329,7 +1329,7 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
       function massFlowRate_dp_and_Re
         "Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))"
               extends Modelica.Icons.Function;
-        import Modelica.Constants.pi;  
+        import Modelica.Constants.pi;
         input SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
         input SI.Density rho_a "Density at port_a";
         input SI.Density rho_b "Density at port_b";
@@ -1469,7 +1469,7 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
       function pressureLoss_m_flow_and_Re
         "Return pressure drop from constant loss factor, mass flow rate and Re (dp = f(m_flow))"
               extends Modelica.Icons.Function;
-        import Modelica.Constants.pi;  
+        import Modelica.Constants.pi;
         input SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
         input SI.Density rho_a "Density at port_a";
         input SI.Density rho_b "Density at port_b";
@@ -1593,7 +1593,7 @@ The used sufficient criteria for monotonicity follows from:
                              Medium.reference_p,
                              Medium.reference_T,
                              Medium.reference_X)
-          "Medium state to compute nominal pressure drop"                                        annotation(HideResult=true);
+          "Medium state to compute nominal pressure drop";
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
