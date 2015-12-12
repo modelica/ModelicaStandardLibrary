@@ -5594,7 +5594,7 @@ to the above list of assumptions</li>
       "Thermodynamic state variables"
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
-      MassFraction X[nX]
+      MassFraction[nX] X(start=reference_X)
         "Mass fractions (= (component mass)/total mass  m_i/m)";
     end ThermodynamicState;
 
