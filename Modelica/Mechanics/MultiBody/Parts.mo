@@ -1274,7 +1274,11 @@ the animation may be switched off via parameter animation = <b>false</b>.
 The following shapes can be defined via parameter <b>shapeType</b>,
 e.g., shapeType=\"cone\":
 </p>
+
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedShape.png\" ALT=\"Visualizers.FixedShape\">
+</p>
+
 <p>
 A BodyShape component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
@@ -1583,7 +1587,7 @@ states and of the \"Advanced\" menu parameters, see model
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Math.Vectors.normalizeWithAssert;
     import Modelica.SIunits.Conversions.to_unit1;
-    import Modelica.Constants.pi;      
+    import Modelica.Constants.pi;
 
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
