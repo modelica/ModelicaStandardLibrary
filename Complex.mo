@@ -222,29 +222,6 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end '<>';
 
-
-annotation (Protection(access=Access.hide),
-version="3.2.1",
-versionBuild=2,
-versionDate="2013-08-14",
-dateModified = "2013-08-14 08:44:41Z",
-revisionId="$Id::                                       $",
-conversion(
- noneFromVersion="1.0",
- noneFromVersion="1.1"),
-Documentation(info="<html>
-<p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"),
-    Icon(graphics={Rectangle(
-          lineColor={160,160,164},
-          fillColor={160,160,164},
-          fillPattern=FillPattern.Solid,
-          extent={{-100,-100},{100,100}},
-          radius=25.0), Text(
-          lineColor={255,255,255},
-          extent={{-90,-50},{90,50}},
-          textString="C")}),
-    uses(Modelica(version="3.2.2")));
   encapsulated operator function 'String'
     "Transform Complex number into a String representation"
     import Complex;
@@ -269,4 +246,28 @@ Documentation(info="<html>
 <p>This function converts a given Complex number to String representation.</p>
 </html>"));
   end 'String';
+
+  
+annotation (Protection(access=Access.hide),
+version="3.2.1",
+versionBuild=2,
+versionDate="2013-08-14",
+dateModified = "2013-08-14 08:44:41Z",
+revisionId="$Id::                                       $",
+conversion(
+ noneFromVersion="1.0",
+ noneFromVersion="1.1"),
+Documentation(info="<html>
+<p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
+</html>"),
+    Icon(graphics={Rectangle(
+          lineColor={160,160,164},
+          fillColor={160,160,164},
+          fillPattern=FillPattern.Solid,
+          extent={{-100,-100},{100,100}},
+          radius=25.0), Text(
+          lineColor={255,255,255},
+          extent={{-90,-50},{90,50}},
+          textString="C")}));
+
 end Complex;
