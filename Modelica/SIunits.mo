@@ -1962,8 +1962,14 @@ on units, e.g.,
 </pre>
 
 <p>
-as well as conversion functions from non SI-units to SI-units
-and vice versa in subpackage
+Some of the types are derived SI units that are utilized in package Modelica
+(such as ComplexCurrent, which is a complex number where both the real and imaginary
+part have the SI unit Ampere).
+</p>
+
+<p>
+Furthermore, conversion functions from non SI-units to SI-units and vice versa
+are provided in subpackage
 <a href=\"modelica://Modelica.SIunits.Conversions\">Conversions</a>.
 </p>
 
