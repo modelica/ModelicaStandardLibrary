@@ -6,7 +6,6 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Package;
 
 
-
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
 
@@ -265,10 +264,8 @@ not the case with function norm(..).
     /* This function has the inline annotation. If the function is inlined:
      - "smooth(..)" defines how often the expression can be differentiated
        (if symbolic processing is performed).
-     - "noEvent(..)" prevents event handling of the if-clause,
-       in order to guard against division by zero.
   */
-    result := smooth(0, noEvent(if length(v) >= eps then v/length(v) else v/eps));
+    result := smooth(0, if length(v) >= eps then v/length(v) else v/eps);
     annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -11845,6 +11842,7 @@ It is expected, that an x-axis is added and a plot of the function.
 
 end Icons;
 
+
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
   input Real s1 "First scalar";
@@ -12370,7 +12368,7 @@ end atan2;
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
   import Modelica.Math;
-  import Modelica.Constants.pi;      
+  import Modelica.Constants.pi;
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1;
   input Real u2;
