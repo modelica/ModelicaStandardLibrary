@@ -3639,9 +3639,9 @@ Modelica.Blocks library.
         annotation (Dialog(enable=not exact));
       SI.Velocity v(start=0, stateSelect=if exact then StateSelect.default
              else StateSelect.prefer)
-        "If exact=false, absolute velocity of flange_b else dummy";
+        "If exact=false, absolute velocity of flange else dummy";
       SI.Acceleration a(start=0)
-        "If exact=false, absolute acceleration of flange_b else dummy";
+        "If exact=false, absolute acceleration of flange else dummy";
       Modelica.Blocks.Interfaces.RealInput s_ref(unit="m")
         "Reference position of flange as input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}})));
@@ -3669,7 +3669,7 @@ Modelica.Blocks library.
       annotation (Documentation(info="<HTML>
 <p>
 The input signal <b>s_ref</b> defines the <b>reference
-position</b> in [m]. Flange <b>flange_b</b> is <b>forced</b>
+position</b> in [m]. Flange <b>flange</b> is <b>forced</b>
 to move relative to the support connector according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
@@ -3734,9 +3734,9 @@ blocks of the block library Modelica.Blocks.Sources.
         "if exact=false, critical frequency of filter to filter input signal"
         annotation (Dialog(enable=not exact));
       SI.Velocity v(stateSelect=if exact then StateSelect.default else
-            StateSelect.prefer) "Absolute velocity of flange_b";
+            StateSelect.prefer) "Absolute velocity of flange";
       SI.Acceleration a
-        "If exact=false, absolute acceleration of flange_b else dummy";
+        "If exact=false, absolute acceleration of flange else dummy";
       Modelica.Blocks.Interfaces.RealInput v_ref(unit="m/s")
         "Reference speed of flange as input signal" annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}})));
@@ -3761,7 +3761,7 @@ blocks of the block library Modelica.Blocks.Sources.
       annotation (Documentation(info="<HTML>
 <p>
 The input signal <b>v_ref</b> defines the <b>reference
-speed</b> in [m/s]. Flange <b>flange_b</b> is <b>forced</b>
+speed</b> in [m/s]. Flange <b>flange</b> is <b>forced</b>
 to move relative to the support connector  according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
 <ol>
@@ -3824,8 +3824,8 @@ blocks of the block library Modelica.Blocks.Sources.
       SI.Velocity v(
         start=0,
         fixed=true,
-        stateSelect=StateSelect.prefer) "Absolute velocity of flange_b";
-      SI.Acceleration a "Absolute acceleration of flange_b";
+        stateSelect=StateSelect.prefer) "Absolute velocity of flange";
+      SI.Acceleration a "Absolute acceleration of flange";
 
       Modelica.Blocks.Interfaces.RealInput a_ref(unit="m/s2")
         "Absolute acceleration of flange as input signal" annotation (Placement(
@@ -3838,7 +3838,7 @@ blocks of the block library Modelica.Blocks.Sources.
       annotation (Documentation(info="<html>
 <p>
 The input signal <b>a</b> in [m/s2] moves the 1D translational flange
-connector flange_b with a predefined <i>acceleration</i>, i.e., the flange
+connector flange with a predefined <i>acceleration</i>, i.e., the flange
 is <i>forced</i> to move relative to the support connector  with this acceleration. The velocity and the
 position of the flange are also predefined and are determined by
 integration of the acceleration.
