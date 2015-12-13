@@ -1059,8 +1059,8 @@ locked, forward sliding.</p>
             transformation(extent={{-40,0},{-20,20}})));
       Rotational.Components.Inertia Inertia2(
         J=1.5,
-        phi(fixed=true, start=0),
-        w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
+        phi(fixed=true, start=0, nominal=0.001),
+        w(fixed=true, start=0, nominal=0.01)) annotation (Placement(transformation(extent={{
                 20,0},{40,20}})));
       Rotational.Sources.Torque torque1(useSupport=true) annotation (Placement(
             transformation(extent={{-70,0},{-50,20}})));
@@ -1133,8 +1133,8 @@ gear.mode  :  1 = forward rolling
             transformation(extent={{-50,0},{-30,20}})));
       Rotational.Components.Inertia Inertia2(
         J=1.5,
-        phi(fixed=true, start=0),
-        w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
+        phi(fixed=true, start=0, nominal=1e-4),
+        w(fixed=true, start=0, nominal=0.001)) annotation (Placement(transformation(extent={{
                 10,0},{30,20}})));
       Rotational.Sources.Torque torque1(useSupport=true) annotation (Placement(
             transformation(extent={{-110,0},{-90,20}})));
@@ -2428,10 +2428,10 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         Text(extent={{-150.0,-120.0},{150.0,-80.0}},
           textString="J=%J"),
         Rectangle(
-          lineColor=  {64,64,64},
-          fillColor=  {255,255,255},
-          extent=  {{-50,-50},{50,50}},
-          radius=  10)}));
+          lineColor = {64,64,64},
+          fillColor = {255,255,255},
+          extent = {{-50,-50},{50,50}},
+          radius = 10)}));
     end Inertia;
 
     model Disc
@@ -7567,13 +7567,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin=  {-35,40},
-            fillColor=  {255,255,255},
-            extent=  {{-15,-61},{15,60}}),
+            origin = {-35,40},
+            fillColor = {255,255,255},
+            extent = {{-15,-61},{15,60}}),
           Rectangle(
-            origin=  {35,21},
-            fillColor=  {255,255,255},
-            extent=  {{-15,-61},{15,60}})}), Documentation(
+            origin = {35,21},
+            fillColor = {255,255,255},
+            extent = {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.
