@@ -14,6 +14,8 @@ extends Modelica.Icons.Package;
     Complex ref;
     Real Res;
     Real Ref;
+    Boolean bRes;
+    Boolean bRef;
     constant Real epsilon=1E-14;
   algorithm
     success:=false;
@@ -54,6 +56,30 @@ extends Modelica.Icons.Package;
     res:=c1 ^ c2;
     ref:=Complex(-0.265653998849241,+0.319818113856136);
     assert(Modelica.ComplexMath.'abs'(ref-res)<epsilon, "power failed");
+
+    c1:=Complex(2,3);
+    c2:=Complex(2,3);
+    bRes:=c1 == c2;
+    bRef:=true;
+    assert(bRef==bRes, "Equality failed");
+
+    c1:=Complex(2,5);
+    c2:=Complex(2,3);
+    bRes:=c1 == c2;
+    bRef:=false;
+    assert(bRef==bRes, "Equality failed");
+
+    c1:=Complex(2,3);
+    c2:=Complex(2,3);
+    bRes:=c1 <> c2;
+    bRef:=false;
+    assert(bRef==bRes, "Equality failed");
+
+    c1:=Complex(2,5);
+    c2:=Complex(2,3);
+    bRes:=c1 <> c2;
+    bRef:=true;
+    assert(bRef==bRes, "Equality failed");
 
     c1:=Complex(1,1);
     res:=Modelica.ComplexMath.sin(c1);
