@@ -179,6 +179,10 @@ MODELICA_EXPORT void ModelicaRandom_setInternalState_xorshift1024star(
     _In_ int* state, size_t nState, int id) MODELICA_NONNULLATTR;
 MODELICA_EXPORT void ModelicaRandom_convertRealToIntegers(double d,
     _Out_ int i[]) MODELICA_NONNULLATTR;
+void ModelicaInternal_getTime(_Out_ int* ms, _Out_ int* sec,
+    _Out_ int* min, _Out_ int* hour, _Out_ int* mday, _Out_ int* mon,
+	_Out_ int* year) MODELICA_NONNULLATTR;
+int ModelicaInternal_getpid(void);
 
 /* XORSHIFT ALGORITHMS */
 
@@ -473,9 +477,6 @@ MODELICA_EXPORT double ModelicaRandom_impureRandom_xorshift1024star(int id) {
     return y;
 }
 
-int  ModelicaInternal_getpid(void);
-void ModelicaInternal_getTime(int* ms, int* sec, int* min, int* hour, int* mday, int* mon, int* year);
-
 MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed() {
    /* Creates an automatic integer seed (typically from the current time and process id) */
 
@@ -495,7 +496,6 @@ MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed() {
    seed = 1 + ms + 1000*sec + 1000*60*min + 1000*60*60*hour + 6007*pid;
    return seed;
 }
-
 
 MODELICA_EXPORT void ModelicaRandom_convertRealToIntegers(double d, int i[]) {
     /* Cast a double to two integers */
