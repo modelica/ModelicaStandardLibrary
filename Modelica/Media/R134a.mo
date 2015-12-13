@@ -449,7 +449,7 @@ Example:
     eta_liq = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
 </pre>
 
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -482,7 +482,7 @@ Example:
     eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
 </pre>
 
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -655,7 +655,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 <p>This function calculates the saturation temperature of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png\"/> </p>
@@ -683,7 +683,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of saturation temperature of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.saturationTemperature\"> saturatuionTemperature</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -715,7 +715,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of saturation temperature of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.saturationTemperature\"> saturatuionTemperature</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -746,7 +746,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the liquid phase density of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -774,7 +774,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of liquid density of R134a in the two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.bubbleDensity\"> bubbleDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -808,7 +808,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of liquid density of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.bubbleDensity\"> bubbleDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -838,7 +838,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the vapor phase density of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -866,7 +866,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of vapor density of R134a in two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.dewDensity\"> dewDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -900,7 +900,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of vapor density of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.dewDensity\"> dewDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -931,7 +931,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the liquid phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -959,7 +959,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of liquid enthalpy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.bubbleEnthalpy\"> bubbleEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -993,7 +993,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of liquid specific enthalpy of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.bubbleEnthalpy\"> bubbleEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1024,7 +1024,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the vapor phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1052,7 +1052,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of vapor enthalpy of R134a in the two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.dewEnthalpy\"> dewEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1086,7 +1086,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of vapor enthalpy of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.dewEnthalpy\"> dewEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1116,7 +1116,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the vapor phase entropy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1149,7 +1149,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of vapor entropy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.dewEntropy\"> dewEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1183,7 +1183,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of vapor specific entropy of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.dewEntropy\"> dewEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1213,7 +1213,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the liquid phase entropy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1245,7 +1245,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the derivative of liquid entropy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.bubbleEntropy\"> bubbleEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1278,7 +1278,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (Documentation(info="<html>
 <p>This function calculates the time derivative of liquid specific entropy of R134a with regard to the time derivative of p. The non-derivative function is <a href=\"modelica://Modelica.Media.R134a.R134a_ph.bubbleEntropy\"> bubbleEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 </html>"));
@@ -1306,7 +1306,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
       annotation (smoothOrder=5, Documentation(info="<html>
 <p>This function calculates the saturation pressure of R134a from the state variable T (temperature). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png\"/> </p>
@@ -1327,7 +1327,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 
       annotation (Documentation(info="<html>
 <p> This function calculates the specific heat capacity of R134a at <b>constant pressure</b> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)cp-Diagram-R134a.png\"/> </p>
@@ -1424,10 +1424,10 @@ Please note, that the function can also be called in the two-phase region, but t
 
       annotation (Documentation(info="<html>
 <p> This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
-<h3>References</h3>
+<h4>References</h4>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
 <dd><b>An improved extended corresponding states method for estimation of visocsity of pure refrigerants and mixtures</b>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
@@ -1508,10 +1508,10 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 
       annotation (Documentation(info="<html>
 <p> This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
-<h3>References</h3>
+<h4>References</h4>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
 <dd><b>An extended corresponding states model for the thermal conductivity
 of refrigerants and refrigerant mixtures</b>.
@@ -1543,10 +1543,10 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
 
       annotation (Documentation(info="<html>
 <p> This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in two-phase region.
 </p>
-<h3>References</h3>
+<h4>References</h4>
 <dl><dt>Okada and Higashi: </dt>
 <dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
@@ -1572,7 +1572,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
       end if;
       annotation (Documentation(info="<html>
 <p> This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)a-Diagram-R134a.png\"/> </p>
@@ -1594,7 +1594,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
       end if;
       annotation (Documentation(info="<html>
 <p> This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 </html>"));
@@ -1615,7 +1615,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
       end if;
       annotation (Documentation(info="<html>
 <p> This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 </html>"));
@@ -1630,7 +1630,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 
       annotation (Inline=true, Documentation(info="<html>
 <p> This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 </html>"));
