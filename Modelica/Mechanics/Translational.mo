@@ -2388,7 +2388,8 @@ called the maximum static friction force, computed via:
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled which have to be solved by appropriate
-numerical methods. The method is described in:
+numerical methods. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
@@ -3071,7 +3072,9 @@ Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.
 
 <P>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
-numerical methods. The method is described in: </P>
+numerical methods. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+</p>
 
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>

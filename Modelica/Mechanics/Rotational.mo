@@ -1,4 +1,4 @@
-within Modelica.Mechanics;
+﻿within Modelica.Mechanics;
 package Rotational
   "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Package;
@@ -502,6 +502,146 @@ unnecessarily stringent).
 </p>
 </html>"));
     end StateSelection;
+
+    class ModelingOfFriction "Modeling of Friction"
+      extends Modelica.Icons.Information;
+
+      annotation (Documentation(info="<html>
+<p>
+Several elments of this libray model <b>Coulomb friction</b> with the method proposed in:
+</p>
+
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+</dl>
+
+<p>
+The friction equations are defined in base model
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>.
+Here are some explanations:
+<p>
+
+<p>
+Assume first the most simplest friction problem: A block sliding on a surface.
+The friction force \"f\" acts between the block surface and the environment surface and shall be a 
+linear function of the relative velocity “v” between the two surfaces.
+When the relative velocity becomes zero, the two surfaces are stuck to each other and the friction force is no longer
+a function of “v”. The element starts sliding again if the friction force becomes larger than the maximum
+static friction force “f0”. This element could be defined with a parameterized curve description
+leading to the following equations:
+</p>
+
+<blockquote><pre>forward  = s &gt; 1;
+backward = s &lt; -1;
+v = if forward then s-1 elseif backward then s+1 else 0;
+f = if forward  then  f0+f1*(s-1) elseif 
+       backward then -f0+f1*(s+1) else f0*s;
+</pre></blockquote>
+
+<p>
+This model completely describes the simplified friction element in
+a declarative way. Unfortunately, currently it is not known how to transform such
+an element description automatically in a form which can be simulated:
+</p>
+
+<p>
+The block is described by the following equation:
+</p>
+
+<blockquote><pre>
+m*der(v) = u - f
+</pre></blockquote>
+
+<p>
+Note, that “m” is the mass of the block and “u(t)” is the given driving force.
+If the element is in its “forward sliding” mode, that is s ≥ 1, this model is described by:
+</p>
+
+<blockquote><pre>
+m*der(v) = u – f
+       v = s – 1
+       f = f_0 + f_1*(s-1)
+</pre></blockquote>
+
+<p>
+which can be easily transformed into state space form with “v” as the state.
+If the block becomes stuck, that is -1 &le; s &le; 1, the equation “v=0” becomes 
+active and therefore “v” can no longer be a state, that is an index
+change takes place. Besides the difficulty to handle the variable state change, 
+there is a more serious problem:
+</p>
+
+<p>
+Assume that the block is stuck and that “s” becomes greater than one. Before the event occurs, s &le; 1
+and v = 0; at the event instant s &gt; 1 because this relation is the event triggering condition. The element
+switches into the forward sliding mode where “v” is a state which is initialized with its last value “v=0”.
+Since “v” is a state, “s” is computed from “v” via “s := v+1”, resulting in “s=1”, that is the relation
+“s &gt; 1” becomes false and the element switches back into the stuck mode. In other words, it is never possible to
+switch into the forward sliding mode. Taking numerical errors into account, the situation is even worse.
+</p>
+
+<p>
+The key to the solution is the observation that “v=0” in the stuck mode and when forward sliding starts, but
+“der(v) &gt; 0” when sliding starts and der(v) = 0 in the stuck mode. Since the friction characteristic
+at zero velocity is no functional relationship, again a parameterized curve description
+with a new curve parameter “s_a” has to be used leading to the following equations (note: at zero velocity):
+</p>
+
+<blockquote><pre>
+startFor  = sa &gt; 1;
+startBack = sa &lt; -1;
+        a = der(v);
+        a = if startFor then sa-1 elseif startBack then sa+1 else 0;
+        f = if startFor then f0   elseif startBack then  -f0 else f0*sa;
+</pre></blockquote>
+
+<p>
+At zero velocity, these equations and the equation of the block form a mixed continuous/discrete set of
+equations which has to be solved at event instants (e.g. by a fix point iteration), 
+When switching from sliding to stuck mode, the velocity is small or zero. Since the derivative of the constraint
+equation der(v) = 0 is fulfilled in the stuck mode, the velocity remains small even if v = 0 is not explicitly
+taken into account. The approach to use the acceleration der(v) = 0 as \"constraint\" instead of \"v = 0\",
+is often used in multi-body software. The benefit is that the velocity “v” remains a state in all switching
+configurations (there is a small, linear drift, but the friction element would have to stay stuck several days
+before the drift becomes too large). Consequently, “v” is small but may have any sign when switching
+from stuck to sliding mode; if the friction element starts to slide, say in the forward direction, one has
+to wait until the velocity is really positive, before switching to forward mode (note, that even for
+exact calculation without numerical errors a ”waiting” phase is necessary, because “v=0” when sliding starts).
+Since “der(v) > 0”, this will occur after a small time period. This “waiting” procedure can be
+described by a state machine. Collecting all the pieces together, finally results in the following equations
+of a simple friction element:
+</p>
+
+<blockquote><pre>
+// part of mixed system of equations
+startFor  = pre(mode) == Stuck and sa &gt; 1;
+startBack = pre(mode) == Stuck and sa  &lt; -1;
+        a = der(v);
+        a = if pre(mode) == Forward  or startFor  then  sa - 1    elseif 
+               pre(mode) == Backward or startBack then  sa + 1    else 0;
+        f = if pre(mode) == Forward or startFor   then  f0 + f1*v elseif
+               pre(mode) == Backward or startBack then -f0 + f1*v else f0*sa;
+
+// state machine to determine configuration
+mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif 
+          (pre(mode) == Backward or startBack) and v&lt;0 then Backward else Stuck;
+</pre></blockquote>
+
+<p>
+The above approach to model a simplified friction element is slightly generlized in model
+<a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>:
+</p>
+
+<ul>
+<li> The sliding friction force has a nonlinear characteristic instead a linear one,
+     by interpolation in a table of f(v) values.</li>
+<li> There may be a jump in the friction force when going from stuck to sliding mode
+     (described with parameter peak).</li>
+</ul>
+</html>"));
+    end ModelingOfFriction;
 
     class Contact "Contact"
       extends Modelica.Icons.Contact;
@@ -2955,7 +3095,8 @@ called the maximum static friction torque, computed via:
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled which have to be solved by appropriate
-numerical methods. The method is described in:
+numerical methods. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
@@ -3199,7 +3340,8 @@ distributions:
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
@@ -3355,7 +3497,8 @@ distributions:
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
@@ -3559,7 +3702,8 @@ distributions:
 <p>
 This procedure is implemented in a \"clean\" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
@@ -7230,6 +7374,19 @@ with the blocks of package Modelica.Blocks.
 <p>
 Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
+
+<p>
+This procedure is implemented in a \"clean\" way by state events and
+leads to a mixed continuous/discrete systems of equations if friction elements
+are dynamically coupled which have to be solved by appropriate
+numerical methods. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+</dl>
 </html>"));
     end PartialFriction;
 
