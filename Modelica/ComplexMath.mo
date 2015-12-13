@@ -557,7 +557,7 @@ end Vectors;
   algorithm
     c2 := Complex(sqrt('abs'(c1))*Math.cos(arg(c1)/2), sqrt('abs'(c1))*Math.sin(arg(c1)/2));
     annotation(Inline=true, Documentation(info="<html>
-<p>This function returns the Complex square root of the Complex input.</p>
+<p>This function returns the Complex square root (principal square root) of the Complex input.</p>
 </html>"));
   end 'sqrt';
 

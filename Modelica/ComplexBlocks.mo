@@ -926,7 +926,8 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
               {0,0,255})}));
     end Division;
 
-    block Sqrt "Output the square root of the input (input >= 0 required)"
+    block Sqrt
+      "Output the square root of the input (= principal square root of complex number)"
       extends Interfaces.ComplexSISO;
     equation
       y = Modelica.ComplexMath.'sqrt'(uInternal);
@@ -974,16 +975,11 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
         Documentation(info="<HTML>
 <p>
 This blocks computes the output <code>y</code>
-as <i>square root</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
+as <i>square root</i> of the input <code>u</code> (= principal square root of the complex input). Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
     y = <b>sqrt</b>(uInternal);
 </pre>
-<p>
-All elements of the input vector shall be zero or positive.
-Otherwise an error occurs.
-</p>
-
 </html>"));
     end Sqrt;
 
