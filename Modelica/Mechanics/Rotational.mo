@@ -2428,10 +2428,10 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         Text(extent={{-150.0,-120.0},{150.0,-80.0}},
           textString="J=%J"),
         Rectangle(
-          lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{-50,-50},{50,50}},
-          radius = 10)}));
+          lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{-50,-50},{50,50}},
+          radius=  10)}));
     end Inertia;
 
     model Disc
@@ -4307,15 +4307,15 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{10,-100},{50,100}})}),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(lineColor=  {64,64,64},
           fillColor=  {192,192,192},
@@ -7332,7 +7332,8 @@ with the blocks of package Modelica.Blocks.
         final min=Backward,
         final max=Unknown,
         start=Unknown,
-        fixed=true);
+        fixed=true)
+        "Defines the mode of the friction element: -1/0/1/2/3 backward sliding/stuck/forward sliding/element not active/unknown";
     protected
       constant SI.AngularAcceleration unitAngularAcceleration=1
         annotation (HideResult=true);
@@ -7566,13 +7567,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin = {-35,40},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}}),
+            origin=  {-35,40},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}}),
           Rectangle(
-            origin = {35,21},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}})}), Documentation(
+            origin=  {35,21},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.

@@ -5082,7 +5082,8 @@ with the Modelica.Blocks blocks.
         final min=Backward,
         final max=Unknown,
         start=Unknown,
-        fixed=true);
+        fixed=true)
+        "Defines the mode of the friction element: -1/0/1/2/3 backward sliding/stuck/forward sliding/element not active/unknown";
     protected
       constant SI.Acceleration unitAcceleration=1 annotation (HideResult=true);
       constant SI.Force unitForce=1 annotation (HideResult=true);
@@ -5123,6 +5124,19 @@ with the Modelica.Blocks blocks.
 <p>
 Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
+
+<p>
+This procedure is implemented in a \"clean\" way by state events and
+leads to a mixed continuous/discrete systems of equations if friction elements
+are dynamically coupled which have to be solved by appropriate
+numerical methods. The method is described in
+(see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+</dl>
 </html>"));
     end PartialFriction;
 
