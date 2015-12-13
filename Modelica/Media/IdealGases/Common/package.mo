@@ -780,7 +780,7 @@ required from medium model \"" + mediumName + "\".");
     import Modelica.Media.Interfaces.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
-     input MassFraction X[:]=reference_X
+     input MassFraction X[nX]=reference_X
       "Independent Mass fractions of gas mixture";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
@@ -917,8 +917,8 @@ function gasMixtureViscosity
     "Return viscosities of gas mixtures at low pressures (Wilke method)"
   extends Modelica.Icons.Function;
   input MoleFraction[:] yi "Mole fractions";
-  input MolarMass[:] M "Mole masses";
-  input DynamicViscosity[:] eta "Pure component viscosities";
+  input MolarMass[size(yi,1)] M "Mole masses";
+  input DynamicViscosity[size(yi,1)] eta "Pure component viscosities";
   output DynamicViscosity etam "Viscosity of the mixture";
   protected
   Real fi[size(yi,1),size(yi,1)];
@@ -993,13 +993,13 @@ end gasMixtureViscosity;
   extends Modelica.Icons.Function;
 
     input Temperature T "Temperature";
-    input Temperature[:] Tc "Critical temperatures";
-    input MolarVolume[:] Vcrit "Critical volumes (m3/mol)";
-    input Real[:] w "Acentric factors";
-    input Real[:] mu "Dipole moments (debyes)";
-    input MolarMass[:] MolecularWeights "Molecular weights (kg/mol)";
-    input MoleFraction[:] y "Molar Fractions";
-    input Real[:] kappa =  zeros(nX) "Association Factors";
+    input Temperature[nX] Tc "Critical temperatures";
+    input MolarVolume[nX] Vcrit "Critical volumes (m3/mol)";
+    input Real[nX] w "Acentric factors";
+    input Real[nX] mu "Dipole moments (debyes)";
+    input MolarMass[nX] MolecularWeights "Molecular weights (kg/mol)";
+    input MoleFraction[nX] y "Molar Fractions";
+    input Real[nX] kappa =  zeros(nX) "Association Factors";
     output DynamicViscosity etaMixture "Mixture viscosity (Pa.s)";
   protected
   constant Real[size(y,1)] Vc =  Vcrit*1000000 "Critical volumes (cm3/mol)";
@@ -1183,10 +1183,10 @@ function lowPressureThermalConductivity
   extends Modelica.Icons.Function;
   input MoleFraction[:] y "Mole fraction of the components in the gas mixture";
   input Temperature T "Temperature";
-  input Temperature[:] Tc "Critical temperatures";
-  input AbsolutePressure[:] Pc "Critical pressures";
-  input MolarMass[:] M "Molecular weights";
-  input ThermalConductivity[:] lambda
+  input Temperature[size(y,1)] Tc "Critical temperatures";
+  input AbsolutePressure[size(y,1)] Pc "Critical pressures";
+  input MolarMass[size(y,1)] M "Molecular weights";
+  input ThermalConductivity[size(y,1)] lambda
       "Thermal conductivities of the pure gases";
   output ThermalConductivity lambdam "Thermal conductivity of the gas mixture";
   protected
@@ -1311,7 +1311,7 @@ end lowPressureThermalConductivity;
   function T_hX "Return temperature from specific enthalpy and mass fraction"
     extends Modelica.Icons.Function;
     input SpecificEnthalpy h "Specific enthalpy";
-    input MassFraction[:] X "Mass fractions of composition";
+    input MassFraction[nX] X "Mass fractions of composition";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
      input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
@@ -1350,7 +1350,7 @@ end lowPressureThermalConductivity;
     extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
-    input MassFraction[:] X "Mass fractions of composition";
+    input MassFraction[nX] X "Mass fractions of composition";
     output Temperature T "Temperature";
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
