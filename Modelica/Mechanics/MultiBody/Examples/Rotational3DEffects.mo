@@ -146,7 +146,7 @@ is much faster.
 </html>"));
   end GyroscopicEffects;
 
-  model ActuatedDrive
+  model ActuatedDrive "Demonstrates usage of models Rotor1D and Mounting1D"
     extends Modelica.Icons.Example;
     Parts.BodyShape bodyCylinder(
       r={0.5,0,0},
@@ -220,10 +220,19 @@ is much faster.
     connect(sine[1].y, torque1.tau) annotation (Line(
         points={{-59,70},{-50,70},{-50,40},{-72,40},{-72,-30},{-34,-30}},
         color={0,0,127}));
-    annotation (experiment(StopTime=1.1));
+    annotation (experiment(StopTime=1.1), Documentation(info="<html>
+<p>
+This example demonstrates how to utilize the 
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">Rotor1D</a>
+and <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a> models and
+compares the implementation with a standard multi-body implementation.
+Note, the solution with Rotor1D is much more efficient.
+</p>
+</html>"));
   end ActuatedDrive;
 
   model MovingActuatedDrive
+    "Demonstrates usage of model Rotor1D mounted on a moving body"
     extends Modelica.Icons.Example;
     Parts.BodyShape bodyCylinder(
       r={0.5,0,0},
@@ -348,7 +357,7 @@ is much faster.
       Documentation(info="<html>
 <p>
 This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
-(revolute, bodyCylinder) can alternatively be modeled with component rotor1D to speed up
+(revolute, bodyCylinder) can alternatively be modeled with component <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Rotor1D\">rotor1D</a> to speed up
 simulation. The movement of the two systems is identical and also the cut-torques in the
 various frames (such as: r1.frame_b.t and r2.frame_b.t).
 </p>
@@ -361,7 +370,7 @@ axes of the revolute joints.
 </html>"));
   end MovingActuatedDrive;
 
-  model GearConstraint
+  model GearConstraint "Demonstrate usage of GearConstraint model"
     extends Modelica.Icons.Example;
     Joints.GearConstraint gearConstraint(
       ratio=10,
@@ -439,7 +448,15 @@ axes of the revolute joints.
         points={{-28,-80},{-10,-80},{-10,-70}},
         color={95,95,95},
         thickness=0.5));
-    annotation (experiment(StopTime=5));
+    annotation (experiment(StopTime=5), Documentation(info="<html>
+<p>
+This model demonstrates the usage of the
+<a href=\"Modelica.Mechanics.MultiBody.Joints.GearConstraint\">GearConstraint</a>
+model to model a gearbox with multi-body elements. The formulation is compared with
+a one-dimensional model that is mounted with an
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Mounting1D\">Mounting1D</a> element.
+</p>
+</html>"));
   end GearConstraint;
 
   model BevelGear1D

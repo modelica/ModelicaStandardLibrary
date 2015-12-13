@@ -20,6 +20,9 @@ model RollingWheel
   annotation (
     experiment(StopTime=4),
     Documentation(info="<html>
-
+<p>
+Demonstrates how a single wheel is rolling on ground
+(starting with an initial velocity).
+</p>
 </html>"));
 end RollingWheel;

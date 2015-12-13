@@ -383,17 +383,17 @@ determined from the connections to this bus.
     expandable connector ControlBus "Data bus for all axes of robot"
       extends Modelica.Icons.SignalBus;
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus1 "Bus of axis 1";
+        axisControlBus1 "Bus of axis 1" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus2 "Bus of axis 2";
+        axisControlBus2 "Bus of axis 2" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus3 "Bus of axis 3";
+        axisControlBus3 "Bus of axis 3" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus4 "Bus of axis 4";
+        axisControlBus4 "Bus of axis 4" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus5 "Bus of axis 5";
+        axisControlBus5 "Bus of axis 5" annotation ();
       Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisControlBus
-        axisControlBus6 "Bus of axis 6";
+        axisControlBus6 "Bus of axis 6" annotation ();
 
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
@@ -531,7 +531,7 @@ motion on the controlBus of the r3 robot.
     model PathPlanning6
       "Generate reference angles for fastest kinematic movement"
 
-      parameter Integer naxis=6 "number of driven axis";
+      parameter Integer naxis=6 "Number of driven axis";
       parameter Real angleBegDeg[naxis](each unit="deg") = zeros(naxis)
         "Start angles";
       parameter Real angleEndDeg[naxis](each unit="deg") = ones(naxis)
@@ -629,7 +629,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,80},{80,80},{80,7},{98,7}},
+          points={{10,80},{80,80},{80,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis2.axisControlBus, controlBus.axisControlBus2) annotation (
@@ -637,7 +637,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,50},{77,50},{77,5},{97,5}},
+          points={{10,50},{77,50},{77,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis3.axisControlBus, controlBus.axisControlBus3) annotation (
@@ -645,7 +645,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,20},{75,20},{75,3},{96,3}},
+          points={{10,20},{75,20},{75,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis4.axisControlBus, controlBus.axisControlBus4) annotation (
@@ -653,7 +653,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,-10},{73,-10},{73,0},{100,0}},
+          points={{10,-10},{73,-10},{73,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis5.axisControlBus, controlBus.axisControlBus5) annotation (
@@ -661,7 +661,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,-40},{75,-40},{75,-3},{100,-3},{100,0}},
+          points={{10,-40},{75,-40},{75,-3},{100.1,-3},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       connect(pathToAxis6.axisControlBus, controlBus.axisControlBus6) annotation (
@@ -669,7 +669,7 @@ motion on the controlBus of the r3 robot.
           string="%second",
           index=1,
           extent=[6,3; 6,3]), Line(
-          points={{10,-70},{78,-70},{78,-6},{98,-6}},
+          points={{10,-70},{78,-70},{78,-0.1},{100.1,-0.1}},
           color={255,204,51},
           thickness=0.5));
       annotation (
@@ -781,26 +781,26 @@ motion on the controlBus of the r3 robot.
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,-60},{44,-60},{
-              44,-8},{102,-8},{102,0},{100,0}}, color={255,0,255}));
+          extent=[6,3; 6,3]), Line(points={{-19,-60},{44,-60},{44,-8},{102,-8},
+              {102,-0.1},{100.1,-0.1}},         color={255,0,255}));
       connect(qdd_axisUsed.y, axisControlBus.acceleration_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,-20},{40,-20},{
-              40,-4},{98,-4},{98,0},{100,0}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{-19,-20},{40,-20},{40,-4},{98,-4},{
+              98,-0.1},{100.1,-0.1}},         color={0,0,127}));
       connect(qd_axisUsed.y, axisControlBus.speed_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,
-              0},{100,0}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{-19,20},{20,20},{20,-0.1},{100.1,
+              -0.1}},      color={0,0,127}));
       connect(q_axisUsed.y, axisControlBus.angle_ref) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{-19,60},{40,60},{40,
-              4},{96,4}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{-19,60},{40,60},{40,-0.1},{100.1,
+              -0.1}},     color={0,0,127}));
       annotation (defaultComponentName="pathToAxis1",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -828,12 +828,17 @@ motion on the controlBus of the r3 robot.
             Text(
               extent={{-94,-70},{32,-96}},
               lineColor={0,0,0},
-              textString="moving")}));
+              textString="moving")}),
+        Documentation(info="<html>
+<p>
+This model stores the 4 reference variables q, qd, qdd, moving from the path planning on the axis control bus.
+</p>
+</html>"));
     end PathToAxisControlBus;
 
     model GearType1 "Motor inertia and gearbox model for r3 joints 1,2,3"
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
-      parameter Real i=-105 "gear ratio";
+      parameter Real i=-105 "Gear ratio";
       parameter Real c(unit="N.m/rad") = 43 "Spring constant";
       parameter Real d(unit="N.m.s/rad") = 0.005 "Damper constant";
       parameter SI.Torque Rv0=0.4 "Viscous friction torque at zero velocity";
@@ -1260,19 +1265,24 @@ produced by the motor).
         annotation (Line(points={{41,10},{58,10}}, color={0,0,127}));
       connect(gain2.u, axisControlBus.speed_ref)
                                       annotation (Line(points={{-62,50},{-90,50},
-              {-90,-100},{0,-100}}, color={0,0,127}));
+              {-90,-99.9},{0.1,-99.9}},
+                                    color={0,0,127}));
       connect(gain1.u, axisControlBus.angle_ref)
                                       annotation (Line(points={{-72,10},{-80,10},
-              {-80,-100},{0,-100}}, color={0,0,127}));
+              {-80,-99.9},{0.1,-99.9}},
+                                    color={0,0,127}));
       connect(feedback1.u2, axisControlBus.motorAngle)
                                             annotation (Line(points={{-36,2},{
-              -36,-100},{0,-100}}, color={0,0,127}));
+              -36,-99.9},{0.1,-99.9}},
+                                   color={0,0,127}));
       connect(add3.u3, axisControlBus.motorSpeed)
-                                       annotation (Line(points={{18,2},{0,2},{0,
-              -100}}, color={0,0,127}));
+                                       annotation (Line(points={{18,2},{0.1,2},
+              {0.1,-99.9}},
+                      color={0,0,127}));
       connect(PI.y, axisControlBus.current_ref)
                                      annotation (Line(points={{81,10},{90,10},{
-              90,-100},{0,-100}}, color={0,0,127}));
+              90,-99.9},{0.1,-99.9}},
+                                  color={0,0,127}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -1326,6 +1336,12 @@ reference signals. All signals are communicated via the
         annotation (Dialog(group="Gear"));
       parameter Real cd(unit="N.m.s/rad") = 0.005 "Damper constant"
         annotation (Dialog(group="Gear"));
+      annotation (Documentation(info="<html>
+<p>
+Model of axis 1, 2, 3 of the robot r3. An axis consists of a gearbox with modelled gear elasticity and bearing friction,
+a model of the electrical motor and a continuous-time cascade controller.
+</p>
+</html>"));
     end AxisType1;
 
     model AxisType2 "Axis model of the r3 joints 4,5,6"
@@ -1416,32 +1432,32 @@ reference signals. All signals are communicated via the
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{51,70},{70,70},{70,
-              84},{-98,84},{-98,9},{-100,9},{-100,0}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{51,70},{70,70},{70,84},{-98,84},{
+              -98,9},{-99.9,9},{-99.9,-0.1}},          color={0,0,127}));
       connect(speedSensor.w, axisControlBus.speed) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{51,50},{74,50},{74,
-              87},{-100,87},{-100,0}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{51,50},{74,50},{74,87},{-99.9,87},{
+              -99.9,-0.1}},            color={0,0,127}));
       connect(accSensor.a, axisControlBus.acceleration) annotation (
         Text(
           string="%second",
           index=1,
-          extent=[6,3; 6,3]), Line(points={{51,30},{77,30},{77,
-              90},{-102,90},{-102,0},{-100,0}}, color={0,0,127}));
+          extent=[6,3; 6,3]), Line(points={{51,30},{77,30},{77,90},{-102,90},{
+              -102,-0.1},{-99.9,-0.1}},         color={0,0,127}));
       connect(axisControlBus.angle_ref, initializeFlange.phi_start) annotation (
         Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3]), Line(points={{-100,0},{-100,-7},{
-              -97,-7},{-97,-42},{-42,-42}}));
+          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-99.9,-7},{-97,-7},{
+              -97,-42},{-42,-42}}));
       connect(axisControlBus.speed_ref, initializeFlange.w_start) annotation (
         Text(
           string="%first",
           index=-1,
-          extent=[-6,3; -6,3]), Line(points={{-100,0},{-99,0},{-99,
-              -50},{-42,-50}}, color={0,0,127}));
+          extent=[-6,3; -6,3]), Line(points={{-99.9,-0.1},{-99,-0.1},{-99,-50},
+              {-42,-50}},      color={0,0,127}));
       connect(initializeFlange.flange, flange) annotation (Line(points={{-20,
               -50},{80,-50},{80,0},{100,0}}));
       connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,

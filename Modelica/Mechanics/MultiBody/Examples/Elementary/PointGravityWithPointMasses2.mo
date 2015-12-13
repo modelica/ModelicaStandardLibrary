@@ -3,7 +3,12 @@ model PointGravityWithPointMasses2
   "Rigidly connected point masses in a point gravity field"
   extends Modelica.Icons.Example;
   model PointMass = Modelica.Mechanics.MultiBody.Parts.PointMass (m=1, sphereColor={
-          255,0,0}) "Point mass used at all places of this example";
+          255,0,0}) "Point mass used at all places of this example" annotation
+    (Documentation(info="<html>
+<p>
+Point mass used at all places in this example (has a mass  of 1 kg and a blue color)
+</p>
+</html>"));
 
   PointMass pointMass1(r_0(start={3,0,0}, each fixed=true), v_0(start={0,0,-1},
         each fixed=true))   annotation (Placement(transformation(extent={{60,-10},{
@@ -51,7 +56,12 @@ model PointGravityWithPointMasses2
 model SystemWithStandardBodies
     "For comparison purposes, an equivalent model with Bodies instead of PointMasses"
   model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0)
-      "Body used all places of the comparison model with zero inertia tensor";
+      "Body used at all places of the comparison model with zero inertia tensor"
+    annotation (Documentation(info="<html>
+<p>
+Body used at all places of the comparison model with zero inertia tensor (and mass = 1 kg and a red color).
+</p>
+</html>"));
 
   PointMass pointMass1(
       r_0(start={3,0,0}, each fixed=true),

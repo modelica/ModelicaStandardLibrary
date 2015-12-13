@@ -82,6 +82,9 @@ equation
       thickness=0.5));
   annotation (    experiment(StopTime=3),
     Documentation(info="<html>
-
+<p>
+Demonstrates how a RollingWheelSet (two wheels rigidly coupled together) is rolling
+on ground when driven by some external torques.
+</p>
 </html>"));
 end RollingWheelSetDriving;

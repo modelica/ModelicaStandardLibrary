@@ -3044,6 +3044,12 @@ This function defines the standard gravity fields for the World object.
 
 </html>"));
     end standardGravityAcceleration;
+    annotation (Documentation(info="<html>
+<p>
+Package with models that are used to construct the models in package Forces.
+The models in this package should not be directly used by a user.
+</p>
+</html>"));
   end Internal;
   annotation ( Documentation(info="<HTML>
 <p>

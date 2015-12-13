@@ -22,7 +22,7 @@ model Surfaces
     multiColoredSurface=false,
     nu=50,
     nv=50)
-    annotation (Placement(transformation(extent={{-72,-52},{-52,-32}})));
+    annotation (Placement(transformation(extent={{-72,-54},{-52,-34}})));
   inner World world(axisLength=1, n={0,0,-1})
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
   Visualizers.Torus torus

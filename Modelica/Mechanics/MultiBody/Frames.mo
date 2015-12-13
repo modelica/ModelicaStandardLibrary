@@ -28,7 +28,21 @@ package Frames "Functions to transform rotational frame quantities"
          Modelica.Math.atan2(cross(R1.T[1, :], R1.T[2, :])*R2.T[2, :],R1.T[1,:]*R2.T[1,:]),
          Modelica.Math.atan2(-cross(R1.T[1, :],R1.T[2, :])*R2.T[1, :],R1.T[2,:]*R2.T[2,:]),
          Modelica.Math.atan2(R1.T[2, :]*R2.T[1, :],R1.T[3,:]*R2.T[3,:])};
-      annotation(Inline=true);
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+residue = Orientation.<b>equalityConstraint</b>(R1,R2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Orientation.<b>equalityConstrain</b>(R1,R2)</code> returns the Real residue vector
+with 3 elements. This vector has zero elements if orientation objects R1 and R2 are identical
+(= describe the same orientation). The residue vector is determined by computing the relative
+orientation object between R1 and R2 and using the outer-diagonal elements of this matrix to
+formulate the residue in such a way that only identical orientation objects lead to a zero residue vector.
+</p>
+</html>"));
     end equalityConstraint;
 
     annotation (Documentation(info="<html>
@@ -94,7 +108,18 @@ with
   algorithm
     residue := {R.T[:, 1]*R.T[:, 1] - 1,R.T[:, 2]*R.T[:, 2] - 1,R.T[:, 3]*R.T[:,
        3] - 1,R.T[:, 1]*R.T[:, 2],R.T[:, 1]*R.T[:, 3],R.T[:, 2]*R.T[:, 3]};
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+residue = Frames.<b>orientationConstraint</b>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>orientationConstraint</b>(R)</code> returns the Real residue vector
+with 6 elements that describes the constraints between the 9 elements of the orientation matrix.
+</p>
+</html>"));
   end orientationConstraint;
 
   function angularVelocity1
@@ -106,7 +131,19 @@ with
       "Angular velocity of frame 2 with respect to frame 1 resolved in frame 1";
   algorithm
     w := resolve1(R, R.w);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+w12_1 = Frames.<b>angularVelocity1</b>(R12);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>angularVelocity1</b>(R12)</code> returns the 
+the angular velocity w12_1 of frame 2 with respect to frame 1 resolved in frame 1,
+from the orientation object R12 that describes the orientationto rotate frame 1 into frame 2.
+</p>
+</html>"));
   end angularVelocity1;
 
   function angularVelocity2
@@ -118,7 +155,19 @@ with
       "Angular velocity of frame 2 with respect to frame 1 resolved in frame 2";
   algorithm
     w := R.w;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+w12_2 = Frames.<b>angularVelocity2</b>(R12);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>angularVelocity2</b>(R12)</code> returns the 
+the angular velocity w12_2 of frame 2 with respect to frame 1 resolved in frame 2,
+from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+</html>"));
   end angularVelocity2;
 
   function resolve1 "Transform vector from frame 2 to frame 1"
@@ -129,7 +178,20 @@ with
   algorithm
     v1 := transpose(R.T)*v2;
     annotation (derivative(noDerivative=R) = Internal.resolve1_der,
-        InlineAfterIndexReduction=true);
+        InlineAfterIndexReduction=true,
+      Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v1 = Frames.<b>resolve1</b>(R12, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>resolve1</b>(R12, v2)</code> returns vector v 
+resolved in frame 1 (= v1) from vector v resolved in frame 2 (= v2) using the
+orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+</html>"));
   end resolve1;
 
   function resolve2 "Transform vector from frame 1 to frame 2"
@@ -140,7 +202,20 @@ with
   algorithm
     v2 := R.T*v1;
     annotation (derivative(noDerivative=R) = Internal.resolve2_der,
-        InlineAfterIndexReduction=true);
+        InlineAfterIndexReduction=true,
+      Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Frames.<b>resolve2</b>(R12, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>resolve2</b>(R12, v1)</code> returns vector v 
+resolved in frame 2 (= v2) from vector v resolved in frame 1 (= v1) using the
+orientation object R12 that describes the orientation  to rotate frame 1 into frame 2.
+</p>
+</html>"));
   end resolve2;
 
   function resolveRelative
@@ -154,7 +229,21 @@ with
   algorithm
     v2 := resolve2(R2, resolve1(R1, v1));
     annotation (derivative(noDerivative=R1, noDerivative=R2) = Internal.resolveRelative_der,
-        InlineAfterIndexReduction=true);
+        InlineAfterIndexReduction=true,
+      Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Frames.<b>resolveRelative</b>(R1, R2, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>resolveRelative</b>(R1,R2,v1)</code> returns vector v 
+resolved in frame 2 (= v1) from vector v resolved in frame 1 (= v1) given the
+orientation object R1 that describes the orientation to rotate frame 0 into frame 1 and
+orientation object R2 that describes the orientation to rotate frame 0 into frame 2.
+</p>
+</html>"));
   end resolveRelative;
 
   function resolveDyade1
@@ -165,7 +254,19 @@ with
     output Real D1[3, 3] "Second order tensor resolved in frame 1";
   algorithm
     D1 := transpose(R.T)*D2*R.T;
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+D1 = Frames.<b>resolveDyade1</b>(R12, D2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>Dyade1</b>(R12, D2)</code> returns the second order tensor D 
+resolved in frame 1 (= D1) from its representation in frame 2 (= D2) using the
+orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+</html>"));
   end resolveDyade1;
 
   function resolveDyade2
@@ -176,7 +277,19 @@ with
     output Real D2[3, 3] "Second order tensor resolved in frame 2";
   algorithm
     D2 := R.T*D1*transpose(R.T);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+D2 = Frames.<b>resolveDyade2</b>(R12, D1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>Dyade2</b>(R12, D1)</code> returns the second order tensor D 
+resolved in frame 2 (= D2) from its representation in frame 1 (= D1) using the
+orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+</html>"));
   end resolveDyade2;
 
   function nullRotation
@@ -186,7 +299,19 @@ with
       "Orientation object such that frame 1 and frame 2 are identical";
   algorithm
     R := Orientation(T=identity(3),w= zeros(3));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>nullRotation</b>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>rnullRotation</b>()</code> returns an orientation matrix
+R describing the orientation object to rotate frame 1 into frame 2, if frame 1 and frame 2 are identical.
+(= transformation matrix is identy matrix and angular velocity is zero).
+</p>
+</html>"));
   end nullRotation;
 
   function inverseRotation "Return inverse orientation object"
@@ -196,7 +321,19 @@ with
       "Orientation object to rotate frame 2 into frame 1";
   algorithm
     R_inv := Orientation(T=transpose(R.T),w= -resolve1(R, R.w));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R_inv = Frames.<b>inverseRotation</b>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>inverseRotation</b>(R)</code> returns 
+orientation object R_inv that describes the orientation to rotate from frame 2 to frame 1
+from the orientation object R that describes the orientation to rotate from frame 1 into frame 2.
+</p>
+</html>"));
   end inverseRotation;
 
   function relativeRotation "Return relative orientation object"
@@ -208,7 +345,20 @@ with
   algorithm
     R_rel := Orientation(T=R2.T*transpose(R1.T),w= R2.w - resolve2(R2, resolve1(
        R1, R1.w)));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R_rel = Frames.<b>relativeRotation</b>(R1,R2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>relativeRotation</b>(R1,R2)</code> returns 
+orientation object R_rel that describes the orientation to rotate frame 1 to frame 2
+from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
+from the orientation object R2 that describes the orientation to rotate from frame 0 to frame 2.
+</p>
+</html>"));
   end relativeRotation;
 
   function absoluteRotation
@@ -220,7 +370,20 @@ with
     output Orientation R2 "Orientation object to rotate frame 0 into frame 2";
   algorithm
     R2 := Orientation(T=R_rel.T*R1.T,w= resolve2(R_rel, R1.w) + R_rel.w);
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R2 = Frames.<b>relativeRotation</b>(R1,R_rel);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>absoluteRotation</b>(R1,R_rel)</code> returns 
+orientation object R2 hat describes the orientation frame 0 to frame 2
+from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
+from the relative orientation object R_rel that describes the orientation to rotate from frame 1 to frame 2.
+</p>
+</html>"));
   end absoluteRotation;
 
   function planarRotation "Return orientation object of a planar rotation"
@@ -236,7 +399,21 @@ with
     R := Orientation(T=[e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*
       Math.cos(angle) - skew(e)*Math.sin(angle),w= e*der_angle);
 
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>planarRotation</b>(e, angle, der_angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>planarRotation</b>(e, angle, der_angle)</code> returns 
+orientation object R that describes the orientation to rotate in the plane along unit
+axis <b>e</b> from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
+Note, \"e\" must be a unit vector. However, this is not checked in this function and the funtion will
+return a wrong result, if lenght(e) is not one.
+</p>
+</html>"));
   end planarRotation;
 
   function planarRotationAngle
@@ -335,7 +512,21 @@ and/or a division by zero will occur.
       angle); 0, 1, 0; sin(angle), 0, cos(angle)] else [cos(angle), sin(angle),
        0; -sin(angle), cos(angle), 0; 0, 0, 1]),w= if axis == 1 then {der_angle,
       0,0} else if axis == 2 then {0,der_angle,0} else {0,0,der_angle});
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>axisRotation</b>(axis, angle, der_angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>axisRotation</b>(axis, angle, der_angle)</code> returns 
+orientation object R that describes the orientation to rotate along unit axis <b>axis</b>
+from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
+For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
+Frames.planarRotation({0,1,0}, phi, der_phi)
+</p>
+</html>"));
   end axisRotation;
 
   function axesRotations
@@ -363,7 +554,22 @@ and/or a division by zero will occur.
       sequence[3], angles[3]), Frames.axis(sequence[2])*der_angles[2]) +
       TM.resolve2(TM.axisRotation(sequence[3], angles[3])*TM.axisRotation(
       sequence[2], angles[2]), Frames.axis(sequence[1])*der_angles[1]));
-    annotation(Inline=true);
+    annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>axesRotation</b>(asequence, angles, der_angles);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>axesRotation</b>(sequence, angles, der_angles)</code> returns 
+orientation object R that describes the orientation to rotate 
+along unit axis <b>axis</b>
+from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
+For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
+Frames.planarRotation({0,1,0}, phi, der_phi)
+</p>
+</html>"));
   end axesRotations;
 
   function axesRotationsAngles

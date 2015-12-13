@@ -78,5 +78,17 @@ ellipsoid surface.
      if multiColoredSurface then
         C := {{(Z[i,j]+1)*200,255,0} for j in 1:nv, i in 1:nu};
      end if;
+    annotation (Documentation(info="<html>
+<p>
+Function defining the characteristics of a moving sine in three dimensions.
+This function is used in example
+<a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Elementary.Surfaces</a>.
+</p>
+</html>"));
   end sineSurface;
+  annotation (Documentation(info="<html>
+<p>
+This package contains utility functions used by some of the example models.
+</p>
+</html>"));
 end Utilities;
