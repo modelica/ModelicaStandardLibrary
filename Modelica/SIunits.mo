@@ -347,12 +347,11 @@ still kept in Modelica.SIunits.</p>
         textString="[km/h]")}));
     end NonSIunits;
 
-
   function to_unit1 "Change the unit of a Real number to unit=\"1\""
     extends Modelica.SIunits.Icons.Conversion;
     input Real r "Real number";
     output Real result(unit="1") "Real number r with unit=\"1\"";
-algorithm
+  algorithm
     result := r;
     annotation (Inline=true, Documentation(info="<HTML>
 <h4>Syntax</h4>
@@ -1452,7 +1451,7 @@ argument):</p>
   type LoundnessLevel = Real (final quantity="LoundnessLevel", final unit=
           "phon") "Obsolete type, use LoudnessLevel instead!";
   type Loundness = Real (final quantity="Loundness", final unit="sone")
-          "Obsolete type, use Loudness instead!";
+    "Obsolete type, use Loudness instead!";
 
   // Physical chemistry and molecular physics (chapter 8 of ISO 31-1992)
   type RelativeAtomicMass = Real (final quantity="RelativeAtomicMass", final unit=
@@ -1823,6 +1822,7 @@ argument):</p>
 
  // Other types not defined in ISO 31-1992
   type PerUnit = Real(unit = "1");
+  type DimensionlessRatio = Real(unit = "1");
 
  // Complex types for electrical systems (not defined in ISO 31-1992)
   operator record ComplexCurrent =
