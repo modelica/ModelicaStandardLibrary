@@ -7104,7 +7104,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
         min=1,
         max=1.e4,
         nominal=300,
-        start=300) "Type for temperature with medium specific attributes";
+        start=288.15) "Type for temperature with medium specific attributes";
     type ThermalConductivity = SI.ThermalConductivity (
         min=0,
         max=500,
