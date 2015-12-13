@@ -5060,24 +5060,24 @@ with the Modelica.Blocks blocks.
       SI.Velocity v_relfric "Relative velocity between frictional surfaces";
       SI.Acceleration a_relfric
         "Relative acceleration between frictional surfaces";
-      //SI.Force f "Friction force (positive, if directed in opposite direction of v_rel)";
-      SI.Force f0 "Friction force for v=0 and forward sliding";
-      SI.Force f0_max "Maximum friction force for v=0 and locked";
-      Boolean free "true, if frictional element is not active";
+      //SI.Force f "Friction force (positive, if directed in opposite direction of v_relfric)";
+      SI.Force f0 "Friction force for v_relfric=0 and forward sliding";
+      SI.Force f0_max "Maximum friction force for v_relfric=0 and locked";
+      Boolean free "= true, if frictional element is not active";
       // Equations to define the following variables are given in this class
       Real sa(unit="1")
         "Path parameter of friction characteristic f = f(a_relfric)";
       Boolean startForward(start=false, fixed=true)
-        "true, if v_rel=0 and start of forward sliding";
+        "= true, if v_relfric=0 and start of forward sliding";
       Boolean startBackward(start=false, fixed=true)
-        "true, if v_rel=0 and start of backward sliding";
-      Boolean locked(start=false) "true, if v_rel=0 and not sliding";
+        "= true, if v_relfric=0 and start of backward sliding";
+      Boolean locked(start=false) "= true, if v_relfric=0 and not sliding";
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";
-      constant Integer Forward=1 "v_rel > 0 (forward sliding)";
+      constant Integer Forward=1 "v_relfric > 0 (forward sliding)";
       constant Integer Stuck=0
-        "v_rel = 0 (forward sliding, locked or backward sliding)";
-      constant Integer Backward=-1 "v_rel < 0 (backward sliding)";
+        "v_relfric = 0 (forward sliding, locked or backward sliding)";
+      constant Integer Backward=-1 "v_relfric < 0 (backward sliding)";
       Integer mode(
         final min=Backward,
         final max=Unknown,

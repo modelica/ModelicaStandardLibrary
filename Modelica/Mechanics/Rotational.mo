@@ -7311,23 +7311,23 @@ with the blocks of package Modelica.Blocks.
       SI.AngularAcceleration a_relfric
         "Relative angular acceleration between frictional surfaces";
       //SI.Torque tau "Friction torque (positive, if directed in opposite direction of w_rel)";
-      SI.Torque tau0 "Friction torque for w=0 and forward sliding";
-      SI.Torque tau0_max "Maximum friction torque for w=0 and locked";
-      Boolean free "true, if frictional element is not active";
+      SI.Torque tau0 "Friction torque for w_relfric=0 and forward sliding";
+      SI.Torque tau0_max "Maximum friction torque for w_relfric=0 and locked";
+      Boolean free "= true, if frictional element is not active";
       // Equations to define the following variables are given in this class
       Real sa(final unit="1")
         "Path parameter of friction characteristic tau = f(a_relfric)";
       Boolean startForward(start=false, fixed=true)
-        "true, if w_rel=0 and start of forward sliding";
+        "= true, if w_relfric=0 and start of forward sliding";
       Boolean startBackward(start=false, fixed=true)
-        "true, if w_rel=0 and start of backward sliding";
+        "= true, if w_relfric=0 and start of backward sliding";
       Boolean locked(start=false) "true, if w_rel=0 and not sliding";
       constant Integer Unknown=3 "Value of mode is not known";
       constant Integer Free=2 "Element is not active";
-      constant Integer Forward=1 "w_rel > 0 (forward sliding)";
+      constant Integer Forward=1 "w_relfric > 0 (forward sliding)";
       constant Integer Stuck=0
-        "w_rel = 0 (forward sliding, locked or backward sliding)";
-      constant Integer Backward=-1 "w_rel < 0 (backward sliding)";
+        "w_relfric = 0 (forward sliding, locked or backward sliding)";
+      constant Integer Backward=-1 "w_relfric < 0 (backward sliding)";
       Integer mode(
         final min=Backward,
         final max=Unknown,
@@ -7567,13 +7567,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin = {-35,40},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}}),
+            origin=  {-35,40},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}}),
           Rectangle(
-            origin = {35,21},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}})}), Documentation(
+            origin=  {35,21},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.
