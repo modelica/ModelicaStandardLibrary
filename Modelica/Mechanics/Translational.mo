@@ -2288,7 +2288,7 @@ where the different effects are visualized:
         "peak*f_pos[1,2] = Maximum friction force for v==0";
       extends Translational.Interfaces.PartialFriction;
 
-      SI.Position s;
+      SI.Position s "= flange_a.s - support.s";
       SI.Force f "Friction force";
       SI.Velocity v "Absolute velocity of flange_a and flange_b";
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
@@ -2489,7 +2489,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       parameter SI.Force fn_max(final min=0, start=1) "Maximum normal force";
       extends Translational.Interfaces.PartialFriction;
 
-      SI.Position s;
+      SI.Position s "Absolute position of flange_a and of flange_b";
       SI.Force f "Brake friction force";
       SI.Velocity v "Absolute velocity of flange_a and flange_b";
       SI.Acceleration a "Absolute acceleration of flange_a and flange_b";
@@ -2868,7 +2868,8 @@ provided via a signal bus.
         start=2) "Exponential decay";
       extends
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
-      Integer stopped;
+      Integer stopped
+        "Mode of stop (-1: hard stop at flange_a, 0: no stop, +1: hard stop at flange_b";
       encapsulated partial model PartialFrictionWithStop
         "Base model of Coulomb friction elements with stop"
 
@@ -2909,7 +2910,8 @@ provided via a signal bus.
           final min=Backward,
           final max=Unknown,
           start=Unknown,
-          fixed=true);
+          fixed=true)
+          "Mode of friction (-1: backward sliding, 0: stuck, 1: forward sliding, 2: inactive, 3: unknown)";
       protected
         constant SI.Acceleration unitAcceleration=1 annotation (HideResult=true);
         constant SI.Force unitForce=1 annotation (HideResult=true);
