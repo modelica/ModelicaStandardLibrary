@@ -7333,7 +7333,7 @@ with the blocks of package Modelica.Blocks.
         final max=Unknown,
         start=Unknown,
         fixed=true)
-        "Defines the mode of the friction element: -1/0/1/2/3 backward sliding/stuck/forward sliding/element not active/unknown";
+        "Mode of friction (-1: backward sliding, 0: stuck, 1: forward sliding, 2: inactive, 3: unknown)";
     protected
       constant SI.AngularAcceleration unitAngularAcceleration=1
         annotation (HideResult=true);
