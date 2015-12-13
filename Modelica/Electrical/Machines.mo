@@ -12910,8 +12910,8 @@ Connector for Space Phasors:
       parameter Modelica.SIunits.Inertia Jr "Rotor's moment of inertia";
       parameter Boolean useSupport=false
         "Enable / disable (=fixed stator) support" annotation (Evaluate=true);
-      parameter Modelica.SIunits.Inertia Js(start=Jr)
-        "Stator's moment of inertia" annotation (Dialog(enable=useSupport));
+      parameter Modelica.SIunits.Inertia Js=Jr "Stator's moment of inertia"
+                                     annotation (Dialog(enable=useSupport));
       parameter Boolean useThermalPort=false
         "Enable / disable (=fixed temperatures) thermal port"
         annotation (Evaluate=true);
