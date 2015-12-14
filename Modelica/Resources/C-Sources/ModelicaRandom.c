@@ -477,7 +477,7 @@ MODELICA_EXPORT double ModelicaRandom_impureRandom_xorshift1024star(int id) {
     return y;
 }
 
-MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed() {
+MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed(void) {
    /* Creates an automatic integer seed (typically from the current time and process id) */
 
    int ms, sec, min, hour, mday, mon, year;
