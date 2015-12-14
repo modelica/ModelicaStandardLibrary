@@ -66,7 +66,7 @@ Note, a fileName can be defined as URI by using the helper function
   end readFile;
 
   function readLine
-    "Reads a line of text from a file and returns it in a string"
+    "Read a line of text from a file and return it in a string"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
                         annotation(Dialog(loadSelector(filter="Text files (*.txt)",
@@ -96,7 +96,7 @@ and endOfFile=true. Otherwise endOfFile=false.
 </html>"));
   end readLine;
 
-  function countLines "Returns the number of lines in a file"
+  function countLines "Return the number of lines in a file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
                        annotation(Dialog(loadSelector(filter="Text files (*.txt)",

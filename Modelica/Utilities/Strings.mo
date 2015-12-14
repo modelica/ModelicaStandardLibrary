@@ -2,7 +2,7 @@ within Modelica.Utilities;
 package Strings "Operations on strings"
   extends Modelica.Icons.Package;
 
-  function length "Returns length of string"
+  function length "Return length of string"
     extends Modelica.Icons.Function;
     input String string;
     output Integer result "Number of characters of string";
@@ -19,7 +19,7 @@ Returns the number of characters of \"string\".
 </html>"));
   end length;
 
-  function substring "Returns a substring defined by start and end index"
+  function substring "Return a substring defined by start and end index"
 
     extends Modelica.Icons.Function;
     input String string "String from which a substring is inquired";
@@ -1024,7 +1024,7 @@ part of the string is printed.
   package Advanced "Advanced scanning functions"
   extends Modelica.Icons.Package;
 
-    function scanReal "Scans a signed real number"
+    function scanReal "Scan a signed real number"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1071,7 +1071,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </html>"));
     end scanReal;
 
-    function scanInteger "Scans signed integer number"
+    function scanInteger "Scan signed integer number"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;
@@ -1151,7 +1151,7 @@ the second output argument is an empty string.
 </html>"));
     end scanString;
 
-    function scanIdentifier "Scans simple identifiers"
+    function scanIdentifier "Scan simple identifiers"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1 "Index where scanning starts";
@@ -1187,7 +1187,7 @@ the second output argument is an empty string.
 </html>"));
     end scanIdentifier;
 
-    function skipWhiteSpace "Scans white space"
+    function skipWhiteSpace "Scan white space"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;
@@ -1209,7 +1209,7 @@ of the first non white space character.
 </html>"));
     end skipWhiteSpace;
 
-    function skipLineComments "Scans comments and white space"
+    function skipLineComments "Scan comments and white space"
       extends Modelica.Icons.Function;
       input String string;
       input Integer startIndex(min=1)=1;

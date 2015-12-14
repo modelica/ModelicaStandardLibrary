@@ -49,7 +49,7 @@ external "C" ModelicaInternal_setenv(name, content, convertFromSlash) annotation
 </html>"));
 end setEnvironmentVariable;
 
-  function getTime "Retrieves the local time (in the local time zone)"
+  function getTime "Retrieve the local time (in the local time zone)"
     output Integer ms "Millisecond";
     output Integer sec "Second";
     output Integer min "Minute";
@@ -129,7 +129,7 @@ All returned values are of type Integer and have the following meaning:
 </html>"));
   end getTime;
 
-  function getPid "Retrieves the current process id"
+  function getPid "Retrieve the current process id"
     output Integer pid "Process ID";
     external "C" pid=  ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
     annotation (Documentation(info="<html>
