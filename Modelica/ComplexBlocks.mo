@@ -120,20 +120,17 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
       connect(logFrequencySweep.y, transferFunction.w)
         annotation (Line(points={{-59,-30},{-30,-30},{-30,-12}}, color={0,0,127}));
       connect(transferFunction.y, complexToPolar.u)
-        annotation (Line(points={{-19,0},{-2,0}},        color={85,170,255}));
+        annotation (Line(points={{-19,0},{-2,0}}, color={85,170,255}));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}})),
-        experiment(__Dymola_NumberOfIntervals=1000),
-        __Dymola_experimentSetupOutput,
-        Documentation(info="<html>
+        experiment(StopTime=1, Interval=0.001),
+Documentation(info="<html>
 <p>This example shows the response of a PT2 defined by its transfer function</p>
 <pre>
             1
 H(jw)=-------------------
       1 + 2 d jw + (jw)^2
 </pre>
-<p>Frequency performs a loagirthmic ramp from 0.01 to 100 s^-1.</p>
+<p>Frequency performs a logarithmic ramp from 0.01 to 100 s^-1.</p>
 <p>
 Plot the magnitude locus (in dB) dB versus lg_w and the phase locus versus lg_w.
 </p>
@@ -2256,8 +2253,7 @@ The output y is a complex phasor with constant magnitude, spinning with constant
         "Duration of ramp (= 0.0 gives a Step)";
     equation
       y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/duration));
-       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}})), Documentation(info="<html>
+       annotation ( Documentation(info="<html>
 <p>The output performs a logarithmic freqency sweep:<br>
 The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
 The output is the decimal power of this logarithmic ramp.
