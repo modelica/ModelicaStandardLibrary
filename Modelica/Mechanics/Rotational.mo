@@ -525,7 +525,7 @@ Here are some explanations:
 
 <p>
 Assume first the most simplest friction problem: A block sliding on a surface.
-The friction force \"f\" acts between the block surface and the environment surface and shall be a 
+The friction force \"f\" acts between the block surface and the environment surface and shall be a
 linear function of the relative velocity \"v\" between the two surfaces.
 When the relative velocity becomes zero, the two surfaces are stuck to each other and the friction force is no longer
 a function of \"v\". The element starts sliding again if the friction force becomes larger than the maximum
@@ -536,7 +536,7 @@ leading to the following equations:
 <blockquote><pre>forward  = s &gt; 1;
 backward = s &lt; -1;
 v = if forward then s-1 elseif backward then s+1 else 0;
-f = if forward  then  f0+f1*(s-1) elseif 
+f = if forward  then  f0+f1*(s-1) elseif
        backward then -f0+f1*(s+1) else f0*s;
 </pre></blockquote>
 
@@ -567,9 +567,9 @@ m*der(v) = u - f
 
 <p>
 which can be easily transformed into state space form with \"v\" as the state.
-If the block becomes stuck, that is -1 &le; s &le; 1, the equation \"v=0\" becomes 
+If the block becomes stuck, that is -1 &le; s &le; 1, the equation \"v=0\" becomes
 active and therefore \"v\" can no longer be a state, that is an index
-change takes place. Besides the difficulty to handle the variable state change, 
+change takes place. Besides the difficulty to handle the variable state change,
 there is a more serious problem:
 </p>
 
@@ -599,7 +599,7 @@ startBack = sa &lt; -1;
 
 <p>
 At zero velocity, these equations and the equation of the block form a mixed continuous/discrete set of
-equations which has to be solved at event instants (e.g. by a fix point iteration), 
+equations which has to be solved at event instants (e.g. by a fix point iteration),
 When switching from sliding to stuck mode, the velocity is small or zero. Since the derivative of the constraint
 equation der(v) = 0 is fulfilled in the stuck mode, the velocity remains small even if v = 0 is not explicitly
 taken into account. The approach to use the acceleration der(v) = 0 as \"constraint\" instead of \"v = 0\",
@@ -619,13 +619,13 @@ of a simple friction element:
 startFor  = pre(mode) == Stuck and sa &gt; 1;
 startBack = pre(mode) == Stuck and sa  &lt; -1;
         a = der(v);
-        a = if pre(mode) == Forward  or startFor  then  sa - 1    elseif 
+        a = if pre(mode) == Forward  or startFor  then  sa - 1    elseif
                pre(mode) == Backward or startBack then  sa + 1    else 0;
         f = if pre(mode) == Forward or startFor   then  f0 + f1*v elseif
                pre(mode) == Backward or startBack then -f0 + f1*v else f0*sa;
 
 // state machine to determine configuration
-mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif 
+mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif
           (pre(mode) == Backward or startBack) and v&lt;0 then Backward else Stuck;
 </pre></blockquote>
 

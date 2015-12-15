@@ -1409,7 +1409,7 @@ the model.
 
     import Modelica.Blocks.Types.Init;
     import Modelica.Constants.pi;
-    
+
     extends Modelica.Blocks.Interfaces.SISO;
 
     parameter Integer n(min=1) = 2 "Order of filter";
@@ -2164,7 +2164,7 @@ The development of this block was partially funded by BMBF within the
 
       function Butterworth
           "Return base filter coefficients of Butterworth filter (= low pass filter with w_cut = 1 rad/s)"
-        import Modelica.Constants.pi;          
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
@@ -2219,8 +2219,8 @@ The development of this block was partially funded by BMBF within the
       function ChebyshevI
           "Return base filter coefficients of Chebyshev I filter (= low pass filter with w_cut = 1 rad/s)"
         import Modelica.Math.asinh;
-        import Modelica.Constants.pi;          
-          
+        import Modelica.Constants.pi;
+
         extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
@@ -2286,7 +2286,7 @@ The development of this block was partially funded by BMBF within the
           extends Modelica.Icons.InternalPackage;
       function lowPass
           "Return low pass filter coefficients at given cut-off frequency"
-        import Modelica.Constants.pi;                    
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2322,7 +2322,7 @@ The development of this block was partially funded by BMBF within the
 
       function highPass
           "Return high pass filter coefficients at given cut-off frequency"
-        import Modelica.Constants.pi;                    
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2372,7 +2372,7 @@ The development of this block was partially funded by BMBF within the
 
       function bandPass
           "Return band pass filter coefficients at given cut-off frequency"
-        import Modelica.Constants.pi;                    
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
@@ -2462,7 +2462,7 @@ The development of this block was partially funded by BMBF within the
 
       function bandStop
           "Return band stop filter coefficients at given cut-off frequency"
-        import Modelica.Constants.pi;                    
+        import Modelica.Constants.pi;
         extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";

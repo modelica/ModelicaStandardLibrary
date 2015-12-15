@@ -77,7 +77,7 @@ Icon of an <b>electrical motor</b> model.
   end MotorIcon;
   annotation (Documentation(info="<html>
 <p>This package contains definitions for the graphical layout of components used in the MultiBody library.
-These icons might also be used in other libraries using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer. 
+These icons might also be used in other libraries using &quot;extends&quot; or by directly copying the &quot;icon&quot; layer.
 </p>
 </html>"));
 end Icons;

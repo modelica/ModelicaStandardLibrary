@@ -9,7 +9,7 @@ package FastFourierTransform
 
     model RealFFT1
       "Example demonstrating the use of an FFT calculation during simulation"
-      import Modelica.Constants.pi;      
+      import Modelica.Constants.pi;
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Frequency f_max = 4
         "Maximum frequency of interest";
@@ -57,9 +57,7 @@ package FastFourierTransform
          Ai = A[1:nfi];
       end when;
 
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-            coordinateSystem(preserveAspectRatio=false)),
-        experiment(StopTime=6),
+      annotation (experiment(StopTime=6),
         Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
@@ -67,7 +65,7 @@ package FastFourierTransform
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
@@ -88,7 +86,7 @@ With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the foll
 
 <pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
    fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of first sine
-   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of second sine   
+   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of second sine
 </pre>
 
 <p>
@@ -109,7 +107,7 @@ A plot of the resulting FFT is shown in the next image:
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>"));
@@ -156,7 +154,7 @@ A plot of the resulting FFT is shown in the next image:
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
@@ -182,7 +180,7 @@ realFFTinfo(f_max=170, f_resolution=0.3)
 results in the following output:
 </p>
 
-<pre> 
+<pre>
 ... Real FFT properties
  Desired:
     f_max         = 170 Hz
@@ -237,7 +235,7 @@ results in the following output:
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
@@ -278,7 +276,7 @@ used in this function
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
-     
+
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
      Math. Comput. 19: 297–301. doi:10.2307/2003354.
@@ -333,7 +331,7 @@ results in the following output:
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
@@ -378,7 +376,7 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
-     
+
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
      Math. Comput. 19: 297–301. doi:10.2307/2003354.
@@ -423,7 +421,7 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
@@ -465,7 +463,7 @@ used in this function.
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
-     
+
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
      Math. Comput. 19: 297–301. doi:10.2307/2003354.
@@ -525,7 +523,7 @@ used in this function.
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>",
@@ -556,7 +554,7 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>"));
@@ -592,7 +590,7 @@ resulting in:
      <a href=\"http://sourceforge.net/projects/kissfft/\">http://sourceforge.net/projects/kissfft/</a>.
      <br>&nbsp;
      </dd>
-     
+
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
      Math. Comput. 19: 297–301. doi:10.2307/2003354.
@@ -615,7 +613,7 @@ resulting in:
 <tr><td valign=\"top\"> Nov. 29, 2015 </td>
     <td valign=\"top\">
      Initial version implemented by
-     Martin R. Kuhn and Martin Otter 
+     Martin R. Kuhn and Martin Otter
      (<a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>.</td></tr>
 </table>
 </html>"), Icon(graphics={

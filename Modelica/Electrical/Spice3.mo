@@ -3096,7 +3096,7 @@ The corresponding SPICE description
     end V_constant;
 
     model V_sin "Sinusoidal voltage source"
-      import Modelica.Constants.pi;  
+      import Modelica.Constants.pi;
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Voltage VO=0.0 "Offset";
       parameter SI.Voltage VA=0.0 "Amplitude";
@@ -3400,7 +3400,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     end V_pwl;
 
     model V_sffm "Single-frequency FM voltage source"
-      import Modelica.Constants.pi;  
+      import Modelica.Constants.pi;
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Voltage VO = 0 "Offset";
       parameter SI.Voltage VA = 0 "Amplitude";
@@ -3471,7 +3471,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
    end I_constant;
 
     model I_sin "Sinusoidal current source"
-      import Modelica.Constants.pi;  
+      import Modelica.Constants.pi;
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Current IO=0 "Offset";
       parameter SI.Current IA=0 "Amplitude";
@@ -3769,7 +3769,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     end I_pwl;
 
     model I_sffm "Single-frequency FM current source"
-      import Modelica.Constants.pi;  
+      import Modelica.Constants.pi;
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Current IO = 0 "Offset";
       parameter SI.Current IA = 0 "Amplitude";

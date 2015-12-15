@@ -139,7 +139,7 @@ w12_1 = Frames.<b>angularVelocity1</b>(R12);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>angularVelocity1</b>(R12)</code> returns the 
+The function call <code>Frames.<b>angularVelocity1</b>(R12)</code> returns the
 the angular velocity w12_1 of frame 2 with respect to frame 1 resolved in frame 1,
 from the orientation object R12 that describes the orientationto rotate frame 1 into frame 2.
 </p>
@@ -163,7 +163,7 @@ w12_2 = Frames.<b>angularVelocity2</b>(R12);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>angularVelocity2</b>(R12)</code> returns the 
+The function call <code>Frames.<b>angularVelocity2</b>(R12)</code> returns the
 the angular velocity w12_2 of frame 2 with respect to frame 1 resolved in frame 2,
 from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
 </p>
@@ -187,7 +187,7 @@ v1 = Frames.<b>resolve1</b>(R12, v2);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>resolve1</b>(R12, v2)</code> returns vector v 
+The function call <code>Frames.<b>resolve1</b>(R12, v2)</code> returns vector v
 resolved in frame 1 (= v1) from vector v resolved in frame 2 (= v2) using the
 orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
 </p>
@@ -211,7 +211,7 @@ v2 = Frames.<b>resolve2</b>(R12, v1);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>resolve2</b>(R12, v1)</code> returns vector v 
+The function call <code>Frames.<b>resolve2</b>(R12, v1)</code> returns vector v
 resolved in frame 2 (= v2) from vector v resolved in frame 1 (= v1) using the
 orientation object R12 that describes the orientation  to rotate frame 1 into frame 2.
 </p>
@@ -238,7 +238,7 @@ v2 = Frames.<b>resolveRelative</b>(R1, R2, v1);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>resolveRelative</b>(R1,R2,v1)</code> returns vector v 
+The function call <code>Frames.<b>resolveRelative</b>(R1,R2,v1)</code> returns vector v
 resolved in frame 2 (= v1) from vector v resolved in frame 1 (= v1) given the
 orientation object R1 that describes the orientation to rotate frame 0 into frame 1 and
 orientation object R2 that describes the orientation to rotate frame 0 into frame 2.
@@ -262,7 +262,7 @@ D1 = Frames.<b>resolveDyade1</b>(R12, D2);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>Dyade1</b>(R12, D2)</code> returns the second order tensor D 
+The function call <code>Frames.<b>Dyade1</b>(R12, D2)</code> returns the second order tensor D
 resolved in frame 1 (= D1) from its representation in frame 2 (= D2) using the
 orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
 </p>
@@ -285,7 +285,7 @@ D2 = Frames.<b>resolveDyade2</b>(R12, D1);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>Dyade2</b>(R12, D1)</code> returns the second order tensor D 
+The function call <code>Frames.<b>Dyade2</b>(R12, D1)</code> returns the second order tensor D
 resolved in frame 2 (= D2) from its representation in frame 1 (= D1) using the
 orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
 </p>
@@ -329,7 +329,7 @@ R_inv = Frames.<b>inverseRotation</b>(R);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>inverseRotation</b>(R)</code> returns 
+The function call <code>Frames.<b>inverseRotation</b>(R)</code> returns
 orientation object R_inv that describes the orientation to rotate from frame 2 to frame 1
 from the orientation object R that describes the orientation to rotate from frame 1 into frame 2.
 </p>
@@ -353,7 +353,7 @@ R_rel = Frames.<b>relativeRotation</b>(R1,R2);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>relativeRotation</b>(R1,R2)</code> returns 
+The function call <code>Frames.<b>relativeRotation</b>(R1,R2)</code> returns
 orientation object R_rel that describes the orientation to rotate frame 1 to frame 2
 from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
 from the orientation object R2 that describes the orientation to rotate from frame 0 to frame 2.
@@ -378,7 +378,7 @@ R2 = Frames.<b>relativeRotation</b>(R1,R_rel);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>absoluteRotation</b>(R1,R_rel)</code> returns 
+The function call <code>Frames.<b>absoluteRotation</b>(R1,R_rel)</code> returns
 orientation object R2 hat describes the orientation frame 0 to frame 2
 from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
 from the relative orientation object R_rel that describes the orientation to rotate from frame 1 to frame 2.
@@ -407,7 +407,7 @@ R = Frames.<b>planarRotation</b>(e, angle, der_angle);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>planarRotation</b>(e, angle, der_angle)</code> returns 
+The function call <code>Frames.<b>planarRotation</b>(e, angle, der_angle)</code> returns
 orientation object R that describes the orientation to rotate in the plane along unit
 axis <b>e</b> from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
 Note, \"e\" must be a unit vector. However, this is not checked in this function and the funtion will
@@ -520,7 +520,7 @@ R = Frames.<b>axisRotation</b>(axis, angle, der_angle);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>axisRotation</b>(axis, angle, der_angle)</code> returns 
+The function call <code>Frames.<b>axisRotation</b>(axis, angle, der_angle)</code> returns
 orientation object R that describes the orientation to rotate along unit axis <b>axis</b>
 from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
 For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
@@ -562,8 +562,8 @@ R = Frames.<b>axesRotation</b>(asequence, angles, der_angles);
 
 <h4>Description</h4>
 <p>
-The function call <code>Frames.<b>axesRotation</b>(sequence, angles, der_angles)</code> returns 
-orientation object R that describes the orientation to rotate 
+The function call <code>Frames.<b>axesRotation</b>(sequence, angles, der_angles)</code> returns
+orientation object R that describes the orientation to rotate
 along unit axis <b>axis</b>
 from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
 For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call

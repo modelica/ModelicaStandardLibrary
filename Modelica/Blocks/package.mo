@@ -1339,7 +1339,7 @@ manualSeed2 will produce exactly the same noise.
 This example demonstrates different noise distributions methods that can be selected
 for a Noise block. Both noise blocks use samplePeriod = 0.02 s, y_min=-1, y_max=3, and have
 identical fixedLocalSeed. This means that the same random numbers are drawn for the blocks.
-However, the random numbers are differently transformed according to the selected distributions 
+However, the random numbers are differently transformed according to the selected distributions
 (uniform and truncated normal distribution), and therefore the blocks have different output values.
 Simulation results are shown in the next diagram:
 </p>
@@ -1685,7 +1685,7 @@ inputs:
         annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
      annotation (experiment(StopTime=2),    Documentation(info="<html>
 <p>
-This example demonstrates how to use the 
+This example demonstrates how to use the
 <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom(..)</a> function
 to generate random values at event instants. Typically, this approach is only
 used when implementing an own, specialized block that needs a random number

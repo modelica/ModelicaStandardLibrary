@@ -137,7 +137,7 @@ hierarchical level. The following options can be selected:
 Additionally, the globalSeed instance calls function
 <a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>
 to initialize the impure random number generators
-(<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> and 
+(<a href=\"modelica://Modelica.Math.Random.Utilities.impureRandom\">impureRandom</a> and
 <a href=\"modelica://Modelica.Math.Random.Utilities.impureRandomInteger\">impureRandomInteger</a>).
 The return value of this function is stored in parameter <b>id_impure</b>. Whenever one of the impure
 random number generators need to be called, \"globalSeed.id_impure\" has to be given as input argument.
@@ -151,7 +151,7 @@ Note, the usage of this block is demonstrated with examples
 
 <p>
 Please note that only one globalSeed instance may be defined in the model due to the initialization
-of the impure random number generators with <a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>! 
+of the impure random number generators with <a href=\"modelica://Modelica.Math.Random.Utilities.initializeImpureRandom\">initializeImpureRandom</a>!
 So, the block will usually reside on the top level of the model.
 </p>
 </html>"));
@@ -659,7 +659,7 @@ starting from a bad initial seed, and have a reasonable length of the internal s
 vector of 2, 4, and 33 Integer elements. The random number generator with an internal
 state vector of length 2 is used to initialize the other two random number generators.
 The length 4 random number generator is used in the noise blocks of this package, and every
-such block has its own internal state vector, as needed for reproducible noise blocks. 
+such block has its own internal state vector, as needed for reproducible noise blocks.
 The random number generator with a length of 33 Integer is used from the impure random number
 generator. It is suited even for massively parallel simulations where every simulation
 computes a large number of random values. More details of the random number
