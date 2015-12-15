@@ -247,7 +247,7 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end 'String';
 
-  
+
 annotation (Protection(access=Access.hide),
 version="3.2.1",
 versionBuild=2,

@@ -16,4 +16,3 @@ createPlot(id = 1,
  filename = "BatchPlant_StandardWater.mat",
  leftTitleType = 1,
  bottomTitleType = 1);
-

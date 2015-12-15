@@ -130,4 +130,3 @@ leftTitle = "Reynolds number [-]",
  bottomTitle = "Nusselt number [-]");
 
 Modelica.Utilities.System.setWorkDirectory(currentDirectory);
-

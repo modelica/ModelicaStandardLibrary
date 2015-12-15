@@ -144,4 +144,3 @@ range = {1e2, 1e4, 1e2, 1e0},
  leftTitle = "Nusselt number [-]",
  bottomTitle = "Reynolds number [-]");
 Modelica.Utilities.System.setWorkDirectory(currentDirectory);
-
