@@ -48,7 +48,7 @@ package Random "Library of functions for generating random numbers"
       Integer iImpure "Impure Integer rndom number";
     algorithm
       when initial() then
-        id := Utilities.initializeImpureRandom(globalSeed);
+        id := Utilities.initializeImpureRandom(globalSeed, time);
         rImpure := 0;
         iImpure := 0;
       elsewhen sample(0,samplePeriod) then
@@ -1159,7 +1159,7 @@ path is provided.
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-id = <b>initializeImpureRandom</b>(seed);
+id = <b>initializeImpureRandom</b>(seed, dummy);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -1188,7 +1188,7 @@ random number generator to fill the internal state vector with 64 bit random num
 <b>equation</b>
   // Initialize the random number generator
   <b>when</b> initial() <b>then</b>
-    id = initializeImpureRandom(seed);
+    id = initializeImpureRandom(seed, time);
   <b>end when</b>;
 
   // Use the random number generator
@@ -1259,7 +1259,7 @@ is returned, so the function is impure.
 <b>equation</b>
   // Initialize the random number generator
   <b>when</b> initial() <b>then</b>
-    id = initializeImpureRandom(seed);
+    id = initializeImpureRandom(seed, time);
   <b>end when</b>;
 
   // Use the random number generator
