@@ -131,7 +131,12 @@ This package contains examples demonstrating the usage of the functions in packa
 
       function initialState
         "Returns an initial state for the xorshift64* algorithm"
-        extends Interfaces.initialState(final stateSize=Xorshift64star.nState);
+        extends Modelica.Icons.Function;
+        input Integer localSeed
+          "The local seed to be used for generating initial states";
+        input Integer globalSeed
+          "The global seed to be combined with the local seed";
+        output Integer state[nState] "The generated initial states";
       protected
         Real r "Random number not used outside the function";
 
@@ -216,7 +221,13 @@ and the returned state is the one from the last iteration.
 
       function random
         "Returns a uniform random number with the xorshift64* algorithm"
-        extends Interfaces.random(final stateSize=Xorshift64star.nState);
+        extends Modelica.Icons.Function;
+        input Integer stateIn[nState]
+          "The internal states for the random number generator";
+        output Real result
+          "A random number with a uniform distribution on the interval (0,1]";
+        output Integer stateOut[nState]
+          "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift64star(stateIn, stateOut, result)
           annotation (Library="ModelicaExternalC");
         annotation(Documentation(info="<html>
@@ -322,7 +333,11 @@ For an overview, comparison with other random number generators, and links to ar
 
       function initialState
         "Returns an initial state for the xorshift128+ algorithm"
-        extends Interfaces.initialState(final stateSize=Xorshift128plus.nState);
+        input Integer localSeed
+          "The local seed to be used for generating initial states";
+        input Integer globalSeed
+          "The global seed to be combined with the local seed";
+        output Integer state[nState] "The generated initial states";
       algorithm
         state := Utilities.initialStateWithXorshift64star(
                 localSeed,
@@ -386,7 +401,13 @@ random number generator is used to fill the internal state vector with 64 bit ra
 
       function random
         "Returns a uniform random number with the xorshift128+ algorithm"
-        extends Interfaces.random(final stateSize=Xorshift128plus.nState);
+        extends Modelica.Icons.Function;
+        input Integer stateIn[nState]
+          "The internal states for the random number generator";
+        output Real result
+          "A random number with a uniform distribution on the interval (0,1]";
+        output Integer stateOut[nState]
+          "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift128plus(stateIn, stateOut, result)
           annotation (Library="ModelicaExternalC");
         annotation (Documentation(info="<html>
@@ -498,12 +519,15 @@ other random number generators, and links to articles, see
 
       function initialState
         "Returns an initial state for the xorshift1024* algorithm"
-        extends Interfaces.initialState(final stateSize=Xorshift1024star.nState);
+        extends Modelica.Icons.Function;
+        input Integer localSeed
+          "The local seed to be used for generating initial states";
+        input Integer globalSeed
+          "The global seed to be combined with the local seed";
+        output Integer state[nState] "The generated initial states";
       algorithm
         state := Utilities.initialStateWithXorshift64star(
-                localSeed,
-                globalSeed,
-                size(state, 1));
+                localSeed, globalSeed, size(state, 1));
         annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -563,7 +587,13 @@ random number generator is used to fill the internal state vector with 64 bit ra
 
       function random
         "Returns a uniform random number with the xorshift1024* algorithm"
-        extends Interfaces.random(final stateSize=Xorshift1024star.nState);
+        extends Modelica.Icons.Function;
+        input Integer stateIn[nState]
+          "The internal states for the random number generator";
+        output Real result
+          "A random number with a uniform distribution on the interval (0,1]";
+        output Integer stateOut[nState]
+          "The new internal states of the random number generator";
         external "C" ModelicaRandom_xorshift1024star(stateIn, stateOut, result)
           annotation (Library="ModelicaExternalC");
         annotation (Documentation(info="<html>
@@ -857,111 +887,6 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </html>"));
   end Generators;
 
-  package Interfaces
-    "Library of partial packages and functions for the Random package"
-    extends Modelica.Icons.InterfacesPackage;
-
-    partial function initialState
-      "Return the initial internal states for the uniform random number generator"
-      extends Modelica.Icons.Function;
-      input Integer localSeed
-        "The local seed to be used for generating initial states";
-      input Integer globalSeed
-        "The global seed to be combined with the local seed";
-      input Integer stateSize "The dimension of the internal state vector";
-      output Integer[stateSize] state "The generated initial states";
-    annotation (Documentation(info="<html>
-<p>
-This partial function defines the input and output arguments of an
-initialState(..) function of a random number generator package.
-</p>
-</html>",   revisions="<html>
-<p>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
-
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
-
-<table border=0>
-<tr><td valign=\"top\">
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
-</td><td valign=\"bottom\">
-         Initial version implemented by
-         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
-</td></tr></table>
-</td></tr>
-
-</table>
-</p>
-</html>"));
-    end initialState;
-
-    partial function random
-      "Return a random number with a uniform distribution in the range 0.0 < result <= 1.0"
-      extends Modelica.Icons.Function;
-      input Integer[stateSize] stateIn
-        "The internal states for the random number generator";
-      input Integer stateSize "The dimension of the internal state vector";
-      output Real result
-        "A random number with a uniform distribution on the interval (0,1]";
-      output Integer[stateSize] stateOut
-        "The new internal states of the random number generator";
-    annotation (Documentation(info="<html>
-<p>
-This partial function defines the input and output arguments of a
-random(..) function of a random number generator package.
-</p>
-</html>",   revisions="<html>
-<p>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
-
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
-
-<table border=0>
-<tr><td valign=\"top\">
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
-</td><td valign=\"bottom\">
-         Initial version implemented by
-         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
-</td></tr></table>
-</td></tr>
-
-</table>
-</p>
-</html>"));
-    end random;
-  annotation (Documentation(info="<html>
-<p>
-This sub-library contains partial functions that define the interfaces
-of functions of the same kind (like random(..) function).
-</p>
-</html>",   revisions="<html>
-<p>
-<table border=1 cellspacing=0 cellpadding=2>
-<tr><th>Date</th> <th align=\"left\">Description</th></tr>
-
-<tr><td valign=\"top\"> June 22, 2015 </td>
-    <td valign=\"top\">
-
-<table border=0>
-<tr><td valign=\"top\">
-         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
-</td><td valign=\"bottom\">
-         Initial version implemented by
-         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
-         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
-</td></tr></table>
-</td></tr>
-
-</table>
-</p>
-</html>"));
-  end Interfaces;
 
   package Utilities
     "Library of utility functions for the Random package (usually of no interest for the user)"
