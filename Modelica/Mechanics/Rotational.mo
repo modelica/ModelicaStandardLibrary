@@ -560,8 +560,8 @@ If the element is in its \"forward sliding\" mode, that is s &ge; 1, this model 
 </p>
 
 <blockquote><pre>
-m*der(v) = u – f
-       v = s – 1
+m*der(v) = u - f
+       v = s - 1
        f = f_0 + f_1*(s-1)
 </pre></blockquote>
 
