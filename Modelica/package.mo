@@ -2626,7 +2626,7 @@ and will interpret it in the same way. Short Overview:
      143.15 ... 2000 K, 0 .. 10 MPa;  but 1-2 orders of magnitude slower as
      Modelica.Media.Air.MoistAir),
      and the refrigerant <b>R134a</b> are included in the Modelica.Media library in order to
-     improve the modeling of air conditioning systems especially in aircrafts.
+     improve the modeling of air conditioning systems especially in aircraft.
      These models have been developed by
      <a href=\"http://www.xrg-simulation.de/\">XRG Simulation GmbH</a>
      as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project

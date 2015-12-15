@@ -410,8 +410,8 @@ R = Frames.<b>planarRotation</b>(e, angle, der_angle);
 The function call <code>Frames.<b>planarRotation</b>(e, angle, der_angle)</code> returns
 orientation object R that describes the orientation to rotate in the plane along unit
 axis <b>e</b> from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
-Note, \"e\" must be a unit vector. However, this is not checked in this function and the funtion will
-return a wrong result, if lenght(e) is not one.
+Note, \"e\" must be a unit vector. However, this is not checked in this function and the function will
+return a wrong result, if length(e) is not one.
 </p>
 </html>"));
   end planarRotation;

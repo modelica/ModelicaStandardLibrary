@@ -80,7 +80,7 @@ In this example the signal y
 
 <p>
 is sampled and an FFT is computed from the sampled signal (default: f1 = 2 Hz, f2 = 3 Hz).
-In the public part the FFT is stored upto f_max (internally in the protected part the FFT is stored upto 5*f_max).
+In the public part the FFT is stored up to f_max (internally in the protected part the FFT is stored up to 5*f_max).
 With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the following results are achieved:
 </p>
 
@@ -536,14 +536,14 @@ used in this function.
 
 <h4>Description</h4>
 <p>
-Compute the factorization of input Integer n in prime numbers 2, 3, and 5. If this is possible, sucess = true and
+Compute the factorization of input Integer n in prime numbers 2, 3, and 5. If this is possible, success = true and
 e2 is the number of prime numbers2, e3 the number of prime numbers 3 and e5 the number of prime numbers 5.
 If this is not possible, success = false, and e2, e3, e5 are dummy values.
 </p>
 
 <h4>Example</h4>
-<blockquote><pre>(success, e2, e3, e5) = prime235Factorization(60)   // sucess=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
-(success, e2, e3, e5) = prime235Factorization(7)    // sucess=false
+<blockquote><pre>(success, e2, e3, e5) = prime235Factorization(60)   // success=true, e2=2, e3=1, e5=1 (= 2^2*3^1*5^1)
+(success, e2, e3, e5) = prime235Factorization(7)    // success=false
 </pre></blockquote>
 </html>"));
     end prime235Factorization;
