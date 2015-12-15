@@ -1,4 +1,4 @@
-﻿within Modelica.Mechanics;
+within Modelica.Mechanics;
 package Rotational
   "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Package;
@@ -526,10 +526,10 @@ Here are some explanations:
 <p>
 Assume first the most simplest friction problem: A block sliding on a surface.
 The friction force \"f\" acts between the block surface and the environment surface and shall be a 
-linear function of the relative velocity “v” between the two surfaces.
+linear function of the relative velocity \"v\" between the two surfaces.
 When the relative velocity becomes zero, the two surfaces are stuck to each other and the friction force is no longer
-a function of “v”. The element starts sliding again if the friction force becomes larger than the maximum
-static friction force “f0”. This element could be defined with a parameterized curve description
+a function of \"v\". The element starts sliding again if the friction force becomes larger than the maximum
+static friction force \"f0\". This element could be defined with a parameterized curve description
 leading to the following equations:
 </p>
 
@@ -555,38 +555,38 @@ m*der(v) = u - f
 </pre></blockquote>
 
 <p>
-Note, that “m” is the mass of the block and “u(t)” is the given driving force.
-If the element is in its “forward sliding” mode, that is s ≥ 1, this model is described by:
+Note, that \"m\" is the mass of the block and \"u(t)\" is the given driving force.
+If the element is in its \"forward sliding\" mode, that is s &ge; 1, this model is described by:
 </p>
 
 <blockquote><pre>
-m*der(v) = u – f
-       v = s – 1
+m*der(v) = u � f
+       v = s � 1
        f = f_0 + f_1*(s-1)
 </pre></blockquote>
 
 <p>
-which can be easily transformed into state space form with “v” as the state.
-If the block becomes stuck, that is -1 &le; s &le; 1, the equation “v=0” becomes 
-active and therefore “v” can no longer be a state, that is an index
+which can be easily transformed into state space form with \"v\" as the state.
+If the block becomes stuck, that is -1 &le; s &le; 1, the equation \"v=0\" becomes 
+active and therefore \"v\" can no longer be a state, that is an index
 change takes place. Besides the difficulty to handle the variable state change, 
 there is a more serious problem:
 </p>
 
 <p>
-Assume that the block is stuck and that “s” becomes greater than one. Before the event occurs, s &le; 1
+Assume that the block is stuck and that \"s\" becomes greater than one. Before the event occurs, s &le; 1
 and v = 0; at the event instant s &gt; 1 because this relation is the event triggering condition. The element
-switches into the forward sliding mode where “v” is a state which is initialized with its last value “v=0”.
-Since “v” is a state, “s” is computed from “v” via “s := v+1”, resulting in “s=1”, that is the relation
-“s &gt; 1” becomes false and the element switches back into the stuck mode. In other words, it is never possible to
+switches into the forward sliding mode where \"v\" is a state which is initialized with its last value \"v=0\".
+Since \"v\" is a state, \"s\" is computed from \"v\" via \"s := v+1\", resulting in \"s=1\", that is the relation
+\"s &gt; 1\" becomes false and the element switches back into the stuck mode. In other words, it is never possible to
 switch into the forward sliding mode. Taking numerical errors into account, the situation is even worse.
 </p>
 
 <p>
-The key to the solution is the observation that “v=0” in the stuck mode and when forward sliding starts, but
-“der(v) &gt; 0” when sliding starts and der(v) = 0 in the stuck mode. Since the friction characteristic
+The key to the solution is the observation that \"v=0\" in the stuck mode and when forward sliding starts, but
+\"der(v) &gt; 0\" when sliding starts and der(v) = 0 in the stuck mode. Since the friction characteristic
 at zero velocity is no functional relationship, again a parameterized curve description
-with a new curve parameter “s_a” has to be used leading to the following equations (note: at zero velocity):
+with a new curve parameter \"s_a\" has to be used leading to the following equations (note: at zero velocity):
 </p>
 
 <blockquote><pre>
@@ -603,13 +603,13 @@ equations which has to be solved at event instants (e.g. by a fix point iteratio
 When switching from sliding to stuck mode, the velocity is small or zero. Since the derivative of the constraint
 equation der(v) = 0 is fulfilled in the stuck mode, the velocity remains small even if v = 0 is not explicitly
 taken into account. The approach to use the acceleration der(v) = 0 as \"constraint\" instead of \"v = 0\",
-is often used in multi-body software. The benefit is that the velocity “v” remains a state in all switching
+is often used in multi-body software. The benefit is that the velocity \"v\" remains a state in all switching
 configurations (there is a small, linear drift, but the friction element would have to stay stuck several days
-before the drift becomes too large). Consequently, “v” is small but may have any sign when switching
+before the drift becomes too large). Consequently, \"v\" is small but may have any sign when switching
 from stuck to sliding mode; if the friction element starts to slide, say in the forward direction, one has
 to wait until the velocity is really positive, before switching to forward mode (note, that even for
-exact calculation without numerical errors a ”waiting” phase is necessary, because “v=0” when sliding starts).
-Since “der(v) > 0”, this will occur after a small time period. This “waiting” procedure can be
+exact calculation without numerical errors a \"waiting\" phase is necessary, because \"v=0\" when sliding starts).
+Since \"der(v) > 0\", this will occur after a small time period. This \"waiting\" procedure can be
 described by a state machine. Collecting all the pieces together, finally results in the following equations
 of a simple friction element:
 </p>
