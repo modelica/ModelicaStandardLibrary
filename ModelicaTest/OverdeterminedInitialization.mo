@@ -272,8 +272,6 @@ The initial equations are consistent however and a tool shall reduce them approp
           points={{6,0},{26,0}},
           color={0,127,255},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics));
     end DynamicPipesSeriesSteadyStateInitial;
 
     model DynamicPipesSeriesLargeNSteadyStateInitial
@@ -442,8 +440,6 @@ The initial equations are consistent however and a tool shall reduce them approp
             points={{23,34},{30,34},{30,-2}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                  -100,-100},{100,100}}), graphics));
       end TwoVolumes;
 
       model TwoVolumesEquations

@@ -104,9 +104,7 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    annotation (experiment(StopTime=3), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=3), Documentation(info="<html>
 <p>
 This model is a combination of a multi-body system with a kinematic loop
 and a Move block, where symbolic transformation is difficult:
@@ -5380,9 +5378,7 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
+      annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit3;
 
     model FreeMotionScalarInit4
@@ -5475,9 +5471,7 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
+      annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit4;
 
     model FreeMotionScalarInit5
@@ -5577,9 +5571,7 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
+      annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit5;
 
     model SphericalSpherical
@@ -8967,9 +8959,7 @@ often possible to use the FreeMotion joint such that the singularity
             smooth=Smooth.None));
 
         annotation (Diagram(coordinateSystem(extent={{-100,-140},{240,100}},
-                preserveAspectRatio=true)), Icon(coordinateSystem(
-                extent={{-100,-100},{100,100}}, preserveAspectRatio=false)),
-                experiment(StopTime=5));
+                preserveAspectRatio=true)), experiment(StopTime=5));
       end GearConstraint2;
 
       model GearConstraint3
@@ -9110,9 +9100,7 @@ often possible to use the FreeMotion joint such that the singularity
             points={{-75,70},{-58,70},{-58,62}},
             color={0,0,127},
             smooth=Smooth.None));
-        annotation (Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
-          Documentation(info="<html>
+        annotation (Documentation(info="<html>
 </html>"),experiment(StopTime=1.0));
       end GearConstraint3;
 
@@ -9465,7 +9453,6 @@ often possible to use the FreeMotion joint such that the singularity
                 thickness=0.5,
                 smooth=Smooth.None,
                 arrow={Arrow.None,Arrow.Filled})}),
-          Icon(coordinateSystem(extent={{-100,-100},{100,100}})),
           Documentation(info="<html>
 <p>
 This test model was proposed in ticket <a href=\"https://trac.modelica.org/Modelica/ticket/951\">#951 (comment:4)</a>.

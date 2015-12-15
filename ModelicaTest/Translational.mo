@@ -301,8 +301,6 @@ extends Modelica.Icons.ExamplesPackage;
           points={{44,0},{28,0}},
           color={0,127,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics));
     end TwoMasses;
 
     model TwoMassesEquations
@@ -364,9 +362,6 @@ extends Modelica.Icons.ExamplesPackage;
     connect(signForce.flange, mass4.flange_b)
       annotation (Line(points={{20,-30},{0,-30},{-20,-30}}, color={0,127,0}));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}})),
-      experiment(StopTime=2),
-      __Dymola_experimentSetupOutput);
+      experiment(StopTime=2));
   end TestBraking;
 end Translational;

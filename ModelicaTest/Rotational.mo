@@ -2143,9 +2143,6 @@ they were not deleted yet.")}));
     connect(signTorque.flange, inertia4.flange_b)
       annotation (Line(points={{20,-30},{0,-30},{-20,-30}}, color={0,0,0}));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}})),
-      experiment(StopTime=2),
-      __Dymola_experimentSetupOutput);
+      experiment(StopTime=2));
   end TestBraking;
 end Rotational;

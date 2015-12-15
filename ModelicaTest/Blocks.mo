@@ -865,8 +865,7 @@ package Blocks "Test models for Modelica.Blocks"
     Modelica.Blocks.Sources.BooleanTable booleanTable4b(table=fill(0.0, 0),
         startValue=true)
       annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
-    annotation (experiment(StopTime=3), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+    annotation (experiment(StopTime=3));
   end BooleanTable;
 
   model RootMeanSquare
@@ -1293,8 +1292,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>
 </html>"),   Icon(
       coordinateSystem(preserveAspectRatio=true,
-        extent={{-100.0,-100.0},{100.0,100.0}},
-        initialScale=0.1),
+        extent={{-100.0,-100.0},{100.0,100.0}}),
         graphics={
       Text(extent={{8.0,-142.0},{8.0,-102.0}},
         textString="delayTime=%delayTime"),
@@ -1427,8 +1425,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
         points={{-42,-70},{-50,-70},{-50,-30},{-59,-30}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StopTime=1.0), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+    annotation (experiment(StopTime=1.0));
   end PadeDelay1;
 
   model PadeDelay2
@@ -1500,9 +1497,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
         points={{-2,50},{-19,50}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (experiment(StopTime=0.02), Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=0.02),      Documentation(info="<html>
 <p>
 The setting with order=4 gives the same result with balance=false and balance=true.
 If order=5 or higher is set, then the balance=false setting gives extremly slow
