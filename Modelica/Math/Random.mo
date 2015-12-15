@@ -887,7 +887,6 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </html>"));
   end Generators;
 
-
   package Utilities
     "Library of utility functions for the Random package (usually of no interest for the user)"
 
@@ -979,14 +978,18 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
 
     function automaticGlobalSeed
       "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
+      input Real dummy
+        "Dummy variable to force evaluation at run-time; use 'time' as input argument";
       output Integer seed "Automatically generated seed";
 
       /*
-  external "C" seed = ModelicaRandom_automaticGlobalSeed() annotation (Library="ModelicaExternalC");
+  external "C" seed = ModelicaRandom_automaticGlobalSeed(dummy) annotation (Library="ModelicaExternalC");
   */
+    protected
+      Integer iDummy = integer(dummy);
     algorithm
       /* Temporarily deactivated, since ModelicaRandom_automaticGlobalSeed not yet in the Dymola distribution */
-      seed :=101;
+      seed :=101*(if iDummy == 0 then 1 else iDummy);
 
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
@@ -1126,11 +1129,15 @@ path is provided.
       "Initializes the internal state of the impure random number generator"
       input Integer seed
         "The input seed to initialize the impure random number generator";
+      input Real dummy
+        "Dummy variable to force evaluation at run-time; use 'time' as input argument";
       output Integer id
         "Identification number to be passed as input to function impureRandom, in order that sorting is correct";
     protected
       constant Integer localSeed = 715827883
         "Since there is no local seed, a large prime number is used";
+      Integer iDummy = integer(dummy);
+      Integer localSeed2 = if iDummy == 1 then iDummy*localSeed else localSeed;
       Integer rngState[33]
         "The internal state vector of the impure random number generator";
 
@@ -1144,11 +1151,8 @@ path is provided.
 
     algorithm
       // Determine the internal state (several iterations with a generator that quickly generates good numbers
-      rngState := initialStateWithXorshift64star(
-            localSeed,
-            seed,
-            size(rngState, 1));
-      id :=localSeed;
+      rngState := initialStateWithXorshift64star(localSeed2, seed, size(rngState, 1));
+      id :=localSeed2;
 
       // Copy the internal state into the internal C static memory
       setInternalState(rngState, id);
