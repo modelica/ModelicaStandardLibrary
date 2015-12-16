@@ -232,7 +232,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>SpacePhasor</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>quasi<br>stationaray<br>single phase</b></td>
+<tr><td valign=\"top\"><b>quasi<br>stationary<br>single phase</b></td>
    <td valign=\"top\">complex electrical potential</td>
    <td valign=\"top\">complex electrical current</td>
    <td valign=\"top\"></td>
@@ -2753,7 +2753,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> AIMC_Initialize </td>
-    <td valign=\"top\"> Steady-State Initialization examnple of AsynchronousInductionMachineSquirrelCage </td></tr>
+    <td valign=\"top\"> Steady-State Initialization example of AsynchronousInductionMachineSquirrelCage </td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> SMPM_VoltageSource </td>
     <td valign=\"top\"> PermanentMagnetSynchronousInductionMachine example fed by FOC </td></tr>
@@ -6956,7 +6956,7 @@ The following <b>new libraries</b> have been added:
                    <b>hierarchical state machines</b> and <b>Modelica</b> as <b>action language</b>. <br>
                    It is based on JGrafchart and Grafcet and  has a similar modeling power as <br>
                    StateCharts. It avoids deficiencies of usually used action languages. <br>
-                   This library makes the ModelicaAdditions.PetriNets library obsolet.</td></tr>
+                   This library makes the ModelicaAdditions.PetriNets library obsolete.</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Files\">Modelica.Utilities.Files</a></td>
           <td valign=\"top\">Functions to operate on files and directories (copy, move, remove files etc.)</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a></td>
