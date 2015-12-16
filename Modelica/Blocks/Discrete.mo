@@ -45,7 +45,7 @@ package Discrete
           Line(points={{-100,0},{-45,0}}, color={0,0,255}),
           Line(points={{45,0},{100,0}}, color={0,0,255}),
           Line(points={{-35,0},{30,35}}, color={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Samples the continues input signal with a sampling rate defined
 via parameter <b>samplePeriod</b>.
@@ -73,7 +73,7 @@ via parameter <b>samplePeriod</b>.
           graphics={
         Line(points={{-78.0,-42.0},{-52.0,-42.0},{-52.0,0.0},{-26.0,0.0},{-26.0,24.0},{-6.0,24.0},{-6.0,64.0},{18.0,64.0},{18.0,20.0},{38.0,20.0},{38.0,0.0},{44.0,0.0},{44.0,0.0},{62.0,0.0}},
           color={0,0,127})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output is identical to the sampled input signal at sample
 time instants and holds the output at the value of the last
@@ -115,7 +115,7 @@ sample instant during the sample points.
           color={0,0,127}),
         Line(points={{60.0,20.0},{81.0,10.0}},
           color={0,0,127})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output signal is the extrapolation through the
 values of the last two sampled input signals.
@@ -440,7 +440,7 @@ results in the following equations:
           Line(points={{45,0},{100,0}}, color={0,0,255}),
           Line(points={{-35,0},{28,-48}}, color={0,0,255}),
           Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
 signal is rising (i.e., trigger changes from <b>false</b> to
@@ -512,7 +512,7 @@ the initial value defined via parameter <b>y0</b>.
           Line(points={{45,0},{100,0}}, color={0,0,255}),
           Line(points={{-35,0},{28,-48}}, color={0,0,255}),
           Line(points={{0,-100},{0,-26}}, color={255,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Samples the continuous input signal whenever the trigger input
 signal is rising (i.e., trigger changes from <b>false</b> to
@@ -531,8 +531,8 @@ Every component of this package is structured in the following way:
 <li> A component has <b>continuous real</b> input and output signals.</li>
 <li> The <b>input</b> signals are <b>sampled</b> by the given sample period
      defined via parameter <b>samplePeriod</b>.
-     The first sample instant is defined by parameter <b>startTime</b>.
-<li> The <b>output</b> signals are computed from the sampled input signals.
+     The first sample instant is defined by parameter <b>startTime</b>.</li>
+<li> The <b>output</b> signals are computed from the sampled input signals.</li>
 </ol>
 <p>
 A <b>sampled data system</b> may consist of components of package <b>Discrete</b>

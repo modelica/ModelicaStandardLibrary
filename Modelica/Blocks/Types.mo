@@ -218,12 +218,12 @@ initialization definition.
     end destructor;
 
   end ExternalCombiTable2D;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 In this package <b>types</b>, <b>constants</b> and <b>external objects</b> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices
 definitions that define the menus to be built up in the graphical
 user interface when the type is used as parameter in a declaration.
 </p>
-</HTML>"));
+</html>"));
 end Types;

@@ -1651,7 +1651,7 @@ The Real output y is a trapezoid signal:
             extent={{66,20},{88,8}},
             lineColor={0,0,0},
             textString="time")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 The goal is to move as <b>fast</b> as possible along a distance
 <b>deltaq</b>
@@ -2148,7 +2148,7 @@ a flange according to a given acceleration.
             extent={{33,83},{76,67}},
             lineColor={0,0,0},
             textString="y")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 This block generates an output signal by <b>linear interpolation</b> in
 a table. The time points and function values are stored in a matrix
@@ -2421,7 +2421,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       end for;
     end if;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This block generates an output signal y[:] by <b>linear interpolation</b> in
 a table. The time points and function values are stored in a matrix
@@ -3502,7 +3502,7 @@ results in the following output:
 
 </html>"));
   end IntegerTable;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This package contains <b>source</b> components, i.e., blocks which
 have only output signals. These blocks are used as signal generators

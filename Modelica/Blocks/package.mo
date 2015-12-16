@@ -1911,7 +1911,7 @@ The spectrum is parametrized with the following parameters:
      wind speed at 20 ft altitude, which is 30 kts for medium turbulence.</li>
 <li> Omega is the spatial frequency. <br> The turbulence model is thus defined in space and the aircraft experiences turbulence as it flies through the defined wind field.</li>
 <li> Omega = s/V will be used to transform the spatial definition into a temporal definition, which can be realized as a state space system.</li>
-<li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).
+<li> V is the airspeed of the aircraft.<br>It is approximately 150 kts during the approach (i.e. at low altitudes).</li>
 </ul>
 
 <p>
@@ -2803,13 +2803,13 @@ This library contains input/output blocks to build up block diagrams.
 </p>
 
 <dl>
-<dt><b>Main Author:</b>
+<dt><b>Main Author:</b></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e. V. (DLR)<br>
     Oberpfaffenhofen<br>
     Postfach 1116<br>
     D-82230 Wessling<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 <p>
 Copyright &copy; 1998-2013, Modelica Association and DLR.

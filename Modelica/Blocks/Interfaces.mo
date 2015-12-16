@@ -332,7 +332,7 @@ continuous Real output signal y.
     RealOutput y[nout] "Connector of Real output signals" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p> Block has one continuous Real input signal and a
     vector of continuous Real output signals.</p>
 
@@ -347,7 +347,7 @@ continuous Real output signal y.
           transformation(extent={{-140,-20},{-100,20}})));
     RealOutput y "Connector of Real output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Block has a vector of continuous Real input signals and
 one continuous Real output signal.
@@ -398,7 +398,7 @@ one continuous Real output signal.
           transformation(extent={{-140,-20},{-100,20}})));
     RealOutput y[nout] "Connector of Real output signals" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Block has a continuous Real input and a continuous Real output signal vector.
 The signal sizes of the input and output vector may be different.
@@ -415,7 +415,7 @@ The signal sizes of the input and output vector may be different.
           transformation(extent={{-140,-20},{-100,20}})));
     RealOutput y[n] "Connector of Real output signals" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Block has a continuous Real input and a continuous Real output signal vector
 where the signal sizes of the input and output vector are identical.
@@ -733,7 +733,7 @@ Block has one continuous Boolean input and one continuous Boolean output signal.
         Placement(transformation(extent={{-140,-20},{-100,20}})));
     BooleanOutput y[n] "Connector of Boolean output signals" annotation (
         Placement(transformation(extent={{100,-10},{120,10}})));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Block has a continuous Boolean input and a continuous Boolean output signal vector
 where the signal sizes of the input and output vector are identical.
@@ -851,7 +851,7 @@ generated signal.
           transformation(extent={{-140,-20},{-100,20}})));
     BooleanOutput y "Connector of Boolean output signal" annotation (Placement(
           transformation(extent={{100,-10},{120,10}})));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Block has a continuous Integer input and a continuous Boolean output signal.
 </p>
@@ -867,7 +867,7 @@ Block has a continuous Integer input and a continuous Boolean output signal.
         Placement(transformation(extent={{-140,-20},{-100,20}})));
     BooleanOutput y[n] "Connector of Boolean output signals" annotation (
         Placement(transformation(extent={{100,-10},{120,10}})));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Block has a continuous Integer input and a continuous Boolean output signal vector
 where the signal sizes of the input and output vector are identical.
@@ -1802,7 +1802,7 @@ of noise blocks.
 </p>
 </html>"));
   end PartialNoise;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This package contains interface definitions for
 <b>continuous</b> input/output blocks with Real,
@@ -1815,7 +1815,7 @@ partial models for continuous and discrete blocks.
 <li><i>Oct. 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       Added several new interfaces.
+       Added several new interfaces.</li>
 <li><i>Oct. 24, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        RealInputSignal renamed to RealInput. RealOutputSignal renamed to

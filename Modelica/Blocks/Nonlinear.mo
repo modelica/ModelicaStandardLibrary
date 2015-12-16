@@ -804,7 +804,7 @@ This package contains <b>discontinuous</b> and
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
-       New block VariableLimiter added.
+       New block VariableLimiter added.</li>
 <li><i>August 22, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized, based on an existing Dymola library

@@ -266,6 +266,7 @@ the output is set to zero: y=0.
       Documentation(info="<html>
 <p>
 Add input to previous value of output, if rising edge of trigger port
+</p>
 
 <p>
 This block has one Integer input \"u\", one Boolean input \"trigger\",

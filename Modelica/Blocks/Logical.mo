@@ -395,7 +395,7 @@ Real input u2, otherwise the output is <b>false</b>.
   equation
     u_pos = enable and u >= 0;
     y = change(u_pos) and not edge(enable) and not edge(disable);
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The output \"y\" is <b>true</b> at the
 time instant when the input \"u\" becomes
@@ -412,7 +412,7 @@ continuous integration. In order to check that this component is
 actually working as expected, one should connect its output to, e.g.,
 component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
           Line(points={{-78,68},{-78,-80}}, color={192,192,192}),
           Polygon(
@@ -619,7 +619,7 @@ u1, else it is set equal to u3.</p>
           Line(points={{-49,-29},{-49,-49}}, color={192,192,192}),
           Rectangle(extent={{2,-49},{91,-92}}, lineColor={192,192,192}),
           Line(points={{41,-29},{41,-49}}, color={192,192,192})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This block transforms a <b>Real</b> input signal into a <b>Boolean</b>
 output signal:
@@ -817,7 +817,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
               extent={{-88,-46},{-54,-56}},
               lineColor={0,0,0},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>The block TriggeredTrapezoid has a Boolean input and a real
 output signal and requires the parameters <i>amplitude</i>,
 <i>rising</i>, <i>falling</i> and <i>offset</i>. The
@@ -898,7 +898,7 @@ handled properly.</p>
               extent={{-88,-36},{-54,-46}},
               lineColor={0,0,0},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p> When the Boolean input \"u\" becomes <b>true</b>, the timer is started
 and the output \"y\" is the time from the time instant where u became true.
 The timer is stopped and the output is reset to zero, once the

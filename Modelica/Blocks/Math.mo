@@ -1274,7 +1274,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
               extent={{-28,79},{-8,59}},
               textString="1",
               lineColor={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b>
 as <i>absolute value</i> of the input <b>u</b>:
@@ -1352,7 +1352,7 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               extent={{5,-72},{25,-88}},
               textString="-1",
               lineColor={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b>
 as <b>sign</b> of the input <b>u</b>:
@@ -1419,7 +1419,7 @@ The Boolean parameter generateEvent decides whether Events are generated at zero
               extent={{60,-52},{84,-72}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b>
 as <i>square root</i> of the input <b>u</b>:
@@ -1497,7 +1497,7 @@ Otherwise an error occurs.
               extent={{76,-10},{98,-30}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b>
 as <b>sine</b> of the input <b>u</b>:
@@ -1578,7 +1578,7 @@ as <b>sine</b> of the input <b>u</b>:
               extent={{74,-4},{98,-24}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b>
 as <b>cos</b> of the input <b>u</b>:
@@ -1657,7 +1657,7 @@ as <b>cos</b> of the input <b>u</b>:
               extent={{70,-6},{94,-26}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b>
 as <b>tan</b> of the input <b>u</b>:
@@ -1736,7 +1736,7 @@ as <b>tan</b> of the input <b>u</b>:
               extent={{74,-4},{100,-26}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>sine-inverse</i> of the input <b>u</b>:
@@ -1817,7 +1817,7 @@ Otherwise an error occurs.
               extent={{76,-84},{102,-102}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>cosine-inverse</i> of the input <b>u</b>:
@@ -1902,7 +1902,7 @@ Otherwise an error occurs.
               extent={{66,-8},{94,-28}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>tangent-inverse</i> of the input <b>u</b>:
@@ -1996,7 +1996,7 @@ This blocks computes the output <b>y</b> as the
               extent={{48,0},{100,-34}},
               lineColor={160,160,164},
               textString="u1 / u2")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>tangent-inverse</i> of the input <b>u1</b> divided by
@@ -2085,7 +2085,7 @@ block <b>Atan</b> gives a solution in the range
               extent={{72,-6},{96,-26}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>hyperbolic sine</i> of the input <b>u</b>:
@@ -2166,7 +2166,7 @@ This blocks computes the output <b>y</b> as the
               extent={{78,-54},{100,-74}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>hyperbolic cosine</i> of the input <b>u</b>:
@@ -2247,7 +2247,7 @@ This blocks computes the output <b>y</b> as the
               extent={{72,-8},{98,-26}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>hyperbolic tangent</i> of the input <b>u</b>:
@@ -2327,7 +2327,7 @@ This blocks computes the output <b>y</b> as the
               extent={{66,-52},{96,-72}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>exponential</i> (of base e) of the input <b>u</b>:
@@ -2408,7 +2408,7 @@ This blocks computes the output <b>y</b> as the
               extent={{68,28},{94,8}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>natural (base e) logarithm</i> of the input <b>u</b>:
@@ -2492,7 +2492,7 @@ zero or negative.
               extent={{62,30},{90,10}},
               lineColor={160,160,164},
               textString="u")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> as the
 <i>base 10 logarithm</i> of the input <b>u</b>:

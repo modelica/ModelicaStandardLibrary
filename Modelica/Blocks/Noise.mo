@@ -348,7 +348,7 @@ This means that normally distributed random values are truncated to the band y_m
 Measurement noise has often this distribution form.
 By default, the standard parameters of the truncated normal distribution are derived from
 y_min ... y_max:
-<p>
+</p>
 <blockquote><p>
 mean value = (y_max + y_min)/2,<br>
 standard deviation = (y_max - y_min)/6 (= 99.7 % of the non-truncated normal distribution are within y_min ... y_max).

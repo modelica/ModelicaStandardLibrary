@@ -271,7 +271,7 @@ equation
           Line(points={{47,30},{60,30},{73,3}}, color={0,0,255}),
           Line(points={{49,-30},{60,-30},{74,-4}}, color={0,0,255}),
           Rectangle(extent={{-100,80},{100,-81}}, lineColor={0,0,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>Extract signals from the input connector and transfer them
 to the output connector.</p>
 <p>The extracting scheme is given by the integer vector 'extract'.
@@ -417,7 +417,7 @@ end Extractor;
   equation
     [y] = [u1; u2];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output connector is the <b>concatenation</b> of the two input connectors.
 Note, that the dimensions of the input connector signals have to be
@@ -468,7 +468,7 @@ explicitly defined via parameters n1 and n2.
   equation
     [y] = [u1; u2; u3];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output connector is the <b>concatenation</b> of the three input connectors.
 Note, that the dimensions of the input connector signals have to be
@@ -524,7 +524,7 @@ explicitly defined via parameters n1, n2 and n3.
   equation
     [y] = [u1; u2; u3; u4];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output connector is the <b>concatenation</b> of the four input connectors.
 Note, that the dimensions of the input connector signals have to be
@@ -587,7 +587,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
   equation
     [y] = [u1; u2; u3; u4; u5];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output connector is the <b>concatenation</b> of the five input connectors.
 Note, that the dimensions of the input connector signals have to be
@@ -657,7 +657,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
   equation
     [y] = [u1; u2; u3; u4; u5; u6];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The output connector is the <b>concatenation</b> of the six input connectors.
 Note, that the dimensions of the input connector signals have to be
@@ -712,7 +712,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
   equation
     [u] = [y1; y2];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The input connector is <b>split</b> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
@@ -764,7 +764,7 @@ explicitly defined via parameters n1 and n2.
   equation
     [u] = [y1; y2; y3];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The input connector is <b>split</b> into three output connectors.
 Note, that the dimensions of the output connector signals have to be
@@ -822,7 +822,7 @@ explicitly defined via parameters n1, n2 and n3.
   equation
     [u] = [y1; y2; y3; y4];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The input connector is <b>split</b> into four output connectors.
 Note, that the dimensions of the output connector signals have to be
@@ -885,7 +885,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
   equation
     [u] = [y1; y2; y3; y4; y5];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The input connector is <b>split</b> into five output connectors.
 Note, that the dimensions of the output connector signals have to be
@@ -953,7 +953,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
   equation
     [u] = [y1; y2; y3; y4; y5; y6];
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The input connector is <b>split</b> into six output connectors.
 Note, that the dimensions of the output connector signals have to be

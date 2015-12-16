@@ -329,7 +329,7 @@ If k=0, the block reduces to y=0.
   equation
     der(y) = (k*u - y)/T;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u
 and the output y (element-wise) as <i>first order</i> system:
@@ -427,7 +427,7 @@ Example:
     der(y) = yd;
     der(yd) = w*(w*(k*u - y) - 2*D*yd);
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u and
 the output y (element-wise) as <i>second order</i> system:
@@ -732,7 +732,7 @@ This is discussed in the description of package
             textString="PID"),
         Text(extent={{-150.0,-150.0},{150.0,-110.0}},
             textString="Ti=%Ti")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This is the text-book version of a PID-controller.
 For a more practically useful PID-controller, use
@@ -999,7 +999,7 @@ to compute u by an algebraic equation.
             visible=strict,
             points={{30,60},{81,60}},
             color={255,0,0})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Via parameter <b>controllerType</b> either <b>P</b>, <b>PI</b>, <b>PD</b>,
 or <b>PID</b> can be selected. If, e.g., PI is selected, all components belonging to the
@@ -1308,7 +1308,7 @@ results in the following transfer function:
     der(x) = A*x + B*u;
     y = C*x + D*u;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The State Space block defines the relation
 between the input u and the output
@@ -1392,7 +1392,7 @@ results in the following equations:
             extent={{-96,28},{94,-24}},
             textString="der()",
             lineColor={0,0,127})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 Defines that the output y is the <i>derivative</i>
 of the input u. Note, that Modelica.Blocks.Continuous.Derivative
@@ -1401,7 +1401,7 @@ the derivative exactly. This requires that the input u is differentiated
 by the Modelica translator, if this derivative is not yet present in
 the model.
 </p>
-</HTML>"));
+</html>"));
   end Der;
 
   block LowpassButterworth
