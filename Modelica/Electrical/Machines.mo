@@ -6566,7 +6566,7 @@ These models use package SpacePhasors.
 <ul>
 <li>We keep the same reference system as for motors, i.e.:<br>
     Positive RotorDisplacementAngle means acting as motor,<br>
-    with positive electric power consumption and positive mechanical power output.
+    with positive electric power consumption and positive mechanical power output.</li>
 <li>ElectricalAngle = p * MechanicalAngle</li>
 <li>real axis = d-axis<br>
     imaginary= q-axis</li>
