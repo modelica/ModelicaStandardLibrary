@@ -4910,7 +4910,7 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.SIunits.Length b_rec=a_rec "Vertical length";
           Modelica.SIunits.Length a_tri=d_hyd*(1 + 2^0.5) "Length of base line";
           Modelica.SIunits.Length h_tri=0.5*a_tri
-            "Heigth to top angle perpendicular to base line";
+            "Height to top angle perpendicular to base line";
           Real beta=tan((a_tri)/2/h_tri) "Top angle";
 
           //fluid property variables
