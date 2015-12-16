@@ -179,7 +179,7 @@ Due to &alpha;&ge;&beta;, the switching limits &alpha; and &beta; span a right t
 </table>
 
 <p>
-Additionally, the Preisach distribution function P(&alpha;,&beta;) is defined over the Preisach plane, which gives each operator an individual weight (see Fig. 2b). The Preisach plane can be separated into two regions. The S+ region, in which all the operators being in the &QUOT;+1&QUOT; state and the S- region, in which all the operators being in the &QUOT;-1&QUOT; state. The line L(t), which separates the regions S+ and S- develops along with the variation of the magnetic field strength H(t) and holds information about its history. The current magnetic flux density can than be computed as follows:
+Additionally, the Preisach distribution function P(&alpha;,&beta;) is defined over the Preisach plane, which gives each operator an individual weight (see Fig. 2b). The Preisach plane can be separated into two regions. The S+ region, in which all the operators being in the &quot;+1&quot; state and the S- region, in which all the operators being in the &quot;-1&quot; state. The line L(t), which separates the regions S+ and S- develops along with the variation of the magnetic field strength H(t) and holds information about its history. The current magnetic flux density can than be computed as follows:
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -8101,9 +8101,9 @@ on the model behaviour.
 <dl><dt>diffHyst = hystF - hystR;</dt>
 <dl><dt>dhR = hystF - b;</dt>
 <dl><dt>dhF = b - hystR;</dt>
-<dl><dt>if the magnetic field itensity increases (der(h)&GT;0)</dt>
+<dl><dt>if the magnetic field itensity increases (der(h)&gt;0)</dt>
 <dl><dt>der(b) = dhR/diffHyst * der(hystR);</dt>
-<dl><dt>if the magnetex field itensity decreases (der(h)&LT;0)</dt>
+<dl><dt>if the magnetex field itensity decreases (der(h)&lt;0)</dt>
 <dl><dt>der(b) = dhF/diffHyst * der(hystF);</dt>
 <dl><dt><img src=\"modelica://HysteresisTest/pics/tellinen01.png\"/></dt>
 <dd>Fig.1 - Description of the Tellinen hysteresis model. </dd>
