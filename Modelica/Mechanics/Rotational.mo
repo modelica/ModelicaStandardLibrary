@@ -630,7 +630,7 @@ mode = if (pre(mode) == Forward  or startFor)  and v&gt;0 then Forward  elseif
 </pre></blockquote>
 
 <p>
-The above approach to model a simplified friction element is slightly generlized in model
+The above approach to model a simplified friction element is slightly generalized in model
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>:
 </p>
 
@@ -1686,7 +1686,7 @@ is present in variable convection.fluid.
     end SimpleGearShift;
 
     model GenerationOfFMUs
-      "Example to demonstrate variants to generate FMUs (Functional Mockup Units)"
+      "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
 
       Blocks.Sources.Sine sine1(freqHz=2, amplitude=10)
@@ -1801,7 +1801,7 @@ is present in variable convection.fluid.
       annotation (experiment(StopTime=1, Interval=0.001), Documentation(info="<html>
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
-FMU - <a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>) from various Rotational components.
+FMU - <a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>) from various Rotational components.
 The goal is to export such an input/output block from Modelica and import
 it in another modeling environment. The essential issue is that before
 exporting it must be known in which way the component is utilized in the
@@ -2729,7 +2729,7 @@ in the User's Guide of the Rotational library.
     equation
       if initial() then
         /* During initialization the characteristic is modified, in order that
-        it is a strict monoton rising function. Otherwise, initialization might
+        it is a strict monotone rising function. Otherwise, initialization might
         result in a singular system when the characteristic has to be
         inverted. The characteristic is modified in the range 1.5*bMin <= phi_rel - phi_rel0 <= 1.5 bMax,
         so that in this range a linear characteristic is present that approaches the original
@@ -5051,7 +5051,7 @@ in the User's Guide of the Rotational library.
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>).
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has torque as input and angle, angular velocity and angular acceleration as output signals.
@@ -5302,7 +5302,7 @@ blocks of the block library Modelica.Blocks.Sources.
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
 and export this model in form of an input/output block,
-especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mockup Unit</a>).
+especially as FMU (<a href=\"https://www.fmi-standard.org\">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs\">Rotational.Examples.GenerationOfFMUs</a>.
 This adaptor has angle, angular velocity and angular acceleration as input signals and

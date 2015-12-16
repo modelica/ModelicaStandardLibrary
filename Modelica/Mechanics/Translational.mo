@@ -4160,7 +4160,7 @@ Negative force brakes in positive direction of movement, but accelerates in reve
             Line(points={{-80,-40},{-6,-40},{-4,-38},{4,38},{6,40},{80,40}})}), Documentation(info="<html>
 <p>Model of constant force which changes sign with direction of movement.</p>
 <p>Please note:<br>
-Positive force acceleractes in both directions of movement.<br>
+Positive force accelerates in both directions of movement.<br>
 Negative force brakes in both directions of movement.</p>
 <p>Around zero speed regularization avoids numerical problems.</p>
 </html>"));
