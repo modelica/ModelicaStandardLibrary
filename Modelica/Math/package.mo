@@ -2573,7 +2573,7 @@ or computation of eigenvalues.
 The Algorithm is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Grbel:
+<dt>H. D. Joos, G. Gr&uuml;bel:
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
     DLR - Control Systems Group 1991
 </dl>
@@ -2724,7 +2724,7 @@ err = 0
 The algorithm is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Grbel:
+<dt>H. D. Joos, G. Gr&uuml;bel:
 <dd><b>RAsP'91 Regulator Analysis and Synthesis Programs</b><br>
     DLR - Control Systems Group 1991
 </dl>
