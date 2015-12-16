@@ -10642,7 +10642,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
         parameter Real InverseTransformation[m, 2]={{+cos(-phi[k]),-sin(-phi[k])}
             for k in 1:m};
       public
-        Modelica.Blocks.Interfaces.RealInput zero "Zero seqeuence component"
+        Modelica.Blocks.Interfaces.RealInput zero "Zero sequence component"
           annotation (Placement(transformation(extent={{-140,-60},{-100,-100}})));
       equation
         y = fill(zero, m) + InverseTransformation*u;
@@ -10765,7 +10765,7 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
-<li>ToSpacePhasor: transforms a set of mutli phase values to space phasor and zero sequence system</li>
+<li>ToSpacePhasor: transforms a set of multi phase values to space phasor and zero sequence system</li>
 <li>FromSpacePhasor: transforms a space phasor and zero sequence system to a set of multi phase values</li>
 <li>Rotator: rotates a space phasor (from one coordinate system into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates to polar coordinates</li>
@@ -10859,7 +10859,7 @@ Transformation of space phasor and zero sequence value to mutli phase values (of
       algorithm
         y := RotationMatrix*x;
         annotation (Inline=true, Documentation(info="<HTML>
-Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
+Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
