@@ -595,7 +595,7 @@ Normal.<b>density</b>(u, u_min=0, u_max=1, mu=0, sigma=1);
 <p>
 This function computes the probability density function according to a
 <b>truncated normal</b> distribution with
-minimum value <b>u_min</b>, maximmum value <b>u_max</b>,
+minimum value <b>u_min</b>, maximum value <b>u_max</b>,
 mean value of original distribution <b>mu</b> and
 standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2</sup>).
 Plot of the function:
@@ -681,7 +681,7 @@ Normal.<b>cumulative</b>(u, u_min=0, u_max=1, mu=0, sigma=1);
 <p>
 This function computes the cumulative distribution function according to a
 <b>truncated normal</b> distribution with
-minimum value <b>u_min</b>, maximmum value <b>u_max</b>,
+minimum value <b>u_min</b>, maximum value <b>u_max</b>,
 mean value of original distribution <b>mu</b> and
 standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2</sup>).
 The returned value y is in the range:
@@ -771,7 +771,7 @@ Normal.<b>quantile</b>(u, y_min=0, y_max=1, mu=0, sigma=1);
 <p>
 This function computes the inverse cumulative distribution function (= quantile) according to a
 <b>truncated normal</b> distribution with
-minimum value <b>u_min</b>, maximmum value <b>u_max</b>,
+minimum value <b>u_min</b>, maximum value <b>u_max</b>,
 mean value of original distribution <b>mu</b> and
 standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2</sup>).
 Input argument u must be in the range:
@@ -1248,7 +1248,7 @@ Weibull.<b>density</b>(u, u_min=0, u_max=1, lambda=1, k=1);
 <p>
 This function computes the probability density function according to a
 <b>truncated Weibull</b> distribution with
-minimum value <b>u_min</b>, maximmum value <b>u_max</b>,
+minimum value <b>u_min</b>, maximum value <b>u_max</b>,
 scale parameter of original distribution <b>lambda</b> and
 shape parameter of original distribution <b>k</b>.
 Plot of the function:
@@ -1333,7 +1333,7 @@ Weibull.<b>cumulative</b>(u, u_min=0, u_max=1, lambda=1, k=1);
 <p>
 This function computes the cumulative distribution function according to a
 <b>truncated Weibull</b> distribution with
-minimum value <b>u_min</b>, maximmum value <b>u_max</b>,
+minimum value <b>u_min</b>, maximum value <b>u_max</b>,
 scale parameter of original distribution <b>lambda</b> and
 shape parameter of original distribution <b>k</b>.
 The returned value y is in the range:
@@ -1424,7 +1424,7 @@ Weibull.<b>quantile</b>(u, y_min=0, y_max=1, lambda=1, k=1);
 <p>
 This function computes the inverse cumulative distribution function (= quantile) according to a
 <b>truncated Weibull</b> distribution with
-minimum value <b>u_min</b>, maximmum value <b>u_max</b>,
+minimum value <b>u_min</b>, maximum value <b>u_max</b>,
 scale parameter of original distribution <b>lambda</b> and
 shape parameter of original distribution <b>k</b>.
 Input argument u must be in the range:
