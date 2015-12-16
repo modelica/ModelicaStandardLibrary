@@ -36,7 +36,7 @@ convertModifiers("OldClass",{"OldModifier1=default1","OldModifier2=default2",...
 convertElement("OldClass","OldElement","NewElement");
 // In OldClass convert element (component or parameter) to NewElement
 //
-// Unusal case:
+// Unusual cases:
 // 1. ConvertElement("OldClass","inPort.signal[1]","u");
 //          convert inPort.signal array to scalar u
 // 2. convertElement("OldClass","inPort","{u}");
