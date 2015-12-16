@@ -437,7 +437,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wik
      extends Modelica.Icons.InternalPackage;
 
     function polyEval "Evaluate a polynomial c[1] + c[2]*u + c[3]*u^2 + ...."
-      input Real  c[:] "Polnomial coefficients";
+      input Real  c[:] "Polynomial coefficients";
       input Real  u "Abscissa value";
       output Real y "= c[1] + u*(c[2] + u*(c[3] + u*(c[4]*u^3 + ...)))";
     algorithm
@@ -596,7 +596,7 @@ Utility function in order to compute part of erf(..) and erfc(..).
     function erfInvUtil "Utility function for erfInv(u) and erfcInv(u)"
       input Real p "First input argument";
       input Real q "Second input argument";
-      output Real y "Reault value";
+      output Real y "Result value";
 
     protected
        Real g;
