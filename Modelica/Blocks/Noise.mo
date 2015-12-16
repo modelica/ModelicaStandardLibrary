@@ -461,14 +461,14 @@ think of the power of a signal may be helpful:
 <ul>
 <li> The energy of a signal is the integral of its squared absolute value over time.
      The signal&apos;s power is this integral divided by the time span of the integral.</li>
-<li> The total power of a signal can also be obtained by integrating its (twosided)
+<li> The total power of a signal can also be obtained by integrating its (two-sided)
      power spectral density over all frequencies.</li>
 <li> The total power of a signal is finally also equal to its variance.</li>
 </ul>
 
 <p>
 In order to set the correct level of the band-limited white noise power spectral density,
-the variance of its normal distribtution can thus be influenced directly.
+the variance of its normal distribution can thus be influenced directly.
 Recalling that the samplePeriod of the noise signal generates frequency content in the
 range &plusmn;0.5/samplePeriod, the variance must be increased to generate sufficient
 total signal power. The total power must match the product of the noisePower and its
@@ -611,7 +611,7 @@ the desired situation. For this purpose the following parameters can be defined:
          useGlobalSeed has to be set to false.</td></tr>
 
 <tr><td> useAutomaticLocalSeed </td>
-    <td> An Integer number, called local seed, is needed to initalize the random number
+    <td> An Integer number, called local seed, is needed to initialize the random number
          generator for a specific block instance. Instances using the same local seed
          produce exactly the same random number values (so the same noise, if the other settings
          of the instances are the same).<br>
@@ -675,7 +675,7 @@ generators are described in the documentation of package
 The uniform random numbers in the range 0.0 .. 1.0 are transformed to a desired
 random number distribution by selecting an appropriate <b>distribution</b> or
 <b>truncated distribution</b>. For an example of a truncated distribution, see the following
-diagram of the probabibilty density function of a normal distribution
+diagram of the probability density function of a normal distribution
 compared with its truncated version:
 </p>
 
@@ -699,7 +699,7 @@ desired band (in the diagram above to the range: -1.5 .. 1.5). Contrary to a sta
 truncated distributions have the advantage that the resulting random values are guaranteed
 to be in the defined band (whereas a standard normal distribution might also result in any value;
 when modeling noise that is known to be in a particular range, say &plusmn; 0.1 Volt,
-then with the TruncatedNormal distribution it is guaranted that random values are only
+then with the TruncatedNormal distribution it is guaranteed that random values are only
 generated in this band). More details of truncated
 distributions are given in the documentation of package
 <a href=\"Modelica.Math.Distributions\">Math.Distributions</a>.
