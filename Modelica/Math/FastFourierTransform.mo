@@ -347,7 +347,7 @@ results in the following output:
 The input argument of this function is a Real vector u. size(u,1) <b>must</b> be even. An efficient computation
 is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
 The function computes a real FFT (Fast Fourier Transform) of u and returns the result
-in form of the outputs amplitudes and phsses. Argument info provides aditional information:
+in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
 <pre>   info = 0: Successful FFT computation.
@@ -438,7 +438,7 @@ Raw interface to a function of the Kiss_FFT package to compute the FFT of a real
 The input argument of this function is a Real vector u. size(u,1) <b>must</b> be even. An efficient computation
 is performed, if size(u,1) = 2^a*3^b*5^c (a,b,c Integer &ge; 0).
 The function computes a real FFT (Fast Fourier Transform) of u and returns the result
-in form of the outputs amplitudes and phsses. Argument info provides aditional information:
+in form of the outputs amplitudes and phases. Argument info provides additional information:
 </p>
 
 <pre>   info = 0: Successful FFT computation.
