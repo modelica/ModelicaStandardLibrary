@@ -2465,9 +2465,15 @@ The table interpolation has the following properties:
 <li>Via parameter <b>smoothness</b> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: linear interpolation
-             = 2: smooth interpolation with Akima-splines such
-                  that der(y) is continuous, also if extrapolated.
+             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
              = 3: constant segments
+             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                  Hermite splines such that y preserves the monotonicity and
+                  der(y) is continuous, also if extrapolated.
+             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                  splines such that y preserves the monotonicity and der(y)
+                  is continuous, also if extrapolated.
 </pre></li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and
     the table values of this row are just returned.</li>

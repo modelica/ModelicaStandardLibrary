@@ -260,7 +260,7 @@ double mydummyfunc(double* dummy_in) {
     extends Modelica.Icons.Example;
     extends Test0(t_new(
       table=[0,5;1,3;2,1;3,1;4,1;5,3],
-      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1));
     annotation (experiment(StartTime=0, StopTime=4));
   end Test26;
 
@@ -268,7 +268,7 @@ double mydummyfunc(double* dummy_in) {
     extends Modelica.Icons.Example;
     extends Test0(t_new(
       table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
-      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1));
     annotation (experiment(StartTime=0, StopTime=15));
   end Test27;
 
@@ -276,7 +276,7 @@ double mydummyfunc(double* dummy_in) {
     extends Modelica.Icons.Example;
     extends Test0(t_new(
       table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
-      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative));
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative1));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test28;
 
@@ -295,4 +295,28 @@ double mydummyfunc(double* dummy_in) {
         thickness=0.0625));
     annotation (experiment(StartTime=0, StopTime=1));
   end Test29;
+
+  model Test30 "Steffen, test data set (Ticket #1814)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,5;1,3;2,1;3,1;4,1;5,3],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test30;
+
+  model Test31 "Steffen, data set AKIMA 3 (Ticket #1814)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[0,10;2,10;3,10;5,10;6,10;8,10;9,10.5;11,15;12,50;14,60;15,85],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
+    annotation (experiment(StartTime=0, StopTime=15));
+  end Test31;
+
+  model Test32 "Steffen, data set RPN 14 (Ticket #1814)"
+    extends Modelica.Icons.Example;
+    extends Test0(t_new(
+      table=[7.99,0;8.09,2.76429e-5;8.19,4.37498e-2;8.7,0.169183;9.2,0.469428;10,0.94374;12,0.998636;15,0.999919;20,0.999994],
+      smoothness=Modelica.Blocks.Types.Smoothness.MonotoneContinuousDerivative2));
+    annotation (experiment(StartTime=7.99, StopTime=20));
+  end Test32;
 end CombiTable1D;
