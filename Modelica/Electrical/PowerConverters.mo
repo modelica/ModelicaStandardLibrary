@@ -18,7 +18,7 @@ package PowerConverters "Rectifiers, Inverters and DC/DC converters"
   <li>Half controlled rectifiers; half of the semiconductors are diodes and thyristors, respectively</li>
 </ul>
 
-<h4>Topology classificaton</h4>
+<h4>Topology classification</h4>
 
 <p>The PowerConverters library provides bridge and center tap rectifiers for single and multi phase supply, see
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC\">AC/DC converters</a>.</p>
@@ -35,7 +35,7 @@ The firing angle of thyristor rectifiers can either be set by a parameter or a s
 
 <p>A variety of examples is provided at
 <a href=\"modelica://Modelica.Electrical.PowerConverters.Examples.ACDC\">Examples.ACDC</a>.
-These examples include different kinds of DC loads. Even the control characeteristics
+These examples include different kinds of DC loads. Even the control characteristics
 of the rectifiers can be obtained experimentally; the names of these models
 contain <code>_Characteristic</code>.
 </p>
@@ -205,9 +205,9 @@ General types of AC/AC converters are currently not provided in this library.
   </ul>
   <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
       <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
-      so all temepratures of all semiconductors are equal and the heat flow of the converter heat port
+      so all temperatures of all semiconductors are equal and the heat flow of the converter heat port
       is determined by the sum of all semiconductor heat flows</li>
-  <li>Each converter containg boolean firing inputs provides variables <code>offStart...</code>
+  <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
       to specify the initial conditions of the off state of each semiconductor</li>
   <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code><li>
   <li>The number of phases of multi phase converters is not restricted to three</li>
@@ -261,12 +261,12 @@ A freely available book is available in
               Interval=0.0002),
             Documentation(info="<html>
 <p>This example demonstrates the operational behavior of a single phase controlled rectifier with constant firing angle and resistive load.</p>
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end Thyristor1Pulse_R;
 
         model Thyristor1Pulse_R_Characteristic
-          "Control characteristic of one pulse rectifier with resitive load"
+          "Control characteristic of one pulse rectifier with resistive load"
           extends ExampleTemplates.Thyristor1Pulse(pulse2(
                 useConstantFiringAngle=false, f=f));
           extends Modelica.Icons.Example;
@@ -303,7 +303,7 @@ A freely available book is available in
 </html>"));
         end Thyristor1Pulse_R_Characteristic;
         annotation (Documentation(info="<html>
-<p>This pacakge includes examples of single pulse controlled rectifiers.</p>
+<p>This package includes examples of single pulse controlled rectifiers.</p>
 </html>"));
       end Rectifier1Pulse;
 
@@ -399,7 +399,7 @@ A freely available book is available in
             Documentation(info="<html>
 <p>This examples shows a two pulse uncontrolled bridge example with resistive load.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeBridge2Pulse;
 
@@ -516,7 +516,7 @@ A freely available book is available in
 <p>This examples shows a two pulse half controlled bridge example with resistive load. In case of resistive load the half controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.ThyristorBridge2Pulse_R\">full controlled bridge</a>.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end HalfControlledBridge2Pulse;
 
@@ -550,7 +550,7 @@ A freely available book is available in
 <p>This examples shows a two pulse full controlled bridge example with resistive load. In case of resistive load the full controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2Pulse.HalfControlledBridge2Pulse\">half controlled bridge</a>.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_R;
 
@@ -593,7 +593,7 @@ A freely available book is available in
             Documentation(info="<html>
 <p>This examples shows a two pulse full controlled bridge example with R-L load.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_RL;
 
@@ -645,7 +645,7 @@ A freely available book is available in
             Documentation(info="<html>
 <p>This examples shows a two pulse full controlled bridge example with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2Pulse_RLV;
 
@@ -1012,7 +1012,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows an uncontrolled two pulse center tap diode rectifier with resistive load.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeCenterTap2Pulse;
 
@@ -1045,7 +1045,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a controlled center tap two pulse rectifier with resistive load.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_R;
 
@@ -1088,7 +1088,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a controlled center tap two pulse rectifier with R-L load.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_RL;
 
@@ -1141,7 +1141,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 <p>This example shows a controlled center tap two pulse rectifier with R-L load including DC voltage source. The additional DC voltage source in this example enables negative average load voltages.</p>
 
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2Pulse_RLV;
 
@@ -1307,7 +1307,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows an uncontrolled <code>m</code> pulse center tap diode rectifier with resistive load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeCenterTapmPulse;
 
@@ -1340,7 +1340,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a controlled <code>m</code> pulse center tap rectifier with resistive load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTapmPulse_R;
 
@@ -1383,7 +1383,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a controlled <code>m</code> pulse center tap rectifier with R-L load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTapmPulse_RL;
 
@@ -1435,7 +1435,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a controlled <code>m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTapmPulse_RLV;
 
@@ -1604,7 +1604,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 
 <p><code>2*m</code> pulse diode bridge example, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeBridge2mPulse;
 
@@ -1727,7 +1727,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 <p>This example shows a half controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the half controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.ThyristorBridge2mPulse_R\">full controlled bridge</a>.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 
 </html>"));
         end HalfControlledBridge2mPulse;
@@ -1762,7 +1762,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with resistive load, where <code>m</code> is the number of phases. In case of resistive load the full controlled bridge shows the same output voltage as the
 <a href=\"Modelica.Electrical.PowerConverters.Examples.ACDC.RectifierBridge2mPulse.HalfControlledBridge2mPulse\">half controlled bridge</a>.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_R;
 
@@ -1806,7 +1806,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_RL;
 
@@ -1858,7 +1858,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
             Documentation(info="<html>
 <p>This example shows a full controlled <code>2*m</code> pulse bridge rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_RLV;
 
@@ -2123,7 +2123,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 In this example a PM excited DC machine is started with nominal torque at nominal speed. After 5 seconds, load torque is reduced to zero over a period of additional 10 seconds. At 15 seconds, the machine is operating at no load.
 </p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorBridge2mPulse_DC_Drive;
         annotation (Documentation(info="<html>
@@ -2247,7 +2247,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
             Documentation(info="<html>
 <p>This example shows an uncontrolled <code>2*m</code> pulse center tap diode rectifier with resistive load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end DiodeCenterTap2mPulse;
 
@@ -2280,7 +2280,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
             Documentation(info="<html>
 <p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with resistive load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_R;
 
@@ -2323,7 +2323,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
             Documentation(info="<html>
 <p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load, where <code>m</code> is the number of phases.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_RL;
 
@@ -2375,7 +2375,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
             Documentation(info="<html>
 <p>This example shows a controlled <code>2*m</code> pulse center tap rectifier with R-L load including DC voltage source, where <code>m</code> is the number of phases. The additional DC voltage source in this example enables negative average load voltages.</p>
 
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>.</p>
 </html>"));
         end ThyristorCenterTap2mPulse_RLV;
 
@@ -3090,7 +3090,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>. The instantaneous voltage and current directly show the switch pattern of the inverter. The average voltage and average current reveal the fundamental wave of the voltage and current, each of them being basically in phase with the command <code>sine.y</code>.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>. The instantaneous voltage and current directly show the switch pattern of the inverter. The average voltage and average current reveal the fundamental wave of the voltage and current, each of them being basically in phase with the command <code>sine.y</code>.</p>
 </html>"));
         end SinglePhaseTwoLevel_R;
 
@@ -3131,7 +3131,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.0002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i</code>, avarage current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>. The instantaneous voltage directly show the switch pattern of the inverter. The current shows a particular ripple determined by the input voltage and the switching frequency. The average voltage is basically in phase with the command <code>sine.y</code>. The average current has a phase shift due to the R-L load.</p>
+<p>Plot current <code>currentSensor.i</code>, average current <code>meanCurrent.y</code>, voltage <code>voltageSensor.v</code> and average voltage <code>meanVoltage.v</code>. The instantaneous voltage directly show the switch pattern of the inverter. The current shows a particular ripple determined by the input voltage and the switching frequency. The average voltage is basically in phase with the command <code>sine.y</code>. The average current has a phase shift due to the R-L load.</p>
 </html>"));
         end SinglePhaseTwoLevel_RL;
       end SinglePhaseTwoLevel;
@@ -3758,7 +3758,7 @@ The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the i
 </table></p>
 
 <p>
-Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y</code>, machine speed <code>dcpm.wMechanical</code>, avderage machine speed <code>dcpm.va</code> and torque <code>dcpm.tauElectrical</code>.</p>
+Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y</code>, machine speed <code>dcpm.wMechanical</code>, averaged machine speed <code>dcpm.va</code> and torque <code>dcpm.tauElectrical</code>.</p>
 </html>"));
         end HBridge_DC_Drive;
       end HBridge;
@@ -4311,13 +4311,13 @@ General information about controllers is summarized in
 </p>
 
 <p>
-Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are connected with the positive DC output pin (firing signal <code>fire_p</code>). The other half of the simconductors is connected with the negative DC output pin (firing signal <code>fire_n</code>). Parameter <code>m</code> indicates the number of phases</code>.
+Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are connected with the positive DC output pin (firing signal <code>fire_p</code>). The other half of the semiconductors is connected with the negative DC output pin (firing signal <code>fire_n</code>). Parameter <code>m</code> indicates the number of phases</code>.
 </p>
 </html>", revisions="<html>
 </html>"));
       end VoltageBridge2mPulse;
 
-      model VoltageCenterTap2mPulse "Control of 2*m pulse cetner tap rectifier"
+      model VoltageCenterTap2mPulse "Control of 2*m pulse center tap rectifier"
         extends Icons.Control;
         import Modelica.Constants.pi;
         parameter Integer m(final min=3) = 3 "Number of phases";
@@ -4535,7 +4535,7 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         final Vknee=VkneeDiode,
         final useHeatPort=useHeatPort,
         final Ron=RonDiode)
-        "Diode connecting the positve AC input pin with postitive DC output"
+        "Diode connecting the positive AC input pin with positive DC output"
         annotation (Placement(transformation(
             origin={10,50},
             extent={{-10,10},{10,-10}},
@@ -4545,7 +4545,7 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         final Goff=GoffDiode,
         final Vknee=VkneeDiode,
         final useHeatPort=useHeatPort)
-        "Diode connecting the negative AC input pin with postitive DC output"
+        "Diode connecting the negative AC input pin with positive DC output"
         annotation (Placement(transformation(
             origin={40,50},
             extent={{-10,10},{10,-10}},
@@ -4555,7 +4555,7 @@ enabling signal is taken from the optional signal input <code>enable</code>.
         final Goff=GoffDiode,
         final Vknee=VkneeDiode,
         final useHeatPort=useHeatPort)
-        "Diode connecting the positve AC input pin with negative DC output"
+        "Diode connecting the positive AC input pin with negative DC output"
         annotation (Placement(transformation(
             origin={10,-50},
             extent={{-10,-10},{10,10}},
@@ -4685,7 +4685,7 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
         final Vknee=VkneeThyristor,
         final useHeatPort=useHeatPort,
         final off(start=offStart_p1, fixed=true))
-        "Thyristor connecting the positve AC input pin with postitive DC output"
+        "Thyristor connecting the positive AC input pin with positive DC output"
         annotation (Placement(transformation(
             origin={-20,50},
             extent={{-10,-10},{10,10}},
@@ -4696,7 +4696,7 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
         final Vknee=VkneeThyristor,
         final useHeatPort=useHeatPort,
         final off(start=offStart_p2, fixed=true))
-        "Thyristor connecting the negative AC input pin with postitive DC output"
+        "Thyristor connecting the negative AC input pin with positive DC output"
         annotation (Placement(transformation(
             origin={20,50},
             extent={{-10,10},{10,-10}},
@@ -4707,7 +4707,7 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
         final Vknee=VkneeThyristor,
         final useHeatPort=useHeatPort,
         final off(start=offStart_n1, fixed=true))
-        "Thyristor connecting the positve AC input with negative DC output"
+        "Thyristor connecting the positive AC input with negative DC output"
         annotation (Placement(transformation(
             origin={-20,-50},
             extent={{-10,-10},{10,10}},
@@ -6548,7 +6548,7 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
 </html>"));
       end SignalPWM;
 
-      block VoltageToDutyCycle "Linearely transforms voltage to duty cycle"
+      block VoltageToDutyCycle "Linearly transforms voltage to duty cycle"
         parameter Boolean useBipolarVoltage = true
           "Enables bipolar input voltage range";
         parameter Modelica.SIunits.Voltage vMax
@@ -6612,7 +6612,7 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
                 fillPattern=FillPattern.Solid),                                                                                                    Text(extent={{
                     -150,-120},{150,-160}},                                                                                                    textString=  "%name", lineColor=  {0, 0, 255})}),
           Documentation(info="<html>
-This model linearely transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
+This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
 </html>"));
       end VoltageToDutyCycle;
       annotation (Documentation(info="<html>
