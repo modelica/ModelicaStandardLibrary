@@ -176,7 +176,7 @@ as depicted in Fig. 1 and 2.
 </p>
 
 <p>
-Mathematically, this symmetry is expressd in terms of phase currents by:
+Mathematically, this symmetry is expressed in terms of phase currents by:
 </p>
 
 <p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png\"/> </p>
@@ -225,7 +225,7 @@ A function for calculating the <a href=\"modelica://Modelica.Electrical.MultiPha
 <p>
 In a fully symmetrical machine, the orientation of the winding axes and the symmetrical currents (or voltages)
 <a href=\"http://en.wikipedia.org/wiki/Phasor\">phasors</a> have different signs; see Fig. 1 and 2 for odd phase numbers
-and Fig. 3 and 4 for even phase numbes.
+and Fig. 3 and 4 for even phase numbers.
 </p>
 </html>"));
     end MultiPhase;
@@ -265,7 +265,7 @@ of an
 phase induction machine. It is also assumed that</p>
 <ul>
 <li>the nominal phase voltages</li>
-<li>the nominal stator frequences</li>
+<li>the nominal stator frequencies</li>
 </ul>
 <p>of the three and
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png\">
@@ -358,7 +358,7 @@ no. 829420.
 <li>Added new components:</li>
 <ul>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Crossing\">Crossing</a></li>
-    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
+    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket #1536;
@@ -370,7 +370,7 @@ the re-structuring of the model required to change the initial conditions of the
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
-<li>Bug fix of wrong orientaton of squirrel and damper cage modells, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
+<li>Bug fix of wrong orientation of squirrel and damper cage modells, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket #1223</li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket #1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in

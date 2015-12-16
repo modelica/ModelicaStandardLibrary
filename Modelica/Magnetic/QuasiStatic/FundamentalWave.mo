@@ -8,10 +8,10 @@ package FundamentalWave "Quasi static fundamental wave electric machines"
       annotation (Documentation(info="<html>
 <h5>Reference frames</h5>
 
-<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the comlplex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationsships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc. </p>
+<p>Quasi static magnetic ports contain the complex magnetic flux (flow variable) and the complex magnetic potential difference (potential variable) and a reference angle. The relationship between the different complex phasors with respect to different references will be explained by means of the complex magnetic flux. The same transformation relationships also apply to the complex magnetic potential difference. However, the discussed relationships are important for handling connectors in the air gap model, transform equations into the rotor fixed reference frame, etc. </p>
 
 <p>
-Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The anlge relationship between these ports is
+Let us assume that the air gap model contains stator and rotor magnetic ports which relate to the different sides of the machine. The angle relationship between these ports is
 </p>
 
 <p>
@@ -40,7 +40,7 @@ respectively, by means of:
 </p>
 
 <p>
-This is a strict consequence of the elctro magnetic coupling between the quasi static electric and the quasi static magnetic domain.</p>
+This is a strict consequence of the electro magnetic coupling between the quasi static electric and the quasi static magnetic domain.</p>
 
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -117,14 +117,14 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Update and improvement of documentation</li>
 <li>Added new component:</li>
 <ul>
-    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permenace</a></li>
+    <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
 </ul>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Fixed issues of ticket #1524</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket #1537</li>
 <li>Bug fixes according to #1226</li>
 <li>Added magnitude and argument of complex magnetic potentials, magnetic fluxes, voltages and currents in interface, electromagnetic coupling and machine models, see #1405</li>
-<li>Added active, reactive and aparrent power and power factor in interface and machine models, see #1405</li>
+<li>Added active, reactive and apparent power and power factor in interface and machine models, see #1405</li>
 <li>Added new interface model
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.PartialTwoPortExtended\">PartialTwoPortExtended</a>
 to simplify consistent inclusion of variables, see #1405</li>
@@ -157,7 +157,7 @@ to simplify consistent inclusion of variables, see #1405</li>
     multiplied by numberOfSymmetricBaseSystems(m) in order to overcome differences in calculation
     of current and voltage symmetrical components. The symmetrical components of a system of
     even phase numbers are now equal to the symmetrical components of one corresponding base system.
-<li>Imporoved examples package and removed SMPM_Inverter example<li>
+<li>Improved examples package and removed SMPM_Inverter example<li>
 </ul>
 
 <h5>Version 0.2.4, 2013-10-02</h5>
@@ -176,9 +176,9 @@ to simplify consistent inclusion of variables, see #1405</li>
 <li>Fixed initialization of examples (changed implementation of QuasiStationary.Sources, added start values for gamma, gammas, gammar)</li>
 </ul>
 
-<h5>Vrsion 0.2.1, 2013-09-23</h5>
+<h5>Version 0.2.1, 2013-09-23</h5>
 <ul>
-<li>Implemented pemanent magnet synchronous machine example with inverter</li>
+<li>Implemented permanent magnet synchronous machine example with inverter</li>
 </ul>
 
 <h5>Version 0.2.0, 2013-09-01</h5>
@@ -1847,7 +1847,7 @@ Simulate for 1 second and plot (versus time):
           annotation (
             experiment(StopTime=0.1, Interval=0.001),
             Documentation(info="<HTML>
-<h4>Open circuit test of permament magnet synchronous machine</h4>
+<h4>Open circuit test of permanent magnet synchronous machine</h4>
 
 <p>
 This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines are operated at constant mechanical angular velocity.</p>
@@ -2180,7 +2180,7 @@ Simulate for 0.1 second and plot (versus time):
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
             Documentation(info="<HTML>
-<h4>Simple field oriented control of permament magnet synchronous machine</h4>
+<h4>Simple field oriented control of permanent magnet synchronous machine</h4>
 
 <p>
 This example compares a time transient and a quasi static model of a permanent magnet synchronous machine. The machines are fed by a current source. The current components are oriented at the magnetic field orientation and transformed to the stator fixed reference frame. This way the machines are operated at constant torque. The machines start to accelerate from standstill.</p>
@@ -3007,7 +3007,7 @@ The salient permeance models the relationship between the complex magnetic poten
       constant Complex j=Complex(0, 1);
       extends Interfaces.PartialTwoPortElementary;
       parameter Modelica.SIunits.Conductance G(min=0)
-        "Eqivalent symmetric loss conductance";
+        "Equivalent symmetric loss conductance";
       extends
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
           final T=273.15);
@@ -3016,7 +3016,7 @@ The salient permeance models the relationship between the complex magnetic poten
     equation
       lossPower = (pi/2)*Modelica.ComplexMath.imag(omega*V_m*
         Modelica.ComplexMath.conj(Phi));
-      // Alternative calculaton of loss power
+      // Alternative calculation of loss power
       // lossPower = -(pi/2)*Modelica.ComplexMath.real(j*omega*V_m*Modelica.ComplexMath.conj(Phi));
       if G > 0 then
         (pi/2)*V_m = j*omega*G*Phi;
@@ -3129,9 +3129,9 @@ relationship of the voltage and current space phasor.
       parameter Real effectiveTurns "Effective number of turns";
       // IMPORTANT NOTE
       // This parameter may be removed in the final version of the library
-      // for consistency reasons with resepect to the single phase
+      // for consistency reasons with respect to the single phase
       // electromagnetic converter, where the orientation shall NOT be
-      // implmented in the final version
+      // implemented in the final version
       final parameter Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
       // Local electric multi phase quantities
@@ -3157,7 +3157,7 @@ relationship of the voltage and current space phasor.
           Modelica.ComplexMath.conj(i[k])) for k in 1:m}
         "Magnitude of complex apparent power";
       Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
-        "Magntiude of total complex apparent power";
+        "Magnitude of total complex apparent power";
       Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1
           :m} "Power factor";
 
@@ -3189,10 +3189,10 @@ relationship of the voltage and current space phasor.
     protected
       final parameter Integer indexNonPos[:]=
           Electrical.MultiPhase.Functions.indexNonPositiveSequence(m)
-        "Indices of all non positive seqeuence componentes";
+        "Indices of all non positive sequence components";
       final parameter Integer indexPos[:]=
           Electrical.MultiPhase.Functions.indexPositiveSequence(m)
-        "Indices of all positive seqeuence componentes";
+        "Indices of all positive sequence components";
     equation
       // Magnetic flux and flux balance of the magnetic ports
       port_p.Phi = Phi;
@@ -3220,7 +3220,7 @@ relationship of the voltage and current space phasor.
         1]]), Modelica.ComplexMath.imag(vSymmetricalComponent[indexPos[1]])) =
         Modelica.ComplexMath.conj(N)*j*omega*Phi;
       // Potential roots are not used; instead the reference angle is handled
-      // by means of Connections.branch between eletric plug_p and magnetic port_p
+      // by means of Connections.branch between electric plug_p and magnetic port_p
       // It has to be checked whether this Modelica compliant
       //   Connections.potentialRoot(plug_p.reference);
       //   Connections.potentialRoot(port_p.reference);
@@ -3261,7 +3261,7 @@ Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalW
 </p>
 
 <p>
-The total complex magnetic potential difference of the mutli phase winding is determined by:
+The total complex magnetic potential difference of the multi phase winding is determined by:
 </p>
 
 <p>
@@ -3749,7 +3749,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
             *Modelica.ComplexMath.conj(ir[k])) for k in 1:mr}
           "Magnitude of complex rotor apparent power";
         Modelica.SIunits.ApparentPower Sr_total=sqrt(Pr_total^2 + Qr_total^2)
-          "Magntiude of total complex rotor apparent power";
+          "Magnitude of total complex rotor apparent power";
         Real pfr[m]={cos(Modelica.ComplexMath.arg(Complex(Pr[k], Qr[k]))) for k in
                 1:m} "Rotor power factor";
 
@@ -4495,7 +4495,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             Modelica.ComplexMath.conj(i[k])) for k in 1:m}
           "Magnitude of complex apparent power";
         Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
-          "Magntiude of total complex apparent power";
+          "Magnitude of total complex apparent power";
         Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in
                 1:m} "Power factor";
 
@@ -4807,9 +4807,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
         Modelica.SIunits.Angle gamma=p*(flange_a.phi - support.phi)
           "Electrical angle between rotor and stator";
         Modelica.SIunits.Angle gammas=port_sp.reference.gamma
-          "Angle electrical qantities in stator reference frame";
+          "Angle electrical quantities in stator reference frame";
         Modelica.SIunits.Angle gammar=port_rp.reference.gamma
-          "Angle electrical qantities in rotor reference frame";
+          "Angle electrical quantities in rotor reference frame";
       equation
         // Stator flux into positive stator port
         port_sp.Phi = Phi_s;
@@ -4886,7 +4886,7 @@ is the electrical angle between stator and rotor.
 
 <p>
 The air gap model has two magnetic stator and two magnetic rotor
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quanitites, respectively, but the reference angles are different; see <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Interfaces.MagneticPort\">ports</a>. The magnetic potential difference and the magnetic flux of the stator and rotor are equal complex quantities, respectively, but the reference angles are different; see <a href=\"Modelica.Magnetic.QuasiStatic.FundamentalWave.UsersGuide.Concept\">Concept</a>. The d and q axis components with respect to the rotor fixed reference frame (superscript r) are determined from the stator (superscript s) and rotor (superscript r) reference quantities, by
 </p>
 
 <p>
@@ -4894,7 +4894,7 @@ The air gap model has two magnetic stator and two magnetic rotor
 </p>
 
 <p>
-The d and q axis magnetic potential difference components and flux components are releated with the flux by:
+The d and q axis magnetic potential difference components and flux components are related with the flux by:
 </p>
 
 <p>
@@ -5397,7 +5397,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             Modelica.ComplexMath.conj(is[k])) for k in 1:m}
           "Magnitude of complex stator apparent power";
         Modelica.SIunits.ApparentPower Ss_total=sqrt(Ps_total^2 + Qs_total^2)
-          "Magntiude of total complex stator apparent power";
+          "Magnitude of total complex stator apparent power";
         Real pfs[m]={cos(Modelica.ComplexMath.arg(Complex(Ps[k], Qs[k]))) for k in
                 1:m} "Stator power factor";
 
@@ -5733,7 +5733,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      // Referenec angular speed and angle
+      // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -5853,7 +5853,7 @@ SignalFlux</a>
       port_p.Phi = Phi;
       // Local flux balance
       port_p.Phi + port_n.Phi = Complex(0, 0);
-      // Referenec angular speed and angle
+      // Reference angular speed and angle
       omega = 2*Modelica.Constants.pi*f;
       Connections.root(port_p.reference);
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -6330,7 +6330,7 @@ The partial two port elementary model extends from the partial two port model an
         Documentation(info="<HTML>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
-<code>m</code> quasi static phasor signal is proivded as output signal <code>y</code>, representing complex voltages.
+<code>m</code> quasi static phasor signal is provided as output signal <code>y</code>, representing complex voltages.
 The output voltages may serve as inputs for complex voltage sources with phase input. Symmetrical voltages are assumed.
 </p>
 
