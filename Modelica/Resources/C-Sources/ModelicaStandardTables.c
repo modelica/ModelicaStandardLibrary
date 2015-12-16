@@ -3620,7 +3620,6 @@ static CubicHermite1D* steffenSpline1DInit(const double* table,
                 c2 = 0;
             }
             else {
-                double abs_c2;
                 const double dx_ = TABLE_COL0(i + 2) - TABLE_COL0(i + 1);
                 double half_abs_c2, abs_di, abs_di1;
                 c2 = (d[i]*dx_ + d[i + 1]*dx)/(dx + dx_);
