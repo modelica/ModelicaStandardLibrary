@@ -1456,7 +1456,7 @@ leads to neglection of temperature transient cv*m*der(T).
       extends Interfaces.Partials.TwoPort;
       extends Interfaces.Partials.SimpleFriction;
       parameter Modelica.SIunits.Length h_g(start=0)
-        "Geodetic height (heigth difference from flowPort_a to flowPort_b)";
+        "Geodetic height (height difference from flowPort_a to flowPort_b)";
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
@@ -1473,7 +1473,7 @@ Thermodynamic equations are defined by Partials.TwoPort.<br>
 Q_flow is defined by heatPort.Q_flow.<br>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
-<b>Note:</b> Injecting heat into a pipe with zero massflow causes
+<b>Note:</b> Injecting heat into a pipe with zero mass flow causes
 temperature rise defined by storing heat in medium's mass.
 </HTML>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -2307,8 +2307,8 @@ See also sketch at diagram layer.
         else
           flowPort_a.H_flow + flowPort_b.H_flow + Q_flow = 0;
         end if;
-        // massflow a->b mixing rule at a, energy flow at b defined by medium's temperature
-        // massflow b->a mixing rule at b, energy flow at a defined by medium's temperature
+        // mass flow a->b mixing rule at a, energy flow at b defined by medium's temperature
+        // mass flow b->a mixing rule at b, energy flow at a defined by medium's temperature
         flowPort_a.H_flow = semiLinear(flowPort_a.m_flow,flowPort_a.h,h);
         flowPort_b.H_flow = semiLinear(flowPort_b.m_flow,flowPort_b.h,h);
       annotation (Documentation(info="<HTML>
@@ -2336,8 +2336,8 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
       equation
         T_port=flowPort.h/medium.cp;
         h = medium.cp*T;
-        // massflow -> ambient: mixing rule
-        // massflow <- ambient: energy flow defined by ambient's temperature
+        // mass flow -> ambient: mixing rule
+        // mass flow <- ambient: energy flow defined by ambient's temperature
         flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
       annotation (Documentation(info="<HTML>
 <p>
