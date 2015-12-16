@@ -1860,7 +1860,7 @@ either the input is within a band u_min .. u_max, or the output is within
 a band y_min .. y_max.
 A truncated distribution is derived from a base
 distribution (e.g. from the normal distribution), by truncating its
-propability density function to the desired band and adding a constant
+probability density function to the desired band and adding a constant
 value over this band, in order that the integral over the truncated distribution
 remains one. All other properties (such as cumulative distribution function) can then be determined
 in a straightforward way, provided the properties of the underlying base distribution
@@ -1913,7 +1913,7 @@ cdf_max = Distributions.XXX.cumulative(u_max,...);
 
 <p>
 For an example of a truncated distribution, see the following
-plot of the probabibilty density function of a normal distribution
+plot of the probability density function of a normal distribution
 compared with its truncated distribution:
 </p>
 

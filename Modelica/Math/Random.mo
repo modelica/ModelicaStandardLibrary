@@ -1344,7 +1344,7 @@ is returned, so the function is impure.
   annotation (Documentation(info="<html>
 <p>
 This package contains utility functions for the random number generators,
-that are usually of no interested for the user
+that are usually of no interest for the user
 (they are, for example, used in package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>",   revisions="<html>
@@ -1404,7 +1404,7 @@ of package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a> to gene
 reproducible noise signals.
 Package <a href=\"modelica://Modelica.Math.Random.Utilities\">Math.Random.Utilities</a>
 contains utility functions for the random number generators,
-that are usually of no interested for the user
+that are usually of no interest for the user
 (they are, for example, used to implement the blocks in
 package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
