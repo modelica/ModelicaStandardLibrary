@@ -32,7 +32,7 @@ annotation (
       Line(
         origin={9.0,46.0},
         points={{-10.0,-26.0},{72.0,-26.0},{72.0,-86.0},{-10.0,-86.0}})}),
-  Documentation(info="<HTML>
+  Documentation(info="<html>
 <p>
 This package contains components to model the movement
 of 1-dim. rotational, 1-dim. translational, and

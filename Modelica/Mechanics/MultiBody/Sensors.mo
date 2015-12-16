@@ -1897,7 +1897,7 @@ computed as:
             lineColor={0,0,255},
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The <b>distance</b> between the origins of frame_a
 and of frame_b are determined and provided at the
@@ -1933,7 +1933,7 @@ are identical for sqrt() and the polynomial at s_small. Furthermore, the polynom
 passes through zero. The effect is, that the distance function is continuous and
 differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 </p>
-</HTML>"));
+</html>"));
   end Distance;
 
   model CutForce "Measure cut force vector"
@@ -2010,13 +2010,13 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
             lineColor={0,0,0},
             textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The cut-force acting between the two frames to which this
 model is connected, is determined and provided at the output signal connector
 <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force is provided (= frame_b.f).
-
+</p>
 <p>
 Via parameter <b>resolveInFrame</b> it is defined, in which frame
 the force vector is resolved:
@@ -2054,7 +2054,7 @@ with negative sign at frame_a.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
 </p>
-</HTML>"));
+</html>"));
   end CutForce;
 
   model CutTorque "Measure cut torque vector"
@@ -2128,7 +2128,7 @@ with negative sign at frame_a.
             lineColor={0,0,0},
             textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The cut-torque acting between the two frames to which this
 model is connected, is determined and provided at the output signal connector
@@ -2173,7 +2173,7 @@ with negative sign at frame_a.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
 </p>
-</HTML>"));
+</html>"));
   end CutTorque;
 
   model CutForceAndTorque "Measure cut force and cut torque vector"
@@ -2298,7 +2298,7 @@ with negative sign at frame_a.
             extent={{-56,-70},{60,-96}},
             lineColor={0,0,0},
             textString="torque")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors
@@ -2306,7 +2306,7 @@ model is connected, are determined and provided at the output signal connectors
 If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force and cut-torque is provided
 (= frame_b.f, frame_b.t).
-
+</p>
 <p>
 Via parameter <b>resolveInFrame</b> it is defined, in which frame
 the two vectors are resolved:
@@ -2345,7 +2345,7 @@ with negative sign at frame_a.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
 </p>
-</HTML>"));
+</html>"));
   end CutForceAndTorque;
 
   model Power "Measure power flowing from frame_a to frame_b"
@@ -2381,12 +2381,12 @@ with negative sign at frame_a.
             extent={{-128,126},{126,68}},
             textString="%name",
             lineColor={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This component provides the power flowing from frame_a to frame_b
 as output signal <b>power</b>.
 </p>
-</HTML>"));
+</html>"));
   end Power;
 
   model TransformAbsoluteVector "Transform absolute vector in to another frame"
@@ -3255,9 +3255,9 @@ with the blocks of package Modelica.Blocks.
               lineColor={0,0,0},
               textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 
-</HTML>"));
+</html>"));
     end BasicCutForce;
 
     model BasicCutTorque

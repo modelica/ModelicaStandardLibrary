@@ -54,7 +54,7 @@ equation
   connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
           {28,-10}}, color={0,0,127}));
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This is a similar model as the example \"EngineV6\". However, the cylinders
 have been built up with component Modelica.Mechanics.MultiBody.Joints.Assemblies.JointRRR that

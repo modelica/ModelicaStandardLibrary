@@ -10,7 +10,7 @@ package Rotational
     class Overview "Overview"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
 This package contains components to model <b>1-dimensional rotational
@@ -74,14 +74,14 @@ together, see figure below.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" ALT=\"driveConnections2\"><br>
 </p>
 
-</HTML>"));
+</html>"));
 
     end Overview;
 
     class FlangeConnectors "Flange Connectors"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -102,14 +102,14 @@ determined by differentiation of the flange angle <code>phi</code>:
 <pre>
      w = <b>der</b>(phi);    a = <b>der</b>(w);
 </pre>
-</HTML>"));
+</html>"));
 
     end FlangeConnectors;
 
     class SupportTorques "Support Torques"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>The following figure shows examples of components equipped with
 a support flange (framed flange in the lower center), which can be used
@@ -137,14 +137,14 @@ identical results.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" ALT=\"bearing2\">
 </p>
 
-</HTML>"));
+</html>"));
 
     end SupportTorques;
 
     class SignConventions "Sign Conventions"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
 The variables of a component of this library can be accessed in the
@@ -209,14 +209,14 @@ the axis direction determines the positive rotation along these
 flanges. As a result, the positive rotation for <code>inertia4, inertia6</code>
 is as indicated with the additional grey arrows.
 </p>
-</HTML>"));
+</html>"));
 
     end SignConventions;
 
     class UserDefinedComponents "User Defined Components"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 In this section some hints are given to define your own
 1-dimensional rotational components which are compatible with the
@@ -353,14 +353,14 @@ by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
 </p>
-</HTML>"));
+</html>"));
 
     end UserDefinedComponents;
 
     class RequirementsForSimulationTool "Requirements for Simulation Tools"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
 This library is designed in a fully object oriented way in order that
@@ -413,7 +413,7 @@ by picking one solution of the infinitely many, e.g., the one where
 the difference to the value of the previous time instant is as small
 as possible.
 </p>
-</HTML>"));
+</html>"));
 
     end RequirementsForSimulationTool;
 
@@ -512,16 +512,16 @@ Several elments of this libray model <b>Coulomb friction</b> with the method pro
 </p>
 
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 
 <p>
 The friction equations are defined in base model
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialFriction\">Interfaces.PartialFriction</a>.
 Here are some explanations:
-<p>
+</p>
 
 <p>
 Assume first the most simplest friction problem: A block sliding on a surface.
@@ -648,7 +648,7 @@ The above approach to model a simplified friction element is slightly generlized
 
       annotation (Documentation(info="<html>
 <dl>
-<dt><b>Library Officer</b>
+<dt><b>Library Officer</b></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
@@ -656,7 +656,7 @@ The above approach to model a simplified friction element is slightly generlized
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br></dd>
 </dl>
 
 <p>
@@ -674,14 +674,14 @@ The above approach to model a simplified friction element is slightly generlized
 </html>"));
     end Contact;
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>Rotational</b> is a <b>free</b> Modelica package providing
 1-dimensional, rotational mechanical components to model in a convenient way
 drive trains with frictional losses.
 </p>
 
-</HTML>"));
+</html>"));
   end UsersGuide;
 
   package Examples "Demonstration examples of the components of this package"
@@ -824,7 +824,7 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
-</HTML>"), experiment(StopTime=1.0, Interval=0.001));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
     end FirstGrounded;
 
     model Friction "Drive train with clutch and brake"
@@ -929,7 +929,7 @@ values (defined already in the model):</p>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
 
-</HTML>"), experiment(StopTime=3.0, Interval=0.001),
+</html>"), experiment(StopTime=3.0, Interval=0.001),
       Diagram(coordinateSystem(extent = {{-170,-100},{120,100}})));
     end Friction;
 
@@ -1036,7 +1036,7 @@ frictional mode of clutches (clutchX.mode) where
 mode = -1/0/+1 means backward sliding,
 locked, forward sliding.</p>
 
-</HTML>"),
+</html>"),
         __Dymola_Commands(file=
               "modelica://Modelica/Resources/Scripts/Dymola/Mechanics/Rotational/CoupledClutches.mos"
             "Simulate and Plot"),
@@ -2349,9 +2349,9 @@ at an angle phi0 in the <b>housing</b>. May be used:
 </p>
 <ul>
 <li> to connect a compliant element, such as a spring or a damper,
-     between an inertia or gearbox component and the housing.
+     between an inertia or gearbox component and the housing.</li>
 <li> to fix a rigid element, such as an inertia, with a specific
-     angle to the housing.
+     angle to the housing.</li>
 </ul>
 
 </html>"),
@@ -3099,9 +3099,9 @@ numerical methods. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -3344,9 +3344,9 @@ are dynamically coupled. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -3501,9 +3501,9 @@ are dynamically coupled. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -3636,6 +3636,7 @@ flanges maybe sliding with respect to each other
 Parallel connection of ClutchCombi and of FreeWheel.
                      The element is introduced to resolve the ambiguity
                      of the constraint torques of the elements.
+</p>
 <p>
 A one-way-clutch is an element where a clutch is connected in parallel
 to a free wheel. This special element is provided, because such
@@ -3979,7 +3980,7 @@ connected to other elements in an appropriate way.
         startBackward) and w_a < 0 then Backward else Stuck);
 
       lossPower = tauLoss*w_a;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This component models the gear ratio and the <b>losses</b> of
 a standard gear box in a <b>reliable</b> way including the stuck phases
@@ -4129,7 +4130,7 @@ Modelica.Mechanics.Rotational.GearEfficiency model.
 <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Schweiger C.</a>,
 and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Otter M.</a>:
 &quot;<a href=\"https://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf\">Modeling
-and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot; in
+and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</a>,&quot; in
 <I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
@@ -4180,7 +4181,7 @@ Sept. 11, 2009.</li>
       ring.tau = ratio*sun.tau;
       carrier.tau = -(1 + ratio)*sun.tau;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The IdealPlanetary gear box is an ideal gear without inertia,
 elasticity, damping or backlash consisting
@@ -4887,7 +4888,7 @@ in the following way:
 <ul>
 <li> Connect an instance of this model between two flange connectors.</li>
 <li> The <b>relative rotation angle</b> and the <b>relative angular velocity</b>
-     between the two connectors are used as <b>state variables</b>.
+     between the two connectors are used as <b>state variables</b>.</li>
 </ul>
 <p>
 An example is given in the next figure
@@ -5682,12 +5683,13 @@ Modelica.Blocks library.
         a = der(w);
         a = ((phi_ref - phi)*w_crit - af*w)*(w_crit/bf);
       end if;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 The input signal <b>phi_ref</b> defines the <b>reference
 angle</b> in [rad]. Flange <b>flange</b> is <b>forced</b>
 to move according to this reference motion relative to flange support. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
+</p>
 <ol>
 <li><b>exact=true</b><br>
     The reference angle is treated <b>exactly</b>. This is only possible, if
@@ -5787,6 +5789,7 @@ The input signal <b>w_ref</b> defines the <b>reference
 speed</b> in [rad/s]. Flange <b>flange</b> is <b>forced</b>
 to move relative to flange support according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
+</p>
 <ol>
 <li><b>exact=true</b><br>
     The reference speed is treated <b>exactly</b>. This is only possible, if
@@ -6015,7 +6018,7 @@ blocks of the block library Modelica.Blocks.Sources.
     equation
       flange.tau = -tau;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The input signal <b>tau</b> defines an external
 torque in [Nm] which acts (with negative sign) at
@@ -6093,7 +6096,7 @@ blocks of Modelica.Blocks.Sources.
       flange_a.tau = tau;
       flange_b.tau = -tau;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The input signal <b>tau</b> defines an external
 torque in [Nm] which acts at both flange connectors,
@@ -6179,12 +6182,12 @@ blocks of Modelica.Blocks.Sources.
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{100,100}},
-                color={0,0,127})}), Documentation(info="<HTML>
+                color={0,0,127})}), Documentation(info="<html>
 <p>
 Model of torque, linearly dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
 </p>
-</HTML>"));
+</html>"));
     end LinearSpeedDependentTorque;
 
     model QuadraticSpeedDependentTorque
@@ -6219,12 +6222,12 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
                 {-40.0,-82.0},{-20.0,-68.0},{0.0,-50.0},{20.0,-28.0},
                 {40.0,-2.0},{60.0,28.0},{80.0,62.0},{100.0,100.0}},
               color={0,0,127}, smooth=Smooth.Bezier)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Model of torque, quadratic dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
 </p>
-</HTML>"));
+</html>"));
     end QuadraticSpeedDependentTorque;
 
     model ConstantTorque "Constant torque, not dependent on speed"
@@ -6317,11 +6320,11 @@ Negative torque brakes in both directions of rotation.</p>
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,0,127}),
           Text(extent={{-116.0,-40.0},{128.0,-16.0}},
-                textString="%w_fixed")}), Documentation(info="<HTML>
+                textString="%w_fixed")}), Documentation(info="<html>
 <p>
 Model of <b>fixed</b> angular velocity of flange, not dependent on torque.
 </p>
-</HTML>"));
+</html>"));
     end ConstantSpeed;
 
     model TorqueStep "Constant torque, not dependent on speed"
@@ -6343,12 +6346,12 @@ Model of <b>fixed</b> angular velocity of flange, not dependent on torque.
                   60}}, color={0,0,127}), Text(
               extent={{0.0,-60.0},{100.0,-40.0}},
               lineColor={0,0,255},
-              textString="time")}), Documentation(info="<HTML>
+              textString="time")}), Documentation(info="<html>
 <p>
 Model of a torque step at time .<br>
 Positive torque acts accelerating.
 </p>
-</HTML>"));
+</html>"));
     end TorqueStep;
 
     annotation (Documentation(info="<html>
@@ -7226,7 +7229,7 @@ and instead the translational part is internally fixed to ground.
               points={{10,-120},{30,-100}}),
             Line(
               visible=not useSupport,
-              points={{-30,-100},{30,-100}})}), Documentation(info="<HTML>
+              points={{-30,-100},{30,-100}})}), Documentation(info="<html>
 <p>
 Partial model of torque that accelerates the flange.
 </p>
@@ -7384,9 +7387,9 @@ numerical methods. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 </html>"));
     end PartialFriction;

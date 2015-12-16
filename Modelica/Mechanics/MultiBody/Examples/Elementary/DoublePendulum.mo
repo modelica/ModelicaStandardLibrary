@@ -61,5 +61,5 @@ object to <b>false</b> to switch off animation of all components.
 ALT=\"model Examples.Elementary.DoublePendulum\">
 </td></tr></table>
 
-</HTML>"));
+</html>"));
 end DoublePendulum;

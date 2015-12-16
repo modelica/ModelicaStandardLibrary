@@ -62,7 +62,7 @@ package RobotR3
         color={255,204,51},
         thickness=0.5));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 With this model one axis of the r3 robot is checked.
 The mechanical structure is replaced by a simple
@@ -329,7 +329,7 @@ load inertia.
           "Simulate",
         file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
           "Plot result of axis 3 + animate"),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This is a detailed model of the robot. For animation CAD data
 is used. Translate and simulate with the default settings
@@ -340,7 +340,7 @@ to plot variables.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
 </p>
-</HTML>"));
+</html>"));
   end fullRobot;
   extends Modelica.Icons.ExamplesPackage;
 
@@ -1463,7 +1463,7 @@ a model of the electrical motor and a continuous-time cascade controller.
       connect(const.y, initializeFlange.a_start) annotation (Line(points={{-54.5,
               -60},{-48,-60},{-48,-58},{-42,-58}},       color={0,0,127}));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The axis model consists of the <b>controller</b>, the <b>motor</b> including current
 controller and the <b>gearbox</b> including gear elasticity and bearing friction.
@@ -1782,7 +1782,7 @@ Default values of the parameters are given for the axis of joint 1.
       connect(r6.axis, axis6)
         annotation (Line(points={{-70,130},{-210,130}}));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model contains the mechanical components of the r3 robot
 (multibody system).
@@ -1840,7 +1840,7 @@ use this library directly.
   end Components;
 
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This package contains models of the robot r3 of the company Manutec.
 These models are used to demonstrate in which way complex

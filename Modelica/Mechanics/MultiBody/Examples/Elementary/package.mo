@@ -3,7 +3,7 @@ package Elementary "Elementary examples to demonstrate various features of the M
 extends Modelica.Icons.ExamplesPackage;
 
 
-annotation ( Documentation(info="<HTML>
+annotation ( Documentation(info="<html>
 <p>
 This package contains elementary example models to demonstrate
 the usage of the MultiBody library
@@ -121,5 +121,5 @@ the usage of the MultiBody library
   </tr>
 
 </table>
-</HTML>"));
+</html>"));
 end Elementary;

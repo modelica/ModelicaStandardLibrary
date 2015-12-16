@@ -33,7 +33,7 @@ model PointGravity "Two point masses in a point gravity field"
     annotation (Placement(transformation(extent={{20,20},{40,40}})));
   annotation (
     experiment(StopTime=5),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This model demonstrates a point gravity field. Two bodies
 are placed in the gravity field. The initial positions and velocities of
@@ -44,5 +44,5 @@ point gravity field.
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravity.png\"
 ALT=\"model Examples.Elementary.PointGravity\">
-</HTML>"));
+</html>"));
 end PointGravity;

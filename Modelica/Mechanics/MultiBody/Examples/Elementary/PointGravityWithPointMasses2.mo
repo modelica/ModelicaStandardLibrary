@@ -265,5 +265,5 @@ object visualizes the point masses in \"red\", whereas the \"referenceSystem\" s
 its bodies in \"blue\".
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
-</html>"));
+</p></html>"));
 end PointGravityWithPointMasses2;

@@ -149,7 +149,7 @@ equation
   connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-72,
           -20},{-80,-20},{-80,0}}));
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This is a V6 engine with 6 cylinders. It is hierarchically built
 up by using instances of one cylinder. For more details on the

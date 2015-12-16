@@ -54,7 +54,7 @@ package Visualizers "3-dimensional visual objects used for animation"
     frame_a.f = zeros(3);
     frame_a.t = zeros(3);
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model <b>FixedShape</b> defines a visual shape that is
 shown at the location of its frame_a.
@@ -295,7 +295,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model <b>FixedShape2</b> defines a visual shape that is
 shown at the location of its frame_a. This model is identical
@@ -606,7 +606,7 @@ vector <b>r</b>.
             extent={{-150,145},{150,105}},
             textString="%name",
             lineColor={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model <b>FixedFrame</b> visualizes the three axes of
 its coordinate system <b>frame_a</b> together with appropriate axes
@@ -625,7 +625,7 @@ ambient light) can vary dynamically by
 providing appropriate expressions in the input fields of the
 parameter menu.
 </p>
-</HTML>"));
+</html>"));
   end FixedFrame;
 
   model FixedArrow
@@ -785,7 +785,7 @@ parameter menu.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model <b>SignalArrow</b> defines an arrow that is dynamically visualized
 at the location where its frame_a is attached. The
@@ -801,7 +801,7 @@ the connector <b>r_head</b> (Real r_head[3]):<br>&nbsp;
 The tail of the arrow is defined with parameter <b>r_tail</b>
 with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </p>
-</HTML>"));
+</html>"));
   end SignalArrow;
 
    model Ground "Visualizing the ground (box in z=0)"
@@ -1790,7 +1790,7 @@ This definition is also available as type
         R=R) if world.enableAnimation;
 
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Model <b>Arrow</b> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
@@ -1820,7 +1820,7 @@ The predefined type <b>MultiBody.Types.Color</b> contains
 a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -1937,7 +1937,7 @@ library (will be replaced by a color editor).
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
@@ -1966,7 +1966,7 @@ The predefined type <b>MultiBody.Types.Color</b> contains
 a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
-</HTML>"));
+</html>"));
     end DoubleArrow;
 
     model Shape
@@ -2003,7 +2003,7 @@ library (will be replaced by a color editor).
               extent={{-150,150},{150,110}},
               lineColor={0,0,255},
               textString="%name")}),
-         Documentation(info="<HTML>
+         Documentation(info="<html>
 <p>
 Model <b>Shape</b> defines a visual shape that is
 shown at the location of its reference coordinate system, called
@@ -2437,7 +2437,7 @@ model.
 </p>
 </html>"));
     end SurfaceCharacteristics;
-    annotation ( Documentation(info="<HTML>
+    annotation ( Documentation(info="<html>
 <p>
 Package <b>Visualizers.Advanced</b> contains components to visualize
 3-dimensional shapes with dynamical sizes. None of the components
@@ -2480,7 +2480,7 @@ since they all have frame connectors).
       </td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
   end Advanced;
 
   package Internal
@@ -2566,7 +2566,7 @@ since they all have frame connectors).
               lineColor={0,127,255},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 With model <b>FixedLines</b> a set of lines is defined
 that are located relatively to frame_a. Every line
@@ -2589,7 +2589,7 @@ coordinate system is defined. The points defined with parameter
 \"[0, 0; 1, 1]\" defines a line that starts at {0,0} and ends at {1,1}.
 The diameter and color of all line cylinders are identical.
 </p>
-</HTML>"));
+</html>"));
     end FixedLines;
 
     model Lines
@@ -2677,7 +2677,7 @@ The diameter and color of all line cylinders are identical.
               extent={{-150,145},{150,105}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 With model <b>Lines</b> a set of dynamic lines is defined
 that are located relatively to frame_a. Every line
@@ -2717,7 +2717,7 @@ Modelica tools. The components are used to construct the \"x\", \"y\",
 </p>
 </html>"));
   end Internal;
-  annotation ( Documentation(info="<HTML>
+  annotation ( Documentation(info="<html>
 <p>
 Package <b>Visualizers</b> contains components to visualize
 3-dimensional shapes. These components are the basis for the
@@ -2791,7 +2791,7 @@ This is a vector with 3 elements,
 Note, r g, b are given as Integer[3] in the ranges 0 .. 255,
 respectively.
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={
         Rectangle(
           extent={{-80,26},{26,-70}},

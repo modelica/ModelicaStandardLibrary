@@ -48,7 +48,7 @@ equation
       thickness=0.5));
   annotation (
     experiment(StopTime=2),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a
 point gravity field. The PointMass model has the feature that
@@ -64,5 +64,5 @@ a default value, when the physical system does not provide the equations.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/PointGravityWithPointMasses.png\">
-</HTML>"));
+</html>"));
 end PointGravityWithPointMasses;

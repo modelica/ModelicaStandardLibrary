@@ -10,7 +10,7 @@ package Translational
     class Overview "Overview"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
 This package contains components to model <b>1-dimensional translational
@@ -72,14 +72,14 @@ together, see figure below.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/driveConnections2.png\" ALT=\"driveConnections2\"><br>
 </p>
 
-</HTML>"));
+</html>"));
 
     end Overview;
 
     class FlangeConnectors "Flange Connectors"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 A flange is described by the connector class
 Interfaces.<b>Flange_a</b>
@@ -100,14 +100,14 @@ determined by differentiation of the flange position <code>s</code>:
 <pre>
      v = <b>der</b>(s);    a = <b>der</b>(v);
 </pre>
-</HTML>"));
+</html>"));
 
     end FlangeConnectors;
 
     class SupportForces "Support Forces"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>The following figure shows examples of components equipped with
 a support flange (framed flange in the lower center), which can be used
@@ -132,14 +132,14 @@ identical results.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/bearing2.png\" ALT=\"bearing2\">
 </p>
 
-</HTML>"));
+</html>"));
 
     end SupportForces;
 
     class SignConventions "Sign Conventions"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 
 <p>
 The variables of a component of this library can be accessed in the
@@ -177,14 +177,14 @@ the velocitiy <code>m2.v</code> of the right mass
 is also directed into the
 direction of movement if the values are positive
 </p>
-</HTML>"));
+</html>"));
 
     end SignConventions;
 
     class UserDefinedComponents "User Defined Components"
       extends Modelica.Icons.Information;
 
-      annotation (DocumentationClass=true, Documentation(info="<HTML>
+      annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 In this section some hints are given to define your own
 1-dimensional translational components which are compatible with the
@@ -317,7 +317,7 @@ by aligning coordinate systems and then using the vector direction
 of the local coordinate systems, often requires a re-drawing of the
 diagram and is therefore less convenient to use.
 </p>
-</HTML>"));
+</html>"));
 
     end UserDefinedComponents;
 
@@ -405,7 +405,7 @@ drive.
 
       annotation (Documentation(info="<html>
 <dl>
-<dt><b>Library Officer</b>
+<dt><b>Library Officer</b></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
@@ -413,7 +413,7 @@ drive.
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br></dd>
 </dl>
 
 <p>
@@ -1725,9 +1725,9 @@ at an position s0 in the <i>housing</i>. May be used:
 </p>
 <ul>
 <li> to connect a compliant element, such as a spring or a damper,
-     between a sliding mass and the housing.
+     between a sliding mass and the housing.</li>
 <li> to fix a rigid element, such as a sliding mass, at a specific
-     position.
+     position.</li>
 </ul>
 
 </html>"));
@@ -2392,9 +2392,9 @@ numerical methods. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -2407,16 +2407,16 @@ requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
-<dt>Armstrong B. (1991):
+<dt>Armstrong B. (1991):</dt>
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
-    Press, Boston MA.<br><br>
-<dt>Armstrong B., and Canudas de Wit C. (1996):
+    Press, Boston MA.<br><br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
-    pp. 1369-1382.<br><br>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
+    pp. 1369-1382.<br><br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
 <dd><b>A new model for control of systems with friction.</b>
-    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
 </dl>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2600,9 +2600,9 @@ leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled. The method is described in:
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -2615,16 +2615,16 @@ requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
-<dt>Armstrong B. (1991):
+<dt>Armstrong B. (1991):</dt>
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
-    Press, Boston MA.<br><br>
-<dt>Armstrong B., and Canudas de Wit C. (1996):
+    Press, Boston MA.<br><br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
-    pp. 1369-1382.<br><br>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
+    pp. 1369-1382.<br><br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
 <dd><b>A new model for control of systems with friction.</b>
-    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br></dd>
 </dl>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
@@ -3072,7 +3072,7 @@ to the Stop element, other sliding masses, dampers or hydraulic chambers must be
 Entwurf hydraulischer Maschinen</a>. Springer Verlag Berlin Heidelberg New York.</dd>
 </dl>
 
-<P>The friction model is implemented in a \"clean\" way by state events and leads to
+<p>The friction model is implemented in a \"clean\" way by state events and leads to
 continuous/discrete systems of equations which have to be solved by appropriate
 numerical methods. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
@@ -3084,25 +3084,25 @@ numerical methods. The method is described in
     CACSD'99, Aug. 22.-26, Hawaii. </dd>
 </dl>
 
-<P>More precise friction models take into account the elasticity of the material when
+<p>More precise friction models take into account the elasticity of the material when
 the two elements are \"stuck\", as well as other effects, like hysteresis. This has
 the advantage that the friction element can be completely described by a differential
 equation without events. The drawback is that the system becomes stiff (about 10-20 times
 slower simulation) and that more material constants have to be supplied which requires more
 sophisticated identification. For more details, see the following references, especially
-(Armstrong and Canudas de Witt 1996): </P>
+(Armstrong and Canudas de Witt 1996): </p>
 <dl>
 <dt>
 Armstrong B. (1991):</dt>
-<DD><i>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<BR>
-</DD>
-<DT>Armstrong B., and Canudas de Wit C. (1996): </DT>
-<DD><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<BR>
-</DD>
-<DT>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </DT>
-<DD><i>A new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<BR>
-</DD>
-</DL>
+<dd><i>Control of Machines with Friction</i>. Kluwer Academic Press, Boston MA.<br>
+</dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996): </dt>
+<dd><i>Friction Modeling and Compensation.</i> The Control Handbook, edited by W.S.Levine, CRC Press, pp. 1369-1382.<br>
+</dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995): </dt>
+<dd><i>A new model for control of systems with friction.</i> IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br>
+</dd>
+</dl>
 
 <h4>Optional heatPort</h4>
 <p>
@@ -3257,7 +3257,7 @@ in the following way:
 <ul>
 <li> Connect an instance of this model between two flange connectors.</li>
 <li> The <b>relative position</b> and the <b>relative velocity</b>
-     between the two connectors are used as <b>state variables</b>.
+     between the two connectors are used as <b>state variables</b>.</li>
 </ul>
 <p>
 An example is given in the next figure
@@ -3668,12 +3668,13 @@ Modelica.Blocks library.
         a = der(v);
         a = ((s_ref - s)*w_crit - af*v)*(w_crit/bf);
       end if;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 The input signal <b>s_ref</b> defines the <b>reference
 position</b> in [m]. Flange <b>flange</b> is <b>forced</b>
 to move relative to the support connector according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
+</p>
 <ol>
 <li><b>exact=true</b><br>
     The reference position is treated <b>exactly</b>. This is only possible, if
@@ -3760,12 +3761,13 @@ blocks of the block library Modelica.Blocks.Sources.
         a = der(v);
         a = (v_ref - v)*w_crit;
       end if;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 The input signal <b>v_ref</b> defines the <b>reference
 speed</b> in [m/s]. Flange <b>flange</b> is <b>forced</b>
 to move relative to the support connector  according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
+</p>
 <ol>
 <li><b>exact=true</b><br>
     The reference speed is treated <b>exactly</b>. This is only possible, if
@@ -4069,12 +4071,12 @@ blocks of Modelica.Blocks.Source.
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
-              color={0,0,255})}), Documentation(info="<HTML>
+              color={0,0,255})}), Documentation(info="<html>
 <p>
 Model of force, linearly dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
 </p>
-</HTML>"));
+</html>"));
     end LinearSpeedDependentForce;
 
     model QuadraticSpeedDependentForce
@@ -4100,12 +4102,12 @@ Parameter ForceDirection chooses whether direction of force is the same in both 
                   points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{
                 0,-50},{20,-28},{40,-2},{60,28},{80,62},{100,100}},
                   color={0,0,127},
-                  smooth=Smooth.Bezier)}), Documentation(info="<HTML>
+                  smooth=Smooth.Bezier)}), Documentation(info="<html>
 <p>
 Model of force, quadratic dependent on velocity of flange.<br>
 Parameter ForceDirection chooses whether direction of force is the same in both directions of movement or not.
 </p>
-</HTML>"));
+</html>"));
     end QuadraticSpeedDependentForce;
 
     model ConstantForce "Constant force, not dependent on speed"
@@ -4178,11 +4180,11 @@ Negative force brakes in both directions of movement.</p>
               color={0,0,255}),Text(
                   extent={{-120,60},{124,36}},
                   lineColor={0,0,0},
-                  textString="%v_fixed")}), Documentation(info="<HTML>
+                  textString="%v_fixed")}), Documentation(info="<html>
 <p>
 Model of <b>fixed</b> velocity of flange, not dependent on force.
 </p>
-</HTML>"));
+</html>"));
     end ConstantSpeed;
 
     model ForceStep "Constant force, not dependent on speed"
@@ -4199,12 +4201,12 @@ Model of <b>fixed</b> velocity of flange, not dependent on force.
               60},{80,60}}, color={0,0,255}),Text(
                   extent={{0,-40},{100,-60}},
                   lineColor={0,0,0},
-                  textString="time")}), Documentation(info="<HTML>
+                  textString="time")}), Documentation(info="<html>
 <p>
 Model of a force step at time .<br>
 Positive force acts accelerating.
 </p>
-</HTML>"));
+</html>"));
     end ForceStep;
 
     annotation (Documentation(info="<html>
@@ -4281,6 +4283,7 @@ flanges are identical.
 </p>
 <p>
 The following variables are transported through this connector:
+</p>
 <pre>
   s: Absolute position of the flange in [m]. A positive translation
      means that the flange is translated along the flange axis.
@@ -4974,7 +4977,7 @@ connector is not connected).
                   visible=not useSupport,
                   points={{10,-120},{30,-100}}),Line(
                   visible=not useSupport,
-                  points={{-30,-100},{30,-100}})}), Documentation(info="<HTML>
+                  points={{-30,-100},{30,-100}})}), Documentation(info="<html>
 <p>
 Partial model of force that accelerates the flange.
 </p>
@@ -4985,7 +4988,7 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-</HTML>"));
+</html>"));
     end PartialForce;
 
     partial model PartialAbsoluteSensor
@@ -5135,9 +5138,9 @@ numerical methods. The method is described in
 (see also a short sketch in <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction\">UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 </html>"));
     end PartialFriction;
@@ -5183,6 +5186,7 @@ flanges are <i>rigidly attached</i> to each other. The components of this
 library can be usually connected together in an arbitrary way. E.g. it is
 possible to connect two springs or two sliding masses with inertia directly
 together.
+</p>
 <p> The only <i>connection restriction</i> is that the Coulomb friction
 elements (e.g., MassWithStopAndFriction) should be only connected
 together provided a compliant element, such as a spring, is in between.
@@ -5247,7 +5251,7 @@ positive if heat is flowing out of the heatPort). For an example, see
 </p>
 
 <dl>
-<dt><b>Library Officer</b>
+<dt><b>Library Officer</b></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> <br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik (DLR-RM)<br>
@@ -5255,7 +5259,7 @@ positive if heat is flowing out of the heatPort). For an example, see
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br><br></dd>
 </dl>
 
 <p>

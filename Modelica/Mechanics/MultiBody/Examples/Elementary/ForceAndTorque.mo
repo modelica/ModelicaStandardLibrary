@@ -72,7 +72,7 @@ equation
       points={{40,1},{40,10},{50,10},{50,28}},
       color={0,0,127}));
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 In this example the usage of the general force element
 \"<a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.ForceAndTorque\">ForceAndTorque</a>\"

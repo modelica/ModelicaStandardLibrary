@@ -164,7 +164,7 @@ Possible reasons:
             extent={{-150,60},{150,100}},
             textString="%name",
             lineColor={0,0,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when the relative distance \"s = 0\".
@@ -648,7 +648,7 @@ definition of the axes vectors n in the revolute joints of the planar loop.
             extent={{20,-60},{100,60}},
             lineColor={64,64,64},
             radius=10)}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint where frame_b rotates around axis n which is fixed in frame_a and
 where this joint is used in a planar loop providing 2 constraint equations
@@ -754,12 +754,13 @@ this force is an unknown quantity).
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint where frame_b rotates around and translates along axis n
 which is fixed in frame_a. The two frames coincide when
 \"phi=revolute.phi=0\" and \"s=prismatic.s=0\". This joint
 has the following potential states;
+</p>
 <ul>
 <li> The relative angle phi [rad] around axis n, </li>
 <li> the relative distance s [m] along axis n, </li>
@@ -899,13 +900,14 @@ vector \"n\" defining the cylinder axis
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint where frame_a rotates around axis n_a which is fixed in frame_a
 and frame_b rotates around axis n_b which is fixed in frame_b.
 The two frames coincide when
 \"revolute_a.phi=0\" and \"revolute_b.phi=0\". This joint
 has the following potential states;
+</p>
 <ul>
 <li> The relative angle phi_a = revolute_a.phi [rad] around axis n_a, </li>
 <li> the relative angle phi_b = revolute_b.phi [rad] around axis n_b, </li>
@@ -932,7 +934,7 @@ phi_b.start = 45<sup>o</sup>).
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Universal.png\">
 </p>
-</HTML>"),
+</html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -1129,7 +1131,7 @@ phi_b.start = 45<sup>o</sup>).
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint where frame_b can move in a plane and can rotate around an
 axis orthogonal to the plane. The plane is defined by
@@ -1138,6 +1140,7 @@ which points in the direction of the x-axis of the plane.
 frame_a and frame_b coincide when s_x=prismatic_x.s=0,
 s_y=prismatic_y.s=0 and phi=revolute.phi=0. This joint has the following
 potential states:
+</p>
 <ul>
 <li> the relative distance s_x = prismatic_x.s [m] along axis n_x, </li>
 <li> the relative distance s_y = prismatic_y.s [m] along axis n_y = cross(n,n_x), </li>
@@ -1708,7 +1711,7 @@ frame_b of the joint.
       phi_dd = zeros(3);
     end if;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint which does not constrain the motion between frame_a and frame_b.
 Such a joint is only meaningful if the <b>relative</b> distance and orientation
@@ -2152,7 +2155,7 @@ frame_b of the joint.
         points={{1,70},{10,70},{10,52},{-70,52},{-70,58}},
         color={0,0,127}));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Joint which does not constrain the motion between frame_a and frame_b.
 Such a joint is meaningful if the <b>relative</b> distance and orientation
@@ -6932,7 +6935,7 @@ and 1 prismatic joint are connected by rigid rods.
               color={95,95,95},
               thickness=0.5)}));
     end JointRRP;
-    annotation ( Documentation(info="<HTML>
+    annotation ( Documentation(info="<html>
 <p>
 The joints in this package are mainly designed to be used
 in <b>kinematic loop</b> structures. Every component consists of
@@ -7041,7 +7044,7 @@ pair of joints\" from Woernle and Hiller is described in:
     Problem of Robot Manipulators</b>.<br>
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
 </dl>
-</HTML>"));
+</html>"));
   end Assemblies;
 
   package Constraints "Components that define joints by constraints"
@@ -8485,7 +8488,7 @@ degree of freedom is lost.
               lineColor={0,0,0},
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
 The two frames coincide when \"s + s_offset = 0\", where
@@ -8723,7 +8726,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
               lineColor={0,0,0},
               textString="w_rel_b")}));
      end InitAngularVelocity;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The models in this package should not be used by the user.
 They are designed to build up other models in the MultiBody library
@@ -8731,10 +8734,10 @@ and some of them cannot be used in an arbitrary way and require
 particular knowledge how to set the options in the parameter menu.
 Don't use the models of this package.
 </p>
-</HTML>"));
+</html>"));
   end Internal;
 
-  annotation ( Documentation(info="<HTML>
+  annotation ( Documentation(info="<html>
 <p>
 This package contains <b>joint components</b>,
 that is, idealized, massless elements that constrain
@@ -8751,7 +8754,7 @@ solved, i.e., robustly and efficiently).
       <td valign=\"top\">Prismatic joint and actuated prismatic joint
           (1 translational degree-of-freedom, 2 potential states)<br>
       <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
-      </td>
+      </td></td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">Revolute</a>
  </td>
@@ -8809,7 +8812,7 @@ solved, i.e., robustly and efficiently).
       </td>
   </tr>
 </table>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={
         Polygon(
           points={{6,6},{28,-2},{54,80},{32,86},{6,6}},

@@ -309,14 +309,14 @@ connector.
             extent={{100,-25},{136,-50}},
             lineColor={128,128,128},
             textString="b")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This partial model provides two frame connectors, access to the world
 object and an assert to check that both frame connectors are connected.
 Therefore, inherit from this partial model if the two frame connectors are
 needed and if the two frame connectors should be connected for a correct model.
 </p>
-</HTML>"));
+</html>"));
   end PartialTwoFrames;
 
   partial model PartialTwoFramesDoubleSize
@@ -347,7 +347,7 @@ needed and if the two frame connectors should be connected for a correct model.
             extent={{110,-15},{122,-25}},
             lineColor={128,128,128},
             textString="b")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This partial model provides two frame connectors, access to the world
 object and an assert to check that both frame connectors are connected.
@@ -359,7 +359,7 @@ When dragging \"PartialTwoFrames\", the default size is a factor of two
 larger as usual. This partial model is used by the Joint.Assemblies
 joint aggregation models.
 </p>
-</HTML>"));
+</html>"));
   end PartialTwoFramesDoubleSize;
 
   partial model PartialOneFrame_a
@@ -402,14 +402,14 @@ needed and if this connector should be connected for a correct model.
             extent={{94,-20},{130,-45}},
             lineColor={128,128,128},
             textString="b")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This partial model provides one frame_b connector, access to the world
 object and an assert to check that the frame_b connector is connected.
 Therefore, inherit from this partial model if the frame_b connector is
 needed and if this connector should be connected for a correct model.
 </p>
-</HTML>"));
+</html>"));
   end PartialOneFrame_b;
 
   partial model PartialElementaryJoint
@@ -432,7 +432,7 @@ needed and if this connector should be connected for a correct model.
       "Connector frame_a of joint object is not connected");
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of joint object is not connected");
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 All <b>elementary joints</b> should inherit from this base model, i.e.,
 joints that are directly defined by equations, provided they compute
@@ -484,7 +484,7 @@ object and an assert to check that both frame connectors are connected.
        R);
     zeros(3) = frame_a.t + Frames.resolveRelative(frame_b.t + cross(r_rel_b,
       frame_b.f), frame_b.R, frame_a.R);
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 All <b>3-dimensional force</b> and <b>torque elements</b>
 should be based on this superclass.
@@ -519,7 +519,7 @@ Note, that frame_b.f and frame_b.t are flow variables and therefore
 the negative value of frame_b.f and frame_b.t is acting at the part
 to which this force element is connected.
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-136,42},{-100,17}},
             lineColor={128,128,128},
@@ -591,7 +591,7 @@ to which this force element is connected.
       frame_b.t = zeros(3);
     end if;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 All <b>line force</b> elements should be based on this base model.
 This model defines frame_a and frame_b, computes the relative
@@ -611,7 +611,7 @@ has to be defined. Example:
       f = c*(s-s_unstretched);
    <b>end</b> Spring;
 </pre>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
             extent={{-136,-44},{-100,-19}},
             lineColor={128,128,128},

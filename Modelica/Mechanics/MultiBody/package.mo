@@ -16,7 +16,7 @@ package UsersGuide "User's Guide of MultiBody Library"
     class OverView "Overview of MultiBody library"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -48,7 +48,7 @@ The main features of the library are:
     force laws can be defined with components of the Modelica.Mechanics.Rotational
     and of the Modelica.Mechanics.Translational library and can be
     connected via available flange connectors to MultiBody
-    components.
+    components.</li>
 <li>About <b>75 functions</b> to operate in a convenient way on
     orientation objects, e.g., to transform vector quantities between
     frames, or compute the orientation object of a planar rotation.
@@ -63,7 +63,7 @@ The main features of the library are:
      uniform gravity, point gravity), the visualization of the
      world coordinate system and default settings for animation.
      If a world model is not present, it is automatically provided
-     together with a warning message.
+     together with a warning message.</li>
 <li><b>Built-in animation properties</b> of all components, such as
     joints, forces, bodies, sensors. This allows an easy visual
     check of the constructed model. Animation of every component
@@ -145,7 +145,7 @@ The main features of the library are:
     class FirstExample "A first example"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 As a first example it shall be demonstrated how to build up, simulate
 and animate a <b>simple pendulum</b>.
@@ -244,7 +244,7 @@ in the middle of the light blue sphere.
       class Introduction "Introduction"
         extends Modelica.Icons.Information;
 
-        annotation (DocumentationClass=true, Documentation(info="<HTML>
+        annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 In principal, now special action is needed, if
 loop structures occur (contrary to the ModelicaAdditions.MultiBody library).
@@ -304,13 +304,13 @@ be performed also with the MultiBody library. This technique
 is described in section
 \"<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\".
 </p>
-</HTML>"));
+</html>"));
       end Introduction;
 
       class PlanarLoops "Planar loops"
         extends Modelica.Icons.Information;
 
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 <p>
 In the figure below, the model of a V6 engine is
 shown that has a simple combustion model. It is available as
@@ -399,13 +399,13 @@ highly recommended to use the techniques discussed in section
 \"<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>\"
 for such systems.
 </p>
-</HTML>"));
+</html>"));
       end PlanarLoops;
 
       class AnalyticLoopHandling "Analytic loop handling"
         extends Modelica.Icons.Information;
 
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 <p>
 It is well known that the non-linear
 algebraic equations of most mechanical loops in technical devices can be
@@ -579,7 +579,7 @@ and inertia of the rod is not significant.
 Let us discuss item (a) in more detail: The
 MacPherson suspension in the next figure
 is from the Modelica VehicleDynamics library.
-
+</p>
 <p>
 The JointSSP joint aggregation has a frame at the
 left side of the left spherical joint (frame_a) and a frame at the right side
@@ -781,7 +781,7 @@ The simulation time is about 5 times faster with the analytic loop handling.
 </p>
 </html>"));
       end AnalyticLoopHandling;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 The MultiBody library has the feature that all components
 can be connected together in a nearly arbitrary fashion.
@@ -800,7 +800,7 @@ analytically. There are the following sub-chapters:
 <li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>.
 </li>
 </ol>
-</HTML>"));
+</html>"));
     end LoopStructures;
 
     class ConnectionOfLineForces "Connection of LineForces"
@@ -888,7 +888,7 @@ orientation matrix of the body-fixed coordinate system are used as states.
 </html>"));
     end ConnectionOfLineForces;
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This tutorial provides an introduction into the
 MultiBody library.
@@ -908,13 +908,13 @@ MultiBody library</a> summarizes the most important aspects.
   explains how to connect line force components directly together.
 </li>
 </ol>
-</HTML>"));
+</html>"));
   end Tutorial;
 
   class Upgrade "Upgrade from Former Versions"
     extends Modelica.Icons.Information;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 If different versions of the MultiBody library are not
 compatible to each other, corresponding conversion scripts are
@@ -1002,6 +1002,7 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
 </table>
 <p>
 <b>Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</b>
+</p>
 <p>
 The conversion from MultiBody 0.99 to 1.0 does not work in some rare
 cases, where own components are implemented using functions of the
@@ -1084,7 +1085,7 @@ dynamical effects is described in:
 
     annotation (Documentation(info="<html>
 <dl>
-<dt><b>Library Officer:</b>
+<dt><b>Library Officer:</b></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br>
@@ -1092,7 +1093,7 @@ dynamical effects is described in:
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 <p><b>Acknowledgements:</b></p>
 <ul>
@@ -1121,7 +1122,7 @@ dynamical effects is described in:
 </html>"));
   end Contact;
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -1144,7 +1145,7 @@ gives an introduction into the most important aspects of the library.
   acknowledgments.
 </li>
 </ol>
-</HTML>"));
+</html>"));
 end UsersGuide;
 
 
@@ -1514,10 +1515,11 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 Model <b>World</b> represents a global coordinate system fixed in
 ground. This model serves several purposes:
+</p>
 <ul>
 <li> It is used as <b>inertial system</b> in which
      the equations of all elements of the MultiBody library
@@ -1580,7 +1582,7 @@ end World;
 
 
 annotation (
-  Documentation(info="<HTML>
+  Documentation(info="<html>
 <p>
 Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 3-dimensional mechanical components to model in a convenient way
@@ -1609,7 +1611,7 @@ Copyright &copy; 1998-2013, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={
         Polygon(
           points={{-58,76},{6,76},{-26,50},{-58,76}},

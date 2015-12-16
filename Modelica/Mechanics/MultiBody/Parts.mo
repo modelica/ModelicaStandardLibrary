@@ -315,7 +315,7 @@ animation = <b>false</b>.
             extent={{51,57},{66,45}},
             lineColor={128,128,128},
             textString="y")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Component for a <b>fixed translation</b> of frame_b with respect
 to frame_a, i.e., the relationship between connectors frame_a and frame_b
@@ -331,7 +331,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
 </p>
-</HTML>"));
+</html>"));
   end FixedTranslation;
 
   model FixedRotation
@@ -509,7 +509,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
   end if;
 */
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Component for a <b>fixed translation</b> and <b>fixed rotation</b> of frame_b with respect
 to frame_a, i.e., the relationship between connectors frame_a and frame_b
@@ -542,13 +542,13 @@ the animation may be switched off via parameter animation = <b>false</b>.
 <p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedRotation.png\" ALT=\"Parts.FixedRotation\">
 </p>
-</HTML>", revisions="<HTML><p><b>Release Notes:</b></p>
+</html>", revisions="<html><p><b>Release Notes:</b></p>
 <ul>
   <li><i>July 28, 2003</i><br>
          Bug fixed: if rotationType = PlanarRotationSequence, then 'angles'
          was used with unit [rad] instead of [deg].</li>
 </ul>
-</HTML>"),
+</html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -929,7 +929,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
             extent={{-20,60},{100,-60}},
             lineColor={0,24,48},
             fillPattern=FillPattern.Sphere,
-            fillColor={0,127,255})}), Documentation(info="<HTML>
+            fillColor={0,127,255})}), Documentation(info="<html>
 <p>
 <b>Rigid body</b> with mass and inertia tensor.
 All parameter vectors have to be resolved in frame_a.
@@ -1015,7 +1015,7 @@ then body variables are forced to be used as states according
 to the setting of parameters \"useQuaternions\" and
 \"sequence_angleStates\".
 </p>
-</HTML>"));
+</html>"));
   end Body;
 
   model BodyShape
@@ -1248,7 +1248,7 @@ to the setting of parameters \"useQuaternions\" and
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 <b>Rigid body</b> with mass and inertia tensor and <b>two frame connectors</b>.
 All parameter vectors have to be resolved in frame_a.
@@ -1521,7 +1521,7 @@ states and of the \"Advanced\" menu parameters, see model
         points={{-100,0},{-70,0},{-70,-60},{-30,-60}},
         color={95,95,95},
         thickness=0.5));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 <b>Rigid body</b> with <b>box</b> shape.
 The mass properties of the body (mass, center of mass,
@@ -1753,7 +1753,7 @@ states and of the \"Advanced\" menu parameters, see model
         points={{-100,0},{-70,0},{-70,-60},{-30,-60}},
         color={95,95,95},
         thickness=0.5));
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 <b>Rigid body</b> with <b>cylinder</b> shape.
 The mass properties of the body (mass, center of mass,
@@ -1773,7 +1773,7 @@ the animation may be switched off via parameter animation = <b>false</b>):
 <p>
 A BodyCylinder component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</html>"),
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p></html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -1902,7 +1902,7 @@ the only case where this is done.
             extent={{-50,50},{50,-50}},
             lineColor={0,24,48},
             fillPattern=FillPattern.Sphere,
-            fillColor={0,127,255})}), Documentation(info="<HTML>
+            fillColor={0,127,255})}), Documentation(info="<html>
 <p>
 <b>Rigid body</b> where the inertia tensor is neglected.
 This body is
@@ -1932,7 +1932,7 @@ automatically selected by the Modelica translator. If parameter
 then PointMass variables frame_a.r_0 and der(frame_a.r_0)
 are forced to be used as states.
 </p>
-</HTML>"));
+</html>"));
   end PointMass;
 
   model Mounting1D
@@ -2999,7 +2999,7 @@ frameMiddle is parallel to the world frame.
 </p>
 </html>"));
   end RollingWheelSet;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 Package <b>Parts</b> contains <b>rigid components</b> of a
 multi-body system. These components may be used to build up

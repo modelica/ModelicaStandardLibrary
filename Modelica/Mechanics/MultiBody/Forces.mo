@@ -89,7 +89,7 @@ package Forces "Components that exert forces and/or torques between frames"
             points={{0,-10},{0,-95}},
             color={95,95,95},
             pattern=LinePattern.Dot)}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
@@ -227,7 +227,7 @@ This leads to the following animation
         color={95,95,95},
         pattern=LinePattern.Dot));
     annotation (defaultComponentName="torque",
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
@@ -467,7 +467,7 @@ This leads to the following animation
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>force</b> and <b>torque</b>
 connector are interpreted
@@ -859,7 +859,7 @@ clarity this is not shown in the animation):
             pattern=LinePattern.Dot),
           Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
           Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
@@ -1122,7 +1122,7 @@ clarity this is not shown in the animation):
             extent={{20,124},{58,102}},
             lineColor={0,0,0},
             textString="t")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>force</b> connector and the
 <b>3</b> signals of the <b>torque</b> connector
@@ -2129,7 +2129,7 @@ in the other flange connector.
             extent={{62,50},{140,30}},
             lineColor={255,0,0},
             textString="R=0")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 <b>Linear spring</b> acting as line force between frame_a and frame_b.
 A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
@@ -2160,7 +2160,7 @@ spring characterizes the location of the point mass.
 ALT=\"model Examples.Elementary.SpringWithMass\">
 </p>
 
-</HTML>"));
+</html>"));
   end Spring;
 
   model Damper "Linear (velocity dependent) damper"
@@ -2218,7 +2218,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
     f = d*der(s);
     lossPower = f*der(s);
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 <b>Linear damper</b> acting as line force between frame_a and frame_b.
 A <b>force f</b> is exerted on the origin of frame_b and with opposite sign
@@ -2242,7 +2242,7 @@ where a mass is hanging on a damper.
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Damper.png\">
 </p>
 
-</HTML>"),
+</html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
@@ -2335,7 +2335,7 @@ where a mass is hanging on a damper.
     f = c*(s - s_unstretched) + f_d;
     lossPower = f_d*der(s);
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 <b>Linear spring</b> and <b>linear damper</b>
 in parallel acting as line force between frame_a and frame_b.
@@ -2438,7 +2438,7 @@ and der(s) is the time derivative of s.
     d*der(s_damper) = f;
     lossPower = f*der(s_damper);
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 <b>Linear spring</b> and <b>linear damper</b> in series connection
 acting as line force between frame_a and frame_b:
@@ -2622,7 +2622,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
               fillPattern=FillPattern.Solid),
             Line(points={{-64,0},{-20,0}}),
             Line(points={{20,0},{65,0}})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>force</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>force</b> acting at the frame
@@ -2752,7 +2752,7 @@ values from the outside in order that the model remains balanced
               pattern=LinePattern.Dot),
             Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,85}}),
             Line(points={{77,45},{66,60},{55,69},{49,74},{41,80},{31,84},{20,85}})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The <b>3</b> signals of the <b>torque</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
@@ -2856,7 +2856,7 @@ values from the outside in order that the model remains balanced
               points={{0,-10},{0,-95}},
               color={95,95,95},
               pattern=LinePattern.Dot)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The 3 signals of the <b>force</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>force</b> acting at the frame
@@ -2968,7 +2968,7 @@ values from the outside in order that the model remains balanced
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The 3 signals of the <b>torque</b> connector are interpreted
 as the x-, y- and z-coordinates of a <b>torque</b> acting at the frame
@@ -3051,7 +3051,7 @@ The models in this package should not be directly used by a user.
 </p>
 </html>"));
   end Internal;
-  annotation ( Documentation(info="<HTML>
+  annotation ( Documentation(info="<html>
 <p>
 This package contains components that exert forces and torques
 between two frame connectors, e.g., between two parts.
@@ -3124,5 +3124,5 @@ between two frame connectors, e.g., between two parts.
       <td valign=\"top\"> Linear spring and damper in series connection </td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
 end Forces;

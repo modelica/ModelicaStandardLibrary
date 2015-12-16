@@ -455,7 +455,7 @@ return a wrong result, if length(e) is not one.
           angle = atan2(-cross(e,v1)*v2, v1*v2 - (e*v1)*(e*v2));
     */
     angle := Modelica.Math.atan2(-cross(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
-    annotation (Inline=true, Documentation(info="<HTML>
+    annotation (Inline=true, Documentation(info="<html>
 <p>
 A call to this function of the form
 </p>
@@ -494,7 +494,7 @@ The function does not check the above assumptions. If these
 assumptions are violated, a wrong result will be returned
 and/or a division by zero will occur.
 </p>
-</HTML>"));
+</html>"));
   end planarRotationAngle;
 
   function axisRotation
@@ -673,7 +673,7 @@ Frames.planarRotation({0,1,0}, phi, der_phi)
       TransformationMatrices.resolve2(R.T, TransformationMatrices.resolve1(T_1a,
        e2_1a)));
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 A call to this function of the form
 </p>
@@ -718,7 +718,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
            = <b>{3,1,3}</b>  // Euler angle sequence
            = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
 </pre>
-</HTML>"));
+</html>"));
   end axesRotationsAngles;
 
   function smallRotation
@@ -1314,7 +1314,7 @@ confused with Modelica \"parameters\".
       annotation(Inline=true);
     end to_T_inv;
 
-    annotation ( Documentation(info="<HTML>
+    annotation ( Documentation(info="<html>
 <p>
 Package <b>Frames.Quaternions</b> contains type definitions and
 functions to transform rotational frame quantities with quaternions.
@@ -1380,6 +1380,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign=\"top\">Q = <b>nullRotation</b>()</td>
       <td valign=\"top\">Return quaternion object R that does not rotate a frame.
+      </td>
   </tr>
   <tr><td valign=\"top\">Q_inv = <b>inverseRotation</b>(Q);</td>
       <td valign=\"top\">Return inverse quaternion object.
@@ -1413,13 +1414,14 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign=\"top\">T = <b>to_T</b>(Q);</td>
       <td valign=\"top\">Return transformation matrix T from quaternion object Q.
+      </td>
   </tr>
   <tr><td valign=\"top\">T_inv = <b>to_T_inv</b>(Q);</td>
       <td valign=\"top\">Return inverse transformation matrix T_inv from quaternion object Q.
       </td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
   end Quaternions;
 
   package TransformationMatrices "Functions for transformation matrices"
@@ -1739,7 +1741,7 @@ Rotation can be defined by adapting this package correspondingly.
           angle = atan2(-cross(e,v1)*v2, v1*v2 - (e*v1)*(e*v2));
     */
       angle := Modelica.Math.atan2(-cross(e, v1)*v2, v1*v2 - (e*v1)*(e*v2));
-      annotation (Inline=true, Documentation(info="<HTML>
+      annotation (Inline=true, Documentation(info="<html>
 <p>
 A call to this function of the form
 </p>
@@ -1778,7 +1780,7 @@ The function does not check the above assumptions. If these
 assumptions are violated, a wrong result will be returned
 and/or a division by zero will occur.
 </p>
-</HTML>"));
+</html>"));
     end planarRotationAngle;
 
     function axisRotation
@@ -1917,7 +1919,7 @@ and/or a division by zero will occur.
         TransformationMatrices.resolve2(T, TransformationMatrices.resolve1(T_1a,
          e2_1a)));
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 A call to this function of the form
 </p>
@@ -1962,7 +1964,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
            = <b>{3,1,3}</b>  // Euler angle sequence
            = <b>{3,2,1}</b>  // Tait-Bryan angle sequence
 </pre>
-</HTML>"));
+</html>"));
     end axesRotationsAngles;
 
     function smallRotation
@@ -2179,7 +2181,7 @@ arbitrarily such that n_x and e_z are orthogonal to each other.
       exy := [T[1, :], T[2, :]];
       annotation(Inline=true);
     end to_exy;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Package <b>Frames.TransformationMatrices</b> contains type definitions and
 functions to transform rotational frame quantities using
@@ -2247,6 +2249,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign=\"top\">T= <b>nullRotation</b>()</td>
       <td valign=\"top\">Return orientation object T that does not rotate a frame.
+     </td>
   </tr>
   <tr><td valign=\"top\">T_inv = <b>inverseRotation</b>(T);</td>
       <td valign=\"top\">Return inverse orientation object.
@@ -2311,6 +2314,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign=\"top\">T = <b>to_T</b>(R);</td>
       <td valign=\"top\">Return transformation matrix T from orientation object R.
+      </td>
   </tr>
   <tr><td valign=\"top\">T_inv = <b>to_T_inv</b>(R);</td>
       <td valign=\"top\">Return inverse transformation matrix T_inv from orientation object R.
@@ -2323,9 +2327,10 @@ The used variables have the following declaration:
   <tr><td valign=\"top\">exy = <b>to_exy</b>(T);</td>
       <td valign=\"top\">Return [e_x, e_y] matrix of an orientation object T, <br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
+      </td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
   end TransformationMatrices;
 
   package Internal
@@ -2438,7 +2443,7 @@ library, this is irrelevant and therefore the usage of the function is correct.
     end resolveRelative_der;
   end Internal;
 
-  annotation ( Documentation(info="<HTML>
+  annotation ( Documentation(info="<html>
 <p>
 Package <b>Frames</b> contains type definitions and
 functions to transform rotational frame quantities. The basic idea is to
@@ -2501,6 +2506,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign=\"top\">R = <b>nullRotation</b>()</td>
       <td valign=\"top\">Return orientation object R that does not rotate a frame.
+     </td>
   </tr>
   <tr><td valign=\"top\">R_inv = <b>inverseRotation</b>(R);</td>
       <td valign=\"top\">Return inverse orientation object.
@@ -2573,6 +2579,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign=\"top\">T = <b>to_T</b>(R);</td>
       <td valign=\"top\">Return transformation matrix T from orientation object R.
+      </td>
   </tr>
   <tr><td valign=\"top\">T_inv = <b>to_T_inv</b>(R);</td>
       <td valign=\"top\">Return inverse transformation matrix T_inv from orientation object R.
@@ -2585,6 +2592,7 @@ The used variables have the following declaration:
   <tr><td valign=\"top\">exy = <b>to_exy</b>(R);</td>
       <td valign=\"top\">Return [e_x, e_y] matrix of an orientation object R, <br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
+      </td>
   </tr>
   <tr><td valign=\"top\">L = <b>length</b>(n_x);</td>
       <td valign=\"top\">Return length L of a vector n_x.
@@ -2609,7 +2617,7 @@ The used variables have the following declaration:
       </td>
   </tr>
 </table>
-</HTML>"), Icon(graphics={
+</html>"), Icon(graphics={
         Line(points={{-2,-18},{80,-60}}, color={95,95,95}),
         Line(points={{-2,-18},{-2,80}}, color={95,95,95}),
         Line(points={{-78,-56},{-2,-18}}, color={95,95,95})}));
