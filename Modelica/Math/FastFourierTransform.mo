@@ -311,7 +311,7 @@ results in the following output:
     input Real  u[:]
       "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
     output Integer info
-      "Information flag: 0/1/3 FFT computed/nu is not even/another error";
+      "Information flag (0: FFT computed, 1: nu is not even, 3: another error)";
     output Real amplitudes[ div(size(u,1),2)+1] "Amplitudes of FFT";
     output Real phases[     div(size(u,1),2)+1] "Phases of FFT";
   protected
@@ -408,7 +408,7 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
       input Real  u[:]
         "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
       output Integer info
-        "Information flag: 0/1/2/3 FFT computed/nu is not even/nwork is wrong/another error";
+        "Information flag (0: FFT computed, 1: nu is not even, 2: nwork is wrong, 3: another error)";
       output Real amplitudes[div(size(u,1),2)+1] "Amplitudes of FFT";
       output Real phases[    div(size(u,1),2)+1] "Phases of FFT";
     protected
