@@ -984,7 +984,7 @@ The linear admittance connects the complex voltage <code><u>v</u></code> with th
 complex current <code><u>i</u></code> by <code><u>v</u>*<u>G</u> = <u>i</u></code>.
 The impedance <code>G_ref</code> is given as complex input signal, representing the
 resistive and reactive component of the input admittance. The resistive
-component is modeled temperature dependent, so the real part <code>G = real(<u>Y</u>)</code> is detesrmined from
+component is modeled temperature dependent, so the real part <code>G = real(<u>Y</u>)</code> is determined from
 the actual operating temperature and the reference input conductance <code>real(<u>Y</u>_ref)</code>.
 </p>
 

@@ -429,7 +429,7 @@ ideal AC DC converter</a>, which is used in the
 <ul>
 <li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
-<li>Added active, reactive and aparrent power and power factor in interface models, see ticket
+<li>Added active, reactive and apparent power and power factor in interface models, see ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
 <li>Added complex single and multi phase impedance and admittance models (ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1367\">#1367</a>)</li>

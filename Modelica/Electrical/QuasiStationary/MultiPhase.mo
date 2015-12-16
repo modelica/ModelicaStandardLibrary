@@ -405,7 +405,7 @@ Delta (polygon) connection of a multi phase circuit.
                   thickness=0.5)}),
         Documentation(info="<html>
 <p>
-Star (wye) connection of a multi phase circuit consiting of multiple base systems (see
+Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). The potentials at the star points are all equal.
 </p>
 <h4>See also</h4>
@@ -465,7 +465,7 @@ Star (wye) connection of a multi phase circuit consiting of multiple base system
                   color={85,170,255},
                   thickness=0.5)}), Documentation(info="<html>
 <p>
-Delta (polygon) connection of a multi phase circuit consiting of multiple base systems (see
+Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
 </p>
 <h4>See also</h4>
@@ -1833,7 +1833,7 @@ Quasi stationary theory can be found in the
 
       annotation (Documentation(info="<HTML>
 <p>
-This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor.
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2026,7 +2026,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               extent={{-62,-74},{14,-86}},
               lineColor={0,0,0},
               textString="zero")}), Documentation(info="<HTML>
-          Transformation of space phasorto m phase values (voltages or currents).
+          Transformation of space phasor to m phase values (voltages or currents).
 </HTML>"));
     end FromSpacePhasor;
   end Blocks;
@@ -2064,7 +2064,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       annotation (Inline=true, Documentation(info="<HTML>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
-In quasistaionary operation, instantaneous power equals active power;
+In quasistationary operation, instantaneous power equals active power;
 </p>
 </HTML>"));
     end activePower;
@@ -2263,7 +2263,7 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representiong an equivalent RMS voltage vector <code>I</code> or phasor.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage vector <code>I</code> or phasor.
 </p>
 <pre>
  V = sqrt(sum(v[k]^2 for k in 1:m)/m)
@@ -2361,7 +2361,7 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
         Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representiong an equivalent RMS current vector <code>I</code> or phasor.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor.
 </p>
 <pre>
  I = sqrt(sum(i[k]^2 for k in 1:m)/m)
@@ -2860,7 +2860,7 @@ Additionally the reference angle is specified in the connector. The time derivat
           Modelica.ComplexMath.conj(i[k])) for k in 1:m}
         "Magnitude of complex apparent power";
       Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
-        "Magntiude of total complex apparent power";
+        "Magnitude of total complex apparent power";
       Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1
           :m} "Power factor";
       /*
@@ -2929,7 +2929,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
           Modelica.ComplexMath.conj(i[k])) for k in 1:m}
         "Magnitude of complex apparent power";
       Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
-        "Magntiude of total complex apparent power";
+        "Magnitude of total complex apparent power";
       Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1
           :m} "Power factor";
       /*

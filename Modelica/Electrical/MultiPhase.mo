@@ -736,7 +736,7 @@ when used in parallel to another component.
               color={0,0,255})}),
         Documentation(info="<html>
 <p>
-Star (wye) connection of a multi phase circuit consiting of multiple base systems (see
+Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>). The potentials at the star points are all equal.
 </p>
 <h4>See also</h4>
@@ -2381,7 +2381,7 @@ like thyristor, diode, switch, transformer.
 
       annotation (Documentation(info="<HTML>
 <p>
-This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2400,7 +2400,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       y := sqrt(sum(x .^ 2/size(x, 1)));
       annotation (Inline=true, Documentation(info="<HTML>
 <p>
-This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representiong an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
@@ -2418,7 +2418,7 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
       annotation (Inline=true, Documentation(info="<HTML>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
-In quasistaionary operation, instantaneous power equals active power;
+In quasistationary operation, instantaneous power equals active power;
 </p>
 </HTML>"));
     end activePower;
@@ -2732,7 +2732,7 @@ thus measuring the m potential differences <i>v[m]</i> between the m pins of plu
                   textString="%m")}), Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representiong an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage <code>V</code> vector or phasor. If the voltage waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  V = sqrt(sum(v[k]^2 for k in 1:m)/m)
@@ -2831,7 +2831,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
           Documentation(revisions="<html>
 </html>", info="<html>
 <p>
-This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representiong an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
+This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor. If the current waveform deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  I = sqrt(sum(i[k]^2 for k in 1:m)/m)

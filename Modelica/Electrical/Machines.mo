@@ -7327,7 +7327,7 @@ This package contains models of DC machines:
             quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcpm", Documentation(info="<HTML>
-<b>Quasistaionary model of a DC Machine with permanent magnets.</b><br>
+<b>Quasistationary model of a DC Machine with permanent magnets.</b><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet\">transient machine model of a DC machine with permanent magnets</a>;
 the only difference is that electrical transients are neglected.
@@ -7340,7 +7340,7 @@ the only difference is that electrical transients are neglected.
             quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcee", Documentation(info="<HTML>
-<b>Quasistaionary model of a DC Machine with electrical shunt or separate excitation.</b><br>
+<b>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</b><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited\">transient machine model of a DC machine with electrical shunt or separate excitation</a>;
 the only difference is that electrical transients are neglected.
@@ -7352,7 +7352,7 @@ the only difference is that electrical transients are neglected.
             quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachine;
         annotation (defaultComponentName="dcse", Documentation(info="<HTML>
-<b>Quasistaionary model of a DC Machine with Series excitation.</b><br>
+<b>Quasistationary model of a DC Machine with Series excitation.</b><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">transient machine model of a DC machine with with series excitation</a>;
 the only difference is that electrical transients are neglected.
@@ -7368,7 +7368,7 @@ the only difference is that electrical transients are neglected.
 <h4>Please note:</h4>
 <p>
 Quasistationary DC machine models are basically different from quasistationary induction machine models:
-Quasistaionary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
+Quasistationary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
 whereas quasistationary induction machine models are based on time phasor theory,
 see <a href=\"modelica://Modelica.Electrical.QuasiStationary\">QuasiStationary Library</a>,
 where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
