@@ -1,6 +1,6 @@
 /* ModelicaStandardTable.c - External table functions
 
-   Copyright (C) 2013-2015, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2016, Modelica Association, DLR and ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
