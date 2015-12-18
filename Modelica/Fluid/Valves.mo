@@ -339,8 +339,8 @@ explained in detail in the
             fillPattern=FillPattern.Solid),
           Polygon(
             points=DynamicSelect({{-100,0},{100,-0},{100,0},{0,0},{-100,-0},{-100,
-                0}}, {{-100,50*opening_actual},{-100,50*opening_actual},{100,-50*opening_actual},{
-                100,50*opening_actual},{0,0},{-100,-50*opening_actual},{-100,50*opening_actual}}),
+                0}}, {{-100,50*opening},{-100,50*opening},{100,-50*opening},{
+                100,50*opening},{0,0},{-100,-50*opening},{-100,50*opening}}),
             fillColor={0,255,0},
             lineColor={255,255,255},
             fillPattern=FillPattern.Solid),
