@@ -10,7 +10,11 @@ package Sources "Define fixed or prescribed boundary conditions"
     parameter Medium.AbsolutePressure p=Medium.p_default "Boundary pressure"
       annotation (Dialog(group = "Boundary pressure or Boundary density",
                          enable = use_p));
-    parameter Medium.Density d=Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
+  parameter Medium.Density d=
+   (if use_T then Medium.density_pTX(
+                    Medium.p_default,Medium.T_default,Medium.X_default)
+    else Medium.density_phX(
+                    Medium.p_default,Medium.h_default,Medium.X_default))
       "Boundary density"
       annotation (Dialog(group = "Boundary pressure or Boundary density",
                          enable=not use_p));
