@@ -209,10 +209,10 @@ end OpenTank;
 
         parameter Medium.MassFlowRate m_flow_nominal = if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
         "Nominal value for mass flow rates in ports"
-          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
+          annotation(Dialog(tab="Advanced", group="Port properties"));
         parameter SI.MassFlowRate m_flow_small(min=0) = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small
         "Regularization range at zero mass flow rate"
-          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
+          annotation(Dialog(tab="Advanced", group="Port properties"));
         parameter Boolean use_Re = system.use_eps_Re
         "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
           annotation(Dialog(tab="Advanced", group="Port properties"), Evaluate=true);
