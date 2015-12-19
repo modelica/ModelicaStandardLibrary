@@ -3437,6 +3437,12 @@ provide both values as output.
 Determine the linear combination of the two inputs:
 <code>y = y0*(1 + k1*u1 + k2*u2)</code>
 </p>
+<h3>Note:</h3>
+<p>
+For initial value y0=0 the output is always zero. 
+Therefore the implementation will be changed (non-backwards compatible) in the future:
+<code>y = y0* + k1*u1 + k2*u2</code>
+</p>
 </html>"));
   end LinearDependency;
 

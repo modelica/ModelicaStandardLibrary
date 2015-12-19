@@ -3127,12 +3127,7 @@ relationship of the voltage and current space phasor.
               extent={{90,-110},{110,-90}})));
       parameter Integer m=3 "Number of phases";
       parameter Real effectiveTurns "Effective number of turns";
-      // IMPORTANT NOTE
-      // This parameter may be removed in the final version of the library
-      // for consistency reasons with respect to the single phase
-      // electromagnetic converter, where the orientation shall NOT be
-      // implemented in the final version
-      final parameter Modelica.SIunits.Angle orientation=0
+      constant Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
       // Local electric multi phase quantities
       Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
