@@ -5,10 +5,6 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
 extends Modelica.Icons.Package;
 
 
-
-
-
-
 annotation (
   preferredView="info",
   Documentation(info="<HTML>
