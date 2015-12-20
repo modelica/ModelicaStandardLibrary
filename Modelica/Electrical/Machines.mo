@@ -12674,7 +12674,7 @@ Thermal parts for DC machines
           points={{80,1},{80,18}},
           color={0,0,127}));
       connect(temperatureCore.port, thermalPort.heatPortCore) annotation (Line(
-          points={{0,40},{0,100}},
+          points={{0,40},{0,70},{0,100},{1,100}},
           color={191,0,0}));
       connect(thermalCollector1.port_b, temperature1.port) annotation (Line(
           points={{-80,60},{-80,40}},
@@ -12683,10 +12683,10 @@ Thermal parts for DC machines
           points={{80,60},{80,40}},
           color={191,0,0}));
       connect(thermalCollector1.port_a, thermalPort.heatPort1) annotation (Line(
-          points={{-80,80},{-80,100},{0,100}},
+          points={{-80,80},{-80,102},{-1,102}},
           color={191,0,0}));
       connect(thermalCollector2.port_a, thermalPort.heatPort2) annotation (Line(
-          points={{80,80},{80,100},{0,100}},
+          points={{80,80},{80,98},{-1,98}},
           color={191,0,0}));
       annotation (Icon(graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
@@ -13209,7 +13209,7 @@ Partial model for induction machine models
         annotation (
           Diagram(graphics={Rectangle(
                 extent={{-60,60},{60,-60}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
                 extent={{-50,50},{50,-50}},
@@ -13218,7 +13218,7 @@ Partial model for induction machine models
                 fillPattern=FillPattern.Solid)}),
           Icon(graphics={Rectangle(
                 extent={{-110,110},{110,-110}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
                 extent={{-80,80},{80,-80}},
@@ -13312,11 +13312,11 @@ Partial thermal port for induction machines
 
         connect(temperatureStrayLoad.port, thermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,60},{60,100},{0,100}},
+            points={{60,60},{60,100},{1,100}},
             color={191,0,0}));
         connect(temperatureFriction.port, thermalPort.heatPortFriction)
           annotation (Line(
-            points={{80,40},{80,100},{0,100}},
+            points={{80,40},{80,96},{0,96}},
             color={191,0,0}));
         connect(thermalCollectorStator.port_b, temperatureStatorWinding.port)
           annotation (Line(
@@ -13324,15 +13324,15 @@ Partial thermal port for induction machines
             color={191,0,0}));
         connect(thermalCollectorStator.port_a, thermalPort.heatPortStatorWinding)
           annotation (Line(
-            points={{-80,80},{-80,100},{0,100}},
+            points={{-80,80},{-80,102},{-1,102}},
             color={191,0,0}));
         connect(temperatureStatorCore.port, thermalPort.heatPortStatorCore)
           annotation (Line(
-            points={{20,60},{20,100},{0,100}},
+            points={{20,60},{20,102},{1,102}},
             color={191,0,0}));
         connect(temperatureRotorCore.port, thermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{40,40},{40,100},{0,100}},
+            points={{40,40},{40,98},{1,98}},
             color={191,0,0}));
         annotation (Icon(graphics={
               Rectangle(
@@ -13718,7 +13718,7 @@ Partial model for DC machine models.
         annotation (
           Diagram(graphics={Rectangle(
                 extent={{-60,60},{60,-60}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
                 extent={{-50,50},{50,-50}},
@@ -13727,10 +13727,10 @@ Partial model for DC machine models.
                 fillPattern=FillPattern.Solid)}),
           Icon(graphics={Rectangle(
                 extent={{-110,110},{110,-110}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
-                extent={{-82,80},{78,-80}},
+                extent={{-80,80},{80,-80}},
                 lineColor={191,0,0},
                 fillColor={191,0,0},
                 fillPattern=FillPattern.Solid)}),
@@ -14214,19 +14214,19 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       annotation (
         Diagram(graphics={Rectangle(
-                  extent={{-60,60},{60,-60}},
-                  lineColor={199,0,0},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Ellipse(
+              extent={{-60,60},{60,-60}},
+              lineColor={191,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),    Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={191,0,0},
                   fillColor={191,0,0},
                   fillPattern=FillPattern.Solid)}),
         Icon(graphics={Rectangle(
-                  extent={{-110,110},{110,-110}},
-                  lineColor={199,0,0},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Ellipse(
+              extent={{-110,110},{110,-110}},
+              lineColor={191,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),    Ellipse(
                   extent={{-80,80},{80,-80}},
                   lineColor={191,0,0},
                   fillColor={191,0,0},
