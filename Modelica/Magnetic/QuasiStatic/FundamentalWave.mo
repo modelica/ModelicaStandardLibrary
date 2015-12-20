@@ -5224,7 +5224,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
       end SaliencyCageWinding;
 
       model PermanentMagnet
-        "Permanent magnet model without intrinsic reluctance, represeted by magnetic potential difference"
+        "Permanent magnet model without intrinsic reluctance, represented by magnetic potential difference"
         import Modelica;
         extends FundamentalWave.Losses.PermanentMagnetLosses;
         extends
