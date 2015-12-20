@@ -1189,7 +1189,7 @@ In this example the eddy current losses are implemented in two different ways. C
             points={{-20,90},{0,90},{0,70}},
             color={0,0,255}));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{0,50},{0,47.5},{9.992e-16,47.5},{9.992e-16,45},{0,45},{0,
+            points={{0,50},{0,47.5},{0,45},{0,
                 40}},
             color={0,0,255}));
         connect(booleanStep.y, idealCloser.control) annotation (Line(
@@ -1691,7 +1691,7 @@ Simulate for 1.5 seconds and plot (versus time):
             points={{-60,10},{-60,-60},{0,-60},{0,-68}},
             color={0,0,255}));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{0,50},{0,45},{9.992e-16,45},{9.992e-16,40},{0,40},{0,30}},
+            points={{0,50},{0,45},{0,40},{0,30}},
             color={0,0,255}));
 
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n) annotation (Line(
@@ -3399,7 +3399,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
             Line(points={{0,10},{0,-8}},                             color={0,0,
                 255}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p) annotation (
-            Line(points={{0,50},{0,45},{-1.1102e-16,45},{-1.1102e-16,40},{0,40},
+            Line(points={{0,50},{0,45},{0,40},
                 {0,30}}, color={0,0,255}));
         connect(signalVoltage.plug_p, currentRMSsensorE.plug_p) annotation (
             Line(points={{0,50},{0,50},{0,30},{-60,30}}, color={0,0,255}));
@@ -5764,7 +5764,7 @@ according to the following figure.
         connect(port_p, electroMagneticConverter.port_p)
           annotation (Line(points={{-100,0},{-10,0}}, color={255,128,0}));
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
-              points={{10,-5.72459e-17},{100,-5.72459e-17},{100,0}}, color={255,
+              points={{10,0},{100,0}}, color={255,
                 128,0}));
         connect(ground.p, star.pin_n) annotation (Line(points={{60,-20},{56,-20},
                 {50,-20}}, color={0,0,255}));
@@ -5784,7 +5784,7 @@ according to the following figure.
             points={{-10,20},{-30,20},{-30,0},{-100,0}},
             color={255,128,0}));
         connect(strayReluctance.port_n, port_n) annotation (Line(
-            points={{10,20},{30,20},{30,4.44089e-16},{100,4.44089e-16}},
+            points={{10,20},{30,20},{30,0},{100,0}},
             color={255,128,0}));
         connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
             Line(
@@ -6097,8 +6097,8 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
       equation
         connect(port_p, winding.port_p)
           annotation (Line(points={{-100,0},{-10,0}}, color={255,128,0}));
-        connect(winding.port_n, port_n) annotation (Line(points={{10,-5.72459e-17},
-                {100,-5.72459e-17},{100,0}}, color={255,128,0}));
+        connect(winding.port_n, port_n) annotation (Line(points={{10,0},
+                {100,0}}, color={255,128,0}));
         connect(ground.p, star.pin_n) annotation (Line(points={{60,-20},{56,-20},
                 {50,-20}}, color={0,0,255}));
         connect(strayInductor.plug_n, resistor.plug_p)

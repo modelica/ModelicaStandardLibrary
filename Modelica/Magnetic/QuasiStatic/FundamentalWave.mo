@@ -5156,10 +5156,10 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             points={{-10,-20},{-20,-20},{-20,-40}},
             color={85,170,255}));
         connect(strayReluctance.port_p, port_p) annotation (Line(
-            points={{-10,20},{-30,20},{-30,4.44089e-16},{-100,4.44089e-16}},
+            points={{-10,20},{-30,20},{-30,0},{-100,0}},
             color={255,170,85}));
         connect(strayReluctance.port_n, port_n) annotation (Line(
-            points={{10,20},{30,20},{30,4.44089e-16},{100,4.44089e-16}},
+            points={{10,20},{30,20},{30,0},{100,0}},
             color={255,170,85}));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

@@ -249,7 +249,7 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(idealthyristor.n, resistor.p) annotation (Line(
-              points={{4.44089e-16,40},{30,40}},
+              points={{0,40},{30,40}},
               color={0,0,255}));
           connect(resistor.n, currentSensor.p) annotation (Line(
               points={{30,20},{30,-40},{10,-40}},
@@ -359,7 +359,7 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}},
@@ -463,7 +463,7 @@ A freely available book is available in
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}},
@@ -832,7 +832,7 @@ A freely available book is available in
 
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,-10}},
@@ -969,7 +969,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 rotation=90)));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -1270,7 +1270,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               points={{-70,-40},{-70,-80}},
               color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60},{-6.66134e-16,-60}},
+              points={{68,-70},{0,-70},{0,-60}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -1285,7 +1285,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               points={{10,-50},{50,-50},{50,0}},
               color={0,0,255}));
           connect(star.plug_p, sineVoltage_p.plug_n) annotation (Line(
-              points={{-70,-20},{-70,1.33227e-15}},
+              points={{-70,-20},{-70,0}},
               color={0,0,255}));
           connect(star.pin_n, currentSensor.n) annotation (Line(
               points={{-70,-40},{-70,-50},{-10,-50}},
@@ -1703,7 +1703,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               points={{-36,11},{-36,22}},
               color={255,0,255}));
           connect(pulse2m.ac, sineVoltage.plug_p) annotation (Line(
-              points={{-40,6.66134e-16},{-80,6.66134e-16},{-80,-20}},
+              points={{-40,0},{-80,0},{-80,-20}},
               color={0,0,255}));
           connect(sineVoltage.plug_n, multiStarResistance.plug) annotation (
               Line(
@@ -2055,7 +2055,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -2102,10 +2102,10 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
               points={{-80,50},{-80,40}},
               color={0,0,255}));
           connect(lMains.plug_n, rectifier.ac) annotation (Line(
-              points={{-80,70},{-60,70},{-60,6.66134e-16},{-48,6.66134e-16}},
+              points={{-80,70},{-60,70},{-60,0},{-48,0}},
               color={0,0,255}));
           connect(rectifier.ac, pulse2.ac) annotation (Line(
-              points={{-48,6.66134e-16},{-60,6.66134e-16},{-60,-40},{-48,-40}},
+              points={{-48,0},{-60,0},{-60,-40},{-48,-40}},
               color={0,0,255}));
           connect(sinevoltage.plug_n, earthing.plug) annotation (Line(
               points={{-80,-10},{-80,-20}},
@@ -2203,7 +2203,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               points={{-100,-20},{-100,-50},{-80,-50},{-80,-80}},
               color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60},{-6.66134e-16,-60}},
+              points={{68,-70},{0,-70},{0,-60}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -2218,7 +2218,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
               points={{10,-50},{50,-50},{50,0}},
               color={0,0,255}));
           connect(sineVoltage_p.plug_n, sineVoltage_n.plug_p) annotation (Line(
-              points={{-70,1.33227e-15},{-70,-4},{-70,-4},{-70,-4},{-70,-4},{-70,
+              points={{-70,0},{-70,
                   -10}},
               color={0,0,255}));
           connect(sineVoltage_n.plug_n, rectifier.ac_n) annotation (Line(
@@ -2490,7 +2490,7 @@ In this example a PM excited DC machine is started with nominal torque at nomina
                 extent={{-10,10},{10,-10}})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,-10}},
@@ -2579,7 +2579,7 @@ single pulse rectifiers</a>; load is not yet included.</p>
                 origin={-30,-2})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(ground.p, sinevoltage.n) annotation (Line(
               points={{-80,-40},{-80,10}},
@@ -2679,7 +2679,7 @@ two pulse bridge rectifiers</a>; load is not yet included.</p>
                 origin={-30,0})));
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-60},{-4.44089e-16,-60},{-4.44089e-16,-50}},
+              points={{68,-60},{0,-60},{0,-50}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -2791,7 +2791,7 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
               points={{-70,-40},{-70,-80}},
               color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60},{-6.66134e-16,-60}},
+              points={{68,-70},{0,-70},{0,-60}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -2809,11 +2809,11 @@ center tap two pulse rectifiers</a>; load is not yet included.</p>
               points={{-36,11},{-36,28}},
               color={255,0,255}));
           connect(pulsem.ac, sineVoltage_p.plug_p) annotation (Line(
-              points={{-40,6.66134e-16},{-46,6.66134e-16},{-46,0},{-50,0},{-50,
+              points={{-40,0},{-50,0},{-50,
                   40},{-70,40},{-70,20}},
               color={0,0,255}));
           connect(star.plug_p, sineVoltage_p.plug_n) annotation (Line(
-              points={{-70,-20},{-70,1.33227e-15}},
+              points={{-70,-20},{-70,0}},
               color={0,0,255}));
           connect(star.pin_n, currentSensor.n) annotation (Line(
               points={{-70,-40},{-70,-50},{-10,-50}},
@@ -2916,7 +2916,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
               points={{-24,11},{-24,22}},
               color={255,0,255}));
           connect(pulse2m.ac, sineVoltage.plug_p) annotation (Line(
-              points={{-40,6.66134e-16},{-80,6.66134e-16},{-80,-20}},
+              points={{-40,0},{-80,0},{-80,-20}},
               color={0,0,255}));
           connect(sineVoltage.plug_n, multiStarResistance.plug) annotation (
               Line(
@@ -3005,7 +3005,7 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
               points={{-100,-20},{-100,-50},{-80,-50},{-80,-80}},
               color={0,0,255}));
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
-              points={{68,-70},{0,-70},{0,-60},{-6.66134e-16,-60}},
+              points={{68,-70},{0,-70},{0,-60}},
               color={0,0,127}));
           connect(voltagesensor.v, meanVoltage.u) annotation (Line(
               points={{60,10},{64,10},{64,40},{68,40}},
@@ -3023,11 +3023,11 @@ center tap <code>m</code> pulse rectifiers</a>, where <code>m</code> is the numb
               points={{-36,11},{-36,28}},
               color={255,0,255}));
           connect(pulse2m.ac, sineVoltage_p.plug_p) annotation (Line(
-              points={{-40,6.66134e-16},{-46,6.66134e-16},{-46,46},{-70,46},{-70,
+              points={{-40,0},{-46,0},{-46,46},{-70,46},{-70,
                   20}},
               color={0,0,255}));
           connect(sineVoltage_p.plug_n, sineVoltage_n.plug_p) annotation (Line(
-              points={{-70,1.33227e-15},{-70,-4},{-70,-4},{-70,-4},{-70,-4},{-70,
+              points={{-70,0},{-70,
                   -10}},
               color={0,0,255}));
           connect(sineVoltage_n.plug_n, rectifier.ac_n) annotation (Line(
@@ -3081,7 +3081,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{40,20},{40,30},{-30,30}},
               color={0,0,255}));
           connect(resistor.n, currentSensor.p) annotation (Line(
-              points={{40,1.33227e-15},{40,-70},{10,-70}},
+              points={{40,0},{40,-70},{10,-70}},
               color={0,0,255}));
           annotation (
             experiment(
@@ -3245,7 +3245,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{-30,30},{40,30},{40,20}},
               color={0,0,255}));
           connect(voltageSensor.plug_p, inverter.ac) annotation (Line(
-              points={{70,4.44089e-16},{70,30},{-30,30}},
+              points={{70,0},{70,30},{-30,30}},
               color={0,0,255}));
           connect(voltageSensor.plug_n, currentSensor.plug_n) annotation (Line(
               points={{70,-20},{70,-70},{40,-70},{40,-60}},
@@ -3387,7 +3387,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{40,0},{40,-10}},
               color={0,0,255}));
           connect(voltageSensor.plug_p, inverter.ac) annotation (Line(
-              points={{70,4.44089e-16},{70,30},{-30,30}},
+              points={{70,0},{70,30},{-30,30}},
               color={0,0,255}));
           connect(voltageSensor.plug_n, currentSensor.plug_n) annotation (Line(
               points={{70,-20},{70,-70},{40,-70},{40,-60}},
@@ -3481,7 +3481,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{-10,-70},{-90,-70},{-90,30}},
               color={0,0,255}));
           connect(voltageSensor.p, inverter.ac) annotation (Line(
-              points={{70,4.44089e-16},{70,30},{-30,30}},
+              points={{70,0},{70,30},{-30,30}},
               color={0,0,255}));
           connect(sine.y, signalPWM.dutyCycle) annotation (Line(
               points={{-51,-54},{-60,-54},{-60,-20},{-52,-20}},
@@ -3564,7 +3564,7 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               points={{30,40},{30,20}},
               color={0,0,255}));
           connect(inductor.n, currentSensor.p) annotation (Line(
-              points={{30,1.33227e-15},{30,-6},{0,-6}},
+              points={{30,0},{30,-6},{0,-6}},
               color={0,0,255}));
           annotation (
             experiment(
@@ -3630,7 +3630,7 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               points={{20,40},{20,20}},
               color={0,0,255}));
           connect(inductor.n, currentSensor.p) annotation (Line(
-              points={{20,0},{20,-6},{4.44089e-16,-6}},
+              points={{20,0},{20,-6},{0,-6}},
               color={0,0,255}));
           connect(resistor.p, hbridge.dc_p2) annotation (Line(
               points={{20,60},{20,70},{-30,70},{-30,6},{-40,6}},
@@ -3701,7 +3701,7 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               points={{40,20},{40,-60},{36,-60}},
               color={0,0,255}));
           connect(dcpm.pin_an, currentSensor.p) annotation (Line(
-              points={{24,-60},{24,-6},{4.44089e-16,-6}},
+              points={{24,-60},{24,-6},{0,-6}},
               color={0,0,255}));
           connect(dcpm.flange, torque.flange) annotation (Line(
               points={{40,-70},{50,-70}}));
@@ -4038,23 +4038,23 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
             points={{60,91},{60,110}},
             color={255,0,255}));
         connect(gain.y, replicator.u) annotation (Line(
-            points={{1.33227e-15,21},{1.33227e-15,28},{-2.66454e-15,28}},
+            points={{0,21},{0,28}},
             color={0,0,127}));
         connect(replicator.y, greaterPositive.u2) annotation (Line(
-            points={{1.55431e-15,51},{1.55431e-15,60},{-52,60},{-52,68}},
+            points={{0,51},{0,60},{-52,60},{-52,68}},
             color={0,0,127}));
         connect(replicator.y, negativeEqual.u2) annotation (Line(
-            points={{1.55431e-15,51},{1.55431e-15,52},{0,52},{0,60},{52,60},{52,
+            points={{0,51},{0,60},{52,60},{52,
                 68}},
             color={0,0,127}));
         connect(limiter.y, gain.u) annotation (Line(
-            points={{1.55431e-15,-9},{1.55431e-15,-2},{-2.66454e-15,-2}},
+            points={{0,-9},{0,-2}},
             color={0,0,127}));
         connect(firingAngle, limiter.u) annotation (Line(
-            points={{-8.88178e-16,-120},{0,-120},{0,-32},{-2.66454e-15,-32}},
+            points={{0,-120},{0,-32}},
             color={0,0,127}));
         connect(constantconstantFiringAngle.y, limiter.u) annotation (Line(
-            points={{-19,-80},{0,-80},{0,-32},{-2.66454e-15,-32}},
+            points={{-19,-80},{0,-80},{0,-32}},
             color={0,0,127}));
         connect(v, filter.u) annotation (Line(
             points={{-120,0},{-100,0},{-100,-80},{-92,-80}},
@@ -4067,7 +4067,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                 {60,-2}},
             color={0,0,127}));
         connect(realPassThrough.u, v) annotation (Line(
-            points={{-92,-50},{-100,-50},{-100,0},{-120,0},{-120,8.88178e-16}},
+            points={{-92,-50},{-100,-50},{-100,0},{-120,0}},
             color={0,0,127}));
         connect(realPassThrough.y, positiveThreshold.u) annotation (Line(
             points={{-69,-50},{-60,-50},{-60,-2}},
@@ -4156,8 +4156,8 @@ General information about controllers is summarized in
               origin={60,110})));
       equation
         connect(voltageSensor.v, twoPulse.v[1]) annotation (Line(
-            points={{-70,-2.22045e-15},{-60,-2.22045e-15},{-60,0},{-12,0},{-12,
-                8.88178e-16}},
+            points={{-70,0},{-12,
+                0}},
             color={0,0,127}));
         connect(voltageSensor.p, ac_p) annotation (Line(
             points={{-80,10},{-80,60},{-100,60}},
@@ -4166,7 +4166,7 @@ General information about controllers is summarized in
             points={{-80,-10},{-80,-60},{-100,-60}},
             color={0,0,255}));
         connect(firingAngle, twoPulse.firingAngle) annotation (Line(
-            points={{8.88178e-16,-120},{8.88178e-16,-12}},
+            points={{0,-120},{0,-12}},
             color={0,0,127}));
         connect(twoPulse.fire_n[1], fire_n) annotation (Line(
             points={{6,11},{6,80},{60,80},{60,110}},
@@ -4267,11 +4267,10 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
               origin={60,110})));
       equation
         connect(ac, voltageSensor.plug_p) annotation (Line(
-            points={{-100,4.44089e-16},{-100,-4.44089e-16},{-44,-4.44089e-16}},
+            points={{-100,0},{-44,0}},
             color={0,0,255}));
         connect(voltageSensor.plug_p, delta.plug_n) annotation (Line(
-            points={{-44,-4.44089e-16},{-54,-4.44089e-16},{-54,0},{-62,0},{-62,
-                -4.44089e-16},{-80,-4.44089e-16}},
+            points={{-44,0},{-80,0}},
             color={0,0,255}));
         connect(delta.plug_p, voltageSensor.plug_n) annotation (Line(
             points={{-80,20},{-44,20}},
@@ -4280,8 +4279,7 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
             points={{-33,10},{-12,10}},
             color={0,0,127}));
         connect(firingAngle, twomPulse.firingAngle) annotation (Line(
-            points={{1.11022e-15,-120},{1.11022e-15,-26},{0,-26},{0,-14},{
-                4.44089e-16,-14},{4.44089e-16,-2}},
+            points={{0,-120},{0,-2}},
             color={0,0,127}));
         connect(twomPulse.fire_n, fire_n) annotation (Line(
             points={{6,21},{6,80},{60,80},{60,110}},
@@ -4378,14 +4376,13 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
           annotation (Placement(transformation(extent={{-28,-10},{-8,10}})));
       equation
         connect(firingAngle, twomPulse.firingAngle) annotation (Line(
-            points={{8.88178e-16,-120},{8.88178e-16,-80},{10,-80},{10,-12}},
+            points={{0,-120},{0,-80},{10,-80},{10,-12}},
             color={0,0,127}));
         connect(voltageSensor.plug_p, delta.plug_p) annotation (Line(
-            points={{-60,6.66134e-16},{-66,6.66134e-16},{-66,0},{-68,0},{-68,
-                4.44089e-16},{-70,4.44089e-16}},
+            points={{-60,0},{-70,0}},
             color={0,0,255}));
         connect(ac, delta.plug_n) annotation (Line(
-            points={{-100,4.44089e-16},{-90,4.44089e-16}},
+            points={{-100,0},{-90,0}},
             color={0,0,255}));
         connect(gain.y, twomPulse.v) annotation (Line(
             points={{-7,0},{-2,0}},
@@ -4594,16 +4591,16 @@ enabling signal is taken from the optional signal input <code>enable</code>.
           points={{10,-60},{102,-60}},
           color={0,0,255}));
       connect(diode_n1.heatPort, heatPort) annotation (Line(
-          points={{20,-50},{20,-100},{4.44089e-16,-100}},
+          points={{20,-50},{20,-100},{0,-100}},
           color={191,0,0}));
       connect(diode_n2.heatPort, heatPort) annotation (Line(
-          points={{50,-50},{50,-100},{4.44089e-16,-100}},
+          points={{50,-50},{50,-100},{0,-100}},
           color={191,0,0}));
       connect(diode_p1.heatPort, heatPort) annotation (Line(
-          points={{0,50},{-50,50},{-50,-100},{4.44089e-16,-100}},
+          points={{0,50},{-50,50},{-50,-100},{0,-100}},
           color={191,0,0}));
       connect(diode_p2.heatPort, heatPort) annotation (Line(
-          points={{30,50},{30,30},{-50,30},{-50,-100},{4.44089e-16,-100}},
+          points={{30,50},{30,30},{-50,30},{-50,-100},{0,-100}},
           color={191,0,0}));
       connect(ac_p, diode_p1.p) annotation (Line(
           points={{-100,60},{-60,60},{-60,20},{10,20},{10,40}},
@@ -4747,16 +4744,16 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
           points={{-20,-60},{102,-60}},
           color={0,0,255}));
       connect(thyristor_n1.heatPort, heatPort) annotation (Line(
-          points={{-10,-50},{0,-50},{0,-100},{4.44089e-16,-100}},
+          points={{-10,-50},{0,-50},{0,-100}},
           color={191,0,0}));
       connect(thyristor_n2.heatPort, heatPort) annotation (Line(
-          points={{10,-50},{0,-50},{0,-100},{4.44089e-16,-100}},
+          points={{10,-50},{0,-50},{0,-100}},
           color={191,0,0}));
       connect(thyristor_p1.heatPort, heatPort) annotation (Line(
-          points={{-10,50},{0,50},{0,-100},{4.44089e-16,-100}},
+          points={{-10,50},{0,50},{0,-100}},
           color={191,0,0}));
       connect(thyristor_p2.heatPort, heatPort) annotation (Line(
-          points={{10,50},{0,50},{0,-100},{4.44089e-16,-100}},
+          points={{10,50},{0,50},{0,-100}},
           color={191,0,0}));
       connect(ac_p, thyristor_p1.p) annotation (Line(
           points={{-100,60},{-100,20},{-20,20},{-20,40}},
@@ -4913,16 +4910,16 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
           points={{-20,-60},{102,-60}},
           color={0,0,255}));
       connect(diode_n1.heatPort, heatPort) annotation (Line(
-          points={{-10,-50},{0,-50},{0,-100},{4.44089e-16,-100}},
+          points={{-10,-50},{0,-50},{0,-100}},
           color={191,0,0}));
       connect(diode_n2.heatPort, heatPort) annotation (Line(
-          points={{10,-50},{0,-50},{0,-100},{4.44089e-16,-100}},
+          points={{10,-50},{0,-50},{0,-100}},
           color={191,0,0}));
       connect(thyristor_p1.heatPort, heatPort) annotation (Line(
-          points={{-10,50},{0,50},{0,-100},{4.44089e-16,-100}},
+          points={{-10,50},{0,50},{0,-100}},
           color={191,0,0}));
       connect(thyristor_p2.heatPort, heatPort) annotation (Line(
-          points={{10,50},{0,50},{0,-100},{4.44089e-16,-100}},
+          points={{10,50},{0,50},{0,-100}},
           color={191,0,0}));
       connect(ac_p, thyristor_p1.p) annotation (Line(
           points={{-100,60},{-100,20},{-20,20},{-20,40}},
@@ -5047,11 +5044,11 @@ The circuit topology is the same as in
           points={{10,-60},{100,-60},{100,0}},
           color={0,0,255}));
       connect(diode_n.heatPort, heatPort) annotation (Line(
-          points={{6.66134e-16,-70},{6.66134e-16,-100},{0,-100}},
+          points={{0,-70},{0,-100}},
           color={191,0,0}));
       connect(diode_p.heatPort, heatPort) annotation (Line(
-          points={{6.66134e-16,50},{6.66134e-16,40},{20,40},{20,-100},{
-              4.44089e-16,-100}},
+          points={{0,50},{0,40},{20,40},{20,-100},{
+              0,-100}},
           color={191,0,0}));
       annotation (
         Icon(coordinateSystem(
@@ -5152,14 +5149,14 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
           points={{10,60},{100,60},{100,0}},
           color={0,0,255}));
       connect(thyristor_n.n, dc_p) annotation (Line(
-          points={{10,-60},{100,-60},{100,4.44089e-16}},
+          points={{10,-60},{100,-60},{100,0}},
           color={0,0,255}));
       connect(thyristor_n.heatPort, heatPort) annotation (Line(
-          points={{6.66134e-16,-70},{6.66134e-16,-100},{4.44089e-16,-100}},
+          points={{0,-70},{0,-100}},
           color={191,0,0}));
       connect(thyristor_p.heatPort, heatPort) annotation (Line(
-          points={{6.66134e-16,50},{6.66134e-16,40},{20,40},{20,-100},{
-              4.44089e-16,-100}},
+          points={{0,50},{0,40},{20,40},{20,-100},{
+              0,-100}},
           color={191,0,0}));
       connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
           points={{-60,-69},{-60,80},{7,80},{7,71}},
@@ -5250,13 +5247,13 @@ General information about AC/DC converters can be found at the
         LossPower = sum(diode.idealDiode.LossPower);
       end if;
       connect(diode.plug_n, star.plug_p) annotation (Line(
-          points={{0,0},{22,0},{22,-6.66134e-16},{70,-6.66134e-16}},
+          points={{0,0},{70,0}},
           color={0,0,255}));
       connect(star.pin_n, dc_p) annotation (Line(
-          points={{90,-6.66134e-16},{100,-6.66134e-16},{100,4.44089e-16}},
+          points={{90,0},{100,0}},
           color={0,0,255}));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{30,-100}},
+          points={{0,-100},{30,-100}},
           color={191,0,0}));
       connect(diode.heatPort, thermalCollector.port_a) annotation (Line(
           points={{-10,-10},{-10,-20},{30,-20},{30,-80}},
@@ -5353,10 +5350,10 @@ The circuit topology is the same as in
           points={{0,0},{70,0}},
           color={0,0,255}));
       connect(star.pin_n, dc_p) annotation (Line(
-          points={{90,4.44089e-16},{100,4.44089e-16}},
+          points={{90,0},{100,0}},
           color={0,0,255}));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{30,-100}},
+          points={{0,-100},{30,-100}},
           color={191,0,0}));
       connect(thyristor.heatPort, thermalCollector.port_a) annotation (Line(
           points={{-10,-10},{-10,-20},{30,-20},{30,-80}},
@@ -5462,10 +5459,10 @@ See example
         LossPower = sum(diode_p.idealDiode.LossPower) + sum(diode_n.idealDiode.LossPower);
       end if;
       connect(ac, diode_p.plug_p) annotation (Line(
-          points={{-100,4.44089e-16},{-100,0},{0,0},{0,30}},
+          points={{-100,0},{-100,0},{0,0},{0,30}},
           color={0,0,255}));
       connect(diode_p.plug_p, diode_n.plug_n) annotation (Line(
-          points={{0,30},{0,-30},{1.11022e-15,-30}},
+          points={{0,30},{0,-30}},
           color={0,0,255}));
       connect(diode_p.plug_n, star_p.plug_p) annotation (Line(
           points={{0,50},{0,60},{70,60}},
@@ -5588,25 +5585,25 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
         LossPower = sum(thyristor_p.idealThyristor.LossPower) + sum(thyristor_n.idealThyristor.LossPower);
       end if;
       connect(ac, thyristor_p.plug_p) annotation (Line(
-          points={{-100,0},{-2.22045e-16,0},{-2.22045e-16,30}},
+          points={{-100,0},{0,0},{0,30}},
           color={0,0,255}));
       connect(thyristor_p.plug_p, thyristor_n.plug_n) annotation (Line(
-          points={{-2.22045e-16,30},{8.88178e-16,30},{8.88178e-16,0}},
+          points={{0,30},{0,0}},
           color={0,0,255}));
       connect(thyristor_p.plug_n, star_p.plug_p) annotation (Line(
-          points={{1.33227e-15,50},{1.33227e-15,60},{70,60}},
+          points={{0,50},{0,60},{70,60}},
           color={0,0,255}));
       connect(star_p.pin_n, dc_p) annotation (Line(
           points={{90,60},{100,60}},
           color={0,0,255}));
       connect(thyristor_n.plug_p, star_n.plug_p) annotation (Line(
-          points={{-2.22045e-16,-20},{-2.22045e-16,-30},{70,-30}},
+          points={{0,-20},{0,-30},{70,-30}},
           color={0,0,255}));
       connect(star_n.pin_n, dc_n) annotation (Line(
           points={{90,-30},{100,-30},{100,-60},{102,-60}},
           color={0,0,255}));
       connect(heatPort, thermalConnector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{20,-100}},
+          points={{0,-100},{20,-100}},
           color={191,0,0}));
       connect(thermalConnector.port_a, thyristor_n.heatPort) annotation (Line(
           points={{20,-80},{20,-10},{10,-10}},
@@ -5727,7 +5724,7 @@ See example
         LossPower = sum(thyristor_p.idealThyristor.LossPower) + sum(diode_n.idealDiode.LossPower);
       end if;
       connect(ac, thyristor_p.plug_p) annotation (Line(
-          points={{-100,4.44089e-16},{0,4.44089e-16},{0,30}},
+          points={{-100,0},{0,0},{0,30}},
           color={0,0,255}));
       connect(thyristor_p.plug_p, diode_n.plug_n) annotation (Line(
           points={{0,30},{0,-30}},
@@ -5745,7 +5742,7 @@ See example
           points={{90,-60},{102,-60}},
           color={0,0,255}));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{20,-100}},
+          points={{0,-100},{20,-100}},
           color={191,0,0}));
       connect(thermalCollector.port_a, diode_n.heatPort) annotation (Line(
           points={{20,-80},{20,-40},{10,-40}},
@@ -5871,7 +5868,7 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
           points={{90,60},{100,60},{100,0}},
           color={0,0,255}));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{30,-100}},
+          points={{0,-100},{30,-100}},
           color={191,0,0}));
       connect(thermalCollector.port_a, diode_n.heatPort) annotation (Line(
           points={{30,-80},{-10,-80},{-10,-70}},
@@ -5889,7 +5886,7 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
           points={{-20,-60},{-100,-60}},
           color={0,0,255}));
       connect(diode_n.plug_n, star_n.plug_p) annotation (Line(
-          points={{4.44089e-16,-60},{72,-60}},
+          points={{0,-60},{72,-60}},
           color={0,0,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -5997,7 +5994,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
           points={{90,60},{100,60},{100,0}},
           color={0,0,255}));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{30,-100}},
+          points={{0,-100},{30,-100}},
           color={191,0,0}));
       connect(thermalCollector.port_a, thyristor_n.heatPort) annotation (Line(
           points={{30,-80},{-10,-80},{-10,-70}},
@@ -6015,7 +6012,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
           points={{-20,-60},{-100,-60}},
           color={0,0,255}));
       connect(thyristor_n.plug_n, star_n.plug_p) annotation (Line(
-          points={{4.44089e-16,-60},{72,-60}},
+          points={{0,-60},{72,-60}},
           color={0,0,255}));
       connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
           points={{-60,-69},{-60,80},{-3,80},{-3,71}},
@@ -6158,16 +6155,16 @@ General information about AC/DC converters can be found at the
           points={{100,0},{50,0},{50,10},{30,10}},
           color={0,0,255}));
       connect(transistor_p.heatPort, heatPort) annotation (Line(
-          points={{40,20},{40,0},{4.44089e-16,0},{4.44089e-16,-100}},
+          points={{40,20},{40,0},{0,0},{0,-100}},
           color={191,0,0}));
       connect(transistor_n.heatPort, heatPort) annotation (Line(
-          points={{40,-20},{40,-40},{4.44089e-16,-40},{4.44089e-16,-100}},
+          points={{40,-20},{40,-40},{0,-40},{0,-100}},
           color={191,0,0}));
       connect(diode_p.heatPort, heatPort) annotation (Line(
-          points={{80,20},{80,-40},{4.44089e-16,-40},{4.44089e-16,-100}},
+          points={{80,20},{80,-40},{0,-40},{0,-100}},
           color={191,0,0}));
       connect(diode_n.heatPort, heatPort) annotation (Line(
-          points={{80,-20},{80,-40},{4.44089e-16,-40},{4.44089e-16,-100}},
+          points={{80,-20},{80,-40},{0,-40},{0,-100}},
           color={191,0,0}));
       connect(andCondition_p.y, transistor_p.fire) annotation (Line(
           points={{-60,-69},{-60,13},{19,13}},
@@ -6341,19 +6338,19 @@ An example of a single phase inverter with PWM voltage control is included in
           points={{30,-10},{50,-10},{50,0},{100,0}},
           color={0,0,255}));
       connect(heatPort, thermalCollector.port_b) annotation (Line(
-          points={{4.44089e-16,-100},{0,-100},{0,-60},{6.66134e-16,-60}},
+          points={{0,-100},{0,-60}},
           color={191,0,0}));
       connect(thermalCollector.port_a, transistor_n.heatPort) annotation (Line(
-          points={{6.66134e-16,-40},{6.66134e-16,-36},{40,-36},{40,-20}},
+          points={{0,-40},{0,-36},{40,-36},{40,-20}},
           color={191,0,0}));
       connect(diode_n.heatPort, thermalCollector.port_a) annotation (Line(
-          points={{80,-20},{80,-36},{6.66134e-16,-36},{6.66134e-16,-40}},
+          points={{80,-20},{80,-36},{0,-36},{0,-40}},
           color={191,0,0}));
       connect(transistor_p.heatPort, thermalCollector.port_a) annotation (Line(
-          points={{40,20},{40,4},{6.66134e-16,4},{6.66134e-16,-40}},
+          points={{40,20},{40,4},{0,4},{0,-40}},
           color={191,0,0}));
       connect(diode_p.heatPort, thermalCollector.port_a) annotation (Line(
-          points={{80,20},{80,4},{6.66134e-16,4},{6.66134e-16,-40}},
+          points={{80,20},{80,4},{0,4},{0,-40}},
           color={191,0,0}));
       connect(andCondition_p.y, transistor_p.fire) annotation (Line(
           points={{-60,-69},{-60,13},{19,13}},
@@ -6481,16 +6478,13 @@ General information about DC/AC converters can be found at the
             points={{-79,-50},{-70,-50},{-70,0},{-62,0}},
             color={0,0,127}));
         connect(dutyCycle, limiter.u) annotation (Line(
-            points={{-120,1.11022e-15},{-96,1.11022e-15},{-96,0},{-70,0},{-70,
-                6.66134e-16},{-62,6.66134e-16}},
+            points={{-120,0},{-62,0}},
             color={0,0,127}));
         connect(limiter.y, zeroOrderHold.u) annotation (Line(
-            points={{-39,6.66134e-16},{-38,6.66134e-16},{-38,4.44089e-16},{-36,
-                4.44089e-16},{-36,8.88178e-16},{-32,8.88178e-16}},
+            points={{-39,0},{-32,0}},
             color={0,0,127}));
         connect(zeroOrderHold.y, greaterEqual.u2) annotation (Line(
-            points={{-9,6.66134e-16},{-4,6.66134e-16},{-4,-4.44089e-16},{0,-4.44089e-16},
-                {0,4.44089e-16},{10,4.44089e-16}},
+            points={{-9,0},{10,0}},
             color={0,0,127}));
         connect(sawtooth.y, greaterEqual.u1) annotation (Line(
             points={{-39,-50},{0,-50},{0,-8},{10,-8}},
@@ -6670,10 +6664,10 @@ Currently there is only one PWM method provided in this library.
           points={{10,60},{100,60}},
           color={0,0,255}));
       connect(transistor.heatPort, heatPort) annotation (Line(
-          points={{6.66134e-16,50},{0,50},{0,-100},{4.44089e-16,-100}},
+          points={{0,50},{0,-100}},
           color={191,0,0}));
       connect(diode.heatPort, heatPort) annotation (Line(
-          points={{30,2.22045e-16},{30,0},{0,0},{0,-100},{4.44089e-16,-100}},
+          points={{30,0},{0,0},{0,-100}},
           color={191,0,0}));
       connect(dc_p1, transistor.p) annotation (Line(
           points={{-100,60},{-10,60}},
@@ -6808,7 +6802,7 @@ This is a conventional step down chopper model. It consists of a transistor and 
         LossPower = inverter_p.LossPower + inverter_n.LossPower;
       end if;
       connect(inverter_n.heatPort, heatPort) annotation (Line(
-          points={{-48,-40},{-48,-70},{-10,-70},{-10,-100},{4.44089e-16,-100}},
+          points={{-48,-40},{-48,-70},{-10,-70},{-10,-100},{0,-100}},
           color={191,0,0}));
       connect(inverter_p.heatPort, heatPort) annotation (Line(
           points={{-10,20},{-10,-100},{0,-100}},
@@ -6826,7 +6820,7 @@ This is a conventional step down chopper model. It consists of a transistor and 
           points={{-100,-60},{-80,-60},{-80,20},{-20,20}},
           color={0,0,255}));
       connect(inverter_p.ac, dc_p2) annotation (Line(
-          points={{4.44089e-16,30},{100,30},{100,60}},
+          points={{0,30},{100,30},{100,60}},
           color={0,0,255}));
       connect(inverter_n.ac, dc_n2) annotation (Line(
           points={{-38,-30},{100,-30},{100,-60}},
@@ -6929,14 +6923,14 @@ General information about DC/DC converters can be found at the
             origin={-110,0})));
     equation
       connect(internalEnable, booleanReplicator.y) annotation (Line(
-          points={{-110,4.44089e-16},{-11,4.44089e-16}},
+          points={{-110,0},{-11,0}},
           color={255,0,255}));
       connect(enable, booleanReplicator.u) annotation (Line(
-          points={{100,-120},{100,-80},{40,-80},{40,-40},{40,8.88178e-16},{26,
-              8.88178e-16},{12,8.88178e-16}},
+          points={{100,-120},{100,-80},{40,-80},{40,-40},{40,0},{26,
+              0},{12,0}},
           color={255,0,255}));
       connect(enableConstantSource.y, booleanReplicator.u) annotation (Line(
-          points={{58.5,1.77636e-15},{58.5,8.88178e-16},{12,8.88178e-16}},
+          points={{58.5,0},{12,0}},
           color={255,0,255}));
       annotation (
         Documentation(info="<html>
