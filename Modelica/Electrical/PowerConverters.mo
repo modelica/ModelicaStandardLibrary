@@ -3720,7 +3720,7 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               Interval=0.0002,
               Tolerance=1e-06),
             Documentation(info="<html>
-<p>This example of am H brdge with DC drive demonstrates the operation of the DC machine in four quadrants.
+<p>This example of am H bridge with DC drive demonstrates the operation of the DC machine in four quadrants.
 The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.</p>
 
 <p>
@@ -4486,7 +4486,7 @@ General information about controllers is summarized in
 A generic controller with signal input and <code>2*m</code> firing signals is provided in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
 where <code>m</code> is the arbitrary number of phases</code>.
-Additinal topology specific controllers with electrical connectors are also included.
+Additional topology specific controllers with electrical connectors are also included.
 </p>
 
 <h4>Filters</h4>
@@ -4499,9 +4499,9 @@ to filter the input voltages. By default the filter is enabled.
 
 <p>
 Such filter is needed if the electrical grid includes a significant voltage drop across the grid impedance
-distoring the input voltage wave form of the rectifier. The filter included in the PowerConverters library is first order filter with additional compensation of the filter specific phase lag.
+distorting the input voltage wave form of the rectifier. The filter included in the PowerConverters library is first order filter with additional compensation of the filter specific phase lag.
 However, it important to note that the transients of the filters may cause some initial effects which deteriorate after
-certein periods.
+certain periods.
 </p>
 
 <h4>Enable</h4>
