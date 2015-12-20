@@ -787,7 +787,7 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
               thickness=0.5,
               color={0,0,255})}), Documentation(info="<html>
 <p>
-Delta (polygon) connection of a multi phase circuit consiting of multiple base systems (see
+Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">multi phase guidelines</a>).
 </p>
 <h4>See also</h4>
