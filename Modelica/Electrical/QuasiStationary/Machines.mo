@@ -8,8 +8,7 @@ package Machines "Quasistationary machine models"
     model TransformerTestbench "Transformer Testbench"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m)
-        "Load resistance";
+      parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m) "Load resistance";
       QuasiStationary.MultiPhase.Sources.VoltageSource source(
         f=50,
         V=fill(100/sqrt(3), 3),
@@ -491,7 +490,7 @@ This package contains transformers primary Y connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -735,7 +734,7 @@ This package contains transformers primary Y connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1071,7 +1070,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1323,7 +1322,7 @@ This package contains transformers primary D connected / secondary y connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1537,7 +1536,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1843,7 +1842,7 @@ This package contains transformers primary D connected / secondary d connected i
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
   <dt><b>Copyright:</b></dt>
-  <dd>Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.<br>
+  <dd>Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.<br>
   <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
   under the terms of the <b>Modelica license</b>, see the license conditions
   and the accompanying <b>disclaimer</b> in the documentation of package
@@ -1916,7 +1915,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
   </dd>
 </dl>
 <p>
-Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
+Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
@@ -1999,8 +1998,7 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
     package Components "Machine components like AirGaps"
       extends Modelica.Icons.Package;
 
-      partial model PartialCore
-        "Partial model of transformer core with 3 windings"
+      partial model PartialCore "Partial model of transformer core with 3 windings"
         parameter Integer m(final min=1) = 3 "Number of phases";
         parameter Real n12(start=1) "Turns ratio 1:2";
         parameter Real n13(start=1) "Turns ratio 1:3";
@@ -2148,23 +2146,18 @@ This package contains components for modeling quasi stationary electrical induct
   package Interfaces "SpacePhasor connector and PartialMachines"
     extends Modelica.Icons.InterfacesPackage;
 
-    partial model PartialBasicTransformer
-      "Partial model of three-phase transformer"
+    partial model PartialBasicTransformer "Partial model of three-phase transformer"
       extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
       constant Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
-      parameter Real n(start=1)
-        "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";
+      parameter Real n(start=1) "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";
       parameter Modelica.SIunits.Resistance R1(start=5E-3/(if C1 == "D" then 1
              else 3)) "Primary resistance per phase at TRef"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
-        "Reference temperature of primary resistance"
+      parameter Modelica.SIunits.Temperature T1Ref(start=293.15) "Reference temperature of primary resistance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter
-        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-        alpha20_1(start=0)
-        "Temperature coefficient of primary resistance at 20 degC"
+      parameter Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20_1(start=0) "Temperature coefficient of primary resistance at 20 degC"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1 == "D"
              then 1 else 3)) "Primary stray inductance per phase"
@@ -2172,25 +2165,21 @@ This package contains components for modeling quasi stationary electrical induct
       parameter Modelica.SIunits.Resistance R2(start=5E-3/(if C2 == "d" then 1
              else 3)) "Secondary resistance per phase at TRef"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
-        "Reference temperature of secondary resistance"
+      parameter Modelica.SIunits.Temperature T2Ref(start=293.15) "Reference temperature of secondary resistance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter
-        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-        alpha20_2(start=0)
-        "Temperature coefficient of secondary resistance at 20 degC"
+      parameter Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20_2(start=0) "Temperature coefficient of secondary resistance at 20 degC"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2 == "d"
              then 1 else 3)) "Secondary stray inductance per phase"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Boolean useThermalPort=false
-        "Enable / disable (=fixed temperatures) thermal port"
+      parameter Boolean useThermalPort=false "Enable / disable (=fixed temperatures) thermal port"
         annotation (Evaluate=true);
-      parameter Modelica.SIunits.Temperature T1Operational(start=293.15)
-        "Operational temperature of primary resistance" annotation (Dialog(
+      parameter Modelica.SIunits.Temperature T1Operational(start=293.15) "Operational temperature of primary resistance"
+                                                        annotation (Dialog(
             group="Operational temperatures", enable=not useThermalPort));
-      parameter Modelica.SIunits.Temperature T2Operational(start=293.15)
-        "Operational temperature of secondary resistance" annotation (Dialog(
+      parameter Modelica.SIunits.Temperature T2Operational(start=293.15) "Operational temperature of secondary resistance"
+                                                          annotation (Dialog(
             group="Operational temperatures", enable=not useThermalPort));
       output Modelica.Electrical.Machines.Interfaces.PowerBalanceTransformer
         powerBalance(
@@ -2201,14 +2190,10 @@ This package contains components for modeling quasi stationary electrical induct
         final lossPower1=-sum(r1.resistor.LossPower),
         final lossPower2=-sum(r2.resistor.LossPower),
         final lossPowerCore=0) "Power balance";
-      output Modelica.SIunits.ComplexVoltage v1[m]=plug1.pin.v
-        "Primary voltage";
-      output Modelica.SIunits.ComplexCurrent i1[m]=plug1.pin.i
-        "Primary current";
-      output Modelica.SIunits.ComplexVoltage v2[m]=plug2.pin.v
-        "Secondary voltage";
-      output Modelica.SIunits.ComplexCurrent i2[m]=plug2.pin.i
-        "Secondary current";
+      output Modelica.SIunits.ComplexVoltage v1[m]=plug1.pin.v "Primary voltage";
+      output Modelica.SIunits.ComplexCurrent i1[m]=plug1.pin.i "Primary current";
+      output Modelica.SIunits.ComplexVoltage v2[m]=plug2.pin.v "Secondary voltage";
+      output Modelica.SIunits.ComplexCurrent i2[m]=plug2.pin.i "Secondary current";
     protected
       constant String C1=Modelica.Utilities.Strings.substring(
               VectorGroup,
@@ -2221,11 +2206,11 @@ This package contains components for modeling quasi stationary electrical induct
       parameter Real ni=n*(if C2 == "z" then sqrt(3) else 2)*(if C2 == "d"
            then 1 else sqrt(3))/(if C1 == "D" then 1 else sqrt(3));
     public
-      QuasiStationary.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
-        "Primary plug" annotation (Placement(transformation(extent={{-110,-10},
+      QuasiStationary.MultiPhase.Interfaces.PositivePlug plug1(final m=m) "Primary plug"
+                       annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      QuasiStationary.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
-        "Secondary plug" annotation (Placement(transformation(extent={{90,-10},
+      QuasiStationary.MultiPhase.Interfaces.NegativePlug plug2(final m=m) "Secondary plug"
+                         annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
       QuasiStationary.MultiPhase.Basic.Resistor r1(
         final m=m,
@@ -2387,8 +2372,7 @@ This package contains the quasi stationary space phasor connector and partial mo
 </html>"));
   end Interfaces;
 
-  package SpacePhasors
-    "Space phasor components for quasi stationary electric machines"
+  package SpacePhasors "Space phasor components for quasi stationary electric machines"
     extends Modelica.Icons.Package;
     package Blocks
       extends Modelica.Icons.Package;

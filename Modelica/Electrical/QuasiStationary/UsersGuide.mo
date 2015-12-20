@@ -425,8 +425,10 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2015-02-02</h5>
+<h5>Version 3.2.2, 2015-12-20</h5>
 <ul>
+<li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
+    <a href=\"https://trac.modelica.org/Modelica/ticket/1870\">#1870</a></li>
 <li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1405\">#1405</a></li>
 <li>Added active, reactive and apparent power and power factor in interface models, see ticket

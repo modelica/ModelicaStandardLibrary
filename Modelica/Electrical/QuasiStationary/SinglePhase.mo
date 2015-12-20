@@ -56,8 +56,8 @@ package SinglePhase "Single phase AC components"
               -1},{-60,-16},{-40,-16}}, color={85,170,255}));
       connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
               {-30,-35},{-30,-30}}, color={85,170,255}));
-      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points
-            ={{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
+      connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points=
+             {{-30,-10},{-30,0},{-20,0}}, color={85,170,255}));
       connect(currentSensor.pin_n, resistor.pin_p) annotation (Line(points={{0,
               0},{2.5,0},{5,0},{10,0}}, color={85,170,255}));
       connect(resistor.pin_n, inductor.pin_p) annotation (Line(points={{30,0},{
@@ -108,8 +108,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground ground annotation (Placement(
             transformation(extent={{-40,-20},{-20,0}})));
-      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation
-        (Placement(transformation(
+      QuasiStationary.SinglePhase.Basic.Resistor resistor(R_ref=10) annotation (
+         Placement(transformation(
             origin={-10,20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -142,8 +142,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
               30},{-30,40},{10,40},{10,30}}, color={85,170,255}));
       connect(currentSource.pin_n, capacitor.pin_p) annotation (Line(points={{-30,
               30},{-30,40},{30,40},{30,30}}, color={85,170,255}));
-      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points
-            ={{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
+      connect(currentSource.pin_n, voltageSensor.pin_p) annotation (Line(points=
+             {{-30,30},{-30,40},{50,40},{50,30}}, color={85,170,255}));
       connect(currentSource.pin_p, ground.pin) annotation (Line(points={{-30,10},
               {-30,5},{-30,0}}, color={85,170,255}));
       connect(resistor.pin_n, ground.pin) annotation (Line(points={{-10,10},{-10,
@@ -375,15 +375,11 @@ Every electrical circuit, e.g., a series resonance
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance R_ref(start=1)
-        "Reference resistance at T_ref";
-      parameter Modelica.SIunits.Temperature T_ref=293.15
-        "Reference temperature";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      parameter Modelica.SIunits.Resistance R_ref(start=1) "Reference resistance at T_ref";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Resistance R_actual
-        "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
@@ -421,6 +417,8 @@ A linear temperature dependency of the resistance is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -435,15 +433,11 @@ A linear temperature dependency of the resistance is also taken into account.
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Conductance G_ref(start=1)
-        "Reference conductance at T_ref";
-      parameter Modelica.SIunits.Temperature T_ref=293.15
-        "Reference temperature";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
-        "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+      parameter Modelica.SIunits.Conductance G_ref(start=1) "Reference conductance at T_ref";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Conductance G_actual
-        "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
@@ -482,6 +476,8 @@ A linear temperature dependency of the conductance is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -527,6 +523,8 @@ The capacitance <code>C</code> is allowed to be positive, zero, or negative.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -573,6 +571,8 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -583,19 +583,108 @@ The Inductance <code>L</code> is allowed to be positive, zero, or negative.
 </html>"));
     end Inductor;
 
+    model Impedance "Single phase linear impedance"
+      extends Interfaces.OnePort;
+      import Modelica.ComplexMath.j;
+      parameter Modelica.SIunits.ComplexImpedance Z(re(start=1),im(start=0)) "Inductance";
+    equation
+      v = Z*i;
+      annotation (Icon(graphics={
+            Text(
+              extent={{100,60},{-100,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{60,0},{90,0}}, color={85,170,255}),
+            Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-70,-30},{70,30},{70,-30},{-70,-30}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid)}),
+          Documentation(info="<html>
+
+<p>
+The linear impedance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>v</u> = <u>Z</u>*<u>i</u></code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
+</p>
+</html>"));
+    end Impedance;
+
+    model Admittance "Single phase linear admittance"
+      extends Interfaces.OnePort;
+      import Modelica.ComplexMath.j;
+      parameter Modelica.SIunits.ComplexAdmittance Y(re(start=1),im(start=0)) "Inductance";
+    equation
+      i = Y*v;
+      annotation (Icon(graphics={
+            Text(
+              extent={{100,60},{-100,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{60,0},{90,0}}, color={85,170,255}),
+            Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+            Rectangle(
+              extent={{-70,30},{70,-30}},
+              lineColor={85,170,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-70,-30},{70,30},{70,-30},{-70,-30}},
+              lineColor={85,170,255},
+              fillColor={85,170,255},
+              fillPattern=FillPattern.Solid)}),
+          Documentation(info="<html>
+
+<p>
+The linear admittance connects the voltage <code><u>v</u></code> with the
+current <code><u>i</u></code> by  <code><u>i</u> = <u>Y</u>*<u>v</u></code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableAdmittance\">Variable admittance</a>
+</p>
+</html>"));
+    end Admittance;
+
     model VariableResistor "Single phase variable resistor"
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Temperature T_ref=293.15
-        "Reference temperature";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Resistance R_actual
-        "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm")
-        "Variable resistance" annotation (Placement(transformation(
+      Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.Blocks.Interfaces.RealInput R_ref(unit="Ohm") "Variable resistance"
+                              annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -646,6 +735,8 @@ A zero crossing of the R signal could cause singularities due to the actual stru
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
@@ -659,15 +750,12 @@ A zero crossing of the R signal could cause singularities due to the actual stru
       extends Interfaces.OnePort;
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Temperature T_ref=293.15
-        "Reference temperature";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
-        "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Conductance G_actual
-        "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.Blocks.Interfaces.RealInput G_ref(unit="S")
-        "Variable conductance" annotation (Placement(transformation(
+      Modelica.SIunits.Conductance G_actual "Conductance = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.Blocks.Interfaces.RealInput G_ref(unit="S") "Variable conductance"
+                               annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -713,6 +801,8 @@ A linear temperature dependency of the conductance is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
@@ -773,6 +863,8 @@ The abstraction of a variable capacitor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">Variable inductor</a>,
@@ -833,6 +925,8 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -847,22 +941,17 @@ The abstraction of a variable inductor at quasi stationary operation assumes:
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Temperature T_ref=293.15
-        "Reference temperature";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Resistance R_actual
-        "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref
-        "Variable complex inductance" annotation (Placement(transformation(
+      Modelica.SIunits.Resistance R_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.ComplexBlocks.Interfaces.ComplexInput Z_ref "Variable complex inductance"
+                                      annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.SIunits.Resistance R_ref=real(Z_ref)
-        "Resistive component of impedance";
-      Modelica.SIunits.Reactance X_ref=imag(Z_ref)
-        "Reactive component of impedance";
+      Modelica.SIunits.Resistance R_ref=real(Z_ref) "Resistive component of impedance";
+      Modelica.SIunits.Reactance X_ref=imag(Z_ref) "Reactive component of impedance";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
@@ -919,6 +1008,8 @@ singularities due to the actual structure of the connected network.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -933,22 +1024,17 @@ singularities due to the actual structure of the connected network.
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.imag;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Temperature T_ref=293.15
-        "Reference temperature";
-      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref=0 "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-      Modelica.SIunits.Conductance G_actual
-        "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
-      Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref
-        "Variable complex admittance" annotation (Placement(transformation(
+      Modelica.SIunits.Conductance G_actual "Resistance = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+      Modelica.ComplexBlocks.Interfaces.ComplexInput Y_ref "Variable complex admittance"
+                                      annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-      Modelica.SIunits.Conductance G_ref=real(Y_ref)
-        "Resistive component of conductance";
-      Modelica.SIunits.Susceptance B_ref=imag(Y_ref)
-        "Reactive component of susceptance";
+      Modelica.SIunits.Conductance G_ref=real(Y_ref) "Resistive component of conductance";
+      Modelica.SIunits.Susceptance B_ref=imag(Y_ref) "Reactive component of susceptance";
     equation
       assert((1 + alpha_ref*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
         "Temperature outside scope of model!");
@@ -1006,6 +1092,8 @@ singularities due to the actual structure of the connected network.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -1093,20 +1181,18 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
     model IdealCommutingSwitch "Ideal commuting switch"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
-        "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n2
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n1
         annotation (Placement(transformation(extent={{90,40},{110,60}})));
-      Modelica.Blocks.Interfaces.BooleanInput control
-        "true => p--n2 connected, false => p--n1 connected" annotation (
+      Modelica.Blocks.Interfaces.BooleanInput control "true => p--n2 connected, false => p--n1 connected"
+                                                            annotation (
           Placement(transformation(
             origin={0,80},
             extent={{-20,-20},{20,20}},
@@ -1198,12 +1284,10 @@ This switch is only intended to be used for structural changes, not for fast swi
     model IdealIntermediateSwitch "Ideal intermediate switch"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
-        "Closed switch resistance";
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance";
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p1
         annotation (Placement(transformation(extent={{-110,40},{-90,60}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin p2
@@ -1212,8 +1296,7 @@ This switch is only intended to be used for structural changes, not for fast swi
         annotation (Placement(transformation(extent={{90,40},{110,60}})));
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin n2
         annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-      Modelica.Blocks.Interfaces.BooleanInput control
-        "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
+      Modelica.Blocks.Interfaces.BooleanInput control "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2  connected"
         annotation (Placement(transformation(
             origin={0,80},
             extent={{-20,-20},{20,20}},
@@ -1335,18 +1418,17 @@ This switch is only intended to be used for structural changes, not for fast swi
     model IdealOpeningSwitch "Ideal electrical opener"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      extends
-        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
-        "Closed switch resistance" annotation (Placement(transformation(extent=
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
+                                   annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}})));
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent
-              ={{10,10},{56.6667,56.6667}})));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Blocks.Interfaces.BooleanInput control
-        "true => switch open, false => p--n connected" annotation (Placement(
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance"
+                                    annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}})));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      Modelica.Blocks.Interfaces.BooleanInput control "true => switch open, false => p--n connected"
+                                                       annotation (Placement(
             transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
@@ -1423,18 +1505,17 @@ This switch is only intended to be used for structural changes, not for fast swi
     model IdealClosingSwitch "Ideal electrical closer"
       import Modelica.ComplexMath.real;
       import Modelica.ComplexMath.conj;
-      extends
-        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
-      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5
-        "Closed switch resistance" annotation (Placement(transformation(extent=
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.OnePort;
+      parameter Modelica.SIunits.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance"
+                                   annotation (Placement(transformation(extent=
                 {{-56.6667,10},{-10,56.6667}})));
-      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5
-        "Opened switch conductance" annotation (Placement(transformation(extent
-              ={{10,10},{56.6667,56.6667}})));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T
-          =293.15);
-      Modelica.Blocks.Interfaces.BooleanInput control
-        "true => p--n connected, false => switch open" annotation (Placement(
+      parameter Modelica.SIunits.Conductance Goff(final min=0) = 1.E-5 "Opened switch conductance"
+                                    annotation (Placement(transformation(extent=
+               {{10,10},{56.6667,56.6667}})));
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
+           293.15);
+      Modelica.Blocks.Interfaces.BooleanInput control "true => p--n connected, false => switch open"
+                                                       annotation (Placement(
             transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
@@ -1508,11 +1589,9 @@ This switch is only intended to be used for structural changes, not for fast swi
 
     model IdealTransformer "Ideal transformer"
       parameter Real n=1 "Ratio of primary to secondary voltage";
-      Modelica.SIunits.ComplexVoltage v1=pin_p1.v - pin_n1.v
-        "Voltage drop of side 1";
+      Modelica.SIunits.ComplexVoltage v1=pin_p1.v - pin_n1.v "Voltage drop of side 1";
       Modelica.SIunits.ComplexCurrent i1=pin_p1.i "Current into side 1";
-      Modelica.SIunits.ComplexVoltage v2=pin_p2.v - pin_n2.v
-        "Voltage drop of side 2";
+      Modelica.SIunits.ComplexVoltage v2=pin_p2.v - pin_n2.v "Voltage drop of side 2";
       Modelica.SIunits.ComplexCurrent i2=pin_p2.i "Current into side 2";
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin
         pin_p1 "Primary positive pin" annotation (Placement(transformation(
@@ -1672,8 +1751,7 @@ Quasi stationary theory for single phase circuits can be found in the
     extends Modelica.Icons.SensorsPackage;
 
     model ReferenceSensor "Sensor of reference angle gamma"
-      extends
-        Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor;
+      extends Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.AbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -1718,10 +1796,8 @@ This sensor can be used to measure the frequency of the reference system.
       extends Interfaces.AbsoluteSensor;
       ComplexBlocks.Interfaces.ComplexOutput y annotation (Placement(
             transformation(extent={{100,-10},{120,10}})));
-      Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex potential";
-      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y)
-        "Argument of complex potential";
+      Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex potential";
+      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex potential";
     equation
       y = pin.v;
       annotation (Icon(graphics={Text(
@@ -1746,10 +1822,8 @@ This sensor can be used to measure the complex potential.
 
     model VoltageSensor "Voltage sensor"
       extends Interfaces.RelativeSensor;
-      Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex voltage";
-      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y)
-        "Argument of complex voltage";
+      Modelica.SIunits.Voltage abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex voltage";
     equation
       i = Complex(0);
       y = v;
@@ -1774,10 +1848,8 @@ This sensor can be used to measure the complex voltage.
 
     model CurrentSensor "Current sensor"
       extends Interfaces.RelativeSensor;
-      Modelica.SIunits.Current abs_y=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex current";
-      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y)
-        "Argument of complex current";
+      Modelica.SIunits.Current abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex current";
     equation
       v = Complex(0);
       y = i;
@@ -1818,10 +1890,8 @@ This sensor can be used to measure the complex current.
             origin={-80,-110},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex apparent power";
-      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y)
-        "Argument of complex apparent power";
+      Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex apparent power";
+      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex apparent power";
 
     equation
       Connections.branch(currentP.reference, currentN.reference);
@@ -2040,8 +2110,7 @@ Quasi stationary theory for single phase circuits can be found in the
 
     connector Pin "Basic connector"
       Modelica.SIunits.ComplexVoltage v "Complex potential at the node";
-      flow Modelica.SIunits.ComplexCurrent i
-        "Complex current flowing into the pin";
+      flow Modelica.SIunits.ComplexCurrent i "Complex current flowing into the pin";
       annotation (Documentation(info="<html>
 <p>
 The potential of this connector is the complex voltage and the flow variable is the complex current.
@@ -2142,15 +2211,11 @@ Additionally the reference angle is specified in the connector. The time derivat
     partial model TwoPin "Two pins"
       import Modelica.Constants.eps;
       Modelica.SIunits.ComplexVoltage v "Complex voltage";
-      Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.'abs'(v)
-        "Magnitude of complex voltage";
-      Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v)
-        "Argument of complex voltage";
+      Modelica.SIunits.Voltage abs_v=Modelica.ComplexMath.'abs'(v) "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_v=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
       Modelica.SIunits.ComplexCurrent i "Complex current";
-      Modelica.SIunits.Current abs_i=Modelica.ComplexMath.'abs'(i)
-        "Magnitude of complex current";
-      Modelica.SIunits.Angle arg_i=Modelica.ComplexMath.arg(i)
-        "Argument of complex current";
+      Modelica.SIunits.Current abs_i=Modelica.ComplexMath.'abs'(i) "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_i=Modelica.ComplexMath.arg(i) "Argument of complex current";
       Modelica.SIunits.ActivePower P=Modelica.ComplexMath.real(v*
           Modelica.ComplexMath.conj(i)) "Active power";
       Modelica.SIunits.ReactivePower Q=Modelica.ComplexMath.imag(v*
@@ -2158,8 +2223,7 @@ Additionally the reference angle is specified in the connector. The time derivat
       Modelica.SIunits.ApparentPower S=Modelica.ComplexMath.'abs'(v*
           Modelica.ComplexMath.conj(i)) "Magnitude of complex apparent power";
       Real pf=cos(Modelica.ComplexMath.arg(Complex(P, Q))) "Power factor";
-      Modelica.SIunits.AngularVelocity omega
-        "Angular velocity of reference frame";
+      Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
 
       PositivePin pin_p "Positive pin" annotation (Placement(transformation(
               extent={{-110,-10},{-90,10}})));

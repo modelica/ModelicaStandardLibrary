@@ -344,15 +344,13 @@ Delta (polygon) connection of a multi phase circuit.
 </p></html>"));
     end Delta;
 
-    model MultiStar
-      "Star connection of multi phase systems consisting of multiple base systems"
+    model MultiStar "Star connection of multi phase systems consisting of multiple base systems"
       import Modelica;
       parameter Integer m(final min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of base systems";
-      final parameter Integer mBasic=integer(m/mSystems)
-        "Phase number of base systems";
+      final parameter Integer mBasic=integer(m/mSystems) "Phase number of base systems";
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
@@ -416,15 +414,13 @@ Star (wye) connection of a multi phase circuit consisting of multiple base syste
 </p></html>"));
     end MultiStar;
 
-    model MultiDelta
-      "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
+    model MultiDelta "Delta (polygon) connection of multi phase systems consisting of multiple base systems"
       import Modelica;
       parameter Integer m(final min=2) = 3 "Number of phases";
       final parameter Integer mSystems=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of base systems";
-      final parameter Integer mBasic=integer(m/mSystems)
-        "Phase number of base systems";
+      final parameter Integer mBasic=integer(m/mSystems) "Phase number of base systems";
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
@@ -482,8 +478,7 @@ Delta (polygon) connection of a multi phase circuit consisting of multiple base 
       final parameter Integer mBasic=
           Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
           m) "Number of symmetric base systems";
-      parameter Modelica.SIunits.Resistance R=1e6
-        "Insulation resistance between base systems";
+      parameter Modelica.SIunits.Resistance R=1e6 "Insulation resistance between base systems";
       Interfaces.PositivePlug plug(m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       MultiStar multiStar(m=m) annotation (Placement(transformation(
@@ -719,13 +714,10 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
 
     model Resistor "Multiphase linear resistor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Resistance R_ref[m](start=fill(1, m))
-        "Reference resistances at T_ref";
-      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
-        "Reference temperatures";
+      parameter Modelica.SIunits.Resistance R_ref[m](start=fill(1, m)) "Reference resistances at T_ref";
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m) "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+          zeros(m) "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
       QuasiStationary.SinglePhase.Basic.Resistor resistor[m](
@@ -775,6 +767,8 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -787,13 +781,10 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 
     model Conductor "Multiphase linear conductor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Conductance G_ref[m](start=fill(1, m))
-        "Reference conductances at T_ref";
-      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
-        "Reference temperatures";
+      parameter Modelica.SIunits.Conductance G_ref[m](start=fill(1, m)) "Reference conductances at T_ref";
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m) "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
-        "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+          zeros(m) "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
       QuasiStationary.SinglePhase.Basic.Conductor conductor[m](
@@ -842,6 +833,8 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -854,8 +847,7 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 
     model Capacitor "Multiphase linear capacitor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Capacitance C[m](start=fill(1, m))
-        "Capacitances";
+      parameter Modelica.SIunits.Capacitance C[m](start=fill(1, m)) "Capacitances";
       QuasiStationary.SinglePhase.Basic.Capacitor capacitor[m](final C=C)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
@@ -890,6 +882,8 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -902,8 +896,7 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 
     model Inductor "Multiphase linear inductor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Inductance L[m](start=fill(1, m))
-        "Inductances";
+      parameter Modelica.SIunits.Inductance L[m](start=fill(1, m)) "Inductances";
       QuasiStationary.SinglePhase.Basic.Inductor inductor[m](final L=L)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
@@ -942,6 +935,8 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
@@ -952,17 +947,121 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
 </html>"));
     end Inductor;
 
+    model Impedance "Multiphase linear impedance"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.ComplexImpedance Z[m](re(start=fill(1,m)),im(start=fill(0,m))) "Impedances";
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance impedance[m](final Z=Z) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    equation
+
+      connect(plugToPins_p.pin_p, impedance.pin_p) annotation (Line(points={{-68,0},{-53.5,0},{-39,0},{-10,0}}, color={85,170,255}));
+      connect(impedance.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{39,0},{68,0}}, color={85,170,255}));
+      annotation (Icon(graphics={Text(
+                  extent={{100,60},{-100,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                    Text(
+                  extent={{100,-80},{-100,-40}},
+                  lineColor={0,0,0},
+                  textString="m=%m"),  Line(points={{60,0},{90,0}}, color={85,
+              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+              Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={85,170,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                                     Polygon(
+                  points={{-70,-30},{70,30},{70,-30},{-70,-30}},
+                  lineColor={85,170,255},
+                  fillColor={85,170,255},
+                  fillPattern=FillPattern.Solid)}),
+                                        Documentation(info="<html>
+<p>
+The linear impedance connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>v</u> = <u>Z</u>*<u>i</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Impedance\">single phase impedances</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductance\">Inductance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+</p>
+</html>"));
+    end Impedance;
+
+    model Admittance "Multiphase linear admittance"
+      extends Interfaces.TwoPlug;
+      parameter Modelica.SIunits.ComplexAdmittance Y[m](re(start=fill(1,m)),im(start=fill(0,m))) "Admittances";
+      Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance admittance[m](final Y=Y) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    equation
+
+      connect(plugToPins_p.pin_p, admittance.pin_p) annotation (Line(points={{-68,0},{-53.5,0},{-39,0},{-10,0}}, color={85,170,255}));
+      connect(admittance.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{39,0},{68,0}}, color={85,170,255}));
+      annotation (Icon(graphics={Text(
+                  extent={{100,60},{-100,100}},
+                  textString="%name",
+                  lineColor={0,0,255}),
+                    Text(
+                  extent={{100,-80},{-100,-40}},
+                  lineColor={0,0,0},
+                  textString="m=%m"),
+                    Text(
+                  extent={{100,-80},{-100,-40}},
+                  lineColor={0,0,0},
+                  textString="m=%m"),  Line(points={{60,0},{90,0}}, color={85,
+              170,255}),Line(points={{-90,0},{-60,0}}, color={85,170,255}),
+              Rectangle(
+                  extent={{-70,30},{70,-30}},
+                  lineColor={85,170,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),
+                                     Polygon(
+                  points={{-70,-30},{70,30},{70,-30},{-70,-30}},
+                  lineColor={85,170,255},
+                  fillColor={85,170,255},
+                  fillPattern=FillPattern.Solid)}),
+                                        Documentation(info="<html>
+<p>
+The linear admittance connects the complex voltages <code><u>v</u></code> with the complex
+currents <code><u>i</u></code> by <code><u>i</u>*<u>Y</u> = <u>v</u></code>,
+using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">single phase admittances</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Admittance\">Admittance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
+</p>
+</html>"));
+    end Admittance;
+
     model VariableResistor "Multiphase variable resistor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
-        "Reference temperatures";
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m) "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+          zeros(m) "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
-      Modelica.Blocks.Interfaces.RealInput R_ref[m](each unit="Ohm")
-        "Variable resistance" annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput R_ref[m](each unit="Ohm") "Variable resistance"
+                              annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -975,8 +1074,8 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
     equation
 
       connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(
@@ -1022,6 +1121,8 @@ A linear temperature dependency of the resistances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>,
@@ -1033,15 +1134,13 @@ A linear temperature dependency of the resistances is also taken into account.
 
     model VariableConductor "Multiphase variable conductor"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
-        "Reference temperatures";
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m) "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
-        "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
+          zeros(m) "Temperature coefficient of resistance (G_actual = G_ref/(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
-      Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S")
-        "Variable conductance" annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput G_ref[m](each unit="S") "Variable conductance"
+                               annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -1053,8 +1152,8 @@ A linear temperature dependency of the resistances is also taken into account.
                 10}})));
     equation
       connect(variableResistor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableResistor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableResistor.heatPort, heatPort) annotation (Line(points={{0,
@@ -1099,6 +1198,8 @@ A linear temperature dependency of the conductances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
@@ -1110,8 +1211,8 @@ A linear temperature dependency of the conductances is also taken into account.
 
     model VariableCapacitor "Multiphase variable capacitor"
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.RealInput C[m](each unit="F")
-        "Variable capacitance" annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput C[m](each unit="F") "Variable capacitance"
+                               annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -1119,8 +1220,8 @@ A linear temperature dependency of the conductances is also taken into account.
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableCapacitor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableCapacitor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(C, variableCapacitor.C) annotation (Line(
@@ -1157,6 +1258,8 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
@@ -1168,8 +1271,8 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
 
     model VariableInductor "Multiphase variable inductor"
       extends Interfaces.TwoPlug;
-      Modelica.Blocks.Interfaces.RealInput L[m](each unit="H")
-        "Variable inductance" annotation (Placement(transformation(
+      Modelica.Blocks.Interfaces.RealInput L[m](each unit="H") "Variable inductance"
+                              annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -1177,8 +1280,8 @@ The capacitances <code>C</code> are given as <code>m</code> input signals.
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     equation
       connect(variableInductor.pin_p, plugToPins_p.pin_p) annotation (Line(
-            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color
-            ={85,170,255}));
+            points={{-10,0},{-24.5,0},{-24.5,0},{-39,0},{-39,0},{-68,0}}, color=
+             {85,170,255}));
       connect(variableInductor.pin_n, plugToPins_n.pin_n) annotation (Line(
             points={{10,0},{39,0},{39,0},{68,0}}, color={85,170,255}));
       connect(variableInductor.L, L) annotation (Line(points={{0,10.8},{0,35.6},
@@ -1216,6 +1319,8 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>
@@ -1227,15 +1332,13 @@ The inductances <code>L</code> are given as <code>m</code> input signals.
 
     model VariableImpedance "Multiphase variable impedance"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
-        "Reference temperatures";
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m) "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+          zeros(m) "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
-      ComplexBlocks.Interfaces.ComplexInput Z_ref[m]
-        "Variable complex impedances" annotation (Placement(transformation(
+      ComplexBlocks.Interfaces.ComplexInput Z_ref[m] "Variable complex impedances"
+                                      annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -1305,6 +1408,8 @@ A linear temperature dependency of the resistances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
@@ -1315,15 +1420,13 @@ A linear temperature dependency of the resistances is also taken into account.
 
     model VariableAdmittance "Multiphase variable admittance"
       extends Interfaces.TwoPlug;
-      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m)
-        "Reference temperatures";
+      parameter Modelica.SIunits.Temperature T_ref[m]=fill(293.15, m) "Reference temperatures";
       parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_ref[m]=
-          zeros(m)
-        "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
+          zeros(m) "Temperature coefficient of resistance (R_actual = R_ref*(1 + alpha_ref*(heatPort.T - T_ref))";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, T=T_ref);
-      ComplexBlocks.Interfaces.ComplexInput Y_ref[m]
-        "Variable complex admittances" annotation (Placement(transformation(
+      ComplexBlocks.Interfaces.ComplexInput Y_ref[m] "Variable complex admittances"
+                                       annotation (Placement(transformation(
             origin={0,110},
             extent={{-20,-20},{20,20}},
             rotation=270)));
@@ -1392,6 +1495,8 @@ A linear temperature dependency of the conductances is also taken into account.
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Impedance\">Impedance</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Admittance\">Admittance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
@@ -1497,8 +1602,8 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
             fill(1.E-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
-      Modelica.Blocks.Interfaces.BooleanInput control[m]
-        "true => p--n2 connected, false => p--n1 connected" annotation (
+      Modelica.Blocks.Interfaces.BooleanInput control[m] "true => p--n2 connected, false => p--n1 connected"
+                                                            annotation (
           Placement(transformation(
             origin={0,80},
             extent={{-20,-20},{20,20}},
@@ -1565,8 +1670,8 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
                   lineColor={0,0,0},
-                  textString="%m"),Ellipse(extent={{-44,4},{-36,-4}}, lineColor
-              ={85,170,255}),Line(points={{-90,0},{-44,0}}, color={85,170,255}),
+                  textString="%m"),Ellipse(extent={{-44,4},{-36,-4}}, lineColor=
+               {85,170,255}),Line(points={{-90,0},{-44,0}}, color={85,170,255}),
               Line(points={{-37,2},{40,50}}, color={85,170,255}),Line(points={{
               40,50},{90,50}}, color={85,170,255}),Line(points={{0,90},{0,25}},
               color={85,170,255}),Line(points={{40,0},{90,0}}, color={85,170,
@@ -1589,8 +1694,7 @@ This switch is only intended to be used for structural changes, not fast switchi
             fill(1.E-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
-      Modelica.Blocks.Interfaces.BooleanInput control[m]
-        "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected"
+      Modelica.Blocks.Interfaces.BooleanInput control[m] "true => p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected"
         annotation (Placement(transformation(
             origin={0,80},
             extent={{-20,-20},{20,20}},
@@ -1675,8 +1779,8 @@ This switch is only intended to be used for structural changes, not fast switchi
               {{-40,0},{40,50}}, color={85,170,255}),Line(points={{-40,50},{40,
               0}}, color={85,170,255}),Line(points={{40,50},{90,50}}, color={85,
               170,255}),Line(points={{0,90},{0,25}}, color={85,170,255}),Line(
-              points={{40,0},{90,0}}, color={85,170,255})}), Documentation(info
-            ="<HTML>
+              points={{40,0},{90,0}}, color={85,170,255})}), Documentation(info=
+             "<HTML>
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
 </p>
@@ -1695,8 +1799,8 @@ This switch is only intended to be used for structural changes, not fast switchi
             fill(1.E-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
-      Modelica.Blocks.Interfaces.BooleanInput control[m]
-        "true => switch open, false => p--n connected" annotation (Placement(
+      Modelica.Blocks.Interfaces.BooleanInput control[m] "true => switch open, false => p--n connected"
+                                                       annotation (Placement(
             transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
@@ -1753,8 +1857,8 @@ This switch is only intended to be used for structural changes, not fast switchi
             fill(1.E-5, m)) "Opened switch conductance";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(
           final mh=m, final T=fill(293.15, m));
-      Modelica.Blocks.Interfaces.BooleanInput control[m]
-        "true => p--n connected, false => switch open" annotation (Placement(
+      Modelica.Blocks.Interfaces.BooleanInput control[m] "true => p--n connected, false => switch open"
+                                                       annotation (Placement(
             transformation(
             origin={0,70},
             extent={{-20,-20},{20,20}},
@@ -1841,8 +1945,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 </HTML>"));
     end QuasiRMS;
 
-    block SymmetricalComponents
-      "Creates symmetrical components from signals representing quasi static phasors"
+    block SymmetricalComponents "Creates symmetrical components from signals representing quasi static phasors"
       import Modelica;
       extends Modelica.ComplexBlocks.Interfaces.ComplexMIMO(final nin=m,final
           nout=m);
@@ -1898,8 +2001,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               color={85,170,255})}));
     end SymmetricalComponents;
 
-    block SingleToMultiPhase
-      "Extends complex phase signal to complex multi phase signals using symmetricOrientation"
+    block SingleToMultiPhase "Extends complex phase signal to complex multi phase signals using symmetricOrientation"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSIMO(final nout=m);
       parameter Integer m=3 "Number of phases";
     equation
@@ -2033,8 +2135,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 
   package Functions
     extends Modelica.Icons.Package;
-    function quasiRMS
-      "Overall quasi-RMS value of complex input (current or voltage)"
+    function quasiRMS "Overall quasi-RMS value of complex input (current or voltage)"
       extends Modelica.Icons.Function;
       import Modelica.ComplexMath.'abs';
       input Complex u[:];
@@ -2050,13 +2151,10 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 </HTML>"));
     end quasiRMS;
 
-    function activePower
-      "Calculate active power of complex input voltage and current"
+    function activePower "Calculate active power of complex input voltage and current"
       extends Modelica.Icons.Function;
-      input Modelica.SIunits.ComplexVoltage v[:]
-        "QuasiStationary voltage phasors";
-      input Modelica.SIunits.ComplexCurrent i[size(v, 1)]
-        "QuasiStationary current phasors";
+      input Modelica.SIunits.ComplexVoltage v[:] "QuasiStationary voltage phasors";
+      input Modelica.SIunits.ComplexCurrent i[size(v, 1)] "QuasiStationary current phasors";
       output Modelica.SIunits.Power p "Active power";
     algorithm
       p := sum(Modelica.ComplexMath.real({v[k]*Modelica.ComplexMath.conj(i[k])
@@ -2074,8 +2172,7 @@ In quasistationary operation, instantaneous power equals active power;
     extends Modelica.Icons.SensorsPackage;
 
     model ReferenceSensor "Sensor of reference angle gamma"
-      extends
-        Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor;
+      extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor;
       Modelica.Blocks.Interfaces.RealOutput y "Reference angle" annotation (
           Placement(transformation(extent={{100,-10},{120,10}})));
     equation
@@ -2137,10 +2234,8 @@ This sensor can be used to measure the frequency of the reference system, using 
             transformation(extent={{-80,-10},{-60,10}})));
       ComplexBlocks.Interfaces.ComplexOutput y[m] annotation (Placement(
             transformation(extent={{100,-10},{120,10}})));
-      Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex potential";
-      Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y)
-        "Argument of complex potential";
+      Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.'abs'(y) "Magnitude of complex potential";
+      Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y) "Argument of complex potential";
 
     equation
       connect(potentialSensor.y, y) annotation (Line(points={{11,0},{35.75,0},{
@@ -2177,10 +2272,8 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
       extends Interfaces.RelativeSensor;
       QuasiStationary.SinglePhase.Sensors.VoltageSensor voltageSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex voltage";
-      Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y)
-        "Argument of complex voltage";
+      Modelica.SIunits.Voltage abs_y[m]=Modelica.ComplexMath.'abs'(y) "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y) "Argument of complex voltage";
 
     equation
       connect(plugToPins_p.pin_p, voltageSensor.pin_p) annotation (Line(points=
@@ -2212,13 +2305,12 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
 </html>"));
     end VoltageSensor;
 
-    model VoltageQuasiRMSSensor
-      "Continuous quasi voltage RMS sensor for multi phase system"
+    model VoltageQuasiRMSSensor "Continuous quasi voltage RMS sensor for multi phase system"
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput V
-        "Continuous quasi average RMS of current" annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput V "Continuous quasi average RMS of current"
+                                                  annotation (Placement(
             transformation(
             origin={0,-100},
             extent={{-10,-10},{10,10}},
@@ -2275,10 +2367,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       extends Interfaces.RelativeSensor;
       QuasiStationary.SinglePhase.Sensors.CurrentSensor currentSensor[m]
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Modelica.SIunits.Current abs_y[m]=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex current";
-      Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y)
-        "Argument of complex current";
+      Modelica.SIunits.Current abs_y[m]=Modelica.ComplexMath.'abs'(y) "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_y[m]=Modelica.ComplexMath.arg(y) "Argument of complex current";
     equation
       connect(plugToPins_p.pin_p, currentSensor.pin_p) annotation (Line(points=
               {{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color={85,
@@ -2309,13 +2399,12 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
 </html>"));
     end CurrentSensor;
 
-    model CurrentQuasiRMSSensor
-      "Continuous quasi current RMS sensor for multi phase system"
+    model CurrentQuasiRMSSensor "Continuous quasi current RMS sensor for multi phase system"
       extends Modelica.Icons.RotationalSensor;
       extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug;
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput I
-        "Continuous quasi average RMS of current" annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput I "Continuous quasi average RMS of current"
+                                                  annotation (Placement(
             transformation(
             origin={0,-100},
             extent={{-10,-10},{10,10}},
@@ -2408,10 +2497,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
             extent={{-10,-10},{10,10}},
             rotation=270)));
 
-      Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.'abs'(y)
-        "Magnitude of complex apparent power";
-      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y)
-        "Argument of complex apparent power";
+      Modelica.SIunits.ApparentPower abs_y=Modelica.ComplexMath.'abs'(y) "Magnitude of complex apparent power";
+      Modelica.SIunits.Angle arg_y=Modelica.ComplexMath.arg(y) "Argument of complex apparent power";
 
     equation
       connect(plugToPinsCurrentP.plug_p, currentP) annotation (Line(points={{-72,
@@ -2423,8 +2510,8 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
       connect(plugToPinsVoltageN.plug_n, voltageN) annotation (Line(points={{0,
               -72},{0,-72},{0,-100}}, color={85,170,255}));
       connect(plugToPinsCurrentP.pin_p, powerSensor.currentP) annotation (Line(
-            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color
-            ={85,170,255}));
+            points={{-68,0},{-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}}, color=
+             {85,170,255}));
       connect(powerSensor.currentN, plugToPinsCurrentN.pin_n) annotation (Line(
             points={{10,0},{24.5,0},{24.5,0},{39,0},{39,0},{68,0}}, color={85,
               170,255}));
@@ -2485,11 +2572,9 @@ Quasi stationary theory can be found in the
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.exp;
       parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-      parameter Modelica.SIunits.Voltage V[m](start=fill(1, m))
-        "RMS voltage of the source";
+      parameter Modelica.SIunits.Voltage V[m](start=fill(1, m)) "RMS voltage of the source";
       parameter Modelica.SIunits.Angle phi[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
-        "Phase shift of the source";
+          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m) "Phase shift of the source";
     equation
       omega = 2*Modelica.Constants.pi*f;
       v = {V[k]*exp(j*phi[k]) for k in 1:m};
@@ -2563,12 +2648,11 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </html>"));
     end VariableVoltageSource;
 
-    model ReferenceVoltageSource
-      "Variable multiphase AC voltage with reference angle input"
+    model ReferenceVoltageSource "Variable multiphase AC voltage with reference angle input"
       extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
       import Modelica.Constants.pi;
-      Modelica.Blocks.Interfaces.RealInput gamma
-        "Reference angle of voltage source" annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput gamma "Reference angle of voltage source"
+                                            annotation (Placement(
             transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
@@ -2606,11 +2690,9 @@ Additionally, the frequency of the current source is defined by a real signal in
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.exp;
       parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
-      parameter Modelica.SIunits.Current I[m](start=fill(1, m))
-        "RMS current of the source";
+      parameter Modelica.SIunits.Current I[m](start=fill(1, m)) "RMS current of the source";
       parameter Modelica.SIunits.Angle phi[m]=-
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)
-        "Phase shift of the source";
+          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m) "Phase shift of the source";
     equation
       omega = 2*Modelica.Constants.pi*f;
       i = {I[k]*exp(j*phi[k]) for k in 1:m};
@@ -2679,12 +2761,11 @@ Additionally, the frequency of the current source is defined by a real signal in
 </html>"));
     end VariableCurrentSource;
 
-    model ReferenceCurrentSource
-      "Variable multiphase AC current with reference angle input"
+    model ReferenceCurrentSource "Variable multiphase AC current with reference angle input"
       extends Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource;
       import Modelica.Constants.pi;
-      Modelica.Blocks.Interfaces.RealInput gamma
-        "Reference angle of current source" annotation (Placement(
+      Modelica.Blocks.Interfaces.RealInput gamma "Reference angle of current source"
+                                            annotation (Placement(
             transformation(
             origin={40,100},
             extent={{-20,-20},{20,20}},
@@ -2841,15 +2922,11 @@ Additionally the reference angle is specified in the connector. The time derivat
     partial model TwoPlug "Two plugs with pin-adapter"
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
-      Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
-        "Magnitude of complex voltage";
-      Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
-        "Argument of complex voltage";
+      Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v) "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
       Modelica.SIunits.ComplexCurrent i[m] "Complex current";
-      Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i)
-        "Magnitude of complex current";
-      Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
-        "Argument of complex current";
+      Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i) "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i) "Argument of complex current";
       Modelica.SIunits.ActivePower P[m]={Modelica.ComplexMath.real(v[k]*
           Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Active power";
       Modelica.SIunits.ActivePower P_total=sum(P) "Total active power";
@@ -2857,24 +2934,21 @@ Additionally the reference angle is specified in the connector. The time derivat
           Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
       Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
       Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.'abs'(v[k]*
-          Modelica.ComplexMath.conj(i[k])) for k in 1:m}
-        "Magnitude of complex apparent power";
-      Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
-        "Magnitude of total complex apparent power";
+          Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Magnitude of complex apparent power";
+      Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2) "Magnitude of total complex apparent power";
       Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1
           :m} "Power factor";
       /*
   Real pf_total = cos(Modelica.ComplexMath.arg(Complex(P_total,Q_total)))
    "Total power factor";
   */
-      Modelica.SIunits.AngularVelocity omega
-        "Angular velocity of reference frame";
+      Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
 
-      PositivePlug plug_p(final m=m)
-        "Positive quasi stationary multi phase plug" annotation (Placement(
+      PositivePlug plug_p(final m=m) "Positive quasi stationary multi phase plug"
+                                                     annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
-      NegativePlug plug_n(final m=m)
-        "Negative quasi stationary multi phase plug" annotation (Placement(
+      NegativePlug plug_n(final m=m) "Negative quasi stationary multi phase plug"
+                                                     annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
       Basic.PlugToPins_p plugToPins_p(final m=m) annotation (Placement(
             transformation(extent={{-80,-10},{-60,10}})));
@@ -2910,15 +2984,11 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
     partial model OnePort
       parameter Integer m(min=1) = 3 "Number of phases";
       Modelica.SIunits.ComplexVoltage v[m] "Complex voltage";
-      Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v)
-        "Magnitude of complex voltage";
-      Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v)
-        "Argument of complex voltage";
+      Modelica.SIunits.Voltage abs_v[m]=Modelica.ComplexMath.'abs'(v) "Magnitude of complex voltage";
+      Modelica.SIunits.Angle arg_v[m]=Modelica.ComplexMath.arg(v) "Argument of complex voltage";
       Modelica.SIunits.ComplexCurrent i[m] "Complex current";
-      Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i)
-        "Magnitude of complex current";
-      Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i)
-        "Argument of complex current";
+      Modelica.SIunits.Current abs_i[m]=Modelica.ComplexMath.'abs'(i) "Magnitude of complex current";
+      Modelica.SIunits.Angle arg_i[m]=Modelica.ComplexMath.arg(i) "Argument of complex current";
       Modelica.SIunits.ActivePower P[m]={Modelica.ComplexMath.real(v[k]*
           Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Active power";
       Modelica.SIunits.ActivePower P_total=sum(P) "Total active power";
@@ -2926,24 +2996,21 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
           Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Reactive power";
       Modelica.SIunits.ReactivePower Q_total=sum(Q) "Total reactive power";
       Modelica.SIunits.ApparentPower S[m]={Modelica.ComplexMath.'abs'(v[k]*
-          Modelica.ComplexMath.conj(i[k])) for k in 1:m}
-        "Magnitude of complex apparent power";
-      Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
-        "Magnitude of total complex apparent power";
+          Modelica.ComplexMath.conj(i[k])) for k in 1:m} "Magnitude of complex apparent power";
+      Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2) "Magnitude of total complex apparent power";
       Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1
           :m} "Power factor";
       /*
   Real pf_total = cos(Modelica.ComplexMath.arg(Complex(P_total,Q_total)))
     "Total power factor";
   */
-      Modelica.SIunits.AngularVelocity omega
-        "Angular velocity of reference frame";
+      Modelica.SIunits.AngularVelocity omega "Angular velocity of reference frame";
 
-      PositivePlug plug_p(final m=m)
-        "Positive quasi stationary multi phase plug" annotation (Placement(
+      PositivePlug plug_p(final m=m) "Positive quasi stationary multi phase plug"
+                                                     annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
-      NegativePlug plug_n(final m=m)
-        "Negative quasi stationary multi phase plug" annotation (Placement(
+      NegativePlug plug_n(final m=m) "Negative quasi stationary multi phase plug"
+                                                     annotation (Placement(
             transformation(extent={{90,-10},{110,10}})));
     equation
       Connections.branch(plug_p.reference, plug_n.reference);
@@ -2958,8 +3025,8 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(min=1) = 3 "number of phases";
       Modelica.SIunits.AngularVelocity omega;
-      PositivePlug plug_p(final m=m)
-        "Positive quasi stationary multi phase plug" annotation (Placement(
+      PositivePlug plug_p(final m=m) "Positive quasi stationary multi phase plug"
+                                                     annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
     equation
       omega = der(plug_p.reference.gamma);
@@ -3001,7 +3068,6 @@ The absolute sensor partial model relies on the a
             Line(points={{-70,0},{-94,0}}),
             Line(points={{70,0},{94,0}}),
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255}),
-
             Text(
               extent={{100,-100},{-100,-70}},
               lineColor={0,0,0},
@@ -3064,8 +3130,7 @@ The source partial model relies on the
 </html>"));
     end Source;
 
-    partial model ReferenceSource
-      "Partial of voltage or current source with reference input"
+    partial model ReferenceSource "Partial of voltage or current source with reference input"
       extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort;
       import Modelica.Constants.pi;
     equation
