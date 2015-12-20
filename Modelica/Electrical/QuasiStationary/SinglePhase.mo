@@ -433,7 +433,7 @@ circuit impedance"),
 <li>Magnetizing current and core loss are not taken into account</li>
 </ul>
 
-<p>Plot the real part of the secondary voltage <code>idealTransformer.v2.re</code> on the x axis and <code>idealTransformer.v2.im</code> on the y axis. The locus of this complex voltage <code><u>v</u><sub>2</sub></code> is a circle. The center of the circle is the the primary supply voltage divided by the transformation ratio of <code>n=5</code>. Since in this experiment the load current magnitude is constant, the voltage drop across the short circuit impedance of the transformer ist constant, as well. The radius of the circle is equal to the constant magnitude of the voltage drop across the short circuit impedance. </p>
+<p>Plot the real part of the secondary voltage <code>idealTransformer.v2.re</code> on the x axis and <code>idealTransformer.v2.im</code> on the y axis. The locus of this complex voltage <code><u>v</u><sub>2</sub></code> is a circle. The center of the circle is the the primary supply voltage divided by the transformation ratio of <code>n=5</code>. Since in this experiment the load current magnitude is constant, the voltage drop across the short circuit impedance of the transformer is constant, as well. The radius of the circle is equal to the constant magnitude of the voltage drop across the short circuit impedance. </p>
 </html>"));
     end Transformer;
     annotation (Documentation(info="<html>
