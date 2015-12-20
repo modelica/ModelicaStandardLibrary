@@ -1873,7 +1873,7 @@ All transformers extend from the base model <i>PartialTransformer</i>, adding th
 <b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
 (i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
 e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
-With the \"supermodel\" <i>Transformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
+With the \"supermodel\" <i>Transformer</i> the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
 </p>
