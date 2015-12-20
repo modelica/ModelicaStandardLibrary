@@ -244,6 +244,10 @@ This is the library of quasi static fundamental wave models for multi phase elec
         // Symmetrical multi phase magnetic reluctance
         final parameter Modelica.SIunits.Reluctance R_m=m*effectiveTurns^2/2/L
           "Equivalent magnetic reluctance";
+        output Modelica.SIunits.ComplexCurrent Ie=resistor_e.i[1]
+          "Current of electric representation";
+        output Modelica.SIunits.ComplexCurrent Im=resistor_m.i[1]
+          "Current of magentic representation";
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground_e
           annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground_m
@@ -263,7 +267,9 @@ This is the library of quasi static fundamental wave models for multi phase elec
           m=m,
           f=f,
           phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-          V=fill(VRMS, m)) annotation (Placement(transformation(
+          V=fill(VRMS, m),
+          gamma(fixed=true, start=0))
+                           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,70})));
@@ -273,7 +279,9 @@ This is the library of quasi static fundamental wave models for multi phase elec
           m=m,
           f=f,
           phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-          V=fill(VRMS, m)) annotation (Placement(transformation(
+          V=fill(VRMS, m),
+          gamma(fixed=true, start=0))
+                           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-60,-30})));
@@ -375,7 +383,9 @@ This is the library of quasi static fundamental wave models for multi phase elec
           m=m,
           f=1,
           phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-          V=fill(1/sqrt(2), m)) annotation (Placement(transformation(
+          V=fill(1/sqrt(2), m),
+          gamma(fixed=true, start=0))
+                                annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,60})));
@@ -385,7 +395,9 @@ This is the library of quasi static fundamental wave models for multi phase elec
           m=m,
           f=1,
           phi=-Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m),
-          V=fill(1/sqrt(2), m)) annotation (Placement(transformation(
+          V=fill(1/sqrt(2), m),
+          gamma(fixed=true, start=0))
+                                annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
@@ -528,8 +540,8 @@ In this example the eddy current losses are implemented in two different ways. C
         extends Modelica.Icons.ExamplesPackage;
         model IMC_DOL
           "Induction machines with squirrel cage started directly on line (DOL)"
-          import Modelica.Constants.pi;
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=5 "Number of phases";
           parameter Modelica.SIunits.Voltage VsNominal=100
             "Nominal RMS voltage per phase";
@@ -540,6 +552,10 @@ In this example the eddy current losses are implemented in two different ways. C
                1440.45*2*Modelica.Constants.pi/60 "Nominal load speed";
           parameter Modelica.SIunits.Inertia J_Load=0.5 "Load inertia";
           parameter Integer p=2 "Number of pole pairs";
+          output Modelica.SIunits.Current Itr=currentQuasiRMSSensor.I
+            "Transient RMS current";
+          output Modelica.SIunits.Current Iqs=currentQuasiRMSSensorQS.I
+            "QS RMS current";
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
             voltageSourceQS(
             m=m,
@@ -563,9 +579,8 @@ In this example the eddy current losses are implemented in two different ways. C
           Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor
             powerSensorQS(m=m) annotation (Placement(transformation(extent={{-60,
                     70},{-40,90}})));
-          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor
-            currentSensorQS(m=m) annotation (Placement(transformation(extent={{
-                    -30,70},{-10,90}})));
+          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m)
+            annotation (Placement(transformation(extent={{-30,70},{-10,90}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealClosingSwitch
             idealCloserQS(
             final m=m,
@@ -602,10 +617,9 @@ In this example the eddy current losses are implemented in two different ways. C
           Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tOn,
               each startValue=false) annotation (Placement(transformation(
                   extent={{-96,-40},{-76,-20}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
-            currentRMSsensor(final m=m) annotation (Placement(transformation(
-                origin={-20,-20},
-                extent={{-10,-10},{10,10}})));
+          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(final m=m)
+            annotation (Placement(transformation(origin={-20,-20}, extent={{-10,-10},{10,
+                    10}})));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{20,-64},{40,-44}})));
@@ -684,11 +698,6 @@ In this example the eddy current losses are implemented in two different ways. C
             gamma(fixed=true, start=-pi/2),
             TrOperational=293.15) annotation (Placement(transformation(extent={
                     {20,20},{40,40}})));
-          Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents
-            symmetricalComponents(m=m) annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={-20,50})));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
             groundMachineQS annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -711,7 +720,7 @@ In this example the eddy current losses are implemented in two different ways. C
             annotation (Line(points={{-80,20},{-80,20}}, color={85,170,255}));
           connect(starQS.plug_p, voltageSourceQS.plug_n)
             annotation (Line(points={{-60,20},{-60,30}}, color={85,170,255}));
-          connect(powerSensorQS.currentN, currentSensorQS.plug_p)
+          connect(powerSensorQS.currentN, currentQuasiRMSSensorQS.plug_p)
             annotation (Line(points={{-40,80},{-30,80}}, color={85,170,255}));
           connect(powerSensorQS.voltageP, powerSensorQS.currentP) annotation (
               Line(points={{-50,90},{-60,90},{-60,80}}, color={85,170,255}));
@@ -749,13 +758,10 @@ In this example the eddy current losses are implemented in two different ways. C
           connect(idealCloser.plug_n, powerSensor.pc) annotation (Line(
               points={{-60,-20},{-60,-20}},
               color={0,0,255}));
-          connect(powerSensor.nc, currentRMSsensor.plug_p) annotation (Line(
-              points={{-40,-20},{-30,-20}},
-              color={0,0,255}));
-          connect(currentRMSsensor.plug_n, terminalBoxM.plugSupply) annotation (
-             Line(
-              points={{-10,-20},{30,-20},{30,-58}},
-              color={0,0,255}));
+          connect(powerSensor.nc, currentQuasiRMSSensor.plug_p)
+            annotation (Line(points={{-40,-20},{-30,-20}}, color={0,0,255}));
+          connect(currentQuasiRMSSensor.plug_n, terminalBoxM.plugSupply)
+            annotation (Line(points={{-10,-20},{30,-20},{30,-58}}, color={0,0,255}));
           connect(loadInertiaQS.flange_b, quadraticLoadTorqueQS.flange)
             annotation (Line(points={{70,30},{80,30}}));
           connect(powerSensor.pv, powerSensor.pc) annotation (Line(
@@ -766,9 +772,6 @@ In this example the eddy current losses are implemented in two different ways. C
               color={0,0,255}));
           connect(imcQS.flange, loadInertiaQS.flange_a) annotation (Line(
               points={{40,30},{50,30}}));
-          connect(currentSensorQS.y, symmetricalComponents.u) annotation (Line(
-              points={{-20,69},{-20,62}},
-              color={85,170,255}));
           connect(terminalBoxQS.plug_sn, imcQS.plug_sn) annotation (Line(
               points={{24,40},{24,40}},
               color={85,170,255}));
@@ -779,10 +782,8 @@ In this example the eddy current losses are implemented in two different ways. C
               Line(
               points={{10,40},{10,42},{21,42}},
               color={85,170,255}));
-          connect(currentSensorQS.plug_n, terminalBoxQS.plugSupply) annotation (
-             Line(
-              points={{-10,80},{30,80},{30,42}},
-              color={85,170,255}));
+          connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
+            annotation (Line(points={{-10,80},{30,80},{30,42}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{10,20},{10,20}},
               color={85,170,255}));
@@ -843,6 +844,10 @@ Simulate for 1 second and plot (versus time):
           parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
           parameter Modelica.SIunits.Inertia JLoad=0.29
             "Load's moment of inertia";
+          output Modelica.SIunits.Current Itr=currentQuasiRMSSensor.I
+            "Transient RMS current";
+          output Modelica.SIunits.Current Iqs=currentQuasiRMSSensorQS.I
+            "QS RMS current";
           Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
             imc(
             p=imcData.p,
@@ -943,7 +948,7 @@ Simulate for 1 second and plot (versus time):
                     {76,30}})));
           Utilities.MultiTerminalBox terminalBox1(terminalConnection="Y", m=m)
             annotation (Placement(transformation(extent={{20,26},{40,46}})));
-          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor
+          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor
             currentQuasiRMSSensorQS(m=m) annotation (Placement(transformation(
                 origin={20,50},
                 extent={{-10,10},{10,-10}})));
@@ -1098,8 +1103,8 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
         end IMC_Inverter;
 
         model IMS_Start "Starting of induction machine with slip rings"
-          import Modelica.Constants.pi;
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=3 "Number of stator phases";
           parameter Integer mr=3 "Number of rotor phases";
           parameter Modelica.SIunits.Voltage VsNominal=100
@@ -1115,6 +1120,10 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                Modelica.SIunits.Conversions.from_rpm(1440.45)
             "Nominal load speed";
           parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+          output Modelica.SIunits.Current Itr=currentQuasiRMSSensor.I
+            "Transient RMS current";
+          output Modelica.SIunits.Current Iqs=currentQuasiRMSSensorQS.I
+            "QS RMS current";
           Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
                 transformation(
                 origin={-90,-70},
@@ -1141,10 +1150,9 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                 rotation=90)));
           Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tOn)
             annotation (Placement(transformation(extent={{-96,-38},{-76,-18}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor
-            currentRMSsensor(m=m) annotation (Placement(transformation(
-                origin={-20,-18},
-                extent={{-10,-10},{10,10}})));
+          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
+            annotation (Placement(transformation(origin={-20,-18}, extent={{-10,-10},{10,
+                    10}})));
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBoxM(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{10,-64},{30,-44}})));
@@ -1267,9 +1275,8 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
           Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor
             powerSensorQS(m=m) annotation (Placement(transformation(extent={{-60,
                     74},{-40,94}})));
-          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor
-            currentSensorQS(m=m) annotation (Placement(transformation(extent={{
-                    -30,74},{-10,94}})));
+          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m)
+            annotation (Placement(transformation(extent={{-30,74},{-10,94}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Ideal.IdealClosingSwitch
             idealCloserQS(
             final m=m,
@@ -1281,11 +1288,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
           Modelica.Blocks.Sources.BooleanStep booleanStepQS[m](each startTime=
                 tOn, each startValue=false) annotation (Placement(
                 transformation(extent={{-96,54},{-76,74}})));
-          Electrical.QuasiStationary.MultiPhase.Blocks.SymmetricalComponents
-            symmetricalComponents(m=m) annotation (Placement(transformation(
-                extent={{-10,-10},{10,10}},
-                rotation=270,
-                origin={-20,58})));
           Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
             annotation (Placement(transformation(extent={{-60,-28},{-40,-8}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star
@@ -1302,7 +1304,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
         initial equation
           ims.is[1:2] = zeros(2);
           ims.ir[1:mr] = zeros(mr);
-          //???
 
         equation
           connect(star.pin_n, ground.p)
@@ -1327,10 +1328,8 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
             annotation (Line(points={{26,-60},{26,-60}}, color={0,0,255}));
           connect(terminalBoxM.plug_sn, ims.plug_sn)
             annotation (Line(points={{14,-60},{14,-60}}, color={0,0,255}));
-          connect(currentRMSsensor.plug_n, terminalBoxM.plugSupply) annotation (
-             Line(
-              points={{-10,-18},{20,-18},{20,-58}},
-              color={0,0,255}));
+          connect(currentQuasiRMSSensor.plug_n, terminalBoxM.plugSupply)
+            annotation (Line(points={{-10,-18},{20,-18},{20,-58}}, color={0,0,255}));
           connect(rheostatM.plug_p, ims.plug_rp) annotation (Line(
               points={{10,-64},{10,-64}},
               color={0,0,255}));
@@ -1350,8 +1349,8 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
             annotation (Line(points={{-80,20},{-80,20}}, color={85,170,255}));
           connect(starQS.plug_p, voltageSourceQS.plug_n)
             annotation (Line(points={{-60,20},{-60,30}}, color={85,170,255}));
-          connect(powerSensorQS.currentN, currentSensorQS.plug_p) annotation (
-              Line(points={{-40,84},{-40,84},{-30,84}}, color={85,170,255}));
+          connect(powerSensorQS.currentN, currentQuasiRMSSensorQS.plug_p)
+            annotation (Line(points={{-40,84},{-40,84},{-30,84}}, color={85,170,255}));
           connect(powerSensorQS.voltageP, powerSensorQS.currentP) annotation (
               Line(points={{-50,94},{-60,94},{-60,84}}, color={85,170,255}));
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
@@ -1367,9 +1366,6 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
               Line(
               points={{-60,74},{-60,84}},
               color={85,170,255}));
-          connect(currentSensorQS.y, symmetricalComponents.u) annotation (Line(
-              points={{-20,73},{-20,70}},
-              color={85,170,255}));
           connect(idealCloser.plug_n, powerSensor.pc) annotation (Line(
               points={{-60,-18},{-60,-18}},
               color={0,0,255}));
@@ -1379,13 +1375,10 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
           connect(powerSensor.nv, star.plug_p) annotation (Line(
               points={{-50,-28},{-50,-70},{-60,-70}},
               color={0,0,255}));
-          connect(powerSensor.nc, currentRMSsensor.plug_p) annotation (Line(
-              points={{-40,-18},{-30,-18}},
-              color={0,0,255}));
-          connect(currentSensorQS.plug_n, terminalBoxQS.plugSupply) annotation (
-             Line(
-              points={{-10,84},{20,84},{20,42}},
-              color={85,170,255}));
+          connect(powerSensor.nc, currentQuasiRMSSensor.plug_p)
+            annotation (Line(points={{-40,-18},{-30,-18}}, color={0,0,255}));
+          connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
+            annotation (Line(points={{-10,84},{20,84},{20,42}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{-20,20},{-20,20}},
               color={85,170,255}));
@@ -1449,14 +1442,18 @@ Simulate for 1.5 seconds and plot (versus time):
         extends Modelica.Icons.ExamplesPackage;
         model SMPM_Mains
           "Permanent magnet synchronous machine operated at mains"
-          import Modelica.Constants.pi;
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Frequency f=50 "Supply frequency";
           parameter Modelica.SIunits.Voltage V=112.3 "Supply voltage";
           parameter Modelica.SIunits.Torque T_Load=181.4 "Nominal load torque";
           parameter Modelica.SIunits.Time tStep=0.5 "Time of load torque step";
           parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
+          output Modelica.SIunits.Current Itr=currentQuasiRMSSensor.I
+            "Transient RMS current";
+          output Modelica.SIunits.Current Iqs=currentQuasiRMSSensorQS.I
+            "QS RMS current";
           Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource
             voltageSourceQS(
             m=m,
@@ -1480,9 +1477,8 @@ Simulate for 1.5 seconds and plot (versus time):
           Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor
             powerSensorQS(m=m) annotation (Placement(transformation(extent={{-60,
                     70},{-40,90}})));
-          Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor
-            currentSensorQS(m=m) annotation (Placement(transformation(extent={{
-                    -20,70},{0,90}})));
+          Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensorQS(m=m)
+            annotation (Placement(transformation(extent={{-20,70},{0,90}})));
           FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpmQS(
             m=m,
@@ -1562,7 +1558,7 @@ Simulate for 1.5 seconds and plot (versus time):
                 origin={-80,-90})));
           Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
             annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
-          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor(m=m)
+          Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor(m=m)
             annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
             smpm(
@@ -1589,11 +1585,12 @@ Simulate for 1.5 seconds and plot (versus time):
             Lmq=smpmData.Lmq*m/3,
             useSupport=false,
             Js=smpmData.Jr,
+            phiMechanical(start=0, fixed=true),
             TsOperational=293.15,
             alpha20s=smpmData.alpha20s,
-            phiMechanical(start=0, fixed=true),
             alpha20r=smpmData.alpha20r,
-            TrOperational=293.15)
+            TrOperational=293.15,
+            ir(fixed=true, start=zeros(2)))
             annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=
@@ -1612,6 +1609,9 @@ Simulate for 1.5 seconds and plot (versus time):
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{-10,-54},{10,-34}})));
+        initial equation
+          smpm.is=zeros(m);
+
         equation
           connect(groundQS.pin, starQS.pin_n) annotation (Line(points={{-68,10},
                   {-68,10},{-60,10}}, color={85,170,255}));
@@ -1619,7 +1619,7 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Line(points={{-60,30},{-60,40}}, color={85,170,255}));
           connect(voltageSourceQS.plug_p, powerSensorQS.currentP) annotation (
               Line(points={{-60,60},{-60,70},{-60,80}}, color={85,170,255}));
-          connect(powerSensorQS.currentN, currentSensorQS.plug_p)
+          connect(powerSensorQS.currentN, currentQuasiRMSSensorQS.plug_p)
             annotation (Line(points={{-40,80},{-20,80}}, color={85,170,255}));
           connect(powerSensorQS.voltageP, powerSensorQS.currentP) annotation (
               Line(points={{-50,90},{-60,90},{-60,80}}, color={85,170,255}));
@@ -1639,10 +1639,8 @@ Simulate for 1.5 seconds and plot (versus time):
               Line(
               points={{-30,50},{-30,52},{-9,52}},
               color={85,170,255}));
-          connect(currentSensorQS.plug_n, terminalBoxQS.plugSupply) annotation (
-             Line(
-              points={{0,80},{0,52}},
-              color={85,170,255}));
+          connect(currentQuasiRMSSensorQS.plug_n, terminalBoxQS.plugSupply)
+            annotation (Line(points={{0,80},{0,52}}, color={85,170,255}));
           connect(starMachineQS.pin_n, groundMachineQS.pin) annotation (Line(
               points={{-30,30},{-30,22}},
               color={85,170,255}));
@@ -1656,13 +1654,10 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(terminalBox.plug_sp, smpm.plug_sp) annotation (Line(
               points={{6,-50},{6,-50}},
               color={0,0,255}));
-          connect(terminalBox.plugSupply, currentRMSsensor.plug_n) annotation (
-              Line(
-              points={{0,-48},{0,-20}},
-              color={0,0,255}));
-          connect(currentRMSsensor.plug_p, powerSensor.nc) annotation (Line(
-              points={{-20,-20},{-40,-20}},
-              color={0,0,255}));
+          connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
+            annotation (Line(points={{0,-48},{0,-20}}, color={0,0,255}));
+          connect(currentQuasiRMSSensor.plug_p, powerSensor.nc)
+            annotation (Line(points={{-20,-20},{-40,-20}}, color={0,0,255}));
           connect(powerSensor.pc, voltageSource.plug_p) annotation (Line(
               points={{-60,-20},{-60,-40}},
               color={0,0,255}));
@@ -1714,9 +1709,13 @@ Simulate for 1 second and plot (versus time):
 
         model SMPM_OpenCircuit
           "Test example: PermanentMagnetSynchronousMachine with inverter"
-          import Modelica.Constants.pi;
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=3 "Number of phases";
+          output Modelica.SIunits.Voltage Vtr=potentialSensor.phi[1]
+            "Transient voltage";
+          output Modelica.SIunits.Voltage Vqs=potentialSensorQS.abs_y[1]
+            "QS voltage";
           FundamentalWave.BasicMachines.SynchronousMachines.SM_PermanentMagnet
             smpmQS(
             p=smpmData.p,
@@ -1879,6 +1878,7 @@ Simulate for 0.1 second and plot (versus time):
         model SMPM_CurrentSource
           "Test example: PermanentMagnetSynchronousMachine fed by current source"
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";
@@ -2213,8 +2213,8 @@ Simulate for 2 seconds and plot (versus time):
 
         model SMEE_Generator
           "Electrical excited synchronous machine operating as generator"
-          import Modelica.Constants.pi;
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=3 "Number of stator phases";
           parameter Modelica.SIunits.Voltage VsNominal=100
             "Nominal RMS voltage per phase";
@@ -2226,6 +2226,8 @@ Simulate for 2 seconds and plot (versus time):
             "Initial excitation current";
           parameter Modelica.SIunits.Angle gamma0(displayUnit="deg") = 0
             "Initial rotor displacement angle";
+          output Modelica.SIunits.Power Ptr=powerSensor.power "Transient power";
+          output Modelica.SIunits.Power Pqs=powerSensorQS.y.re "QS power";
           Modelica.Electrical.MultiPhase.Basic.Star star(final m=m) annotation (
              Placement(transformation(extent={{-50,-30},{-70,-10}})));
           Modelica.Electrical.Analog.Basic.Ground grounde annotation (Placement(
@@ -2238,8 +2240,8 @@ Simulate for 2 seconds and plot (versus time):
             final V=fill(VsNominal*sqrt(2), m),
             final freqHz=fill(fsNominal, m)) annotation (Placement(
                 transformation(extent={{-20,-30},{-40,-10}})));
-          Modelica.Electrical.MultiPhase.Sensors.PowerSensor
-            electricalPowerSensor(m=m) annotation (Placement(transformation(
+          Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerSensor(m=m)
+            annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={0,-34})));
@@ -2459,28 +2461,21 @@ Simulate for 2 seconds and plot (versus time):
           connect(starQS.plug_p, voltageSourceQS.plug_n) annotation (Line(
                 points={{-50,80},{-50,80},{-40,80}}, color={85,170,255}));
           connect(voltageSourceQS.plug_p, powerSensorQS.currentP) annotation (
-              Line(points={{-20,80},{-20,80},{0,80},{0,80},{0,80},{0,76},{0,76}},
+              Line(points={{-20,80},{-20,80},{0,80},{0,76}},
                 color={85,170,255}));
           connect(powerSensorQS.voltageP, powerSensorQS.currentP) annotation (
               Line(points={{10,66},{10,76},{0,76}}, color={85,170,255}));
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-10,66},{-10,66},{-42,66},{-50,66},{-50,80}}, color={
                   85,170,255}));
-          connect(sineVoltage.plug_p, electricalPowerSensor.pc) annotation (
-              Line(
-              points={{-20,-20},{0,-20},{0,-24},{0,-24}},
-              color={0,0,255}));
-          connect(electricalPowerSensor.pc, electricalPowerSensor.pv)
-            annotation (Line(
-              points={{0,-24},{10,-24},{10,-34}},
-              color={0,0,255}));
-          connect(electricalPowerSensor.nv, star.plug_p) annotation (Line(
-              points={{-10,-34},{-50,-34},{-50,-20}},
-              color={0,0,255}));
-          connect(electricalPowerSensor.nc, terminalBoxM.plugSupply)
-            annotation (Line(
-              points={{0,-44},{0,-58}},
-              color={0,0,255}));
+          connect(sineVoltage.plug_p, powerSensor.pc)
+            annotation (Line(points={{-20,-20},{0,-20},{0,-24}}, color={0,0,255}));
+          connect(powerSensor.pc, powerSensor.pv)
+            annotation (Line(points={{0,-24},{10,-24},{10,-34}}, color={0,0,255}));
+          connect(powerSensor.nv, star.plug_p)
+            annotation (Line(points={{-10,-34},{-50,-34},{-50,-20}}, color={0,0,255}));
+          connect(powerSensor.nc, terminalBoxM.plugSupply)
+            annotation (Line(points={{0,-44},{0,-58}}, color={0,0,255}));
           connect(terminalBoxQS.plug_sn, smeeQS.plug_sn) annotation (Line(
               points={{-6,40},{-6,40}},
               color={85,170,255}));
@@ -2551,8 +2546,8 @@ Simulate for 30 seconds:
 
         model SMR_CurrentSource
           "Test example: Synchronous reluctance machine fed by current source"
-          import Modelica.Constants.pi;
           extends Modelica.Icons.Example;
+          import Modelica.Constants.pi;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Voltage VNominal=100
             "Nominal RMS voltage per phase";

@@ -436,7 +436,8 @@ directly utilized by a user.
             fillColor={64,64,64},
             pattern=LinePattern.None,
             fillPattern=FillPattern.Solid,
-            points={{-5.0,0.0},{-2.0,60.0},{0.0,65.0},{2.0,60.0},{5.0,0.0}}),
+            points={{-5.0,0.0},{-2.0,60.0},{0.0,65.0},{2.0,60.0},{5.0,0.0}},
+            origin={0,0}),
           Ellipse(
             fillColor={64,64,64},
             pattern=LinePattern.None,
