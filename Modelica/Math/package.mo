@@ -3388,7 +3388,7 @@ to compute the solution of a linear system of differential equations</p>
 
 <p>The algorithm is taken from</p>
 <dl>
-<dt>H. D. Joos, G. Gruebel:
+<dt>H. D. Joos, G. Gr&uuml;bel:
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
     DLR - Control Systems Group 1991
 </dl>
