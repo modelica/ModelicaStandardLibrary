@@ -129,9 +129,7 @@ are chosen such way that the neutral current (see currentSensor0) is zero.
 <p>
 P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 42, example 18
 </p>
-</html>"), experiment(StopTime=1.0, Interval=0.001),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}})));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
     end BalancingStar;
 
     model BalancingDelta "Balancing an unsymmetrical delta-connected load"
@@ -1020,8 +1018,7 @@ the actual operating temperature and the reference input resistances <code>real(
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
+</html>"));
     end Impedance;
 
     model Admittance "Multiphase linear admittance"
@@ -1090,8 +1087,7 @@ the actual operating temperature and the reference input conductances <code>real
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableImpedance\">Variable impedance</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableAdmittance\">Variable admittance</a>
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
+</html>"));
     end Admittance;
 
     model VariableResistor "Multiphase variable resistor"
