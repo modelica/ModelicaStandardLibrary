@@ -209,7 +209,7 @@ in \"string\". The search is started at index \"startIndex\" (default = 1).
 If the optional argument \"caseSensitive\" is false,
 for the counting it does not matter whether a letter is upper
 or lower case.
-/p>
+</p>
 </html>"));
   end count;
 
@@ -429,7 +429,7 @@ performed replacements.
        gap := div(gap,2);
     end while;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 stringVector2 = Streams.<b>sort</b>(stringVector1);
@@ -448,7 +448,7 @@ and upper case letters are not distinguished.
   s2 = Strings.sort(s1);
        -> s2 = {\"angle\", \"force\", \"pressure\"};
 </pre></blockquote>
-</HTML>"));
+</html>"));
   end sort;
 
   function hashString "Creates a hash value of a String"
@@ -1302,7 +1302,7 @@ All functions perform the following actions:
 </p>
 <ol>
 <li> Scanning starts at character position \"startIndex\" of
-     \"string\" (startIndex has a default of 1).
+     \"string\" (startIndex has a default of 1).</li>
 <li> First, white space is skipped, such as blanks (\" \"), tabs (\"\\t\"), or newline (\"\\n\")</li>
 <li> Afterwards, the required token is scanned.</li>
 <li> If successful, on return nextIndex = index of character
@@ -1341,7 +1341,7 @@ The following additional rules apply for the scanning:
 </html>"));
   end Advanced;
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <h4>Library content</h4>
 <p>
 Package <b>Strings</b> contains functions to manipulate strings.
@@ -1405,5 +1405,5 @@ input argument <b>caseSensitive</b> with default <b>true</b>.
 If <b>false</b>, the operation is carried out without taking
 into account whether a character is upper or lower case.
 </p>
-</HTML>"));
+</html>"));
 end Strings;

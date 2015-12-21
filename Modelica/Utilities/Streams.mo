@@ -10,7 +10,7 @@ package Streams "Read from files and write to files"
                  annotation(Dialog(saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>print</b>(string);
@@ -39,7 +39,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
 <a href=\"modelica://Modelica.Utilities.Streams.error\">Streams.error</a>,
 <a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>
 </p>
-</HTML>"));
+</html>"));
   end print;
 
   function readFile
@@ -165,7 +165,7 @@ file is already closed or does not exist.
 </html>"));
   end close;
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <h4>Library content</h4>
 <p>
 Package <b>Streams</b> contains functions to input and output strings

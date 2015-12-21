@@ -214,7 +214,7 @@ algorithm
                        oldName2, newName2);
   end if;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>copy</b>(oldName, newName);
@@ -246,7 +246,7 @@ oldName.
      -> make a copy of file \"test1.txt\" with the name \"test2.txt\"
         in the current directory
 </pre></blockquote>
-</HTML>"));
+</html>"));
 end copy;
 
 function move "Move a file or a directory to another place"
@@ -268,7 +268,7 @@ algorithm
      Files.remove(oldName);
   end if;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Files.<b>move</b>(oldName, newName);
@@ -301,7 +301,7 @@ oldName.
      -> rename file \"test1.txt\" into \"test2.txt\"
         within the current directory
 </pre></blockquote>
-</HTML>"));
+</html>"));
 end move;
 
 function remove "Remove file or directory (ignore call, if it does not exist)"
@@ -647,7 +647,7 @@ algorithm
        name :=pathName;
      end if;
    end if;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (directory, name, extension) = Files.<b>splitPathName</b>(pathName);
@@ -664,7 +664,7 @@ Function <b>splitPathName</b>(..) splits a path name into its parts.
      name      = \"input\"
      extension = \".txt\"
 </pre>
-</HTML>"));
+</html>"));
 end splitPathName;
 
 function temporaryFileName
@@ -723,7 +723,7 @@ as well as absolute local file path names are supported.
 </html>"));
   end loadResource;
     annotation (
-Documentation(info="<HTML>
+Documentation(info="<html>
 <p>
 This package contains functions to work with files and directories.
 As a general convention of this package, '/' is used as directory
@@ -782,5 +782,5 @@ In the table below an example call to every function is given:
            write to this file (useful for temporary output of files).</td>
   </tr>
 </table>
-</HTML>"));
+</html>"));
 end Files;

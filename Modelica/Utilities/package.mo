@@ -87,7 +87,7 @@ Below the major design decisions of this library are summarized.
   class ReleaseNotes "Release notes"
     extends Modelica.Icons.ReleaseNotes;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Version 1.0, 2004-09-29</h4>
 <p>
 First version implemented.
@@ -100,9 +100,9 @@ First version implemented.
 
     annotation (Documentation(info="<html>
 <dl>
-<dt><b>Responsible for Library:</b>
+<dt><b>Responsible for Library:</b></dt>
 <dd>Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden.<br>
-    email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br>
+    email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br></dd>
 </dl>
 <p><b>Acknowledgements:</b></p>
 <ul>
@@ -124,7 +124,7 @@ First version implemented.
 </html>"));
   end Contact;
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>Modelica.Utilities</b> contains Modelica <b>functions</b> that are
 especially suited for <b>scripting</b>. Currently, only a rudimentary
@@ -155,7 +155,7 @@ functions do not return, if an error is triggered inside the function.
 In the near future, an exception handling mechanism will be introduced
 in Modelica that will allow to catch errors at a defined place.
 </p>
-</HTML>"));
+</html>"));
 end UsersGuide;
 
 
