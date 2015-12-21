@@ -84,8 +84,7 @@ package MultiPhase "Multi phase quasi static package"
     connect(variableAdmittance.plug_n, voltageSensor.plug_n) annotation (Line(points={{30,-40},{8,-40},{-20,-40},{-20,-36},{-20,-30}},                   color={85,170,255}));
     connect(star.plug_p, currentSource.plug_p) annotation (Line(points={{-50,-50},{-50,-50},{-50,-30}}, color={85,170,255}));
     connect(star.pin_n, ground.pin) annotation (Line(points={{-50,-70},{-50,-70},{-50,-80}}, color={85,170,255}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-      experiment(StopTime=1),
+    annotation (      experiment(StopTime=1),
       Documentation(info="<html>
 <p>Serial connection of different multi phase basic components</p>
 </html>"));
@@ -199,8 +198,7 @@ package MultiPhase "Multi phase quasi static package"
     connect(idealCommutingSwitch.plug_n2, idealIntermediateSwitch.plug_p2) annotation (Line(points={{50,30},{56,30},{60,30}}, color={85,170,255}));
     connect(idealIntermediateSwitch.plug_n2, impedance.plug_p) annotation (Line(points={{80,30},{90,30},{90,0},{80,0}}, color={85,170,255}));
     connect(idealIntermediateSwitch.plug_n1, admittance.plug_p) annotation (Line(points={{80,35},{100,35},{100,-20},{80,-20}}, color={85,170,255}));
-    annotation (experiment(StopTime=1),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=1),      Documentation(info="<html>
 <p>Serial connection of different multi phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;

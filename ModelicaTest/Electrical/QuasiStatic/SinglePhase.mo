@@ -67,8 +67,7 @@ package SinglePhase "Single phase quasi static package"
     connect(voltageSensor.pin_n, ground.pin) annotation (Line(points={{-20,-30},{-20,-40},{-50,-40}}, color={85,170,255}));
     connect(const6.y, currentSource.I) annotation (Line(points={{-79,-50},{-70,-50},{-70,-24},{-60,-24}}, color={85,170,255}));
     connect(ramp.y, currentSource.f) annotation (Line(points={{-79,-20},{-74,-20},{-70,-20},{-70,-16},{-60,-16}}, color={0,0,127}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-      experiment(StopTime=1),
+    annotation (      experiment(StopTime=1),
       Documentation(info="<html>
 <p>Serial connection of different single phase basic components</p>
 </html>"));
@@ -155,8 +154,7 @@ package SinglePhase "Single phase quasi static package"
     connect(idle.pin_n, variableAdmittance.pin_n) annotation (Line(points={{-50,0},{-50,0},{-50,-20},{-10,-20}}, color={85,170,255}));
     connect(currentSensor.pin_p, variableAdmittance.pin_n) annotation (Line(points={{-60,-20},{-35,-20},{-10,-20}}, color={85,170,255}));
     connect(currentSensor.pin_n, voltageSource.pin_n) annotation (Line(points={{-80,-20},{-90,-20},{-90,0}}, color={85,170,255}));
-    annotation (experiment(StopTime=1),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=1),      Documentation(info="<html>
 <p>Serial connection of different single phase ideal components and temperature dependent basic components</p>
 </html>"));
   end Ideal;
