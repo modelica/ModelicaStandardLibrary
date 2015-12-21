@@ -108,7 +108,7 @@ The Electrical.Digital library is based on the following references:
 
         annotation (Documentation(info="<html>
 <dl>
-<dt><b>Main Authors:</b>
+<dt><b>Main Authors:</b></dt>
 <dd>Christoph Clau&szlig;
     &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
     Andr&eacute; Schneider
@@ -119,7 +119,7 @@ The Electrical.Digital library is based on the following references:
     Design Automation Department (EAS)<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-    Germany<br>
+    Germany<br></dd>
 </dl>
 <br>
 <br>
@@ -317,7 +317,7 @@ the library and has the following content:
           connect(Adder.c, c.x[1]) annotation (Line(points={{40,-28},{65,-28}},
                 color={127,0,127}));
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 This example demonstrates an adding circuit for binary numbers, which internally realizes the interconnection to
 And and to Xor in the final sum.</p>
@@ -354,7 +354,7 @@ And and to Xor in the final sum.</p>
 <b>t</b> is the pick-up instant of the next bit(s) in the simulation.
 The simulation stop time should be 5 seconds.
 </p>
-</HTML>"),            experiment(StopTime=5));
+</html>"),            experiment(StopTime=5));
         end HalfAdder;
 
         model FullAdder "Full 1 Bit Adder Example"
@@ -394,7 +394,7 @@ The simulation stop time should be 5 seconds.
           connect(Counter.q0, Adder1.c_in) annotation (Line(points={{-20,-12},{-10,
                   -12},{-10,-21},{0,-21}}, color={127,0,127}));
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 <br>It is an adding circuit for binary numbers with input carry bit, which consists of two HalfAdders.
 <br>
@@ -527,7 +527,7 @@ The simulation stop time should be 10 seconds.
               color={127,0,127}));
           annotation (
             Diagram(coordinateSystem(extent = {{-200,-100},{200,100}})),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <p>
 Four FullAdders are combined to built a four bit adder unit.
 </p>
@@ -2903,18 +2903,18 @@ The result can be seen in the output signals of the FullAdders according to:</p>
           y = if delayTime > 0 then
                    (if time >= delayTime then x_delayed else y0) else
                      pre(x);
-          annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<html>
 <P>
 Provide the input as output exactly delayed by <i>Tdel</i>.
 If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
 </html>",       revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>August 11, 2003</i></dt>
 <dd>by Christoph Clauss initially modelled.</dd>
 </dl>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -2963,20 +2963,20 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
           end when;
           y := if delayTime > 0 then y_auxiliary else x;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
 If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
 </html>",       revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>August 12, 2003</i></dt>
 <dd>by Christoph Clauss revised</dd>
 <dt><i>March 19, 2003</i></dt>
 <dd>by Martin Otter initially modelled.</dd>
 </dl>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3035,7 +3035,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
          end when;
          y := if ((tLH > 0 or tHL > 0)) then y_auxiliary else x;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
 If the time is less than <i>Tdel</i> the initial value <i>initout</i> holds.<br>
@@ -3043,7 +3043,7 @@ The delay <i>Tdel</i> depends on the values of the signal change. To calculate <
 Digital.Tables is used. If the corresponding value is 1, then <i>tLH</i> is used, if it is -1, then <i>tHL</i>
 is used, if it is zero, the input is not delayed.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>January 24, 2013  </i> Initial value for y set to y0
        by Kristin Majetta and Christoph Clauss<br>
@@ -3067,7 +3067,7 @@ is used, if it is zero, the input is not delayed.
        by Christoph Clauss<br>
        initially modelled</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3184,12 +3184,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic not table (Tables.NotTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>August 14, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}},
@@ -3229,7 +3229,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic and table (Tables.AndTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3238,7 +3238,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
@@ -3270,7 +3270,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic and table (Tables.AndTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3279,7 +3279,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}},
@@ -3319,7 +3319,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic or table (Tables.OrTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3328,7 +3328,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by  Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
@@ -3361,7 +3361,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic or table (Tables.OrTable) an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3370,7 +3370,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{-50,40},{50,80}},
@@ -3410,7 +3410,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic xor table (Tables.XorTable) the output value is calculated.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3419,7 +3419,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
@@ -3451,7 +3451,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>According to the standard logic xor table (Tables.XorTable)an intermediate value is calculated, to which the not table (Tables.NotTable) is applied.</p>
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3460,7 +3460,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
@@ -3498,12 +3498,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>August 14, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3555,7 +3555,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3564,7 +3564,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3633,7 +3633,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               lineThickness=0.5,
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-            Documentation(revisions="<HTML>
+            Documentation(revisions="<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3642,7 +3642,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>",     info="<html>
+</html>",     info="<html>
 <p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>"));
         end NandGate;
@@ -3668,7 +3668,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3677,7 +3677,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Teresa Schlegel<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3722,7 +3722,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3731,7 +3731,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3782,7 +3782,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3791,7 +3791,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3836,7 +3836,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <ul>
 <li><i>September 15, 2004</i> vector approach used for all fixed numbers of inputs
        by Christoph Clauss<br>
@@ -3845,7 +3845,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        by Liane Jacobi<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3885,12 +3885,12 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Documentation(info="<html>
 <p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall inertial delay time, and initial value).</p>
 </html>", revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>September 21, 2004</i></dt>
 <dd>by Andre Schneider initially modelled.</dd>
 </dl>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3931,7 +3931,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                     10}})));
         algorithm
           y := x;
-          annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<html>
 <P>
 Sets a nine valued digital signal, which is specified by the <i>setval</i> parameter.
 </P>
@@ -3962,12 +3962,12 @@ If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;<
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",       revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>August 20, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -4008,7 +4008,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
             y := before;
           end if;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 The step source output signal steps from the value <i>before</i> to the value <i>after</i>
 at the time <i>stepTime</i>.
@@ -4038,12 +4038,12 @@ If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;<
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",       revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>August 20, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -4085,7 +4085,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
             end if;
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 The table source output signal <i>y</i> steps to the values of the  <i>x</i> table at the corresponding
 timepoints in the <i>t</i> table. <br>The initial value is specified by <i>y0</i>.
@@ -4114,12 +4114,12 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;</b><br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <dl>
 <dt><i>August 20, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-50,100},{50,-100}},
@@ -4183,7 +4183,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
           else
              y = quiet;
           end if;
-          annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<html>
 <P>
 The pulse source forms pulses between the  <i>quiet</i> value and the <i>pulse</i> value.
 The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
@@ -4215,12 +4215,12 @@ If the logic values are imported by <br><b>import L = Digital.Interfaces.Logic;<
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </html>",         revisions=
-                 "<HTML>
+                 "<html>
 <dl>
 <dt><i>September 2, 2003</i></dt>
 <dd>by Christoph Clauss initially modelled.</dd>
 </dl>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -4261,7 +4261,7 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
             t_i =  time;
           end when;
           y =  if (not time>=startTime) or time >= t_i + t_width then L.'0' else L.'1';
-          annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<html>
 <P>
 The clock source forms pulses between the  <i>'0'</i> value (forcing 0) and the <i>'1'</i> value (forcing 1).
 The pulse length <i>width</i> is specified in percent of the period length <i>period</i>.
@@ -4269,12 +4269,12 @@ The number of periods is unlimited. The first pulse starts at startTime.
 </P>
 <P> The clock source is a special but often used variant of the pulse source.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <dl>
 <dt><i>September 18, 2004</i></dt>
 <dd>by Andre Schneider initially modelled.</dd>
 </dl>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -4314,8 +4314,8 @@ The number of periods is unlimited. The first pulse starts at startTime.
             y[i] := T.X01Table[x[i]];
           end for;
           annotation (
-            Documentation(info="<HTML>
-<P>
+            Documentation(info="<html>
+<p>
 Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </p>
@@ -4332,10 +4332,10 @@ any delay according to IEEE 1164 To_X01 function.
   'H' (coded by 8)       '1'  (coded by 4)
   '-' (coded by 9)       'X'  (coded by 2)
 </pre>
-<P>
+<p>
 If the signal width is greater than 1 this conversion is done for each signal.
-</P>
-</html>",         revisions="<HTML>
+</p>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
@@ -4387,7 +4387,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             y[i] := T.X01ZTable[x[i]];
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 Conversion of a nine valued digital input into a X01Z digital output without
 any delay according to IEEE 1164 To_X01Z function.
@@ -4408,7 +4408,7 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
@@ -4417,7 +4417,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4460,7 +4460,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             y[i] := T.UX01Table[x[i]];
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 Conversion of a nine valued digital input into a UX01 digital output without
 any delay according to IEEE 1164 To_UX01 function.
@@ -4481,7 +4481,7 @@ any delay according to IEEE 1164 To_UX01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_ux01 into LogicToUX01<br>
@@ -4490,7 +4490,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4530,7 +4530,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             y[i] = if x[i] then L.'1' else L.'0';
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 Conversion of a Boolean input into a digital output without any delay according to:
 </P>
@@ -4542,7 +4542,7 @@ Conversion of a Boolean input into a digital output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4551,7 +4551,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}},
@@ -4584,7 +4584,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
           for i in 1:n loop
             y[i] = if x[i] == L.'1' or x[i] == L.'H' then true else false;
           end for;
-          annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<html>
 <P>
 Conversion of a digital input into a Boolean output without any delay according to:
 </P>
@@ -4603,7 +4603,7 @@ Conversion of a digital input into a Boolean output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4612,7 +4612,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Polygon(
@@ -4653,7 +4653,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               if x[i] < lower_limit then lower_value else middle_value;
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <P>
 Conversion of a real input into a digital output without any delay according to:
 </P>
@@ -4666,7 +4666,7 @@ Conversion of a real input into a digital output without any delay according to:
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4675,7 +4675,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}},
@@ -4724,7 +4724,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
                     if x[i] == L.'L' then value_L else if
               x[i] == L.'H' then value_H else value_m;
           end for;
-          annotation (Documentation(info="<HTML>
+          annotation (Documentation(info="<html>
 <P>
 Conversion of a digital input into a Real output without any delay according to:
 </P>
@@ -4744,7 +4744,7 @@ Conversion of a digital input into a Real output without any delay according to:
 The values val... are given by parameters.</P>
 <P>If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4753,7 +4753,7 @@ The values val... are given by parameters.</P>
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Polygon(
@@ -4790,11 +4790,11 @@ The values val... are given by parameters.</P>
             y[i] := T.X01Table[x[i]];
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Obsoletion Note</h4>
 <p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01\">LogicToX01</a> shall be used.</p>
 <hr>
-<P>
+<p>
 Conversion of a nine valued digital input into a X01 digital output without
 any delay according to IEEE 1164 To_X01 function.
 </p>
@@ -4814,7 +4814,7 @@ any delay according to IEEE 1164 To_X01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
@@ -4868,7 +4868,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             y[i] := T.X01ZTable[x[i]];
           end for;
           annotation (
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Obsoletion Note</h4>
 <p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01Z\">LogicToX01Z</a> shall be used.</p>
 <hr>
@@ -4892,7 +4892,7 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</html>",         revisions="<HTML>
+</html>",         revisions="<html>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
@@ -4901,7 +4901,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -5933,7 +5933,7 @@ Clock transition definitions:
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
@@ -6067,7 +6067,7 @@ Clock transition definitions:
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
@@ -6155,7 +6155,7 @@ Clock transition definitions:
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
@@ -6368,7 +6368,7 @@ Clock transition definitions:
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
@@ -6527,7 +6527,7 @@ Clock transition definitions:
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
@@ -6627,7 +6627,7 @@ Clock transition definitions:
   X  = L.'X' or L.'W' or L.'Z' or L.'-'
   NC = no change
 </PRE>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
@@ -7339,12 +7339,12 @@ Clock transition definitions:
       end for;
       y = pre(auxiliary[n]);
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 Wires n input signals in one output signal, without delay.
 </P>
 <p>Resolution table is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-</HTML>", revisions=
+</html>", revisions=
           "<html>
 <ul>
 <li><i>January 22, 2010 </i> created by Ulrich Donath<br>

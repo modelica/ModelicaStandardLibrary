@@ -85,7 +85,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   <li>Transient and quasiStatic models are parameter compatible.</li>
   <li>Induction machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
   <li>Synchronous machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
-  </p>
+  </ul></p>
   </html>"));
     end Discrimination;
 
@@ -513,7 +513,7 @@ This is the library of electric machine models.
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage - direct on line starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -524,7 +524,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_DOL;
 
       model AIMC_YD
@@ -640,7 +640,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
 At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
@@ -650,7 +650,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_YD;
 
       model AIMC_Transformer
@@ -834,7 +834,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{0,40},{0,10}},
             color={0,0,255}));
         annotation (experiment(StopTime=2.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
@@ -846,7 +846,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_Transformer;
 
       model AIMS_Start "Test example: AsynchronousInductionMachineSlipRing"
@@ -975,7 +975,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{-30,-46},{-20,-46}},
             color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with slipring rotor - resistance starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with sliprings;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed,
@@ -987,7 +987,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</HTML>"));
+</html>"));
       end AIMS_Start;
 
       model AIMC_Inverter
@@ -1091,7 +1091,7 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the asynchronous induction machine with squirrel cage to start,
@@ -1103,7 +1103,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_Inverter;
 
       model AIMC_Conveyor
@@ -1219,7 +1219,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Line(points={{60,-40},{66,-40},{70,-40}},
                                                        color={0,127,0}));
         annotation (experiment(StopTime=20, Interval=0.001),  Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.<br>
@@ -1231,7 +1231,7 @@ Simulate for 20 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_Conveyor;
 
       model AIMC_Steinmetz
@@ -1410,12 +1410,12 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{-10,-20},{-10,-28}},
             color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_Steinmetz;
 
       model AIMC_withLosses
@@ -1619,7 +1619,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,127}));
         annotation (
           experiment(StopTime=5.0, Interval=0.001),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
@@ -1666,7 +1666,7 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Text(
                       extent={{-72,100},{68,80}},
                       lineColor={0,0,255},
@@ -1778,7 +1778,7 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             points={{-70,20},{-10,20},{-10,10}},
             color={0,0,255}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</b><br>
 The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
 at time tStart a load torque step is applied.<br>
@@ -1789,11 +1789,11 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_Initialize;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains test examples of asynchronous induction machines.
-</HTML>"));
+</html>"));
     end AsynchronousInductionMachines;
 
     package SynchronousInductionMachines
@@ -1917,7 +1917,7 @@ This package contains test examples of asynchronous induction machines.
         connect(smr.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the reluctance machine to start,
@@ -1930,7 +1930,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>rotorDisplacementAngle.rotorDisplacementAngle: rotor displacement angle</li>
 </ul>
 Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
-</HTML>"));
+</html>"));
       end SMR_Inverter;
 
       model SMPM_Inverter
@@ -2055,7 +2055,7 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
         connect(smpm.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=1.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
 An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
 Frequency is raised by a ramp, causing the permanent magnet synchronous induction machine to start,
@@ -2071,7 +2071,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 <p>
 <b>In practice it is nearly impossible to drive a PMSMD without current controller.</b>
 </p>
-</HTML>"));
+</html>"));
       end SMPM_Inverter;
 
       model SMPM_CurrentSource
@@ -2783,7 +2783,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(smee.flange, mechanicalPowerSensor.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=30, Interval=0.005), Documentation(info=
-               "<HTML>
+               "<html>
 <b>Test example: Electrical excited synchronous induction machine as generator</b><br>
 An electrically excited synchronous generator is connected to the grid and driven with constant speed.
 Since speed is slightly smaller than synchronous speed corresponding to mains frequency,
@@ -2797,7 +2797,7 @@ Simulate for 30 seconds and plot (versus rotorDisplacementAngle.rotorDisplacemen
 <li>mechanicalPowerSensor.P</li>
 </ul>
 Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
-</HTML>"));
+</html>"));
       end SMEE_Generator;
 
       model SMEE_LoadDump
@@ -3304,9 +3304,9 @@ One could try to optimize the controller parameters.
 <p>Default machine parameters of model <i>SM_ElectricalExcited</i> are used. </p>
 </html>"));
       end SMEE_Rectifier;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains test examples of synchronous induction machines.
-</HTML>"));
+</html>"));
     end SynchronousInductionMachines;
 
     package DCMachines "Test examples of DC machines"
@@ -3379,7 +3379,7 @@ This package contains test examples of synchronous induction machines.
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Permanent magnet DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -3390,7 +3390,7 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
-</HTML>"));
+</html>"));
       end DCPM_Start;
 
       model DCEE_Start
@@ -3486,7 +3486,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         connect(dcee.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}}));
         annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Electrically separate excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start,
 and accelerating inertias.<br>At time tStep a load step is applied.<br>
@@ -3498,7 +3498,7 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcee.ie: excitation current</li>
 </ul>
 Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
-</HTML>"));
+</html>"));
       end DCEE_Start;
 
       model DCSE_Start
@@ -3589,7 +3589,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
             points={{39,10},{11,10}},
             color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Series excited DC machine started with a series resistor</b><br>
 At constant source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
 and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -3600,7 +3600,7 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcse.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>DC_SeriesExcited</i> are used.
-</HTML>"));
+</html>"));
       end DCSE_Start;
 
       model DCSE_SinglePhase
@@ -3692,7 +3692,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
             points={{39,10},{11,10}},
             color={0,0,127}));
         annotation (experiment(StopTime=2.0, Interval=0.0005), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</b><br>
 At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
 and accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
@@ -3706,7 +3706,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.<br>
 <b>Note:</b><br>
 Since both the field and the armature current are sinusoidal, the waveform of the torque is the square of sine.
 Due to the additional inductive voltage drops, output of the motor is lower, compared to the same motor (DCSE_Start) at DC voltage.
-</HTML>"));
+</html>"));
       end DCSE_SinglePhase;
       /*
   model DC_CompareCharacteristics
@@ -3781,7 +3781,7 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
         color={0,0,255}));
     annotation (
       experiment(StopTime=3, Interval=0.001),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <b>Test example: Compare characteristic of DC motors</b><br>
 The motors are started at no-load speed, then a load ramp is applied.<br>
 Simulate for 3 seconds and plot (versus time):
@@ -3791,7 +3791,7 @@ Simulate for 3 seconds and plot (versus time):
 <li>dcxx.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters are used.
-</HTML>"));
+</html>"));
   end DC_CompareCharacteristics;
 */
       model DCPM_Temperature
@@ -3889,7 +3889,7 @@ Default machine parameters are used.
             points={{-10,-10},{-10,-20}},
             color={195,0,0}));
         annotation (experiment(StopTime=3.0, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
 The motor starts at no-load speed, then a load step is applied.<br>
 Beginning with the load step, the armature temperature rises exponentially from 20 degC to 80 degC.<br>
@@ -3908,7 +3908,7 @@ Default machine parameters are used, but:
 </ul>
 So the machine is at the beginning in cold condition, ending in warm condition
 (with the same armature resistance as the unmodified machine).
-</HTML>"));
+</html>"));
       end DCPM_Temperature;
 
       model DCPM_Cooling "Test example: Cooling of a DCPM motor"
@@ -4093,7 +4093,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
             points={{22,0},{-10,0}},
             color={191,0,0}));
         annotation (experiment(StopTime=25, Interval=0.001), Documentation(info=
-               "<HTML>
+               "<html>
 <b>Test example: Demonstrate cooling of a DCPM motor</b><br>
 The motor starts at no-load speed, then load pulses are applied.<br>
 The cooling circuit consists of armature's thermal capacitance,
@@ -4125,7 +4125,7 @@ Default machine parameters are used, but:
 <li>Armature reference temperature is set to 80 degC.</li>
 <li>Nominal armature temperature is set to 80 degC.</li>
 </ul>
-</HTML>"));
+</html>"));
       end DCPM_Cooling;
 
       model DCPM_QuasiStationary
@@ -4237,7 +4237,7 @@ Default machine parameters are used, but:
             points={{-80,40},{-60,40},{-60,-20},{-16,-20}},
             color={0,0,255}));
         annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Compare DCPM motors transient and quasistationary</b><br>
 The motors start at no-load speed, then load pulses are applied.<br>
 Simulate for 2 seconds and plot (versus time):
@@ -4249,7 +4249,7 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm2.wMechanical: motor's speed of quasistationary model</li>
 <li>dcpm2.tauElectrical: motor's torque of quasistationary model</li>
 </ul>
-</HTML>"));
+</html>"));
       end DCPM_QuasiStationary;
 
       model DCPM_withLosses
@@ -4383,7 +4383,7 @@ Simulate for 2 seconds and plot (versus time):
             points={{-40,60},{-40,-40},{4,-40}},
             color={0,0,255}));
         annotation (experiment(StopTime=2.0, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Investigate influence of losses on DCPM motor performance</b><br>
 Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
 and accelerating inertias. Both machines are loading with a quadratic speed dependent load torque.<br>
@@ -4417,11 +4417,11 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"https://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference
-</HTML>"));
+</html>"));
       end DCPM_withLosses;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains test examples of DC machines.
-</HTML>"));
+</html>"));
     end DCMachines;
 
     package Transformers "Test examples of transformers"
@@ -4569,7 +4569,7 @@ This package contains test examples of DC machines.
         connect(deltaL.plug_p, voltageRMSSensorL.plug_n) annotation (Line(
             points={{60,-10},{60,-30}},
             color={0,0,255}));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 <h4>Transformer testbench:</h4>
 <p>
 You may choose different connections as well as vary the load (even not symmetrical).
@@ -4589,7 +4589,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dd ... No grounding necessary.</li>
 <li>Dz ... No grounding necessary.</li>
 </ul>
-</HTML>"), experiment(StopTime=0.1, Interval=0.001));
+</html>"), experiment(StopTime=0.1, Interval=0.001));
       end TransformerTestbench;
 
       model AsymmetricalLoad "AsymmetricalLoad"
@@ -4681,7 +4681,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
             color={0,0,255}));
         connect(earth.n, groundT.p) annotation (Line(points={{-10,-50},{-10,-50},
                 {-10,-60}}, color={0,0,255}));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 <h4>Asymmetrical (singlephase) load:</h4>
 <p>
 You may choose different connections.
@@ -4700,7 +4700,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dy ... Load current in two   primary phases.</li>
 <li>Dz ... Load current in three primary phases.</li>
 </ul>
-</HTML>"), experiment(StopTime=0.1, Interval=0.001));
+</html>"), experiment(StopTime=0.1, Interval=0.001));
       end AsymmetricalLoad;
 
       model Rectifier6pulse "6-pulse rectifier with 1 transformer"
@@ -4834,12 +4834,12 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         connect(transformer1.plug2, diode1.plug_p) annotation (Line(
             points={{-30,40},{-20,40},{-20,50}},
             color={0,0,255}));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</HTML>"), experiment(StopTime=0.1, Interval=0.0001));
+</html>"), experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier6pulse;
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
@@ -4914,12 +4914,12 @@ neglecting initial transient.
         connect(transformer2.plug1, currentSensor.plug_n) annotation (Line(
             points={{-50,-40},{-60,-40},{-60,0}},
             color={0,0,255}));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</HTML>"), experiment(StopTime=0.1, Interval=0.0001));
+</html>"), experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier12pulse;
 
       model AIMC_Transformer
@@ -4927,7 +4927,7 @@ neglecting initial transient.
         extends
           Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer;
         annotation (experiment(StopTime=2.5, Interval=0.001), Documentation(
-              info="<HTML>
+              info="<html>
 <b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
 At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
@@ -4939,15 +4939,15 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</html>"));
       end AIMC_Transformer;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains test examples of DC machines.
-</HTML>"));
+</html>"));
     end Transformers;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 This package contains test examples of electric machines.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -4984,7 +4984,7 @@ This package contains test examples of electric machines.
   <li> v2.1.2 2010/02/09 Anton Haumer<br>
        included new Examples (AIMC_Transformer, DC_Comparison)</li>
   </ul>
-</HTML>"));
+</html>"));
   end Examples;
 
   package BasicMachines "Basic machine models"
@@ -5063,7 +5063,7 @@ This package contains test examples of electric machines.
             color={191,0,0}));
         connect(airGapS.support, internalSupport) annotation (Line(
             points={{-10,0},{-40,0},{-40,-90},{60,-90},{60,-100}}));
-        annotation (defaultComponentName="aimc", Documentation(info="<HTML>
+        annotation (defaultComponentName="aimc", Documentation(info="<html>
 <p><b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
 </p>
@@ -5076,7 +5076,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <li>stray load losses</li>
 </ul>
 
-<p><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<p><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -5183,7 +5183,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</html>"));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slipring rotor"
@@ -5351,7 +5351,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             points={{60,-100},{60,-90},{-40,-90},{-40,0},{-10,0}}));
         annotation (
           defaultComponentName="aims",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a three phase asynchronous induction machine with slipring rotor.</b><br>
 Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
 </p>
@@ -5364,7 +5364,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <li>stray load losses</li>
 </ul>
 
-<p><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<p><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -5481,19 +5481,19 @@ at standstill with open rotor circuit at nominal voltage and nominal frequency, 
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
-</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
                     20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
                     {-60,-20}}, color={0,0,255})}));
       end AIM_SlipRing;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains models of asynchronous induction machines, based on space phasor theory:
 <ul>
 <li>AIM_SquirrelCage: asynchronous induction machine with squirrel cage</li>
 <li>AIM_SlipRing: asynchronous induction machine with wound rotor</li>
 </ul>
 These models use package SpacePhasors.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -5528,7 +5528,7 @@ These models use package SpacePhasors.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"));
+</html>"));
     end AsynchronousInductionMachines;
 
     package SynchronousInductionMachines
@@ -5702,7 +5702,7 @@ These models use package SpacePhasors.
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
 </p>
@@ -5717,7 +5717,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -5852,7 +5852,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</html>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -6086,7 +6086,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                     -4}}, color={0,0,255}),
               Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
                     0,255})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
 </p>
@@ -6102,7 +6102,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -6270,7 +6270,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">XDqs/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</html>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor
@@ -6409,7 +6409,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
 Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed coordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
 </p>
@@ -6423,7 +6423,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -6550,9 +6550,9 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">(Xsq-Xss)/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"));
+</html>"));
       end SM_ReluctanceRotor;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains models of synchronous induction machines, based on space phasor theory:
 <ul>
 <li>SM_PermanentMagnet: synchronous induction machine with permanent magnet excitation, with damper cage</li>
@@ -6572,7 +6572,7 @@ These models use package SpacePhasors.
     imaginary= q-axis</li>
 <li>Voltage induced by the magnet wheel (d-axis) is located in the q-axis.</li>
 </ul>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -6613,7 +6613,7 @@ These models use package SpacePhasors.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"));
+</html>"));
     end SynchronousInductionMachines;
 
     package DCMachines "Models of DC machines"
@@ -6690,7 +6690,7 @@ These models use package SpacePhasors.
                 lineColor={0,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid)}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a DC Machine with permanent magnets.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding AirGapDC. The machine models take the following loss effects into account:
 </p>
@@ -6704,7 +6704,7 @@ Armature resistance and inductance are modeled directly after the armature pins,
 </ul>
 
 <p>No saturation is modelled.
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">stator's moment of inertia</td>
@@ -6764,7 +6764,7 @@ Armature resistance and inductance are modeled directly after the armature pins,
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation winding, if present.
-</HTML>"));
+</html>"));
       end DC_PermanentMagnet;
 
       model DC_ElectricalExcited
@@ -6907,7 +6907,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
                     0,255}),
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a DC Machine with electrical shunt or separate excitation.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
 The machine models take the following loss effects into account:
@@ -6924,7 +6924,7 @@ The machine models take the following loss effects into account:
 
 <p>No saturation is modelled.<br>
 Shunt or separate excitation is defined by the user's external circuit.
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">stator's moment of inertia</td>
@@ -7022,7 +7022,7 @@ Shunt or separate excitation is defined by the user's external circuit.
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
 compensation winding, if present.<br>
 Armature current does not cover excitation current of a shunt excitation; in this case total current drawn from the grid = armature current + excitation current.
-</HTML>"));
+</html>"));
       end DC_ElectricalExcited;
 
       model DC_SeriesExcited "Series excited linear DC machine"
@@ -7167,7 +7167,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
                     29},{-100,30}}, color={0,0,255}),
               Line(points={{-100,50},{-100,30}}, color={0,0,255}),
               Line(points={{-100,-30},{-100,-50}}, color={0,0,255})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p><b>Model of a DC Machine with series excitation.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
 The machine models take the following loss effects into account:
@@ -7184,7 +7184,7 @@ The machine models take the following loss effects into account:
 
 <p>No saturation is modelled.<br>
 Series excitation has to be connected by the user's external circuit.
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign=\"top\">stator's moment of inertia</td>
@@ -7277,16 +7277,16 @@ Parameter nominal armature voltage includes voltage drop of series excitation;<b
 but for output the voltage is split into:<br>
 va = armature voltage without voltage drop of series excitation<br>
 ve = voltage drop of series excitation
-</HTML>"));
+</html>"));
       end DC_SeriesExcited;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains models of DC machines:
 <ul>
 <li>DC_PermanentMagnet: DC machine with permanent magnet excitation</li>
 <li>DC_ElectricalExcited: DC machine with electrical shunt or separate excitation</li>
 <li>DC_SeriesExcited: DC machine with series excitation</li>
 </ul>
-</html>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -7317,7 +7317,7 @@ This package contains models of DC machines:
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"));
+</html>"));
     end DCMachines;
 
     package QuasiStationaryDCMachines "Models of quasistationary DC machines"
@@ -7326,12 +7326,12 @@ This package contains models of DC machines:
         extends Machines.BasicMachines.DCMachines.DC_PermanentMagnet(final
             quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachine;
-        annotation (defaultComponentName="dcpm", Documentation(info="<HTML>
+        annotation (defaultComponentName="dcpm", Documentation(info="<html>
 <b>Quasistationary model of a DC Machine with permanent magnets.</b><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet\">transient machine model of a DC machine with permanent magnets</a>;
 the only difference is that electrical transients are neglected.
-</HTML>"));
+</html>"));
       end DC_PermanentMagnet;
 
       model DC_ElectricalExcited
@@ -7339,26 +7339,26 @@ the only difference is that electrical transients are neglected.
         extends Machines.BasicMachines.DCMachines.DC_ElectricalExcited(final
             quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachine;
-        annotation (defaultComponentName="dcee", Documentation(info="<HTML>
+        annotation (defaultComponentName="dcee", Documentation(info="<html>
 <b>Quasistationary model of a DC Machine with electrical shunt or separate excitation.</b><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited\">transient machine model of a DC machine with electrical shunt or separate excitation</a>;
 the only difference is that electrical transients are neglected.
-</HTML>"));
+</html>"));
       end DC_ElectricalExcited;
 
       model DC_SeriesExcited "Quasistationary series excited linear DC machine"
         extends Machines.BasicMachines.DCMachines.DC_SeriesExcited(final
             quasiStationary=true);
         extends Machines.Icons.QuasiStationaryMachine;
-        annotation (defaultComponentName="dcse", Documentation(info="<HTML>
+        annotation (defaultComponentName="dcse", Documentation(info="<html>
 <b>Quasistationary model of a DC Machine with Series excitation.</b><br>
 This model is fully compatible with the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited\">transient machine model of a DC machine with with series excitation</a>;
 the only difference is that electrical transients are neglected.
-</HTML>"));
+</html>"));
       end DC_SeriesExcited;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This package contains quasistationary models of DC machines;
 these models are fully compatible with the
@@ -7373,7 +7373,7 @@ whereas quasistationary induction machine models are based on time phasor theory
 see <a href=\"modelica://Modelica.Electrical.QuasiStationary\">QuasiStationary Library</a>,
 where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
-</html>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -7393,7 +7393,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
   <li> v2.3.0 2010/02/16 Anton Haumer<br>
        first implementation</li>
   </ul>
-</HTML>"));
+</html>"));
     end QuasiStationaryDCMachines;
 
     package Transformers "Library for technical 3phase transformers"
@@ -7649,9 +7649,9 @@ Transformer Yy10
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy10;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary y connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -7670,7 +7670,7 @@ This package contains transformers primary Y connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Yy;
 
       package Yd "Transformers: primary Y / secondary d"
@@ -7886,9 +7886,9 @@ Transformer Yd11
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd11;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -7907,7 +7907,7 @@ This package contains transformers primary Y connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Yd;
 
       package Yz "Transformers: primary Y / secondary zig-zag"
@@ -8215,9 +8215,9 @@ Transformer Yz11
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz11;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -8236,7 +8236,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Yz;
 
       package Dy "Transformers: primary D / secondary y"
@@ -8460,9 +8460,9 @@ Transformer Dy11
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy11;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary y connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -8481,7 +8481,7 @@ This package contains transformers primary D connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Dy;
 
       package Dd "Transformers: primary D / secondary d"
@@ -8667,9 +8667,9 @@ Transformer Dd10
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd10;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -8688,7 +8688,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Dd;
 
       package Dz "Transformers: primary D / secondary zig-zag"
@@ -8966,9 +8966,9 @@ Transformer Dz10
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz10;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -8987,9 +8987,9 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Dz;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
@@ -9056,14 +9056,14 @@ Copyright &copy; 1998-2013, Modelica Association and Anton Haumer.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer<br>
        first stable release</li>
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
+</html>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               origin={10,10},
               fillColor={135,135,135},
@@ -9224,9 +9224,9 @@ equation
               Text(
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
-                textString="%name")}), Documentation(info="<HTML>
+                textString="%name")}), Documentation(info="<html>
 Partial model of the airgap, using only equations.
-</HTML>"));
+</html>"));
       end PartialAirGap;
 
       model AirGapS "Airgap in stator-fixed coordinate system"
@@ -9254,9 +9254,9 @@ Partial model of the airgap, using only equations.
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
                 textString="%name")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Model of the airgap in stator-fixed coordinate system, using only equations.
-</HTML>"));
+</html>"));
       end AirGapS;
 
       model AirGapR "Airgap in rotor-fixed coordinate system"
@@ -9287,9 +9287,9 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
                 extent={{-150,-90},{150,-150}},
                 lineColor={0,0,255},
                 textString="%name")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Model of the airgap in rotor-fixed coordinate system, using only equations.
-</HTML>"));
+</html>"));
       end AirGapR;
 
       model Inductor "Space phasor inductor"
@@ -9379,7 +9379,7 @@ This is a model of an inductor, described with space phasors.
                       extent={{-150,-90},{150,-150}},
                       lineColor={0,0,255},
                       textString="%name"),Line(points={{-100,90},{-100,60}},
-                color={0,0,255})}), Documentation(info="<HTML>
+                color={0,0,255})}), Documentation(info="<html>
 <p>
 Model of a squirrel cage / symmetrical damper cage in two axis.
 </p>
@@ -9389,7 +9389,7 @@ which can be enabled or disabled by the Boolean parameter useHeatPort.
 Temperatures of both axis are the same, both losses are added.
 Material properties alpha of both axis are the same.
 </p>
-</HTML>"));
+</html>"));
       end SquirrelCage;
 
       model DamperCage "Squirrel Cage"
@@ -9466,7 +9466,7 @@ Material properties alpha of both axis are the same.
                 extent={{0,70},{-60,80}},
                 lineColor={255,255,255},
                 fillColor={255,255,255},
-                fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+                fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Model of an asymmetrical damper cage in two axis.
 </p>
@@ -9477,7 +9477,7 @@ Temperatures of both axis are the same, both losses are added.
 Material properties alpha can be set differently for both d- and q-axis,
 although reference temperature for both resistances is the same.
 </p>
-</HTML>"));
+</html>"));
       end DamperCage;
 
       model ElectricalExcitation "Electrical excitation"
@@ -9512,9 +9512,9 @@ although reference temperature for both resistances is the same.
                 {-50,-20},{-44,-26},{-54,-32}}, color={0,0,255}),Line(points={{
                 -54,32},{-54,100},{-70,100}}, color={0,0,255}),Line(points={{90,
                 100},{30,100},{30,40}}, color={0,0,255}),Line(points={{30,-40},
-                {30,-100},{90,-100}}, color={0,0,255})}), Documentation(info="<HTML>
+                {30,-100},{90,-100}}, color={0,0,255})}), Documentation(info="<html>
 Model of an electrical excitation, converting excitation to space phasor.
-</HTML>"));
+</html>"));
       end ElectricalExcitation;
 
       model PermanentMagnet "Permanent magnet excitation"
@@ -9552,9 +9552,9 @@ Model of an electrical excitation, converting excitation to space phasor.
                 points={{0,100},{0,60}}, color={255,0,0}),Text(
                       extent={{-150,-90},{150,-150}},
                       lineColor={0,0,255},
-                      textString="%name")}), Documentation(info="<HTML>
+                      textString="%name")}), Documentation(info="<html>
 Model of a permanent magnet excitation, characterized by an equivalent excitation current.
-</HTML>"));
+</html>"));
       end PermanentMagnet;
 
       model PermanentMagnetWithLosses "Permanent magnet excitation"
@@ -9681,12 +9681,12 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
                       extent={{-10,90},{10,-80}},
                       lineColor={170,213,255},
                       fillPattern=FillPattern.VerticalCylinder,
-                      fillColor={170,213,255})}), Documentation(info="<HTML>
+                      fillColor={170,213,255})}), Documentation(info="<html>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.
 If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the induced excitation voltage is zero.<br>
 Induced armature voltage is calculated from flux times angular velocity.
-</HTML>"));
+</html>"));
       end PartialAirGapDC;
 
       model AirGapDC "Linear airgap model of a DC machine"
@@ -9702,11 +9702,11 @@ Induced armature voltage is calculated from flux times angular velocity.
                       extent={{-150,-100},{150,-160}},
                       lineColor={0,0,255},
                       textString="%name")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.<br>
 Induced armature voltage is calculated from flux times angular velocity.
-</HTML>"));
+</html>"));
       end AirGapDC;
 
       model CompoundDCExcitation "Compound excitation = shunt + series"
@@ -9761,11 +9761,11 @@ Induced armature voltage is calculated from flux times angular velocity.
                       lineColor={0,0,255},
                       fillColor={0,0,255},
                       fillPattern=FillPattern.Solid,
-                      textString="E")}), Documentation(info="<HTML>
+                      textString="E")}), Documentation(info="<html>
 Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t. shunt excitation.
 This model is intended to be placed between shunt and series excitation pins and the airgap;
 the connection to airgap has to be grounded at one point.
-</HTML>"));
+</html>"));
       end CompoundDCExcitation;
 
       partial model PartialCore
@@ -9852,10 +9852,10 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 Exactly the same as Interfaces.PartialBasicTransformer, included for compatibility reasons.
 </html>"));
       end BasicTransformer;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory.
 These models use package SpacePhasors.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -9886,9 +9886,9 @@ These models use package SpacePhasors.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"));
+</html>"));
     end Components;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 This package contains components for modeling electrical machines, specially three-phase induction machines, based on space phasor theory:
 <ul>
 <li>package AsynchronousInductionMachines: models of three phase asynchronous induction machines</li>
@@ -9898,7 +9898,7 @@ This package contains components for modeling electrical machines, specially thr
 <li>package Components: components for modeling machines and transformers</li>
 </ul>
 The induction machine models use package SpacePhasors.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -9946,7 +9946,7 @@ The induction machine models use package SpacePhasors.
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
+</html>"), Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
             origin={2.835,10},
             fillColor={0,128,255},
@@ -10031,10 +10031,10 @@ The induction machine models use package SpacePhasors.
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="V RMS")}), Documentation(info="<HTML>
+                  textString="V RMS")}), Documentation(info="<html>
 Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
-</HTML>"));
+</html>"));
     end VoltageQuasiRMSSensor;
 
     model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
@@ -10090,10 +10090,10 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               Line(points={{0,-70},{0,-100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="A RMS")}), Documentation(info="<HTML>
+                  textString="A RMS")}), Documentation(info="<html>
 Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
 output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
-</HTML>"));
+</html>"));
     end CurrentQuasiRMSSensor;
 
     model ElectricalPowerSensor "Instantaneous power from space phasors"
@@ -10134,12 +10134,12 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               10,70},{10,80},{50,80},{50,100}}, color={0,0,127}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="P Q")}), Documentation(info="<HTML>
+                  textString="P Q")}), Documentation(info="<html>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
 P = instantaneous power, thus giving in stationary state active power.<br>
 Q = giving in stationary state reactive power.<br>
-</HTML>"));
+</html>"));
     end ElectricalPowerSensor;
 
     model MechanicalPowerSensor "Mechanical power = torque x speed"
@@ -10204,9 +10204,9 @@ Q = giving in stationary state reactive power.<br>
               {10,-120}}),Text(
                   lineColor={0,0,255},
                   extent={{-40,-60},{40,-20}},
-                  textString="Pmech")}), Documentation(info="<HTML>
+                  textString="Pmech")}), Documentation(info="<html>
 Calculates (mechanical) power from torque times angular speed.
-</HTML>"));
+</html>"));
     end MechanicalPowerSensor;
 
     model RotorDisplacementAngle "Rotor lagging angle"
@@ -10327,7 +10327,7 @@ Calculates (mechanical) power from torque times angular speed.
                   points={{110,120},{100,100}}),Line(
                   visible=not useSupport,
                   points={{120,120},{110,100}})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, <br>
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
 <p>
@@ -10336,11 +10336,11 @@ If the machine's stator also implicitly fixed (useSupport=false), the angle at t
 is equal to the angle of the machine's rotor against the stator.<br>
 Otherwise, the sensor's support has to be connected to the machine's support.
 </p>
-</HTML>"));
+</html>"));
     end RotorDisplacementAngle;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 This package contains sensors that are useful when modelling machines.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -10364,7 +10364,7 @@ This package contains sensors that are useful when modelling machines.
        removed mechanical flange support, also in sensor RotorDisplacementAngle<br>
        to ease the implementation of a 3D-frame in a future release</li>
   </ul>
-</HTML>"));
+</html>"));
   end Sensors;
 
   package SpacePhasors "Library with space phasor-models"
@@ -10441,7 +10441,7 @@ This package contains sensors that are useful when modelling machines.
               Line(points={{60,-84},{60,-116}}, color={0,0,255}),
               Line(points={{50,-90},{50,-110}}, color={0,0,255}),
               Line(points={{40,-96},{40,-104}}, color={0,0,255})}),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 Physical transformation of voltages and currents: three phases &lt;-&gt; space phasors:<br>
 x[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*X[Re,Im]<br>
 and vice versa:<br>
@@ -10450,7 +10450,7 @@ X[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
 were x designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.<br>
 <i>Physical transformation</i> means that both voltages and currents are transformed in both directions.<br>
 Zero-sequence voltage and current are present at pin zero. An additional zero-sequence impedance could be connected between pin zero and pin ground.
-</HTML>"));
+</html>"));
       end SpacePhasor;
 
       model Rotator "Rotates space phasor"
@@ -10497,16 +10497,16 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
                       pattern=LinePattern.None,
                       fillColor={255,255,255},
                       fillPattern=FillPattern.Solid,
-                      lineColor={0,0,255})}), Documentation(info="<HTML>
+                      lineColor={0,0,255})}), Documentation(info="<html>
 Rotates space phasors of left connector to right connector by the angle provided by the input signal \"angle\" from one coordinate system into another.
-</HTML>"));
+</html>"));
       end Rotator;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains basic space phasor models.<br>
 Real and imaginary part of voltage space phasor are the potentials v_[2] of the space phasor connector; (implicit grounded).<br>
 Real and imaginary part of current space phasor are the currents i_[2] at the space phasor connector;
 a ground has to be used where necessary for currents flowing back.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -10529,7 +10529,7 @@ a ground has to be used where necessary for currents flowing back.
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
        improved Transformation and Rotation</li>
   </ul>
-</HTML>"));
+</html>"));
     end Components;
 
     package Blocks "Blocks for space phasor transformation"
@@ -10571,7 +10571,7 @@ a ground has to be used where necessary for currents flowing back.
                       fillPattern=FillPattern.Solid),Text(
                       extent={{-88,-72},{84,-92}},
                       lineColor={0,0,0},
-                      textString="angle")}), Documentation(info="<HTML>
+                      textString="angle")}), Documentation(info="<html>
 Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -10583,7 +10583,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
   <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
 </table>
 
-</HTML>"));
+</html>"));
       end Rotator;
 
       block ToSpacePhasor
@@ -10626,9 +10626,9 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
                       extent={{-12,-74},{64,-86}},
                       lineColor={0,0,0},
                       textString="zero")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
-</HTML>"));
+</html>"));
       end ToSpacePhasor;
 
       block FromSpacePhasor
@@ -10669,9 +10669,9 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
                       smooth=Smooth.Bezier),Text(
                       extent={{-62,-74},{14,-86}},
                       lineColor={0,0,0},
-                      textString="zero")}), Documentation(info="<HTML>
+                      textString="zero")}), Documentation(info="<html>
 Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
-</HTML>"));
+</html>"));
       end FromSpacePhasor;
 
       block ToPolar "Converts a space phasor to polar coordinates"
@@ -10707,9 +10707,9 @@ Transformation of space phasor and zero sequence value to mutli phase values (of
                       textString="R"),Text(
                       extent={{6,6},{100,-100}},
                       lineColor={0,0,255},
-                      textString="P")}), Documentation(info="<HTML>
+                      textString="P")}), Documentation(info="<html>
 Converts a space phasor from rectangular coordinates to polar coordinates.
-</HTML>"));
+</html>"));
       end ToPolar;
 
       block FromPolar "Converts a space phasor from polar coordinates"
@@ -10731,9 +10731,9 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
                       textString="P"),Text(
                       extent={{6,6},{100,-100}},
                       lineColor={0,0,255},
-                      textString="R")}), Documentation(info="<HTML>
+                      textString="R")}), Documentation(info="<html>
 Converts a space phasor from polar coordinates to rectangular coordinates.
-</HTML>"));
+</html>"));
       end FromPolar;
 
       block QuasiRMS
@@ -10762,7 +10762,7 @@ This model determines the RMS value of the input space phasor <code>u</code>.</p
                       lineColor={0,0,255},
                       textString="RMS")}));
       end QuasiRMS;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains space phasor transformation blocks for use in controllers:
 <ul>
 <li>ToSpacePhasor: transforms a set of multi phase values to space phasor and zero sequence system</li>
@@ -10775,7 +10775,7 @@ This package contains space phasor transformation blocks for use in controllers:
 Space phasors are defined as vectors of length = 2,
 the first element representing the real part and the second element representing the imaginary part of the space phasor.
 </p>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
   <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -10798,7 +10798,7 @@ the first element representing the real part and the second element representing
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
        improved Transformation and Rotation</li>
   </ul>
-</HTML>"));
+</html>"));
     end Blocks;
 
     package Functions "Functions for space phasor transformation"
@@ -10820,9 +10820,9 @@ the first element representing the real part and the second element representing
       algorithm
         y := TransformationMatrix*x;
         y0 := 1/m*sum(x);
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
 Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
-</HTML>"));
+</html>"));
       end ToSpacePhasor;
 
       function FromSpacePhasor
@@ -10843,9 +10843,9 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
       algorithm
         y := fill(x0, m) + InverseTransformation*x;
 
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
 Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
-</HTML>"));
+</html>"));
       end FromSpacePhasor;
 
       function Rotator "Rotates space phasor"
@@ -10858,7 +10858,7 @@ Transformation of space phasor and zero sequence value to mutli phase values (of
             cos(-angle)}};
       algorithm
         y := RotationMatrix*x;
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
 Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -10869,7 +10869,7 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
   </tr>
   <caption align=\"bottom\"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
 </table>
-</HTML>"));
+</html>"));
       end Rotator;
 
       function ToPolar "Converts a space phasor to polar coordinates"
@@ -10893,9 +10893,9 @@ Rotates a space phasor (voltage or current) input <code>u</code> by the <code>an
     end if;
   end if;
 */
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
 Converts a space phasor from rectangular coordinates to polar coordinates, providing angle=0 for {0,0}.
-</HTML>"));
+</html>"));
       end ToPolar;
 
       function FromPolar "Converts a space phasor from polar coordinates"
@@ -10907,9 +10907,9 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
         constant Real small=Modelica.Constants.small;
       algorithm
         x := absolute*{cos(angle),sin(angle)};
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
 Converts a space phasor from polar coordinates to rectangular coordinates.
-</HTML>"));
+</html>"));
       end FromPolar;
 
       function quasiRMS "Calculate quasi-RMS value of input"
@@ -10925,9 +10925,9 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
         Real h[2]=TransformationMatrix*x;
       algorithm
         y := sqrt(h[1]^2 + h[2]^2)/sqrt(2);
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
   Transformation of m phase values (voltages or currents) to space phasor and calculate length of space phasor / sqrt(2).
-</HTML>"));
+</html>"));
       end quasiRMS;
 
       function activePower
@@ -10949,11 +10949,11 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
           i_ := i_ + 2/m*{+cos((k - 1)/m*2*pi),+sin(+(k - 1)/m*2*pi)}*i[k];
         end for;
         p := m/2*(+v_[1]*i_[1] + v_[2]*i_[2]);
-        annotation (Inline=true, Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<html>
 Transformation of three phase voltages and currents to space phasors and calculate active power.
-</HTML>"));
+</html>"));
       end activePower;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains space phasor transformation functions for use in calculations:
 <ul>
 <li>ToSpacePhasor: transforms a set of three-phase values to space phasor and zero sequence system</li>
@@ -10966,7 +10966,7 @@ This package contains space phasor transformation functions for use in calculati
 Space phasors are defined as vectors of length = 2,
 the first element representing the real part and the second element representing the imaginary part of the space phasor.
 </p>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -10992,9 +10992,9 @@ the first element representing the real part and the second element representing
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</HTML>"));
+</html>"));
     end Functions;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains components, blocks and functions to utilize space phasor theory.
 </p>
@@ -11005,7 +11005,7 @@ the first element representing the real part and the second element representing
 <p>
 You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
 </p>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -11030,7 +11030,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
        improved Transformation and Rotation</li>
   </ul>
-</HTML>"));
+</html>"));
   end SpacePhasors;
 
   package Losses "Loss models for electric machines"
@@ -11556,9 +11556,9 @@ The current implementation has thus the drawback over a model that considers <co
 
 </html>"));
       end Core;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains loss models used for induction machine models.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -11578,7 +11578,7 @@ This package contains loss models used for induction machine models.
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
        first implementation</li>
   </ul>
-</HTML>"));
+</html>"));
     end InductionMachines;
 
     package DCMachines "Loss models for DC machines"
@@ -11795,9 +11795,9 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
 
 </html>"));
       end Core;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains loss models used for DC machine models.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -11817,11 +11817,11 @@ This package contains loss models used for DC machine models.
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
        first implementation</li>
   </ul>
-</HTML>"));
+</html>"));
     end DCMachines;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 This package contains loss models and their parameter records used for machine models.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -11841,7 +11841,7 @@ This package contains loss models and their parameter records used for machine m
   <li> v2.4.0 2010/04/20 Anton Haumer<br>
        first implementation</li>
   </ul>
-</HTML>"));
+</html>"));
   end Losses;
 
   package Thermal "Library with models for connecting thermal models"
@@ -11895,9 +11895,9 @@ This package contains loss models and their parameter records used for machine m
                 -24.8},{7.912,-24.469},{16.247,0.27},{16.247,0.27},{13.336,
                 0.071},{13.336,0.071},{7.515,-9.983},{-3.134,-7.271},{-2.671,
                 41.214},{-2.671,41.214}},
-                  smooth=Smooth.Bezier)}), Documentation(info="<HTML>
+                  smooth=Smooth.Bezier)}), Documentation(info="<html>
 Material constants, especially linear temperature coefficients of commonly used conductor materials
-</HTML>"));
+</html>"));
     end Constants;
 
     function convertAlpha
@@ -12009,10 +12009,10 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="AIMC")}), Documentation(info="<HTML>
+                textString="AIMC")}), Documentation(info="<html>
 Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientAIMC;
 
       model ThermalAmbientAIMS
@@ -12082,14 +12082,14 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="AIMS")}), Documentation(info="<HTML>
+                textString="AIMS")}), Documentation(info="<html>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientAIMS;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Thermal parts for asynchronous induction machines
-</HTML>"));
+</html>"));
     end AsynchronousInductionMachines;
 
     package SynchronousInductionMachines
@@ -12181,10 +12181,10 @@ Thermal parts for asynchronous induction machines
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMPM")}), Documentation(info="<HTML>
+                textString="SMPM")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientSMPM;
 
       model ThermalAmbientSMEE
@@ -12279,10 +12279,10 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMEE")}), Documentation(info="<HTML>
+                textString="SMEE")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientSMEE;
 
       model ThermalAmbientSMR
@@ -12337,14 +12337,14 @@ Additionally, all losses = heat flows are recorded.
                 lineColor={0,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid,
-                textString="SMR")}), Documentation(info="<HTML>
+                textString="SMR")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientSMR;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Thermal parts for synchronous induction machines
-</HTML>"));
+</html>"));
     end SynchronousInductionMachines;
 
     package DCMachines "Thermal parts of DC machines"
@@ -12397,10 +12397,10 @@ Thermal parts for synchronous induction machines
                       lineColor={0,0,0},
                       fillColor={95,95,95},
                       fillPattern=FillPattern.Solid,
-                      textString="DCPM")}), Documentation(info="<HTML>
+                      textString="DCPM")}), Documentation(info="<html>
 Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientDCPM;
 
       model ThermalAmbientDCEE
@@ -12449,10 +12449,10 @@ Additionally, all losses = heat flows are recorded.
                       lineColor={0,0,0},
                       fillColor={95,95,95},
                       fillPattern=FillPattern.Solid,
-                      textString="DCEE")}), Documentation(info="<HTML>
+                      textString="DCEE")}), Documentation(info="<html>
 Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientDCEE;
 
       model ThermalAmbientDCSE
@@ -12501,10 +12501,10 @@ Additionally, all losses = heat flows are recorded.
                       lineColor={0,0,0},
                       fillColor={95,95,95},
                       fillPattern=FillPattern.Solid,
-                      textString="DCSE")}), Documentation(info="<HTML>
+                      textString="DCSE")}), Documentation(info="<html>
 Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientDCSE;
 
       model ThermalAmbientDCCE
@@ -12585,14 +12585,14 @@ Additionally, all losses = heat flows are recorded.
                       lineColor={0,0,0},
                       fillColor={95,95,95},
                       fillPattern=FillPattern.Solid,
-                      textString="DCCE")}), Documentation(info="<HTML>
+                      textString="DCCE")}), Documentation(info="<html>
 Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
       end ThermalAmbientDCCE;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Thermal parts for DC machines
-</HTML>"));
+</html>"));
     end DCMachines;
 
     model ThermalAmbientTransformer "Thermal ambient for transformers"
@@ -12709,16 +12709,16 @@ Thermal parts for DC machines
                   lineColor={0,0,0},
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid,
-                  textString="Trafo")}), Documentation(info="<HTML>
+                  textString="Trafo")}), Documentation(info="<html>
 Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"));
+</html>"));
     end ThermalAmbientTransformer;
     annotation (Icon(graphics={Ellipse(
             extent={{-65,-63},{65,63}},
             lineColor={191,0,0},
             fillColor={191,0,0},
-            fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <h4>Thermal concept</h4>
 <p>
 Each machine model is equipped with a machine-specific conditional <code>thermalPort</code>.
@@ -12865,13 +12865,13 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
 <li><code>heatPort2[m]</code>: m=3 heatPorts for the m=3 secondary phases</li>
 <li><code>heatPortCore</code>: iron core losses (not yet connected/implemented)</li>
 </ul>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
   <ul>
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        first stable release of this subpackage:<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"));
+</html>"));
   end Thermal;
 
   package Interfaces "SpacePhasor connector and PartialMachines"
@@ -12895,13 +12895,13 @@ In sub-package <a href=\"modelica://Modelica.Electrical.Machines.Thermal.Constan
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 Connector for Space Phasors:
 <ul>
 <li>Voltage v_[2] ... Real and Imaginary part of voltage space phasor</li>
 <li>Current i_[2] ... Real and Imaginary part of current space phasor</li>
 </ul>
-</HTML>"));
+</html>"));
     end SpacePhasor;
 
     partial model PartialBasicMachine "Partial model for all machines"
@@ -12991,7 +12991,7 @@ Connector for Space Phasors:
               points={{110,-100},{100,-120}}),
             Line(
               visible=not useSupport,
-              points={{120,-100},{110,-120}})}), Documentation(info="<HTML>
+              points={{120,-100},{110,-120}})}), Documentation(info="<html>
 Base partial model DC machines:
 <ul>
 <li>main parts of the icon</li>
@@ -13002,7 +13002,7 @@ Besides the mechanical connector <i>flange</i> (i.e., the shaft) the machines ha
 If <i>useSupport</i> = false, it is assumed that the stator is fixed.<br>
 Otherwise reaction torque (i.e., airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
 One may also fix the the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
-</HTML>"));
+</html>"));
     end PartialBasicMachine;
 
     partial model PartialBasicInductionMachine
@@ -13177,9 +13177,9 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={191,0,0}));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
           points={{80,90},{100,90},{100,40},{90,40},{90,0}}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Partial model for induction machine models
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
                 color={0,0,255})}));
@@ -13225,9 +13225,9 @@ Partial model for induction machine models
                 lineColor={191,0,0},
                 fillColor={191,0,0},
                 fillPattern=FillPattern.Solid)}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Partial thermal port for induction machines
-</HTML>"));
+</html>"));
       end PartialThermalPortInductionMachines;
 
       model PartialThermalAmbientInductionMachines
@@ -13353,9 +13353,9 @@ Partial thermal port for induction machines
                 fillColor={191,0,0},
                 fillPattern=FillPattern.Solid,
                 origin={0,68},
-                rotation=90)}), Documentation(info="<HTML>
+                rotation=90)}), Documentation(info="<html>
 Partial thermal ambient for induction machines
-</HTML>"));
+</html>"));
       end PartialThermalAmbientInductionMachines;
 
       record PartialPowerBalanceInductionMachines
@@ -13371,9 +13371,9 @@ Partial thermal ambient for induction machines
         Modelica.SIunits.Power lossPowerRotorCore=0 "Rotor core losses";
         Modelica.SIunits.Power lossPowerStrayLoad=0 "Stray load losses";
         Modelica.SIunits.Power lossPowerFriction=0 "Friction losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Partial power balance of induction machines.
- </HTML>"));
+ </html>"));
       end PartialPowerBalanceInductionMachines;
 
       connector ThermalPortAIMC
@@ -13383,9 +13383,9 @@ Partial power balance of induction machines.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
           heatPortRotorWinding "Heat port of rotor (squirrel cage)"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for asynchronous induction machine with squirrel cage
-</HTML>"));
+</html>"));
       end ThermalPortAIMC;
 
       record PowerBalanceAIMC
@@ -13396,9 +13396,9 @@ Thermal port for asynchronous induction machine with squirrel cage
                + lossPowerRotorCore + lossPowerStrayLoad + lossPowerFriction +
               lossPowerRotorWinding);
         Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of asynchronous induction machines with squirrel cage.
- </HTML>"));
+ </html>"));
       end PowerBalanceAIMC;
 
       connector ThermalPortAIMS
@@ -13412,9 +13412,9 @@ Power balance of asynchronous induction machines with squirrel cage.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortBrush
           "Heat port of (optional) brush losses"
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for asynchronous induction machine with slipring rotor
-</HTML>"));
+</html>"));
       end ThermalPortAIMS;
 
       record PowerBalanceAIMS
@@ -13427,9 +13427,9 @@ Thermal port for asynchronous induction machine with slipring rotor
         Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
         Modelica.SIunits.Power lossPowerBrush "Brush losses";
         Modelica.SIunits.Power powerRotor "Electrical power (rotor)";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of asynchronous induction machines with slipring.
- </HTML>"));
+ </html>"));
       end PowerBalanceAIMS;
 
       connector ThermalPortSMPM
@@ -13445,9 +13445,9 @@ Power balance of asynchronous induction machines with slipring.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
           heatPortPermanentMagnet "Heat port of permanent magnets"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for synchronous induction machine with permanent magnets
-</HTML>"));
+</html>"));
       end ThermalPortSMPM;
 
       record PowerBalanceSMPM
@@ -13460,9 +13460,9 @@ Thermal port for synchronous induction machine with permanent magnets
         Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
         Modelica.SIunits.Power lossPowerPermanentMagnet
           "Permanent magnet losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of synchronous induction machines with permanent magnet.
- </HTML>"));
+ </html>"));
       end PowerBalanceSMPM;
 
       connector ThermalPortSMEE
@@ -13481,9 +13481,9 @@ Power balance of synchronous induction machines with permanent magnet.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortBrush
           "Heat port of (optional) brush losses"
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for synchronous induction machine with electrical excitation
-</HTML>"));
+</html>"));
       end ThermalPortSMEE;
 
       record PowerBalanceSMEE
@@ -13497,9 +13497,9 @@ Thermal port for synchronous induction machine with electrical excitation
         Modelica.SIunits.Power powerExcitation "Electrical excitation power";
         Modelica.SIunits.Power lossPowerExcitation "Excitation losses";
         Modelica.SIunits.Power lossPowerBrush "Brush losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of synchronous induction machines with electrical excitation.
- </HTML>"));
+ </html>"));
       end PowerBalanceSMEE;
 
       connector ThermalPortSMR
@@ -13512,9 +13512,9 @@ Power balance of synchronous induction machines with electrical excitation.
           heatPortRotorWinding if useDamperCage
           "Heat port of damper cage (optional)"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for synchronous induction machine with reluctance rotor
-</HTML>"));
+</html>"));
       end ThermalPortSMR;
 
       record PowerBalanceSMR
@@ -13525,13 +13525,13 @@ Thermal port for synchronous induction machine with reluctance rotor
                + lossPowerRotorCore + lossPowerStrayLoad + lossPowerFriction +
               lossPowerRotorWinding);
         Modelica.SIunits.Power lossPowerRotorWinding "Rotor copper losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of synchronous induction machines with reluctance rotor.
- </HTML>"));
+ </html>"));
       end PowerBalanceSMR;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Interfaces and partial models for induction machines
-</HTML>"));
+</html>"));
     end InductionMachines;
 
     partial model PartialBasicDCMachine "Partial model for DC machine"
@@ -13690,9 +13690,9 @@ Interfaces and partial models for induction machines
           color={191,0,0}));
       connect(inertiaRotor.flange_b, strayLoad.flange) annotation (Line(
           points={{90,0},{92,0},{92,30},{100,30},{100,70},{80,70}}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Partial model for DC machine models.
-</HTML>"), Icon(graphics={Line(points={{-40,70},{-60,70},{-60,90}}, color={0,0,
+</html>"), Icon(graphics={Line(points={{-40,70},{-60,70},{-60,90}}, color={0,0,
                   255}), Line(points={{40,70},{60,70},{60,90}}, color={0,0,255})}));
     end PartialBasicDCMachine;
 
@@ -13734,9 +13734,9 @@ Partial model for DC machine models.
                 lineColor={191,0,0},
                 fillColor={191,0,0},
                 fillPattern=FillPattern.Solid)}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Partial thermal port for DC machines
-</HTML>"));
+</html>"));
       end PartialThermalPortDCMachines;
 
       model PartialThermalAmbientDCMachines
@@ -13844,9 +13844,9 @@ Partial thermal port for DC machines
                       fillColor={191,0,0},
                       fillPattern=FillPattern.Solid,
                       origin={0,68},
-                      rotation=90)}), Documentation(info="<HTML>
+                      rotation=90)}), Documentation(info="<html>
 Partial thermal ambient for induction machines
-</HTML>"));
+</html>"));
       end PartialThermalAmbientDCMachines;
 
       record PartialPowerBalanceDCMachines
@@ -13862,9 +13862,9 @@ Partial thermal ambient for induction machines
         Modelica.SIunits.Power lossPowerStrayLoad=0 "Stray load losses";
         Modelica.SIunits.Power lossPowerFriction=0 "Friction losses";
         Modelica.SIunits.Power lossPowerBrush=0 "Brush losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Partial power balance of DC machines.
- </HTML>"));
+ </html>"));
       end PartialPowerBalanceDCMachines;
 
       connector ThermalPortDCPM
@@ -13873,9 +13873,9 @@ Partial power balance of DC machines.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
           heatPortPermanentMagnet "Heat port of permanent magnets"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for DC machine with permanent magnets
-</HTML>"));
+</html>"));
       end ThermalPortDCPM;
 
       record PowerBalanceDCPM
@@ -13886,9 +13886,9 @@ Thermal port for DC machine with permanent magnets
               lossPowerPermanentMagnet);
         Modelica.SIunits.Power lossPowerPermanentMagnet
           "Permanent magnet losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of DC machines with permanent magnet.
- </HTML>"));
+ </html>"));
       end PowerBalanceDCPM;
 
       connector ThermalPortDCEE
@@ -13897,9 +13897,9 @@ Power balance of DC machines with permanent magnet.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortExcitation
           "Heat port of (shunt) excitation"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for DC machine with electrical (shunt) excitation
-</HTML>"));
+</html>"));
       end ThermalPortDCEE;
 
       record PowerBalanceDCEE
@@ -13911,9 +13911,9 @@ Thermal port for DC machine with electrical (shunt) excitation
         Modelica.SIunits.Power powerExcitation
           "Electrical (shunt) excitation power";
         Modelica.SIunits.Power lossPowerExcitation "Excitation losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of DC machines with electrical excitation.
- </HTML>"));
+ </html>"));
       end PowerBalanceDCEE;
 
       connector ThermalPortDCSE
@@ -13922,9 +13922,9 @@ Power balance of DC machines with electrical excitation.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
           heatPortSeriesExcitation "Heat port of series excitation"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for DC machine with serial excitation
-</HTML>"));
+</html>"));
       end ThermalPortDCSE;
 
       record PowerBalanceDCSE
@@ -13937,9 +13937,9 @@ Thermal port for DC machine with serial excitation
           "Electrical series excitation power";
         Modelica.SIunits.Power lossPowerSeriesExcitation
           "Series excitation losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of DC machines with series excitation.
- </HTML>"));
+ </html>"));
       end PowerBalanceDCSE;
 
       connector ThermalPortDCCE
@@ -13951,9 +13951,9 @@ Power balance of DC machines with series excitation.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a
           heatPortSeriesExcitation "Heat port of series excitation"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 Thermal port for DC machine with compound excitation
-</HTML>"));
+</html>"));
       end ThermalPortDCCE;
 
       record PowerBalanceDCCE
@@ -13970,13 +13970,13 @@ Thermal port for DC machine with compound excitation
           "(Shunt) excitation losses";
         Modelica.SIunits.Power lossPowerSeriesExcitation
           "Series excitation losses";
-        annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+        annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of DC machines with compound excitation.
- </HTML>"));
+ </html>"));
       end PowerBalanceDCCE;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Thermal ports for DC machines
-</HTML>"));
+</html>"));
     end DCMachines;
 
     partial model PartialBasicTransformer
@@ -14231,9 +14231,9 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
                   lineColor={191,0,0},
                   fillColor={191,0,0},
                   fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 Thermal port for transformers
-</HTML>"));
+</html>"));
     end ThermalPortTransformer;
 
     record PowerBalanceTransformer "Power balance of transformers"
@@ -14245,9 +14245,9 @@ Thermal port for transformers
       Modelica.SIunits.Power lossPower1 "Primary copper losses";
       Modelica.SIunits.Power lossPower2 "Secondary copper losses";
       Modelica.SIunits.Power lossPowerCore "Core losses";
-      annotation (defaultComponentPrefixes="output", Documentation(info="<HTML>
+      annotation (defaultComponentPrefixes="output", Documentation(info="<html>
 Power balance of transformers.
- </HTML>"));
+ </html>"));
     end PowerBalanceTransformer;
 
     partial model FlangeSupport "Shaft and support"
@@ -14276,9 +14276,9 @@ Positive torque <code>tau</code> acts as braking torque.
               fillColor={192,192,192},
               fillPattern=FillPattern.Solid)}));
     end FlangeSupport;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 This package contains the space phasor connector and partial models for machine models.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -14310,7 +14310,7 @@ This package contains the space phasor connector and partial models for machine 
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"));
+</html>"));
   end Interfaces;
 
   package Icons "Icons for electrical machines"
@@ -14611,9 +14611,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="inductionMachineData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of induction machines are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end InductionMachineData;
 
       record AIM_SquirrelCageData
@@ -14639,9 +14639,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="aimcData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of asynchronous induction machines with squirrel cage are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end AIM_SquirrelCageData;
 
       record AIM_SlipRingData
@@ -14691,9 +14691,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="aimsData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of asynchronous induction machines with slip ring are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end AIM_SlipRingData;
 
       record SM_PermanentMagnetData
@@ -14712,9 +14712,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="smpmData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of synchronous induction machines with permanent magnet are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end SM_PermanentMagnetData;
 
       record SM_ElectricalExcitedData
@@ -14746,9 +14746,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="smeeData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of synchronous induction machines with electrical excitation are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end SM_ElectricalExcitedData;
 
       record SM_ReluctanceRotorData
@@ -14799,9 +14799,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="smrData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of synchronous induction machines with reluctance rotor are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end SM_ReluctanceRotorData;
 
       record DcPermanentMagnetData "Common parameters for DC machines"
@@ -14859,9 +14859,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="dcpmData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of DC machines are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end DcPermanentMagnetData;
 
       record DcElectricalExcitedData "Common parameters for DC machines"
@@ -14887,9 +14887,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="dceeData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of DC machines are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end DcElectricalExcitedData;
 
       record DcSeriesExcitedData "Common parameters for DC machines"
@@ -14917,9 +14917,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="dcseData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of DC machines are predefined with default values.</p>
-</HTML>"));
+</html>"));
       end DcSeriesExcitedData;
 
       record TransformerData "Common parameters for transformers"
@@ -14964,11 +14964,11 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         annotation (
           defaultComponentName="transformerData",
           defaultComponentPrefixes="parameter",
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Basic parameters of transformers are predefined with default values.</p>
 <p>Note: ratio n is defined between primary / secondary line-to-line voltage;
    therefore the user has to take into account primary and secondary connection!</p>
-</HTML>"));
+</html>"));
       end TransformerData;
     end ParameterRecords;
 
@@ -15017,13 +15017,13 @@ The icons can be utilized by inheriting them in the desired class using \"extend
                   -56.2},{-4.3,-64},{0.6,-68.6},{5.5,-70},{10.5,-67.9},{15.4,-62.5},
                   {20.3,-54.1},{25.9,-41.3},{33,-21.7},{40,0}},
               color={192,192,192},
-              smooth=Smooth.Bezier)}), Documentation(info="<HTML>
+              smooth=Smooth.Bezier)}), Documentation(info="<html>
 Simple Voltage-Frequency-Controller.<br>
 Amplitude of voltage is linear dependent (VNominal/fNominal) on frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
 m sine-waves with amplitudes as described above are provided as output signal \"y\".<br>
 The sine-waves are intended to feed a m-phase SignalVoltage.<br>
 Phase shifts between sine-waves may be chosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
-</HTML>"));
+</html>"));
     end VfController;
 
     block ToDQ
@@ -15192,7 +15192,7 @@ The desired rms values of d- and q-component of the space phasor current in roto
 Using the given rotor position (input \"phi\"), the correct three-phase currents (output \"y[3]\") are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </p>
-</HTML>"));
+</html>"));
     end CurrentController;
 
     model VoltageController "Voltage controller"
@@ -15389,11 +15389,11 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
             Line(
               points={{0,40},{0,-40},{80,0},{0,40}},
               color={0,0,255},
-              thickness=0.5)}), Documentation(info="<HTML>
+              thickness=0.5)}), Documentation(info="<html>
 Simple Star-Delta-switch.<br>
 If <i>control</i> is false, plug_sp and plug_sn are star connected and plug_sp connected to the supply plug.<br>
 If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are connected to the supply plug.
-</HTML>"));
+</html>"));
     end SwitchYD;
 
     model TerminalBox "Terminal box Y/D-connection"
@@ -15590,10 +15590,10 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             Line(points={{40,-60},{40,-80}}, color={0,0,255}),
             Line(points={{20,-90},{60,-90}}, color={0,0,255}),
             Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>Switched rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
-</HTML>"));
+</html>"));
     end SwitchedRheostat;
 
     model RampedRheostat "Rheostat with linearly decreasing resistance"
@@ -15672,11 +15672,11 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               fillPattern=FillPattern.Solid),
             Line(points={{-10,0},{10,0}}, color={0,0,255}),
             Line(points={{20,0},{26,0}}, color={0,0,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>Ramped rheostat, used for starting asynchronous induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is reduced to zero,
 starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
-</HTML>"));
+</html>"));
     end RampedRheostat;
 
     record SynchronousMachineData
@@ -15870,13 +15870,13 @@ normally given in a technical description, according to the standard EN&nbsp;600
       parameter Modelica.SIunits.Inductance L2sigma=sqrt(Z2ph^2 - R2^2)/(2*
           Modelica.Constants.pi*f) "Secondary stray inductance per phase"
         annotation (Dialog(tab="Result",enable=false));
-      annotation (defaultComponentPrefixes="parameter",Documentation(info="<HTML>
+      annotation (defaultComponentPrefixes="parameter",Documentation(info="<html>
 <p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
-</HTML>"));
+</html>"));
     end TransformerData;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 This package contains utility components for testing examples.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -15904,11 +15904,11 @@ This package contains utility components for testing examples.
   <li> v2.1.1 2010/02/05 Anton Haumer<br>
        included rheostats (designed by Christian Kral)</li>
   </ul>
-</HTML>"));
+</html>"));
   end Utilities;
   annotation (
     preferredView="info",
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
 <p>
 Copyright &copy; 1998-2014, Modelica Association, Anton Haumer, Christian Kral and AIT.
@@ -15916,8 +15916,8 @@ Copyright &copy; 1998-2014, Modelica Association, Anton Haumer, Christian Kral a
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
-</HTML>"),
+</html>", revisions="<html>
+</html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           origin={2.835,10},

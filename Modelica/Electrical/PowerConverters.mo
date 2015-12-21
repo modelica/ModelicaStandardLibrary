@@ -197,11 +197,11 @@ General types of AC/AC converters are currently not provided in this library.
       package of the Modelica Standard Library.</li>
   <li>Switching losses and recovery effects are not considered</li>
   <li>Only conduction losses are taken into account</li>
-  <li>The parameters of the semiconductors include<li>
+  <li>The parameters of the semiconductors include</li>
   <ul>
-    <li>The on state resistance <code>Ron</code><li>
-    <li>The off state conductance <code>Goff</code><li>
-    <li>The knee voltage <code>Vknee</code><li>
+    <li>The on state resistance <code>Ron</code></li>
+    <li>The off state conductance <code>Goff</code></li>
+    <li>The knee voltage <code>Vknee</code></li>
   </ul>
   <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
       <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
@@ -209,7 +209,7 @@ General types of AC/AC converters are currently not provided in this library.
       is determined by the sum of all semiconductor heat flows</li>
   <li>Each converter contains boolean firing inputs provides variables <code>offStart...</code>
       to specify the initial conditions of the off state of each semiconductor</li>
-  <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code><li>
+  <li>The boolean firing signals are enabled either by means of the a parameter <code>constantEnable</code> or by a conditional signal input, enabled by <code>useConstantEnable = false</code></li>
   <li>The number of phases of multi phase converters is not restricted to three</li>
 </ul>
 
@@ -3727,8 +3727,8 @@ The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the i
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <th><b>start time (s)</b></th>
-    <th><b>machine speed</b>
-    <th><b>machine torque</b>
+    <th><b>machine speed</b></th>
+    <th><b>machine torque</b></th>
     <th><b>mode</b></th>
   </tr>
   <tr>
@@ -4309,7 +4309,7 @@ General information about controllers is summarized in
 </p>
 
 <p>
-Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are connected with the positive DC output pin (firing signal <code>fire_p</code>). The other half of the semiconductors is connected with the negative DC output pin (firing signal <code>fire_n</code>). Parameter <code>m</code> indicates the number of phases</code>.
+Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are connected with the positive DC output pin (firing signal <code>fire_p</code>). The other half of the semiconductors is connected with the negative DC output pin (firing signal <code>fire_n</code>). Parameter <code>m</code> indicates the number of phases.
 </p>
 </html>", revisions="<html>
 </html>"));
@@ -4485,7 +4485,7 @@ General information about controllers is summarized in
 <p>
 A generic controller with signal input and <code>2*m</code> firing signals is provided in
 <a href=\"modelica://Modelica.Electrical.PowerConverters.ACDC.Control.Signal2mPulse\">Signal2mPulse</a>,
-where <code>m</code> is the arbitrary number of phases</code>.
+where <code>m</code> is the arbitrary number of phases.
 Additional topology specific controllers with electrical connectors are also included.
 </p>
 
