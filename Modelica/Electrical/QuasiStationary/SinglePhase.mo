@@ -421,7 +421,7 @@ circuit impedance"),
               lineColor={28,108,200},
               textString="load current")}),
         Documentation(info="<html>
-<p>This examples shows the operational behavior of transformer with short circuit impedance. The transformer is loaded with constant current magnitude of 250A but variable phase angle. The angle varies from 0 to 360 degrees within one second of simulation time. 
+<p>This examples shows the operational behavior of transformer with short circuit impedance. The transformer is loaded with constant current magnitude of 250A but variable phase angle. The angle varies from 0 to 360 degrees within one second of simulation time.
 </p>
 
 <p>Transformer data</p>
