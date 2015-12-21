@@ -161,7 +161,8 @@ package R134a "R134a: Medium model for R134a"
 
       extends Modelica.Icons.Function;
       import SI = Modelica.SIunits;
-      input Modelica.Media.Common.HelmholtzDerivs f "Dimensionless derivatives of Helmholtz function";
+      input Modelica.Media.Common.HelmholtzDerivs f
+        "Dimensionless derivatives of Helmholtz function";
       output PhaseBoundaryProperties sat "Phase boundary property record";
     protected
       SI.Pressure p "Pressure";
@@ -412,14 +413,45 @@ Example:
 </html>"));
     end setState_psX;
 
-    redeclare function extends setState_pTX "Dummy function"
-    algorithm
-      assert(false, "A calculation of two-phase properties with input of pressure and temperature is not possible.\n" +
-      "Please use setState_dTX or setState_phX instead.");
+    redeclare function extends setState_pTX
+      "Set state for pressure and temperature (X not used since single substance)"
 
-      annotation (Documentation(info="<html>
-<p>This function is intentionally provided although it will result in an error. Please note, that pressure and temperature cannot be used to determine states in two-phase region. Therefore, in order to avoid wrong usage, the function will give an error message.</p>
-</html>"));
+    protected
+        Modelica.SIunits.Pressure delp=1.0e-2
+        "Relative error in p in iteration";
+        Modelica.SIunits.Temperature dT_lim_gas "Upper temperature threshold";
+        Modelica.SIunits.Temperature dT_lim_liq "Lower temperature threshold";
+
+    algorithm
+      Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert(p, T);
+
+      state := ThermodynamicState(
+              d=dofpT(p, T, delp),
+              T=T,
+              h=hofpT(p, T, delp),
+              p=p,
+              phase=1);
+      annotation (Inline=true, Documentation(info="<html>
+<p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
+<p>
+Example:
+</p>
+<pre>
+     parameter Medium.AbsolutePressure p = 3e5;
+     parameter Medium.Temperature T = 290;
+
+     Medium.Density rho;
+
+     <b>equation</b>
+
+     rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
+</pre>
+<p>
+Please note, that in contrast to setState_phX, setState_dTX and setState_psX this function can not calculate properties in the two-phase region since pressure and temperature are dependent variables. A guard function will be called if the temperature difference to the phase boundary is lower than 1K or the pressure difference to the critical pressure is lower than 1000 Pa.
+</p> 
+</html>
+
+"));
     end setState_pTX;
 
     redeclare function extends setBubbleState
@@ -1019,8 +1051,8 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
         4]);
 
       // annotation(smoothOrder=5);
-      annotation (derivative=dDewEnthalpy_dPressure_der_sat, Documentation(info
-            ="<html>
+      annotation (derivative=dDewEnthalpy_dPressure_der_sat, Documentation(info=
+             "<html>
 <p>This function calculates the vapor phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
@@ -1441,7 +1473,8 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 
     protected
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
-      Modelica.Media.Common.HelmholtzDerivs f_ref "Helmholtz derivatives for reference state";
+      Modelica.Media.Common.HelmholtzDerivs f_ref
+        "Helmholtz derivatives for reference state";
       Modelica.SIunits.ThermalConductivity lambda_dg
         "Dilute gas contribution to lambda";
       R134aData.CoeffsThermalConductivity coeff
@@ -2105,7 +2138,8 @@ This function adds the ideal gas contribution of the fundamental equation to the
 
       input Real delta "Reduced density (delta=d/dcrit)";
       input Real tau "Reduced temperature (tau=Tcrit/T)";
-      output Modelica.Media.Common.HelmholtzDerivs fid "Helmholtz derivatives of ideal part";
+      output Modelica.Media.Common.HelmholtzDerivs fid
+        "Helmholtz derivatives of ideal part";
     protected
       Modelica.Media.R134a.R134aData.Ideal id "Ideal coeffcients";
       Real atau=abs(tau) "|tau|";
@@ -2439,6 +2473,125 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       annotation (Inline=true);
     end setSmoothState;
 
+    function dofpT "Compute d for given p and T"
+      extends Modelica.Icons.Function;
+      input SI.Pressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input SI.Pressure delp "Iteration converged if (p-pre(p) < delp)";
+      output SI.Density d "Density";
+
+    protected
+      constant Real p_breaks[:]=R134aData.pbreaks
+        "Grid points of reduced pressure";
+      constant Real dl_coef[:, 4]=R134aData.dlcoef
+        "Coefficients of cubic spline for rho_liq(p)";
+      constant Real dv_coef[:, 4]=R134aData.dvcoef
+        "Coefficients of cubic spline for rho_vap(p)";
+
+      Boolean liquid "Is liquid";
+      Boolean supercritical "Is supercritcal";
+      Integer int "Interval number";
+      Real pred "Reduced pressure";
+      Real localx "Oordinate of local spline";
+      Integer i "Newton iteration number";
+      Real dp "Pressure difference";
+      SI.Density deld "Density step";
+      Modelica.Media.Common.HelmholtzDerivs f
+        "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+      Modelica.Media.Common.NewtonDerivatives_pT nDerivs
+        "Derivatives needed in Newton iteration";
+      Boolean found "Flag for iteration success";
+      Integer error "1 if did not converged";
+
+    algorithm
+      Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert(p, T);
+      i := 0;
+      error := 0;
+      found := false;
+      pred := p/R134aData.data.FPCRIT;
+      (int,error) := Common.FindInterval(pred, p_breaks);
+      localx := pred - p_breaks[int];
+      // set decent initial guesses for d and T
+      supercritical := p > R134aData.data.FPCRIT;
+      if supercritical then
+        // iteration seems to work better if coming from high densities
+        d := R134aData.data.FDCRIT*3.0;
+      else
+        liquid := T <= Modelica.Media.R134a.R134a_ph.saturationTemperature(p);
+        if liquid then
+          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dl_coef[int,
+            1:4])*1.02;
+        else
+          d := R134aData.data.FDCRIT*Common.CubicSplineEval(localx, dv_coef[int,
+            1:4])*0.95;
+        end if;
+      end if;
+
+      while ((i < 100) and not found) loop
+        f := Modelica.Media.R134a.R134a_ph.f_R134a(d, T);
+        nDerivs := Modelica.Media.Common.Helmholtz_pT(f);
+        dp := nDerivs.p - p;
+        if (abs(dp) <= delp) then
+          found := true;
+        end if;
+        deld := dp/nDerivs.pd;
+        d := d - deld;
+        i := i + 1;
+      end while;
+
+      annotation (Documentation(info="<html>
+<p> This function calculates the density of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The saftey margin to the phase boundary is 1[K] and 1000[Pa]. 
+</p>
+<h4>Restrictions</h4>
+The function cannot be inverted in a numerical way. Please use functions <a href=\"modelica://Modelica.Media.R134a.R134a_ph.rho_props_ph\">rho_props_ph</a> and <a href=\"modelica://Modelica.Media.R134a.R134a_ph.T_props_ph\">T_props_ph</a> for this purpose.
+</html>"));
+    end dofpT;
+
+    function hofpT "Compute h for given p and T"
+      extends Modelica.Icons.Function;
+      input SI.Pressure p "Pressure";
+      input SI.Temperature T "Temperature";
+      input Modelica.SIunits.Pressure delp
+        "Iteration converged if (p-pre(p) < delp)";
+      output SI.SpecificEnthalpy h "Specific Enthalpy";
+
+    protected
+      SI.Density d "Density";
+      Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
+
+    algorithm
+      Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert(p, T);
+      d := dofpT(p, T, delp);
+      f := f_R134a(d, T);
+      h := R134aData.data.R*T*(f.tau*f.ftau + f.delta*f.fdelta);
+
+      annotation (Documentation(info="<html>
+<p> This function calculates the specific enthalpy of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The saftey margin to the phase boundary is 1[K] and 1000[Pa]. 
+</p>
+</html>"));
+    end hofpT;
+
+    function phaseBoundaryAssert
+      "Assert function for checking threshold to phase boundary"
+      extends Modelica.Icons.Function;
+      input Modelica.SIunits.Pressure p "Refrigerant pressure";
+      input Modelica.SIunits.Temperature T "Refrigerant temperature";
+
+    protected
+      Modelica.SIunits.Temperature T_lim_gas "Upper temperature limit";
+      Modelica.SIunits.Temperature T_lim_liq "Lower temperature limit";
+
+    algorithm
+      T_lim_gas := Modelica.Media.R134a.R134a_ph.saturationTemperature(p) + 1;
+      T_lim_liq := Modelica.Media.R134a.R134a_ph.saturationTemperature(p) - 1;
+
+      assert(p>R134aData.data.PCRIT+1000 or not
+                                          (T<T_lim_gas and T>T_lim_liq), "Fluid state is too close to the two-phase region (p="+String(p)+"[Pa], T="+String(T)+"[K]. Pressure and temperature can not be used to determine properties in two-phase region.");
+
+      annotation (Documentation(info="<html>
+This function is used as a guard for property functions using pTX as an input. Property functions for two-phase media using pressure and temperature as inputs shall not be used close to the phase boundary in order to avoid errors and high deviations for just small deviations in the input arguments. The refrigerant state can not be determined in the two-phase region using pressure and temperature. 
+</html>"));
+    end phaseBoundaryAssert;
     annotation (Documentation(info="<html>
 <p>
 Calculation of fluid properties for Tetrafluoroethane (R134a) in the fluid region of 0.0039 bar (Triple pressure) to 700 bar and 169.85 Kelvin (Triple temperature) to 455 Kelvin.
