@@ -42,7 +42,7 @@ package Vectors "Library of functions operating on vectors"
 
     end if;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>toString</b>(v);
@@ -53,7 +53,7 @@ Vectors.<b>toString</b>(v,name=\"\",significantDigits=6);
 The function call \"<code>Vectors.<b>toString</b>(v)</code>\" returns the string representation of vector <b>v</b>.
 With the optional arguments \"name\" and \"significantDigits\" a name and the number of the digits are defined.
 The default values of \"name\" and \"significantDigits\" are \"\" and 6 respectively. If name==\"\" (empty string) then the prefix \"&lt;name&gt; =\" is left out at the output-string.
-
+</p>
 <h4>Example</h4>
 <blockquote><pre>
   v = {2.12, -4.34, -2.56, -1.67};
@@ -75,7 +75,7 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.toString\">Matrices.toString</a>,
 </p>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 
 </html>"));
   end toString;
@@ -104,7 +104,7 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
         i := i + 1;
       end while;
     end if;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>isEqual</b>(v1, v2);
@@ -137,7 +137,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </p>
-</HTML>"));
+</html>"));
   end isEqual;
 
   function norm "Return the p-norm of a vector"
@@ -162,7 +162,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       assert(false, "Optional argument \"p\" (= " + String(p) + ") of function \"norm\" >= 1 required");
     end if;
    end if;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>norm</b>(v);
@@ -215,7 +215,7 @@ Note, for any vector norm the following inequality holds:
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
-</HTML>"));
+</html>"));
   end norm;
 
   function length
@@ -421,7 +421,7 @@ vector elements in reverse order.
       end while;
       gap := div(gap, 2);
     end while;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
            sorted_v = Vectors.<b>sort</b>(v);
@@ -442,7 +442,7 @@ to the original vector are given, such that sorted_v = v[indices].
        -> v2 = {-1, 2, 3, 6, 8}
           i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
-</HTML>"));
+</html>"));
   end sort;
 
   function find "Find element in a vector"
@@ -663,7 +663,7 @@ at the left and at the right side of the pipe), see next figure:
          then norm_a/norm_b else -norm_a/norm_b;
       u := (a + alpha*b)/length(a + alpha*b);
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.Utilities.<b>householderVector</b>(a,b);
@@ -828,6 +828,7 @@ This function computes the roots of a polynomial P of x
 </pre></blockquote>
 <p>
 with the coefficient vector <b>p</b>. It is assumed that the first element of <b>p</b> is not zero, i.e., that the polynomial is of order size(p,1)-1.
+</p>
 <p>
 To compute the roots, the eigenvalues of the corresponding companion matrix <b>C</b>
 </p>
@@ -863,7 +864,7 @@ and matrix functions. These functions are usually not useful for an end-user.
 </html>"));
   end Utilities;
 
-  annotation (preferredView="info", Documentation(info="<HTML>
+  annotation (preferredView="info", Documentation(info="<html>
 <h4>Library content</h4>
 <p>
 This library provides functions operating on vectors:
@@ -905,7 +906,7 @@ This library provides functions operating on vectors:
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
-</HTML>"),
+</html>"),
     Icon(graphics={Rectangle(
           extent={{-16,66},{14,18}},
           lineColor={95,95,95},
@@ -1027,7 +1028,7 @@ string representation of matrix <b>A</b>.
 With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
 The default values of name and significantDigits are \"\" and 6 respectively. If name==\"\" then the
 prefix \"&lt;name&gt; =\" is left out.
-
+</p>
 <h4>Example</h4>
 <blockquote><pre>
   A = [2.12, -4.34; -2.56, -1.67];
@@ -1048,7 +1049,7 @@ prefix \"&lt;name&gt; =\" is left out.
 <a href=\"modelica://Modelica.Math.Vectors.toString\">Vectors.toString</a>
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 </html>"));
   end toString;
 
@@ -1086,7 +1087,7 @@ prefix \"&lt;name&gt; =\" is left out.
       end while;
     end if;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>isEqual</b>(M1, M2);
@@ -1116,7 +1117,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
-</HTML>"));
+</html>"));
   end isEqual;
 
   function solve
@@ -1134,7 +1135,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
     assert(info == 0, "Solving a linear system of equations with function
 \"Matrices.solve\" is not possible, because the system has either
 no or infinitely many solutions (A is singular).");
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>solve</b>(A,b);
@@ -1175,7 +1176,7 @@ i.e., by Gaussian elimination with partial pivoting.
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">Matrices.leastSquares</a>.
-</HTML>"));
+</html>"));
   end solve;
 
   function solve2
@@ -1193,7 +1194,7 @@ i.e., by Gaussian elimination with partial pivoting.
     assert(info == 0, "Solving a linear system of equations with function
 \"Matrices.solve2\" is not possible, because the system has either
 no or infinitely many solutions (A is singular).");
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>solve2</b>(A,b);
@@ -1241,7 +1242,7 @@ i.e., by Gaussian elimination with partial pivoting.
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve2\">Matrices.LU_solve2</a>,
 <a href=\"modelica://Modelica.Math.Matrices.leastSquares2\">Matrices.leastSquares2</a>.
 </p>
-</HTML>"));
+</html>"));
   end solve2;
 
   function leastSquares
@@ -1309,7 +1310,7 @@ output argument of this function):
            vectors that fulfill the equation.</li>
      <li>  If no solution exists, x is selected such that |A*x - b| is as small as
            possible (but A*x - b is not zero).</li>
-     </ul>
+     </ul></li>
 </ul>
 
 <p>
@@ -1459,7 +1460,7 @@ output argument of this function):
            vectors that fulfill the equation.</li>
      <li>  If no solution exists, X is selected such that |A*X - B| is as small as
            possible (but A*X - B is not zero).</li>
-     </ul>
+     </ul></li>
 </ul>
 
 <p>
@@ -1576,7 +1577,7 @@ where Q1 consists of the first \"rank\" columns of Q.
 
     assert(info == 0, "Solving a linear equality-constrained least squares problem
 with function \"Matrices.equalityLeastSquares\" failed.");
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 x = Matrices.<b>equalityLeastSquares</b>(A,a,B,b);
@@ -1608,7 +1609,7 @@ B has full row rank (= size(B,1)) and the matrix [A;B] has
 full column rank (= size(A,2)). In this case, the problem
 has a unique solution.
 </p>
-</HTML>"));
+</html>"));
   end equalityLeastSquares;
 
   function LU "LU decomposition of square or rectangular matrix"
@@ -1629,7 +1630,7 @@ has a unique solution.
           pivots,
           info) annotation (Library="lapack");
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (LU, pivots)       = Matrices.<b>LU</b>(A);
@@ -1703,7 +1704,7 @@ matrix A was interchanged with row pivots[i].
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
 </p>
-</HTML>"));
+</html>"));
   end LU;
 
   function LU_solve
@@ -1726,7 +1727,7 @@ is singular, i.e., no unique solution exists.");
           LU,
           pivots,
           b);
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>LU_solve</b>(LU, pivots, b);
@@ -1789,7 +1790,7 @@ matrix A was interchanged with row pivots[i].
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
-</HTML>"));
+</html>"));
   end LU_solve;
 
   function LU_solve2
@@ -1813,7 +1814,7 @@ is singular, i.e., no unique solution exists.");
           LU,
           pivots,
           B);
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>LU_solve2</b>(LU, pivots, B);
@@ -1884,7 +1885,7 @@ matrix A was interchanged with row pivots[i].
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.LU\">Matrices.LU</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve2\">Matrices.solve2</a>,
-</HTML>"));
+</html>"));
   end LU_solve2;
 
   function eigenValues
@@ -1914,7 +1915,7 @@ matrix A was interchanged with row pivots[i].
 \"Matrices.eigenvalues\" is not possible, since the
 numerical algorithm does not converge.");
     end if;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
                 eigenvalues = Matrices.<b>eigenValues</b>(A);
@@ -1996,7 +1997,7 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
         i := i + 2;
       end if;
     end while;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>eigenValueMatrix</b>(eigenvalues);
@@ -2025,7 +2026,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
 </blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
-</HTML>"));
+</html>"));
   end eigenValueMatrix;
 
   function singularValues
@@ -2047,7 +2048,7 @@ are used to construct a 2 by 2 diagonal block of <b>J</b>:
       assert(info == 0, "The numerical algorithm to compute the
 singular value decomposition did not converge");
     end if;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
          sigma = Matrices.<b>singularValues</b>(A);
@@ -2090,7 +2091,7 @@ matrices <code>U</code> and <code>VT</code>.
 </pre></blockquote>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>
-</HTML>"));
+</html>"));
   end singularValues;
 
   function QR
@@ -2129,7 +2130,7 @@ This is not allowed when calling Modelica.Matrices.QR(A).");
     end for;
 
     Q := LAPACK.dorgqr(Q, tau);
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (Q,R,p) = Matrices.<b>QR</b>(A);
@@ -2193,7 +2194,7 @@ called as: <code>(,R,p) = QR(A)</code>.
                                     0     , -1.73.., -0.23..;
                                     0     ,  0     ,  0.65..];
 </pre></blockquote>
-</HTML>"));
+</html>"));
   end QR;
 
   function hessenberg "Return upper Hessenberg form of a matrix"
@@ -2528,7 +2529,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
         end if;
       end for;
     end while;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -2573,9 +2574,9 @@ or computation of eigenvalues.
 The Algorithm is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Gr&uuml;bel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 <p>
 which based on the <code>balance</code> function from EISPACK.
@@ -2652,7 +2653,7 @@ which based on the <code>balance</code> function from EISPACK.
         end if;
       end for;
     end while;
-    annotation (Documentation(info="<HTML><
+    annotation (Documentation(info="<html><
 
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -2680,6 +2681,7 @@ has a better condition as system matrix S
    S = |    |
        |C, 0|
 </pre>
+<p>
 that is, conditionNumber(S_scale) &le; conditionNumber(S). The elements of vector scale
 are multiples of 2 which means that this function does not introduce round-off errors.
 </p>
@@ -2724,9 +2726,9 @@ err = 0
 The algorithm is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Gr&uuml;bel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 <p>
 which is based on the <code>balance</code> function from EISPACK.
@@ -3010,7 +3012,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
       info := 0;
     end if;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = Matrices.<b>rcond</b>(A);
@@ -3039,7 +3041,7 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
 <a href=\"modelica://Modelica.Math.Matrices.conditionNumber\">Matrices.conditionNumber</a>
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>2010/05/31 </i>
        by Marcus Baur, DLR-RM</li>
@@ -3075,7 +3077,7 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
 1, 2 or Modelica.Constants.inf");
     end if;
    end if;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Matrices.<b>norm</b>(A);
@@ -3117,7 +3119,7 @@ Vectors.<b>norm</b>(A*v,p) &le; Matrices.<b>norm</b>(A,p)*Vectors.<b>norm</b>(A,
 <a href=\"modelica://Modelica.Math.Matrices.frobeniusNorm\">Matrices.frobeniusNorm</a>
 </p>
 
-</HTML>"));
+</html>"));
   end norm;
 
   function frobeniusNorm "Return the Frobenius norm of a matrix"
@@ -3360,7 +3362,7 @@ with
         phi[j, k] := D[j, k]*Diag[j]/Diag[k];
       end for;
     end for;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 phi = Matrices.<b>exp</b>(A);
@@ -3388,9 +3390,9 @@ to compute the solution of a linear system of differential equations</p>
 
 <p>The algorithm is taken from</p>
 <dl>
-<dt>H. D. Joos, G. Gr&uuml;bel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 <p>The following steps are performed to calculate the exponential of A:</p>
 <ol>
@@ -3509,7 +3511,7 @@ implementation variant used in this function.
     gamma := Psi*B;
     phi := A*Psi + identity(na);
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (phi,gamma) = Matrices.<b>integralExp</b>(A,B);
@@ -3574,9 +3576,9 @@ signal u is constant between the sampling instants. Zero-order-hold sampling
 is described in
 </p>
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:
+<dt>K. J. Astroem, B. Wittenmark:</dt>
 <dd><b>Computer Controlled Systems - Theory and Design</b><br>
-    Third Edition, p. 32
+    Third Edition, p. 32</dd>
 </dl>
 <pre><b>Syntax:</b>
       (phi,gamma) = Matrices.expIntegral(A,B,T)
@@ -3588,9 +3590,9 @@ is described in
 The Algorithm to calculate psi is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Gr&uuml;bel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 </html>", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -3630,7 +3632,7 @@ The Algorithm to calculate psi is taken from
     gamma := F[1:na, na + 1:na + nb];
     gamma1 := F[1:na, na + nb + 1:na + 2*nb];
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <blockquote><pre>
 (phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B);
 (phi,gamma,gamma1) = Matrices.<b>integralExp</b>(A,B,T=1);
@@ -3655,6 +3657,7 @@ The function calculates the matrices phi,gamma,gamma1 through the equation:
 <p>
 The matrices define the discretized first-order-hold equivalent of
 a state-space system:
+</p>
 <pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
 </pre>
 <p>
@@ -3664,9 +3667,9 @@ is, e.g., described in
 </p>
 
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:
+<dt>K. J. Astroem, B. Wittenmark:</dt>
 <dd><b>Computer Controlled Systems - Theory and Design</b><br>
-    Third Edition, p. 256
+    Third Edition, p. 256</dd>
 </dl>
 
 </html>", revisions="<html>
@@ -4948,7 +4951,7 @@ X = [14.5623, 9.7082;
         gap := div(gap, 2);
       end while;
     end if;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
            sorted_M = Matrices.<b>sort</b>(M);
@@ -4979,7 +4982,7 @@ to the original matrix are given, such that
                 2, 1, 0 ];
           i2 = {2,1};
 </pre></blockquote>
-</HTML>"));
+</html>"));
   end sort;
 
   function flipLeftRight "Flip the columns of a matrix in left/right direction"
@@ -10841,6 +10844,7 @@ with
 
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
+</p>
 <p>
 
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
@@ -10849,7 +10853,7 @@ than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuous
 system equation.<br>
 
 The algorithm is taken from [1] and [2].
-
+</p>
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -11003,9 +11007,11 @@ with
 <p>
 
 Output <code>r</code> is the norm of the residual of the last iteration.<br>
+</p>
 <p>
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
+</p>
 <p>
 
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
@@ -11014,7 +11020,7 @@ than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRi
 system equation.
 
 The algorithm is taken from [1] and [2].
-
+</p>
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -11105,6 +11111,7 @@ with
 </blockquote>
 <p>
 where <b>u</b> is Householder vector, i.e., the normal vector of the reflection plane.
+</p>
 <p>
 Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
 </p>
@@ -11465,6 +11472,7 @@ reordered eigenvalues respectively.
 </pre></blockquote>
 <p>
 See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSchur</a>
+</p>
 </html>", revisions="<html>
 <ul>
 <li><i>2010/04/30 </i>
@@ -11536,7 +11544,7 @@ The function computes the local minimum of the function f_k(t_k)
 by calculating the zeros of the derivation d f_k/d t_k. It is known that the function f_k(t_k) has a local minimum at some value t_k_min in [0, 2].<br>
 With t_k_min the norm of the next residual of the algorithm will be minimized.<br>
 See [1] for more information
-
+</p>
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -11561,7 +11569,7 @@ These functions are usually not useful for an end-user.
 </p>
 </html>"));
   end Utilities;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <h4>Library content</h4>
 <p>
 This library provides functions operating on matrices. Below, the
@@ -11604,7 +11612,7 @@ Note: A' is a short hand notation of transpose(A):
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.equalityLeastSquares\">equalityLeastSquares</a>(A,a,B,b)
      - returns solution x of a linear equality constrained least squares problem:
-       min|A*x-a|^2 subject to B*x=b</<li>
+       min|A*x-a|^2 subject to B*x=b</li>
 
 <li> (LU,p,info) = <a href=\"modelica://Modelica.Math.Matrices.LU\">LU</a>(A)
      - returns the LU decomposition with row pivoting of a rectangular matrix A.</li>
@@ -11852,7 +11860,7 @@ function isEqual "Determine if two Real scalars are numerically identical"
   output Boolean result "= true, if scalars are identical";
 algorithm
   result := abs(s1 - s2) <= eps;
-  annotation (Inline=true, Documentation(info="<HTML>
+  annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Math.<b>isEqual</b>(s1, s2);
@@ -11883,7 +11891,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 <a href=\"modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
 </p>
-</HTML>"));
+</html>"));
 end isEqual;
 
 
@@ -12349,7 +12357,7 @@ external "builtin" y = atan2(u1, u2);
             color={175,175,175}),Line(
             points={{-86,-40},{86,-40}},
             color={175,175,175})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
 y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
@@ -12447,7 +12455,7 @@ algorithm
             color={175,175,175}),Line(
             points={{-84,-40},{88,-40}},
             color={175,175,175})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
@@ -13237,7 +13245,7 @@ annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
             -26.9,69.7},{-21.3,59.4},{-14.9,44.1},{-6.83,21.2},{10.1,-30.8},{17.3,
             -50.2},{23.7,-64.2},{29.3,-73.1},{35,-78.4},{40.6,-80},{46.2,-77.6},
             {51.9,-71.5},{57.5,-61.9},{63.9,-47.2},{72,-24.8},{80,0}}, color={
-            0,0,0}, smooth=Smooth.Bezier)}), Documentation(info="<HTML>
+            0,0,0}, smooth=Smooth.Bezier)}), Documentation(info="<html>
 <p>
 This package contains <b>basic mathematical functions</b> (such as sin(..)),
 as well as functions operating on
@@ -13248,7 +13256,7 @@ as well as functions operating on
 </p>
 
 <dl>
-<dt><b>Main Authors:</b>
+<dt><b>Main Authors:</b></dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and
     Marcus Baur<br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
@@ -13256,7 +13264,7 @@ as well as functions operating on
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 
 <p>
