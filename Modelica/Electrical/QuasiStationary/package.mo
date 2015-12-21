@@ -7,7 +7,7 @@ extends Modelica.Icons.Package;
 
 annotation (
   preferredView="info",
-  Documentation(info="<HTML>
+  Documentation(info="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -31,7 +31,7 @@ Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral a
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <th>Version</th>
@@ -48,7 +48,7 @@ Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral a
       <td valign=\"top\"></td>
     </tr>
 </table>
-</HTML>"),
+</html>"),
   Icon(coordinateSystem(extent={{-100,-100},{100,100}}, preserveAspectRatio=
           true), graphics={Line(
         origin={10,20},

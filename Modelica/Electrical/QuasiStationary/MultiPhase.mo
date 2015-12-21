@@ -1712,7 +1712,7 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
               Line(points={{-37,2},{40,50}}, color={85,170,255}),Line(points={{
               40,50},{90,50}}, color={85,170,255}),Line(points={{0,90},{0,25}},
               color={85,170,255}),Line(points={{40,0},{90,0}}, color={85,170,
-              255})}), Documentation(info="<HTML>
+              255})}), Documentation(info="<html>
 <p>
 Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealCommutingSwitch).
 </p>
@@ -1720,7 +1720,7 @@ Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStatio
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"));
+</html>"));
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
@@ -1817,7 +1817,7 @@ This switch is only intended to be used for structural changes, not fast switchi
               0}}, color={85,170,255}),Line(points={{40,50},{90,50}}, color={85,
               170,255}),Line(points={{0,90},{0,25}}, color={85,170,255}),Line(
               points={{40,0},{90,0}}, color={85,170,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
 </p>
@@ -1825,7 +1825,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.Sing
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"));
+</html>"));
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Multiphase ideal opener"
@@ -1875,7 +1875,7 @@ This switch is only intended to be used for structural changes, not fast switchi
                   extent={{20,100},{100,60}},
                   lineColor={0,0,0},
                   textString="%m"),Line(points={{40,20},{40,0}}, color={85,170,
-              255})}), Documentation(info="<HTML>
+              255})}), Documentation(info="<html>
 <p>
 Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
 </p>
@@ -1883,7 +1883,7 @@ Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePha
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"));
+</html>"));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Multiphase ideal closer"
@@ -1932,7 +1932,7 @@ This switch is only intended to be used for structural changes, not fast switchi
                   textString="m="),Text(
                   extent={{20,100},{100,60}},
                   lineColor={0,0,0},
-                  textString="%m")}), Documentation(info="<HTML>
+                  textString="%m")}), Documentation(info="<html>
 <p>
 Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
 </p>
@@ -1940,7 +1940,7 @@ Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePha
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"));
+</html>"));
     end IdealClosingSwitch;
     annotation (Icon(coordinateSystem(extent={{-100,-100},{100,100}},
             preserveAspectRatio=true), graphics={
@@ -1972,14 +1972,14 @@ Quasi stationary theory can be found in the
     equation
       y = Modelica.Electrical.QuasiStationary.MultiPhase.Functions.quasiRMS(u);
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
 </pre>
-</HTML>"));
+</html>"));
     end QuasiRMS;
 
     block SymmetricalComponents "Creates symmetrical components from signals representing quasi static phasors"
@@ -2118,9 +2118,9 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               extent={{-12,-74},{64,-86}},
               lineColor={0,0,0},
               textString="zero")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
     Transformation of m phase values (voltages or currents) to space phasor.
-</HTML>"));
+</html>"));
     end ToSpacePhasor;
 
     block FromSpacePhasor "Conversion: space phasor -> m phase"
@@ -2164,9 +2164,9 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
             Text(
               extent={{-62,-74},{14,-86}},
               lineColor={0,0,0},
-              textString="zero")}), Documentation(info="<HTML>
+              textString="zero")}), Documentation(info="<html>
           Transformation of space phasor to m phase values (voltages or currents).
-</HTML>"));
+</html>"));
     end FromSpacePhasor;
   end Blocks;
 
@@ -2182,10 +2182,10 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       Integer m=size(u, 1) "Number of phases";
     algorithm
       y := sum({'abs'(u[k]) for k in 1:m})/m;
-      annotation (Inline=true, Documentation(info="<HTML>
+      annotation (Inline=true, Documentation(info="<html>
   This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system,
   represented by m quasi static time domain phasors.
-</HTML>"));
+</html>"));
     end quasiRMS;
 
     function activePower "Calculate active power of complex input voltage and current"
@@ -2196,12 +2196,12 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
     algorithm
       p := sum(Modelica.ComplexMath.real({v[k]*Modelica.ComplexMath.conj(i[k])
         for k in 1:size(v, 1)}));
-      annotation (Inline=true, Documentation(info="<HTML>
+      annotation (Inline=true, Documentation(info="<html>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
 In quasistationary operation, instantaneous power equals active power;
 </p>
-</HTML>"));
+</html>"));
     end activePower;
   end Functions;
 

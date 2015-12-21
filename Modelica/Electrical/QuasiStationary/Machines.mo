@@ -202,14 +202,14 @@ package Machines "Quasistationary machine models"
       connect(voltageSensorL.y, polarVL.u) annotation (Line(
           points={{50,-41},{50,-48}},
           color={85,170,255}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
 <b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
 The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).<br>
 In some cases it may be necessary to ground the transformer's starpoint
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
-</HTML>"), experiment(StopTime=0.1, Interval=0.001));
+</html>"), experiment(StopTime=0.1, Interval=0.001));
     end TransformerTestbench;
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
@@ -480,9 +480,9 @@ Transformer Yy10
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy10;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary y connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -501,7 +501,7 @@ This package contains transformers primary Y connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Yy;
 
       package Yd "Transformers: primary Y / secondary d"
@@ -724,9 +724,9 @@ Transformer Yd11
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd11;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -745,7 +745,7 @@ This package contains transformers primary Y connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Yd;
 
       package Yz "Transformers: primary Y / secondary zig-zag"
@@ -1060,9 +1060,9 @@ Transformer Yz11
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz11;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1081,7 +1081,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Yz;
 
       package Dy "Transformers: primary D / secondary y"
@@ -1312,9 +1312,9 @@ Transformer Dy11
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy11;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary y connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1333,7 +1333,7 @@ This package contains transformers primary D connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Dy;
 
       package Dd "Transformers: primary D / secondary d"
@@ -1526,9 +1526,9 @@ Transformer Dd10
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd10;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1547,7 +1547,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Dd;
 
       package Dz "Transformers: primary D / secondary zig-zag"
@@ -1832,9 +1832,9 @@ Transformer Dz10
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz10;
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 This package contains transformers primary D connected / secondary d connected in all possible vector groups.
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1853,10 +1853,10 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"));
+</html>"));
       end Dz;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 This package contains components to model technical three-phase transformers:
 <ul>
 <li>Transformer: transformer model to choose connection / vector group</li>
@@ -1922,14 +1922,14 @@ Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>", revisions="<HTML>
+</html>", revisions="<html>
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer<br>
        first stable release</li>
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               origin={10,10},
@@ -2424,9 +2424,9 @@ This package contains the quasi stationary space phasor connector and partial mo
                 extent={{-12,-74},{64,-86}},
                 lineColor={0,0,0},
                 textString="zero")}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 Transformation of quasi stationary multi phase values (voltages or currents) to space phasor and zero sequence value.
-</HTML>"));
+</html>"));
       end ToSpacePhasor;
 
       block FromSpacePhasor "Conversion: space phasor -> three phase"
@@ -2470,9 +2470,9 @@ Transformation of quasi stationary multi phase values (voltages or currents) to 
               Text(
                 extent={{-62,-74},{14,-86}},
                 lineColor={0,0,0},
-                textString="zero")}), Documentation(info="<HTML>
+                textString="zero")}), Documentation(info="<html>
 Transformation of space phasor and zero sequence value to quasi stationary multi phase values (voltages or currents).
-</HTML>"));
+</html>"));
       end FromSpacePhasor;
     end Blocks;
   end SpacePhasors;

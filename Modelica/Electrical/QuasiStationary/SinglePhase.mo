@@ -1350,7 +1350,7 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
       LossPower = real(p.v*conj(p.i)) + real(n1.v*conj(n1.i)) + real(n2.v*conj(
         n2.i));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
@@ -1374,7 +1374,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,255}),
@@ -1468,7 +1468,7 @@ This switch is only intended to be used for structural changes, not for fast swi
       LossPower = real(p1.v*conj(p1.i)) + real(p2.v*conj(p2.i)) + real(n1.v*
         conj(n1.i)) + real(n2.v*conj(n2.i));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 The intermediate switch has four switching contact pins p1, p2, n1, and n2.
 The switching behaviour is controlled by the input signal control. If control
@@ -1505,7 +1505,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(extent={{-4,30},{4,22}}, lineColor={85,170,255}),
@@ -1578,7 +1578,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 
       LossPower = real(v*conj(i));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
@@ -1603,7 +1603,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,255}),
@@ -1665,7 +1665,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 
       LossPower = real(v*conj(i));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
@@ -1690,7 +1690,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(extent={{-44,4},{-36,-4}}, lineColor={85,170,255}),
@@ -1852,7 +1852,7 @@ The ideal transformer is a two-port circuit element without magnetization. Volta
  i2 = -i1*n;
 </pre>
 <p>
-where <code>n</code> is a real number called the turns ratio.
+where <code>n</code> is a real number called the turns ratio.</p>
 </html>", revisions="<html>
 <h5>2014-01-02, Christian Kral</h5>
 <ul>
