@@ -571,7 +571,7 @@ For more details of this distribution see
       input Real mu= (u_max + u_min)/2
         "Expectation (mean) value of the normal distribution" annotation(Dialog);
       input Real sigma=(u_max - u_min)/6
-        "Standard deviation of the normal distribution"                                  annotation(Dialog);
+        "Standard deviation of the normal distribution" annotation(Dialog);
     protected
       Real pdf;
       Real cdf_min;
@@ -654,7 +654,7 @@ of truncated distributions, see
       input Real mu= (u_max + u_min)/2
         "Expectation (mean) value of the normal distribution" annotation(Dialog);
       input Real sigma=(u_max - u_min)/6
-        "Standard deviation of the normal distribution"                                  annotation(Dialog);
+        "Standard deviation of the normal distribution" annotation(Dialog);
     protected
       Real cdf;
       Real cdf_min;
@@ -747,7 +747,7 @@ of truncated distributions, see
       input Real mu= (y_max + y_min)/2
         "Expectation (mean) value of the normal distribution" annotation(Dialog);
       input Real sigma=(y_max - y_min)/6
-        "Standard deviation of the normal distribution"                                  annotation(Dialog);
+        "Standard deviation of the normal distribution" annotation(Dialog);
     protected
       Real cdf_min = Normal.cumulative(y_min, mu, sigma);
       Real cdf_max = Normal.cumulative(y_max, mu, sigma);
@@ -924,7 +924,7 @@ of truncated distributions, see
     function density "Density of Weibull distribution"
       extends Modelica.Math.Distributions.Interfaces.partialDensity;
       input Real lambda(min=0) = 1
-        "Scale parameter of the Weibull distribution"                            annotation(Dialog);
+        "Scale parameter of the Weibull distribution" annotation(Dialog);
       input Real k(min=0) "Shape parameter of the Weibull distribution" annotation(Dialog);
     algorithm
       y :=if u >= 0 then (k/lambda)*(u/lambda)^(k - 1)*exp(-(u/lambda)^k) else 0.0;
@@ -998,7 +998,7 @@ For more details, see
       import Modelica.Math.Special;
       extends Modelica.Math.Distributions.Interfaces.partialCumulative;
       input Real lambda(min=0) = 1
-        "Scale parameter of the Weibull distribution"                            annotation(Dialog);
+        "Scale parameter of the Weibull distribution" annotation(Dialog);
       input Real k(min=0) "Shape parameter of the Weibull distribution" annotation(Dialog);
     algorithm
       y := if u >= 0 then 1 - exp(-(u/lambda)^k) else 0.0;
@@ -1078,7 +1078,7 @@ For more details, see
     function quantile "Quantile of Weibull distribution"
       extends Modelica.Math.Distributions.Interfaces.partialQuantile;
       input Real lambda(min=0) = 1
-        "Scale parameter of the Weibull distribution"                            annotation(Dialog);
+        "Scale parameter of the Weibull distribution" annotation(Dialog);
       input Real k(min=0) "Shape parameter of the Weibull distribution" annotation(Dialog);
     algorithm
       y := lambda * (-log( 1-u)) ^(1/k);
@@ -1223,7 +1223,7 @@ For more details of this distribution see
       import Modelica.Math.Distributions.Weibull;
       extends Modelica.Math.Distributions.Interfaces.partialTruncatedDensity;
       input Real lambda(min=0) = 1
-        "Scale parameter of the Weibull distribution"                            annotation(Dialog);
+        "Scale parameter of the Weibull distribution" annotation(Dialog);
       input Real k(min=0) "Shape parameter of the Weibull distribution" annotation(Dialog);
     protected
       Real pdf;
@@ -1305,7 +1305,7 @@ of truncated distributions, see
       import Modelica.Math.Distributions.Weibull;
       extends Modelica.Math.Distributions.Interfaces.partialTruncatedCumulative;
       input Real lambda(min=0) = 1
-        "Scale parameter of the Weibull distribution"                            annotation(Dialog);
+        "Scale parameter of the Weibull distribution" annotation(Dialog);
       input Real k(min=0) "Shape parameter of the Weibull distribution" annotation(Dialog);
     protected
       Real cdf;
@@ -1397,7 +1397,7 @@ of truncated distributions, see
       import Modelica.Math.Distributions.Weibull;
       extends Modelica.Math.Distributions.Interfaces.partialTruncatedQuantile;
       input Real lambda(min=0) = 1
-        "Scale parameter of the Weibull distribution"                            annotation(Dialog);
+        "Scale parameter of the Weibull distribution" annotation(Dialog);
       input Real k(min=0) "Shape parameter of the Weibull distribution" annotation(Dialog);
     protected
       Real cdf_min = Weibull.cumulative(y_min, lambda=lambda, k=k)
