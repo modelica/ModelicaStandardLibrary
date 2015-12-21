@@ -1,4 +1,4 @@
-/* ModelicaInternal.c - External functions for Modelica.Utilities.Internal
+/* ModelicaInternal.c - External functions for Modelica.Utilities
 
    Copyright (C) 2002-2016, Modelica Association and DLR
    All rights reserved.
@@ -49,7 +49,7 @@
 
    Release Notes:
       Dec. 10, 2015: by Martin Otter, DLR
-                     Added flags NO_PID and NO_TIME ()
+                     Added flags NO_PID and NO_TIME (ticket #1805)
 
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
                      Added nonnull attributes/annotations (ticket #1436)
