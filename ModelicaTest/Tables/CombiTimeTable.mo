@@ -1025,4 +1025,45 @@ double mydummyfunc(double* dummy_in) {
         thickness=0.0625));
     annotation (experiment(StartTime=7.99, StopTime=20));
   end Test79;
+
+  model Test80 "MAT-File v6, struct variable (Ticket #1840)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable t_new(
+      tableOnFile=true,
+      tableName="s.tab1",
+      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      tableOnFile=true,
+      tableName="s.s.tab1",
+      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v6.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test80;
+
+  model Test81 "MAT-File v7, struct variable (Ticket #1840)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable t_new(
+      tableOnFile=true,
+      tableName="s.tab1",
+      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      tableOnFile=true,
+      tableName="s.s.tab1",
+      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test81;
+
+  /*
+  model Test82 "MAT-File v7.3, struct variable (Ticket #1840)"
+    extends Modelica.Icons.Example;
+    Modelica.Blocks.Sources.CombiTimeTable t_new(
+      tableOnFile=true,
+      tableName="s.tab1",
+      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")) annotation(Placement(transformation(extent={{-40,0},{-20,20}})));
+    Modelica.Blocks.Sources.CombiTimeTable t_new_2(
+      tableOnFile=true,
+      tableName="s.s.tab1",
+      fileName=loadResource("modelica://Modelica/Resources/Data/Tables/test_v7.3.mat")) annotation(Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    annotation (experiment(StartTime=0, StopTime=4));
+  end Test82;
+*/
 end CombiTimeTable;
