@@ -7949,7 +7949,7 @@ Icon(coordinateSystem(extent={{-100.0,-100.0},{100.0,100.0}}), graphics={
     pattern=LinePattern.None,
     fillPattern=FillPattern.Solid,
     extent={{-17.8562,-17.8563},{17.8563,17.8562}})}),
-Documentation(info="<HTML>
+Documentation(info="<html>
 <p>
 Package <b>Modelica&reg;</b> is a <b>standardized</b> and <b>free</b> package
 that is developed together with the Modelica&reg; language from the

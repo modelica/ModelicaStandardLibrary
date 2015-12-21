@@ -969,7 +969,7 @@ the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <co
                   extent={{60,-52},{84,-72}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
 as <i>square root</i> of the input <code>u</code> (= principal square root of the complex input). Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1038,7 +1038,7 @@ as <i>square root</i> of the input <code>u</code> (= principal square root of th
                   extent={{76,-10},{98,-30}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
 as <b>sine</b> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1111,7 +1111,7 @@ as <b>sine</b> of the input <code>u</code>. Optionally, the input <code>u</code>
                   extent={{74,-4},{98,-24}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
 as <b>cos</b> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1184,7 +1184,7 @@ as <b>cos</b> of the input <code>u</code>. Optionally, the input <code>u</code> 
                   extent={{70,-6},{94,-26}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code>
 as <b>tan</b> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1257,7 +1257,7 @@ as <b>tan</b> of the input <code>u</code>. Optionally, the input <code>u</code> 
                   extent={{74,-4},{100,-26}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>sine-inverse</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1333,7 +1333,7 @@ Otherwise an error occurs.
                   extent={{76,-84},{102,-102}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>cosine-inverse</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1413,7 +1413,7 @@ Otherwise an error occurs.
                   extent={{66,-8},{94,-28}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>tangent-inverse</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1487,7 +1487,7 @@ This blocks computes the output <code>y</code> as the
                   extent={{72,-6},{96,-26}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>hyperbolic sine</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1563,7 +1563,7 @@ This blocks computes the output <code>y</code> as the
                   extent={{78,-54},{100,-74}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>hyperbolic cosine</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1638,7 +1638,7 @@ This blocks computes the output <code>y</code> as the
                   extent={{72,-8},{98,-26}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>hyperbolic tangent</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1711,7 +1711,7 @@ This blocks computes the output <code>y</code> as the
                   extent={{66,-52},{96,-72}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>exponential</i> (of base e) of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
@@ -1787,7 +1787,7 @@ This blocks computes the output <code>y</code> as the
                   extent={{68,28},{94,8}},
                   lineColor={160,160,164},
                   textString="u")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This blocks computes the output <code>y</code> as the
 <i>natural (base e) logarithm</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.

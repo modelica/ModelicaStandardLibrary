@@ -2339,7 +2339,7 @@ print v(11) v(12) v(13)
     equation
       p.v = 0;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 Ground of an electrical circuit. The potential at the
 ground node is zero. Every electrical circuit has to contain
@@ -2351,7 +2351,7 @@ netlists the ground is specified by the node number 0.
 This Modelica SPICE library demands to describe the ground node
 by this ground element.
 </P>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
@@ -2379,13 +2379,13 @@ by this ground element.
     equation
       R*i = v;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <P>
 The linear resistor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i*R = v</i>.
 The Resistance <i>R</i> is allowed to be positive, zero, or negative.
 </P>
-</HTML>"),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}), graphics={
@@ -2417,7 +2417,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         vinternal = p.v - n.v;
         i = C*der(vinternal);
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The linear capacitor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i = C * dv/dt</i>.
@@ -2557,7 +2557,7 @@ The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrica
       v2 = v1*gain;
       i1 = 0;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The linear voltage-controlled voltage source is a TwoPort.
 The right port voltage at pin p2 (=p2.v) is controlled by the left port voltage at pin p1 (=p1.v)
@@ -2611,7 +2611,7 @@ The corresponding SPICE description
       i2 = v1*transConductance;
       i1 = 0;
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The linear voltage-controlled current source is a TwoPort.
 The right port current at pin p2 (=p2.i) is controlled by the left port voltage at pin p1 (p1.v)

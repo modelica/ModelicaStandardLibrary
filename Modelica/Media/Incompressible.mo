@@ -78,7 +78,7 @@ package Incompressible
   end TestGlycol;
 
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 
 <p>
 This package provides a few examples of how to construct medium models for
@@ -90,7 +90,7 @@ density and heat capacity as functions of temperature.</li>
 <li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
 </ul>
 
-</HTML>"));
+</html>"));
   end Examples;
 
   package Common "Common data structures"
@@ -674,7 +674,7 @@ which is only exactly true for a fluid with constant density d=d0.
 
         // Solve least squares problem
         p :=Modelica.Math.Matrices.leastSquares(V, y);
-        annotation (Documentation(info="<HTML>
+        annotation (Documentation(info="<html>
 <p>
 Polynomials.fitting(u,y,n) computes the coefficients of a polynomial
 p(u) of degree \"n\" that fits the data \"p(u[i]) - y[i]\"
@@ -684,7 +684,7 @@ returned as a vector p[n+1] that has the following definition:
 <pre>
   p(u) = p[1]*u^n + p[2]*u^(n-1) + ... + p[n]*u + p[n+1];
 </pre>
-</HTML>"));
+</html>"));
       end fitting;
 
       function evaluate_der
@@ -762,7 +762,7 @@ returned as a vector p[n+1] that has the following definition:
       algorithm
         dy := secondDerivativeValue(p,u)*du;
       end derivativeValue_der;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This package contains functions to operate on polynomials,
 in particular to determine the derivative and the integral
@@ -794,7 +794,7 @@ Modelica in file \"Modelica/package.mo\".
 </html>"));
     end Polynomials_Temp;
 
-  annotation(Documentation(info="<HTML>
+  annotation(Documentation(info="<html>
 <p>
 This is the base package for medium models of incompressible fluids based on
 tables. The minimal data to provide for a useful medium description is tables
@@ -830,11 +830,11 @@ data for a useful medium model is thus density and heat capacity. Transport
 properties and vapor pressure are optional, if the data tables are empty the corresponding
 function calls can not be used.
 </p>
-</HTML>"));
+</html>"));
   end TableBased;
 
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <h4>Incompressible media package</h4>
 <p>
 This package provides a structure and examples of how to create simple
@@ -891,6 +891,6 @@ look in the <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage\">Medium
 usage section</a> of the User's Guide.
 </p>
 
-</HTML>"));
+</html>"));
 
 end Incompressible;

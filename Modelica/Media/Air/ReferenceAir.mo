@@ -528,7 +528,7 @@ The package Air_dT can be used as any other medium model (see <a href=\"modelica
         annotation (Inline=true);
       end molarMass;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This model calculates medium properties
 for air in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions.

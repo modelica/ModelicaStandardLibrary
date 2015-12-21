@@ -37,7 +37,7 @@ package HeatTransfer
               -60},{60,-60}}, color={191,0,0}));
     initial equation
       T_final_K = (mass1.T*mass1.C + mass2.T*mass2.C)/(mass1.C + mass2.C);
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This example demonstrates the thermal response of two masses connected by
 a conducting element. The two masses have the same heat capacity but different
@@ -52,7 +52,7 @@ Simulate for 5 s and plot the variables<br>
 mass1.T, mass2.T, T_final_K or <br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
-</HTML>"),
+</html>"),
         experiment(StopTime=1.0, Interval=0.001));
     end TwoMasses;
 
@@ -133,7 +133,7 @@ Tsensor1.T, Tsensor2.T, T_final_degC
       connect(logicalNot.y, idealSwitch.control)
                                             annotation (Line(points={{-51,-10},
               {-60,-10},{-60,-33}}, color={255,0,255}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <P>
 A constant voltage of 10 V is applied to a
 temperature dependent resistor of 10*(1+(T-20C)/(235+20C)) Ohms,
@@ -236,7 +236,7 @@ An appropriate simulating time would be 10 seconds.
       connect(lossTable.y[2], coreLosses.Q_flow) annotation (Line(points={{-40,59},
               {-40,40},{0,40},{0,20}},                             color={0,0,
               127}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This example contains a simple second order thermal model of a motor.
 The periodic power losses are described by table \"lossTable\":
@@ -267,7 +267,7 @@ Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant a
 <p>
 Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
-</HTML>"),
+</html>"),
         experiment(StopTime=7200, Interval=0.01));
     end Motor;
     annotation (                              Documentation(info="<html>
@@ -358,7 +358,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
               lineColor={0,0,0},
               textString="T"),
             Line(points={{0,-12},{0,-96}}, color={255,0,0})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a generic model for the heat capacity of a material.
 No specific geometry is assumed beyond a total volume with
@@ -456,7 +456,7 @@ compute C:
               extent={{-100,40},{100,20}},
               lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a model for transport of heat without storing it; see also:
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalResistor\">ThermalResistor</a>.
@@ -552,7 +552,7 @@ e.g., with one of the following equations:
               extent={{-100,40},{100,20}},
               lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a model for transport of heat without storing it, same as the
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalConductor\">ThermalConductor</a>
@@ -622,7 +622,7 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
               extent={{22,124},{92,98}},
               lineColor={0,0,0},
               textString="Gc")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also:
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor\">ConvectiveResistor</a>.
@@ -776,7 +776,7 @@ McGraw-Hill, 1997, p.270):
               extent={{22,124},{92,98}},
               lineColor={0,0,0},
               textString="Rc")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.Convection\">Convection</a> component
@@ -867,7 +867,7 @@ especially if it shall be allowed that a convective resistance is defined to be 
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a model describing the thermal radiation, i.e., electromagnetic
 radiation emitted between two bodies as a result of their temperatures.
@@ -1175,7 +1175,7 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
               extent={{-150,130},{150,90}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Kelvin as an output
@@ -1228,7 +1228,7 @@ sensor model.
               extent={{64,-74},{32,-102}},
               lineColor={0,0,0},
               textString="K")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The relative temperature \"port_a.T - port_b.T\" is determined between
 the two ports of this component and is provided as output signal in Kelvin.
@@ -1271,7 +1271,7 @@ the two ports of this component and is provided as output signal in Kelvin.
               extent={{-150,125},{150,85}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model is capable of monitoring the heat flow rate flowing through
 this component. The sensed value of heat flow rate is the amount that
@@ -1395,7 +1395,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
@@ -1458,7 +1458,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model represents a variable temperature boundary condition.
 The temperature in [K] is given as input signal <b>T</b>
@@ -1558,7 +1558,7 @@ as required to keep the temperature at the specified value.
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
 into a thermal system at a given port.  The constant amount of heat
@@ -1625,7 +1625,7 @@ in order to simulate temperature dependent losses (which are given with respect 
               extent={{-150,100},{150,60}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model allows a specified amount of heat flow rate to be \"injected\"
 into a thermal system at a given port.  The amount of heat
@@ -1726,7 +1726,7 @@ in order to simulate temperature dependent losses (which are given with respect 
               extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This component converts an input signal from Celsius to Kelvin
 and provide is as output signal.
@@ -1785,7 +1785,7 @@ and provide is as output signal.
               textString="degC"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This component converts an input signal from Kelvin to Celsius
 and provides is as output signal.
@@ -1831,7 +1831,7 @@ and provides is as output signal.
               points={{-42,0},{66,0}},
               color={191,0,0},
               thickness=0.5)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model defines a fixed temperature T at its port in [degC],
 i.e., it defines a fixed temperature as a boundary condition.
@@ -1898,7 +1898,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model represents a variable temperature boundary condition
 The temperature value in [degC] is given by the input signal
@@ -2011,7 +2011,7 @@ as required to keep the temperature at the specified value.
               extent={{-150,135},{150,95}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Celsius as an output
@@ -2022,7 +2022,7 @@ sensor model.
 </p>
 </html>"));
     end TemperatureSensor;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Celsius units, since all models
@@ -2096,7 +2096,7 @@ Example:
               lineColor={0,0,0},
               lineThickness=1,
               textString="degF")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This component converts a input signal from degree Fahrenheit to Kelvin
 and provides is as output signal.
@@ -2155,7 +2155,7 @@ and provides is as output signal.
               textString="degF"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This component converts all input signals from Kelvin to Fahrenheit
 and provides them as output signals.
@@ -2201,7 +2201,7 @@ and provides them as output signals.
               points={{-42,0},{66,0}},
               color={191,0,0},
               thickness=0.5)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
@@ -2268,7 +2268,7 @@ i.e., it defines a fixed temperature as a boundary condition.
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model represents a variable temperature boundary condition
 The temperature value in [degF] is given by the input signal
@@ -2377,7 +2377,7 @@ as required to keep the temperature at the specified value.
               extent={{-150,135},{150,95}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Fahrenheit as an output
@@ -2388,7 +2388,7 @@ sensor model.
 </p>
 </html>"));
     end TemperatureSensor;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Fahrenheit units, since all models
@@ -2462,7 +2462,7 @@ Example:
               extent={{-150,90},{150,50}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This component converts all input signals from degree Rankine to Kelvin
 and provides them as output signals.
@@ -2520,7 +2520,7 @@ and provides them as output signals.
               textString="degRk"),
             Line(points={{-100,0},{-40,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This component converts all input signals from Kelvin to Rankine
 and provides them as output signals.
@@ -2566,7 +2566,7 @@ and provides them as output signals.
               points={{-42,0},{66,0}},
               color={191,0,0},
               thickness=0.5)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
@@ -2633,7 +2633,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
               lineColor={191,0,0},
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This model represents a variable temperature boundary condition
 The temperature value in degree Rankine, [degRk] is given by the input signal
@@ -2742,7 +2742,7 @@ as required to keep the temperature at the specified value.
               extent={{-150,135},{150,95}},
               textString="%name",
               lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is an ideal absolute temperature sensor which returns
 the temperature of the connected port in Rankine as an output
@@ -2753,7 +2753,7 @@ sensor model.
 </p>
 </html>"));
     end TemperatureSensor;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The components of this package are provided for the convenience of
 people working mostly with Rankine units, since all models
@@ -2792,7 +2792,7 @@ Example:
       extends HeatPort;
 
       annotation(defaultComponentName = "port_a",
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
 <pre>
@@ -2828,7 +2828,7 @@ class.</p>
       extends HeatPort;
 
       annotation(defaultComponentName = "port_b",
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>This connector is used for 1-dimensional heat flow between components.
 The variables in the connector are:</p>
 <pre>
@@ -2873,7 +2873,7 @@ class.</p>
       dT = port_a.T - port_b.T;
       port_a.Q_flow = Q_flow;
       port_b.Q_flow = -Q_flow;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This partial model contains the basic connectors and variables to
 allow heat transfer models to be created that <b>do not store energy</b>,
@@ -3043,7 +3043,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
         fillColor = {191,0,0},
         fillPattern = FillPattern.Solid,
         points = {{-17,-46},{-17,-34},{-40,-40},{-17,-46}})}),
-                            Documentation(info="<HTML>
+                            Documentation(info="<html>
 <p>
 This package contains components to model <b>1-dimensional heat transfer</b>
 with lumped elements. This allows especially to model heat transfer in

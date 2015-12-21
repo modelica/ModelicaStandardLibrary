@@ -474,7 +474,7 @@ package Lines
 </blockquote>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater than zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
-</html>", revisions="<HTML>
+</html>", revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <th>Version</th>
@@ -505,7 +505,7 @@ package Lines
       <td valign=\"top\">Initially implemented</td>
     </tr>
 </table>
-</HTML>"));
+</html>"));
   end M_OLine;
 
   model ULine "Lossy RC Line"

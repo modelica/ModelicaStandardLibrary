@@ -1209,7 +1209,7 @@ In this example the eddy current losses are implemented in two different ways. C
         annotation (experiment(
             StopTime=1.5,
             Interval=0.0002,
-            Tolerance=1e-05), Documentation(info="<HTML>
+            Tolerance=1e-05), Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart three phase voltage is supplied to the
@@ -1226,7 +1226,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimcM|E.wMechanical</code>: machine speed</li>
 <li><code>aimcM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"));
+</html>"));
       end AIMC_DOL;
 
       model AIMC_DOL_MultiPhase
@@ -1455,7 +1455,7 @@ Simulate for 1.5 seconds and plot (versus time):
             StopTime=1.5,
             Interval=0.0002,
             Tolerance=1e-05),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
 At start time tStart voltages are supplied to the
@@ -1472,7 +1472,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/M3.wMechanical</code>: machine speed</li>
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                                graphics={Rectangle(
                       extent={{-100,100},{100,20}},
@@ -1703,7 +1703,7 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (experiment(
             StopTime=1.5,
             Interval=0.001,
-            Tolerance=1e-05), Documentation(info="<HTML>
+            Tolerance=1e-05), Documentation(info="<html>
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
 At start time <code>tOn</code> three phase voltage is supplied to the
@@ -1720,7 +1720,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>aimsM/E.wMechanical</code>: machine speed</li>
 <li><code>aimsM|E.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"));
+</html>"));
       end AIMS_Start;
 
       model AIMS_Start_MultiPhase
@@ -1983,7 +1983,7 @@ Simulate for 1.5 seconds and plot (versus time):
             StopTime=1.5,
             Interval=0.001,
             Tolerance=1e-05),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
 At start time <code>tOn</code> voltages are supplied to the
@@ -2001,7 +2001,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                                graphics={Rectangle(
                       extent={{-100,100},{100,20}},
@@ -2226,7 +2226,7 @@ Simulate for 1.5 seconds and plot (versus time):
         annotation (experiment(
             StopTime=1.5,
             Interval=0.0005,
-            Tolerance=1e-005), Documentation(info="<HTML>
+            Tolerance=1e-005), Documentation(info="<html>
 <h4>Permanent magnet synchronous induction machine fed by an ideal inverter</h4>
 <p>
 
@@ -2245,7 +2245,7 @@ and accelerate the inertias.</p>
 <li><code>smpmM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAnglepmsmM|E.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</HTML>"));
+</html>"));
       end SMPM_Inverter;
 
       model SMPM_Inverter_MultiPhase
@@ -2497,7 +2497,7 @@ and accelerate the inertias.</p>
             StopTime=1.5,
             Interval=0.0005,
             Tolerance=1e-005),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <h4>Permanent magnet synchronous induction machine fed by an ideal inverter</h4>
 <p>
 
@@ -2516,7 +2516,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                                graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
@@ -2822,7 +2822,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
         annotation (experiment(
             StopTime=30,
             Interval=0.005,
-            Tolerance=1e-06), Documentation(info="<HTML>
+            Tolerance=1e-06), Documentation(info="<html>
 <h4>Electrical excited synchronous induction machine as generator</h4>
 <p>
 An
@@ -2839,7 +2839,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
 <li><code>speedM|E.tauElectrical</code>: machine torque</li>
 <li><code>mechanicalPowerSensorM|E.P</code>: mechanical power</li>
 </ul>
-</HTML>"));
+</html>"));
       end SMEE_Generator;
 
       model SMEE_Generator_MultiPhase
@@ -3169,7 +3169,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             StopTime=30,
             Interval=0.005,
             Tolerance=1e-06),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <h4>Electrical excited synchronous induction machine as generator</h4>
 <p>
 Two
@@ -3188,7 +3188,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-50,60},{70,20}},
                       lineColor={0,0,0},
@@ -3406,7 +3406,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
         annotation (experiment(
             StopTime=1.5,
             Interval=0.001,
-            Tolerance=1e-06), Documentation(info="<HTML>
+            Tolerance=1e-06), Documentation(info="<html>
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
 <p>
 An ideal frequency inverter is modeled by using a
@@ -3427,7 +3427,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>smrM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAngleM|R.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
-</HTML>"));
+</html>"));
       end SMR_Inverter;
 
       model SMR_Inverter_MultiPhase
@@ -3673,7 +3673,7 @@ Simulate for 1.5 seconds and plot (versus time):
             StopTime=1.5,
             Interval=0.001,
             Tolerance=1e-06),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
 <p>
 Ideal frequency inverters are modeled by using a
@@ -3694,7 +3694,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>feedback.y</code>: zero since difference of three phase current phasor and scaled multi phase current phasor are equal</li>
 </ul>
 
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Rectangle(
                       extent={{-20,0},{100,-40}},
                       lineColor={0,0,0},
@@ -7089,9 +7089,9 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(
           points={{-10,36},{-39.6,36},{-39.6,-89.2}},
           color={191,0,0}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={
             Rectangle(
               extent={{80,-80},{120,-120}},

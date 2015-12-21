@@ -223,14 +223,14 @@ in the declaration as in the example at the beginning.
 </html>"));
   end Contact;
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>SIunits</b> is a <b>free</b> Modelica package providing
 predefined types, such as <i>Mass</i>,
 <i>Length</i>, <i>Time</i>, based on the international standard
 on units.</p>
 
-</HTML>"));
+</html>"));
 end UsersGuide;
 
   package Icons "Icons for SIunits"
@@ -321,7 +321,7 @@ end UsersGuide;
                        Real (final quantity="AreaPerVoltageSecond", final unit="cm2/(V.s)")
         "Area in cm per voltage second";
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
 degree), <b>AngularVelocity_rpm</b> (angular velocity in revolutions per
@@ -353,7 +353,7 @@ still kept in Modelica.SIunits.</p>
     output Real result(unit="1") "Real number r with unit=\"1\"";
   algorithm
     result := r;
-    annotation (Inline=true, Documentation(info="<HTML>
+    annotation (Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 SIunits.Conversions.<b>to_unit1</b>(r);
@@ -367,7 +367,7 @@ The function call \"<code>Conversions.<b>to_unit1</b>(r)</code>\" returns r with
   Modelica.SIunits.Velocity v = {3,2,1};
   Real direction[3](unit=\"1\") = to_unit1(v);   // Automatically vectorized call of to_unit1
 </pre></blockquote>
-</HTML>"),
+</html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={Text(
           extent={{-90,86},{32,50}},
@@ -957,7 +957,7 @@ This icon of a <b>conversion symbol</b> will be removed in future versions of th
 </p>
 </html>"));
     end ConversionIcon;
-    annotation (                              Documentation(info="<HTML>
+    annotation (                              Documentation(info="<html>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice

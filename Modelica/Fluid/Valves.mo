@@ -56,7 +56,7 @@ package Valves "Components for the regulation and control of fluid flow"
       end if;
 
     annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.<
 /p>
@@ -158,7 +158,7 @@ explained in detail in the
     end if;
 
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
 
 <p>
@@ -178,7 +178,7 @@ explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>2 Nov 2005</i>
@@ -267,7 +267,7 @@ explained in detail in the
     end if;
 
     annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, compressible fluid, no phase change, also covering choked-flow conditions.</p>
 
 <p>
@@ -287,7 +287,7 @@ explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
-</HTML>",
+</html>",
       revisions="<html>
 <ul>
 <li><i>2 Nov 2005</i>
@@ -346,12 +346,12 @@ explained in detail in the
             fillPattern=FillPattern.Solid),
           Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
                 50}}, lineColor={0,0,0})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
 a simple model of a variable pressure loss is needed.</p>
 <p>A medium model must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
 <p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
-</HTML>",
+</html>",
       revisions="<html>
 <ul>
 <li><i>2 Nov 2005</i>
@@ -400,7 +400,7 @@ a simple model of a variable pressure loss is needed.</p>
                       {255,255,255}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <b>true</b>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <b>false</b>.
 </p>
@@ -410,7 +410,7 @@ This very simple model provides a (small) pressure drop which is proportional to
 In a diagram animation, the valve is shown in \"green\", when
 it is open.
 </p>
-</HTML>",
+</html>",
       revisions="<html>
 <ul>
 <li><i>Nov 2005</i>
@@ -514,7 +514,7 @@ it is open.
     equation
       y = smooth(0, noEvent( if u < uMin then uMin else u));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The block passes its input signal as output signal
 as long as the input is above uMin. If this is not the case,
@@ -643,7 +643,7 @@ y=uMin is passed as output.
             Line(visible=filteredOpening,
               points={{40,60},{60,60}},
               color={0,0,127})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>This is the base model for the <code>ValveIncompressible</code>, <code>ValveVaporizing</code>, and <code>ValveCompressible</code> valve models. The model is based on the IEC 534 / ISA S.75 standards for valve sizing.</p>
 <p>The model optionally supports reverse flow conditions (assuming symmetrical behaviour) or check valve operation, and has been suitably regularized, compared to the equations in the standard, in order to avoid numerical singularities around zero pressure drop operating conditions.</p>
 <p>The model assumes adiabatic operation (no heat losses to the ambient); changes in kinetic energy
@@ -709,7 +709,7 @@ filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
      alt=\"ValveFilteredOpening.png\">
 </blockquote>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>Sept. 5, 2010</i>
     by <a href=\"mailto:martin.otter@dlr.de\">Martin Otter</a>:<br>

@@ -11,7 +11,7 @@ package UsersGuide "User's Guide"
   class Overview "Overview"
     extends Modelica.Icons.Information;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The Modelica.Fluid library provides basic interfaces and
 components to model 1-dimensional thermo-fluid flow in networks of pipes.
@@ -1082,7 +1082,7 @@ system, and the typical customizations available in the Modelica.Fluid models.
   class ReleaseNotes "Release notes"
     extends Modelica.Icons.ReleaseNotes;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 
 <h4>Version 1.1, 2009-06-21</h4>
 
@@ -1683,7 +1683,7 @@ and many have contributed.
 
 </html>"));
 end Contact;
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
 <b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the
@@ -1694,7 +1694,7 @@ media from the Modelica.Media library. This means especially that an
 incompressible or compressible medium, a single or a multiple
 substance medium with one or more phases might be used.
 </p>
-</HTML>"));
+</html>"));
 end UsersGuide;
 
 

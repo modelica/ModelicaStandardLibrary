@@ -14,7 +14,7 @@ package UsersGuide "User's Guide of Media Library"
     class BasicUsage "Basic usage"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <h4>Basic usage of medium model</h4>
 <p>
 Media models in Modelica.Media are provided by packages, inheriting from the
@@ -236,13 +236,13 @@ then via the medium it is defined how Xi is interpreted:
 The full vector of mass fractions <b>X[nX]</b> is computed in
 PartialMedium.BaseProperties based on Xi, reference_X, and the information whether Xi = nS or nS-1. For single-substance media, nX = 0, so there's also no X vector. For multiple-substance media, nX = nS, and X always contains the full vector of mass fractions. In order to reduce confusion for the user of a fluid component library, \"Xi\" has the annotation \"HideResult=true\", meaning, that this variable is not shown in the plot window. Only X is shown in the plot window and this vector always contains all mass fractions.
 </p>
-</HTML>"));
+</html>"));
     end BasicUsage;
 
     class BalanceVolume "Balance volume"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Fluid libraries usually have balance volume components with one fluid connector
 port that fulfill the mass and energy balance and on a different grid components that
@@ -347,13 +347,13 @@ disadvantage that for many media non-linear systems of equations are
 present to compute the intrinsic properties p, d, T, u, h from
 M and U.
 </p>
-</HTML>"));
+</html>"));
     end BalanceVolume;
 
     class ShortPipe "Short pipe"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Fluid libraries have components with two ports that store
 neither mass nor energy and fulfill the
@@ -449,13 +449,13 @@ linear system of equations:
      the linear system is regular.</li>
 </ul>
 
-</HTML>"));
+</html>"));
     end ShortPipe;
 
     class OptionalProperties "Optional properties"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 In some cases additional medium properties are needed.
 A component that needs these optional properties has to call
@@ -609,13 +609,13 @@ etc. are defined in PartialMedium. Whenever possible, these medium
 specific types should be used in a model in order that medium information,
 e.g., about nominal or start values, are automatically utilized.
 </p>
-</HTML>"));
+</html>"));
     end OptionalProperties;
 
     class Constants "Constants"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Every medium model provides the following <b>constants</b>. For example,
 if a medium is declared as:
@@ -823,7 +823,7 @@ elements</p>
     class TwoPhase "Two-phase media"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Models for media which can exist in one-phase or two-phase conditions inherit
 from <a href=\"modelica://Modelica.Media.Interfaces.PartialTwoPhaseMedium\">
@@ -1020,7 +1020,7 @@ Here are some examples:
     class Initialization "Initialization"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 
 <p>
 When a medium model is used in a balance volume, differential
@@ -1098,10 +1098,10 @@ exist:
      and by inspection of the file \"dsmodel.mof\" that is generated
      when this option is set (search for \"nonlinear\").</li>
 </ul>
-</HTML>"));
+</html>"));
     end Initialization;
 
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Content:
 </p>
@@ -1124,7 +1124,7 @@ are defined. Under Tests.MediaTestModels these basic components are used to test
 all media models with some very simple piping networks.
 </p>
 
-</HTML>"));
+</html>"));
   end MediumUsage;
 
   package MediumDefinition "Medium definition"
@@ -1133,7 +1133,7 @@ all media models with some very simple piping networks.
     class BasicStructure "Basic structure"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 A medium model of Modelica.Media is essentially a <b>package</b>
 that contains the following definitions:
@@ -1381,7 +1381,7 @@ of the graphical user interface.</p>
     class BasicDefinition "Basic definition"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Let's now walk through the definition of a new medium model. Please refer to
 <a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
@@ -1458,7 +1458,7 @@ defined in the base class and adding their algorithms, e.g.:
     class MultipleSubstances "Multiple Substances"
       extends Modelica.Icons.Information;
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 When writing the model of a multiple-substance medium, a fundamental issue
 concerns how to consider the mass fractions of the fluid. If there are nS
@@ -1948,7 +1948,7 @@ properties. Of course, more tests should be performed.
 
 </html>"));
     end TestOfMedium;
-    annotation (DocumentationClass=true, Documentation(info="<HTML>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 If a new medium model shall be introduced, copy package
 <a href=\"modelica://Modelica.Media.Interfaces.TemplateMedium\">
@@ -1974,12 +1974,12 @@ TemplateMedium package is given here:
 <li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.TestOfMedium\">
       Test of medium model</a></li>
 </ol>
-</HTML>"));
+</html>"));
   end MediumDefinition;
 
   class ReleaseNotes "Release notes"
     extends Modelica.Icons.ReleaseNotes;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <h4>Version included in Modelica 3.0</h4>
 <p> See top-level release notes for MSL.</p>
 <h4>Version 1.0, 2005-03-01</h4>
@@ -2088,7 +2088,7 @@ and many have contributed:
 </html>"));
   end Contact;
 
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>Modelica.Media</b> is a <b>free</b> Modelica package providing
 a standardized interface to fluid media models and specific
@@ -2164,7 +2164,7 @@ This User's Guide has the following main parts:
     provides information about the authors of the library as well as
     acknowledgements.</li>
 </ul>
-</HTML>"));
+</html>"));
 end UsersGuide;
 
 
@@ -4403,7 +4403,7 @@ package Interfaces "Interfaces for media models"
 </html>"));
     end velocityOfSound;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package is a <b>template</b> for <b>new medium</b> models. For a new
 medium model just make a copy of this package, remove the
@@ -4411,7 +4411,7 @@ medium model just make a copy of this package, remove the
 the information that is requested in the comments of the
 Modelica source.
 </p>
-</HTML>"));
+</html>"));
   end TemplateMedium;
 
   partial package PartialMedium
@@ -6396,7 +6396,7 @@ required from medium model \"" + mediumName + "\".
       MM = MM_const;
       state.T = T;
       state.p = p;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This is the most simple incompressible medium model, where
 specific enthalpy h and specific internal energy u are only
@@ -6404,7 +6404,7 @@ a function of temperature T and all other provided medium
 quantities are assumed to be constant.
 Note that the (small) influence of the pressure term p/d is neglected.
 </p>
-</HTML>"));
+</html>"));
     end BaseProperties;
 
     redeclare function setState_pTX
@@ -6693,14 +6693,14 @@ required from medium model \"" + mediumName + "\".
       MM = MM_const;
       state.T = T;
       state.p = p;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This is the most simple incompressible medium model, where
 specific enthalpy h and specific internal energy u are only
 a function of temperature T and all other provided medium
 quantities are assumed to be constant.
 </p>
-</HTML>"));
+</html>"));
     end BaseProperties;
 
     redeclare function setState_pTX
@@ -7287,12 +7287,12 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
     end TwoPhase;
 
   end Types;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This package provides basic interfaces definitions of media models for different
 kind of media.
 </p>
-</HTML>"));
+</html>"));
 end Interfaces;
 
 
@@ -7521,7 +7521,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         min=MOLMIN,
         max=MOLMAX,
         nominal=MOLNOM) "Mole vector";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
                          <h4>Model description</h4>
                               <p>
                               <b>ThermoBaseVars</b> is inherited by all medium property models
@@ -7628,7 +7628,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         "Derivative of total enthalpy w.r.t. component mass at constant T";
       Real dpT "Derivative of pressure w.r.t. temperature";
       Real dpZ[nspecies] "Derivative of pressure w.r.t. moles";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
         <h4>Model description</h4>
         <p>
         A base class for medium property models which work with most of the
@@ -7683,7 +7683,7 @@ package Common "Data structures and fundamental functions for fluid properties"
         "Derivative of inner energy by pressure at constant enthalpy";
       Real duhp(unit="1")
         "Derivative of inner energy by enthalpy at constant pressure";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <h4>Model description</h4>
 <p>
 A base class for medium property models which
@@ -7739,7 +7739,7 @@ two phase and liquid regions.
         "Derivative of inner energy by pressure at constant T";
       SI.SpecificHeatCapacity duTp
         "Derivative of inner energy by temperature at constant p";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <h4>Model description</h4>
 <p>
 A base class for medium property models which use pressure and temperature as dynamic states.
@@ -7788,7 +7788,7 @@ liquid regions, but never in the two-phase region.
         nominal=300.0) "Speed of sound";
       Real dudT(unit="m5/(kg.s2)")
         "Derivative of inner energy by density at constant T";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <h4>Model description</h4>
 <p>
 A base class for medium property models which use density and temperature as dynamic states.
@@ -8406,7 +8406,7 @@ public
     Real dfg=gamma*v*s*p - v*s - alpha*v*v*p
       "Coefficient in Bridgmans table, see info for usage";
     Real dgf=-dfg "Coefficient in Bridgmans table, see info for usage";
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 Important: the phase equilibrium conditions are not yet considered.
 this means that Bridgman's tables do not yet work in the two phase region.
@@ -9154,7 +9154,7 @@ provide a package in the following way:
 </pre>
 </html>"));
   end OneNonLinearEquation;
-  annotation (Documentation(info="<HTML><h4>Package description</h4>
+  annotation (Documentation(info="<html><h4>Package description</h4>
       <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
       High accuracy fluid property models share a lot of common structure, even if the actual models are different.
       Common data structures and computations shared by these property models are collected in this library.
@@ -9182,7 +9182,7 @@ provide a package in the following way:
 end Common;
 
 
-annotation (preferredView="info",Documentation(info="<HTML>
+annotation (preferredView="info",Documentation(info="<html>
 <p>
 This library contains <a href=\"modelica://Modelica.Media.Interfaces\">interface</a>
 definitions for media and the following <b>property</b> models for
@@ -9227,7 +9227,7 @@ Copyright &copy; 1998-2013, Modelica Association.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>May 16, 2013</i> by Stefan Wischhusen (XRG Simulation):<br/>
     Added new media models Air.ReferenceMoistAir, Air.ReferenceAir, R134a.</li>

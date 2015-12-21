@@ -25,7 +25,7 @@ algorithm
     result:=(sum(ComplexMath.'abs'(v[i])^p for i in 1:size(v, 1)))^(1/p);
   end if;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Vectors.<b>norm</b>(v);
@@ -81,7 +81,7 @@ Note, for any vector norm the following inequality holds:
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
 </p>
-</HTML>"));
+</html>"));
 end norm;
 
 function length "Return length of a complex vector"
@@ -289,7 +289,7 @@ algorithm
      gap := div(gap,2);
   end while;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
            sorted_v = Vectors.<b>sort</b>(v);
@@ -313,7 +313,7 @@ to the original vector are given, such that sorted_v = v[indices].
           i2 = {1, 5, 3, 4, 2}
 </pre></blockquote>
 
-</HTML>"));
+</html>"));
 end sort;
 
   annotation(Documentation(info="<html>

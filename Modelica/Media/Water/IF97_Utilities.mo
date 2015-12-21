@@ -72,7 +72,7 @@ package IF97_Utilities
               0.57254459862746e3,
               0.13918839778870e2)
         "Polynomial coefficients for boundary between regions 2 and 3";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
  <h4>Record description</h4>
                            <p>Constants needed in the international steam properties IF97.
                            SCRIT and HCRIT are calculated from Helmholtz function for region 3.</p>
@@ -133,7 +133,7 @@ package IF97_Utilities
         "The calculated specific enthalpy at the critical point";
       constant SI.SpecificEntropy SCRIT=4412.02148223476
         "The calculated specific entropy at the critical point";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
  <h4>Record description</h4>
  <p>Critical point data for IF97 steam properties. SCRIT and HCRIT are calculated from Helmholtz function for region 3</p>
 <h4>Version Info and Revision history
@@ -164,7 +164,7 @@ package IF97_Utilities
         "The triple point liquid density";
       constant SI.Density dvtriple=0.485457572477861372e-2
         "The triple point vapour density";
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
  <h4>Record description</h4>
  <p>Vapour/liquid/ice triple point data for IF97 steam properties.</p>
 <h4>Version Info and Revision history
@@ -1531,7 +1531,7 @@ package IF97_Utilities
         dd_dp := drhovl_dp(p, dewcurve_p(p));
         annotation (Inline=true);
       end drhov_dp;
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
  <p>Package <b>Regions</b> contains a large number of auxiliary functions which are needed to compute the current region
  of the IAPWS/IF97 for a given pair of input variables as quickly as possible. The focus of this implementation was on
  computational efficiency, not on compact code. Many of the function values calculated in these functions could be obtained
@@ -3658,7 +3658,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </html>"));
       end v3b_ps;
 
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
           <p>Package BaseIF97/Basic computes the the fundamental functions for the 5 regions of the steam tables
           as described in the standards document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
           functions has been generated using <b><i>Mathematica</i></b> and the add-on packages \"Format\" and \"Optimize\"
@@ -4160,7 +4160,7 @@ Ordinary Water Substance<br>
         sigma := 235.8e-3*(1 - Theta)^1.256*(1 - 0.625*(1 - Theta));
       end surfaceTension;
 
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
           <h4>Package contents</h4>
           <ul>
           <li>Function <b>visc_dTp</b> implements a function to compute the industrial formulation of the
@@ -4791,7 +4791,7 @@ Ordinary Water Substance<br>
         end if;
       end water_hisentropic_dyn;
 
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
           <h4>Package contents</h4>
           <ul>
           <li>Function <b>hofpT1</b> computes h(p,T) in region 1.</li>
@@ -5429,7 +5429,7 @@ Ordinary Water Substance<br>
           "Error in inverse function tofpst5: iteration failed");
       end tofpst5;
 
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
           <h4>Package contents</h4>
           <ul>
           <li>Function <b>fixdT</b> constrains density and temperature to allowed region</li>
@@ -5528,7 +5528,7 @@ Ordinary Water Substance<br>
         g := Basic.g5(p, T);
         pro := Modelica.Media.Common.ThermoFluidSpecial.gibbsToProps_pT(g);
       end waterR5_pT;
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
           <p>Package ByRegion provides fast forward calls for dynamic property calculation records for all
           one phase regions of IAPWS/IF97
           </p>
@@ -5786,7 +5786,7 @@ Ordinary Water Substance<br>
         pro.R := data.RH2O;
         pro.dudT := (pro.p - T*dpT)/(d*d);
       end waterR4_dT;
-      annotation (Documentation(info="<HTML><h4>Package description</h4>
+      annotation (Documentation(info="<html><h4>Package description</h4>
           <p>Package TwoPhase provides functions to compute the steam properties
           in the two-phase region and on the phase boundaries</p>
           <h4>Package contents</h4>
@@ -5909,7 +5909,7 @@ Ordinary Water Substance<br>
       end if;
     end extraDerivs_pT;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <style type=\"text/css\">
 .nobr
 {
@@ -6280,7 +6280,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         <li>Function <b>extraDerivs_pT</b> computes all entries to Bridgmans tables for all
         one-phase regions of IF97 using inputs (p,T).</li>
         </ul>
-        </HTML>"));
+        </html>"));
   end BaseIF97;
 
   replaceable record iter = BaseIF97.IterationData;
@@ -8319,7 +8319,7 @@ public
     annotation (Inline=true);
   end dynamicIsentropicEnthalpy;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
       <h4>Package description:</h4>
       <p>This package provides high accuracy physical properties for water according
       to the IAPWS/IF97 standard. It has been part of the ThermoFluid Modelica library and been extended,
@@ -8405,6 +8405,6 @@ public
       SE-22370 Lund, Sweden<br>
       email: hubertus@modelon.se
       </address>
-      </HTML>", revisions="<h4>Intermediate release notes during development</h4>
+      </html>", revisions="<h4>Intermediate release notes during development</h4>
 <p>Currently the Events/noEvents switch is only implemented for p-h states. Only after testing that implementation, it will be extended to dT.</p>"));
 end IF97_Utilities;

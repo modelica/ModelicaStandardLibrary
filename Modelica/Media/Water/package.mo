@@ -779,7 +779,7 @@ partial package WaterIF97_base
           phase=0);
     annotation (Inline=true);
   end setSmoothState;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions
@@ -1573,7 +1573,7 @@ partial package WaterIF97_fixedregion
           phase=0);
     annotation (Inline=true);
   end setSmoothState;
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This model calculates medium properties
 for water in the <b>liquid</b>, <b>gas</b> and <b>two phase</b> regions

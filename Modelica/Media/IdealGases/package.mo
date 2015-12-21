@@ -3,7 +3,7 @@ package IdealGases "Data and models of ideal gases (single, fixed and dynamic mi
   extends Modelica.Icons.VariantsPackage ;
 
 
-annotation (Documentation(info="<HTML>
+annotation (Documentation(info="<html>
 <p>This package contains data for the 1241 ideal gases from</p>
 <blockquote>
   <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
@@ -223,5 +223,5 @@ Data records for heat capacity, specific enthalpy and specific entropy exist for
  BaO       CH3CN           D-              In2F4   Na2SO4   Sc-
  BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO
  BaOH      C2H4            DCl             In2I2   Na3F3    ScO+
-</pre></HTML>"));
+</pre></html>"));
 end IdealGases;

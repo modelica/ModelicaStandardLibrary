@@ -424,7 +424,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     n2.i = -(s2*unitVoltage)*(if (control) then 1 else Goff);
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
@@ -636,7 +636,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
     n2.i = -(s2*unitVoltage)*(if (control.v > level) then 1 else Goff);
     LossPower = p.i*p.v + n1.i*n1.v + n2.i*n2.v;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
@@ -1018,7 +1018,7 @@ are possible.
     out.v = smooth(0, if s < -1 then VMin.v else if s > 1 then VMax.v else (
       VMax.v - VMin.v)*s/2 + (VMax.v + VMin.v)/2);
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <P>
 The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
 if the output voltage is within the limits VMin and VMax. In this case
@@ -1440,7 +1440,7 @@ where the constant <i>G</i> is called the gyration conductance.
 
     LossPower = v*i;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <P>
 The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
@@ -1521,7 +1521,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
     LossPower = v*i;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <P>
 The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
@@ -1607,7 +1607,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
     LossPower = (p.v - n.v)*p.i;
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <P>
 The ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the control pin.

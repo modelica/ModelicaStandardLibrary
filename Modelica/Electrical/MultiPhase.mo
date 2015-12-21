@@ -200,14 +200,14 @@ This is a library of multi phase electrical models.
         annotation (Line(points={{50,20},{70,20}}, color={0,0,255}));
       connect(loadR.plug_n, starL.plug_p)
         annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a Y-Y-transformer with internal impedance (RT, LT) a load resistor RT.<br>
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
-</HTML>"), experiment(StopTime=1.0, Interval=0.001));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
     end TransformerYY;
 
     model TransformerYD "Test example with multiphase components"
@@ -288,14 +288,14 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Line(points={{90,20},{90,-52}}, color={0,0,255}));
       connect(starL.pin_n, groundL.p)
         annotation (Line(points={{90,-72},{90,-80}}, color={0,0,255}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a Y-D-transformer with internal impedance (RT, LT) a load resistor RT.<br>
 Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
-</HTML>"), experiment(StopTime=1.0, Interval=0.001));
+</html>"), experiment(StopTime=1.0, Interval=0.001));
     end TransformerYD;
 
     model Rectifier "Test example with multiphase components"
@@ -392,14 +392,14 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
         annotation (Line(points={{10,60},{50,60},{50,10}}, color={0,0,255}));
       connect(star1.pin_n, cDC1.p)
         annotation (Line(points={{10,60},{70,60},{70,40}}, color={0,0,255}));
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Test example with multiphase components:<br>
 Star-connected voltage source feeds via a line reactor a diode bridge rectifier with a DC burden.<br>
 Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
 </p>
-</HTML>"), experiment(StopTime=1.0, Interval=0.0001));
+</html>"), experiment(StopTime=1.0, Interval=0.0001));
     end Rectifier;
 
     model TestSensors
@@ -541,18 +541,18 @@ neglecting initial transient.
           points={{60,1},{60,12}},
           color={0,0,127}));
       annotation (experiment(StopTime=0.1, Interval=0.0001), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Test multiphase quasiRMS sensors: A sinusoidal source feeds a load consisting of resistor and inductor.
 </p>
-</HTML>"));
+</html>"));
     end TestSensors;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains test examples of analog electrical multiphase circuits.
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -616,7 +616,7 @@ This package contains test examples of analog electrical multiphase circuits.
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
@@ -628,7 +628,7 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
 </p>
 
-</HTML>"));
+</html>"));
     end Star;
 
     model Delta "Delta (polygon) connection"
@@ -664,7 +664,7 @@ Connects all pins of plug_p to pin_n, thus establishing a so-called star-connect
               textString="m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Connects in a cyclic way plug_n.pin[j] to plug_p.pin[j+1],
 thus establishing a so-called delta (or polygon) connection
@@ -677,7 +677,7 @@ when used in parallel to another component.
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiStar\">MultiStar</a>,
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MultiDelta\">MultiDelta</a>
 </p>
-</HTML>"));
+</html>"));
     end Delta;
 
     model MultiStar "Star connection of multi phase systems consisting of multiple base systems"
@@ -908,11 +908,11 @@ Multi star points are connected by resistors. This model is required to operate 
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p unconnected.
 </p>
-</HTML>"));
+</html>"));
     end PlugToPin_p;
 
     model PlugToPin_n "Connect one (negative) Pin"
@@ -953,11 +953,11 @@ Connects pin <i>k</i> of plug_p to pin_p, leaving the other pins of plug_p uncon
               fillColor={215,215,215},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n unconnected.
 </p>
-</HTML>"));
+</html>"));
     end PlugToPin_n;
 
     model PlugToPins_p "Connect all (positive) Pins"
@@ -988,11 +988,11 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 Connects all pins of plug_p to the pin array pin_p.
 </p>
-</HTML>"));
+</html>"));
     end PlugToPins_p;
 
     model PlugToPins_n "Connect all (negative) Pins"
@@ -1023,11 +1023,11 @@ Connects all pins of plug_p to the pin array pin_p.
               fillColor={170,255,255},
               fillPattern=FillPattern.Solid),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}})}),
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>
 Connects all pins of plug_n to the pin array pin_n.
 </p>
-</HTML>"));
+</html>"));
     end PlugToPins_n;
 
     model Resistor "Ideal linear electrical resistors"
@@ -1068,11 +1068,11 @@ Connects all pins of plug_n to the pin array pin_n.
             Text(
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 </p>
-</HTML>"));
+</html>"));
     end Resistor;
 
     model Conductor "Ideal linear electrical conductors"
@@ -1113,11 +1113,11 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
             Text(
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 </p>
-</HTML>"));
+</html>"));
     end Conductor;
 
     model Capacitor "Ideal linear electrical capacitors"
@@ -1147,11 +1147,11 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
             Text(
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
 </p>
-</HTML>"));
+</html>"));
     end Capacitor;
 
     model Inductor "Ideal linear electrical inductors"
@@ -1184,11 +1184,11 @@ Contains m capacitors (Modelica.Electrical.Analog.Basic.Capacitor)
             Text(
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
 </p>
-</HTML>"));
+</html>"));
     end Inductor;
 
     model SaturatingInductor "Simple model of inductors with saturation"
@@ -1235,7 +1235,7 @@ Contains m inductors (Modelica.Electrical.Analog.Basic.Inductor)
             Text(
               extent={{-100,-100},{100,-60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingInductor)
 </p>
@@ -1243,7 +1243,7 @@ Contains m saturating inductors (Modelica.Electrical.Analog.Basic.SaturatingIndu
 <b>Attention!!!</b><br>
 Each element of the array of saturatingInductors is only dependent on the current flowing through this element.
 </p>
-</HTML>"));
+</html>"));
     end SaturatingInductor;
 
     model MutualInductor "Linear mutual inductor"
@@ -1406,11 +1406,11 @@ Model of a multi phase zero sequence inductor.
             Text(
               extent={{-100,60},{100,100}},
               textString="%name",
-              lineColor={0,0,255})}), Documentation(info="<HTML>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 </p>
-</HTML>"));
+</html>"));
     end Transformer;
 
     model VariableResistor "Ideal linear electrical resistors with variable resistance"
@@ -1457,7 +1457,7 @@ Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
             Text(
               extent={{-100,40},{100,80}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor)
 </p>
@@ -1466,7 +1466,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
   It is recommended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
 </P>
-</HTML>"));
+</html>"));
     end VariableResistor;
 
     model VariableConductor "Ideal linear electrical conductors with variable conductance"
@@ -1513,7 +1513,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
             Text(
               extent={{-100,40},{100,80}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConductor)
 </p>
@@ -1522,7 +1522,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
   It is recommended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
 </P>
-</HTML>"));
+</html>"));
     end VariableConductor;
 
     model VariableCapacitor "Ideal linear electrical capacitors with variable capacitance"
@@ -1559,7 +1559,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
             Line(points={{6,0},{90,0}},  color={0,0,255}),
             Line(points={{-6,28},{-6,-28}}, color={0,0,255}),
             Line(points={{6,28},{6,-28}}, color={0,0,255})}),
-                                  Documentation(info="<HTML>
+                                  Documentation(info="<html>
 <p>
 Contains m variable capacitors (Modelica.Electrical.Analog.Basic.VariableCapacitor)
 </p>
@@ -1569,7 +1569,7 @@ assertion is raised. To avoid a variable index system,<br>
 C = Cmin, if 0 &le; C_Port.signal &lt; Cmin, where
 Cmin is a parameter with default value Modelica.Constants.eps.
 </P>
-</HTML>"));
+</html>"));
     end VariableCapacitor;
 
     model VariableInductor "Ideal linear electrical inductors with variable inductance"
@@ -1613,7 +1613,7 @@ Cmin is a parameter with default value Modelica.Constants.eps.
               extent={{-60,-30},{60,0}},
               lineColor={255,255,255},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Contains m variable inductors (Modelica.Electrical.Analog.Basic.VariableInductor)
 </p>
@@ -1623,14 +1623,14 @@ assertion is raised. To avoid a variable index system,<br>
 L = Lmin, if 0 &le; L_Port.signal &lt; Lmin, where
 Lmin is a parameter with default value Modelica.Constants.eps.
 </P>
-</HTML>"));
+</html>"));
     end VariableInductor;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains basic analog electrical multiphase components.
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -1712,11 +1712,11 @@ This package contains basic analog electrical multiphase components.
               extent={{-80,100},{80,60}},
               lineColor={0,0,0},
               textString="m=%m")}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 </p>
-</HTML>"));
+</html>"));
     end IdealDiode;
 
     model IdealThyristor "Multiphase ideal thyristor"
@@ -1773,11 +1773,11 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
             Text(
               extent={{-100,100},{60,60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 </p>
-</HTML>"));
+</html>"));
     end IdealThyristor;
 
     model IdealGTOThyristor "Multiphase ideal GTO thyristor"
@@ -1829,11 +1829,11 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
             Text(
               extent={{-100,100},{60,60}},
               lineColor={0,0,0},
-              textString="m=%m")}), Documentation(info="<HTML>
+              textString="m=%m")}), Documentation(info="<html>
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
 </p>
-</HTML>"));
+</html>"));
     end IdealGTOThyristor;
 
     model IdealCommutingSwitch "Multiphase ideal commuting switch"
@@ -1894,11 +1894,11 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
             Line(points={{40,50},{90,50}}, color={0,0,255}),
             Line(points={{0,90},{0,25}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
 </p>
-</HTML>"));
+</html>"));
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
@@ -1964,11 +1964,11 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
             Line(points={{40,50},{90,50}}, color={0,0,255}),
             Line(points={{0,90},{0,25}}, color={0,0,255}),
             Line(points={{40,0},{90,0}}, color={0,0,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch).
 </p>
-</HTML>"));
+</html>"));
     end IdealIntermediateSwitch;
 
     model IdealTransformer "Multiphase ideal transformer"
@@ -2017,14 +2017,14 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
               color={0,0,255}),
             Line(
               points={{-96,-50},{-30,-50}},
-              color={0,0,255})}), Documentation(info="<HTML>
+              color={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer).
 </p>
 <p>
 <b>Note:</b> Due to the above equations, also DC signals will be transformed!
 </p>
-</HTML>"));
+</html>"));
     end IdealTransformer;
 
     model Idle "Multiphase idle branch"
@@ -2054,11 +2054,11 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
               lineColor={0,0,255}),
             Line(points={{-90,0},{-41,0}}, color={0,0,255}),
             Line(points={{91,0},{40,0}}, color={0,0,255})}), Documentation(info=
-             "<HTML>
+             "<html>
 <p>
 Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
 </p>
-</HTML>"));
+</html>"));
     end Idle;
 
     model Short "Multiphase short cut branch"
@@ -2087,11 +2087,11 @@ Contains m idles (Modelica.Electrical.Analog.Ideal.Idle)
               fillPattern=FillPattern.Solid,
               lineColor={0,0,255}),
             Line(points={{-90,0},{90,0}}, color={0,0,255})}), Documentation(
-            info="<HTML>
+            info="<html>
 <p>
 Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 </p>
-</HTML>"));
+</html>"));
     end Short;
 
     model IdealOpeningSwitch "Multiphase ideal opener"
@@ -2143,11 +2143,11 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
               lineColor={0,0,0},
               textString="%m"),
             Line(points={{40,20},{40,0}}, color={0,0,255})}), Documentation(
-            info="<HTML>
+            info="<html>
 <p>
 Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch).
 </p>
-</HTML>"));
+</html>"));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Multiphase ideal closer"
@@ -2197,11 +2197,11 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
             Text(
               extent={{20,100},{100,60}},
               lineColor={0,0,0},
-              textString="%m")}), Documentation(info="<HTML>
+              textString="%m")}), Documentation(info="<html>
 <p>
 Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
 </p><
-</HTML>"));
+</html>"));
     end IdealClosingSwitch;
 
     model OpenerWithArc "Multiphase opener with arc"
@@ -2324,13 +2324,13 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <p>Contains m closing switches with arc (Modelica.Electrical.Analog.Ideal.CloserWithArc).</p>
 </html>"));
     end CloserWithArc;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains analog electrical multiphase components with idealized behaviour,
 like thyristor, diode, switch, transformer.
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2379,14 +2379,14 @@ like thyristor, diode, switch, transformer.
     equation
       y = Modelica.Electrical.MultiPhase.Functions.quasiRMS(u);
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
 </pre>
-</HTML>"));
+</html>"));
     end QuasiRMS;
   end Blocks;
 
@@ -2398,14 +2398,14 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       output Real y;
     algorithm
       y := sqrt(sum(x .^ 2/size(x, 1)));
-      annotation (Inline=true, Documentation(info="<HTML>
+      annotation (Inline=true, Documentation(info="<html>
 <p>
 This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system, representing an equivalent RMS vector or phasor. If the waveform of the input deviates from a sine curve, the output of the sensor will not be exactly the average RMS value.
 </p>
 <pre>
  y = sqrt(sum(u[k]^2 for k in 1:m)/m)
 </pre>
-</HTML>"));
+</html>"));
     end quasiRMS;
 
     function activePower "Calculate active power of voltage and current input"
@@ -2415,12 +2415,12 @@ This function determines the continuous quasi <a href=\"Modelica://Modelica.Bloc
       output Modelica.SIunits.Power p "Active power";
     algorithm
       p := sum(v .* i);
-      annotation (Inline=true, Documentation(info="<HTML>
+      annotation (Inline=true, Documentation(info="<html>
 <p>
 Calculates instantaneous power from multiphase voltages and currents.
 In quasistationary operation, instantaneous power equals active power;
 </p>
-</HTML>"));
+</html>"));
     end activePower;
 
     function symmetricOrientation "Orientations of the resulting fundamental wave field phasors"
@@ -2637,12 +2637,12 @@ This function determines the orientation of the symmetrical winding with <img sr
                   textString="m=%m"),Text(
                   extent={{-100,60},{100,100}},
                   textString="%name",
-                  lineColor={0,0,255})}), Documentation(info="<HTML>
+                  lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 Contains m potential sensors (Modelica.Electrical.Analog.Sensors.PotentialSensor),
 thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
 </p>
-</HTML>"));
+</html>"));
     end PotentialSensor;
 
     model VoltageSensor "Multiphase voltage sensor"
@@ -2681,12 +2681,12 @@ thus measuring the m potentials <i>phi[m]</i> of the m pins of plug_p.
               {0,-70}}, color={0,0,127}),Text(
                   extent={{20,-60},{100,-100}},
                   lineColor={0,0,0},
-                  textString="%m")}), Documentation(info="<HTML>
+                  textString="%m")}), Documentation(info="<html>
 <p>
 Contains m voltage sensors (Modelica.Electrical.Analog.Sensors.VoltageSensor),
 thus measuring the m potential differences <i>v[m]</i> between the m pins of plug_p and plug_n.
 </p>
-</HTML>"));
+</html>"));
     end VoltageSensor;
 
     model VoltageQuasiRMSSensor "Continuous quasi voltage RMS sensor for multi phase system"
@@ -2778,12 +2778,12 @@ This sensor determines the continuous quasi <a href=\"Modelica://Modelica.Blocks
               {0,-70}}, color={0,0,127}),Text(
                   extent={{20,-60},{100,-100}},
                   lineColor={0,0,0},
-                  textString="%m")}), Documentation(info="<HTML>
+                  textString="%m")}), Documentation(info="<html>
 <p>
 Contains m current sensors (Modelica.Electrical.Analog.Sensors.CurrentSensor),
 thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to the m pins of plug_n.
 </p>
-</HTML>"));
+</html>"));
     end CurrentSensor;
 
     model CurrentQuasiRMSSensor "Continuous quasi current RMS sensor for multi phase system"
@@ -2911,12 +2911,12 @@ This power sensor measures instantaneous electrical power of a multiphase system
 </p></html>"));
     end PowerSensor;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains multiphase potential, voltage, and current sensors.
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -2986,11 +2986,11 @@ This package contains multiphase potential, voltage, and current sensors.
                   textString="-"),Text(
                   extent={{-110,60},{-30,0}},
                   lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<HTML>
+                  textString="+")}), Documentation(info="<html>
 <p>
 Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources.SignalVoltage)
 </p>
-</HTML>"));
+</html>"));
     end SignalVoltage;
 
     model ConstantVoltage "Multiphase constant voltage source"
@@ -3022,11 +3022,11 @@ Contains m signal controlled voltage sources (Modelica.Electrical.Analog.Sources
                   textString="-"),Text(
                   extent={{-110,60},{-30,0}},
                   lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<HTML>
+                  textString="+")}), Documentation(info="<html>
 <p>
 Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.ConstantVoltage)
 </p>
-</HTML>"));
+</html>"));
     end ConstantVoltage;
 
     model SineVoltage "Multiphase sine voltage source"
@@ -3076,13 +3076,13 @@ Contains m constant voltage sources (Modelica.Electrical.Analog.Sources.Constant
                   textString="-"),Text(
                   extent={{-110,60},{-30,0}},
                   lineColor={0,0,255},
-                  textString="+")}), Documentation(info="<HTML>
+                  textString="+")}), Documentation(info="<html>
 <p>
 Contains m sine voltage sources (Modelica.Electrical.Analog.Sources.SineVoltage)
 with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
-</HTML>"));
+</html>"));
     end SineVoltage;
 
     model CosineVoltage "Multiphase cosine voltage source"
@@ -3133,13 +3133,13 @@ with a default phase shift determined by
                   color={192,192,192},
                   smooth=Smooth.Bezier),Line(points={{35,0},{44.8,29.9},{51.2,
               46.5},{56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}}, color={
-              192,192,192})}), Documentation(info="<HTML>
+              192,192,192})}), Documentation(info="<html>
 <p>
 Contains m cosine voltage sources (Modelica.Electrical.Analog.Sources.CosineVoltage)
 with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
-</HTML>"));
+</html>"));
     end CosineVoltage;
 
     model SignalCurrent "Multiphase sine current source"
@@ -3183,11 +3183,11 @@ with a default phase shift determined by
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources.SignalCurrent)
 </p>
-</HTML>"));
+</html>"));
     end SignalCurrent;
 
     model ConstantCurrent "Multiphase constant current source"
@@ -3217,11 +3217,11 @@ Contains m signal controlled current sources (Modelica.Electrical.Analog.Sources
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Contains m constant current sources (Modelica.Electrical.Analog.Sources.ConstantCurrent)
 </p>
-</HTML>"));
+</html>"));
     end ConstantCurrent;
 
     model SineCurrent "Multiphase sine current source"
@@ -3267,13 +3267,13 @@ Contains m constant current sources (Modelica.Electrical.Analog.Sources.Constant
                   points={{90,0},{60,10},{60,-10},{90,0}},
                   lineColor={0,0,255},
                   fillColor={0,0,255},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<HTML>
+                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 Contains m sine current sources (Modelica.Electrical.Analog.Sources.SineCurrent)
 with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
-</HTML>"));
+</html>"));
     end SineCurrent;
 
     model CosineCurrent "Multiphase cosine current source"
@@ -3318,15 +3318,15 @@ with a default phase shift determined by
                   color={192,192,192},
                   smooth=Smooth.Bezier),Line(points={{35,0},{44.8,29.9},{51.2,46.5},{56.8,58.1},{61.7,65.2},{66.7,69.2},{71.6,69.8}},
                                                                       color={
-              192,192,192})}),                      Documentation(info="<HTML>
+              192,192,192})}),                      Documentation(info="<html>
 <p>
 Contains m cosine current sources (Modelica.Electrical.Analog.Sources.CosineCurrent)
 with a default phase shift determined by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a>.
 </p>
-</HTML>"));
+</html>"));
     end CosineCurrent;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains time-dependent and controlled multiphase voltage and current sources:
 </p>
@@ -3344,7 +3344,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
 <li>CosineCurrent : phase shift between consecutive currents by default given by
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -3376,7 +3376,7 @@ This package contains time-dependent and controlled multiphase voltage and curre
       parameter Integer m(final min=1) = 3 "Number of phases";
       Modelica.Electrical.Analog.Interfaces.Pin pin[m];
 
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical.
 The only difference is that the icons are different in order
@@ -3385,7 +3385,7 @@ Usually, connector PositivePlug is used for the positive and
 connector NegativePlug for the negative plug of an electrical component.<br>
 Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
 </p>
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-100,-99},{100,-179}},
               lineColor={0,0,255},
@@ -3407,7 +3407,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical.
 The only difference is that the icons are different in order
@@ -3416,7 +3416,7 @@ Usually, connector PositivePlug is used for the positive and
 connector NegativePlug for the negative plug of an electrical component.<br>
 Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
 </p>
-</HTML>"));
+</html>"));
 
     end PositivePlug;
 
@@ -3435,7 +3435,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
               lineColor={0,0,255},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Connectors PositivePlug and NegativePlug are nearly identical.
 The only difference is that the icons are different in order
@@ -3444,7 +3444,7 @@ Usually, connector PositivePlug is used for the positive and
 connector NegativePlug for the negative plug of an electrical component.<br>
 Connector Plug is a composite connector containing m Pins (Modelica.Electrical.Analog.Interfaces.Pin).
 </p>
-</HTML>"));
+</html>"));
     end NegativePlug;
 
     partial model ConditionalHeatPort "Partial model to include conditional HeatPorts in order to describe the power loss via a thermal network"
@@ -3488,13 +3488,13 @@ This partial model provides conditional heat ports for the connection to a therm
     equation
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Superclass of elements which have <b>two</b> electrical plugs:
 the positive plug connector <i>plug_p</i>, and the negative plug connector <i>plug_n</i>.
 The currents flowing into plug_p are provided explicitly as currents i[m].
 </p>
-</HTML>"));
+</html>"));
     end TwoPlug;
 
     partial model OnePort "Component with two electrical plugs and currents from plug_p to plug_n"
@@ -3502,14 +3502,14 @@ The currents flowing into plug_p are provided explicitly as currents i[m].
       extends TwoPlug;
     equation
       plug_p.pin.i + plug_n.pin.i = zeros(m);
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Superclass of elements which have <b>two</b> electrical plugs:
 the positive plug connector <i>plug_p</i>, and the negative plug connector <i>plug_n</i>.
 The currents flowing into plug_p are provided explicitly as currents i[m].
 It is assumed that the currents flowing into plug_p are identical to the currents flowing out of plug_n.
 </p>
-</HTML>"));
+</html>"));
     end OnePort;
 
     partial model FourPlug "Component with two m-phase electric ports"
@@ -3531,11 +3531,11 @@ It is assumed that the currents flowing into plug_p are identical to the current
       v2 = plug_p2.pin.v - plug_n2.pin.v;
       i1 = plug_p1.pin.i;
       i2 = plug_p2.pin.i;
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Superclass of elements which have <b>four</b> electrical plugs.
 </p>
-</HTML>"));
+</html>"));
     end FourPlug;
 
     partial model TwoPort "Component with two m-phase electric ports, including currents"
@@ -3543,21 +3543,21 @@ Superclass of elements which have <b>four</b> electrical plugs.
     equation
       plug_p1.pin.i + plug_n1.pin.i = zeros(m);
       plug_p2.pin.i + plug_n2.pin.i = zeros(m);
-      annotation (Documentation(info="<HTML>
+      annotation (Documentation(info="<html>
 <p>
 Superclass of elements which have <b>four</b> electrical plugs.
 It is assumed that the currents flowing into plug_p1 are identical to the currents flowing out of plug_n1,
 and that the currents flowing into plug_p2 are identical to the currents flowing out of plug_n2.
 </p>
-</HTML>"));
+</html>"));
     end TwoPort;
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 This package contains connectors and interfaces (partial models) for
 electrical multiphase components, based on Modelica.Electrical.Analog.
 </p>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -3584,14 +3584,14 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 </html>"));
   end Interfaces;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 Copyright &copy; 1998-2014, Modelica Association and Anton Haumer.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
   <ul>
   <li>v1.0 2004/10/01 Anton Haumer</li>
   <li>v1.1 2006/01/12 Anton Haumer<br>

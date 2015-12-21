@@ -17298,7 +17298,7 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
     bhigh={15275.10023,-74.8199549},
     R=67.47511012572349);
 
-  annotation ( Documentation(info="<HTML>
+  annotation ( Documentation(info="<html>
 <p>This package contains ideal gas models for the 1241 ideal gases from</p>
 <blockquote>
   <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients
@@ -17486,5 +17486,5 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
  BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO
  BaOH      C2H4            DCl             In2I2   Na3F3    ScO+
 </pre>
-</HTML>"));
+</html>"));
 end SingleGasesData;

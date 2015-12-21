@@ -813,7 +813,7 @@ In this example the eddy current losses are implemented in two different ways. C
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}),       experiment,
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an induction machine with squirrel cage</h4>
 <p>
 This example compares a time transient and a quasi static model of a multi phase induction machine. At start time <code>tOn</code> a transient and a quasi static multi phase voltage source are connected to an induction machine. The machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.</p>
@@ -827,7 +827,7 @@ Simulate for 1 second and plot (versus time):
 <li><code>imc|imcQS.wMechanical</code>: machine speed</li>
 <li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"));
+</html>"));
         end IMC_DOL;
 
         model IMC_Inverter
@@ -1058,7 +1058,7 @@ Simulate for 1 second and plot (versus time):
               color={0,0,127}));
           annotation (
             experiment(StopTime=1.5, Interval=0.001),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Induction machine with squirrel cage fed by an ideal inverter</h4>
 
 <p>This example compares a time transient and a quasi static model of a multi phase induction machine.
@@ -1073,7 +1073,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 <li><code>imc|imcQS.wMechanical</code>: machine speed</li>
 <li><code>imc|imcQS.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-74,-2},{100,-100}},
@@ -1391,7 +1391,7 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
               StopTime=1.5,
               Interval=0.001,
               Tolerance=1e-05),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Starting of an induction machine with slipring rotor resistance starting</h4>
 
 <p>
@@ -1408,7 +1408,7 @@ Simulate for 1.5 seconds and plot (versus time):
 <li><code>ims|imsQS.wMechanical</code>: machine speed</li>
 <li><code>ims|imsQS.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-100,100},{100,2}},
@@ -1689,7 +1689,7 @@ Simulate for 1.5 seconds and plot (versus time):
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid)}), experiment(StopTime=
                  1, Interval=2E-4),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Mains operated permanent magnet synchronous machine loaded with step torque</h4>
 
 <p>
@@ -1704,7 +1704,7 @@ Simulate for 1 second and plot (versus time):
 <li><code>smpm|smpmQS.wMechanical</code>: machine speed</li>
 <li><code>smpm|smpmQS.tauElectrical</code>: machine torque</li>
 </ul>
-</HTML>"));
+</html>"));
         end SMPM_Mains;
 
         model SMPM_OpenCircuit
@@ -1845,7 +1845,7 @@ Simulate for 1 second and plot (versus time):
               color={85,170,255}));
           annotation (
             experiment(StopTime=0.1, Interval=0.001),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Open circuit test of permanent magnet synchronous machine</h4>
 
 <p>
@@ -1861,7 +1861,7 @@ Simulate for 0.1 second and plot (versus time):
 
 <h5>Note</h5>
 <p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
                           extent={{-60,-4},{40,-80}},
                           lineColor={0,0,0},
@@ -2179,7 +2179,7 @@ Simulate for 0.1 second and plot (versus time):
               color={85,170,255}));
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Simple field oriented control of permanent magnet synchronous machine</h4>
 
 <p>
@@ -2196,7 +2196,7 @@ Simulate for 2 seconds and plot (versus time):
 
 <h5>Note</h5>
 <p>The resistors connected to the terminals of the windings of the quasi static machine model are necessary to numerically stabilize the simulation.</p>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-64,100},{100,14}},
@@ -2498,7 +2498,7 @@ Simulate for 2 seconds and plot (versus time):
               StopTime=30,
               Interval=0.005,
               Tolerance=1e-06),
-            Documentation(info="<HTML>
+            Documentation(info="<html>
 <h4>Electrically excited synchronous machine as generator</h4>
 <p>
 This example compares a time transient and a quasi static model of a electrically excited synchronous machine. The electrically excited synchronous generators are connected to the grid and driven with constant speed.
@@ -2515,7 +2515,7 @@ Simulate for 30 seconds:
 </ul>
 
 <p>Since the rotor slip is very low the transient and quasi static electro magnetic torque are practically equal.</p>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
                           extent={{-100,-6},{100,-96}},
@@ -2857,7 +2857,7 @@ Simulate for 30 seconds:
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
             Documentation(info="<html>
-<HTML>
+<html>
 <h4>Simple field oriented control of synchronous reluctance machine</h4>
 
 <p>
@@ -5543,9 +5543,9 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             points={{-10,36},{-39.6,36},{-39.6,-89.2}},
             color={191,0,0}));
         annotation (
-          Documentation(info="<HTML>
+          Documentation(info="<html>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
-</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{80,-80},{120,-120}},
@@ -6317,7 +6317,7 @@ The partial two port elementary model extends from the partial two port model an
                   extent={{-150,150},{150,110}},
                   textString="%name",
                   lineColor={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 This is a simple voltage-frequency-controller. The amplitude of the voltage is linear dependent (<code>VNominal/fNominal</code>) on the frequency (input signal <code>u</code>), but limited by <code>VNominal</code> (nominal RMS voltage per phase). An
 <code>m</code> quasi static phasor signal is provided as output signal <code>y</code>, representing complex voltages.
@@ -6333,7 +6333,7 @@ The output voltages may serve as inputs for complex voltage sources with phase i
   </tr>
 </table>
 
-</HTML>"));
+</html>"));
     end VfController;
 
     model TerminalBox "Terminal box Y/D-connection"
@@ -6541,10 +6541,10 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
               10,-80},{70,-80}}, color={0,0,255}),Line(points={{40,-60},{40,-80}},
               color={0,0,255}),Line(points={{20,-90},{60,-90}}, color={0,0,255}),
               Line(points={{30,-100},{50,-100}}, color={0,0,255})}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>Switched rheostat, used for starting induction motors with slipring rotor:</p>
 <p>The external rotor resistance <code>RStart</code> is shortened at time <code>tStart</code>.</p>
-</HTML>"));
+</html>"));
     end SwitchedRheostat;
 
     model CurrentController "Current controller"
@@ -6627,7 +6627,7 @@ The desired RMS values of d  and q component of the quasi static space phasor cu
 Using the given rotor position input <code>phi</code>, the quasi static <code>m</code> phase output currents <code>i[m]</code> are calculated.
 The model output can be used to feed a quasi static current source with phase input to supply synchronous machines.
 </p>
-</HTML>"));
+</html>"));
     end CurrentController;
   end Utilities;
   annotation (preferredView="info", Documentation(info="<html>

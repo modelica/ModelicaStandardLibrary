@@ -138,7 +138,7 @@ initial equation
                 level,
                 minimumLength=1,
                 significantDigits=2)))}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model of a tank that is open to the ambient at the fixed pressure
 <code>p_ambient</code>.
@@ -164,7 +164,7 @@ at the height of the respective port.
 The relationship between pressure drop and mass flow rate at the port must then be provided by connected components;
 Heights of ports as well as kinetic and potential energy of fluid entering or leaving are not taken into account anymore.
 </p>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>Dec. 12, 2008</i> by Ruediger Franke: move port definitions
    to BaseClasses.PartialLumpedVessel; also use energy and mass balance from common base class</li>

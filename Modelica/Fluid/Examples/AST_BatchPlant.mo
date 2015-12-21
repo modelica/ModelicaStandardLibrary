@@ -969,7 +969,7 @@ package AST_BatchPlant
                       level,
                       minimumLength=1,
                       significantDigits=2)))}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
 (Assumption: The gas is condensed immediately afterwards so that a liquid boiling fluid is created.)</p>
 <p>The tank can be initialized with the following options:</p>
@@ -981,7 +981,7 @@ package AST_BatchPlant
 <p>
 Full steady state initialization is not supported, because the corresponding initial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
 </p>
-</HTML>"));
+</html>"));
     end TankWith3InletOutletArraysWithEvaporatorCondensor;
 
     model InnerTank
@@ -1755,7 +1755,7 @@ end for;
                     level,
                     minimumLength=1,
                     significantDigits=2)))}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 Model of a tank that is open to the environment at the fixed pressure
 <code>p_ambient</code>.
@@ -1790,7 +1790,7 @@ level of the tank is dynamically visualized. Note, the speed
 of the diagram animation in Dymola can be set via command
 <b>animationSpeed</b>(), e.g., animationSpeed(speed = 10)
 </p>
-</HTML>",   revisions="<html>
+</html>",   revisions="<html>
 <ul>
 <li><i>Dec. 12, 2008</i> by Ruediger Franke: replace energy and mass balances with
    common definition in BaseClasses.PartialLumpedVolume</li>

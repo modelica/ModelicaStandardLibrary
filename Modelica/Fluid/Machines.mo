@@ -115,10 +115,10 @@ package Machines
             lineColor={0,0,0},
             fillPattern=FillPattern.VerticalCylinder,
             fillColor={95,95,95})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.
 <p>The model extends <code>PartialPump</code>
- </HTML>",
+ </html>",
        revisions="<html>
 <ul>
 <li><i>31 Oct 2005</i>
@@ -209,7 +209,7 @@ package Machines
             visible=use_m_flow_set,
             extent={{-20,108},{170,92}},
             textString="m_flow_set")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps)
 with ideally controlled mass flow rate or pressure.
@@ -223,7 +223,7 @@ Use this model if the pump characteristics is of secondary interest.
 The actual characteristics can be configured later on for the appropriate rotational speed N.
 Then the model can be replaced with a Pump with rotational shaft or with a PrescribedPump.
 </p>
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>15 Dec 2008</i>
@@ -269,11 +269,11 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             visible=use_N_in,
             extent={{14,98},{178,82}},
             textString="N_in [rpm]")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
 <p>The model extends <code>PartialPump</code>
 <p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <code>n_const</code> (which can be different from <code>N_nominal</code>) is assumed.</p>
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>31 Oct 2005</i>
@@ -504,7 +504,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
               pattern=LinePattern.None,
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,255,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>This is the base model for pumps.
 <p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
 
@@ -544,7 +544,7 @@ should be taken into account or to model a housing. This might be desirable if a
 in order to compute the Net Positive Suction Head available and check for cavitation,
 provided a two-phase medium model is used (see Advanced tab).
 </p>
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>8 Jan 2013</i>

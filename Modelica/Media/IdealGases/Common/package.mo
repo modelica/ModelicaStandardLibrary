@@ -16,7 +16,7 @@ record DataRecord
   Real ahigh[7] "High temperature coefficients a";
   Real bhigh[2] "High temperature constants b";
   SI.SpecificHeatCapacity R "Gas constant";
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This data record contains the coefficients for the
 ideal gas equations according to:
@@ -40,7 +40,7 @@ by Tlimit (usually 1000 K). In both regions the gas is described
 by the data above. The two branches are continuous and in most
 gases also differentiable at Tlimit.
 </p>
-</HTML>"));
+</html>"));
 end DataRecord;
 
 
@@ -496,7 +496,7 @@ thermal conductivity (lambda) at low temperatures.
   end thermalConductivityEstimate;
 
   annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This model calculates medium properties
 for an ideal gas of a single substance, or for an ideal
@@ -590,7 +590,7 @@ this never caused problems so far.
 This model has been copied from the ThermoFluid library
 and adapted to the Modelica.Media package.
 </p>
-</HTML>"));
+</html>"));
 end SingleGasNasa;
 
 
@@ -1406,7 +1406,7 @@ end lowPressureThermalConductivity;
 //     d := p/(R*T);
 //   end density_phX;
 
-  annotation (Documentation(info="<HTML>
+  annotation (Documentation(info="<html>
 <p>
 This model calculates the medium properties for single component ideal gases.
 </p>
@@ -1430,7 +1430,7 @@ this never caused problems so far.
 This model has been copied from the ThermoFluid library.
 It has been developed by Hubertus Tummescheit.
 </p>
-</HTML>"));
+</html>"));
 end MixtureGasNasa;
 
 

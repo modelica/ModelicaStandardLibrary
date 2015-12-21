@@ -1018,7 +1018,7 @@ package Examples
     connect(Parallel1.split[2], step1.inPort[1]) annotation (Line(points={{
               -119.575,-7.5},{-118,-8},{-118,-30},{-11,-30}}));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This is an example to demonstrate in which way <b>parallel</b> activities
 can be modelled by a StateGraph. When transition1 fires
@@ -1090,7 +1090,7 @@ has a higher priority to fire as alternative.split[2]).
     connect(setCondition.y, transition7.condition) annotation (Line(points={{
               -8.5,-80},{0,-80},{0,-72}}, color={255,0,255}));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This is the same example as \"ExecutionPaths\". The only difference
 is that the alternative paths are included in a \"CompositeStep\".
@@ -1146,7 +1146,7 @@ is that the alternative paths are included in a \"CompositeStep\".
                                                   annotation (Line(points={{21.5,
               -20},{40,-20},{40,10},{2.5,10},{2.5,24}}));
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 CompositeStep \"compositeStep\" is a hierarchical StateGraph consisting of
 two other subgraphs. Whenever component \"compositeStep\" is suspended,
