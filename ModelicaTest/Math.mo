@@ -697,7 +697,6 @@ extends Modelica.Icons.ExamplesPackage;
     ok :=true;
   end colorMapToSvg;
 
-
   model TestScalarFunctions
     extends Modelica.Icons.Example;
 
@@ -1183,7 +1182,7 @@ extends Modelica.Icons.ExamplesPackage;
     model TestRandomNumbers
       extends Modelica.Icons.Example;
 
-      Boolean result;
+      output Boolean result;
     algorithm
       when initial() then
         result := ModelicaTest.Math.Random.randomNumbers();
@@ -1195,7 +1194,7 @@ extends Modelica.Icons.ExamplesPackage;
     model TestSpecial
       extends Modelica.Icons.Example;
 
-      Boolean result;
+      output Boolean result;
     algorithm
       when initial() then
         result := ModelicaTest.Math.Random.special();
@@ -1207,7 +1206,7 @@ extends Modelica.Icons.ExamplesPackage;
     model TestDistributions
       extends Modelica.Icons.Example;
 
-      Boolean result;
+      output Boolean result;
     algorithm
       when initial() then
         result := ModelicaTest.Math.Random.distributions();
@@ -1219,7 +1218,7 @@ extends Modelica.Icons.ExamplesPackage;
     model TestTruncatedDistributions
       extends Modelica.Icons.Example;
 
-      Boolean result;
+      output Boolean result;
     algorithm
       when initial() then
         result := ModelicaTest.Math.Random.truncatedDistributions();

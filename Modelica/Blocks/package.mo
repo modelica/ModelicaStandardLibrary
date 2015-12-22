@@ -1148,12 +1148,19 @@ just potential signals. The user might still add different signal names.
     model UniformNoise
       "Demonstrates the most simple usage of the UniformNoise block"
       extends Modelica.Icons.Example;
+      output Real uniformNoise2_y = uniformNoise2.y;
 
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed
         annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-      Modelica.Blocks.Noise.UniformNoise uniformNoise(
-        samplePeriod=0.02, y_min=-1, y_max=3)
-        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+      Modelica.Blocks.Noise.UniformNoise uniformNoise1(
+        samplePeriod=0.02,
+        y_min=-1,
+        y_max=3) annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+      Modelica.Blocks.Noise.UniformNoise uniformNoise2(
+        samplePeriod=0.02, y_min=-1, y_max=3,
+        useAutomaticLocalSeed=false,
+        fixedLocalSeed=10)
+        annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
      annotation (experiment(StopTime=2),    Documentation(info="<html>
 <p>
 This example demonstrates the most simple usage of the
@@ -1164,9 +1171,11 @@ block:
 <ul>
 <li> <b>globalSeed</b> is the <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Noise.GlobalSeed</a>
      block with default options (just dragged from sublibrary Noise).</li>
-<li> <b>genericNoise</b> is an instance of
+<li> <b>uniformNoise1</b> is an instance of
      <a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Noise.UniformNoise</a> with
      samplePeriod = 0.02 s and a Uniform distribution with limits y_min=-1, y_max=3.</li>
+<li> <b>uniformNoise2</b> is identical to uniformNoise1 with the exception that
+      useAutomaticLocalSeed=false and fixedLocalSeed=10.</li>
 </ul>
 
 <p>
@@ -1208,6 +1217,10 @@ The result of a simulation is shown in the next diagram:
        extends Modelica.Icons.Example;
        parameter Real startTime = 0.5 "Start time of noise";
        parameter Real y_off = -1.0 "Output of block before startTime";
+
+       output Real manualSeed1_y = manualSeed1.y;
+       output Real manualSeed2_y = manualSeed2.y;
+       output Real manualSeed3_y = manualSeed3.y;
 
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=false, enableNoise=true)
         annotation (Placement(transformation(extent={{60,60},{80,80}})));
@@ -1317,6 +1330,8 @@ manualSeed2 will produce exactly the same noise.
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=
             false)
         annotation (Placement(transformation(extent={{40,60},{60,80}})));
+      output Real uniformNoise_y =         uniformNoise.y;
+      output Real truncatedNormalNoise_y = truncatedNormalNoise.y;
 
       Integer n=if time < 0.5 then 12 else 2;
 
@@ -1388,6 +1403,9 @@ truncated normal distriution has more values centered around the mean value 1.
         "Theoretical standard deviation of uniform distribution";
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed
         annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      output Real meanError_y = meanError.y;
+      output Real sigmaError_y = sigmaError.y;
+
       Modelica.Blocks.Noise.UniformNoise noise(
         samplePeriod=0.001,
         y_min=y_min,
@@ -1502,6 +1520,9 @@ distribution have good statistical properties.
         "Theoretical standard deviation of normal distribution";
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed
         annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      output Real meanError_y = meanError.y;
+      output Real sigmaError_y = sigmaError.y;
+
       Modelica.Blocks.Noise.NormalNoise noise(
         samplePeriod=0.001,
         mu=mu,
@@ -1607,6 +1628,9 @@ distribution have good statistical properties.
     model Densities
       "Demonstrates how to compute distribution densities (= Probability Density Function)"
       extends Modelica.Icons.Example;
+      output Real uniformDensity_y = uniformDensity.y;
+      output Real normalDensity_y = normalDensity.y;
+      output Real weibullDensity_y = weibullDensity.y;
 
       Utilities.UniformDensity
                         uniformDensity(u_min=-4, u_max=4)
@@ -1678,6 +1702,8 @@ inputs:
     model ImpureGenerator
       "Demonstrates the usage of the impure random number generator"
       extends Modelica.Icons.Example;
+      output Real impureRandom_y = impureRandom.y;
+
       inner Modelica.Blocks.Noise.GlobalSeed globalSeed(useAutomaticSeed=
             false) annotation (Placement(transformation(extent={{20,40},{40,60}})));
 

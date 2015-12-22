@@ -19,9 +19,9 @@ package Random "Library of functions for generating random numbers"
     // Random number generators with exposed state
       parameter Integer localSeed = 614657
         "Local seed to initialize random number generator";
-      discrete Real r64 "Random number generated with Xorshift64star";
-      discrete Real r128 "Random number generated with Xorshift128plus";
-      discrete Real r1024 "Random number generated with Xorshift1024star";
+      output Real r64 "Random number generated with Xorshift64star";
+      output Real r128 "Random number generated with Xorshift128plus";
+      output Real r1024 "Random number generated with Xorshift1024star";
     protected
       discrete Integer state64[2](   each start=0, each fixed = true);
       discrete Integer state128[4](  each start=0, each fixed = true);
