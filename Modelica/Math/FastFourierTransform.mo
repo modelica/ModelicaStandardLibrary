@@ -23,7 +23,8 @@ package FastFourierTransform
         "Number of frequency points of the interested frequency range (only up to f_max";
       final parameter Real fi[nfi](each fixed=false)
         "FFT frequencies of interested frequency points";
-      Real Ai[nfi] "FFT amplitudes of interested frequency points";
+      Real Ai[nfi](each start=0, each fixed=true)
+        "FFT amplitudes of interested frequency points";
       Integer info(final start=0, final fixed=true)
         "Information flag from FFT computation; = 0: FFT successfully computed";
     protected
@@ -49,12 +50,11 @@ package FastFourierTransform
          if iTick >= 1 and iTick <= ns then
             y_buf[iTick] := y;
          end if;
-      end when;
 
-    equation
-      when iTick >= ns then
-        (info,A) = realFFT(y_buf);
-         Ai = A[1:nfi];
+         if iTick == ns then
+           (info,A) := realFFT(y_buf);
+                 Ai := A[1:nfi];
+         end if;
       end when;
 
       annotation (experiment(StopTime=6),
