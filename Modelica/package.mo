@@ -2500,6 +2500,13 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">BandLimitedWhiteNoise</td>
     <td valign=\"top\"> Noise generator to produce band-limited white noise with normal distribution</td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">ElastoBacklash2</td>
+    <td valign=\"top\">Alternative model of backlash. The difference to the existing ElastoBacklash  
+    component is that an event is generated when contact occurs and that the contact torque
+    changes discontinuously in this case. For some user models, this variant of a backlash model
+    leads to significantly faster simulations.</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">balanceABC</td>
     <td valign=\"top\"> Return a balanced form of a system [A,B;C,0]
