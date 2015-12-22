@@ -1,10 +1,10 @@
-﻿All files in this directory (Modelica) and in all subdirectories,
-especially in Modelica/Resources/* are licensed
-by the Modelica Association under the Modelica License 2
-(with exception of files "Modelica/Resources/C-Sources/win32_dirent.*, ModelicaFFT.c,
-ModelicaInternal.c, ModelicaMatIO.*, ModelicaRandom.c, ModelicaStandardTables.*, ModelicaStrings.c,
-ModelicaUtilities.h, gconstructor.h, uthash.h").
-Copyright © 1998-2015, ABB, Austrian Institute of Technology, T. Boedrich, DLR, Dassault Systemes AB,
+All files in this directory ("Modelica") and in all subdirectories,
+especially all files that build package "Modelica" and the contents
+of the directory "Modelica/Resources" are licensed by the
+Modelica Association under the "Modelica License 2"
+(with exception of the contents of the directory
+"Modelica/Resources/C-Sources").
+Copyright © 1998-2016, ABB, Austrian Institute of Technology, T. Bödrich, DLR, Dassault Systèmes AB,
                        Fraunhofer, A. Haumer, ITI, C. Kral, Modelon, TU Hamburg-Harburg, Politecnico di Milano,
                        XRG Simulation
 
