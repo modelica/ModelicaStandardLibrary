@@ -17931,6 +17931,8 @@ Mat_class_type_to_hid_t(enum matio_classes class_type)
                 return H5T_NATIVE_ULLONG;
             else
                 return -1;
+        case MAT_T_UTF8:
+            return H5T_NATIVE_CHAR;
         default:
             return -1;
     }
