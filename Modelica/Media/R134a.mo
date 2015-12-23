@@ -419,8 +419,6 @@ Example:
     protected
         Modelica.SIunits.Pressure delp=1.0e-2
         "Relative error in p in iteration";
-        Modelica.SIunits.Temperature dT_lim_gas "Upper temperature threshold";
-        Modelica.SIunits.Temperature dT_lim_liq "Lower temperature threshold";
 
     algorithm
       Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert(p, T);
