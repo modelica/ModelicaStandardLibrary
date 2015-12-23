@@ -19666,8 +19666,9 @@ Mat_VarWriteStruct73(hid_t id,matvar_t *matvar,const char *name,hid_t *refs_id)
                         for ( l = 0; l < nfields; l++ ) {
                             (void)H5Gget_num_objs(*refs_id,&num_obj);
                             sprintf(name,"%lld",num_obj);
-                            fields[k*nfields+l]->compression =
-                                matvar->compression;
+                            if ( NULL != fields[k*nfields+l] )
+                                fields[k*nfields+l]->compression =
+                                    matvar->compression;
                             Mat_VarWriteNext73(*refs_id,fields[k*nfields+l],
                                 name,refs_id);
                             sprintf(name,"/#refs#/%lld",num_obj);
@@ -19806,7 +19807,7 @@ Mat_Create73(const char *matname,const char *hdr_str)
     mat->subsys_offset = calloc(1,16);
     memset(mat->header,' ',128);
     if ( hdr_str == NULL ) {
-        err = mat_snprintf(mat->header,116,"MATLAB 7.0 MAT-file, Platform: %s,"
+        err = mat_snprintf(mat->header,116,"MATLAB 7.3 MAT-file, Platform: %s, "
                 "Created by: libmatio v%d.%d.%d on %s HDF5 schema 0.5",
                 MATIO_PLATFORM,MATIO_MAJOR_VERSION,MATIO_MINOR_VERSION,
                 MATIO_RELEASE_LEVEL,ctime(&t));
