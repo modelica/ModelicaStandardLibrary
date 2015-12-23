@@ -122,8 +122,8 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
       connect(transferFunction.y, complexToPolar.u)
         annotation (Line(points={{-19,0},{-2,0}}, color={85,170,255}));
       annotation (
-        experiment(StopTime=1, Interval=0.001),
-Documentation(info="<html>
+        experiment(StopTime=1, Interval=0.001), Documentation(info=
+                   "<html>
 <p>This example shows the response of a PT2 defined by its transfer function</p>
 <pre>
             1
@@ -1988,7 +1988,7 @@ zero or negative.
             extent={{-90,-90},{90,-10}},
               textString="a(jw)")}), Documentation(info="<html>
 <p>
-The complex input u is multiplied by the complex transfer function (depending on frequncy input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
+The complex input u is multiplied by the complex transfer function (depending on frequency input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
 </p>
 <pre>
            b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]

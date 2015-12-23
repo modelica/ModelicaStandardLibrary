@@ -2433,6 +2433,18 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">BandLimitedWhiteNoise</td>
     <td valign=\"top\"> Noise generator to produce band-limited white noise with normal distribution</td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.ComplexBlocks.Examples</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">ShowTransferFunction</td>
+    <td valign=\"top\"> Example to demonstrate the usage of the block TransferFunction.</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.ComplexBlocks.ComplexMath</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">TransferFunction</td>
+    <td valign=\"top\"> This block allows to define a complex transfer function (depending on frequency input w) to obtain the complex output y.</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.ComplexBlocks.Sources</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">LogFrequencySweep</td>
+    <td valign=\"top\"> The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), the output is the decimal power of this logarithmic ramp.</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">ElastoBacklash2</td>
     <td valign=\"top\">Alternative model of backlash. The difference to the existing ElastoBacklash  
