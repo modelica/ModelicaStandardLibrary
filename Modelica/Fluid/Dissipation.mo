@@ -1072,7 +1072,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         SI.ReynoldsNumber Re_Lp=max(1e-3, abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
             A_c)) "Reynolds number based on louver pitch";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
-        Real j "Colburn j faktor";
+        Real j "Colburn j factor";
 
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
              - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
@@ -1281,7 +1281,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         SI.ReynoldsNumber Re_Dc=max(1e-3, abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
             A_c)) "Reynolds number based on fin collar diameter";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
-        Real j "Colburn j faktor";
+        Real j "Colburn j factor";
 
         SI.Area A_c=IN_con.A_fr*((IN_con.F_p*IN_con.P_t - IN_con.F_p*IN_con.D_c - (
             IN_con.P_t - IN_con.D_c)*IN_con.delta_f)/(IN_con.F_p*IN_con.P_t))
@@ -1298,14 +1298,14 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
       4*A_c/(IN_con.A_fr*(2*(IN_con.P_t-IN_con.D_c+IN_con.F_p-IN_con.delta_f)/(IN_con.F_p*IN_con.P_t))) else
       0 "Hydraulic diameter";*/
 
-        Real J1=0 "Exponent for computation of Colburn j faktor";
-        Real J2=0 "Exponent for computation of Colburn j faktor";
-        Real J3=0 "Exponent for computation of Colburn j faktor";
-        Real J4=0 "Exponent for computation of Colburn j faktor";
-        Real J5=0 "Exponent for computation of Colburn j faktor";
-        Real J6=0 "Exponent for computation of Colburn j faktor";
-        Real J7=0 "Exponent for computation of Colburn j faktor";
-        Real J8=0 "Exponent for computation of Colburn j faktor";
+        Real J1=0 "Exponent for computation of Colburn j factor";
+        Real J2=0 "Exponent for computation of Colburn j factor";
+        Real J3=0 "Exponent for computation of Colburn j factor";
+        Real J4=0 "Exponent for computation of Colburn j factor";
+        Real J5=0 "Exponent for computation of Colburn j factor";
+        Real J6=0 "Exponent for computation of Colburn j factor";
+        Real J7=0 "Exponent for computation of Colburn j factor";
+        Real J8=0 "Exponent for computation of Colburn j factor";
 
       algorithm
         if IN_con.geometry == TYP.PlainFin then
@@ -3434,13 +3434,13 @@ Generally this function is numerically best used for the <b>incompressible case<
             IN_con.d_hyd) + 5.74/Re_turb_min^0.9))^2
           "Darcy friction factor considering surface roughness at starting transition to constant turbulent regime";
         TYP.DarcyFrictionFactor lambda_turb_min_smooth=0.25/(Modelica.Math.log10(5.74/Re_turb_min^0.9))^2
-          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regimee";
+          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regime";
 
         TYP.DarcyFrictionFactor lambda_turb_max_rough=0.25/(Modelica.Math.log10(k/(3.7*
             IN_con.d_hyd) + 5.74/Re_turb_max^0.9))^2
           "Darcy friction factor considering surface roughness at starting transition to constant turbulent regime";
         TYP.DarcyFrictionFactor lambda_turb_max_smooth=0.25/(Modelica.Math.log10(5.74/Re_turb_max^0.9))^2
-          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regimee";
+          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regime";
 
         SI.Velocity v_turb_min = Re_turb_min*IN_var.eta/(IN_var.rho*d_hyd)
           "Mean velocity for starting of transition to constant turbulent regime";
@@ -4623,7 +4623,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
     extends Modelica.Icons.VariantsPackage;
 
       function dp_suddenChange_DP
-        "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
+        "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without baffles | sharp edge"
         extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
@@ -4719,7 +4719,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
       end dp_suddenChange_DP;
 
       function dp_suddenChange_MFLOW
-        "Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
+        "Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without baffles | sharp edge"
         extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
@@ -5640,7 +5640,7 @@ This record is used as <b> input record </b> for the pressure loss function
             x_flow) "Void fraction";
 
         //SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel
-        //SOURCE_2: Considering frictional pressrue loss w.r.t. to correlation of Chisholm
+        //SOURCE_2: Considering frictional pressure loss w.r.t. to correlation of Chisholm
         SI.Pressure DP_fric=if IN_con.frictionalPressureLoss == TYP.Friedel then
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(
             IN_con,
@@ -7916,7 +7916,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility.</p>
 
 <h4>References</h4>
-<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
+<dl><dt>Elmqvist,H., M.Otter and S.E. Cellier: </dt>
 <dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Idelchik,I.E.: </dt>
 <dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
@@ -8390,7 +8390,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 </p>
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8498,7 +8498,7 @@ The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8640,7 +8640,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8697,7 +8697,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 
 <h4>References</h4>
 <dl>
- <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+ <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8757,7 +8757,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8861,7 +8861,7 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8974,7 +8974,7 @@ The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mas
 
 <h4>References</h4>
 <dl>
- <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+ <dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
 symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -9085,7 +9085,7 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
 
 <h4>References</h4>
 <dl>
- <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+ <dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
