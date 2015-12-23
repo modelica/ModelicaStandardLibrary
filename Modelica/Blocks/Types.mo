@@ -118,7 +118,7 @@ initialization definition.
   type Regularization = enumeration(
       Exp "Exponential regularization (smooth)",
       Sine "Sinusoidal regularization (smooth 1st derivative)",
-      Linear "Linear ragularization",
+      Linear "Linear regularization",
       Cosine "Cosine regularization")
     "Enumeration defining the regularization around zero";
   class ExternalCombiTimeTable
