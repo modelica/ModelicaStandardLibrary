@@ -1,6 +1,6 @@
 within ModelicaTest;
 package ComplexMath "Test functions for Complex and Modelica.ComplexMath"
-extends Modelica.Icons.Package;
+extends Modelica.Icons.ExamplesPackage;
   function ComplexFunctions
     extends Modelica.Icons.Function;
     import Complex;

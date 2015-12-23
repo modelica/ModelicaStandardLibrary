@@ -1,6 +1,6 @@
 within ModelicaTest;
 package Utilities "Test functions for Modelica.Utilities"
-  extends Modelica.Icons.Package;
+extends Modelica.Icons.ExamplesPackage;
   function Strings "Test functions of Modelica.Utilities.Strings"
     extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
@@ -254,7 +254,7 @@ package Utilities "Test functions for Modelica.Utilities"
     lines := Streams.readFile(file1);
     assert(lines[1] == line1 and lines[2] == line2 and lines[3] == line3,
       "Streams.readFile failed");
-
+    return;
     nLines := Streams.countLines(file1);
     assert(nLines == 3, "Streams.countLines failed");
 
@@ -429,7 +429,7 @@ package Utilities "Test functions for Modelica.Utilities"
     annotation (experiment(StopTime=0));
   end TestStrings;
 
-  model TestSteams
+  model TestStreams
     extends Modelica.Icons.Example;
 
     Boolean result;
@@ -439,7 +439,7 @@ package Utilities "Test functions for Modelica.Utilities"
     end when;
 
     annotation (experiment(StopTime=0));
-  end TestSteams;
+  end TestStreams;
 
   model TestInternal
     extends Modelica.Icons.Example;
@@ -464,4 +464,72 @@ package Utilities "Test functions for Modelica.Utilities"
 
     annotation (experiment(StopTime=0));
   end TestFiles;
+
+  function Streams2 "Test functions of Modelica.Utilities.Streams"
+    extends Modelica.Icons.Function;
+    import Modelica.Utilities.Streams;
+    import Modelica.Utilities.Files;
+    input String logFile="ModelicaTestLog.txt"
+      "Filename where the log is stored";
+    output Boolean ok;
+  protected
+    String file1="#testStreams1.txt";
+    String file2="#testStreams2.txt";
+    String line1="this is line 1";
+    String line2="this is line 2";
+    String line3="this is line 3";
+    String line4="this is line 4";
+    String line5="this is line 5";
+    String lines[3];
+    String rline;
+    Integer nLines;
+    Boolean eof;
+  algorithm
+    Streams.print("... Test of Modelica.Utilities.Streams");
+    Streams.print("... Test of Modelica.Utilities.Streams", logFile);
+
+    Files.remove(file1);
+    Streams.print(line1, file1);
+    Streams.print(line2, file1);
+    Streams.print(line3, file1);
+    Streams.close(file1);
+
+    Files.remove(file2);
+    Streams.print(line4, file2);
+    Streams.print(line5, file2);
+    Streams.close(file2);
+
+    lines := Streams.readFile(file1);
+    assert(lines[1] == line1 and lines[2] == line2 and lines[3] == line3,
+      "Streams.readFile failed");
+
+    nLines := Streams.countLines(file1);
+    assert(nLines == 3, "Streams.countLines failed");
+
+    (rline,eof) := Streams.readLine(file1, 1);
+    assert(rline == line1 and not eof, "Streams.readLine 1 failed");
+
+    (rline,eof) := Streams.readLine(file2, 1);
+    assert(rline == line4 and not eof, "Streams.readLine 1 failed");
+
+    (rline,eof) := Streams.readLine(file1, 2);
+    assert(rline == line2 and not eof, "Streams.readLine 2 failed");
+
+    (rline,eof) := Streams.readLine(file2, 2);
+    assert(rline == line5 and not eof, "Streams.readLine 2 failed");
+
+    (rline,eof) := Streams.readLine(file1, 3);
+    assert(rline == line3 and not eof, "Streams.readLine 3 failed");
+
+    (rline,eof) := Streams.readLine(file2, 3);
+    assert(rline == "" and eof, "Streams.readLine 3 failed");
+
+    (rline,eof) := Streams.readLine(file1, 4);
+    assert(rline == "" and eof, "Streams.readLine 4 failed");
+
+    Files.remove(file1);
+    Files.remove(file2);
+
+    ok := true;
+  end Streams2;
 end Utilities;
