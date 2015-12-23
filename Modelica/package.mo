@@ -2395,7 +2395,28 @@ tools might not yet supported the complete Modelica package):
 xxx
 </p>
 
+<p><br>
+The following <b style=\"color:blue\">new libraries</b> have been added:
+</p>
 
+<table border=\"1\" cellspacing=0 cellpadding=2>
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.PowerConverters\">Modelica.Electrical.PowerConverters</a></td>
+    <td valign=\"top\">
+    This library offers models for rectifiers, inverters and DC/DC-converters.<br>
+    (This library was developed by Christian Kral and Anton Haumer).
+    </td></tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
+    <td valign=\"top\">
+    This library provides quasistatic models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors) 
+    to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
+    Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
+    This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a> 
+    library in order to build up very fast simulations of electrical circuits with sinusoidal currents and voltages.<br>
+    (This library was developed by Christian Kral and Anton Haumer).
+    </td></tr>
+
+</table>
 
 <p><br>
 The following <b style=\"color:blue\">new components</b> have been added
@@ -2521,6 +2542,24 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">getPid</td>
     <td valign=\"top\">Retrieves the current process id</td></tr>
 </table>
+
+<p><br>
+The following <b style=\"color:blue\">existing components</b> have been <b style=\"color:blue\">changed</b> in a <b style=\"color:blue\">non-backward compatible</b> way:
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Electrical.Analog.Semiconductors.</b></td></tr>
+<tr><td valign=\"top\"> HeatingDiode </td>
+          <td valign=\"top\"> Removed protected variable k \"Boltzmann's constant\".<br>
+                            Calculate protected constant q \"Electron charge\" from already known constants instead of defining a protected variable q.</td> </tr>
+<tr><td valign=\"top\"> HeatingNPN<br>
+                      HeatingPNP </td>
+          <td valign=\"top\"> Removed parameter K \"Boltzmann's constant\" and q \"Elementary electronic charge\".<br>
+                            Calculate instead protected constant q \"Electron charge\" from already known constants.<br>
+                            Users that have used these parameters might have broken their models; 
+                            the (although formal non-backwards compatible) change offers the users a safer use.</td> </tr>
+</table>
+
 </html>"));
 end Version_3_2_2;
 
