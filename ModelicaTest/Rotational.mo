@@ -1161,6 +1161,29 @@ they were not deleted yet.")}));
         Placement(transformation(extent={{-90,-150},{-70,-130}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia16(J=3) annotation (
        Placement(transformation(extent={{-120,-150},{-100,-130}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia17(
+                                                              J=2,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0))                                      annotation (
+        Placement(transformation(extent={{-70,-200},{-50,-180}},
+                                                               rotation=0)));
+    Modelica.Mechanics.Rotational.Components.ElastoBacklash2 elastoBacklash2(
+      c=1e4,
+      d=20,
+      phi_rel(fixed=true),
+      w_rel(fixed=true),
+      b=1.7453292519943e-07,
+      stateSelect=StateSelect.always)
+                         annotation (Placement(transformation(extent={{-30,-200},
+              {-10,-180}},
+                         rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia18(
+                                                              J=2) annotation (
+        Placement(transformation(extent={{0,-200},{20,-180}},rotation=0)));
+    Modelica.Mechanics.Rotational.Sources.Torque torque1
+      annotation (Placement(transformation(extent={{-96,-200},{-76,-180}})));
+    Modelica.Blocks.Sources.ExpSine expSine(freqHz=2, damping=0.5)
+      annotation (Placement(transformation(extent={{-140,-200},{-120,-180}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
         points={{-60,90},{-50,90}},
@@ -1438,8 +1461,17 @@ they were not deleted yet.")}));
         points={{-100,-140},{-90,-140}},
         color={0,0,0},
         smooth=Smooth.None));
+    connect(inertia17.flange_b, elastoBacklash2.flange_a) annotation (Line(
+          points={{-50,-190},{-40,-190},{-30,-190}}, color={0,0,0}));
+    connect(elastoBacklash2.flange_b, inertia18.flange_a)
+      annotation (Line(points={{-10,-190},{-5,-190},{0,-190}}, color={0,0,0}));
+    connect(inertia17.flange_a, torque1.flange) annotation (Line(points={{-70,
+            -190},{-74,-190},{-76,-190}}, color={0,0,0}));
+    connect(torque1.tau, expSine.y) annotation (Line(points={{-98,-190},{-108,
+            -190},{-119,-190}}, color={0,0,127}));
     annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-160,-160},{160,160}})));
+            preserveAspectRatio=true, extent={{-160,-200},{160,160}},
+          initialScale=0.1)));
   end AllComponents;
 
   model TestBearingConversion
