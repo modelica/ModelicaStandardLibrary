@@ -3540,7 +3540,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
     package InductionMachines "Quasi static induction machines"
       extends Modelica.Icons.Package;
       model IM_SquirrelCage "Induction machine with squirrel cage"
-        // Removed form extension of FUNDAMENTAL WAVE model: is(start=zeros(m)) ##
+        // Removed from extension of FUNDAMENTAL WAVE model: is(start=zeros(m)) ##
         extends BaseClasses.PartialBasicMachine(
           Rs(start=0.03),
           Lssigma(start=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)),
@@ -3768,7 +3768,7 @@ Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_Squirre
                 {-100,-60}}, color={85,170,255}));
         connect(rotor.heatPortCore, internalThermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{10,-36},{20,-36},{20,-80},{-40,-80},{-40,-90}},
+            points={{10,-36},{20,-36},{20,-80},{-39.6,-80},{-39.6,-90.8}},
             color={191,0,0}));
         connect(rotor.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
@@ -5482,13 +5482,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(stator.plug_n, plug_sn) annotation (Line(
             points={{-10,50},{-10,70},{-60,70},{-60,100}},
             color={85,170,255}));
-        connect(thermalPort, internalThermalPort) annotation (Line(
-            points={{0,-100},{0,-90},{-40,-90}},
-            color={199,0,0}));
-        connect(thermalAmbient.thermalPort, internalThermalPort) annotation (
-            Line(
-            points={{-60,-90},{-40,-90}},
-            color={199,0,0}));
         connect(inertiaRotor.flange_b, flange)
           annotation (Line(points={{90,0},{100,0},{100,0}}));
         connect(internalSupport, inertiaStator.flange_a) annotation (Line(
@@ -5542,6 +5535,10 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Line(
             points={{-10,36},{-39.6,36},{-39.6,-89.2}},
             color={191,0,0}));
+        connect(thermalAmbient.thermalPort, internalThermalPort) annotation (
+            Line(points={{-60,-90},{-50,-90},{-40,-90}}, color={191,0,0}));
+        connect(internalThermalPort, thermalPort) annotation (Line(points={{-40,
+                -90},{-20,-90},{0,-90},{0,-100}}, color={191,0,0}));
         annotation (
           Documentation(info="<html>
 <p>This partial model for induction machines contains elements common in all machine models.</p>

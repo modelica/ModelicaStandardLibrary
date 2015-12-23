@@ -3885,9 +3885,7 @@ Default machine parameters are used.
             points={{19,-50},{-10,-50},{-10,-40}},
             color={0,0,127}));
         connect(dcpm.thermalPort, thermalAmbientDCPM.thermalPort) annotation (
-            Line(
-            points={{-10,-10},{-10,-20}},
-            color={195,0,0}));
+            Line(points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
         annotation (experiment(StopTime=3.0, Interval=0.001), Documentation(
               info="<html>
 <b>Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
@@ -4067,9 +4065,6 @@ So the machine is at the beginning in cold condition, ending in warm condition
         connect(volumeFlow.flowPort_b, cooling.flowPort_a) annotation (Line(
             points={{20,-70},{30,-70}},
             color={255,0,0}));
-        connect(dcpm.thermalPort, thermalPort) annotation (Line(
-            points={{-10,20},{-10,0}},
-            color={0,0,255}));
         connect(armature.port, thermalPort.heatPortArmature) annotation (Line(
             points={{-50,-30},{-50,0},{-10,0}},
             color={191,0,0}));
@@ -4090,8 +4085,10 @@ So the machine is at the beginning in cold condition, ending in warm condition
             color={191,0,0}));
         connect(fixedTemperature.port, thermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{22,0},{-10,0}},
+            points={{22,0},{6,0},{6,-0.8},{-10.4,-0.8}},
             color={191,0,0}));
+        connect(dcpm.thermalPort, thermalPort) annotation (Line(points={{-10,20},
+                {-10,10},{-10,0}}, color={191,0,0}));
         annotation (experiment(StopTime=25, Interval=0.001), Documentation(info=
                "<html>
 <b>Test example: Demonstrate cooling of a DCPM motor</b><br>
@@ -12674,7 +12671,7 @@ Thermal parts for DC machines
           points={{80,1},{80,18}},
           color={0,0,127}));
       connect(temperatureCore.port, thermalPort.heatPortCore) annotation (Line(
-          points={{0,40},{0,100}},
+          points={{0,40},{0,70},{0,100},{1,100}},
           color={191,0,0}));
       connect(thermalCollector1.port_b, temperature1.port) annotation (Line(
           points={{-80,60},{-80,40}},
@@ -12683,10 +12680,10 @@ Thermal parts for DC machines
           points={{80,60},{80,40}},
           color={191,0,0}));
       connect(thermalCollector1.port_a, thermalPort.heatPort1) annotation (Line(
-          points={{-80,80},{-80,100},{0,100}},
+          points={{-80,80},{-80,102},{-1,102}},
           color={191,0,0}));
       connect(thermalCollector2.port_a, thermalPort.heatPort2) annotation (Line(
-          points={{80,80},{80,100},{0,100}},
+          points={{80,80},{80,98},{-1,98}},
           color={191,0,0}));
       annotation (Icon(graphics={Rectangle(
                   extent={{-100,100},{100,-100}},
@@ -13130,12 +13127,6 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
       connect(spacePhasorS.plug_n, plug_sn) annotation (Line(
           points={{-10,80},{-60,80},{-60,100}},
           color={0,0,255}));
-      connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,-100},{0,-80}},
-          color={199,0,0}));
-      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,-80},{0,-80}},
-          color={199,0,0}));
       connect(strayLoad.plug_n, rs.plug_p) annotation (Line(
           points={{70,80},{60,80}},
           color={0,0,255}));
@@ -13177,6 +13168,10 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={191,0,0}));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
           points={{80,90},{100,90},{100,40},{90,40},{90,0}}));
+      connect(internalThermalPort, thermalPort)
+        annotation (Line(points={{0,-80},{0,-80},{0,-100}}, color={191,0,0}));
+      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
+            points={{-20,-80},{-12,-80},{0,-80}}, color={191,0,0}));
       annotation (Documentation(info="<html>
 Partial model for induction machine models
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -13209,7 +13204,7 @@ Partial model for induction machine models
         annotation (
           Diagram(graphics={Rectangle(
                 extent={{-60,60},{60,-60}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
                 extent={{-50,50},{50,-50}},
@@ -13218,7 +13213,7 @@ Partial model for induction machine models
                 fillPattern=FillPattern.Solid)}),
           Icon(graphics={Rectangle(
                 extent={{-110,110},{110,-110}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
                 extent={{-80,80},{80,-80}},
@@ -13312,11 +13307,11 @@ Partial thermal port for induction machines
 
         connect(temperatureStrayLoad.port, thermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,60},{60,100},{0,100}},
+            points={{60,60},{60,100},{1,100}},
             color={191,0,0}));
         connect(temperatureFriction.port, thermalPort.heatPortFriction)
           annotation (Line(
-            points={{80,40},{80,100},{0,100}},
+            points={{80,40},{80,96},{0,96}},
             color={191,0,0}));
         connect(thermalCollectorStator.port_b, temperatureStatorWinding.port)
           annotation (Line(
@@ -13324,15 +13319,15 @@ Partial thermal port for induction machines
             color={191,0,0}));
         connect(thermalCollectorStator.port_a, thermalPort.heatPortStatorWinding)
           annotation (Line(
-            points={{-80,80},{-80,100},{0,100}},
+            points={{-80,80},{-80,102},{-1,102}},
             color={191,0,0}));
         connect(temperatureStatorCore.port, thermalPort.heatPortStatorCore)
           annotation (Line(
-            points={{20,60},{20,100},{0,100}},
+            points={{20,60},{20,102},{1,102}},
             color={191,0,0}));
         connect(temperatureRotorCore.port, thermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{40,40},{40,100},{0,100}},
+            points={{40,40},{40,98},{1,98}},
             color={191,0,0}));
         annotation (Icon(graphics={
               Rectangle(
@@ -13646,12 +13641,6 @@ Interfaces and partial models for induction machines
         "VaNominal has to be > (Ra[+Rse])*IaNominal");
       connect(la.p, ra.n)
         annotation (Line(points={{30,60},{40,60}}, color={0,0,255}));
-      connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,-100},{0,-80}},
-          color={199,0,0}));
-      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,-80},{0,-80}},
-          color={199,0,0}));
       connect(brush.n, pin_an) annotation (Line(
           points={{-30,60},{-60,60},{-60,100}},
           color={0,0,255}));
@@ -13690,6 +13679,10 @@ Interfaces and partial models for induction machines
           color={191,0,0}));
       connect(inertiaRotor.flange_b, strayLoad.flange) annotation (Line(
           points={{90,0},{92,0},{92,30},{100,30},{100,70},{80,70}}));
+      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
+            points={{-20,-80},{-12,-80},{0,-80}}, color={191,0,0}));
+      connect(internalThermalPort, thermalPort)
+        annotation (Line(points={{0,-80},{0,-100}}, color={191,0,0}));
       annotation (Documentation(info="<html>
 Partial model for DC machine models.
 </html>"), Icon(graphics={Line(points={{-40,70},{-60,70},{-60,90}}, color={0,0,
@@ -13718,7 +13711,7 @@ Partial model for DC machine models.
         annotation (
           Diagram(graphics={Rectangle(
                 extent={{-60,60},{60,-60}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
                 extent={{-50,50},{50,-50}},
@@ -13727,10 +13720,10 @@ Partial model for DC machine models.
                 fillPattern=FillPattern.Solid)}),
           Icon(graphics={Rectangle(
                 extent={{-110,110},{110,-110}},
-                lineColor={199,0,0},
+                lineColor={191,0,0},
                 fillColor={95,95,95},
                 fillPattern=FillPattern.Solid), Ellipse(
-                extent={{-82,80},{78,-80}},
+                extent={{-80,80},{80,-80}},
                 lineColor={191,0,0},
                 fillColor={191,0,0},
                 fillPattern=FillPattern.Solid)}),
@@ -13810,23 +13803,23 @@ Partial thermal port for DC machines
 
         connect(temperatureArmature.port, thermalPort.heatPortArmature)
           annotation (Line(
-            points={{-80,40},{-80,100},{0,100}},
+            points={{-80,40},{-80,102},{-1,102}},
             color={191,0,0}));
         connect(temperatureBrush.port, thermalPort.heatPortBrush) annotation (
             Line(
-            points={{20,20},{20,100},{0,100}},
+            points={{20,20},{20,104},{0,104}},
             color={191,0,0}));
         connect(temperatureCore.port, thermalPort.heatPortCore) annotation (
             Line(
-            points={{40,40},{40,100},{0,100}},
+            points={{40,40},{40,102},{1,102}},
             color={191,0,0}));
         connect(temperatureStrayLoad.port, thermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,20},{60,100},{0,100}},
+            points={{60,20},{60,100},{1,100}},
             color={191,0,0}));
         connect(temperatureFriction.port, thermalPort.heatPortFriction)
           annotation (Line(
-            points={{80,40},{80,100},{0,100}},
+            points={{80,40},{80,98},{1,98}},
             color={191,0,0}));
         annotation (Icon(graphics={Rectangle(
                       extent={{-100,100},{100,-100}},
@@ -14214,19 +14207,19 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
         annotation (Placement(transformation(extent={{0,-10},{20,10}})));
       annotation (
         Diagram(graphics={Rectangle(
-                  extent={{-60,60},{60,-60}},
-                  lineColor={199,0,0},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Ellipse(
+              extent={{-60,60},{60,-60}},
+              lineColor={191,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),    Ellipse(
                   extent={{-50,50},{50,-50}},
                   lineColor={191,0,0},
                   fillColor={191,0,0},
                   fillPattern=FillPattern.Solid)}),
         Icon(graphics={Rectangle(
-                  extent={{-110,110},{110,-110}},
-                  lineColor={199,0,0},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid),Ellipse(
+              extent={{-110,110},{110,-110}},
+              lineColor={191,0,0},
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid),    Ellipse(
                   extent={{-80,80},{80,-80}},
                   lineColor={191,0,0},
                   fillColor={191,0,0},

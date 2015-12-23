@@ -7030,12 +7030,6 @@ This model is mainly used to extend from in order build more complex - equation 
       connect(stator.plug_n, plug_sn) annotation (Line(
           points={{-10,50},{-10,70},{-60,70},{-60,100}},
           color={0,0,255}));
-      connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,-100},{0,-90},{-40,-90}},
-          color={199,0,0}));
-      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-60,-90},{-40,-90}},
-          color={199,0,0}));
       connect(inertiaRotor.flange_b, flange)
         annotation (Line(points={{90,0},{100,0},{100,0}}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
@@ -7089,6 +7083,10 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(
           points={{-10,36},{-39.6,36},{-39.6,-89.2}},
           color={191,0,0}));
+      connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
+            points={{-60,-90},{-50,-90},{-40,-90}}, color={191,0,0}));
+      connect(internalThermalPort, thermalPort) annotation (Line(points={{-40,
+              -90},{0,-90},{0,-100}}, color={191,0,0}));
       annotation (Documentation(info="<html>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
