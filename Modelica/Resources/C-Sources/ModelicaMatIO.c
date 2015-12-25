@@ -18202,6 +18202,7 @@ Mat_H5ReadDatasetInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
         H5Aclose(attr_id);
         if ( empty ) {
             matvar->rank = matvar->dims[0];
+            free(matvar->dims);
             matvar->dims = calloc(matvar->rank,sizeof(*matvar->dims));
             H5Dread(dset_id,Mat_dims_type_to_hid_t(),H5S_ALL,H5S_ALL,
                     H5P_DEFAULT,matvar->dims);
