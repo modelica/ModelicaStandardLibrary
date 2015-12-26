@@ -9009,6 +9009,7 @@ EXTERN int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
 
 #if defined(_WIN32)
 #include <io.h>
+#define mktemp _mktemp
 #endif
 #if defined(_MSC_VER)
 #define SIZE_T_FMTSTR "Iu"
@@ -9756,11 +9757,7 @@ Mat_VarDelete(mat_t *mat, const char *name)
     char *tmp_name, *new_name;
     mat_t *tmp;
     matvar_t *matvar;
-#if defined(_WIN32)
-    char template[10] = "matXXXXXX";
-#else
-    char *temp;
-#endif
+    char temp[7] = "XXXXXX";
 
     if ( NULL == mat || NULL == name )
         return err;
@@ -9777,12 +9774,7 @@ Mat_VarDelete(mat_t *mat, const char *name)
             break;
     }
 
-#if defined(_WIN32)
-    tmp_name = _mktemp(template);
-#else
-    temp     = NULL;
-    tmp_name = tmpnam(temp);
-#endif
+    tmp_name = mktemp(temp);
     if (tmp_name != NULL) {
         tmp = Mat_CreateVer(tmp_name,mat->header,mat_file_ver);
         if ( tmp != NULL ) {
@@ -17931,8 +17923,6 @@ Mat_class_type_to_hid_t(enum matio_classes class_type)
                 return H5T_NATIVE_ULLONG;
             else
                 return -1;
-        case MAT_T_UTF8:
-            return H5T_NATIVE_CHAR;
         default:
             return -1;
     }
@@ -18046,6 +18036,8 @@ Mat_data_type_to_hid_t(enum matio_types data_type)
                 return H5T_NATIVE_ULLONG;
             else
                 return -1;
+        case MAT_T_UTF8:
+            return H5T_NATIVE_CHAR;
         default:
             return -1;
     }
