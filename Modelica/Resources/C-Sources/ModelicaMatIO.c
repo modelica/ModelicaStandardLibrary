@@ -175,7 +175,13 @@
 #endif
 
 /* Platform */
+#if defined(_MSC_VER) && defined(_WIN64)
+#define MATIO_PLATFORM "x86_64-pc-windows"
+#elif defined(_MSC_VER) && defined(_WIN32)
+#define MATIO_PLATFORM "i686-pc-windows"
+#else
 #define MATIO_PLATFORM "UNKNOWN"
+#endif
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
@@ -576,6 +582,7 @@ Mat_doubleSwap( double *a )
     return *a;
 
 }
+
 /* -------------------------------
  * ---------- inflate.c
  * -------------------------------
@@ -1411,6 +1418,7 @@ InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
 /** @endcond */
 
 #endif
+
 /* -------------------------------
  * ---------- io.c
  * -------------------------------
@@ -1561,6 +1569,7 @@ Mat_SizeOf(enum matio_types data_type)
             return 0;
     }
 }
+
 /* -------------------------------
  * ---------- read_data.c
  * -------------------------------
@@ -1788,7 +1797,6 @@ ReadCompressedDoubleData(mat_t *mat,z_stream *z,double *data,
         mat_int8_t     i8[1024];
         mat_uint8_t   ui8[1024];
     } buf;
-
 
     switch ( data_type ) {
         case MAT_T_DOUBLE:
@@ -8042,6 +8050,7 @@ ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
 #endif
 
 /** @endcond */
+
 /* -------------------------------
  * ---------- snprintf.c
  * -------------------------------
@@ -8673,7 +8682,6 @@ static double my_modf(double x0, double *iptr)
     (*iptr) = l;
     return x - (*iptr);
 }
-
 
 static void fmtfp (char *buffer, size_t *currlen, size_t maxlen,
                    LDOUBLE fvalue, int min, int max, int flags)
@@ -9708,7 +9716,14 @@ Mat_VarCreate(const char *name,enum matio_classes class_type,
     return matvar;
 }
 
-static int mat_rename(const char* src, const char* dst)
+/** @brief Copies a file
+ *
+ * @param src source file path
+ * @param dst destination file path
+ * @retval 0 on success
+ */
+static int
+mat_copy(const char* src, const char* dst)
 {
     size_t len;
     char buf[BUFSIZ] = {'\0'};
@@ -9738,7 +9753,6 @@ static int mat_rename(const char* src, const char* dst)
     }
     fclose(in);
     fclose(out);
-    remove(src);
     return 0;
 }
 
@@ -9753,57 +9767,82 @@ int
 Mat_VarDelete(mat_t *mat, const char *name)
 {
     int   err = 1;
-    enum mat_ft mat_file_ver = MAT_FT_DEFAULT;
-    char *tmp_name, *new_name;
-    mat_t *tmp;
-    matvar_t *matvar;
+    char *tmp_name;
     char temp[7] = "XXXXXX";
 
     if ( NULL == mat || NULL == name )
         return err;
 
-    switch ( mat->version ) {
-        case 0x0200:
-            mat_file_ver = MAT_FT_MAT73;
-            break;
-        case 0x0100:
-            mat_file_ver = MAT_FT_MAT5;
-            break;
-        case 0x0010:
-            mat_file_ver = MAT_FT_MAT4;
-            break;
-    }
+    if ( (tmp_name = mktemp(temp)) != NULL ) {
+        enum mat_ft mat_file_ver = MAT_FT_DEFAULT;
+        mat_t *tmp;
 
-    tmp_name = mktemp(temp);
-    if (tmp_name != NULL) {
+        switch ( mat->version ) {
+            case 0x0200:
+                mat_file_ver = MAT_FT_MAT73;
+                break;
+            case 0x0100:
+                mat_file_ver = MAT_FT_MAT5;
+                break;
+            case 0x0010:
+                mat_file_ver = MAT_FT_MAT4;
+                break;
+        }
+
         tmp = Mat_CreateVer(tmp_name,mat->header,mat_file_ver);
         if ( tmp != NULL ) {
+            matvar_t *matvar;
             while ( NULL != (matvar = Mat_VarReadNext(mat)) ) {
                 if ( strcmp(matvar->name,name) )
-                    Mat_VarWrite(tmp,matvar,MAT_COMPRESSION_NONE);
+                    Mat_VarWrite(tmp,matvar,matvar->compression);
                 else
                     err = 0;
                 Mat_VarFree(matvar);
             }
-            /* FIXME: Memory leak */
-            new_name = strdup_printf("%s",mat->filename);
-            fclose(mat->fp);
+            Mat_Close(tmp);
 
-            if ( (err = remove(new_name)) == -1 ) {
-                Mat_Critical("remove of %s failed",new_name);
-            } else if ( !Mat_Close(tmp) && (err=mat_rename(tmp_name,new_name))==-1) {
-                Mat_Critical("rename failed oldname=%s,newname=%s",tmp_name,
-                    new_name);
-            } else {
-                tmp = Mat_Open(new_name,mat->mode);
-                if ( NULL != tmp )
-                    memcpy(mat,tmp,sizeof(mat_t));
+            if (err == 0) {
+                char *new_name = strdup_printf("%s",mat->filename);
+#if defined(HAVE_HDF5)
+                if ( mat_file_ver == MAT_FT_MAT73 ) {
+                    if ( mat->refs_id > -1 )
+                        H5Gclose(mat->refs_id);
+                    H5Fclose(*(hid_t*)mat->fp);
+                    free(mat->fp);
+                    mat->fp = NULL;
+                }
+#endif
+                if ( mat->fp ) {
+                    fclose(mat->fp);
+                    mat->fp = NULL;
+                }
+
+                if ( (err = mat_copy(tmp_name,new_name)) == -1 ) {
+                    Mat_Critical("Cannot copy file from \"%s\" to \"%s\".",
+                        tmp_name, new_name);
+                } else if ( (err = remove(tmp_name)) == -1 ) {
+                    Mat_Critical("Cannot remove file \"%s\".",tmp_name);
+                } else {
+                    tmp = Mat_Open(new_name,mat->mode);
+                    if ( NULL != tmp ) {
+                        if ( mat->header )
+                            free(mat->header);
+                        if ( mat->subsys_offset )
+                            free(mat->subsys_offset);
+                        if ( mat->filename )
+                            free(mat->filename);
+                        memcpy(mat,tmp,sizeof(mat_t));
+                        free(tmp);
+                    } else {
+                        Mat_Critical("Cannot open file \"%s\".",new_name);
+                    }
+                }
+                free(new_name);
+            } else if ( (err = remove(tmp_name)) == -1 ) {
+                Mat_Critical("Cannot remove file \"%s\".",tmp_name);
             }
-            free(tmp);
-            free(new_name);
         }
-    }
-    else {
+    } else {
         Mat_Critical("Cannot create a unique file name.");
     }
     return err;
@@ -10161,7 +10200,6 @@ Mat_CalcSingleSubscript(int rank,int *dims,int *subs)
 
     return index;
 }
-
 
 /** @brief Calculate a set of subscript values from a single(linear) subscript
  *
@@ -10862,6 +10900,7 @@ Mat_VarWrite(mat_t *mat,matvar_t *matvar,enum matio_compression compress)
 
     return 1;
 }
+
 /* -------------------------------
  * ---------- mat4.c
  * -------------------------------
@@ -10872,6 +10911,7 @@ Mat_VarWrite(mat_t *mat,matvar_t *matvar,enum matio_compression compress)
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include <math.h>
 
@@ -11361,6 +11401,7 @@ Mat_VarReadNextInfo4(mat_t *mat)
 
     return matvar;
 }
+
 /* -------------------------------
  * ---------- mat5.c
  * -------------------------------
@@ -11852,7 +11893,7 @@ Mat_Create5(const char *matname,const char *hdr_str)
     mat->mode     = MAT_ACC_RDWR;
     mat->byteswap = 0;
     mat->header   = calloc(1,128);
-    mat->subsys_offset = calloc(1,16);
+    mat->subsys_offset = calloc(1,8);
     memset(mat->header,' ',128);
     if ( hdr_str == NULL ) {
         err = mat_snprintf(mat->header,116,"MATLAB 5.0 MAT-file, Platform: %s, "
@@ -11863,7 +11904,7 @@ Mat_Create5(const char *matname,const char *hdr_str)
         err = mat_snprintf(mat->header,116,"%s",hdr_str);
     }
     mat->header[err] = ' ';
-    mat_snprintf(mat->subsys_offset,15,"            ");
+    memset(mat->subsys_offset,' ',8);
     mat->version = (int)0x0100;
     endian = 0x4d49;
 
@@ -17081,7 +17122,6 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
     /* FIXME: SEEK_END is not Guaranteed by the C standard */
     fseek(mat->fp,0,SEEK_END);         /* Always write at end of file */
 
-
     if ( matvar->compression == MAT_COMPRESSION_NONE ) {
         fwrite(&matrix_type,4,1,mat->fp);
         fwrite(&pad4,4,1,mat->fp);
@@ -17640,6 +17680,7 @@ Mat_VarReadNextInfo5( mat_t *mat )
 
     return matvar;
 }
+
 /* -------------------------------
  * ---------- mat73.c
  * -------------------------------
@@ -18972,7 +19013,6 @@ Mat_VarWriteCell73(hid_t id,matvar_t *matvar,const char *name,hid_t *refs_id)
     return err;
 }
 
-
 /** @if mat_devman
  * @brief Writes a character matlab variable to the specified HDF id with the
  *        given name
@@ -19799,7 +19839,7 @@ Mat_Create73(const char *matname,const char *hdr_str)
     mat->mode     = MAT_ACC_RDWR;
     mat->byteswap = 0;
     mat->header   = calloc(1,128);
-    mat->subsys_offset = calloc(1,16);
+    mat->subsys_offset = calloc(1,8);
     memset(mat->header,' ',128);
     if ( hdr_str == NULL ) {
         err = mat_snprintf(mat->header,116,"MATLAB 7.3 MAT-file, Platform: %s, "
@@ -19810,7 +19850,7 @@ Mat_Create73(const char *matname,const char *hdr_str)
         err = mat_snprintf(mat->header,116,"%s",hdr_str);
     }
     mat->header[err] = ' ';
-    mat_snprintf(mat->subsys_offset,15,"            ");
+    memset(mat->subsys_offset,' ',8);
     mat->version = (int)0x0200;
     endian = 0x4d49;
 
@@ -20531,6 +20571,7 @@ Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress)
 }
 
 #endif
+
 /* -------------------------------
  * ---------- matvar_cell.c
  * -------------------------------
@@ -20692,6 +20733,7 @@ Mat_VarSetCell(matvar_t *matvar,int index,matvar_t *cell)
 
     return old_cell;
 }
+
 /* -------------------------------
  * ---------- matvar_struct.c
  * -------------------------------
@@ -20708,9 +20750,7 @@ Mat_VarSetCell(matvar_t *matvar,int index,matvar_t *cell)
  * @param dims array of dimensions of the variable of size rank
  * @param fields Array of @c nfields fieldnames
  * @param nfields Number of fields in the structure
- * @param matvar Pointer to store the new structure MATLAB variable
- * @return @c MATIO_SUCCESS if successful, or an error value (See
- *          @ref enum matio_error_t).
+ * @return Pointer to the new structure MATLAB variable on success, NULL on error
  */
 matvar_t *
 Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
@@ -20778,7 +20818,7 @@ Mat_VarCreateStruct(const char *name,int rank,size_t *dims,const char **fields,
  * element).
  * @ingroup MAT
  * @param matvar Pointer to the Structure MAT variable
- * @param fields Array of fields to be added
+ * @param fieldname Name of field to be added
  * @retval 0 on success
  */
 int

@@ -135,7 +135,7 @@ typedef uint8_t mat_uint8_t;
 #endif
 
 /** @defgroup MAT Matlab MAT File I/O Library */
-/** @defgroup mat_util MAT File I/O Utitlity Functions */
+/** @defgroup mat_util MAT File I/O Utility Functions */
 /** @if mat_devman @defgroup mat_internal Internal Functions @endif */
 
 /** @brief MAT file access types
@@ -210,9 +210,9 @@ enum matio_classes {
     MAT_C_UINT16   = 11, /**< @brief Matlab unsigned 16-bit integer class  */
     MAT_C_INT32    = 12, /**< @brief Matlab signed 32-bit integer class    */
     MAT_C_UINT32   = 13, /**< @brief Matlab unsigned 32-bit integer class  */
-    MAT_C_INT64    = 14, /**< @brief Matlab unsigned 32-bit integer class  */
-    MAT_C_UINT64   = 15, /**< @brief Matlab unsigned 32-bit integer class  */
-    MAT_C_FUNCTION = 16 /**< @brief Matlab unsigned 32-bit integer class  */
+    MAT_C_INT64    = 14, /**< @brief Matlab signed 64-bit integer class    */
+    MAT_C_UINT64   = 15, /**< @brief Matlab unsigned 64-bit integer class  */
+    MAT_C_FUNCTION = 16  /**< @brief Matlab function class                 */
 };
 
 /** @brief Matlab array flags
@@ -300,7 +300,7 @@ typedef struct mat_sparse_t {
                                *  data[k].  0 <= k <= nzmax
                                */
     int nir;                 /**< number of elements in ir */
-    int *jc;                 /**< Array size N+1 (N is number of columsn) with
+    int *jc;                 /**< Array size N+1 (N is number of columns) with
                                *  jc[k] being the index into ir/data of the
                                *  first non-zero element for row k.
                                */
