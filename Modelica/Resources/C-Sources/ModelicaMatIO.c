@@ -247,112 +247,112 @@ struct matvar_internal {
 };
 
 /*    snprintf.c    */
-EXTERN int mat_snprintf(char *str,size_t count,const char *fmt,...);
-EXTERN int mat_asprintf(char **ptr,const char *format, ...);
-EXTERN int mat_vsnprintf(char *str,size_t count,const char *fmt,va_list args);
-EXTERN int mat_vasprintf(char **ptr,const char *format,va_list ap);
+static int mat_snprintf(char *str,size_t count,const char *fmt,...);
+static int mat_asprintf(char **ptr,const char *format, ...);
+static int mat_vsnprintf(char *str,size_t count,const char *fmt,va_list args);
+static int mat_vasprintf(char **ptr,const char *format,va_list ap);
 
 /*   endian.c     */
-EXTERN double        Mat_doubleSwap(double  *a);
-EXTERN float         Mat_floatSwap(float   *a);
+static double        Mat_doubleSwap(double  *a);
+static float         Mat_floatSwap(float   *a);
 #ifdef HAVE_MATIO_INT64_T
-EXTERN mat_int64_t   Mat_int64Swap(mat_int64_t  *a);
+static mat_int64_t   Mat_int64Swap(mat_int64_t  *a);
 #endif /* HAVE_MATIO_INT64_T */
 #ifdef HAVE_MATIO_UINT64_T
-EXTERN mat_uint64_t  Mat_uint64Swap(mat_uint64_t *a);
+static mat_uint64_t  Mat_uint64Swap(mat_uint64_t *a);
 #endif /* HAVE_MATIO_UINT64_T */
-EXTERN mat_int32_t   Mat_int32Swap(mat_int32_t  *a);
-EXTERN mat_uint32_t  Mat_uint32Swap(mat_uint32_t *a);
-EXTERN mat_int16_t   Mat_int16Swap(mat_int16_t  *a);
-EXTERN mat_uint16_t  Mat_uint16Swap(mat_uint16_t *a);
+static mat_int32_t   Mat_int32Swap(mat_int32_t  *a);
+static mat_uint32_t  Mat_uint32Swap(mat_uint32_t *a);
+static mat_int16_t   Mat_int16Swap(mat_int16_t  *a);
+static mat_uint16_t  Mat_uint16Swap(mat_uint16_t *a);
 
 /* read_data.c */
-EXTERN int ReadDoubleData(mat_t *mat,double  *data,enum matio_types data_type,
+static int ReadDoubleData(mat_t *mat,double  *data,enum matio_types data_type,
                int len);
-EXTERN int ReadSingleData(mat_t *mat,float   *data,enum matio_types data_type,
+static int ReadSingleData(mat_t *mat,float   *data,enum matio_types data_type,
                int len);
 #ifdef HAVE_MATIO_INT64_T
-EXTERN int ReadInt64Data (mat_t *mat,mat_int64_t *data,
+static int ReadInt64Data (mat_t *mat,mat_int64_t *data,
                enum matio_types data_type,int len);
 #endif /* HAVE_MATIO_INT64_T */
 #ifdef HAVE_MATIO_UINT64_T
-EXTERN int ReadUInt64Data(mat_t *mat,mat_uint64_t *data,
+static int ReadUInt64Data(mat_t *mat,mat_uint64_t *data,
                enum matio_types data_type,int len);
 #endif /* HAVE_MATIO_UINT64_T */
-EXTERN int ReadInt32Data (mat_t *mat,mat_int32_t *data,
+static int ReadInt32Data (mat_t *mat,mat_int32_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadUInt32Data(mat_t *mat,mat_uint32_t *data,
+static int ReadUInt32Data(mat_t *mat,mat_uint32_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadInt16Data (mat_t *mat,mat_int16_t *data,
+static int ReadInt16Data (mat_t *mat,mat_int16_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadUInt16Data(mat_t *mat,mat_uint16_t *data,
+static int ReadUInt16Data(mat_t *mat,mat_uint16_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadInt8Data  (mat_t *mat,mat_int8_t  *data,
+static int ReadInt8Data  (mat_t *mat,mat_int8_t  *data,
                enum matio_types data_type,int len);
-EXTERN int ReadUInt8Data (mat_t *mat,mat_uint8_t  *data,
+static int ReadUInt8Data (mat_t *mat,mat_uint8_t  *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCharData  (mat_t *mat,char  *data,enum matio_types data_type,
+static int ReadCharData  (mat_t *mat,char  *data,enum matio_types data_type,
                int len);
-EXTERN int ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
+static int ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
                enum matio_types data_type,int start,int stride,int edge);
-EXTERN int ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
+static int ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
                enum matio_types data_type,size_t *dims,int *start,int *stride,
                int *edge);
-EXTERN int ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
+static int ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
                enum matio_types data_type,int rank,size_t *dims,int *start,
                int *stride,int *edge);
 #if defined(HAVE_ZLIB)
-EXTERN int ReadCompressedDoubleData(mat_t *mat,z_stream *z,double  *data,
+static int ReadCompressedDoubleData(mat_t *mat,z_stream *z,double  *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedSingleData(mat_t *mat,z_stream *z,float   *data,
+static int ReadCompressedSingleData(mat_t *mat,z_stream *z,float   *data,
                enum matio_types data_type,int len);
 #ifdef HAVE_MATIO_INT64_T
-EXTERN int ReadCompressedInt64Data(mat_t *mat,z_stream *z,mat_int64_t *data,
+static int ReadCompressedInt64Data(mat_t *mat,z_stream *z,mat_int64_t *data,
                enum matio_types data_type,int len);
 #endif /* HAVE_MATIO_INT64_T */
 #ifdef HAVE_MATIO_UINT64_T
-EXTERN int ReadCompressedUInt64Data(mat_t *mat,z_stream *z,mat_uint64_t *data,
+static int ReadCompressedUInt64Data(mat_t *mat,z_stream *z,mat_uint64_t *data,
                enum matio_types data_type,int len);
 #endif /* HAVE_MATIO_UINT64_T */
-EXTERN int ReadCompressedInt32Data(mat_t *mat,z_stream *z,mat_int32_t *data,
+static int ReadCompressedInt32Data(mat_t *mat,z_stream *z,mat_int32_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedUInt32Data(mat_t *mat,z_stream *z,mat_uint32_t *data,
+static int ReadCompressedUInt32Data(mat_t *mat,z_stream *z,mat_uint32_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedInt16Data(mat_t *mat,z_stream *z,mat_int16_t *data,
+static int ReadCompressedInt16Data(mat_t *mat,z_stream *z,mat_int16_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedUInt16Data(mat_t *mat,z_stream *z,mat_uint16_t *data,
+static int ReadCompressedUInt16Data(mat_t *mat,z_stream *z,mat_uint16_t *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedInt8Data(mat_t *mat,z_stream *z,mat_int8_t  *data,
+static int ReadCompressedInt8Data(mat_t *mat,z_stream *z,mat_int8_t  *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedUInt8Data(mat_t *mat,z_stream *z,mat_uint8_t  *data,
+static int ReadCompressedUInt8Data(mat_t *mat,z_stream *z,mat_uint8_t  *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedCharData(mat_t *mat,z_stream *z,char *data,
+static int ReadCompressedCharData(mat_t *mat,z_stream *z,char *data,
                enum matio_types data_type,int len);
-EXTERN int ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
+static int ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
                enum matio_classes class_type,enum matio_types data_type,
                int start,int stride,int edge);
-EXTERN int ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
+static int ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
                enum matio_classes class_type,enum matio_types data_type,
                size_t *dims,int *start,int *stride,int *edge);
-EXTERN int ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
+static int ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                enum matio_classes class_type,enum matio_types data_type,
                int rank,size_t *dims,int *start,int *stride,int *edge);
 
 /*   inflate.c    */
-EXTERN int InflateSkip(mat_t *mat, z_stream *z, int nbytes);
-EXTERN int InflateSkip2(mat_t *mat, matvar_t *matvar, int nbytes);
-EXTERN int InflateSkipData(mat_t *mat,z_stream *z,enum matio_types data_type,int len);
-EXTERN int InflateVarTag(mat_t *mat, matvar_t *matvar, void *buf);
-EXTERN int InflateArrayFlags(mat_t *mat, matvar_t *matvar, void *buf);
-EXTERN int InflateDimensions(mat_t *mat, matvar_t *matvar, void *buf);
-EXTERN int InflateVarNameTag(mat_t *mat, matvar_t *matvar, void *buf);
-EXTERN int InflateVarName(mat_t *mat,matvar_t *matvar,void *buf,int N);
-EXTERN int InflateDataTag(mat_t *mat, matvar_t *matvar, void *buf);
-EXTERN int InflateDataType(mat_t *mat, z_stream *matvar, void *buf);
-EXTERN int InflateData(mat_t *mat, z_stream *z, void *buf, int nBytes);
-EXTERN int InflateFieldNameLength(mat_t *mat,matvar_t *matvar,void *buf);
-EXTERN int InflateFieldNamesTag(mat_t *mat,matvar_t *matvar,void *buf);
-EXTERN int InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
+static int InflateSkip(mat_t *mat, z_stream *z, int nbytes);
+static int InflateSkip2(mat_t *mat, matvar_t *matvar, int nbytes);
+static int InflateSkipData(mat_t *mat,z_stream *z,enum matio_types data_type,int len);
+static int InflateVarTag(mat_t *mat, matvar_t *matvar, void *buf);
+static int InflateArrayFlags(mat_t *mat, matvar_t *matvar, void *buf);
+static int InflateDimensions(mat_t *mat, matvar_t *matvar, void *buf);
+static int InflateVarNameTag(mat_t *mat, matvar_t *matvar, void *buf);
+static int InflateVarName(mat_t *mat,matvar_t *matvar,void *buf,int N);
+static int InflateDataTag(mat_t *mat, matvar_t *matvar, void *buf);
+static int InflateDataType(mat_t *mat, z_stream *matvar, void *buf);
+static int InflateData(mat_t *mat, z_stream *z, void *buf, int nBytes);
+static int InflateFieldNameLength(mat_t *mat,matvar_t *matvar,void *buf);
+static int InflateFieldNamesTag(mat_t *mat,matvar_t *matvar,void *buf);
+static int InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
                int fieldname_length,int padding);
 #endif
 
@@ -369,7 +369,7 @@ EXTERN int InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-mat_int64_t
+static mat_int64_t
 Mat_int64Swap( mat_int64_t *a )
 {
 
@@ -398,7 +398,7 @@ Mat_int64Swap( mat_int64_t *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-mat_uint64_t
+static mat_uint64_t
 Mat_uint64Swap( mat_uint64_t *a )
 {
 
@@ -426,7 +426,7 @@ Mat_uint64Swap( mat_uint64_t *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-mat_int32_t
+static mat_int32_t
 Mat_int32Swap( mat_int32_t *a )
 {
 
@@ -451,7 +451,7 @@ Mat_int32Swap( mat_int32_t *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-mat_uint32_t
+static mat_uint32_t
 Mat_uint32Swap( mat_uint32_t *a )
 {
 
@@ -476,7 +476,7 @@ Mat_uint32Swap( mat_uint32_t *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-mat_int16_t
+static mat_int16_t
 Mat_int16Swap( mat_int16_t *a )
 {
 
@@ -499,7 +499,7 @@ Mat_int16Swap( mat_int16_t *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-mat_uint16_t
+static mat_uint16_t
 Mat_uint16Swap( mat_uint16_t *a )
 {
 
@@ -522,7 +522,7 @@ Mat_uint16Swap( mat_uint16_t *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-float
+static float
 Mat_floatSwap( float *a )
 {
 
@@ -546,7 +546,7 @@ Mat_floatSwap( float *a )
  * @param a pointer to integer to swap
  * @return the swapped integer
  */
-double
+static double
 Mat_doubleSwap( double *a )
 {
 #ifndef SIZEOF_DOUBLE
@@ -606,7 +606,7 @@ Mat_doubleSwap( double *a )
  * @param nbytes Number of uncompressed bytes to skip
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateSkip(mat_t *mat, z_stream *z, int nbytes)
 {
     mat_uint8_t comp_buf[512],uncomp_buf[512];
@@ -676,7 +676,7 @@ InflateSkip(mat_t *mat, z_stream *z, int nbytes)
  * @param nbytes Number of uncompressed bytes to skip
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateSkip2(mat_t *mat, matvar_t *matvar, int nbytes)
 {
     mat_uint8_t comp_buf[32],uncomp_buf[32];
@@ -735,7 +735,7 @@ InflateSkip2(mat_t *mat, matvar_t *matvar, int nbytes)
  * @param len Number of elements of datatype @c data_type to skip
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateSkipData(mat_t *mat,z_stream *z,enum matio_types data_type,int len)
 {
     int data_size = 0;
@@ -796,7 +796,7 @@ InflateSkipData(mat_t *mat,z_stream *z,enum matio_types data_type,int len)
  * @param buf Pointer to store the 8-byte variable tag
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateVarTag(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -846,7 +846,7 @@ InflateVarTag(mat_t *mat, matvar_t *matvar, void *buf)
  * @param buf Pointer to store the 16-byte array flags tag and data
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateArrayFlags(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -897,7 +897,7 @@ InflateArrayFlags(mat_t *mat, matvar_t *matvar, void *buf)
  * @param buf Pointer to store the dimensions flag and data
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateDimensions(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -986,7 +986,7 @@ InflateDimensions(mat_t *mat, matvar_t *matvar, void *buf)
  * @param buf Pointer to store the variables name tag
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateVarNameTag(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -1036,7 +1036,7 @@ InflateVarNameTag(mat_t *mat, matvar_t *matvar, void *buf)
  * @param N Number of characters in the name
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateVarName(mat_t *mat, matvar_t *matvar, void *buf, int N)
 {
     mat_uint8_t comp_buf[32];
@@ -1086,7 +1086,7 @@ InflateVarName(mat_t *mat, matvar_t *matvar, void *buf, int N)
  * @param buf Pointer to store the data tag
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateDataTag(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -1140,7 +1140,7 @@ InflateDataTag(mat_t *mat, matvar_t *matvar, void *buf)
  * @param buf Pointer to store the data type
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateDataType(mat_t *mat, z_stream *z, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -1191,7 +1191,7 @@ InflateDataType(mat_t *mat, z_stream *z, void *buf)
  * @param nBytes Number of bytes to inflate
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateData(mat_t *mat, z_stream *z, void *buf, int nBytes)
 {
     mat_uint8_t comp_buf[1024];
@@ -1266,7 +1266,7 @@ InflateData(mat_t *mat, z_stream *z, void *buf, int nBytes)
  * @param buf Pointer to store the fieldname length
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateFieldNameLength(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -1316,7 +1316,7 @@ InflateFieldNameLength(mat_t *mat, matvar_t *matvar, void *buf)
  * @param buf Pointer to store the fieldname tag
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateFieldNamesTag(mat_t *mat, matvar_t *matvar, void *buf)
 {
     mat_uint8_t comp_buf[32];
@@ -1373,7 +1373,7 @@ InflateFieldNamesTag(mat_t *mat, matvar_t *matvar, void *buf)
  * @param padding Number of padding bytes
  * @return Number of bytes read from the file
  */
-int
+static int
 InflateFieldNames(mat_t *mat,matvar_t *matvar,void *buf,int nfields,
                   int fieldname_length,int padding)
 {
@@ -1609,7 +1609,7 @@ Mat_SizeOf(enum matio_types data_type)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadDoubleData(mat_t *mat,double *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -1778,7 +1778,7 @@ ReadDoubleData(mat_t *mat,double *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedDoubleData(mat_t *mat,z_stream *z,double *data,
     enum matio_types data_type,int len)
 {
@@ -2043,7 +2043,7 @@ ReadCompressedDoubleData(mat_t *mat,z_stream *z,double *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadSingleData(mat_t *mat,float *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -2217,7 +2217,7 @@ ReadSingleData(mat_t *mat,float *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedSingleData(mat_t *mat,z_stream *z,float *data,
     enum matio_types data_type,int len)
 {
@@ -2378,7 +2378,7 @@ ReadCompressedSingleData(mat_t *mat,z_stream *z,float *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -2591,7 +2591,7 @@ ReadInt64Data(mat_t *mat,mat_int64_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedInt64Data(mat_t *mat,z_stream *z,mat_int64_t *data,
     enum matio_types data_type,int len)
 {
@@ -2790,7 +2790,7 @@ ReadCompressedInt64Data(mat_t *mat,z_stream *z,mat_int64_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -3003,7 +3003,7 @@ ReadUInt64Data(mat_t *mat,mat_uint64_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedUInt64Data(mat_t *mat,z_stream *z,mat_uint64_t *data,
     enum matio_types data_type,int len)
 {
@@ -3201,7 +3201,7 @@ ReadCompressedUInt64Data(mat_t *mat,z_stream *z,mat_uint64_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadInt32Data(mat_t *mat,mat_int32_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -3376,7 +3376,7 @@ ReadInt32Data(mat_t *mat,mat_int32_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedInt32Data(mat_t *mat,z_stream *z,mat_int32_t *data,
     enum matio_types data_type,int len)
 {
@@ -3537,7 +3537,7 @@ ReadCompressedInt32Data(mat_t *mat,z_stream *z,mat_int32_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadUInt32Data(mat_t *mat,mat_uint32_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -3712,7 +3712,7 @@ ReadUInt32Data(mat_t *mat,mat_uint32_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedUInt32Data(mat_t *mat,z_stream *z,mat_uint32_t *data,
     enum matio_types data_type,int len)
 {
@@ -3873,7 +3873,7 @@ ReadCompressedUInt32Data(mat_t *mat,z_stream *z,mat_uint32_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadInt16Data(mat_t *mat,mat_int16_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -4048,7 +4048,7 @@ ReadInt16Data(mat_t *mat,mat_int16_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedInt16Data(mat_t *mat,z_stream *z,mat_int16_t *data,
     enum matio_types data_type,int len)
 {
@@ -4209,7 +4209,7 @@ ReadCompressedInt16Data(mat_t *mat,z_stream *z,mat_int16_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadUInt16Data(mat_t *mat,mat_uint16_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -4384,7 +4384,7 @@ ReadUInt16Data(mat_t *mat,mat_uint16_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedUInt16Data(mat_t *mat,z_stream *z,mat_uint16_t *data,
     enum matio_types data_type,int len)
 {
@@ -4545,7 +4545,7 @@ ReadCompressedUInt16Data(mat_t *mat,z_stream *z,mat_uint16_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadInt8Data(mat_t *mat,mat_int8_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -4720,7 +4720,7 @@ ReadInt8Data(mat_t *mat,mat_int8_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedInt8Data(mat_t *mat,z_stream *z,mat_int8_t *data,
     enum matio_types data_type,int len)
 {
@@ -4881,7 +4881,7 @@ ReadCompressedInt8Data(mat_t *mat,z_stream *z,mat_int8_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadUInt8Data(mat_t *mat,mat_uint8_t *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -5056,7 +5056,7 @@ ReadUInt8Data(mat_t *mat,mat_uint8_t *data,enum matio_types data_type,int len)
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedUInt8Data(mat_t *mat,z_stream *z,mat_uint8_t *data,
     enum matio_types data_type,int len)
 {
@@ -5218,7 +5218,7 @@ ReadCompressedUInt8Data(mat_t *mat,z_stream *z,mat_uint8_t *data,
  * @param len Number of elements of type @c data_type to read from the file
  * @retval Number of bytes read from the file
  */
-int
+static int
 ReadCompressedCharData(mat_t *mat,z_stream *z,char *data,
     enum matio_types data_type,int len)
 {
@@ -5267,7 +5267,7 @@ ReadCompressedCharData(mat_t *mat,z_stream *z,char *data,
 }
 #endif
 
-int
+static int
 ReadCharData(mat_t *mat,char *data,enum matio_types data_type,int len)
 {
     int bytesread = 0, data_size = 0, i;
@@ -5331,7 +5331,7 @@ ReadCharData(mat_t *mat,char *data,enum matio_types data_type,int len)
  * @param edge Number of elements to read in each dimension
  * @retval Number of bytes read from the file, or -1 on error
  */
-int
+static int
 ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
     enum matio_types data_type,int rank,size_t *dims,int *start,int *stride,
     int *edge)
@@ -6245,7 +6245,7 @@ ReadDataSlabN(mat_t *mat,void *data,enum matio_classes class_type,
  * @param edge Number of elements to read in each dimension
  * @retval Number of bytes read from the file, or -1 on error
  */
-int
+static int
 ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
     enum matio_classes class_type,enum matio_types data_type,int rank,
     size_t *dims,int *start,int *stride,int *edge)
@@ -6282,7 +6282,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6378,7 +6378,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6470,7 +6470,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6563,7 +6563,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6655,7 +6655,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6746,7 +6746,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6837,7 +6837,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -6928,7 +6928,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -7019,7 +7019,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -7110,7 +7110,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
                 N *= edge[i];
                 I += dimp[i-1]*start[i];
             }
-            /* Skip all data to the starting indeces */
+            /* Skip all data to the starting indices */
             InflateSkipData(mat,&z_copy,data_type,I);
             if ( stride[0] == 1 ) {
                 for ( i = 0; i < N; i+=edge[0] ) {
@@ -7203,7 +7203,7 @@ ReadCompressedDataSlabN(mat_t *mat,z_stream *z,void *data,
  * @param edge Number of elements to read
  * @return Number of bytes read from the file
  */
-int
+static int
 ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
     enum matio_types data_type,int start,int stride,int edge)
 {
@@ -7341,7 +7341,7 @@ ReadDataSlab1(mat_t *mat,void *data,enum matio_classes class_type,
  * @param edge Number of elements to read in each dimension
  * @retval Number of bytes read from the file, or -1 on error
  */
-int
+static int
 ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
     enum matio_types data_type,size_t *dims,int *start,int *stride,int *edge)
 {
@@ -7600,7 +7600,7 @@ ReadDataSlab2(mat_t *mat,void *data,enum matio_classes class_type,
  * @param edge Number of elements to read in each dimension
  * @retval Number of bytes read from the file, or -1 on error
  */
-int
+static int
 ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
     enum matio_classes class_type,enum matio_types data_type,int start,
     int stride,int edge)
@@ -7771,7 +7771,7 @@ ReadCompressedDataSlab1(mat_t *mat,z_stream *z,void *data,
  * @param edge Number of elements to read in each dimension
  * @retval Number of bytes read from the file, or -1 on error
  */
-int
+static int
 ReadCompressedDataSlab2(mat_t *mat,z_stream *z,void *data,
     enum matio_classes class_type,enum matio_types data_type,size_t *dims,
     int *start,int *stride,int *edge)
@@ -8842,18 +8842,18 @@ static void dopr_outch(char *buffer, size_t *currlen, size_t maxlen, char c)
     (*currlen)++;
 }
 
-int mat_vsnprintf(char *str, size_t count, const char *fmt, va_list args)
+static int mat_vsnprintf(char *str, size_t count, const char *fmt, va_list args)
 {
     return dopr(str, count, fmt, args);
 }
 #else
-int mat_vsnprintf(char *str, size_t count, const char *fmt, va_list args)
+static int mat_vsnprintf(char *str, size_t count, const char *fmt, va_list args)
 {
     return vsnprintf(str, count, fmt, args);
 }
 #endif
 
-int mat_snprintf(char *str,size_t count,const char *fmt,...)
+static int mat_snprintf(char *str,size_t count,const char *fmt,...)
 {
     size_t ret;
     va_list ap;
@@ -8866,7 +8866,7 @@ int mat_snprintf(char *str,size_t count,const char *fmt,...)
 #endif
 
 #ifndef HAVE_VASPRINTF
-int mat_vasprintf(char **ptr, const char *format, va_list ap)
+static int mat_vasprintf(char **ptr, const char *format, va_list ap)
 {
     int ret;
     va_list ap2;
@@ -8886,13 +8886,13 @@ int mat_vasprintf(char **ptr, const char *format, va_list ap)
     return ret;
 }
 #else
-int mat_vasprintf(char **ptr, const char *format, va_list ap)
+static int mat_vasprintf(char **ptr, const char *format, va_list ap)
 {
     return vasprintf(ptr,format,ap);
 }
 #endif
 
-int mat_asprintf(char **ptr, const char *format, ...)
+static int mat_asprintf(char **ptr, const char *format, ...)
 {
     va_list ap;
     int ret;
@@ -8963,36 +8963,36 @@ static size_t Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,
 #endif
 
 /*   mat5.c    */
-EXTERN mat_t *Mat_Create5(const char *matname,const char *hdr_str);
+static mat_t *Mat_Create5(const char *matname,const char *hdr_str);
 
-matvar_t *Mat_VarReadNextInfo5( mat_t *mat );
-void      Read5(mat_t *mat, matvar_t *matvar);
-int       ReadData5(mat_t *mat,matvar_t *matvar,void *data,
+static matvar_t *Mat_VarReadNextInfo5( mat_t *mat );
+static void      Read5(mat_t *mat, matvar_t *matvar);
+static int       ReadData5(mat_t *mat,matvar_t *matvar,void *data,
               int *start,int *stride,int *edge);
-int       Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,
+static int       Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,
               int start,int stride,int edge);
-int       Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress);
-int       WriteCharDataSlab2(mat_t *mat,void *data,enum matio_types data_type,
+static int       Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress);
+static int       WriteCharDataSlab2(mat_t *mat,void *data,enum matio_types data_type,
               size_t *dims,int *start,int *stride,int *edge);
-int       WriteData(mat_t *mat,void *data,int N,enum matio_types data_type);
-int       WriteDataSlab2(mat_t *mat,void *data,enum matio_types data_type,
+static int       WriteData(mat_t *mat,void *data,int N,enum matio_types data_type);
+static int       WriteDataSlab2(mat_t *mat,void *data,enum matio_types data_type,
               size_t *dims,int *start,int *stride,int *edge);
-void      WriteInfo5(mat_t *mat, matvar_t *matvar);
+static void      WriteInfo5(mat_t *mat, matvar_t *matvar);
 
 #endif
 
 #ifndef MAT4_H
 #define MAT4_H
 
-EXTERN mat_t *Mat_Create4(const char* matname);
-int  Mat_VarWrite4(mat_t *mat,matvar_t *matvar);
-void Read4(mat_t *mat, matvar_t *matvar);
-int  ReadData4(mat_t *mat,matvar_t *matvar,void *data,
+static mat_t *Mat_Create4(const char* matname);
+static int  Mat_VarWrite4(mat_t *mat,matvar_t *matvar);
+static void Read4(mat_t *mat, matvar_t *matvar);
+static int  ReadData4(mat_t *mat,matvar_t *matvar,void *data,
          int *start,int *stride,int *edge);
-int  Mat_VarReadDataLinear4(mat_t *mat,matvar_t *matvar,void *data,int start,
+static int  Mat_VarReadDataLinear4(mat_t *mat,matvar_t *matvar,void *data,int start,
          int stride,int edge);
 
-matvar_t *Mat_VarReadNextInfo4(mat_t *mat);
+static matvar_t *Mat_VarReadNextInfo4(mat_t *mat);
 
 #endif
 #if defined(HAVE_HDF5)
@@ -9001,16 +9001,16 @@ matvar_t *Mat_VarReadNextInfo4(mat_t *mat);
 
 #include <hdf5.h>
 
-EXTERN mat_t    *Mat_Create73(const char *matname,const char *hdr_str);
+static mat_t    *Mat_Create73(const char *matname,const char *hdr_str);
 
-EXTERN void      Mat_VarPrint73(matvar_t *matvar,int printdata);
-EXTERN void      Mat_VarRead73(mat_t *mat,matvar_t *matvar);
-EXTERN int       Mat_VarReadData73(mat_t *mat,matvar_t *matvar,void *data,
+static void      Mat_VarPrint73(matvar_t *matvar,int printdata);
+static void      Mat_VarRead73(mat_t *mat,matvar_t *matvar);
+static int       Mat_VarReadData73(mat_t *mat,matvar_t *matvar,void *data,
                      int *start,int *stride,int *edge);
-EXTERN int       Mat_VarReadDataLinear73(mat_t *mat,matvar_t *matvar,void *data,
+static int       Mat_VarReadDataLinear73(mat_t *mat,matvar_t *matvar,void *data,
                      int start,int stride,int edge);
-EXTERN matvar_t *Mat_VarReadNextInfo73(mat_t *mat);
-EXTERN int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
+static matvar_t *Mat_VarReadNextInfo73(mat_t *mat);
+static int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
 
 #endif
 #endif
@@ -9102,8 +9102,8 @@ Mat_PrintNumber(enum matio_types type, void *data)
  *
  * Gets the version number of the library
  * @param major Pointer to store the library major version number
- * @param major Pointer to store the library major version number
- * @param major Pointer to store the library major version number
+ * @param minor Pointer to store the library minor version number
+ * @param release Pointer to store the library release version number
  */
 void
 Mat_GetLibraryVersion(int *major,int *minor,int *release)
@@ -9991,7 +9991,7 @@ Mat_VarFree(matvar_t *matvar)
     if ( matvar->data != NULL) {
         switch (matvar->class_type ) {
             case MAT_C_STRUCT:
-                if ( !matvar->mem_conserve && NULL != matvar->data ) {
+                if ( !matvar->mem_conserve ) {
                     matvar_t **fields = matvar->data;
                     int nfields = matvar->internal->num_fields;
                     for ( i = 0; i < nmemb*nfields; i++ )
@@ -10001,7 +10001,7 @@ Mat_VarFree(matvar_t *matvar)
                     break;
                 }
             case MAT_C_CELL:
-                if ( !matvar->mem_conserve && NULL != matvar->data ) {
+                if ( !matvar->mem_conserve ) {
                     matvar_t **cells = matvar->data;
                     for ( i = 0; i < nmemb; i++ )
                         Mat_VarFree(cells[i]);
@@ -10039,7 +10039,7 @@ Mat_VarFree(matvar_t *matvar)
             case MAT_C_INT8:
             case MAT_C_UINT8:
             case MAT_C_CHAR:
-                if ( !matvar->mem_conserve && NULL != matvar->data ) {
+                if ( !matvar->mem_conserve ) {
                     if ( matvar->isComplex ) {
                         mat_complex_split_t *complex_data = matvar->data;
                         free(complex_data->Re);
@@ -10495,7 +10495,7 @@ Mat_VarPrint( matvar_t *matvar, int printdata )
  * @param mat MAT file to read data from
  * @param matvar MAT variable information
  * @param data pointer to store data in (must be pre-allocated)
- * @param start array of starting indeces
+ * @param start array of starting indices
  * @param stride stride of data
  * @param edge array specifying the number to read in each direction
  * @retval 0 on success
@@ -10810,7 +10810,7 @@ Mat_VarWriteInfo(mat_t *mat, matvar_t *matvar )
  * @param mat MAT file to write to
  * @param matvar MAT variable information to write
  * @param data pointer to the data to write
- * @param start array of starting indeces
+ * @param start array of starting indices
  * @param stride stride of data
  * @param edge array specifying the number to read in each direction
  * @retval 0 on success
@@ -11238,7 +11238,7 @@ Mat_VarReadDataLinear4(mat_t *mat,matvar_t *matvar,void *data,int start,
  *
  * @ingroup mat_internal
  * @param mat MAT file pointer
- * @retuen pointer to the MAT variable or NULL
+ * @return pointer to the MAT variable or NULL
  * @endif
  */
 matvar_t *
@@ -17422,7 +17422,7 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
  *
  * @ingroup mat_internal
  * @param mat MAT file pointer
- * @retuen pointer to the MAT variable or NULL
+ * @return pointer to the MAT variable or NULL
  * @endif
  */
 matvar_t *
