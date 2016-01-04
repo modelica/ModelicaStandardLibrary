@@ -57,6 +57,9 @@
 
 #include "ModelicaUtilities.h"
 #if !defined(NO_FILE_SYSTEM)
+#if defined(__MINGW32__)
+#define __USE_MINGW_ANSI_STDIO 1
+#endif
 #include <stdarg.h>
 
 /* -------------------------------
@@ -8950,8 +8953,10 @@ static size_t Mat_WriteEmptyVariable5(mat_t *mat,const char *name,int rank,
 #if defined(HAVE_ZLIB)
 static size_t WriteCompressedCharData(mat_t *mat,z_stream *z,void *data,int N,
                   enum matio_types data_type);
+#if 0
 static int    WriteCompressedEmptyData(mat_t *mat,z_stream *z,int N,
                   enum matio_types data_type);
+#endif
 static size_t WriteCompressedData(mat_t *mat,z_stream *z,void *data,int N,
                   enum matio_types data_type);
 static size_t WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,
@@ -12374,6 +12379,7 @@ WriteEmptyData(mat_t *mat,int N,enum matio_types data_type)
 }
 
 #if defined(HAVE_ZLIB)
+#if 0
 static int
 WriteCompressedEmptyData(mat_t *mat,z_stream *z,int N,
     enum matio_types data_type)
@@ -12527,6 +12533,7 @@ WriteCompressedEmptyData(mat_t *mat,z_stream *z,int N,
     }
     return byteswritten;
 }
+#endif
 #endif
 
 /** @if mat_devman
