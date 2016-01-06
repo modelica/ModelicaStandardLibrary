@@ -100,7 +100,7 @@
 #endif
 
 /* Have snprintf */
-#if defined(__LCC__) || (defined(_MSC_VER) && _MSC_VER < 1400)
+#if defined(__LCC__) || (defined(_MSC_VER) && _MSC_VER < 1900)
 #undef HAVE_SNPRINTF
 #else
 #define HAVE_SNPRINTF 1
@@ -159,7 +159,7 @@
 #if !defined(HAVE_C99_VSNPRINTF)
 #define HAVE_C99_VSNPRINTF 1
 #endif
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
+#elif defined(_MSC_VER) && _MSC_VER >= 1900
 #define HAVE_VSNPRINTF 1
 #if !defined(HAVE_C99_VSNPRINTF)
 #define HAVE_C99_VSNPRINTF 1
@@ -17123,7 +17123,7 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
     mat_int8_t  pad1 = 0;
     int      array_flags_type = MAT_T_UINT32, dims_array_type = MAT_T_INT32;
     int      array_flags_size = 8, pad4 = 0, matrix_type = MAT_T_MATRIX;
-    int      nBytes, i, nmemb = 1,nzmax;
+    int      nBytes, i, nmemb = 1,nzmax = 0;
     long     start = 0, end = 0;
 
     /* FIXME: SEEK_END is not Guaranteed by the C standard */
