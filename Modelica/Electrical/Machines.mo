@@ -14088,10 +14088,10 @@ Thermal ports for DC machines
         annotation (Line(points={{-100,0},{-90,0}}, color={0,0,255}));
       connect(thermalPort, internalThermalPort) annotation (Line(
           points={{0,100},{0,80}},
-          color={199,0,0}));
+          color={191,0,0}));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
           points={{-20,80},{0,80}},
-          color={199,0,0}));
+          color={191,0,0}));
       connect(r1.heatPort, internalThermalPort.heatPort1) annotation (Line(
           points={{-80,10},{-80,60},{0,60},{0,80}},
           color={191,0,0}));
