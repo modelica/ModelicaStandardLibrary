@@ -5968,10 +5968,10 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         Boolean init3;
         SI.MagneticFieldStrength x(start=0)
           "Variable for initialization of the Preisach model";
-        discrete Real aSavI;
-        discrete Real bSavI;
-        discrete Real bI;
-        discrete Real hmaxI;
+        discrete Real aSavI(start=0, fixed=true);
+        discrete Real bSavI(start=0, fixed=true);
+        discrete Real bI(start=0, fixed=true);
+        discrete Real hmaxI(start=0, fixed=true);
 
       initial equation
         J = 0.5*(FluxTubes.Utilities.everett(
@@ -6111,7 +6111,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
         "Permanent magnet based on the Tellinen hysteresis model"
 
         extends FluxTubes.Interfaces.PartialGenericHysteresisTellinen(mu0=K*
-              Modelica.Constants.mue_0, MagRel(start=-100, fixed=true));
+              Modelica.Constants.mue_0, MagRel(start=-1, fixed=true));
 
         parameter SI.MagneticFluxDensity Br=1.2 "Remanence" annotation (Dialog(group="Hysteresis", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenHard/HardMagneticHysteresis.png"));
         parameter SI.MagneticFieldStrength Hc=5e5 "Coercitivity" annotation (Dialog(group="Hysteresis"));
