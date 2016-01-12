@@ -240,13 +240,13 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("... Test of Modelica.Utilities.Streams");
     Streams.print("... Test of Modelica.Utilities.Streams", logFile);
 
-    Files.remove(file1);
+    Files.removeFile(file1);
     Streams.print(line1, file1);
     Streams.print(line2, file1);
     Streams.print(line3, file1);
     Streams.close(file1);
 
-    Files.remove(file2);
+    Files.removeFile(file2);
     Streams.print(line4, file2);
     Streams.print(line5, file2);
     Streams.close(file2);
@@ -279,8 +279,8 @@ extends Modelica.Icons.ExamplesPackage;
     (rline,eof) := Streams.readLine(file1, 4);
     assert(rline == "" and eof, "Streams.readLine 4 failed");
 
-    Files.remove(file1);
-    Files.remove(file2);
+    Files.removeFile(file1);
+    Files.removeFile(file2);
 
     ok := true;
   end Streams;
@@ -304,13 +304,13 @@ extends Modelica.Icons.ExamplesPackage;
     Streams.print("... Test of Modelica.Utilities.Streams for writing of a file");
     Streams.print("... Test of Modelica.Utilities.Streams for writing of a file", logFile);
 
-    Files.remove(file1);
+    Files.removeFile(file1);
     Streams.print(line1, file1);
     Streams.print(line2, file1);
     Streams.print(line3, file1);
     Streams.close(file1);
 
-    Files.remove(file2);
+    Files.removeFile(file2);
     Streams.print(line4, file2);
     Streams.print(line5, file2);
     Streams.close(file2);

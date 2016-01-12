@@ -335,15 +335,14 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
       end for;
   end removeDirectoryContents;
 //..............................................................
-  String fullName = Files.fullPathName(name);
-  Types.FileType fileType=Modelica.Utilities.Internal.FileSystem.stat(
-                                        fullName);
+  String fullName;
+  Types.FileType fileType=Modelica.Utilities.Internal.FileSystem.stat(name);
 algorithm
   if fileType == Types.FileType.RegularFile or
      fileType == Types.FileType.SpecialFile then
-     Modelica.Utilities.Internal.FileSystem.removeFile(
-                         fullName);
+     Modelica.Utilities.Internal.FileSystem.removeFile(name);
   elseif fileType == Types.FileType.Directory then
+     fullName :=Files.fullPathName(name);
      removeDirectory(fullName);
   end if;
 
