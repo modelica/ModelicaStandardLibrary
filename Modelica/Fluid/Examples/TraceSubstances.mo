@@ -89,7 +89,7 @@ of magnitude.
   model RoomCO2WithControls "Demonstrates a room volume with CO2 controls"
     extends Modelica.Icons.Example;
     package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"},
-                                               C_nominal={1.519E-3});
+                                               C_nominal={1.519E-1});
     Modelica.Blocks.Sources.Constant CAtm(k=0.3*1.519E-3)
       "Atmospheric trace substance concentration, corresponding to 300 PPM CO2"
       annotation (Placement(transformation(extent={{-100,-48},{-80,-28}})));
@@ -109,7 +109,6 @@ of magnitude.
       nPorts=2)
       annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
-      mC_scaled(nominal = 100),
       medium(Xi(nominal=0.01)),
       C_start={1.519E-3},
       V=100,
