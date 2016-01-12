@@ -19,9 +19,9 @@ package Nonlinear
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
         if strict then
-           y = homotopy(actual=  smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=y);
+           y = homotopy(actual=  smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=u);
         else
-           y = homotopy(actual=  smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=y);
+           y = homotopy(actual=  smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=u);
         end if;
         annotation (
           Documentation(info="<html>
@@ -116,9 +116,9 @@ as output.
     assert(limit1 > limit2, "Limits limit1/limit2 are not consistent");
 
     if strict then
-       y = homotopy(actual=  smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=y);
+       y = homotopy(actual=  smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=u);
     else
-       y = homotopy(actual=  smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=y);
+       y = homotopy(actual=  smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=u);
     end if;
 
     annotation (
@@ -276,7 +276,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
         assert(uMax >= uMin, "DeadZone: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
 
-        y = homotopy(actual=smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0), simplified=y);
+        y = homotopy(actual=smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0), simplified=u);
 
         annotation (
           Documentation(info="<html>
