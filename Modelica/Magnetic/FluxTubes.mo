@@ -112,7 +112,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
 </html>"));
     end ReluctanceForceCalculation;
 
-    package Hysteresis
+    package Hysteresis "Hysteresis"
       extends Modelica.Icons.Info;
       package StaticHysteresis "Static Hysteresis"
         extends Modelica.Icons.Info;
@@ -224,6 +224,14 @@ According to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literat
 <p></p>
 </html>"));
         end Preisach;
+        annotation (Documentation(info="<html>
+<p>
+Two different types of hyteresis models are supported:
+<ul>
+<li> Tellinen model (a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials).</li>
+<li> Preisach model (a more detailed, but also computationally more involved hysteresis model).</li>
+</ul>
+</html>"));
       end StaticHysteresis;
 
       class DynamicHysteresis "Dynamic Hysteresis (Eddy Currents)"

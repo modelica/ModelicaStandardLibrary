@@ -2421,6 +2421,22 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     (This library was developed by Christian Kral and Anton Haumer).
     </td></tr>
 
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes.&lt;sublibraries&gt;</a></td>
+    <td valign=\"top\">
+   Significant extensions to the <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a> have been added:
+   New elements for modeling ferromagnetic (static) and eddy current (dynamic) hysteresis effects and permanent magnets. 
+   The FluxTubes.Material package is also extended to provide hysteresis data for several magnetic materials. These data is partly based on own measurements. 
+   For modeling of ferromagnetic hysteresis, two different hystereses models have been implemented: The simple Tellinen model and the considerably
+   more detailed Preisach hysteresis model. The following packages have been added:
+  <ul>
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a><li>
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a><li>   
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a><li>   
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a><li>   
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a><li>   
+  </ul>
+    (This extensions have been developed by Johannes Ziske and Thomas Bödrich).
+    </td></tr>
 </table>
 
 <p><br>
@@ -2568,8 +2584,6 @@ The following <b style=\"color:blue\">existing components</b> have been <b style
 </html>"));
 end Version_3_2_2;
   extends Modelica.Icons.ReleaseNotes;
-
-
 
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
