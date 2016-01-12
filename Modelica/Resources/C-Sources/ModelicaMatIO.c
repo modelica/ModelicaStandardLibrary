@@ -1,6 +1,6 @@
 /* ModelicaMatIO.c - MAT file I/O functions
 
-   Copyright (C) 2005-2013, Christopher C. Hulbert
+   Copyright (C) 2005-2016, Christopher C. Hulbert
    Copyright (C) 2013-2016, Modelica Association and ITI GmbH
    All rights reserved.
 
@@ -10169,15 +10169,15 @@ Mat_VarFree2(matvar_t *matvar)
  * Calculates a single linear subscript (0-relative) given a 1-relative
  * subscript for each dimension.  The calculation uses the formula below where
  * index is the linear index, s is an array of length RANK where each element
- * is the subscript for the correspondind dimension, D is an array whose
+ * is the subscript for the corresponding dimension, D is an array whose
  * elements are the dimensions of the variable.
  * \f[
  *   index = \sum\limits_{k=0}^{RANK-1} [(s_k - 1) \prod\limits_{l=0}^{k} D_l ]
  * \f]
  * @ingroup MAT
  * @param rank Rank of the variable
- * @param dims dimensions of the variable
- * @param subs Dimension subscripts
+ * @param dims Dimensions of the variable
+ * @param subs Array of dimension subscripts
  * @return Single (linear) subscript
  */
 int
@@ -10206,6 +10206,48 @@ Mat_CalcSingleSubscript(int rank,int *dims,int *subs)
     return index;
 }
 
+/** @brief Calculate a single subscript from a set of subscript values
+ *
+ * Calculates a single linear subscript (0-relative) given a 1-relative
+ * subscript for each dimension.  The calculation uses the formula below where
+ * index is the linear index, s is an array of length RANK where each element
+ * is the subscript for the corresponding dimension, D is an array whose
+ * elements are the dimensions of the variable.
+ * \f[
+ *   index = \sum\limits_{k=0}^{RANK-1} [(s_k - 1) \prod\limits_{l=0}^{k} D_l ]
+ * \f]
+ * @ingroup MAT
+ * @param rank Rank of the variable
+ * @param dims Dimensions of the variable
+ * @param subs Array of dimension subscripts
+ * @param[out] index Single (linear) subscript
+ * @retval 0 on success
+ */
+int
+Mat_CalcSingleSubscript2(int rank,size_t *dims,size_t *subs,size_t *index)
+{
+    int i, err = 0;
+
+    for ( i = 0; i < rank; i++ ) {
+        int j;
+        size_t k = subs[i];
+        if ( k > dims[i] ) {
+            err = 1;
+            Mat_Critical("Mat_CalcSingleSubscript2: index out of bounds");
+            break;
+        } else if ( k < 1 ) {
+            err = 1;
+            break;
+        }
+        k--;
+        for ( j = i; j--; )
+            k *= dims[j];
+        *index += k;
+    }
+
+    return err;
+}
+
 /** @brief Calculate a set of subscript values from a single(linear) subscript
  *
  * Calculates 1-relative subscripts for each dimension given a 0-relative
@@ -10220,8 +10262,8 @@ Mat_CalcSingleSubscript(int rank,int *dims,int *subs)
  * \f]
  * @ingroup MAT
  * @param rank Rank of the variable
- * @param dims dimensions of the variable
- * @param index linear index
+ * @param dims Dimensions of the variable
+ * @param index Linear index
  * @return Array of dimension subscripts
  */
 int *
@@ -10237,6 +10279,46 @@ Mat_CalcSubscripts(int rank,int *dims,int index)
         for ( j = i; j--; )
             k *= dims[j];
         subs[i] = floor(l / (double)k);
+        l -= subs[i]*k;
+        subs[i]++;
+    }
+
+    return subs;
+}
+
+/** @brief Calculate a set of subscript values from a single(linear) subscript
+ *
+ * Calculates 1-relative subscripts for each dimension given a 0-relative
+ * linear index.  Subscripts are calculated as follows where s is the array
+ * of dimension subscripts, D is the array of dimensions, and index is the
+ * linear index.
+ * \f[
+ *   s_k = \lfloor\frac{1}{L} \prod\limits_{l = 0}^{k} D_l\rfloor + 1
+ * \f]
+ * \f[
+ *   L = index - \sum\limits_{l = k}^{RANK - 1} s_k \prod\limits_{m = 0}^{k} D_m
+ * \f]
+ * @ingroup MAT
+ * @param rank Rank of the variable
+ * @param dims Dimensions of the variable
+ * @param index Linear index
+ * @return Array of dimension subscripts
+ */
+size_t *
+Mat_CalcSubscripts2(int rank,size_t *dims,size_t index)
+{
+    int i;
+    size_t *subs;
+    double l;
+
+    subs = malloc(rank*sizeof(size_t));
+    l = (double)index;
+    for ( i = rank; i--; ) {
+        int j;
+        size_t k = 1;
+        for ( j = i; j--; )
+            k *= dims[j];
+        subs[i] = (size_t)floor(l / (double)k);
         l -= subs[i]*k;
         subs[i]++;
     }
@@ -10260,7 +10342,7 @@ Mat_VarGetSize(matvar_t *matvar)
         int nfields;
         matvar_t **fields;
         /* This is really nmemb*nfields, but we'll get a
-         * more accurate count of the bytes by loopoing over all of them
+         * more accurate count of the bytes by looping over all of them
          */
         nfields = matvar->internal->num_fields;
         fields  = matvar->data;
@@ -12035,35 +12117,39 @@ WriteCompressedCharData(mat_t *mat,z_stream *z,void *data,int N,
         case MAT_T_UINT16:
         {
             data_size = 2;
-            data_tag[0]  = MAT_T_UINT16;
-            data_tag[1]  = N*data_size;
-            z->next_in   = ZLIB_BYTE_PTR(data_tag);
-            z->avail_in  = 8;
-            z->next_out  = buf;
-            z->avail_out = buf_size;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            data_tag[0] = MAT_T_UINT16;
+            data_tag[1] = N*data_size;
+            z->next_in  = ZLIB_BYTE_PTR(data_tag);
+            z->avail_in = 8;
+            do {
+                z->next_out  = buf;
+                z->avail_out = buf_size;
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
 
             /* exit early if this is a empty data */
             if ( NULL == data || N < 1 )
                 break;
 
-            z->next_in   = data;
-            z->avail_in  = data_size*N;
+            z->next_in  = data;
+            z->avail_in = data_size*N;
             do {
                 z->next_out  = buf;
                 z->avail_out = buf_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
+                err = deflate(z,Z_NO_FLUSH);
                 byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
             } while ( z->avail_out == 0 );
             /* Add/Compress padding to pad to 8-byte boundary */
             if ( N*data_size % 8 ) {
-                z->next_in   = pad;
-                z->avail_in  = 8 - (N*data_size % 8);
-                z->next_out  = buf;
-                z->avail_out = buf_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                z->next_in  = pad;
+                z->avail_in = 8 - (N*data_size % 8);
+                do {
+                    z->next_out  = buf;
+                    z->avail_out = buf_size;
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
             }
             break;
         }
@@ -12074,76 +12160,86 @@ WriteCompressedCharData(mat_t *mat,z_stream *z,void *data,int N,
             mat_uint16_t c;
 
             /* Matlab can't read MAT_C_CHAR as uint8, needs uint16 */
-            data_size    = 2;
-            data_tag[0]  = MAT_T_UINT16;
-            data_tag[1]  = N*data_size;
-            z->next_in   = ZLIB_BYTE_PTR(data_tag);
-            z->avail_in  = 8;
-            z->next_out  = buf;
-            z->avail_out = buf_size;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            data_size   = 2;
+            data_tag[0] = MAT_T_UINT16;
+            data_tag[1] = N*data_size;
+            z->next_in  = ZLIB_BYTE_PTR(data_tag);
+            z->avail_in = 8;
+            do {
+                z->next_out  = buf;
+                z->avail_out = buf_size;
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
 
             /* exit early if this is a empty data */
             if ( NULL == data || N < 1 )
                 break;
 
-            z->next_in   = data;
-            z->avail_in  = data_size*N;
+            z->next_in  = data;
+            z->avail_in = data_size*N;
             ptr = data;
             for ( i = 0; i < N; i++ ) {
                 c = (mat_uint16_t)*(char *)ptr;
-                z->next_in   = ZLIB_BYTE_PTR(&c);
-                z->avail_in  = 2;
-                z->next_out  = buf;
-                z->avail_out = buf_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                z->next_in  = ZLIB_BYTE_PTR(&c);
+                z->avail_in = 2;
+                do {
+                    z->next_out  = buf;
+                    z->avail_out = buf_size;
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
                 ptr++;
             }
             /* Add/Compress padding to pad to 8-byte boundary */
             if ( N*data_size % 8 ) {
-                z->next_in   = pad;
-                z->avail_in  = 8 - (N*data_size % 8);
-                z->next_out  = buf;
-                z->avail_out = buf_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                z->next_in  = pad;
+                z->avail_in = 8 - (N*data_size % 8);
+                do {
+                    z->next_out  = buf;
+                    z->avail_out = buf_size;
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
             }
             break;
         }
         case MAT_T_UTF8:
         {
             data_size = 1;
-            data_tag[0]  = MAT_T_UTF8;
-            data_tag[1]  = N*data_size;
-            z->next_in   = ZLIB_BYTE_PTR(data_tag);
-            z->avail_in  = 8;
-            z->next_out  = buf;
-            z->avail_out = buf_size;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            data_tag[0] = MAT_T_UTF8;
+            data_tag[1] = N*data_size;
+            z->next_in  = ZLIB_BYTE_PTR(data_tag);
+            z->avail_in = 8;
+            do {
+                z->next_out  = buf;
+                z->avail_out = buf_size;
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
 
             /* exit early if this is a empty data */
             if ( NULL == data || N < 1 )
                 break;
 
-            z->next_in   = data;
-            z->avail_in  = data_size*N;
+            z->next_in  = data;
+            z->avail_in = data_size*N;
             do {
                 z->next_out  = buf;
                 z->avail_out = buf_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
+                err = deflate(z,Z_NO_FLUSH);
                 byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
             } while ( z->avail_out == 0 );
             /* Add/Compress padding to pad to 8-byte boundary */
             if ( N*data_size % 8 ) {
-                z->next_in   = pad;
-                z->avail_in  = 8 - (N*data_size % 8);
-                z->next_out  = buf;
-                z->avail_out = buf_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                z->next_in  = pad;
+                z->avail_in = 8 - (N*data_size % 8);
+                do {
+                    z->next_out  = buf;
+                    z->avail_out = buf_size;
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
             }
             break;
         }
@@ -12153,14 +12249,16 @@ WriteCompressedCharData(mat_t *mat,z_stream *z,void *data,int N,
              * a data tag
              */
             data_size = 2;
-            data_tag[0]  = MAT_T_UINT16;
-            data_tag[1]  = N*data_size;
-            z->next_in   = ZLIB_BYTE_PTR(data_tag);
-            z->avail_in  = 8;
-            z->next_out  = buf;
-            z->avail_out = buf_size;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            data_tag[0] = MAT_T_UINT16;
+            data_tag[1] = N*data_size;
+            z->next_in  = ZLIB_BYTE_PTR(data_tag);
+            z->avail_in = 8;
+            do {
+                z->next_out  = buf;
+                z->avail_out = buf_size;
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
         }
         default:
             break;
@@ -12400,19 +12498,23 @@ WriteCompressedEmptyData(mat_t *mat,z_stream *z,int N,
             nBytes = N*data_size;
             uncomp_buf[0] = data_type;
             uncomp_buf[1] = 0;
-            z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            z->avail_out = 32*sizeof(*comp_buf);
-            z->avail_in  = 8;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,32*sizeof(*comp_buf)-z->avail_out,mat->fp);
-            for ( i = 0; i < N; i++ ) {
+            z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            z->avail_in = 8;
+            do {
                 z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                z->next_in   = ZLIB_BYTE_PTR(data_uncomp_buf);
                 z->avail_out = 32*sizeof(*comp_buf);
-                z->avail_in  = 8;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(comp_buf,32*sizeof(*comp_buf)-z->avail_out,1,mat->fp);
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,32*sizeof(*comp_buf)-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
+            for ( i = 0; i < N; i++ ) {
+                z->next_in  = ZLIB_BYTE_PTR(data_uncomp_buf);
+                z->avail_in = 8;
+                do {
+                    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                    z->avail_out = 32*sizeof(*comp_buf);
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(comp_buf,32*sizeof(*comp_buf)-z->avail_out,1,mat->fp);
+                } while ( z->avail_out == 0 );
             }
             break;
         }
@@ -12944,35 +13046,39 @@ WriteCompressedData(mat_t *mat,z_stream *z,void *data,int N,
 
     data_size = Mat_SizeOf(data_type);
 
-    data_tag[0]  = data_type;
-    data_tag[1]  = data_size*N;
-    z->next_in   = ZLIB_BYTE_PTR(data_tag);
-    z->avail_in  = 8;
-    z->next_out  = buf;
-    z->avail_out = buf_size;
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+    data_tag[0] = data_type;
+    data_tag[1] = data_size*N;
+    z->next_in  = ZLIB_BYTE_PTR(data_tag);
+    z->avail_in = 8;
+    do {
+        z->next_out  = buf;
+        z->avail_out = buf_size;
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+    } while ( z->avail_out == 0 );
 
     /* exit early if this is a empty data */
     if ( NULL == data || N < 1 )
         return byteswritten;
 
-    z->next_in   = data;
-    z->avail_in  = N*data_size;
+    z->next_in  = data;
+    z->avail_in = N*data_size;
     do {
         z->next_out  = buf;
         z->avail_out = buf_size;
-        err = deflate(z,Z_PARTIAL_FLUSH);
+        err = deflate(z,Z_NO_FLUSH);
         byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
     } while ( z->avail_out == 0 );
     /* Add/Compress padding to pad to 8-byte boundary */
     if ( N*data_size % 8 ) {
-        z->next_in   = pad;
-        z->avail_in  = 8 - (N*data_size % 8);
-        z->next_out  = buf;
-        z->avail_out = buf_size;
-        err = deflate(z,Z_PARTIAL_FLUSH);
-        byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+        z->next_in  = pad;
+        z->avail_in = 8 - (N*data_size % 8);
+        do {
+            z->next_out  = buf;
+            z->avail_out = buf_size;
+            err = deflate(z,Z_NO_FLUSH);
+            byteswritten += fwrite(buf,1,buf_size-z->avail_out,mat->fp);
+        } while ( z->avail_out == 0 );
     }
     nBytes = byteswritten;
     return nBytes;
@@ -13118,15 +13224,30 @@ ReadNextCell( mat_t *mat, matvar_t *matvar )
             }
             cells[i]->internal->z = calloc(1,sizeof(z_stream));
             err = inflateCopy(cells[i]->internal->z,matvar->internal->z);
-            if ( err != Z_OK )
+            if ( err != Z_OK ) {
                 Mat_Critical("inflateCopy returned error %d",err);
+            }
             cells[i]->internal->datapos = ftell(mat->fp)-matvar->internal->z->avail_in;
             if ( cells[i]->class_type == MAT_C_STRUCT )
                 bytesread+=ReadNextStructField(mat,cells[i]);
             else if ( cells[i]->class_type == MAT_C_CELL )
                 bytesread+=ReadNextCell(mat,cells[i]);
+            else if ( nbytes <= (1 << MAX_WBITS) ) {
+                /* Memory optimization: Read data if less in size
+                   than the zlib inflate state (approximately) */
+                cells[i]->internal->fp = mat;
+                Mat_VarReadDataAll(mat,cells[i]);
+            }
             fseek(mat->fp,cells[i]->internal->datapos,SEEK_SET);
             bytesread+=InflateSkip(mat,matvar->internal->z,nbytes);
+            if ( cells[i]->data != NULL && (nbytes <= (1 << MAX_WBITS) ||
+                cells[i]->class_type == MAT_C_STRUCT ||
+                cells[i]->class_type == MAT_C_CELL) ) {
+                /* Memory optimization: Free inflate state */
+                inflateEnd(cells[i]->internal->z);
+                free(cells[i]->internal->z);
+                cells[i]->internal->z = NULL;
+            }
         }
 #else
         Mat_Critical("Not compiled with zlib support");
@@ -13416,8 +13537,22 @@ ReadNextStructField( mat_t *mat, matvar_t *matvar )
                 bytesread+=ReadNextStructField(mat,fields[i]);
             else if ( fields[i]->class_type == MAT_C_CELL )
                 bytesread+=ReadNextCell(mat,fields[i]);
+            else if ( nbytes <= (1 << MAX_WBITS) ) {
+                /* Memory optimization: Read data if less in size
+                   than the zlib inflate state (approximately) */
+                fields[i]->internal->fp = mat;
+                Mat_VarReadDataAll(mat,fields[i]);
+            }
             fseek(mat->fp,fields[i]->internal->datapos,SEEK_SET);
             bytesread+=InflateSkip(mat,matvar->internal->z,nbytes);
+            if ( fields[i]->data != NULL && (nbytes <= (1 << MAX_WBITS) ||
+                fields[i]->class_type == MAT_C_STRUCT ||
+                fields[i]->class_type == MAT_C_CELL) ) {
+                /* Memory optimization: Free inflate state */
+                inflateEnd(fields[i]->internal->z);
+                free(fields[i]->internal->z);
+                fields[i]->internal->z = NULL;
+            }
         }
 #else
         Mat_Critical("Not compiled with zlib support");
@@ -14015,13 +14150,15 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
 
     uncomp_buf[0] = MAT_T_MATRIX;
     uncomp_buf[1] = (int)GetCellArrayFieldBufSize(matvar);
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size*sizeof(*comp_buf);
-    z->avail_in  = 8;
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
-        mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = 8;
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size*sizeof(*comp_buf);
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
+            mat->fp);
+    } while ( z->avail_out == 0 );
     uncomp_buf[0] = array_flags_type;
     uncomp_buf[1] = array_flags_size;
     uncomp_buf[2] = array_flags;
@@ -14041,23 +14178,27 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
         i++;
     }
 
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size*sizeof(*comp_buf);
-    z->avail_in  = (6+i)*sizeof(*uncomp_buf);
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
-        mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = (6+i)*sizeof(*uncomp_buf);
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size*sizeof(*comp_buf);
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
+            mat->fp);
+    } while ( z->avail_out == 0 );
     /* Name of variable */
     uncomp_buf[0] = array_name_type;
     uncomp_buf[1] = 0;
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size*sizeof(*comp_buf);
-    z->avail_in  = 8;
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
-        mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = 8;
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size*sizeof(*comp_buf);
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
+            mat->fp);
+    } while ( z->avail_out == 0 );
 
     matvar->internal->datapos = ftell(mat->fp);
     switch ( matvar->class_type ) {
@@ -14127,13 +14268,15 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
                 uncomp_buf[1] = 1;
                 uncomp_buf[2] = array_name_type;
                 uncomp_buf[3] = 0;
-                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-                z->avail_out = buf_size*sizeof(*comp_buf);
-                z->avail_in  = 16;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(comp_buf,1,buf_size*
-                    sizeof(*comp_buf)-z->avail_out,mat->fp);
+                z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+                z->avail_in = 16;
+                do {
+                    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                    z->avail_out = buf_size*sizeof(*comp_buf);
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(comp_buf,1,buf_size*
+                        sizeof(*comp_buf)-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
                 break;
             }
 
@@ -14154,24 +14297,28 @@ WriteCompressedCellArrayField(mat_t *mat,matvar_t *matvar,z_stream *z)
             uncomp_buf[3] = nfields*fieldname_size;
 
             padzero = calloc(fieldname_size,1);
-            z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            z->avail_out = buf_size*sizeof(*comp_buf);
-            z->avail_in  = 16;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,
+            z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            z->avail_in = 16;
+            do {
+                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                z->avail_out = buf_size*sizeof(*comp_buf);
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,
                     buf_size*sizeof(*comp_buf)-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
             for ( i = 0; i < nfields; i++ ) {
                 memset(padzero,'\0',fieldname_size);
                 memcpy(padzero,matvar->internal->fieldnames[i],
-                       strlen(matvar->internal->fieldnames[i]));
-                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                z->next_in   = ZLIB_BYTE_PTR(padzero);
-                z->avail_out = buf_size*sizeof(*comp_buf);
-                z->avail_in  = fieldname_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(comp_buf,1,
+                    strlen(matvar->internal->fieldnames[i]));
+                z->next_in  = ZLIB_BYTE_PTR(padzero);
+                z->avail_in = fieldname_size;
+                do {
+                    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                    z->avail_out = buf_size*sizeof(*comp_buf);
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(comp_buf,1,
                         buf_size*sizeof(*comp_buf)-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
             }
             free(padzero);
             for ( i = 0; i < nmemb*nfields; i++ )
@@ -14466,13 +14613,15 @@ WriteCompressedStructField(mat_t *mat,matvar_t *matvar,z_stream *z)
 
     uncomp_buf[0] = MAT_T_MATRIX;
     uncomp_buf[1] = (int)GetStructFieldBufSize(matvar);
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size*sizeof(*comp_buf);
-    z->avail_in  = 8;
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
-        mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = 8;
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size*sizeof(*comp_buf);
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
+            mat->fp);
+    } while ( z->avail_out == 0 );
     uncomp_buf[0] = array_flags_type;
     uncomp_buf[1] = array_flags_size;
     uncomp_buf[2] = array_flags;
@@ -14492,23 +14641,27 @@ WriteCompressedStructField(mat_t *mat,matvar_t *matvar,z_stream *z)
         i++;
     }
 
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size*sizeof(*comp_buf);
-    z->avail_in  = (6+i)*sizeof(*uncomp_buf);
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
-        mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = (6+i)*sizeof(*uncomp_buf);
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size*sizeof(*comp_buf);
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
+            mat->fp);
+    } while ( z->avail_out == 0 );
     /* Name of variable */
     uncomp_buf[0] = array_name_type;
     uncomp_buf[1] = 0;
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size*sizeof(*comp_buf);
-    z->avail_in  = 8;
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
-        mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = 8;
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size*sizeof(*comp_buf);
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-z->avail_out,
+            mat->fp);
+    } while ( z->avail_out == 0 );
 
     matvar->internal->datapos = ftell(mat->fp);
     switch ( matvar->class_type ) {
@@ -14578,13 +14731,15 @@ WriteCompressedStructField(mat_t *mat,matvar_t *matvar,z_stream *z)
                 uncomp_buf[1] = 1;
                 uncomp_buf[2] = array_name_type;
                 uncomp_buf[3] = 0;
-                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-                z->avail_out = buf_size*sizeof(*comp_buf);
-                z->avail_in  = 16;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(comp_buf,1,buf_size*
-                    sizeof(*comp_buf)-z->avail_out,mat->fp);
+                z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+                z->avail_in = 16;
+                do {
+                    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                    z->avail_out = buf_size*sizeof(*comp_buf);
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(comp_buf,1,buf_size*
+                        sizeof(*comp_buf)-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
                 break;
             }
             for ( i = 0; i < nfields; i++ ) {
@@ -14602,24 +14757,28 @@ WriteCompressedStructField(mat_t *mat,matvar_t *matvar,z_stream *z)
             uncomp_buf[3] = nfields*fieldname_size;
 
             padzero = calloc(fieldname_size,1);
-            z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            z->avail_out = buf_size*sizeof(*comp_buf);
-            z->avail_in  = 16;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,
+            z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            z->avail_in = 16;
+            do {
+                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                z->avail_out = buf_size*sizeof(*comp_buf);
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,
                     buf_size*sizeof(*comp_buf)-z->avail_out,mat->fp);
+            } while ( z->avail_out == 0 );
             for ( i = 0; i < nfields; i++ ) {
                 size_t len = strlen(matvar->internal->fieldnames[i]);
                 memset(padzero,'\0',fieldname_size);
                 memcpy(padzero,matvar->internal->fieldnames[i],len);
-                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                z->next_in   = ZLIB_BYTE_PTR(padzero);
-                z->avail_out = buf_size*sizeof(*comp_buf);
-                z->avail_in  = fieldname_size;
-                err = deflate(z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(comp_buf,1,
+                z->next_in  = ZLIB_BYTE_PTR(padzero);
+                z->avail_in = fieldname_size;
+                do {
+                    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                    z->avail_out = buf_size*sizeof(*comp_buf);
+                    err = deflate(z,Z_NO_FLUSH);
+                    byteswritten += fwrite(comp_buf,1,
                         buf_size*sizeof(*comp_buf)-z->avail_out,mat->fp);
+                } while ( z->avail_out == 0 );
             }
             free(padzero);
             for ( i = 0; i < nmemb*nfields; i++ )
@@ -14760,12 +14919,14 @@ Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,int rank,
 
     uncomp_buf[0] = MAT_T_MATRIX;
     uncomp_buf[1] = (int)GetEmptyMatrixMaxBufSize(name,rank);
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size_bytes;
-    z->avail_in  = 8;
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = 8;
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size_bytes;
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,mat->fp);
+    } while ( z->avail_out == 0 );
     uncomp_buf[0] = array_flags_type;
     uncomp_buf[1] = array_flags_size;
     uncomp_buf[2] = array_flags;
@@ -14785,22 +14946,26 @@ Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,int rank,
         i++;
     }
 
-    z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-    z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-    z->avail_out = buf_size_bytes;
-    z->avail_in  = (6+i)*sizeof(*uncomp_buf);
-    err = deflate(z,Z_PARTIAL_FLUSH);
-    byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,mat->fp);
+    z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+    z->avail_in = (6+i)*sizeof(*uncomp_buf);
+    do {
+        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+        z->avail_out = buf_size_bytes;
+        err = deflate(z,Z_NO_FLUSH);
+        byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,mat->fp);
+    } while ( z->avail_out == 0 );
     /* Name of variable */
     if ( NULL == name ) {
         uncomp_buf[0] = array_name_type;
         uncomp_buf[1] = 0;
-        z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-        z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-        z->avail_out = buf_size_bytes;
-        z->avail_in  = 8;
-        err = deflate(z,Z_PARTIAL_FLUSH);
-        byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,mat->fp);
+        z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+        z->avail_in = 8;
+        do {
+            z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+            z->avail_out = buf_size_bytes;
+            err = deflate(z,Z_NO_FLUSH);
+            byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,mat->fp);
+        } while ( z->avail_out == 0 );
     } else {
         if ( strlen(name) <= 4 ) {
             mat_int16_t array_name_len = (mat_int16_t)strlen(name);
@@ -14812,13 +14977,15 @@ Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,int rank,
             if ( array_name_len % 4 )
                 array_name_len += 4-(array_name_len % 4);
 
-            z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            z->avail_out = buf_size_bytes;
-            z->avail_in  = 8;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,
-                                   mat->fp);
+            z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            z->avail_in = 8;
+            do {
+                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                z->avail_out = buf_size_bytes;
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,
+                    mat->fp);
+            } while ( z->avail_out == 0 );
         } else {
             mat_int32_t array_name_len = (mat_int32_t)strlen(name);
             mat_int32_t array_name_type = MAT_T_INT8;
@@ -14829,13 +14996,15 @@ Mat_WriteCompressedEmptyVariable5(mat_t *mat,const char *name,int rank,
             memcpy(uncomp_buf+2,name,array_name_len);
             if ( array_name_len % 8 )
                 array_name_len += 8-(array_name_len % 8);
-            z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            z->avail_out = buf_size_bytes;
-            z->avail_in  = 8+array_name_len;
-            err = deflate(z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,
-                                   mat->fp);
+            z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            z->avail_in = 8+array_name_len;
+            do {
+                z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                z->avail_out = buf_size_bytes;
+                err = deflate(z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,buf_size_bytes-z->avail_out,
+                    mat->fp);
+            } while ( z->avail_out == 0 );
         }
     }
 
@@ -15031,6 +15200,11 @@ Read5(mat_t *mat, matvar_t *matvar)
         return;
     else if ( matvar->rank == 0 )        /* An empty data set */
         return;
+    else if ( matvar->class_type != MAT_C_STRUCT &&
+        matvar->class_type != MAT_C_CELL && matvar->data != NULL ) {
+        /* Data already read in ReadNextStructField or ReadNextCell */
+        return;
+    }
 
     fpos = ftell(mat->fp);
     len = 1;
@@ -15462,6 +15636,7 @@ Read5(mat_t *mat, matvar_t *matvar)
             }
             if ( nBytes == 0 ) {
                 matvar->nbytes = 0;
+                matvar->data   = calloc(0,1);
                 break;
             }
             matvar->data_size = sizeof(char);
@@ -16524,12 +16699,11 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
             }
             ReadCompressedDataSlab1(mat,&z,complex_data->Im,
                 matvar->class_type,matvar->data_type,start,stride,edge);
-            inflateEnd(&z);
         } else {
             ReadCompressedDataSlab1(mat,&z,data,matvar->class_type,
-                                    matvar->data_type,start,stride,edge);
-            inflateEnd(&z);
+                matvar->data_type,start,stride,edge);
         }
+        inflateEnd(&z);
 #endif
     }
 
@@ -16834,6 +17008,10 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
         int buf_size = 512, err;
         size_t byteswritten = 0;
 
+        if (matvar->internal->z != NULL) {
+            inflateEnd(matvar->internal->z);
+            free(matvar->internal->z);
+        }
         matvar->internal->z         = calloc(1,sizeof(*matvar->internal->z));
         matvar->internal->z->zalloc = Z_NULL;
         matvar->internal->z->zfree  = Z_NULL;
@@ -16857,13 +17035,15 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
 
         uncomp_buf[0] = MAT_T_MATRIX;
         uncomp_buf[1] = (int)GetMatrixMaxBufSize(matvar);
-        matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-        matvar->internal->z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-        matvar->internal->z->avail_in  = 8;
-        err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-        byteswritten += fwrite(comp_buf,1,
-            buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+        matvar->internal->z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+        matvar->internal->z->avail_in = 8;
+        do {
+            matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+            err = deflate(matvar->internal->z,Z_NO_FLUSH);
+            byteswritten += fwrite(comp_buf,1,
+                buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+        } while ( matvar->internal->z->avail_out == 0 );
         uncomp_buf[0] = array_flags_type;
         uncomp_buf[1] = array_flags_size;
         uncomp_buf[2] = array_flags;
@@ -16883,13 +17063,15 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
             i++;
         }
 
-        matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-        matvar->internal->z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-        matvar->internal->z->avail_in  = (6+i)*sizeof(*uncomp_buf);
-        err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-        byteswritten += fwrite(comp_buf,1,
+        matvar->internal->z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+        matvar->internal->z->avail_in = (6+i)*sizeof(*uncomp_buf);
+        do {
+            matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+            err = deflate(matvar->internal->z,Z_NO_FLUSH);
+            byteswritten += fwrite(comp_buf,1,
                 buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+        } while ( matvar->internal->z->avail_out == 0 );
         /* Name of variable */
         if ( strlen(matvar->name) <= 4 ) {
             mat_int16_t array_name_len = (mat_int16_t)strlen(matvar->name);
@@ -16901,13 +17083,15 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
             if ( array_name_len % 4 )
                 array_name_len += 4-(array_name_len % 4);
 
-            matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            matvar->internal->z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-            matvar->internal->z->avail_in  = 8;
-            err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,
+            matvar->internal->z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            matvar->internal->z->avail_in = 8;
+            do {
+                matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,
                     buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+            } while ( matvar->internal->z->avail_out == 0 );
         } else {
             mat_int32_t array_name_len = (mat_int32_t)strlen(matvar->name);
             mat_int32_t array_name_type = MAT_T_INT8;
@@ -16918,13 +17102,15 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
             memcpy(uncomp_buf+2,matvar->name,array_name_len);
             if ( array_name_len % 8 )
                 array_name_len += 8-(array_name_len % 8);
-            matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-            matvar->internal->z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-            matvar->internal->z->avail_in  = 8+array_name_len;
-            err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,
+            matvar->internal->z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+            matvar->internal->z->avail_in = 8+array_name_len;
+            do {
+                matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,
                     buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+            } while ( matvar->internal->z->avail_out == 0 );
         }
         matvar->internal->datapos = ftell(mat->fp);
         switch ( matvar->class_type ) {
@@ -16993,13 +17179,15 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
                     uncomp_buf[1] = 1;
                     uncomp_buf[2] = array_name_type;
                     uncomp_buf[3] = 0;
-                    matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                    matvar->internal->z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-                    matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-                    matvar->internal->z->avail_in  = 16;
-                    err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-                    byteswritten += fwrite(comp_buf,1,buf_size*
-                        sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+                    matvar->internal->z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+                    matvar->internal->z->avail_in = 16;
+                    do {
+                        matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                        err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                        byteswritten += fwrite(comp_buf,1,buf_size*
+                            sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+                    } while ( matvar->internal->z->avail_out == 0 );
                     break;
                 }
                 nfields = matvar->internal->num_fields;
@@ -17018,25 +17206,29 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
                 uncomp_buf[3] = nfields*fieldname_size;
 
                 padzero = calloc(fieldname_size,1);
-                matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                matvar->internal->z->next_in   = ZLIB_BYTE_PTR(uncomp_buf);
-                matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-                matvar->internal->z->avail_in  = 16;
-                err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-                byteswritten += fwrite(comp_buf,1,
-                    buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+                matvar->internal->z->next_in  = ZLIB_BYTE_PTR(uncomp_buf);
+                matvar->internal->z->avail_in = 16;
+                do {
+                    matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                    matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                    err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                    byteswritten += fwrite(comp_buf,1,
+                        buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+                } while ( matvar->internal->z->avail_out == 0 );
                 for ( i = 0; i < nfields; i++ ) {
                     size_t len = strlen(matvar->internal->fieldnames[i]);
                     memset(padzero,'\0',fieldname_size);
                     memcpy(padzero,matvar->internal->fieldnames[i],len);
-                    matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-                    matvar->internal->z->next_in   = ZLIB_BYTE_PTR(padzero);
-                    matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-                    matvar->internal->z->avail_in  = fieldname_size;
-                    err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-                    byteswritten += fwrite(comp_buf,1,
+                    matvar->internal->z->next_in  = ZLIB_BYTE_PTR(padzero);
+                    matvar->internal->z->avail_in = fieldname_size;
+                    do {
+                        matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
+                        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                        err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                        byteswritten += fwrite(comp_buf,1,
                             buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,
                             mat->fp);
+                    } while ( matvar->internal->z->avail_out == 0 );
                 }
                 free(padzero);
                 for ( i = 0; i < nmemb*nfields; i++ )
@@ -17069,22 +17261,15 @@ Mat_VarWrite5(mat_t *mat,matvar_t *matvar,int compress)
             case MAT_C_OBJECT:
                 break;
         }
-        matvar->internal->z->avail_in  = 0;
-        matvar->internal->z->next_in   = NULL;
-        matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
-        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-
-        err = deflate(matvar->internal->z,Z_FINISH);
-        byteswritten += fwrite(comp_buf,1,
-            buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
-        while ( err != Z_STREAM_END && !matvar->internal->z->avail_out ) {
+        matvar->internal->z->next_in  = NULL;
+        matvar->internal->z->avail_in = 0;
+        do {
             matvar->internal->z->next_out  = ZLIB_BYTE_PTR(comp_buf);
             matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-
             err = deflate(matvar->internal->z,Z_FINISH);
             byteswritten += fwrite(comp_buf,1,
                 buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
-        }
+        } while ( err != Z_STREAM_END && matvar->internal->z->avail_out == 0 );
         /* End the compression and set to NULL so Mat_VarFree doesn't try
          * to free matvar->internal->z with inflateEnd
          */
@@ -17307,12 +17492,16 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
 
         uncomp_buf[0] = MAT_T_MATRIX;
         uncomp_buf[1] = 448;
-        matvar->internal->z->next_out  = comp_buf;
-        matvar->internal->z->next_in   = uncomp_buf;
-        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-        matvar->internal->z->avail_in  = 8;
-        err = deflate(matvar->internal->z,Z_SYNC_FLUSH);
-        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+        matvar->internal->z->next_in  = uncomp_buf;
+        matvar->internal->z->avail_in = 8;
+        do {
+            matvar->internal->z->next_out  = comp_buf;
+            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+            err = deflate(matvar->internal->z,Z_NO_FLUSH);
+            byteswritten += fwrite(comp_buf,1,
+                buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,
+                mat->fp);
+        } while ( matvar->internal->z->avail_out == 0 );
         uncomp_buf[0] = array_flags_type;
         uncomp_buf[1] = array_flags_size;
         uncomp_buf[2] = array_flags;
@@ -17330,12 +17519,16 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
         if ( matvar->rank % 2 != 0 )
             uncomp_buf[6+i] = pad4;
 
-        matvar->internal->z->next_out  = comp_buf;
-        matvar->internal->z->next_in   = uncomp_buf;
-        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-        matvar->internal->z->avail_in  = (6+i)*sizeof(*uncomp_buf);
-        err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+        matvar->internal->z->next_in  = uncomp_buf;
+        matvar->internal->z->avail_in = (6+i)*sizeof(*uncomp_buf);
+        do {
+            matvar->internal->z->next_out  = comp_buf;
+            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+            err = deflate(matvar->internal->z,Z_NO_FLUSH);
+            byteswritten += fwrite(comp_buf,1,
+                buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,
+                mat->fp);
+        } while ( matvar->internal->z->avail_out == 0 );
         /* Name of variable */
         if ( strlen(matvar->name) <= 4 ) {
 #if 0
@@ -17345,12 +17538,16 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
             uncomp_buf[0] = (array_name_type << 16) | array_name_len;
             memcpy(uncomp_buf+1,matvar->name,array_name_len);
 
-            matvar->internal->z->next_out  = comp_buf;
-            matvar->internal->z->next_in   = uncomp_buf;
-            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-            matvar->internal->z->avail_in  = 8;
-            err = deflate(matvar->internal->z,Z_PARTIAL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+            matvar->internal->z->next_in  = uncomp_buf;
+            matvar->internal->z->avail_in = 8;
+            do {
+                matvar->internal->z->next_out  = comp_buf;
+                matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,
+                    buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,
+                    mat->fp);
+            } while ( matvar->internal->z->avail_out == 0 );
         } else {
 #endif
             mat_int32_t array_name_len = (mat_int32_t)strlen(matvar->name);
@@ -17361,12 +17558,15 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
             memcpy(uncomp_buf+2,matvar->name,array_name_len);
             if ( array_name_len % 8 )
                 array_name_len += array_name_len % 8;
-            matvar->internal->z->next_out  = comp_buf;
             matvar->internal->z->next_in   = uncomp_buf;
-            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
             matvar->internal->z->avail_in  = 8+array_name_len;
-            err = deflate(matvar->internal->z,Z_FULL_FLUSH);
-            byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+            do {
+                matvar->internal->z->next_out  = comp_buf;
+                matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+                err = deflate(matvar->internal->z,Z_NO_FLUSH);
+                byteswritten += fwrite(comp_buf,1,
+                    buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
+            } while ( matvar->internal->z->avail_out == 0 );
         }
         matvar->internal->datapos = ftell(mat->fp);
         deflateCopy(&z_save,matvar->internal->z);
@@ -17393,16 +17593,19 @@ WriteInfo5(mat_t *mat, matvar_t *matvar)
 #endif
                 break;
         }
-        matvar->internal->z->next_out  = comp_buf;
-        matvar->internal->z->next_in   = NULL;
-        matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
-        matvar->internal->z->avail_in  = 0;
-
-        err = deflate(matvar->internal->z,Z_FINISH);
-        byteswritten += fwrite(comp_buf,1,buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,mat->fp);
-                if ( byteswritten % 8 )
-                    for ( i = byteswritten % 8; i < 8; i++ )
-                        fwrite(&pad1,1,1,mat->fp);
+        matvar->internal->z->next_in  = NULL;
+        matvar->internal->z->avail_in = 0;
+        do {
+            matvar->internal->z->next_out  = comp_buf;
+            matvar->internal->z->avail_out = buf_size*sizeof(*comp_buf);
+            err = deflate(matvar->internal->z,Z_FINISH);
+            byteswritten += fwrite(comp_buf,1,
+                buf_size*sizeof(*comp_buf)-matvar->internal->z->avail_out,
+                mat->fp);
+        } while ( err != Z_STREAM_END && matvar->internal->z->avail_out == 0 );
+        if ( byteswritten % 8 )
+            for ( i = byteswritten % 8; i < 8; i++ )
+                fwrite(&pad1,1,1,mat->fp);
         fprintf(stderr,"deflate Z_FINISH: err = %d,byteswritten = %u\n",err,byteswritten);
 
         err = deflateEnd(matvar->internal->z);

@@ -1,6 +1,6 @@
 /* ModelicaMatIO.h - MAT file I/O functions header
 
-   Copyright (C) 2005-2013, Christopher C. Hulbert
+   Copyright (C) 2005-2016, Christopher C. Hulbert
    Copyright (C) 2013-2016, Modelica Association and ITI GmbH
    All rights reserved.
 
@@ -50,13 +50,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 2
+#define MATIO_RELEASE_LEVEL 3
 
 /* Matio version number */
-#define MATIO_VERSION 152
+#define MATIO_VERSION 153
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.2"
+#define MATIO_VERSION_STR "1.5.3"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -75,7 +75,7 @@
 #define HAVE_MATIO_UINT64_T 1
 #endif
 
-/* Define to 1 if you have the <stdint.h> header file. */
+/* Have the <stdint.h> header file */
 #if defined(_WIN32)
 #if defined(_MSC_VER) && _MSC_VER >= 1600
 #define HAVE_MATIO_STDINT_H 1
@@ -382,6 +382,8 @@ EXTERN int        Mat_VarWriteData(mat_t *mat,matvar_t *matvar,void *data,
 
 /* Other functions */
 EXTERN int       Mat_CalcSingleSubscript(int rank,int *dims,int *subs);
+EXTERN int       Mat_CalcSingleSubscript2(int rank,size_t *dims,size_t *subs,size_t *index);
 EXTERN int      *Mat_CalcSubscripts(int rank,int *dims,int index);
+EXTERN size_t   *Mat_CalcSubscripts2(int rank,size_t *dims,size_t index);
 
 #endif /* MODELICAMATIO_H */
