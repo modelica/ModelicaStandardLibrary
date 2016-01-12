@@ -12,7 +12,7 @@ package Nonlinear
           annotation (Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
         parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
         extends Interfaces.SISO;
 
       equation
@@ -103,7 +103,7 @@ as output.
       annotation (Evaluate=true, choices(checkBox=true));
     parameter Boolean limitsAtInit=true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+      annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
                                 annotation (Placement(transformation(extent={{
@@ -268,7 +268,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
         parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true
       "Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)"
-          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true), Dialog(tab="Advanced"));
+          annotation (Dialog(tab="Dummy"),Evaluate=true, choices(checkBox=true));
 
         extends Interfaces.SISO;
 
