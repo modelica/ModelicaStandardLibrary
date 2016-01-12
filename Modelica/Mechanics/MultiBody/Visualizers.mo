@@ -100,12 +100,13 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support
-at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+The supported file formats are tool dependent. Most tools support at least DXF-files 
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
-</p>
+For information about DXF files, see <a href=\"https://en.wikipedia.org/wiki/AutoCAD_DXF\">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the \"frame_a\"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).</p>
 
 <p>
 The sizes of any of the above components are specified by the
@@ -345,11 +346,13 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support
-at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+The supported file formats are tool dependent. Most tools support at least DXF-files 
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
+For information about DXF files, see <a href=\"https://en.wikipedia.org/wiki/AutoCAD_DXF\">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the \"frame_a\"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).
 </p>
 
 <p>
@@ -2053,11 +2056,13 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support
-at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+The supported file formats are tool dependent. Most tools support at least DXF-files 
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
+For information about DXF files, see <a href=\"https://en.wikipedia.org/wiki/AutoCAD_DXF\">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the \"frame_a\"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).
 </p>
 
 <p>
