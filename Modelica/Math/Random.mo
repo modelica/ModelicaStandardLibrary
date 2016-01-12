@@ -982,19 +982,12 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
         "Dummy variable to force evaluation at run-time; use 'time' as input argument";
       output Integer seed "Automatically generated seed";
 
-      /*
-  external "C" seed = ModelicaRandom_automaticGlobalSeed(dummy) annotation (Library="ModelicaExternalC");
-  */
-    protected
-      Integer iDummy = integer(dummy);
-    algorithm
-      /* Temporarily deactivated, since ModelicaRandom_automaticGlobalSeed not yet in the Dymola distribution */
-      seed :=101*(if iDummy == 0 then 1 else iDummy);
+      external "C" seed = ModelicaRandom_automaticGlobalSeed(dummy) annotation (Library="ModelicaExternalC");
 
      annotation (Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-seed = Utilities.<b>automaticGlobalSeed</b>();
+seed = Utilities.<b>automaticGlobalSeed</b>(dummy);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -1011,16 +1004,21 @@ is called, other means to compute a seed may be used.
 <p>
 Note, this is an impure function that returns always a different value, when it is newly called.
 This function should be only called once during initialization.
+In order that tools are not able to optimize this (impure) function away, a dummy
+argument is provided. Pass \"time\" in this argument.
 </p>
 
 <h4>Example</h4>
-<blockquote><pre>
-  <b>parameter</b> Boolean useAutomaticSeed = false;
-  <b>parameter</b> Integer fixedSeed = 67867967;
-  <b>final parameter</b> Integer seed = <b>if</b> useAutomaticSeed <b>then</b>
-                                    Random.Utilities.automaticGlobalSeed()
-                                 <b>else</b> fixedSeed;
-</pre></blockquote>
+<pre>
+     <b>parameter</b> Boolean useAutomaticSeed = false;
+     <b>parameter</b> Integer fixedSeed = 67867967;
+     <b>final parameter</b> Integer seed(fixed = false);
+  <b>initial equation</b>
+     seed = <b>if</b> useAutomaticSeed <b>then</b>
+                 Random.Utilities.automaticGlobalSeed(time)
+            <b>else</b> 
+                 fixedSeed;
+</pre>
 
 <h4>See also</h4>
 <p>
