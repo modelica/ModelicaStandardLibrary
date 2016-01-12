@@ -2375,12 +2375,60 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
      been corrected/improved. One important improvement in packages
      Modelica and ModelicaTest is that the initialization has been fully defined
      in all example models, in order that all tools can produce the same result
-     without relying on tool heuristics).
+     without relying on tool heuristics).<br>&nbsp;
      </li>
 
-<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
-     have been fixed for this release.
-     </li>
+<li> About <b>240</b> tickets have been fixed in this release:
+     <ul>
+     <li> Version <b>3.2.1 Build.3</b> with respect to 3.2.1 (Build.2):<br>
+          About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
+          have been fixed for this release.<br>&nbsp; </li>
+
+     <li> Version <b>3.2.1 Build.4</b> with respect to 3.2.1 Build.3:
+          <ul>
+            <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10                tickets</a>
+                 have been fixed for this release. In particular the following <b>critical bug</b> has been fixed:<br>
+                 Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a>
+                 fixes an issue with block <a href=\"modelica://Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
+                 (wrong output when using fixed time step integrator with time step greater than table resolution). </li>
+
+            <li> Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1758\">1758</a>
+                 states that simulation of
+                 <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Modelica.Fluid.Examples.HeatingSystem</a>
+                 fails in Dymola 2016 if option \"pedantic mode for checking Modelica semantics\" is set.
+                 This issue was not fixed in the library due to the following reasons:<br>
+                 The Modelica.Fluid library uses a particular pattern to define some parameters resulting
+                 in a cyclic dependency of parameters if only incident information is taken into account.
+                 According to Modelica Specification 3.2 revision 2 this is not allowed
+                 (and therefore Dymola 2016 correctly reports errors if the pedantic flag is set).
+                 In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1320\">1320</a>
+                 this issue was resolved for Modelica Specification 3.3 revision 1 by allowing
+                 cyclic parameter definitions if the cycles disappear when evaluating parameters
+                 that have annotation Evaluate=true. Modelica.Fluid is correct with respect
+                 to Modelica Specification 3.3 revision 1.
+                 Changing the Modelica.Fluid library for 3.2.1 build.4 so that no cyclic parameter dependencies
+                 would be present anymore would (a) result in a non-backwards compatible
+                 change and (b) make the usage of Modelica.Fluid less convenient. For this
+                 reason Modelica.Fluid is not changed. (Practically, this means for example that
+                 the pedantic flag in Dymola 2016 needs to be switched off, when using the
+                 Modelica.Fluid library in version 3.2.1 build 4 and any previous version). </li>
+
+            <li> In ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1757\">1757</a> it is (correctly) stated
+                 that the example model <a href=\"modelica://Modelica.Media.Air.MoistAir.PsychrometricData\">PsychrometricData</a>
+                 was moved to another location and that this is a non-backwards compatible change.
+                 This non-backwards compatible change is accepted, because it fixes a circular depedency (a model references
+                 a package in which it resides), for details see ticket
+                 <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a>.
+                 Fixing this ticket is seen as of much higher priority, as the small drawback that
+                 an example model is moved (and the probability is very high that this moved model is not
+                 used in any user model).<br>&nbsp;
+                </li>
+          </ul>
+
+     <li> Version <b>3.2.2</b> (Build.1) with respect to 3.2.1 Build.4:<br>
+          About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
+          have been fixed for this release.</li>
+     </ul>
 </ul>
 
 <p>
@@ -2487,12 +2535,24 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">LogFrequencySweep</td>
     <td valign=\"top\"> The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), the output is the decimal power of this logarithmic ramp.</td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples..Utilities.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">SpringDamperNoRelativeStates</td>
+    <td valign=\"top\">Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1375\">1375</a></td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">ElastoBacklash2</td>
     <td valign=\"top\">Alternative model of backlash. The difference to the existing ElastoBacklash  
     component is that an event is generated when contact occurs and that the contact torque
     changes discontinuously in this case. For some user models, this variant of a backlash model
     leads to significantly faster simulations.</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Examples.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">NonCircularPipes</td>
+    <td valign=\"top\">Introduced to check the fix of ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">1681</a></td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Media.Examples.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">PsychrometricData</td>
+    <td valign=\"top\">Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1679\">1679</a></td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">balanceABC</td>
