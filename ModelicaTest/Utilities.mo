@@ -362,6 +362,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   function System "Test functions of Modelica.Utilities.System"
     import Modelica.Utilities.Streams;
+    extends Modelica.Icons.Function;
     input String logFile="ModelicaTestLog.txt"
       "Filename where the log is stored";
     output Boolean ok;
