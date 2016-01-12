@@ -3782,7 +3782,7 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(sine.y, force.force[1]) annotation (Line(
-          points={{131,-50},{-22,-50},{-22,-65.2667},{-5.6,-65.2667}},
+          points={{131,-50},{-22,-50},{-22,-62.3333},{-5.6,-62.3333}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force.force[2]) annotation (Line(
@@ -3790,7 +3790,7 @@ a linear damper is connected here.
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,-62.3333},{-5.6,-62.3333}},
+          points={{131,2},{14,2},{14,-65.2667},{-5.6,-65.2667}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
@@ -3828,11 +3828,11 @@ a linear damper is connected here.
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force1.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,108.333},{-7.6,108.333}},
+          points={{131,2},{14,2},{14,111.267},{-7.6,111.267}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(sine.y, force1.force[1]) annotation (Line(
-          points={{131,-50},{-22,-50},{-22,111.267},{-7.6,111.267}},
+          points={{131,-50},{-22,-50},{-22,108.333},{-7.6,108.333}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
@@ -3859,11 +3859,11 @@ a linear damper is connected here.
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force2.force[3]) annotation (Line(
-          points={{131,2},{96,2},{96,-214.333},{-7.6,-214.333}},
+          points={{131,2},{96,2},{96,-217.267},{-7.6,-217.267}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(sine.y, force2.force[1]) annotation (Line(
-          points={{131,-50},{112,-50},{112,-217.267},{-7.6,-217.267}},
+          points={{131,-50},{112,-50},{112,-214.333},{-7.6,-214.333}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
@@ -11910,6 +11910,7 @@ they were not deleted yet.")}));
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
         r_CM={0,0,0},
         m=1,
+        r={0,0,0},
         angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
         annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=
                 0)));
@@ -11924,13 +11925,13 @@ they were not deleted yet.")}));
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
+        r={1,0,0},
         angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
         annotation (Placement(transformation(extent={{40,40},{60,60}}, rotation=
                0)));
 
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder body3(
         sequence_start={3,2,1},
-        angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
         a_0(each fixed=false, start={2,2,2}),
         angles_fixed=true,
         r_0(each fixed=true, start={1,2,3}),
@@ -11938,8 +11939,10 @@ they were not deleted yet.")}));
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989})
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}},
+        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
+        r={1,0,0},
+        angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
+        annotation (Placement(transformation(extent={{-42,0},{-22,20}},
               rotation=0)));
 
       annotation (experiment(StopTime=0.2));
