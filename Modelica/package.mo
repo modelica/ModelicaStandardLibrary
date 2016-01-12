@@ -2249,8 +2249,6 @@ class ModelicaLicense2 "Modelica License 2"
 end ModelicaLicense2;
 
 package ReleaseNotes "Release notes"
-  extends Modelica.Icons.ReleaseNotes;
-
 class VersionManagement "Version Management"
   extends Modelica.Icons.ReleaseNotes;
 
@@ -2358,7 +2356,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_2 "Version 3.2.2 (xxx, 2014)"
+class Version_3_2_2 "Version 3.2.2 (March 11, 2016)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2380,7 +2378,7 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
      without relying on tool heuristics).
      </li>
 
-<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">xx tickets</a>
+<li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
      have been fixed for this release.
      </li>
 </ul>
@@ -2391,9 +2389,16 @@ following tools (the tools are listed alphabetically. At the time of the test, s
 tools might not yet supported the complete Modelica package):
 </p>
 
-<p>
-xxx
-</p>
+<ul>
+<li> Dymola 2016 FD01 (Windows 64 bit).</li>
+<li> Maplesim Parser</li>
+<li> OpenModelica 1.9.4 xxx (Windows, Linux, Mac)<br>
+     Test reports for the daily builds are available
+     <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
+     Test reports of comparisons with Dymola result files are available
+     <a href=\"https://test.openmodelica.org/hudson/job/OpenModelica_TEST_CLANG/lastCompletedBuild/testReport/(root)/simulation_libraries_msl32/\">here</a>.
+     </li>
+</ul>
 
 <p><br>
 The following <b style=\"color:blue\">new libraries</b> have been added:
@@ -2562,6 +2567,9 @@ The following <b style=\"color:blue\">existing components</b> have been <b style
 
 </html>"));
 end Version_3_2_2;
+  extends Modelica.Icons.ReleaseNotes;
+
+
 
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
   extends Modelica.Icons.ReleaseNotes;
