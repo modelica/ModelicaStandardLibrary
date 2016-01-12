@@ -19,6 +19,7 @@ extends Modelica.Icons.ExamplesPackage;
     Types.TokenValue token;
     Integer hash1;
     Integer hash2;
+    Modelica.Utilities.Types.Compare c;
   algorithm
     Streams.print("... Test of Modelica.Utilities.Strings");
     Streams.print("... Test of Modelica.Utilities.Strings", logFile);
@@ -40,15 +41,15 @@ extends Modelica.Icons.ExamplesPackage;
     s := Strings.repeat(3, "12");
     assert(s == "121212", "Strings.Advanced.repeat failed");
 
-    i := Strings.compare(
+    c := Strings.compare(
         "abc",
         "ABC",
         caseSensitive=false);
-    assert(i == Modelica.Utilities.Types.Compare.Equal,
+    assert(c == Modelica.Utilities.Types.Compare.Equal,
       "Strings.Advanced.compare 1 failed");
 
-    i := Strings.compare("abc", "zef");
-    assert(i == Modelica.Utilities.Types.Compare.Less,
+    c := Strings.compare("abc", "zef");
+    assert(c == Modelica.Utilities.Types.Compare.Less,
       "Strings.Advanced.compare 2 failed");
 
     b := Strings.isEqual("abc", "ABC");
