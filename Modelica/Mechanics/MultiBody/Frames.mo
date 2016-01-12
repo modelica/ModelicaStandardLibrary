@@ -981,10 +981,11 @@ is not possible or too difficult to compute, use function from_T2(..).
         input Quaternions.Orientation Q2
           "Quaternions orientation object to rotate frame 0 into frame 2";
         output Real residue[3]
-          "The half of the rotation angles around x-, y-, and z-axis of frame 1 to rotate frame 1 into frame 2 for a small rotation (shall be zero)";
+          "Zero vector if Q1 and Q2 are identical (the first three elements of the relative transformation (is {0,0,0} for the null rotation, guarded by atan2 to make the mirrored solution invalid";
       algorithm
-        residue := [Q1[4], Q1[3], -Q1[2], -Q1[1]; -Q1[3], Q1[4], Q1[1], -Q1[2];
-           Q1[2], -Q1[1], Q1[4], -Q1[3]]*Q2;
+        residue := { atan2({ Q1[4],  Q1[3], -Q1[2], -Q1[1]}*Q2, Q1*Q2),
+                     atan2({-Q1[3],  Q1[4],  Q1[1], -Q1[2]}*Q2, Q1*Q2),
+                     atan2({ Q1[2], -Q1[1],  Q1[4], -Q1[3]}*Q2, Q1*Q2)};
         annotation(Inline=true);
       end equalityConstraint;
 
@@ -1141,8 +1142,10 @@ confused with Modelica \"parameters\".
       output Quaternions.Orientation Q_rel
         "Quaternions orientation object to rotate frame 1 into frame 2";
     algorithm
-      Q_rel := [Q1[4], Q1[3], -Q1[2], -Q1[1]; -Q1[3], Q1[4], Q1[1], -Q1[2]; Q1[
-        2], -Q1[1], Q1[4], -Q1[3]; Q1[1], Q1[2], Q1[3], Q1[4]]*Q2;
+      Q_rel := [ Q1[4],  Q1[3], -Q1[2], -Q1[1];
+                -Q1[3],  Q1[4],  Q1[1], -Q1[2];
+                 Q1[2], -Q1[1],  Q1[4], -Q1[3];
+                 Q1[1],  Q1[2],  Q1[3],  Q1[4]]*Q2;
       annotation(Inline=true);
     end relativeRotation;
 
