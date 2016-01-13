@@ -65,8 +65,7 @@ Note, a fileName can be defined as URI by using the helper function
 </html>"));
   end readFile;
 
-  function readLine
-    "Read a line of text from a file and return it in a string"
+  function readLine "Read a line of text from a file and return it in a string"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
                         annotation(Dialog(loadSelector(filter="Text files (*.txt)",
@@ -164,6 +163,43 @@ file is already closed or does not exist.
 </p>
 </html>"));
   end close;
+
+  function readMatrixSize "Read dimensions of a 2D Real array from file"
+    extends Modelica.Icons.Function;
+    input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
+    input String matrixName
+      "Name / identifier of the 2D Real array on the file";
+    output Integer dim[2] "Number of rows and columns of the 2D Real array";
+    external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim) annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(Documentation(info="<html><p>Read the 2D dimensions from a binary MATLAB MAT-file.</p></html>"));
+  end readMatrixSize;
+
+  function readRealMatrix "Read 2D Real values from file"
+    extends Modelica.Icons.Function;
+    input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
+    input String matrixName
+      "Name / identifier of the 2D Real array on the file";
+    input Integer dim[2] = readMatrixSize(fileName, matrixName)
+      "Number of rows and columns of the 2D Real array";
+    output Real matrix[dim[1], dim[2]] "2D Real array";
+    external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2)) annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(Documentation(info="<html><p>Read a 2D Real array from a binary MATLAB MAT-file.</p></html>"));
+  end readRealMatrix;
+
+  function writeRealMatrix "Write 2D Real values to file"
+    extends Modelica.Icons.Function;
+    input String fileName "File where external data is to be stored" annotation(Dialog(saveSelector(filter="MATLAB MAT-files (*.mat)", caption="Save MATLAB MAT-file")));
+    input String matrixName
+      "Name / identifier of the 2D Real array on the file";
+    input Real matrix[:,:] "2D Real array";
+    input Boolean append = false "Append values to file";
+    input String version = "4"
+      "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7, \"7.3\" -> v7.3";
+    output Boolean success "true if successful";
+    external "C" success =
+                        ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, version) annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    annotation(Documentation(info="<html><p>Save a 2D Real array in a MATLAB MAT-file.</p></html>"));
+  end writeRealMatrix;
   annotation (
     Documentation(info="<html>
 <h4>Library content</h4>
