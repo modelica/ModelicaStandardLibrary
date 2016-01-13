@@ -2367,28 +2367,21 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
 
 <ul>
 <li> This version of the Modelica package is <b>fully compatible</b> to
-     Modelica Specification <b>3.2 revision 2</b>.<br>
-     (Especially, some operators used in package Modelica,
-     such as \"rooted\", have been standardized in 3.2 rev. 2,
-     as well as vendor specific annotations. Furthermore,
-     ambiguous/unclear descriptions in the specification have
-     been corrected/improved. One important improvement in packages
-     Modelica and ModelicaTest is that the initialization has been fully defined
-     in all example models, in order that all tools can produce the same result
-     without relying on tool heuristics).<br>&nbsp;
+     Modelica Specification <b>3.2 revision 2</b>.<br>&nbsp;
      </li>
 
 <li> About <b>240</b> tickets have been fixed in this release:
      <ul>
-     <li> Version <b>3.2.1 Build.3</b> with respect to 3.2.1 (Build.2):<br>
+     <li> <b>Version 3.2.1 Build.3</b> with respect to 3.2.1 (Build.2):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
-          have been fixed for this release.<br>&nbsp; </li>
+          have been fixed for this maintenance release.<br>&nbsp; </li>
 
-     <li> Version <b>3.2.1 Build.4</b> with respect to 3.2.1 Build.3:
+     <li> <b>Version 3.2.1 Build.4</b> with respect to 3.2.1 Build.3:
           <ul>
-            <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10                tickets</a>
-                 have been fixed for this release. In particular the following <b>critical bug</b> has been fixed:<br>
-                 Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a>
+            <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
+                 have been fixed for this maintenance release. Critical tickets:</li>
+
+            <li> Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1768\">1768</a>
                  fixes an issue with block <a href=\"modelica://Modelica.Blocks.Sources.CombiTimeTable\">CombiTimeTable</a>
                  (wrong output when using fixed time step integrator with time step greater than table resolution). </li>
 
@@ -2425,7 +2418,7 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
                 </li>
           </ul>
 
-     <li> Version <b>3.2.2</b> (Build.1) with respect to 3.2.1 Build.4:<br>
+     <li> <b>Version 3.2.2</b> (Build.1) with respect to 3.2.1 Build.4:<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
           have been fixed for this release.</li>
      </ul>
@@ -2438,7 +2431,8 @@ tools might not yet supported the complete Modelica package):
 </p>
 
 <ul>
-<li> Dymola 2016 FD01 (Windows 64 bit).</li>
+<li> Dymola 2016 FD01 with pedantic flag (Windows 64 bit).<br>
+    (\"pedantic flag\" means that strict Modelica compliance is checked).</li>
 <li> Maplesim Parser</li>
 <li> OpenModelica 1.9.4 xxx (Windows, Linux, Mac)<br>
      Test reports for the daily builds are available
@@ -2469,10 +2463,9 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     (This library was developed by Christian Kral and Anton Haumer).
     </td></tr>
 
-<tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes.&lt;sublibraries&gt;</a></td>
+<tr><td valign=\"top\">Sublibraries of <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
     <td valign=\"top\">
-   Significant extensions to the <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a> have been added:
-   New elements for modeling ferromagnetic (static) and eddy current (dynamic) hysteresis effects and permanent magnets. 
+   New elements for modeling ferromagnetic (static) and eddy current (dynamic) hysteresis effects and permanent magnets have been added.
    The FluxTubes.Material package is also extended to provide hysteresis data for several magnetic materials. These data is partly based on own measurements. 
    For modeling of ferromagnetic hysteresis, two different hystereses models have been implemented: The simple Tellinen model and the considerably
    more detailed Preisach hysteresis model. The following packages have been added:
@@ -2483,7 +2476,25 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
   <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a><li>   
   <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a><li>   
   </ul>
-    (This extensions have been developed by Johannes Ziske and Thomas Bödrich).
+    (These extensions have been developed by Johannes Ziske and Thomas Bödrich as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project;
+     project number: 296369; Theme:
+   <a href=\"http://cordis.europa.eu/project/rcn/101194_en.html\">JTI-CS-2011-1-SGO-02-026</a>; 
+   MOMOLIB - Modelica Model Library Development for Media, Magnetic Systems and Wavelets.
+     The partial financial support by the European Union for this development is highly appreciated.).
+    </td></tr>
+
+<tr><td valign=\"top\">Sublibraries for <b>noise</b> modeling</td>
+    <td valign=\"top\">
+   Several new sublibraries have been added allowing the modeling of reproducible noise.
+   The most important new sublibraries are (for more details see below):
+  <ul>
+  <li><a href=\"modelica://Modelica.Blocks.Noise\">Modelica.Blocks.Noise</a></li>
+  <li><a href=\"modelica://Modelica.Math.Random\">Modelica.Math.Random</a></li>
+  <li><a href=\"modelica://Modelica.Math.Distributions\">Modelica.Math.Distributions</a></li>
+  <li><a href=\"modelica://Modelica.Math.Special\">Modelica.Math.Special</a></li>
+  </ul>
+  (These extensions have been developed by  Andreas Kl&ouml;ckner, Frans van der Linden, Dirk Zimmer, and Martin Otter, from
+  DLR Institute of System Dynamics and Control).
     </td></tr>
 </table>
 
