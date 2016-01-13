@@ -364,7 +364,7 @@ int ModelicaIO_setDoubleArray2DToMAT(void* _mat, const char* varName, double* a,
 }
 
 
-void ModelicaIO_getDimDoubleArray2D(const char* fileName, const char* arrayName, int* dim)
+void ModelicaIO_readMatrixSizes(const char* fileName, const char* arrayName, int* dim)
 {
    /* File must be binary MATLAB MAT-file */
    const char* ext = strrchr(fileName, '.');
@@ -382,7 +382,7 @@ void ModelicaIO_getDimDoubleArray2D(const char* fileName, const char* arrayName,
    ModelicaFormatError("Function \"ModelicaIO_getDimDoubleArray2D\" is not implemented for \"%s\"\n", fileName);
 }
 
-void ModelicaIO_getDoubleArray2D(const char* fileName, const char* arrayName, double* a, size_t m, size_t n)
+void ModelicaIO_readRealMatrix(const char* fileName, const char* arrayName, double* a, size_t m, size_t n)
 {
    /* File must be binary MATLAB MAT-file */
    const char* ext = strrchr(fileName, '.');
@@ -400,7 +400,7 @@ void ModelicaIO_getDoubleArray2D(const char* fileName, const char* arrayName, do
    ModelicaFormatError("Function \"ModelicaIO_getDoubleArray2D\" is not implemented for \"%s\"\n", fileName);
 }
 
-int ModelicaIO_setDoubleArray2D(const char* fileName, const char* arrayName, double* a, size_t m, size_t n, int append, const char* version)
+int ModelicaIO_writeRealMatrix(const char* fileName, const char* arrayName, double* a, size_t m, size_t n, int append, const char* version)
 {
    /* File can be binary MATLAB MAT-file */
    const char* ext = strrchr(fileName, '.');

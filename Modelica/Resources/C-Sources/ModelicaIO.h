@@ -46,8 +46,8 @@ void  ModelicaIO_getDimDoubleArray2DFromMAT(void* _mat, const char* varName, int
 void  ModelicaIO_getDoubleArray2DFromMAT(void* _mat, const char* varName, double* a, size_t m, size_t n);
 int   ModelicaIO_setDoubleArray2DToMAT(void* _mat, const char* varName, double* a, size_t m, size_t n, int append, const char* version);
 
-void ModelicaIO_getDimDoubleArray2D(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ int* dim) MODELICA_NONNULLATTR;
-void ModelicaIO_getDoubleArray2D(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ double* a, size_t m, size_t n) MODELICA_NONNULLATTR;
-int  ModelicaIO_setDoubleArray2D(_In_z_ const char* fileName, _In_z_ const char* arrayName, _In_ double* a, size_t m, size_t n, int append, const char* version) MODELICA_NONNULLATTR;
+void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ int* dim) MODELICA_NONNULLATTR;
+void ModelicaIO_readRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ double* a, size_t m, size_t n) MODELICA_NONNULLATTR;
+int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _In_ double* a, size_t m, size_t n, int append, const char* version) MODELICA_NONNULLATTR;
 
 #endif
