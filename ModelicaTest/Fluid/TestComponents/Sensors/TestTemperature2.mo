@@ -83,7 +83,7 @@ model TestTemperature2
   Modelica.Fluid.Sensors.TemperatureTwoPort Tmix2(redeclare package Medium =
         Medium) annotation (Placement(transformation(extent={{0,-30},{20,-10}},
           rotation=0)));
-  Modelica.SIunits.TemperatureDifference Tdiff = if source1.m_flow_in > 0 then Tmix2.T - Tmix1_1.T else Tmix2.T - Tmix1_2.T;
+  Modelica.SIunits.TemperatureDifference Tdiff = if ramp.y > 0 then Tmix2.T - Tmix1_1.T else Tmix2.T - Tmix1_2.T;
 equation
   assert(abs(Tdiff)/50 < 1e-3, "OnePortTemperature and TwoPortTemperature shall give the same result");
   connect(ramp.y, source1.m_flow_in)     annotation (Line(
