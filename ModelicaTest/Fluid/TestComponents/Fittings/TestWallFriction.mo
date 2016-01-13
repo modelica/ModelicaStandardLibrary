@@ -48,9 +48,9 @@ model TestWallFriction
     redeclare package Medium = Medium,
     roughness=roughness,
     redeclare package WallFriction =
-        Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed (
-           from_dp=false,
-           show_Re=true),
+        Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
+    from_dp=false,
+    show_Re=true,
     port_a(m_flow(start=-0.6)))               annotation (Placement(transformation(extent={{0,10},{20,
             30}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_pT ambient_p3(nPorts=1,
