@@ -2637,7 +2637,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           TsOperational=293.15,
           TrOperational=293.15,
           TeOperational=293.15,
-          ir(fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
+          ir(each fixed=true)) annotation (Placement(transformation(extent={{-10,-30},
                   {10,-10}})));
 
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
@@ -2671,7 +2671,7 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
           Lrsigmaq=smeeData.Lrsigmaq,
           TrRef=smeeData.TrRef,
           TsOperational=293.15,
-          ir(fixed=true),
+          ir(each fixed=true),
           TrOperational=293.15,
           TeOperational=293.15) annotation (Placement(transformation(extent={{-10,
                   -90},{10,-70}})));
