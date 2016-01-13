@@ -372,7 +372,7 @@ from a file.
 
   model WriteRealMatrixToFile
     extends Modelica.Icons.Example;
-    parameter String fileName = "Test_WriteRealMatrix.mat";
+    parameter String fileName = "Test_RealMatrix.mat";
     parameter Real A[3,2] = [11, 12;
                              21, 22;
                              31, 32];
@@ -389,17 +389,15 @@ from a file.
   model ReadRealMatrixFromFile
     import Modelica.Utilities.Streams.print;
     extends Modelica.Icons.Example;
-    parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_ReadRealMatrix.mat");
+    parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix.mat");
     parameter String matrixName = "Matrix_A";
-    parameter Integer Size[2] = Modelica.Utilities.Streams.readMatrixSize(fileName,matrixName);
-    parameter Integer nrow = Size[1];
-    parameter Integer ncol = Size[2];
-    parameter Real A[nrow,ncol] = Modelica.Utilities.Streams.readRealMatrix(fileName,matrixName,nrow,ncol);
+    parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(fileName,matrixName);
+    parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(fileName,matrixName,dim[1],dim[2]);
     Real x(start=1, fixed=true);
   equation
     der(x) = -x;
     when initial() then
-       print("... Matrix " + matrixName + "[" + String(nrow) + "," + String(ncol) + "] read from file " + fileName);
+       print("... Matrix " + matrixName + "[" + String(size(A,1)) + "," + String(size(A,2)) + "] read from file " + fileName);
        print("...    " + matrixName + "[1,1] = " + String(A[1,1]));
     end when;
 

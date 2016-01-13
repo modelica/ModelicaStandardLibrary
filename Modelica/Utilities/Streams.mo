@@ -170,7 +170,8 @@ file is already closed or does not exist.
     input String matrixName
       "Name / identifier of the 2D Real array on the file";
     output Integer dim[2] "Number of rows and columns of the 2D Real array";
-    external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim) annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim)
+    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(Documentation(info="<html><p>Read the 2D dimensions from a binary MATLAB MAT-file.</p></html>"));
   end readMatrixSize;
 
@@ -179,10 +180,12 @@ file is already closed or does not exist.
     input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
     input String matrixName
       "Name / identifier of the 2D Real array on the file";
-    input Integer dim[2] = readMatrixSize(fileName, matrixName)
-      "Number of rows and columns of the 2D Real array";
-    output Real matrix[dim[1], dim[2]] "2D Real array";
-    external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2)) annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+    input Integer nrow "Number of rows of the 2D Real array";
+    input Integer ncol "Number of columns of the 2D Real array";
+    output Real matrix[nrow, ncol] "2D Real array";
+    external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2))
+    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+
     annotation(Documentation(info="<html><p>Read a 2D Real array from a binary MATLAB MAT-file.</p></html>"));
   end readRealMatrix;
 
@@ -197,7 +200,9 @@ file is already closed or does not exist.
       "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7, \"7.3\" -> v7.3";
     output Boolean success "true if successful";
     external "C" success =
-                        ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, version) annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+                        ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, version)
+    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
+
     annotation(Documentation(info="<html><p>Save a 2D Real array in a MATLAB MAT-file.</p></html>"));
   end writeRealMatrix;
   annotation (
