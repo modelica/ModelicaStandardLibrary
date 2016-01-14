@@ -185,7 +185,6 @@ file is already closed or does not exist.
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2))
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-
     annotation(Documentation(info="<html><p>Read a 2D Real array from a binary MATLAB MAT-file.</p></html>"));
   end readRealMatrix;
 
@@ -196,13 +195,15 @@ file is already closed or does not exist.
       "Name / identifier of the 2D Real array on the file";
     input Real matrix[:,:] "2D Real array";
     input Boolean append = false "Append values to file";
-    input String version = "4"
-      "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7, \"7.3\" -> v7.3";
+    input String format = "4"
+      "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
+       annotation(choices(choice="4" "Matlat MAT v4",
+                          choice="6" "Matlat MAT v6",
+                          choice="7" "Matlat MAT v7"));
     output Boolean success "true if successful";
     external "C" success =
-                        ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, version)
+                        ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-
     annotation(Documentation(info="<html><p>Save a 2D Real array in a MATLAB MAT-file.</p></html>"));
   end writeRealMatrix;
   annotation (

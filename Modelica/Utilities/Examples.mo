@@ -376,10 +376,16 @@ from a file.
     parameter Real A[3,2] = [11, 12;
                              21, 22;
                              31, 32];
-    Boolean success;
+    Boolean success1;
+    Boolean success2;
+    Boolean success3;
+    Boolean success4;
   equation
     when initial() then
-       success = Modelica.Utilities.Streams.writeRealMatrix(fileName, "Matrix_A", A);
+       success1 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
+       success2 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_B", A, append=true, format="4");
+       success3 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v6.mat", "Matrix_A", A, format="6");
+       success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
@@ -389,16 +395,22 @@ from a file.
   model ReadRealMatrixFromFile
     import Modelica.Utilities.Streams.print;
     extends Modelica.Icons.Example;
-    parameter String fileName = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix.mat");
+    parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat");
+    parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat");
+    parameter String file3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat");
     parameter String matrixName = "Matrix_A";
-    parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(fileName,matrixName);
-    parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(fileName,matrixName,dim[1],dim[2]);
+    parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName);
+    parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName);
+    parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(file3,matrixName);
+    parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName,dim1[1],dim1[2]);
+    parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(file2,matrixName,dim2[1],dim2[2]);
+    parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName,dim3[1],dim3[2]);
     Real x(start=1, fixed=true);
   equation
     der(x) = -x;
     when initial() then
-       print("... Matrix " + matrixName + "[" + String(size(A,1)) + "," + String(size(A,2)) + "] read from file " + fileName);
-       print("...    " + matrixName + "[1,1] = " + String(A[1,1]));
+       print("... Matrix " + matrixName + "[" + String(size(A1,1)) + "," + String(size(A1,2)) + "] read from file " + file1);
+       print("...    " + matrixName + "[1,1] = " + String(A1[1,1]));
     end when;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
