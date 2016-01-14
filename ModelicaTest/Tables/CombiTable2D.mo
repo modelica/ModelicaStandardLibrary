@@ -384,7 +384,7 @@ package CombiTable2D
       input Boolean verboseRead = true "Verbose read";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library="ModelicaStandardTables");
+        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -396,7 +396,7 @@ package CombiTable2D
     external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
             tableID,
             u1,
-            u2) annotation (Library="ModelicaStandardTables");
+            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTableValue;
 
     function tableSurface
@@ -459,7 +459,7 @@ package CombiTable2D
       input Boolean verboseRead = true "Verbose read";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library="ModelicaStandardTables");
+        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -471,7 +471,7 @@ package CombiTable2D
     external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
             tableID,
             u1,
-            u2) annotation (Library="ModelicaStandardTables");
+            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTableValue;
 
     function tableSurface
@@ -534,7 +534,7 @@ package CombiTable2D
       input Boolean verboseRead = true "Verbose read";
       output Real readSuccess "Table read success";
     external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library="ModelicaStandardTables");
+        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"
@@ -546,7 +546,7 @@ package CombiTable2D
     external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
             tableID,
             u1,
-            u2) annotation (Library="ModelicaStandardTables");
+            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTableValue;
 
     function calcColor "Color Calculation"
