@@ -100,7 +100,7 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support at least DXF-files 
+The supported file formats are tool dependent. Most tools support at least DXF-files
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
@@ -346,7 +346,7 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support at least DXF-files 
+The supported file formats are tool dependent. Most tools support at least DXF-files
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
@@ -2056,7 +2056,7 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support at least DXF-files 
+The supported file formats are tool dependent. Most tools support at least DXF-files
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.

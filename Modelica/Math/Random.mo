@@ -1016,7 +1016,7 @@ argument is provided. Pass \"time\" in this argument.
   <b>initial equation</b>
      seed = <b>if</b> useAutomaticSeed <b>then</b>
                  Random.Utilities.automaticGlobalSeed(time)
-            <b>else</b> 
+            <b>else</b>
                  fixedSeed;
 </pre>
 

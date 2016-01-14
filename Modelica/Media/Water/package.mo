@@ -169,7 +169,7 @@ partial package WaterIF97_base
       fixed=false) "2 for two-phase, 1 for one-phase, 0 if not known";
   equation
     MM = fluidConstants[1].molarMass;
-    if Region > 0 then // Fixed region 
+    if Region > 0 then // Fixed region
       phase = (if Region == 4 then 2 else 1);
     elseif smoothModel then
       if onePhase then

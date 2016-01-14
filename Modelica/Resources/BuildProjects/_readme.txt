@@ -8,7 +8,7 @@ from the C-code under ../C-Sources
 - ModelicaIO (.lib, .dll, .a, .so, depending on tool and OS):
   This library contains
   ../C-Sources/ModelicaIO.c
-  
+
 - ModelicaMatIO (.lib, .dll, .a, .so, depending on tool and OS)
   This library contains
   ../C-Sources/ModelicaMatIO.c

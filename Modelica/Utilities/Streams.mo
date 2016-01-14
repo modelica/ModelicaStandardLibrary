@@ -180,8 +180,8 @@ dim = Streams.<b>readMatrixSize</b>(fileName, matrixName)
 
 <h4>Description</h4>
 <p>
-Function <b>readMatrixSize</b>(..) opens the given Matlab MAT file 
-(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3), 
+Function <b>readMatrixSize</b>(..) opens the given Matlab MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the dimensions of the given Real matrix.
 These dimensions are returned in the Integer vector dim.
 </p>
@@ -217,10 +217,10 @@ matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol)
 
 <h4>Description</h4>
 <p>
-Function <b>readRealMatrix</b>(..) opens the given Matlab MAT file 
-(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3), 
+Function <b>readRealMatrix</b>(..) opens the given Matlab MAT file
+(in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the given matrix from this file. The dimensions of this matrix must first
-be inquired with function 
+be inquired with function
 <a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>
 and passed via arguments nrow and ncol to this function.
 </p>
@@ -262,7 +262,7 @@ success = Streams.<b>writeRealMatrix</b>(fileName, matrixName, matrix, append, f
 <p>
 Function <b>writeRealMatrix</b>(..) writes the given matrix to a new or an existing Matlab MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3).
-If <code>append = false</code> (= default), the file is newly created 
+If <code>append = false</code> (= default), the file is newly created
 (or an existing file is deleted and re-created).
 If <code>append = true</code>, the matrix is included in an existing file.
 </p>
@@ -348,11 +348,11 @@ In the table below an example call to every function is given:
            file is already closed or does not exist. </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>(fileName, matrixName)</td>
-      <td valign=\"top\"> Read dimensions of a Real matrix from a Matlab MAT file. </td></tr>  
+      <td valign=\"top\"> Read dimensions of a Real matrix from a Matlab MAT file. </td></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
-      <td valign=\"top\"> Read a Real matrix from a Matlab MAT file. </td></tr>  
+      <td valign=\"top\"> Read a Real matrix from a Matlab MAT file. </td></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
-      <td valign=\"top\"> Write Real matrix to a Matlab MAT file. </td></tr>  
+      <td valign=\"top\"> Write Real matrix to a Matlab MAT file. </td></tr>
 </table>
 <p>
 Use functions <b>scanXXX</b> from package

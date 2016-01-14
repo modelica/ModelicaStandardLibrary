@@ -1401,7 +1401,7 @@ This model demonstrates the effect of a backlash on eigenfrequency, and
 also that the damping torque does not lead to unphysical pulling torques
 (since the ElastoBacklash model takes care of it).
 Furthermore, it shows the differences of the
-<a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a> and 
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash\">ElastoBacklash</a> and
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.ElastoBacklash2\">ElastoBacklash2</a> components
 (the ElastoBacklash2 component generates events when contact occurs and the torque changes discontinuously).
 </p>
@@ -3185,7 +3185,7 @@ the linear spring/damper characteristic to:
 
 <p>
 Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
-is explicitly set to zero. 
+is explicitly set to zero.
 </p>
 
 
@@ -3197,10 +3197,10 @@ component:
 
 <ul>
 <li> An event occurs when contact occurs or when contact is released (contrary to the ElastoBacklash component).</li>
-<li> When contact occurs, the torque changes discontinuously, due to the damping. 
+<li> When contact occurs, the torque changes discontinuously, due to the damping.
      The damping is larger as for the ElastoBacklash component (for the same damping coefficient),
     because the ElastoBacklash component has a heuristic to avoid the discontinuity of the torque when contact occurs.</li>
-<li> For some models, the ElastoBacklash2 component leads to faster simulations 
+<li> For some models, the ElastoBacklash2 component leads to faster simulations
       (as compared when using the ElastBacklash component).</li>
 </ul>
 
