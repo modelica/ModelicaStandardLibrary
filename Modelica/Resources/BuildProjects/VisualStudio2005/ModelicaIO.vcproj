@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="ModelicaStandardTables"
-	ProjectGUID="{BDABC215-3272-4715-977A-A23F4D2C2FA1}"
+	Name="ModelicaIO"
+	ProjectGUID="{9460FDC9-F7B7-4F5E-B25C-2A0801FBA374}"
 	RootNamespace="ModelicaStandardTables"
 	Keyword="Win32Proj"
 	>
@@ -44,7 +44,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;DEBUG_TIME_EVENTS;TABLE_SHARE"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICAIO_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -107,7 +107,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;DEBUG_TIME_EVENTS;TABLE_SHARE"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;MODELICAIO_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -169,7 +169,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;_CRT_SECURE_NO_WARNINGS;TABLE_SHARE"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICAIO_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
 			/>
@@ -229,7 +229,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalIncludeDirectories=""
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICASTANDARDTABLES_EXPORTS;_CRT_SECURE_NO_WARNINGS;TABLE_SHARE"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;MODELICAIO_EXPORTS;_CRT_SECURE_NO_WARNINGS"
 				RuntimeLibrary="0"
 				ProgramDataBaseFileName="$(IntDir)\$(ProjectName).pdb"
 			/>
@@ -272,7 +272,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\..\C-Sources\ModelicaStandardTables.c"
+				RelativePath="..\..\C-Sources\ModelicaIO.c"
 				>
 			</File>
 		</Filter>
@@ -286,7 +286,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\C-Sources\ModelicaStandardTables.h"
+				RelativePath="..\..\C-Sources\ModelicaIO.h"
 				>
 			</File>
 			<File
@@ -301,6 +301,4 @@
 			>
 		</Filter>
 	</Files>
-	<Globals>
-	</Globals>
 </VisualStudioProject>
