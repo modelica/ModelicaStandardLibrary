@@ -2363,7 +2363,7 @@ class Version_3_2_2 "Version 3.2.2 (March 11, 2016)"
 <p>
 Version 3.2.2 is backward compatible to version 3.2.1, that is models developed with
 versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with version 3.2.2
-(with exception of the, usuallyuncritical, non-backwards compatible changes listed below).
+(with exception of the, usually uncritical, non-backwards compatible changes listed below).
 </p>
 
 <ul>
@@ -2456,10 +2456,10 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
     <td valign=\"top\">
-    This library provides quasistatic models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors) 
+    This library provides quasistatic models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
     to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
-    This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a> 
+    This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
     library in order to build up very fast simulations of electrical circuits with sinusoidal currents and voltages.<br>
     (This library was developed by Christian Kral and Anton Haumer).
     </td></tr>
@@ -2467,19 +2467,19 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\">Sublibraries of <a href=\"modelica://Modelica.Magnetic.FluxTubes\">Modelica.Magnetic.FluxTubes</a></td>
     <td valign=\"top\">
    New elements for modeling ferromagnetic (static) and eddy current (dynamic) hysteresis effects and permanent magnets have been added.
-   The FluxTubes.Material package is also extended to provide hysteresis data for several magnetic materials. These data is partly based on own measurements. 
+   The FluxTubes.Material package is also extended to provide hysteresis data for several magnetic materials. These data is partly based on own measurements.
    For modeling of ferromagnetic hysteresis, two different hystereses models have been implemented: The simple Tellinen model and the considerably
    more detailed Preisach hysteresis model. The following packages have been added:
   <ul>
   <li> <a href=\"Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">FluxTubes.UsersGuide.Hysteresis</a><li>
-  <li> <a href=\"Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a><li>   
-  <li> <a href=\"Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a><li>   
-  <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a><li>   
-  <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a><li>   
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Examples.Hysteresis\">Fluxtubes.Examples.Hysteresis</a><li>
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">FluxTubes.Shapes.HysteresisAndMagnets</a><li>
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a><li>
+  <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a><li>
   </ul>
     (These extensions have been developed by Johannes Ziske and Thomas B&ouml;drich as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project;
      project number: 296369; Theme:
-   <a href=\"http://cordis.europa.eu/project/rcn/101194_en.html\">JTI-CS-2011-1-SGO-02-026</a>; 
+   <a href=\"http://cordis.europa.eu/project/rcn/101194_en.html\">JTI-CS-2011-1-SGO-02-026</a>;
    MOMOLIB - Modelica Model Library Development for Media, Magnetic Systems and Wavelets.
      The partial financial support by the European Union for this development is highly appreciated.).
     </td></tr>
@@ -2553,7 +2553,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">ElastoBacklash2</td>
-    <td valign=\"top\">Alternative model of backlash. The difference to the existing ElastoBacklash  
+    <td valign=\"top\">Alternative model of backlash. The difference to the existing ElastoBacklash
     component is that an event is generated when contact occurs and that the contact torque
     changes discontinuously in this case. For some user models, this variant of a backlash model
     leads to significantly faster simulations.</td></tr>
@@ -2657,7 +2657,7 @@ The following <b style=\"color:blue\">existing components</b> have been <b style
                       HeatingPNP </td>
           <td valign=\"top\"> Removed parameter K \"Boltzmann's constant\" and q \"Elementary electronic charge\".<br>
                             Calculate instead protected constant q \"Electron charge\" from already known constants.<br>
-                            Users that have used these parameters might have broken their models; 
+                            Users that have used these parameters might have broken their models;
                             the (although formal non-backwards compatible) change offers the users a safer use.</td> </tr>
 </table>
 
