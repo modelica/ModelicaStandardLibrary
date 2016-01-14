@@ -164,10 +164,9 @@ file is already closed or does not exist.
 </html>"));
   end close;
 
-  function readMatrixSize
-    "Read dimensions of a Real matrix from a Matlab MAT file"
+  function readMatrixSize "Read dimensions of a Real matrix from a MATLAB MAT file"
     extends Modelica.Icons.Function;
-    input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
+    input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     input String matrixName "Name / identifier of the 2D Real array on the file";
     output Integer dim[2] "Number of rows and columns of the 2D Real array";
     external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim)
@@ -180,7 +179,7 @@ dim = Streams.<b>readMatrixSize</b>(fileName, matrixName)
 
 <h4>Description</h4>
 <p>
-Function <b>readMatrixSize</b>(..) opens the given Matlab MAT file
+Function <b>readMatrixSize</b>(..) opens the given MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the dimensions of the given Real matrix.
 These dimensions are returned in the Integer vector dim.
@@ -199,9 +198,9 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
 </html>"));
   end readMatrixSize;
 
-  function readRealMatrix "Read Real matrix from Matlab MAT file"
+  function readRealMatrix "Read Real matrix from MATLAB MAT file"
     extends Modelica.Icons.Function;
-    input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
+    input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     input String matrixName "Name / identifier of the 2D Real array on the file";
     input Integer nrow "Number of rows of the 2D Real array";
     input Integer ncol "Number of columns of the 2D Real array";
@@ -217,7 +216,7 @@ matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol)
 
 <h4>Description</h4>
 <p>
-Function <b>readRealMatrix</b>(..) opens the given Matlab MAT file
+Function <b>readRealMatrix</b>(..) opens the given MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3),
 and reads the given matrix from this file. The dimensions of this matrix must first
 be inquired with function
@@ -238,16 +237,16 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
 </html>"));
   end readRealMatrix;
 
-  function writeRealMatrix "Write Real matrix to a Matlab MAT file"
+  function writeRealMatrix "Write Real matrix to a MATLAB MAT file"
     extends Modelica.Icons.Function;
-    input String fileName "File where external data is to be stored" annotation(Dialog(saveSelector(filter="MATLAB MAT-files (*.mat)", caption="Save MATLAB MAT-file")));
+    input String fileName "File where external data is to be stored" annotation(Dialog(saveSelector(filter="MATLAB MAT files (*.mat)", caption="Save MATLAB MAT file")));
     input String matrixName "Name / identifier of the 2D Real array on the file";
     input Real matrix[:,:] "2D Real array";
     input Boolean append = false "Append values to file";
-    input String format = "4" "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
-       annotation(choices(choice="4" "Matlat MAT v4",
-                          choice="6" "Matlat MAT v6",
-                          choice="7" "Matlat MAT v7"));
+    input String format = "4" "MATLAB MAT file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
+      annotation(choices(choice="4" "MATLAB v4 MAT file",
+                         choice="6" "MATLAB v6 MAT file",
+                         choice="7" "MATLAB v7 MAT file"));
     output Boolean success "true if successful";
     external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -260,7 +259,7 @@ success = Streams.<b>writeRealMatrix</b>(fileName, matrixName, matrix, append, f
 
 <h4>Description</h4>
 <p>
-Function <b>writeRealMatrix</b>(..) writes the given matrix to a new or an existing Matlab MAT file
+Function <b>writeRealMatrix</b>(..) writes the given matrix to a new or an existing MATLAB MAT file
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3).
 If <code>append = false</code> (= default), the file is newly created
 (or an existing file is deleted and re-created).
@@ -274,10 +273,10 @@ The following formats are supported:<br>&nbsp;
 
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td>format = </td><td>Type of format</td></tr>
-<tr><td>\"4\"  </td><td>Matlab MAT version v4</td></tr>
-<tr><td>\"6\"  </td><td>Matlab MAT version v6</td></tr>
-<tr><td>\"7\"  </td><td>Matlab MAT version v7</td></tr>
-<tr><td>\"7.3\"</td><td>Matlab MAT version v7.3<br>
+<tr><td>\"4\"  </td><td>MATLAB MAT version v4</td></tr>
+<tr><td>\"6\"  </td><td>MATLAB MAT version v6</td></tr>
+<tr><td>\"7\"  </td><td>MATLAB MAT version v7</td></tr>
+<tr><td>\"7.3\"</td><td>MATLAB MAT version v7.3<br>
                       (requires HDF support in the Modelica tool)</td></tr>
 </table>
 
@@ -348,11 +347,11 @@ In the table below an example call to every function is given:
            file is already closed or does not exist. </td>
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a>(fileName, matrixName)</td>
-      <td valign=\"top\"> Read dimensions of a Real matrix from a Matlab MAT file. </td></tr>
+      <td valign=\"top\"> Read dimensions of a Real matrix from a MATLAB MAT file. </td></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>(fileName, matrixName, nrow, ncol)</td>
-      <td valign=\"top\"> Read a Real matrix from a Matlab MAT file. </td></tr>
+      <td valign=\"top\"> Read a Real matrix from a MATLAB MAT file. </td></tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>(fileName, matrixName, matrix, append, format)</td>
-      <td valign=\"top\"> Write Real matrix to a Matlab MAT file. </td></tr>
+      <td valign=\"top\"> Write Real matrix to a MATLAB MAT file. </td></tr>
 </table>
 <p>
 Use functions <b>scanXXX</b> from package
