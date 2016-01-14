@@ -371,6 +371,7 @@ from a file.
   end readRealParameterModel;
 
   model WriteRealMatrixToFile
+    "Demonstrate usage of function Streams.writeRealMatrix"
     extends Modelica.Icons.Example;
     parameter String fileName = "Test_RealMatrix.mat";
     parameter Real A[3,2] = [11, 12;
@@ -389,7 +390,13 @@ from a file.
     end when;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)));
+          coordinateSystem(preserveAspectRatio=false)),
+      Documentation(info="<html>
+<p>
+Example model that shows how to write a Real matrix in Matlab MAT format on file
+using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
+<p>
+</html>"));
   end WriteRealMatrixToFile;
 
   model ReadRealMatrixFromFile
@@ -414,7 +421,15 @@ from a file.
     end when;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)));
+          coordinateSystem(preserveAspectRatio=false)),
+      Documentation(info="<html>
+<p>
+Example model that shows how to read a Real matrix in Matlab MAT format from file
+using functions
+<a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a> and
+<a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>.
+<p>
+</html>"));
   end ReadRealMatrixFromFile;
   annotation (Documentation(info="<html>
 <p>
