@@ -15,8 +15,8 @@ package FastFourierTransform
         "Maximum frequency of interest";
       parameter Modelica.SIunits.Frequency f_resolution = 0.2
         "Frequency resolution";
-      parameter Modelica.SIunits.Frequency f1 = 2 "Frequency of first sine";
-      parameter Modelica.SIunits.Frequency f2 = 3 "Frequency of second sine";
+      parameter Modelica.SIunits.Frequency f1 = 2 "Frequency of sine";
+      parameter Modelica.SIunits.Frequency f2 = 3 "Frequency of cosine";
       parameter String FFT_resultFileName = "RealFFT1_resultFFT.mat"
         "File where FFT will be stored as [f,A,Phi], with f in {Hz] and A the amplitues and Phi the phases in [rad]";
       final parameter Integer nfi = max(1,min(integer(ceil(f_max/f_resolution))+1,nf))
@@ -51,7 +51,7 @@ package FastFourierTransform
     algorithm
       when sample(0,Ts) then
          iTick :=pre(iTick) + 1;
-         y := 5 + 3*sin(2*pi*f1*time) + 1.5*sin(2*pi*f2*time);
+         y := 5 + 3*sin(2*pi*f1*time) + 1.5*cos(2*pi*f2*time);
          if iTick >= 1 and iTick <= ns then
             y_buf[iTick] := y;
          end if;
@@ -80,7 +80,7 @@ In this example the signal y
 </p>
 
 <pre>
-   y = 5 + 3*sin(2*pi*f1) + 1.5*sin(2*pi*f2)
+   y = 5 + 3*sin(2*pi*f1) + 1.5*cos(2*pi*f2)
 </pre>
 
 <p>
@@ -90,8 +90,8 @@ With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the foll
 </p>
 
 <pre>   fi[0]  = 0,  Ai[0]  = 5;   // mean value of signal
-   fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of first sine
-   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of second sine
+   fi[11] = 2,  Ai[11] = 3;   // frequency/amplitude of sine
+   fi[16] = 3,  Ai[16] = 1.5; // frequency/amplitude of cosine
 </pre>
 
 <p>
@@ -100,9 +100,14 @@ A plot of the resulting FFT is shown in the next image:
 
 <p><blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
-</blockquote></p>
+</blockquote>
+</p>
 
-
+<p>
+Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitely set to zero, since the corresponding
+\"phase\" is numerical noise (and would just be confusing).
+Furthermore, note that the FFT phases are with respect to a cos(..) signal.
+</p>
 </html>"));
     end RealFFT1;
     annotation (Documentation(revisions="<html>
@@ -334,7 +339,7 @@ results in the following output:
     output Integer info
       "Information flag (0: FFT computed, 1: nu is not even, 3: another error)";
     output Real amplitudes[nfi] "Amplitudes of FFT";
-    output Real phases[nfi] "Phases of FFT";
+    output Real phases[nfi] "Phases of FFT in [deg]";
   protected
     Integer nu = size(u,1);
     Integer nf = div(size(u,1),2)+1;
@@ -342,6 +347,7 @@ results in the following output:
     Real u2[size(u,1)];
     Real A[div(size(u,1),2)+1];
     Real Phi[div(size(u,1),2)+1];
+    Real Aeps;
   algorithm
     assert(nfi > 0 and nfi <= div(size(u,1),2)+1, "Argument nfi is out of range");
 
@@ -349,8 +355,18 @@ results in the following output:
     u2   :=u - fill(u_DC, nu);
     (info, A, Phi) :=Internal.rawRealFFT(u2);
     amplitudes :=A[1:nfi];
-    phases :=Phi[1:nfi];
+    phases :=Modelica.SIunits.Conversions.to_deg(Phi[1:nfi]);
+    Aeps :=0.0001*max(amplitudes);
     amplitudes[1] :=u_DC;
+    phases[1] := 0.0;
+
+    // Set phases[i] explicitly to zero, if the correspondion amplitude is < Aeps (= 0.0001*Amax; = numerical noise).
+
+    for i in 2:nfi loop
+       if amplitudes[i] < Aeps then
+          phases[i] :=0.0;
+       end if;
+    end for;
 
   annotation (Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -439,7 +455,6 @@ which is a complete example where an FFT is computed during simulation and store
 <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
 <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">realFFTwriteToFile</a>
 </p>
-
 </html>"));
   end realFFT;
 
@@ -478,6 +493,51 @@ which is a complete example where an FFT is computed during simulation and store
      if success then
         print("... FFT results computed at time = " + String(t_computed) + " s stored on file: " + fileName);
      end if;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+
+<blockquote><p>
+success = <b>realFFTwriteToFile</b>(t_computed, fileName, f_max, amplitudes, phases, format);
+</p></blockquote>
+
+<h4>Description</h4>
+<p>
+This functions stores the result of an FFT computation on file, so that it can 
+be easily plotted. <b>amplitudes</b> and <b>phases</b> are the vectors that hold the
+amplitudes and phases values of an FFT computation. If the size of the phases vector is zero,
+no phases will be stored on file. Otherwise, phases must have the same dimension as the amplitudes
+vector. The frequency vector f is constructed within the function from the dimension of the
+amplitudes vector and the information that amplitudes[end] is at frequency <b>f_max</b>.
+The <b>format</b> argument defines the file format (for details see 
+<a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>).
+Argument <b>t_computed</b> is the actual time instant when the FFT was computed.
+It is used in the print message after the result was stored on file.
+</p>
+
+<p>
+The matrix on file has the following structure:
+</p>
+
+<ul>
+<li> First column: Equidistant frequency vector f in Hz from 0 Hz ... f_max Hz.</li>
+<li> Second column: Amplitudes[:]</li>
+<li> Optional third column: Modelica.SIunits.Conversions.to_deg(Phases[:])</li>
+</ul>
+
+<h4>Example</h4>
+
+<p>
+See detailed example model: 
+<a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTinfo\">realFFTinfo</a>,
+<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTsamplePoints\">realFFTsamplePoints</a>,
+<a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">realFFT</a>
+</p>
+</html>"));
   end realFFTwriteToFile;
 
   package Internal
@@ -493,7 +553,7 @@ which is a complete example where an FFT is computed during simulation and store
       output Real phases[    div(size(u,1),2)+1] "Phases of FFT";
     protected
       Real work[3*size(u,1) + 2*(div(size(u,1),2)+1)];
-      external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases) annotation(Include="#include \"ModelicaFFT.c\"",Library="ModelicaExternalC");
+      external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases) annotation(Library="ModelicaExternalC");
       annotation (Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
