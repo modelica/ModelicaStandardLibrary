@@ -1,10 +1,9 @@
-CC = gcc
 AR = ar -ru
 RM = rm -f
 
 CFLAGS = -O3
 CPPFLAGS = -DNDEBUG
-INC = -I"zlib"
+INC = -I"../../C-Sources/zlib"
 
 TARGETDIR = linux64
 
@@ -40,33 +39,33 @@ all: clean libModelicaStandardTables.a libModelicaIO.a libModelicaMatIO.a libzli
 
 libModelicaStandardTables.a: $(TABLES_OBJS)
 	$(AR) $@ $(TABLES_OBJS)
-	cp $@ ../Library/$(TARGETDIR)/$@
+	cp $@ ../../Library/$(TARGETDIR)/$@
 
 libModelicaMatIO.a: $(MATIO_OBJS)
 	$(AR) $@ $(MATIO_OBJS)
-	cp $@ ../Library/$(TARGETDIR)/$@
+	cp $@ ../../Library/$(TARGETDIR)/$@
 
 libModelicaIO.a: $(IO_OBJS)
 	$(AR) $@ $(IO_OBJS)
-	cp $@ ../Library/$(TARGETDIR)/$@
+	cp $@ ../../Library/$(TARGETDIR)/$@
 
 libzlib.a: $(ZLIB_OBJS)
 	$(AR) $@ $(ZLIB_OBJS)
-	cp $@ ../Library/$(TARGETDIR)/$@
+	cp $@ ../../Library/$(TARGETDIR)/$@
 
-ModelicaStandardTables.o: ModelicaStandardTables.c
+ModelicaStandardTables.o: ../../C-Sources/ModelicaStandardTables.c
 	$(CC) $(CPPFLAGS) -DTABLE_SHARE=1 -DDUMMY_FUNCTION_USERTAB $(CFLAGS) $(INC) -c -o $@ $<
 
-ModelicaMatIO.o: ModelicaMatIO.c
+ModelicaMatIO.o: ../../C-Sources/ModelicaMatIO.c
 	$(CC) $(CPPFLAGS) -DHAVE_ZLIB=1 $(CFLAGS) $(INC) -c -o $@ $<
 
-ModelicaIO.o: ModelicaIO.c
+ModelicaIO.o: ../../C-Sources/ModelicaIO.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
 
-%.o: zlib/%.c
+%.o: ../../C-Sources/zlib/%.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(INC) -c -o $@ $<
 
 clean:
 	$(RM) $(ALL_OBJS)
 	$(RM) *.a
-	$(RM) ../Library/$(TARGETDIR)/*.a
+	$(RM) ../../Library/$(TARGETDIR)/*.a
