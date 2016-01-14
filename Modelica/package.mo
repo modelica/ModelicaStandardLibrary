@@ -2476,7 +2476,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
   <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\">FluxTubes.Material.HysteresisEverettParameter</a><li>   
   <li> <a href=\"Modelica.Magnetic.FluxTubes.Material.HysteresisTableData\">FluxTubes.Material.HysteresisTableData</a><li>   
   </ul>
-    (These extensions have been developed by Johannes Ziske and Thomas Bödrich as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project;
+    (These extensions have been developed by Johannes Ziske and Thomas B&ouml;drich as part of the <a href=\"http://www.cleansky.eu/\">Clean Sky</a> JTI project;
      project number: 296369; Theme:
    <a href=\"http://cordis.europa.eu/project/rcn/101194_en.html\">JTI-CS-2011-1-SGO-02-026</a>; 
    MOMOLIB - Modelica Model Library Development for Media, Magnetic Systems and Wavelets.
