@@ -1,4 +1,4 @@
-﻿within Modelica.Math;
+within Modelica.Math;
 package FastFourierTransform
   "Library of functions for the Fast Fourier Transform (FFT)"
   extends Modelica.Icons.Package;
@@ -279,7 +279,7 @@ used in this function
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
-     Math. Comput. 19: 297–301. doi:10.2307/2003354.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
@@ -379,7 +379,7 @@ amplitudes[i] is the amplitude of a sine-function at the i-th frequency.
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
-     Math. Comput. 19: 297–301. doi:10.2307/2003354.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
@@ -466,7 +466,7 @@ used in this function.
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
-     Math. Comput. 19: 297–301. doi:10.2307/2003354.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
@@ -593,7 +593,7 @@ resulting in:
 
 <dt>James W. Cooley, John W. Tukey (1965):</dt>
 <dd> <b>An algorithm for the machine calculation of complex Fourier series</b>.
-     Math. Comput. 19: 297–301. doi:10.2307/2003354.
+     Math. Comput. 19: 297-301. doi:10.2307/2003354.
      <br>&nbsp;
      </dd>
 
