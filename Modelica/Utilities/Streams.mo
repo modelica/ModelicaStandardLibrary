@@ -167,8 +167,7 @@ file is already closed or does not exist.
   function readMatrixSize "Read dimensions of a 2D Real array from file"
     extends Modelica.Icons.Function;
     input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
-    input String matrixName
-      "Name / identifier of the 2D Real array on the file";
+    input String matrixName "Name / identifier of the 2D Real array on the file";
     output Integer dim[2] "Number of rows and columns of the 2D Real array";
     external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
@@ -178,8 +177,7 @@ file is already closed or does not exist.
   function readRealMatrix "Read 2D Real values from file"
     extends Modelica.Icons.Function;
     input String fileName "File where external data is stored" annotation(Dialog(loadSelector(filter="MATLAB MAT-files (*.mat)", caption="Open MATLAB MAT-file")));
-    input String matrixName
-      "Name / identifier of the 2D Real array on the file";
+    input String matrixName "Name / identifier of the 2D Real array on the file";
     input Integer nrow "Number of rows of the 2D Real array";
     input Integer ncol "Number of columns of the 2D Real array";
     output Real matrix[nrow, ncol] "2D Real array";
@@ -191,18 +189,15 @@ file is already closed or does not exist.
   function writeRealMatrix "Write 2D Real values to file"
     extends Modelica.Icons.Function;
     input String fileName "File where external data is to be stored" annotation(Dialog(saveSelector(filter="MATLAB MAT-files (*.mat)", caption="Save MATLAB MAT-file")));
-    input String matrixName
-      "Name / identifier of the 2D Real array on the file";
+    input String matrixName "Name / identifier of the 2D Real array on the file";
     input Real matrix[:,:] "2D Real array";
     input Boolean append = false "Append values to file";
-    input String format = "4"
-      "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
-       annotation(choices(choice="4" "Matlat MAT v4",
-                          choice="6" "Matlat MAT v6",
-                          choice="7" "Matlat MAT v7"));
+    input String format = "4" "MATLAB MAT-file version: \"4\" -> v4, \"6\" -> v6, \"7\" -> v7"
+      annotation(choices(choice="4" "MATLAB v4 MAT-file",
+                         choice="6" "MATLAB v6 MAT-file",
+                         choice="7" "MATLAB v7 MAT-file"));
     output Boolean success "true if successful";
-    external "C" success =
-                        ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
+    external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(Documentation(info="<html><p>Save a 2D Real array in a MATLAB MAT-file.</p></html>"));
   end writeRealMatrix;
