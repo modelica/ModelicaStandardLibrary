@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library - Version 3.2.2 development"
+package Modelica "Modelica Standard Library - Version 3.2.2"
 extends Modelica.Icons.Package;
 
 
@@ -2362,7 +2362,8 @@ class Version_3_2_2 "Version 3.2.2 (March 11, 2016)"
    annotation (Documentation(info="<html>
 <p>
 Version 3.2.2 is backward compatible to version 3.2.1, that is models developed with
-versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with version 3.2.2.
+versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with version 3.2.2
+(with exception of the, usuallyuncritical, non-backwards compatible changes listed below).
 </p>
 
 <ul>
@@ -2623,6 +2624,14 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
     <td valign=\"top\">Return number of sample points for a real FFT</td></tr>
 <tr><td valign=\"top\" width=\"150\">realFFT</td>
     <td valign=\"top\">Return amplitude and phase vectors for a real FFT</td></tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
+<tr><td valign=\"top\" width=\"150\">readMatrixSize</td>
+    <td valign=\"top\">Read dimensions of a Real matrix from a Matlab MAT file</td></tr>
+<tr><td valign=\"top\" width=\"150\">readRealMatrix</td>
+    <td valign=\"top\">Read Real matrix from Matlab MAT file</td></tr>
+<tr><td valign=\"top\" width=\"150\">writeRealMatrix</td>
+    <td valign=\"top\">Write Real matrix to a Matlab MAT file</td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Strings.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">hashString</td>
