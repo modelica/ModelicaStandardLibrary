@@ -481,7 +481,7 @@ which is a complete example where an FFT is computed during simulation and store
   end realFFTwriteToFile;
 
   package Internal
-    "Internal library that should be not used directly by a user"
+    "Internal library that should not be used directly by a user"
     extends Modelica.Icons.InternalPackage;
     function rawRealFFT
       "Compute raw Fast Fourier Transform for real signal vector"
