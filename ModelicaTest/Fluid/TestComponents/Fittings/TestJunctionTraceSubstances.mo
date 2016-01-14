@@ -6,7 +6,7 @@ model TestJunctionTraceSubstances
   Modelica.Fluid.Fittings.TeeJunctionIdeal junction(
                                                   redeclare package Medium =
         Medium)                             annotation (Placement(
-        transformation(extent={{0,-30},{20,-10}},  rotation=0)));
+        transformation(extent={{0,-30},{20,-10}})));
   Modelica.Fluid.Sources.Boundary_pT source2(nPorts=1,
     T=278.15,
     redeclare package Medium = Medium,
@@ -26,8 +26,7 @@ model TestJunctionTraceSubstances
         extent={{-10,-10},{10,10}},
         rotation=270)));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-    annotation (Placement(transformation(extent={{-100,80},{-80,100}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
   Modelica.Fluid.Sources.Boundary_pT source1(
     T=system.T_ambient,
     use_p_in=true,
@@ -36,24 +35,22 @@ model TestJunctionTraceSubstances
     use_X_in=true,
     nPorts=1,
     p=500000)
-    annotation (Placement(transformation(extent={{-68,-28},{-48,-8}},  rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-68,-28},{-48,-8}})));
   Modelica.Blocks.Sources.Ramp ramp(
     duration=1,
     height=-40,
     offset=1E5 + 20)
-                annotation (Placement(transformation(extent={{-100,24},{-80,44}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{-100,24},{-80,44}})));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     length=1,
     diameter=0.1,
     redeclare package Medium = Medium) annotation (Placement(transformation(
-          extent={{-24,-30},{-4,-10}},rotation=0)));
+          extent={{-24,-30},{-4,-10}})));
   Modelica.Fluid.Pipes.StaticPipe pipe2(
     length=1,
     diameter=0.1,
     redeclare package Medium = Medium) annotation (Placement(transformation(
-          extent={{56,-30},{76,-10}}, rotation=0)));
+          extent={{56,-30},{76,-10}})));
   Modelica.Fluid.Pipes.StaticPipe pipe3(
     length=1,
     diameter=0.1,
@@ -68,7 +65,7 @@ model TestJunctionTraceSubstances
     C_start={1E-4},
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     X_start=Medium.X_default)               annotation (Placement(
-        transformation(extent={{30,-30},{50,-10}}, rotation=0)));
+        transformation(extent={{30,-30},{50,-10}})));
   Modelica.Fluid.Sources.Boundary_pT source4(nPorts=1,
     T=283.15,
     redeclare package Medium = Medium,

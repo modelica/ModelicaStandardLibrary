@@ -13,7 +13,7 @@ model IdealMixing1 "Test properties of ideal mixing"
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (from_dp=
             false))                    annotation (Placement(transformation(
-          extent={{-32,-40},{-12,-20}}, rotation=0)));
+          extent={{-32,-40},{-12,-20}})));
   Modelica.Fluid.Pipes.StaticPipe pipeFriction2(
     length=1,
     diameter=0.2,
@@ -21,7 +21,7 @@ model IdealMixing1 "Test properties of ideal mixing"
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (from_dp=
             false))                    annotation (Placement(transformation(
-          extent={{12,-40},{32,-20}}, rotation=0)));
+          extent={{12,-40},{32,-20}})));
   Modelica.Fluid.Pipes.StaticPipe pipeFriction3(
     length=1,
     diameter=0.2,
@@ -30,21 +30,20 @@ model IdealMixing1 "Test properties of ideal mixing"
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow (from_dp=
             false))
     annotation (Placement(transformation(
-        origin={0,0},
         extent={{-10,-10},{10,10}},
         rotation=90)));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
     use_p_in=true,
     use_T_in=true,
     redeclare package Medium = Medium) annotation (Placement(transformation(
-          extent={{-68,-40},{-48,-20}}, rotation=0)));
+          extent={{-68,-40},{-48,-20}})));
   Modelica.Fluid.Sources.Boundary_pT boundary2(nPorts=1,
     use_p_in=false,
     use_T_in=false,
     p=101000,
     T=320,
     redeclare package Medium = Medium) annotation (Placement(transformation(
-          extent={{66,-40},{46,-20}}, rotation=0)));
+          extent={{66,-40},{46,-20}})));
   Modelica.Fluid.Sources.Boundary_pT boundary3(nPorts=1,
     use_p_in=true,
     use_T_in=false,
@@ -59,13 +58,13 @@ model IdealMixing1 "Test properties of ideal mixing"
     freqHz=2,
     offset=1e5,
     phase=0.013962634015955) annotation (Placement(transformation(extent={{
-            -100,-20},{-80,0}}, rotation=0)));
+            -100,-20},{-80,0}})));
   Modelica.Blocks.Sources.Sine sine2(
     amplitude=10,
     freqHz=1,
     phase=0.0017453292519943,
     offset=300) annotation (Placement(transformation(extent={{-100,-58},{-80,
-            -38}}, rotation=0)));
+            -38}})));
   Modelica.Blocks.Sources.Sine sine3(
     amplitude=0.05e5,
     freqHz=2,
@@ -75,10 +74,9 @@ model IdealMixing1 "Test properties of ideal mixing"
         rotation=90)));
   inner Modelica.Fluid.System system
                         annotation (Placement(transformation(extent={{-88,60},
-            {-68,80}}, rotation=0)));
+            {-68,80}})));
  Modelica.Fluid.Sensors.Temperature temperature(redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{-10,-60},{10,-80}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-10,-60},{10,-80}})));
 equation
   connect(pipeFriction1.port_b, pipeFriction2.port_a) annotation (Line(
       points={{-12,-30},{12,-30}},

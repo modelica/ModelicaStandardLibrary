@@ -6774,7 +6774,6 @@ extends Modelica.Icons.ExamplesPackage;
           redeclare package Medium = Modelica.Media.Air.DryAirNasa) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={-50,-40})));
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_dp(
@@ -6888,7 +6887,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           redeclare package Medium = Modelica.Media.Air.DryAirNasa) annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={-50,-40})));
 
         //flow models
@@ -7022,7 +7020,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={50,128})));
 
         Modelica.Fluid.Fittings.Bends.EdgedBend from_dp(redeclare package
@@ -7079,7 +7076,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={50,-32})));
         Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate from_dp2(
                                                             redeclare package
@@ -7137,7 +7133,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=0,
               origin={-150,-110})));
         Modelica.Fluid.Fittings.Bends.CurvedBend from_dp3(       redeclare
             package Medium =

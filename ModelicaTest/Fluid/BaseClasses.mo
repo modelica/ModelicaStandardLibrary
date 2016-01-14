@@ -132,8 +132,7 @@ The regularization can be changed for the PressureLoss model.
       "Wall heat transfer"
         annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if use_HeatTransfer
-      annotation (Placement(transformation(extent={{-10,44},{10,64}}, rotation=
-              0), iconTransformation(extent={{-10,35},{10,55}})));
+      annotation (Placement(transformation(extent={{-10,44},{10,64}}), iconTransformation(extent={{-10,35},{10,55}})));
 
     Modelica.Fluid.Pipes.StaticPipe staticPipe1(
       redeclare package Medium = Medium,
@@ -147,8 +146,7 @@ The regularization can be changed for the PressureLoss model.
       height_ab=height_ab/2,
       m_flow_start=m_flow_start,
       redeclare final model FlowModel = FlowModel)
-      annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
     Modelica.Fluid.Vessels.ClosedVolume volume(
       redeclare package Medium = Medium,
       redeclare model HeatTransfer = HeatTransfer,
@@ -165,8 +163,7 @@ The regularization can be changed for the PressureLoss model.
       nPorts=2,
       use_portsData=false,
       use_HeatTransfer=use_HeatTransfer)
-      annotation (Placement(transformation(extent={{-10,10},{10,30}},  rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-10,10},{10,30}})));
     Modelica.Fluid.Pipes.StaticPipe staticPipe2(
       redeclare package Medium = Medium,
       allowFlowReversal=allowFlowReversal,
@@ -179,7 +176,7 @@ The regularization can be changed for the PressureLoss model.
       height_ab=height_ab/2,
       m_flow_start=m_flow_start,
       redeclare final model FlowModel = FlowModel)   annotation (Placement(transformation(extent={{40,-10},
-              {60,10}},          rotation=0)));
+              {60,10}})));
 
   equation
     connect(staticPipe1.port_a, port_a)

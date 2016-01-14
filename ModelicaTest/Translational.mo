@@ -9,79 +9,69 @@ extends Modelica.Icons.ExamplesPackage;
       m=1,
       s(fixed=true),
       v(fixed=true))
-      annotation (Placement(transformation(extent={{-70,60},{-50,80}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-70,60},{-50,80}})));
     Modelica.Mechanics.Translational.Components.Rod rod(L=0)
                                              annotation (Placement(
-          transformation(extent={{-30,60},{-10,80}},rotation=0)));
+          transformation(extent={{-30,60},{-10,80}})));
     Modelica.Mechanics.Translational.Components.Spring spring(c=1)
-      annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=0)));
+      annotation (Placement(transformation(extent={{0,60},{20,80}})));
     Modelica.Mechanics.Translational.Components.Damper damper(
                                                    d=10, s_rel(fixed=true))
-      annotation (Placement(transformation(extent={{30,60},{50,80}}, rotation=0)));
+      annotation (Placement(transformation(extent={{30,60},{50,80}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass1(m=1)
-      annotation (Placement(transformation(extent={{60,60},{80,80}}, rotation=0)));
+      annotation (Placement(transformation(extent={{60,60},{80,80}})));
     Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
       c=1,
       d=1,
       s_rel(fixed=true),
       v_rel(fixed=true))
-      annotation (Placement(transformation(extent={{-30,20},{-10,40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-30,20},{-10,40}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass2(m=1)
-      annotation (Placement(transformation(extent={{0,20},{20,40}}, rotation=0)));
+      annotation (Placement(transformation(extent={{0,20},{20,40}})));
     Modelica.Mechanics.Translational.Components.ElastoGap elastoGap(
       c=1,
       d=1,
       s_rel(fixed=true),
       v_rel(fixed=true))
-      annotation (Placement(transformation(extent={{30,20},{50,40}}, rotation=0)));
+      annotation (Placement(transformation(extent={{30,20},{50,40}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass3(m=1)
-      annotation (Placement(transformation(extent={{60,20},{80,40}}, rotation=0)));
+      annotation (Placement(transformation(extent={{60,20},{80,40}})));
     Modelica.Mechanics.Translational.Sources.Position position(v(fixed=true))
-      annotation (Placement(transformation(extent={{-70,-20},{-50,0}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1)
                                       annotation (Placement(transformation(
-            extent={{-100,-20},{-80,0}}, rotation=0)));
+            extent={{-100,-20},{-80,0}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass4(m=1)
-      annotation (Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
     Modelica.Mechanics.Translational.Sources.Speed position1
-      annotation (Placement(transformation(extent={{-70,-60},{-50,-40}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-70,-60},{-50,-40}})));
     Modelica.Blocks.Sources.Sine sine1(freqHz=1)
                                        annotation (Placement(transformation(
-            extent={{-100,-60},{-80,-40}}, rotation=0)));
+            extent={{-100,-60},{-80,-40}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass5(m=1)
-      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-40,-60},{-20,-40}})));
     Modelica.Mechanics.Translational.Sources.Accelerate position2
-      annotation (Placement(transformation(extent={{-70,-100},{-50,-80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-70,-100},{-50,-80}})));
     Modelica.Blocks.Sources.Sine sine2(freqHz=1)
                                        annotation (Placement(transformation(
-            extent={{-100,-100},{-80,-80}}, rotation=0)));
+            extent={{-100,-100},{-80,-80}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass6(m=1)
-      annotation (Placement(transformation(extent={{-40,-100},{-20,-80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
     Modelica.Mechanics.Translational.Sources.Move position3
-      annotation (Placement(transformation(extent={{30,-20},{50,0}}, rotation=0)));
+      annotation (Placement(transformation(extent={{30,-20},{50,0}})));
     Modelica.Blocks.Sources.Sine sine3[3](freqHz={1,1,1})
                                           annotation (Placement(transformation(
-            extent={{0,-20},{20,0}}, rotation=0)));
+            extent={{0,-20},{20,0}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass7(m=1)
-      annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
+      annotation (Placement(transformation(extent={{60,-20},{80,0}})));
     Modelica.Mechanics.Translational.Sources.Force force
-      annotation (Placement(transformation(extent={{-70,20},{-50,40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-70,20},{-50,40}})));
     Modelica.Mechanics.Translational.Components.RelativeStates relativeStates(s_rel(
           fixed=true), v_rel(fixed=true))
-      annotation (Placement(transformation(extent={{-20,80},{0,100}}, rotation=
-              0)));
+      annotation (Placement(transformation(extent={{-20,80},{0,100}})));
     Modelica.Blocks.Sources.Sine sine4(freqHz=1)
                                        annotation (Placement(transformation(
-            extent={{-100,20},{-80,40}}, rotation=0)));
+            extent={{-100,20},{-80,40}})));
   equation
     connect(slidingMass.flange_b, rod.flange_a) annotation (Line(
         points={{-50,70},{-30,70}},

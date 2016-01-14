@@ -6,8 +6,7 @@ model TestMultiPort
   Modelica.Fluid.Fittings.MultiPort multiPort(
                                        nPorts_b=2, redeclare package Medium =
         Modelica.Media.Air.MoistAir)        annotation (Placement(
-        transformation(extent={{-28,-30},{-20,-10}},
-                                                   rotation=0)));
+        transformation(extent={{-28,-30},{-20,-10}})));
   Modelica.Fluid.Sources.Boundary_pT source2(nPorts=1,
     T=278.15,
     p=5e5,
@@ -25,15 +24,13 @@ model TestMultiPort
         extent={{-10,-10},{10,10}},
         rotation=270)));
   inner Modelica.Fluid.System system
-    annotation (Placement(transformation(extent={{-100,80},{-80,100}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
   Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,
     T=system.T_ambient,
     use_p_in=true,
     redeclare package Medium = Modelica.Media.Air.MoistAir,
     p=500000)
-    annotation (Placement(transformation(extent={{-60,-30},{-40,-10}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
   Modelica.Blocks.Sources.Ramp ramp(
     duration=1,
     height=-6.5e5,
@@ -45,7 +42,7 @@ model TestMultiPort
     diameter=0.1,
     redeclare package Medium = Modelica.Media.Air.MoistAir)
                                        annotation (Placement(transformation(
-          extent={{40,-30},{60,-10}}, rotation=0)));
+          extent={{40,-30},{60,-10}})));
   Modelica.Fluid.Pipes.StaticPipe pipe2(
     length=1,
     diameter=0.1,

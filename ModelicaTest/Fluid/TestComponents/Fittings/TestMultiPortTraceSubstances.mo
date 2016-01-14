@@ -15,8 +15,7 @@ model TestMultiPortTraceSubstances
         extent={{-10,-10},{10,10}},
         rotation=180)));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-    annotation (Placement(transformation(extent={{-100,80},{-80,100}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
   Modelica.Fluid.Sources.Boundary_pT source1(
     T=system.T_ambient,
     use_p_in=true,
@@ -25,14 +24,12 @@ model TestMultiPortTraceSubstances
     use_X_in=true,
     nPorts=3,
     p=500000)
-    annotation (Placement(transformation(extent={{-68,-28},{-48,-8}},  rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-68,-28},{-48,-8}})));
   Modelica.Blocks.Sources.Ramp P(
     duration=1,
     height=-40,
     offset=1E5 + 20)
-                annotation (Placement(transformation(extent={{-100,24},{-80,44}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{-100,24},{-80,44}})));
   Modelica.Blocks.Sources.Ramp C(duration=1, height=1.519E-3)
     "substance concentration, raising to 1000 PPM CO2"
     annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
@@ -84,7 +81,7 @@ model TestMultiPortTraceSubstances
   Modelica.Fluid.Fittings.MultiPort multiPort(
                                        nPorts_b=2, redeclare package Medium =
         Medium)                             annotation (Placement(
-        transformation(extent={{-36,-10},{-28,10}},rotation=0)));
+        transformation(extent={{-36,-10},{-28,10}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance(redeclare package
       Medium =         Medium)
     annotation (Placement(transformation(extent={{-54,18},{-34,38}})));

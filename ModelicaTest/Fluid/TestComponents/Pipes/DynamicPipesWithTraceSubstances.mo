@@ -20,8 +20,7 @@ extends Modelica.Icons.Example;
     p_a_start=100000,
     p_b_start=100000,
     T_start=280)
-            annotation (Placement(transformation(extent={{-30,68},{-10,88}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-30,68},{-10,88}})));
 
   Modelica.Fluid.Sources.Boundary_pT boundary2(nPorts=1,
     redeclare package Medium = Medium,
@@ -30,7 +29,7 @@ extends Modelica.Icons.Example;
     p=100000,
     T=300,
     C={1.5E-3,0.05E-3})                                             annotation (Placement(
-        transformation(extent={{70,54},{50,74}}, rotation=0)));
+        transformation(extent={{70,54},{50,74}})));
   Modelica.Fluid.Pipes.DynamicPipe pipe3(
     redeclare package Medium=Medium,
     length=1,
@@ -42,8 +41,7 @@ extends Modelica.Icons.Example;
     p_a_start=100000,
     p_b_start=100000,
     T_start=340)
-            annotation (Placement(transformation(extent={{20,54},{40,74}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{20,54},{40,74}})));
 
   Modelica.Fluid.Pipes.DynamicPipe pipe1(
     redeclare package Medium=Medium,
@@ -56,21 +54,19 @@ extends Modelica.Icons.Example;
     length=0.4,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     p_a_start=100000)
-            annotation (Placement(transformation(extent={{-80,54},{-60,74}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-80,54},{-60,74}})));
 
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
     T=280,
     redeclare package Medium = Medium,
     p=1.5e5)                                                        annotation (Placement(
-        transformation(extent={{-108,54},{-88,74}}, rotation=0)));
+        transformation(extent={{-108,54},{-88,74}})));
 
   Modelica.Blocks.Sources.Ramp ramp(
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=0) annotation (Placement(transformation(extent={{92,78},{80,66}},
-          rotation=0)));
+    duration=0) annotation (Placement(transformation(extent={{92,78},{80,66}})));
 
   Modelica.Fluid.Pipes.DynamicPipe pipe4(
     redeclare package Medium=Medium,
@@ -83,11 +79,10 @@ extends Modelica.Icons.Example;
     T_start=360,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     p_a_start=100000)
-            annotation (Placement(transformation(extent={{-30,38},{-10,58}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-30,38},{-10,58}})));
 
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-    annotation (Placement(transformation(extent={{72,-94},{92,-74}}, rotation=0)));
+    annotation (Placement(transformation(extent={{72,-94},{92,-74}})));
   Modelica.Fluid.Fittings.TeeJunctionVolume junction1(
     redeclare package Medium = Medium,
     V=0.0001,
@@ -107,8 +102,7 @@ extends Modelica.Icons.Example;
                                               pipe2.n] heat(each Q_flow=200,
       each alpha=10000,
       each T_ref=350)
-    annotation (Placement(transformation(extent={{-54,80},{-34,100}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-54,80},{-34,100}})));
  Modelica.Fluid.Pipes.DynamicPipe pipe5(
     redeclare package Medium = Medium,
     use_T_start=true,
@@ -124,8 +118,7 @@ extends Modelica.Icons.Example;
         (alpha0=500),
     p_a_start=100000,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
-            annotation (Placement(transformation(extent={{-30,10},{-10,30}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-30,10},{-10,30}})));
 
   Modelica.Fluid.Sources.Boundary_pT boundary4(nPorts=1,
     redeclare package Medium = Medium,
@@ -134,7 +127,7 @@ extends Modelica.Icons.Example;
     p=100000,
     T=300,
     C={1.5E-3,0.05E-3})                                             annotation (Placement(
-        transformation(extent={{70,-2},{50,18}}, rotation=0)));
+        transformation(extent={{70,-2},{50,18}})));
   Modelica.Fluid.Pipes.DynamicPipe pipe6(
     redeclare package Medium=Medium,
     length=1,
@@ -146,8 +139,7 @@ extends Modelica.Icons.Example;
     p_a_start=100000,
     p_b_start=100000,
     T_start=340)
-            annotation (Placement(transformation(extent={{20,-2},{40,18}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{20,-2},{40,18}})));
   Modelica.Fluid.Pipes.DynamicPipe pipe7(
     redeclare package Medium=Medium,
     use_T_start=true,
@@ -159,19 +151,17 @@ extends Modelica.Icons.Example;
     p_b_start=100000,
     T_start=300,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
-            annotation (Placement(transformation(extent={{-80,-2},{-60,18}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-80,-2},{-60,18}})));
   Modelica.Fluid.Sources.Boundary_pT boundary3(nPorts=1,
     redeclare package Medium = Medium,
     p=150000,
     T=280)                                                          annotation (Placement(
-        transformation(extent={{-108,-2},{-88,18}}, rotation=0)));
+        transformation(extent={{-108,-2},{-88,18}})));
   Modelica.Blocks.Sources.Ramp ramp1(
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=0) annotation (Placement(transformation(extent={{92,22},{80,10}},
-          rotation=0)));
+    duration=0) annotation (Placement(transformation(extent={{92,22},{80,10}})));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
     redeclare package Medium=Medium,
     length=1,
@@ -183,13 +173,12 @@ extends Modelica.Icons.Example;
     p_b_start=1.0e5,
     p_a_start=100000,
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
-            annotation (Placement(transformation(extent={{-30,-12},{-10,8}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-30,-12},{-10,8}})));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
                                               pipe2.n] heat1(each Q_flow=200,
       each alpha=10000,
       each T_ref=350)
-    annotation (Placement(transformation(extent={{-72,22},{-52,42}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-72,22},{-52,42}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance3(redeclare package
       Medium =         Medium)
     annotation (Placement(transformation(extent={{-98,22},{-78,42}})));

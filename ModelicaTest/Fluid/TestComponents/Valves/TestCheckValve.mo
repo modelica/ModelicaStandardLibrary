@@ -6,25 +6,23 @@ model TestCheckValve "Test case for check valve"
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=200000,
     T(displayUnit="degC") = 298.15)
-  annotation (Placement(transformation(extent={{-76,-22},{-56,-2}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-76,-22},{-56,-2}})));
   Fluid.Valves.ValveIncompressible  V1(
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_nominal=2,
     checkValve=true,
     dp_nominal=100000)
             annotation (Placement(transformation(extent={{-26,-22},{-6,
-            -2}},
-          rotation=0)));
+            -2}})));
   Modelica.Fluid.Sources.Boundary_pT SinkP1(nPorts=1,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     use_p_in=true,
     p=100000,
     T=293.15)
-  annotation (Placement(transformation(extent={{46,-22},{26,-2}},
-                                                                rotation=0)));
+  annotation (Placement(transformation(extent={{46,-22},{26,-2}})));
   inner Modelica.Fluid.System system(use_eps_Re=true)
                                    annotation (Placement(transformation(extent={{64,60},
-            {84,80}},          rotation=0)));
+            {84,80}})));
   Modelica.Blocks.Sources.Ramp downstreamPressure(
     duration=0.6,
     startTime=0.6,

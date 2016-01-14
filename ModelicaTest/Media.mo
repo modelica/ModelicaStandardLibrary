@@ -1065,7 +1065,7 @@ is given to compare the approximation.
                 "Only for multi-substance flow", enable=Medium.nX > 0));
 
         FluidPort_a port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{-10,-10},{10,10}}, rotation=0)));
+            Placement(transformation(extent={{-10,-10},{10,10}})));
         Medium.BaseProperties medium(preferredMediumStates=true);
         Modelica.SIunits.Energy U "Internal energy of port volume";
         Modelica.SIunits.Mass m "Mass of junction volume";
@@ -1157,7 +1157,7 @@ transport.
 
         Medium.BaseProperties medium "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+            Placement(transformation(extent={{100,-10},{120,10}})));
       equation
         if use_T_ambient then
           medium.T = T_ambient;
@@ -1246,7 +1246,7 @@ transport.
 
         Medium.BaseProperties medium "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+            Placement(transformation(extent={{100,-10},{120,10}})));
 
       equation
         if use_p_ambient or Medium.singleState then
@@ -1312,9 +1312,9 @@ with exception of ambient pressure, do not have an effect.
           "Nominal mass flow rate at nominal pressure drop";
 
         FluidPort_a port_a(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
+            Placement(transformation(extent={{-120,-10},{-100,10}})));
         FluidPort_b port_b(redeclare package Medium = Medium) annotation (
-            Placement(transformation(extent={{120,-10},{100,10}}, rotation=0)));
+            Placement(transformation(extent={{120,-10},{100,10}})));
         // Medium.BaseProperties medium_a(p=port_a.p, h=port_a.h, Xi=port_a.Xi)
         //   "Medium properties in port_a";
         // Medium.BaseProperties medium_b(p=port_b.p, h=port_b.h, Xi=port_b.Xi)
@@ -1398,19 +1398,18 @@ no mass or energy is stored in the pipe.
           V=0.1,
           nPorts=2,
           use_portsData=false) annotation (Placement(transformation(extent={{-40,
-                  0},{-20,20}}, rotation=0)));
+                  0},{-20,20}})));
         Modelica.Fluid.Sources.MassFlowSource_T fixedMassFlowRate(
           redeclare package Medium = Medium,
           m_flow=1,
           T=system.T_ambient,
           nPorts=1) annotation (Placement(transformation(extent={{-80,-2},{-60,
-                  18}}, rotation=0)));
+                  18}})));
         Modelica.Fluid.Sources.FixedBoundary ambient(
           redeclare package Medium = Medium,
           nPorts=1,
           p=p_start,
-          T=T_start) annotation (Placement(transformation(extent={{60,0},{40,20}},
-                rotation=0)));
+          T=T_start) annotation (Placement(transformation(extent={{60,0},{40,20}})));
         Modelica.Fluid.Pipes.StaticPipe shortPipe(
           redeclare package Medium = Medium,
           length=1,
@@ -1418,7 +1417,7 @@ no mass or energy is stored in the pipe.
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
                 dp_nominal=1000000000, m_flow_nominal=1.0),
           diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
-                  20}}, rotation=0)));
+                  20}})));
         inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
           annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
       equation
@@ -1461,19 +1460,18 @@ no mass or energy is stored in the pipe.
           V=0.1,
           nPorts=2,
           use_portsData=false) annotation (Placement(transformation(extent={{-60,
-                  20},{-40,40}}, rotation=0)));
+                  20},{-40,40}})));
         Modelica.Fluid.Sources.MassFlowSource_T fixedMassFlowRate(
           redeclare package Medium = Medium,
           m_flow=1,
           T=system.T_ambient,
           nPorts=1) annotation (Placement(transformation(extent={{-100,0},{-80,
-                  20}}, rotation=0)));
+                  20}})));
         Modelica.Fluid.Sources.FixedBoundary ambient(
           redeclare package Medium = Medium,
           p=p_start,
           T=T_start,
-          nPorts=1) annotation (Placement(transformation(extent={{60,0},{40,20}},
-                rotation=0)));
+          nPorts=1) annotation (Placement(transformation(extent={{60,0},{40,20}})));
         Modelica.Fluid.Pipes.StaticPipe shortPipe(
           redeclare package Medium = Medium,
           length=1,
@@ -1481,7 +1479,7 @@ no mass or energy is stored in the pipe.
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
                 dp_nominal=1000000000, m_flow_nominal=1.0),
           diameter=0.05) annotation (Placement(transformation(extent={{-42,0},{
-                  -22,20}}, rotation=0)));
+                  -22,20}})));
         inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
           annotation (Placement(transformation(extent={{-100,78},{-80,98}})));
         Modelica.Fluid.Pipes.StaticPipe shortPipe1(
@@ -1491,7 +1489,7 @@ no mass or energy is stored in the pipe.
               Modelica.Fluid.Pipes.BaseClasses.FlowModels.NominalLaminarFlow (
                 dp_nominal=1000000000, m_flow_nominal=1.0),
           diameter=0.05) annotation (Placement(transformation(extent={{0,0},{20,
-                  20}}, rotation=0)));
+                  20}})));
         Modelica.Fluid.Vessels.ClosedVolume volume1(
           redeclare package Medium = Medium,
           p_start=p_start,
@@ -1501,7 +1499,7 @@ no mass or energy is stored in the pipe.
           V=0.1,
           nPorts=2,
           use_portsData=false) annotation (Placement(transformation(extent={{-18,
-                  20},{2,40}}, rotation=0)));
+                  20},{2,40}})));
       equation
         connect(fixedMassFlowRate.ports[1], volume.ports[1]) annotation (Line(
             points={{-80,10},{-50,10},{-50,20},{-52,20}},

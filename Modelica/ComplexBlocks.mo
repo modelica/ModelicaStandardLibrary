@@ -1980,8 +1980,7 @@ zero or negative.
             lineColor={0,0,127},
             extent={{-90,10},{90,90}},
               textString="b(jw)"),
-            Line(visible=true,
-              points={{-80,0},{80,0}},
+            Line(points={{-80,0},{80,0}},
               color={0,0,127}),
           Text(
             lineColor={0,0,127},

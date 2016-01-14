@@ -18,36 +18,34 @@ model TestSimpleGenericOrifice
     T=system.T_ambient,
     use_p_in=true,
     nPorts=2)
-    annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Modelica.Blocks.Sources.TimeTable p_table(table=[0,0.9999e5; 10,1.0001e5])
-    annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
 
   Modelica.Fluid.Sources.Boundary_pT ambient_p1(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,40},{40,60}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p2(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,10},{40,30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,10},{40,30}})));
   Modelica.Fluid.Fittings.SimpleGenericOrifice expansion1(
     redeclare package Medium = Medium,
     zeta=zeta,
     diameter=diameter_a)
-             annotation (Placement(transformation(extent={{0,40},{20,60}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{0,40},{20,60}})));
   Modelica.Fluid.Fittings.SimpleGenericOrifice expansion2(
     redeclare package Medium = Medium,
     from_dp=false,
     zeta=zeta,
-    diameter=diameter_a) annotation (Placement(transformation(extent={{0,10},{20,30}},
-          rotation=0)));
+    diameter=diameter_a) annotation (Placement(transformation(extent={{0,10},{20,30}})));
 
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent=
-            {{-82,-90},{-62,-70}}, rotation=0)));
+            {{-82,-90},{-62,-70}})));
 equation
   connect(p_table.y, ambient_a.p_in)
                                     annotation (Line(points={{-59,50},{-52,50},

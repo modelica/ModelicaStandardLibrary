@@ -389,9 +389,7 @@ from a file.
        success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
+    annotation (      Documentation(info="<html>
 <p>
 Example model that shows how to write a Real matrix in Matlab MAT format on file
 using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
@@ -420,9 +418,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
        print("...    " + matrixName + "[1,1] = " + String(A1[1,1]));
     end when;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)),
-      Documentation(info="<html>
+    annotation (      Documentation(info="<html>
 <p>
 Example model that shows how to read a Real matrix in Matlab MAT format from file
 using functions

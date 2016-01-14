@@ -7,14 +7,14 @@ model TestWaterPumpCharacteristics
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=200000)
-  annotation (Placement(transformation(extent={{-100,20},{-80,40}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
   Modelica.Fluid.Sources.Boundary_pT Sink(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=5e5,
     T=system.T_ambient,
     use_p_in=true,
     nPorts=4)
-  annotation (Placement(transformation(extent={{34,20},{14,40}}, rotation=0)));
+  annotation (Placement(transformation(extent={{34,20},{14,40}})));
   Modelica.Fluid.Machines.PrescribedPump pump(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
@@ -25,18 +25,17 @@ model TestWaterPumpCharacteristics
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.quadraticFlow (
           head_nominal={100,50,0}, V_flow_nominal={0,0.001,0.0015}))
                         annotation (Placement(transformation(extent={{-64,16},{-36,
-            44}},      rotation=0)));
+            44}})));
   Modelica.Blocks.Sources.Ramp downstreamPressure(
     startTime=1,
     duration=5,
     offset=1e5,
     height=12e5)
-                annotation (Placement(transformation(extent={{14,60},{34,80}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{14,60},{34,80}})));
 
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent=
-            {{64,-4},{84,16}}, rotation=0)));
+            {{64,-4},{84,16}})));
   Modelica.Fluid.Machines.PrescribedPump pumpPolynomial(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
@@ -47,7 +46,7 @@ model TestWaterPumpCharacteristics
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow
         (V_flow_nominal={0,0.001,0.0015}, head_nominal={100,50,0}))
                         annotation (Placement(transformation(extent={{-64,-20},{
-            -36,8}},   rotation=0)));
+            -36,8}})));
   Modelica.Fluid.Machines.PrescribedPump pumpQuadraticLinear(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
@@ -58,7 +57,7 @@ model TestWaterPumpCharacteristics
     p_a_start=100000,
     p_b_start=700000) "quadratic implementation for linear characteristics"
                         annotation (Placement(transformation(extent={{-64,-56},{
-            -36,-28}}, rotation=0)));
+            -36,-28}})));
   Modelica.Fluid.Machines.PrescribedPump pumpLinear(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
@@ -69,7 +68,7 @@ model TestWaterPumpCharacteristics
         Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.linearFlow (
           V_flow_nominal={0,0.0015}, head_nominal={100,0}))
                         annotation (Placement(transformation(extent={{-64,-92},{
-            -36,-64}}, rotation=0)));
+            -36,-64}})));
 equation
   assert(pump.m_flow - pumpPolynomial.m_flow < 1e-10, "Quadratic and Polynomial characteristic differ");
   assert(pumpQuadraticLinear.m_flow - pumpLinear.m_flow < 1e-10, "QuadraticLinear and Linear characteristic differ");

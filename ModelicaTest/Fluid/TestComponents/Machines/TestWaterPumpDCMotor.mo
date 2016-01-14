@@ -7,13 +7,13 @@ model TestWaterPumpDCMotor "Test pump with dc motor (startup transient)"
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
-  annotation (Placement(transformation(extent={{-50,-60},{-30,-40}},rotation=0)));
+  annotation (Placement(transformation(extent={{-50,-60},{-30,-40}})));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=false,
     p=100000)
-  annotation (Placement(transformation(extent={{80,0},{60,20}},  rotation=0)));
+  annotation (Placement(transformation(extent={{80,0},{60,20}})));
   Modelica.Fluid.Machines.Pump pump(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
@@ -23,22 +23,22 @@ model TestWaterPumpDCMotor "Test pump with dc motor (startup transient)"
     N_nominal=1500,
     p_a_start=100000,
     p_b_start=700000)     annotation (Placement(transformation(extent={{-10,-5},
-            {20,25}},  rotation=0)));
+            {20,25}})));
   Modelica.Blocks.Sources.Step valveOpening(
     height=-0.5,
     offset=1,
     startTime=5)
-  annotation (Placement(transformation(extent={{70,40},{50,60}},   rotation=0)));
+  annotation (Placement(transformation(extent={{70,40},{50,60}})));
   Modelica.Fluid.Valves.ValveIncompressible Valve(
                                              redeclare package Medium =
         Modelica.Media.Water.StandardWater,
     m_flow_nominal=1,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     dp_nominal=1000000)
-  annotation (Placement(transformation(extent={{31,0},{49,20}},  rotation=0)));
+  annotation (Placement(transformation(extent={{31,0},{49,20}})));
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{50,-70},
-            {70,-50}},         rotation=0)));
+            {70,-50}})));
   Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet
     motor(
     La=1e-3,

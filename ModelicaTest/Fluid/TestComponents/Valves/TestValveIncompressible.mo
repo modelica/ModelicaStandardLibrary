@@ -5,32 +5,30 @@ model TestValveIncompressible "Test case with different valve characteristics"
   Modelica.Fluid.Sources.Boundary_pT SourceP1(nPorts=1, p=10e5,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient)
-  annotation (Placement(transformation(extent={{-100,30},{-80,50}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-100,30},{-80,50}})));
   Modelica.Fluid.Valves.ValveIncompressible V1(
     rho_nominal=1000,
     dp_nominal=9e5,
     m_flow_nominal=1.5,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     CvData=Modelica.Fluid.Types.CvTypes.Cv,
-    Cv=10)  annotation (Placement(transformation(extent={{-50,30},{-30,50}},
-          rotation=0)));
+    Cv=10)  annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
 
   Modelica.Fluid.Sources.Boundary_pT SinkP1(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
-  annotation (Placement(transformation(extent={{22,30},{2,50}}, rotation=0)));
+  annotation (Placement(transformation(extent={{22,30},{2,50}})));
   Modelica.Blocks.Sources.Ramp Opening(
     duration=2,
     height=1,
     offset=0,
     startTime=1)
-              annotation (Placement(transformation(extent={{-92,74},{-72,94}},
-          rotation=0)));
+              annotation (Placement(transformation(extent={{-92,74},{-72,94}})));
   Modelica.Fluid.Sources.Boundary_pT SourceP2(nPorts=1, p=10e5,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient)
-  annotation (Placement(transformation(extent={{-100,-10},{-80,10}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-100,-10},{-80,10}})));
   Modelica.Fluid.Valves.ValveIncompressible V2(
     rho_nominal=1000,
     dp_nominal=9e5,
@@ -40,18 +38,16 @@ model TestValveIncompressible "Test case with different valve characteristics"
     Cv=10,
     redeclare function valveCharacteristic =
         Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage)
-            annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
   Modelica.Fluid.Sources.Boundary_pT SinkP2(nPorts=1,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
-  annotation (Placement(transformation(extent={{22,-10},{2,10}}, rotation=0)));
+  annotation (Placement(transformation(extent={{22,-10},{2,10}})));
   Modelica.Fluid.Sources.Boundary_pT SourceP3(nPorts=1, p=10e5,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient)
-  annotation (Placement(transformation(extent={{-100,-50},{-80,-30}}, rotation=
-            0)));
+  annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
   Modelica.Fluid.Valves.ValveIncompressible V3(
     rho_nominal=1000,
     dp_nominal=9e5,
@@ -62,16 +58,15 @@ model TestValveIncompressible "Test case with different valve characteristics"
     redeclare function valveCharacteristic =
         Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.equalPercentage
         (                                                                              rangeability=10))
-            annotation (Placement(transformation(extent={{-50,-50},{-30,-30}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
   Modelica.Fluid.Sources.Boundary_pT SinkP3(nPorts=1, p=1e5,
   redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient)
-  annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=0)));
+  annotation (Placement(transformation(extent={{22,-50},{2,-30}})));
 
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent=
-            {{58,72},{78,92}}, rotation=0)));
+            {{58,72},{78,92}})));
 equation
   connect(V1.port_b, SinkP1.ports[1])
                                   annotation (Line(points={{-30,40},{2,40}}));

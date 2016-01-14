@@ -18,36 +18,35 @@ model TestTankWithTopPorts
                                                         diameter=0.01,
         height=2)},
     crossArea=0.2)
-    annotation (Placement(transformation(extent={{-40,40},{0,80}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,40},{0,80}})));
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate[2](each nPorts=1,redeclare
       package Medium = Modelica.Media.Water.StandardWater, each m_flow=0.75)
-    annotation (Placement(transformation(extent={{-82,70},{-62,90}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-82,70},{-62,90}})));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                       annotation (Placement(transformation(
-          extent={{-100,-100},{-80,-80}}, rotation=0)));
+          extent={{-100,-100},{-80,-80}})));
   Modelica.Fluid.Sources.FixedBoundary Boundary_fixed(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=system.p_ambient,
     T=system.T_ambient,
     nPorts=4)
-    annotation (Placement(transformation(extent={{100,-90},{80,-70}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{100,-90},{80,-70}})));
   Modelica.Fluid.Sensors.MassFlowRate mFlow_9m(redeclare package Medium =
         Modelica.Media.Water.StandardWater)
     "Mass flow rate out of the port at a lever of 9 m"
-    annotation (Placement(transformation(extent={{20,30},{40,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,30},{40,50}})));
   Modelica.Fluid.Sensors.MassFlowRate mFlow_6m(redeclare package Medium =
         Modelica.Media.Water.StandardWater)
     "Mass flow rate out of the port at a lever of 6 m"
-    annotation (Placement(transformation(extent={{20,-10},{40,10}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Fluid.Sensors.MassFlowRate mFlow_4m(redeclare package Medium =
         Modelica.Media.Water.StandardWater)
     "Mass flow rate out of the port at a lever of 4 m"
-    annotation (Placement(transformation(extent={{20,-50},{40,-30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
   Modelica.Fluid.Sensors.MassFlowRate mFlow_2m(redeclare package Medium =
         Modelica.Media.Water.StandardWater)
     "Mass flow rate out of the port at a lever of 2 m"
-    annotation (Placement(transformation(extent={{20,-90},{40,-70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,-90},{40,-70}})));
 equation
   connect(massFlowRate.ports[1], tank.topPorts)
                                             annotation (Line(

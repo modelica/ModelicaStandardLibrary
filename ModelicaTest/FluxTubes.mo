@@ -154,8 +154,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
         points={{90,0},{80,0}},
         color={255,127,0},
         smooth=Smooth.None));
-    annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics));
+    annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005));
   end BasicComponents;
 
   package Shapes
@@ -237,9 +236,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
               40,20},{40,40},{-20,40},{-20,20}}, color={255,127,0}));
       connect(ramp.y, signalSource.V_m)
         annotation (Line(points={{-39,10},{-29,10}}, color={0,0,127}));
-      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005), Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})));
+      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
     end FixedShape;
     extends Modelica.Icons.ExamplesPackage;
 
@@ -345,9 +342,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
       connect(leakageAroundPoles.flange, cuboidOrthogonalFlux.flange)
         annotation (Line(points={{30,-30},{40,-30},{40,-10},{10,-10}}, color={0,
               127,0}));
-      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005), Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})));
+      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
     end Force;
 
     model Leakage
@@ -452,9 +447,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
               -20},{60,-40},{-100,-40}}, color={255,127,0}));
       connect(eighthOfHollowSphere.port_n, ground.port) annotation (Line(points=
              {{80,-20},{80,-40},{-100,-40}}, color={255,127,0}));
-      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005), Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})));
+      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
     end Leakage;
 
     model HysteresisAndMagnets
@@ -572,9 +565,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
               -80},{-40,-80}}, color={255,127,0}));
       connect(PM1.port_n, ground1.port) annotation (Line(points={{40,-60},{40,
               -80},{-40,-80}}, color={255,127,0}));
-      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005), Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})));
+      annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
     end HysteresisAndMagnets;
   end Shapes;
 
@@ -687,9 +678,7 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
             -50},{-80,-55},{-80,-60}}, color={255,127,0}));
     connect(genericFluxTube2.port_n, ground2.port) annotation (Line(points={{
             -40,-50},{-40,-60},{-80,-60}}, color={255,127,0}));
-    annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005), Diagram(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}})));
+    annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
   end Sources;
 
   model Sensors
@@ -740,8 +729,6 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
     connect(magneticPotentialDifferenceSensor.port_p, genericFluxTube.port_p)
       annotation (Line(points={{54,30},{54,40},{30,40},{30,30}}, color={255,127,
             0}));
-    annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005), Diagram(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}})));
+    annotation (experiment(StartTime=0, StopTime=1, Interval=1e-3, Tolerance=1e-005));
   end Sensors;
 end FluxTubes;

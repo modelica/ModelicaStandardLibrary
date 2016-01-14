@@ -15,20 +15,20 @@ model TestSharpEdgedOrifice
     T=system.T_ambient,
     use_p_in=true,
     nPorts=2)
-    annotation (Placement(transformation(extent={{-40,40},{-20,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Modelica.Blocks.Sources.TimeTable p_table(table=[0,0.1e5; 10,2e5])
-    annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
 
   Modelica.Fluid.Sources.Boundary_pT ambient_p1(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,40},{40,60}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p2(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,10},{40,30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,10},{40,30}})));
   Modelica.Fluid.Fittings.SharpEdgedOrifice orifice1(
     redeclare package Medium = Medium,
     diameter=0.1,
@@ -37,8 +37,7 @@ model TestSharpEdgedOrifice
     length=0.005,
     show_Re=true,
     m_flow_nominal=1)
-             annotation (Placement(transformation(extent={{0,40},{20,60}},
-          rotation=0)));
+             annotation (Placement(transformation(extent={{0,40},{20,60}})));
   Modelica.Fluid.Fittings.SharpEdgedOrifice orifice2(
     redeclare package Medium = Medium,
     diameter=0.1,
@@ -47,11 +46,10 @@ model TestSharpEdgedOrifice
     leastDiameter=0.02,
     length=0.005,
     m_flow_nominal=1)
-                  annotation (Placement(transformation(extent={{0,10},{20,30}},
-          rotation=0)));
+                  annotation (Placement(transformation(extent={{0,10},{20,30}})));
 
   inner Modelica.Fluid.System system(use_eps_Re=true)
-    annotation (Placement(transformation(extent={{60,-68},{80,-48}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,-68},{80,-48}})));
 equation
   connect(p_table.y, ambient_p.p_in)
                                     annotation (Line(points={{-59,50},{-52,50},

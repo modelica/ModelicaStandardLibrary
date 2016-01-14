@@ -16,20 +16,20 @@ model TestWallFriction
     T=system.T_ambient,
     use_p_in=true,
     nPorts=5)
-    annotation (Placement(transformation(extent={{-38,40},{-18,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-38,40},{-18,60}})));
   Modelica.Blocks.Sources.TimeTable p_table(table=[0,0.99999e5; 10,1.00001e5])
-    annotation (Placement(transformation(extent={{-80,40},{-60,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
 
   Modelica.Fluid.Sources.Boundary_pT ambient_p1(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,40},{40,60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,40},{40,60}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p2(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,10},{40,30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,10},{40,30}})));
   Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
     pipe1(
     length=1,
@@ -40,7 +40,7 @@ model TestWallFriction
     redeclare package WallFriction =
         Modelica.Fluid.Pipes.BaseClasses.WallFriction.Detailed,
     show_Re=true)     annotation (Placement(transformation(extent={{0,40},{20,
-            60}}, rotation=0)));
+            60}})));
   Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
     pipe2(
     length=1,
@@ -52,24 +52,24 @@ model TestWallFriction
     from_dp=false,
     show_Re=true,
     port_a(m_flow(start=-0.6)))               annotation (Placement(transformation(extent={{0,10},{20,
-            30}}, rotation=0)));
+            30}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p3(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,-20},{40,0}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,-20},{40,0}})));
   Modelica.Fluid.Sources.Boundary_pT ambient_p4(nPorts=1,
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,-50},{40,-30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,-50},{40,-30}})));
   Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe3(
     length=1,
     diameter=0.1,
     redeclare package Medium = Medium,
     roughness=roughness,
     use_Re=true)         annotation (Placement(transformation(extent={{0,-20},{
-            20,0}}, rotation=0)));
+            20,0}})));
   Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.TestWallFriction pipe4(
     length=1,
     diameter=0.1,
@@ -77,10 +77,10 @@ model TestWallFriction
     redeclare package Medium = Medium,
     roughness=roughness,
     use_Re=true)         annotation (Placement(transformation(extent={{0,-50},{
-            20,-30}}, rotation=0)));
+            20,-30}})));
 
   inner Modelica.Fluid.System system(use_eps_Re=true)
-    annotation (Placement(transformation(extent={{68,74},{88,94}}, rotation=0)));
+    annotation (Placement(transformation(extent={{68,74},{88,94}})));
   Fluid.Pipes.StaticPipe pressureLossPipe(
     redeclare package Medium = Medium,
     length=1,
@@ -93,7 +93,7 @@ model TestWallFriction
     redeclare package Medium = Medium,
     p=1.0e5,
     T=Modelica.SIunits.Conversions.from_degC(80))
-    annotation (Placement(transformation(extent={{60,-80},{40,-60}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,-80},{40,-60}})));
 equation
   connect(p_table.y, ambient_a.p_in)
                                     annotation (Line(points={{-59,50},{-52,50},

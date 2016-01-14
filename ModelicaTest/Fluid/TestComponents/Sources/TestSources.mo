@@ -59,7 +59,7 @@ model TestSources "Test model for models in source package"
     annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{60,70},
-            {80,90}},          rotation=0)));
+            {80,90}})));
   Modelica.Blocks.Sources.Ramp C(duration=1, height=1.519E-3)
     "substance concentration, raising to 1000 PPM CO2"
     annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
@@ -86,7 +86,7 @@ model TestSources "Test model for models in source package"
   Modelica.Fluid.Fittings.TeeJunctionIdeal junction(
                                                   redeclare package Medium =
         Medium)                             annotation (Placement(
-        transformation(extent={{26,-50},{46,-30}}, rotation=0)));
+        transformation(extent={{26,-50},{46,-30}})));
 equation
   connect(boundary.ports[1], pipe.port_a) annotation (Line(
       points={{-30,50},{-20,50}},

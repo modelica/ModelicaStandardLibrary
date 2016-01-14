@@ -4,34 +4,32 @@ model TestPressure
   extends Modelica.Icons.Example;
   Modelica.Fluid.Sensors.Pressure pressure1(redeclare package Medium =
         Modelica.Media.Water.StandardWater) annotation (Placement(
-        transformation(extent={{-20,0},{0,20}}, rotation=0)));
+        transformation(extent={{-20,0},{0,20}})));
   Modelica.Fluid.Fittings.SimpleGenericOrifice simpleGenericOrifice(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     zeta=2,
-    diameter=0.1) annotation (Placement(transformation(extent={{20,-10},{40,10}},
-          rotation=0)));
+    diameter=0.1) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Fluid.Sensors.RelativePressure relativePressure(redeclare package
       Medium = Modelica.Media.Water.StandardWater)
-    annotation (Placement(transformation(extent={{20,34},{40,54}}, rotation=0)));
+    annotation (Placement(transformation(extent={{20,34},{40,54}})));
   Modelica.Blocks.Sources.Sine sine(freqHz=1)
                                     annotation (Placement(transformation(extent=
-           {{-100,0},{-80,20}}, rotation=0)));
+           {{-100,0},{-80,20}})));
   Modelica.Fluid.Sources.MassFlowSource_T massFlowRate1(nPorts=1,
     use_m_flow_in=true,
     T=SI.Conversions.from_degC(50),
     redeclare package Medium = Modelica.Media.Water.StandardWater)
                                     annotation (Placement(transformation(extent=
-           {{-60,0},{-40,20}}, rotation=0)));
+           {{-60,0},{-40,20}})));
   Modelica.Fluid.Sources.Boundary_ph boundary_fixed(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=system.p_ambient,
-    h=3000e3) annotation (Placement(transformation(extent={{100,-10},{80,10}},
-          rotation=0)));
+    h=3000e3) annotation (Placement(transformation(extent={{100,-10},{80,10}})));
   Modelica.Fluid.Sensors.Pressure pressure2(redeclare package Medium =
         Modelica.Media.Water.StandardWater) annotation (Placement(
-        transformation(extent={{50,0},{70,20}}, rotation=0)));
+        transformation(extent={{50,0},{70,20}})));
   inner Modelica.Fluid.System system  annotation (Placement(transformation(
-          extent={{-100,-100},{-80,-80}}, rotation=0)));
+          extent={{-100,-100},{-80,-80}})));
 equation
   connect(sine.y, massFlowRate1.m_flow_in) annotation (Line(
       points={{-79,10},{-70,10},{-70,18},{-60,18}},

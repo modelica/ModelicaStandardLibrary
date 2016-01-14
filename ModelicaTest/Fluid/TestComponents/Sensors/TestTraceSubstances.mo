@@ -4,7 +4,7 @@ model TestTraceSubstances
   extends Modelica.Icons.Example;
   replaceable package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"});
   inner Modelica.Fluid.System system  annotation (Placement(transformation(
-          extent={{-100,-100},{-80,-80}}, rotation=0)));
+          extent={{-100,-100},{-80,-80}})));
   Modelica.Fluid.Sources.Boundary_ph boundary_prescriberho_1(nPorts=1,
     p=system.p_ambient,
     use_p_in=false,
@@ -12,21 +12,20 @@ model TestTraceSubstances
     use_C_in=true,
     redeclare package Medium = Medium)
                         annotation (Placement(transformation(extent={{
-            -40,10},{-20,30}}, rotation=0)));
+            -40,10},{-20,30}})));
   Modelica.Fluid.Sensors.TraceSubstances traceSubstance(redeclare package
       Medium =         Medium)
-    annotation (Placement(transformation(extent={{-10,20},{10,40}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-10,20},{10,40}})));
   Modelica.Fluid.Sources.Boundary_ph boundary_prescriberho_2(nPorts=1,
     p=system.p_ambient,
     use_h_in=false,
     use_C_in=true,
     redeclare package Medium = Medium)
                         annotation (Placement(transformation(extent={{
-            -40,-30},{-20,-10}}, rotation=0)));
+            -40,-30},{-20,-10}})));
   Modelica.Fluid.Sensors.TraceSubstancesTwoPort traceSubstance1(redeclare
       package Medium = Medium)
-    annotation (Placement(transformation(extent={{-10,-30},{10,-10}}, rotation=
-            0)));
+    annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
   Modelica.Blocks.Sources.Ramp C(duration=1, height=1.519E-3)
     "substance concentration, raising to 1000 PPM CO2"
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));

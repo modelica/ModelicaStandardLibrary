@@ -9,30 +9,28 @@ model TestInitialization
         Medium,
     p=101330,
     T=293.15)                                       annotation (Placement(
-        transformation(extent={{-90,10},{-70,30}}, rotation=0)));
+        transformation(extent={{-90,10},{-70,30}})));
   Modelica.Fluid.Sources.Boundary_pT sin1(nPorts=1,redeclare package Medium =
         Medium,
     p=101320,
     T=293.15)                                       annotation (Placement(
-        transformation(extent={{90,10},{70,30}},   rotation=0)));
+        transformation(extent={{90,10},{70,30}})));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     redeclare package Medium = Medium,
     diameter=0.25,
     length=10)     annotation (Placement(transformation(extent={{-50,10},{-30,
-            30}},
-          rotation=0)));
+            30}})));
   Modelica.Fluid.Pipes.StaticPipe pipe2(
     redeclare package Medium = Medium,
     diameter=0.25,
-    length=10)     annotation (Placement(transformation(extent={{30,10},{50,30}},
-          rotation=0)));
+    length=10)     annotation (Placement(transformation(extent={{30,10},{50,30}})));
   Modelica.Fluid.Vessels.ClosedVolume vol1(
     redeclare package Medium = Medium,
     nPorts=2,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25),
         Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.25)},
     V=100)
-    annotation (Placement(transformation(extent={{-10,20},{10,40}},rotation=0)));
+    annotation (Placement(transformation(extent={{-10,20},{10,40}})));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_eps_Re=true)
     annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));

@@ -5,7 +5,7 @@ model TestJunctionIdeal
   Modelica.Fluid.Fittings.TeeJunctionIdeal junction(
                                                   redeclare package Medium =
         Modelica.Media.Air.DryAirNasa)      annotation (Placement(
-        transformation(extent={{20,-30},{40,-10}}, rotation=0)));
+        transformation(extent={{20,-30},{40,-10}})));
   Modelica.Fluid.Sources.Boundary_pT source2(nPorts=1,
     T=278.15,
     p=5e5,
@@ -23,29 +23,26 @@ model TestJunctionIdeal
         extent={{-10,-10},{10,10}},
         rotation=270)));
   inner Modelica.Fluid.System system
-    annotation (Placement(transformation(extent={{-100,80},{-80,100}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
   Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,          p=5e5,
       redeclare package Medium = Modelica.Media.Air.DryAirNasa,
     T=system.T_ambient,
     use_p_in=true)
-    annotation (Placement(transformation(extent={{-40,-30},{-20,-10}}, rotation=
-           0)));
+    annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
   Modelica.Blocks.Sources.Ramp ramp(
     duration=1,
     height=-6.5e5,
-    offset=7e5) annotation (Placement(transformation(extent={{-90,-24},{-70,-4}},
-          rotation=0)));
+    offset=7e5) annotation (Placement(transformation(extent={{-90,-24},{-70,-4}})));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
     length=1,
     diameter=0.1)                      annotation (Placement(transformation(
-          extent={{-12,-30},{8,-10}}, rotation=0)));
+          extent={{-12,-30},{8,-10}})));
   Modelica.Fluid.Pipes.StaticPipe pipe2(      redeclare package Medium =
         Modelica.Media.Air.DryAirNasa,
     length=1,
     diameter=0.1)                      annotation (Placement(transformation(
-          extent={{50,-30},{70,-10}}, rotation=0)));
+          extent={{50,-30},{70,-10}})));
   Modelica.Fluid.Pipes.StaticPipe pipe3(      redeclare package Medium =
         Modelica.Media.Air.DryAirNasa,
     length=1,

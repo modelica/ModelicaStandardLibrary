@@ -10,15 +10,14 @@ model TestMixingVolumes
     redeclare package Medium = Medium,
     nPorts=3,
     use_portsData=false)
-               annotation (Placement(transformation(extent={{-30,40},{-10,60}},
-          rotation=0)));
+               annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
 
   Modelica.Fluid.Sources.MassFlowSource_h flowSource2(nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium)
                    annotation (Placement(transformation(extent={{-98,24},{-78,
-            44}}, rotation=0)));
+            44}})));
   Modelica.Fluid.Vessels.ClosedVolume mixingVolume2(
     V=1e-3,
     use_T_start=false,
@@ -26,23 +25,21 @@ model TestMixingVolumes
     redeclare package Medium = Medium,
     nPorts=3,
     use_portsData=false)
-               annotation (Placement(transformation(extent={{10,40},{30,60}},
-          rotation=0)));
+               annotation (Placement(transformation(extent={{10,40},{30,60}})));
   Modelica.Fluid.Sensors.Temperature Tmix_in(
                                          redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{-60,50},{-40,70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-60,50},{-40,70}})));
   Modelica.Fluid.Sensors.Temperature Tmix_out(
                                           redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{40,50},{60,70}}, rotation=0)));
+    annotation (Placement(transformation(extent={{40,50},{60,70}})));
   Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,             redeclare
       package Medium =
                Medium,
     h=Medium.h_default,
     p=101325)
-    annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{100,30},{80,50}})));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 equation
   connect(flowSource2.ports[1], mixingVolume1.ports[2])
                                                   annotation (Line(points={{-78,34},

@@ -11,87 +11,78 @@ model TestValvesIncompressibleReverse
     nPorts=2,
     p=1000000,
     redeclare package Medium = Medium)
-  annotation (Placement(transformation(extent={{-100,26},{-80,46}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-100,26},{-80,46}})));
   Modelica.Fluid.Sources.Boundary_pT SourceP2(
     T=system.T_ambient,
     nPorts=2,
     p=800000,
     redeclare package Medium = Medium)
-  annotation (Placement(transformation(extent={{-100,-50},{-80,-30}}, rotation=
-            0)));
+  annotation (Placement(transformation(extent={{-100,-50},{-80,-30}})));
   Modelica.Fluid.Sources.Boundary_pT SinkP1(nPorts=1,
     T=system.T_ambient,
     p=100000,
     redeclare package Medium = Medium)
-  annotation (Placement(transformation(extent={{82,-4},{62,16}}, rotation=0)));
+  annotation (Placement(transformation(extent={{82,-4},{62,16}})));
   Modelica.Fluid.Valves.ValveIncompressible V1(
     dp_nominal=9e5,
     m_flow_nominal=1.5,
   redeclare package Medium = Medium,
-    CvData=Modelica.Fluid.Types.CvTypes.OpPoint) annotation (Placement(transformation(extent={{-50,58},{-30,78}},
-          rotation=0)));
+    CvData=Modelica.Fluid.Types.CvTypes.OpPoint) annotation (Placement(transformation(extent={{-50,58},{-30,78}})));
   Modelica.Fluid.Valves.ValveIncompressible V2(
     dp_nominal=5e5,
     m_flow_nominal=1.2,
   redeclare package Medium = Medium,
-    CvData=Modelica.Fluid.Types.CvTypes.OpPoint) annotation (Placement(transformation(extent={{-38,26},{-18,46}},
-          rotation=0)));
+    CvData=Modelica.Fluid.Types.CvTypes.OpPoint) annotation (Placement(transformation(extent={{-38,26},{-18,46}})));
   Modelica.Fluid.Valves.ValveIncompressible V3(
     dp_nominal=3e5,
     m_flow_nominal=1.1,
   redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint)
-            annotation (Placement(transformation(extent={{-38,-38},{-18,-18}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-38,-38},{-18,-18}})));
   Modelica.Fluid.Valves.ValveIncompressible V4(
     dp_nominal=8e5,
     m_flow_nominal=1.3,
   redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint)
-            annotation (Placement(transformation(extent={{-40,-78},{-20,-58}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{-40,-78},{-20,-58}})));
   Modelica.Fluid.Valves.ValveIncompressible V5(
     dp_nominal=4e5,
     m_flow_nominal=2,
   redeclare package Medium = Medium,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint)
-            annotation (Placement(transformation(extent={{30,-4},{50,16}},
-          rotation=0)));
+            annotation (Placement(transformation(extent={{30,-4},{50,16}})));
 
   Modelica.Fluid.Sources.Boundary_pT SinkP2(nPorts=1,
     T=system.T_ambient,
     p=100000,
     redeclare package Medium = Medium)
-  annotation (Placement(transformation(extent={{4,58},{-16,78}}, rotation=0)));
+  annotation (Placement(transformation(extent={{4,58},{-16,78}})));
   Modelica.Fluid.Sources.Boundary_pT SinkP3(nPorts=1,
     T=system.T_ambient,
     p=100000,
     redeclare package Medium = Medium)
-  annotation (Placement(transformation(extent={{26,-78},{6,-58}}, rotation=0)));
+  annotation (Placement(transformation(extent={{26,-78},{6,-58}})));
   Modelica.Blocks.Sources.Ramp CloseLoad(
     duration=1,
     offset=1,
     startTime=1,
-    height=-0.99) annotation (Placement(transformation(extent={{8,26},{28,46}},
-          rotation=0)));
+    height=-0.99) annotation (Placement(transformation(extent={{8,26},{28,46}})));
   Modelica.Blocks.Sources.Ramp OpenRelief(
     duration=2,
     height=1,
     offset=0,
     startTime=1)
-              annotation (Placement(transformation(extent={{-92,70},{-72,90}},
-          rotation=0)));
+              annotation (Placement(transformation(extent={{-92,70},{-72,90}})));
   Modelica.Blocks.Sources.Ramp CloseValves(
     duration=2,
     offset=1,
     startTime=1,
     height=-1)
-              annotation (Placement(transformation(extent={{-96,-12},{-76,8}},
-          rotation=0)));
+              annotation (Placement(transformation(extent={{-96,-12},{-76,8}})));
 
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent=
-            {{60,68},{80,88}}, rotation=0)));
+            {{60,68},{80,88}})));
 equation
   connect(V1.port_b, SinkP2.ports[1])
                                   annotation (Line(points={{-30,68},{-16,68}}));

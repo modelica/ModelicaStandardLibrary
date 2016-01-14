@@ -6,29 +6,28 @@ model TestControlledPump "Test controlled pump"
   Modelica.Blocks.Sources.Sine massFlowRate(
     amplitude=0.5,
     offset=1,
-    freqHz=1/7) annotation (Placement(transformation(extent={{-70,60},{-50,80}},
-          rotation=0)));
+    freqHz=1/7) annotation (Placement(transformation(extent={{-70,60},{-50,80}})));
   Modelica.Fluid.Sources.Boundary_pT source(nPorts=1, redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
-  annotation (Placement(transformation(extent={{-90,20},{-70,40}},  rotation=0)));
+  annotation (Placement(transformation(extent={{-90,20},{-70,40}})));
   Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=true,
     p=200000)
-  annotation (Placement(transformation(extent={{50,20},{30,40}}, rotation=0)));
+  annotation (Placement(transformation(extent={{50,20},{30,40}})));
   Modelica.Fluid.Machines.ControlledPump pump(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     use_m_flow_set=true,
     m_flow_nominal=1,
     p_a_nominal=100000,
     p_b_nominal=1000000)     annotation (Placement(transformation(extent={{-50,20},
-            {-30,40}}, rotation=0)));
+            {-30,40}})));
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{70,-90},
-            {90,-70}},         rotation=0)));
+            {90,-70}})));
   Modelica.Fluid.Valves.ValveIncompressible valve(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -39,26 +38,23 @@ model TestControlledPump "Test controlled pump"
     duration=1,
     startTime=3,
     height=-0.5,
-    offset=1)   annotation (Placement(transformation(extent={{30,60},{10,80}},
-          rotation=0)));
+    offset=1)   annotation (Placement(transformation(extent={{30,60},{10,80}})));
   Modelica.Blocks.Sources.Sine pressure1(
     amplitude=5e5,
     freqHz=1/7,
     offset=10e5)
-                annotation (Placement(transformation(extent={{-70,-40},{-50,-20}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
   Modelica.Fluid.Sources.Boundary_pT source1(nPorts=1,redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
-  annotation (Placement(transformation(extent={{-90,-80},{-70,-60}},rotation=0)));
+  annotation (Placement(transformation(extent={{-90,-80},{-70,-60}})));
   Modelica.Fluid.Sources.Boundary_pT sink1(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=true,
     p=200000)
-  annotation (Placement(transformation(extent={{50,-80},{30,-60}},
-                                                                 rotation=0)));
+  annotation (Placement(transformation(extent={{50,-80},{30,-60}})));
   Modelica.Fluid.Machines.ControlledPump pump1(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     control_m_flow=false,
@@ -68,7 +64,7 @@ model TestControlledPump "Test controlled pump"
     p_a_nominal=100000,
     p_b_nominal=1000000)
                         annotation (Placement(transformation(extent={{-50,-80},
-            {-30,-60}},rotation=0)));
+            {-30,-60}})));
   Modelica.Fluid.Valves.ValveIncompressible valve1(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
@@ -79,15 +75,13 @@ model TestControlledPump "Test controlled pump"
     duration=1,
     startTime=3,
     height=-0.5,
-    offset=1)   annotation (Placement(transformation(extent={{30,-40},{10,-20}},
-          rotation=0)));
+    offset=1)   annotation (Placement(transformation(extent={{30,-40},{10,-20}})));
   Modelica.Blocks.Sources.Ramp sinkPressure(
     duration=1,
     height=-7e5,
     offset=8e5,
     startTime=3)
-                annotation (Placement(transformation(extent={{90,60},{70,80}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{90,60},{70,80}})));
 equation
   connect(pump.port_a,source.ports[1])
                                      annotation (Line(points={{-50,30},{-70,30}},

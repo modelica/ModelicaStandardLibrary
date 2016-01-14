@@ -8,23 +8,20 @@ model TestWaterPumpRecirculation
     startTime=1,
     height=1500,
     offset=0,
-    duration=1) annotation (Placement(transformation(extent={{-100,-8},{-80,12}},
-          rotation=0)));
+    duration=1) annotation (Placement(transformation(extent={{-100,-8},{-80,12}})));
   Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1,
     T=system.T_ambient,
     p=100000,
     redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater)
-  annotation (Placement(transformation(extent={{-100,-40},{-80,-20}},
-                                                                    rotation=0)));
+  annotation (Placement(transformation(extent={{-100,-40},{-80,-20}})));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1,
     T=system.T_ambient,
     use_p_in=false,
     p=100000,
     redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater)
-  annotation (Placement(transformation(extent={{62,-30},{42,-10}},
-                                                                 rotation=0)));
+  annotation (Placement(transformation(extent={{62,-30},{42,-10}})));
   Modelica.Fluid.Machines.PrescribedPump pump(
     m_flow_start=1,
     redeclare function flowCharacteristic =
@@ -40,11 +37,11 @@ model TestWaterPumpRecirculation
     energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                           annotation (Placement(transformation(extent={{-54,-44},
-            {-26,-16}},rotation=0)));
+            {-26,-16}})));
 
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{80,60},
-            {100,80}},         rotation=0)));
+            {100,80}})));
   Modelica.Fluid.Valves.ValveIncompressible V1(
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     m_flow_nominal=1,
@@ -64,15 +61,13 @@ model TestWaterPumpRecirculation
     height=-1,
     offset=1,
     startTime=5)
-                annotation (Placement(transformation(extent={{-100,40},{-80,60}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{-100,40},{-80,60}})));
   Modelica.Blocks.Sources.Ramp V2_Opening(
     offset=0,
     height=1,
     duration=1,
     startTime=3)
-                annotation (Placement(transformation(extent={{-100,70},{-80,90}},
-          rotation=0)));
+                annotation (Placement(transformation(extent={{-100,70},{-80,90}})));
 equation
   connect(pump.port_a,Source.ports[1])
                                      annotation (Line(points={{-54,-30},{-54,

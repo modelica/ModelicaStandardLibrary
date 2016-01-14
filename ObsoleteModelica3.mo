@@ -36,9 +36,9 @@ Connector with one signal of type .
         extends ObsoleteModelica3.Icons.ObsoleteBlock;
         ObsoleteModelica3.Blocks.Interfaces.RealSignal newReal
             "Connector of Modelica version 2.1"                annotation (                            Hide=true,
-              Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
+              Placement(transformation(extent={{100,-10},{120,10}})));
         RealPort oldReal(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
-                transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
+                transformation(extent={{-120,-10},{-100,10}})));
 
         protected
         connector RealPort "Connector with signals of type Real"
@@ -85,9 +85,9 @@ This block is only provided for backward compatibility.
         ObsoleteModelica3.Blocks.Interfaces.BooleanSignal newBoolean
             "Connector of Modelica version 2.1"
           annotation (                            Hide=true, Placement(
-                transformation(extent={{100,-10},{120,10}}, rotation=0)));
+                transformation(extent={{100,-10},{120,10}})));
         BooleanPort oldBoolean(final n=1) "Connector of Modelica version 1.6" annotation (Placement(
-                transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
+                transformation(extent={{-120,-10},{-100,10}})));
 
         protected
         connector BooleanPort "Connector with signals of type Boolean"
@@ -136,9 +136,9 @@ This block is only provided for backward compatibility.
         ObsoleteModelica3.Blocks.Interfaces.IntegerSignal newInteger
             "Connector of Modelica version 2.1"
           annotation (                            Hide=true, Placement(
-                transformation(extent={{100,-10},{120,10}}, rotation=0)));
+                transformation(extent={{100,-10},{120,10}})));
         IntegerPort oldInteger(final n=1) "Connector of Modelica version 1.6"  annotation (Placement(
-                transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
+                transformation(extent={{-120,-10},{-100,10}})));
 
         protected
         connector IntegerPort "Connector with signals of type Integer"
@@ -240,8 +240,7 @@ The desired conversion can be selected in the parameter menu
             Modelica.Blocks.Interfaces.RealInput u1
           "Connector of first Real input signal"
               annotation (                                       layer="icon",
-            Placement(transformation(extent={{-139.742,-19.0044},{-100,20}},
-                rotation=0)));
+            Placement(transformation(extent={{-139.742,-19.0044},{-100,20}})));
             Modelica.Blocks.Interfaces.RealInput u2
           "Connector of second Real input signal (u1=u2)"
                                            annotation (
@@ -274,8 +273,7 @@ defined as outputs (e.g., useful for inverse model generation).
             extends ObsoleteModelica3.Icons.ObsoleteBlock;
             output Modelica.Blocks.Interfaces.RealOutput y1
           "Connector of first Real output signal"
-              annotation (Placement(transformation(extent={{100,-10},{120,10}},
-                rotation=0)));
+              annotation (Placement(transformation(extent={{100,-10},{120,10}})));
             output Modelica.Blocks.Interfaces.RealOutput y2
           "Connector of second Real output signal (y1=y2)"
                                                    annotation (Placement(
@@ -505,8 +503,7 @@ This icon is designed for an <b>enumeration</b>
 
           Modelica.Blocks.Interfaces.RealInput load[6]
             "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in world frame"
-            annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           parameter Boolean animation=true
             "= true, if animation shall be enabled";
           parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
@@ -656,8 +653,7 @@ This leads to the following animation
                 rotation=270)));
           Modelica.Blocks.Interfaces.RealInput load[6]
             "[1:6] = x-, y-, z-coordinates of force and x-, y-, z-coordiantes of torque resolved in frame_b or frame_resolved (if connected)"
-            annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
           parameter Boolean animation=true
             "= true, if animation shall be enabled";
           parameter Real N_to_m(unit="N/m") = world.defaultN_to_m
@@ -1026,10 +1022,10 @@ clarity this is not shown in the animation):
           extends ObsoleteModelica3.Icons.ObsoleteModel;
           Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
             "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
-                transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+                transformation(extent={{-116,-16},{-84,16}})));
           Modelica.Mechanics.MultiBody.Interfaces.Frame_b frame_b
             "Coordinate system with one cut-force and cut-torque"                          annotation (Placement(
-                transformation(extent={{84,-16},{116,16}}, rotation=0)));
+                transformation(extent={{84,-16},{116,16}})));
           Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve
             "If connected, the output signals are resolved in this frame (cut-force/-torque are set to zero)"
             annotation (Placement(transformation(
@@ -1126,20 +1122,17 @@ with the blocks of package Modelica.Blocks.
             extends ObsoleteModelica3.Icons.ObsoleteModel;
             Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
               "1-dim. rotational flange that drives the joint"
-              annotation (Placement(transformation(extent={{10,90},{-10,110}}, rotation=0)));
+              annotation (Placement(transformation(extent={{10,90},{-10,110}})));
             Modelica.Mechanics.Rotational.Interfaces.Flange_b bearing
               "1-dim. rotational flange of the drive bearing"
-              annotation (Placement(transformation(extent={{-50,90},{-70,110}}, rotation=
-                      0)));
+              annotation (Placement(transformation(extent={{-50,90},{-70,110}})));
 
             Modelica.Blocks.Interfaces.RealInput position_a[3]
               "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-              annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-                    rotation=0)));
+              annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
             Modelica.Blocks.Interfaces.RealInput position_b[3]
               "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-              annotation (Placement(transformation(extent={{140,-80},{100,-40}}, rotation=
-                     0)));
+              annotation (Placement(transformation(extent={{140,-80},{100,-40}})));
 
             parameter Boolean animation=true
               "= true, if animation shall be enabled";
@@ -1493,18 +1486,16 @@ joints.</b>
             extends ObsoleteModelica3.Icons.ObsoleteModel;
             Modelica.Mechanics.Translational.Interfaces.Flange_a axis
               "1-dim. translational flange that drives the joint"
-              annotation (Placement(transformation(extent={{70,80},{90,60}}, rotation=0)));
+              annotation (Placement(transformation(extent={{70,80},{90,60}})));
             Modelica.Mechanics.Translational.Interfaces.Flange_b bearing
               "1-dim. translational flange of the drive bearing"
-              annotation (Placement(transformation(extent={{-30,80},{-50,60}}, rotation=0)));
+              annotation (Placement(transformation(extent={{-30,80},{-50,60}})));
             Modelica.Blocks.Interfaces.RealInput position_a[3]
               "Position vector from frame_a to frame_a side of length constraint, resolved in frame_a of revolute joint"
-              annotation (Placement(transformation(extent={{-140,-80},{-100,-40}},
-                    rotation=0)));
+              annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
             Modelica.Blocks.Interfaces.RealInput position_b[3]
               "Position vector from frame_b to frame_b side of length constraint, resolved in frame_b of revolute joint"
-              annotation (Placement(transformation(extent={{140,-80},{100,-40}}, rotation=
-                     0)));
+              annotation (Placement(transformation(extent={{140,-80},{100,-40}})));
 
             parameter Boolean animation=true
               "= true, if animation shall be enabled";
@@ -2835,12 +2826,10 @@ with negative sign at frame_a.
 
           Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
             "(left) driving flange (flange axis directed INTO cut plane)"
-            annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
             "(right) driven flange (flange axis directed OUT OF cut plane)"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         equation
           flange_a.phi = phi;
           flange_b.phi = phi;
@@ -2865,7 +2854,7 @@ with inertia.
           Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing
             "Flange of bearing"
                            annotation (Placement(transformation(extent={{-10,-110},
-                    {10,-90}}, rotation=0)));
+                    {10,-90}})));
           annotation (
             obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
@@ -2982,12 +2971,10 @@ of several base components.</p>
             "accelerating torque acting at flange";
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
             "Flange on which torque is acting"
-            annotation (Placement(transformation(extent={{110,-10},{90,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{110,-10},{90,10}})));
           Modelica.Mechanics.Rotational.Interfaces.Flange_a bearing
             "Bearing at which the reaction torque (i.e., -flange.tau) is acting"
-               annotation (Placement(transformation(extent={{-10,-130},{10,-110}},
-                  rotation=0)));
+               annotation (Placement(transformation(extent={{-10,-130},{10,-110}})));
         equation
           if cardinality(bearing) == 0 then
             bearing.phi = 0;
@@ -3039,11 +3026,9 @@ Partial model of torque dependent on speed that accelerates the flange.
 
           Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
             "(left) flange to be measured (flange axis directed INTO cut plane)"
-            annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
           Modelica.Blocks.Interfaces.RealOutput y "Sensor signal"
-            annotation (Placement(transformation(extent={{100,-10},{120,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{100,-10},{120,10}})));
           annotation (
             obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal.",
@@ -3080,12 +3065,10 @@ with the blocks of package Modelica.Blocks.
 
           Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a
             "(left) driving flange (flange axis directed INTO cut plane)"
-            annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
           Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_b
             "(right) driven flange (flange axis directed OUT OF cut plane)"
-            annotation (Placement(transformation(extent={{90,-10},{110,10}},
-                  rotation=0)));
+            annotation (Placement(transformation(extent={{90,-10},{110,10}})));
           Modelica.Blocks.Interfaces.RealOutput y "Sensor signal"
             annotation (Placement(transformation(
                 origin={0,-110},
@@ -3401,23 +3384,19 @@ from tables of the gear manufacturers.
 
         Modelica.Mechanics.Rotational.Components.IdealGear gearRatio(final
             ratio =                                                              ratio)
-          annotation (Placement(transformation(extent={{-70,-10},{-50,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
         ObsoleteModelica3.Mechanics.Rotational.GearEfficiency gearEfficiency(
                                       final eta=eta)
-          annotation (Placement(transformation(extent={{-30,-10},{-10,10}},
-                rotation=0)));
+          annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
         Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
           final b=b,
           final c=c,
           final phi_rel0=0,
-          final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}},
-                rotation=0)));
+          final d=d) annotation (Placement(transformation(extent={{50,-10},{70,10}})));
         Modelica.Mechanics.Rotational.Components.BearingFriction
           bearingFriction(                                                       final
             tau_pos=friction_pos, final peak=peak)
-          annotation (Placement(transformation(extent={{10,-10},{30,10}}, rotation=
-                  0)));
+          annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       equation
         connect(flange_a, gearRatio.flange_a)
           annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));

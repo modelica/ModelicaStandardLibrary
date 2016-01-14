@@ -10,7 +10,7 @@ extends Modelica.Icons.Example;
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1)},
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
                    annotation (Placement(transformation(extent={{-72,44},{-32,
-            84}}, rotation=0)));
+            84}})));
 
   Modelica.Fluid.Vessels.OpenTank tank2(
     crossArea=1,
@@ -20,12 +20,11 @@ extends Modelica.Icons.Example;
     nPorts=1,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1)},
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
-                   annotation (Placement(transformation(extent={{-12,44},{28,84}},
-                  rotation=0)));
+                   annotation (Placement(transformation(extent={{-12,44},{28,84}})));
 
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                    annotation (Placement(transformation(
-          extent={{78,-66},{98,-46}}, rotation=0)));
+          extent={{78,-66},{98,-46}})));
   Modelica.Fluid.Vessels.OpenTank tank3(
     crossArea=1,
     use_portsData=true,
@@ -34,8 +33,7 @@ extends Modelica.Icons.Example;
     nPorts=1,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.1)},
     redeclare package Medium = Modelica.Media.Water.ConstantPropertyLiquidWater)
-                   annotation (Placement(transformation(extent={{48,34},{88,74}},
-                  rotation=0)));
+                   annotation (Placement(transformation(extent={{48,34},{88,74}})));
 
   Modelica.Fluid.Pipes.StaticPipe pipe1(
     allowFlowReversal=true,

@@ -4,73 +4,69 @@ package Blocks "Test models for Modelica.Blocks"
   model Continuous
     extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator annotation (Placement(
-          transformation(extent={{-60,100},{-40,120}}, rotation=0)));
+          transformation(extent={{-60,100},{-40,120}})));
     Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=1)
-      annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
     Modelica.Blocks.Continuous.Derivative derivative(x_start=0, initType=
           Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
-          transformation(extent={{-60,20},{-40,40}}, rotation=0)));
+          transformation(extent={{-60,20},{-40,40}})));
     Modelica.Blocks.Continuous.FirstOrder firstOrder(T=1, initType=Modelica.Blocks.Types.Init.InitialState)
-      annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
     Modelica.Blocks.Continuous.SecondOrder secondOrder(
       w=1,
       D=1,
       initType=Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
-          transformation(extent={{-60,-60},{-40,-40}}, rotation=0)));
+          transformation(extent={{-60,-60},{-40,-40}})));
     Modelica.Blocks.Continuous.PI pI(T=1, initType=Modelica.Blocks.Types.Init.InitialState)
-      annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
     Modelica.Blocks.Continuous.PID pID(
       Ti=0.5,
       Td=0.1,
       initType=Modelica.Blocks.Types.InitPID.InitialState) annotation (
-        Placement(transformation(extent={{-60,-140},{-40,-120}}, rotation=0)));
+        Placement(transformation(extent={{-60,-140},{-40,-120}})));
     Modelica.Blocks.Continuous.LimPID limPID(
       Ti=0.5,
       Td=0.1,
       yMax=1,
       initType=Modelica.Blocks.Types.InitPID.InitialState) annotation (
-        Placement(transformation(extent={{40,100},{60,120}}, rotation=0)));
+        Placement(transformation(extent={{40,100},{60,120}})));
     Modelica.Blocks.Continuous.TransferFunction transferFunction(
       a={1,1},
       b={1},
       initType=Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
-          transformation(extent={{40,20},{60,40}}, rotation=0)));
+          transformation(extent={{40,20},{60,40}})));
     Modelica.Blocks.Continuous.StateSpace stateSpace(
       A=[1, 0; 0, 1],
       B=[1; 1],
       C=[1, 1],
       initType=Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
-          transformation(extent={{40,-20},{60,0}}, rotation=0)));
+          transformation(extent={{40,-20},{60,0}})));
     Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth(f=1,
         initType=Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
-          transformation(extent={{40,-60},{60,-40}}, rotation=0)));
+          transformation(extent={{40,-60},{60,-40}})));
     Modelica.Blocks.Continuous.CriticalDamping criticalDamping(
       normalized=false,
       f=1,
       initType=Modelica.Blocks.Types.Init.InitialState) annotation (Placement(
-          transformation(extent={{40,-100},{60,-80}}, rotation=0)));
+          transformation(extent={{40,-100},{60,-80}})));
     Modelica.Blocks.Sources.Ramp ramp(
       offset=0.5,
       startTime=0.5,
       duration=2) annotation (Placement(transformation(extent={{-100,100},{-80,
-              120}}, rotation=0)));
+              120}})));
     Modelica.Blocks.Sources.Ramp ramp1(
       offset=0.5,
       startTime=0.5,
-      duration=2) annotation (Placement(transformation(extent={{0,100},{20,120}},
-            rotation=0)));
+      duration=2) annotation (Placement(transformation(extent={{0,100},{20,120}})));
     Modelica.Blocks.Sources.Constant const(k=1.5) annotation (Placement(
           transformation(
           origin={50,70},
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Blocks.Continuous.Der der1 annotation (Placement(transformation(
-            extent={{40,-140},{60,-120}}, rotation=0)));
+            extent={{40,-140},{60,-120}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
-          transformation(extent={{0,-140},{20,-120}}, rotation=0)));
+          transformation(extent={{0,-140},{20,-120}})));
   equation
     connect(ramp.y, integrator.u)
       annotation (Line(points={{-79,110},{-62,110}}, color={0,0,127}));
@@ -189,19 +185,17 @@ package Blocks "Test models for Modelica.Blocks"
   model Limiters
     extends Modelica.Icons.Example;
     Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false, uMax=1)
-      annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
+      annotation (Placement(transformation(extent={{0,0},{20,20}})));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
-          false) annotation (Placement(transformation(extent={{0,-40},{20,-20}},
-            rotation=0)));
+          false) annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
     Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false, uMax=1)
-      annotation (Placement(transformation(extent={{0,-80},{20,-60}}, rotation=
-              0)));
+      annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
     Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=1) annotation (
-        Placement(transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+        Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Blocks.Sources.Constant constPos(k=+1) annotation (Placement(
-          transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
+          transformation(extent={{-80,-20},{-60,0}})));
     Modelica.Blocks.Sources.Constant constNeg(k=-1) annotation (Placement(
-          transformation(extent={{-80,-60},{-60,-40}}, rotation=0)));
+          transformation(extent={{-80,-60},{-60,-40}})));
     Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter(Rising=10)
       annotation (Placement(transformation(extent={{0,40},{20,60}})));
     Modelica.Blocks.Continuous.Der idealDerivative
@@ -366,22 +360,20 @@ package Blocks "Test models for Modelica.Blocks"
       qd_max={3},
       qdd_max={4},
       startTime=0.5,
-      deltaq={1}) annotation (Placement(transformation(extent={{-60,60},{-40,80}},
-            rotation=0)));
+      deltaq={1}) annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
     Modelica.Blocks.Continuous.Integrator integrator annotation (Placement(
-          transformation(extent={{-20,60},{2,80}}, rotation=0)));
+          transformation(extent={{-20,60},{2,80}})));
     Modelica.Blocks.Continuous.Integrator integrator1(y_start=1) annotation (
-        Placement(transformation(extent={{20,60},{42,80}}, rotation=0)));
+        Placement(transformation(extent={{20,60},{42,80}})));
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP2a(
       qd_max={3},
       qdd_max={4},
       startTime=0.5,
-      deltaq={4}) annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
-            rotation=0)));
+      deltaq={4}) annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
     Modelica.Blocks.Continuous.Integrator integrator2 annotation (Placement(
-          transformation(extent={{-20,-20},{2,0}}, rotation=0)));
+          transformation(extent={{-20,-20},{2,0}})));
     Modelica.Blocks.Continuous.Integrator integrator3(y_start=1) annotation (
-        Placement(transformation(extent={{20,-20},{42,0}}, rotation=0)));
+        Placement(transformation(extent={{20,-20},{42,0}})));
     Modelica.Blocks.Sources.KinematicPTP2 kinematicPTP1b(
       qd_max={3},
       qdd_max={4},
@@ -588,11 +580,10 @@ package Blocks "Test models for Modelica.Blocks"
     extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.BooleanTable
                          table1(table={2,4,6,8}) annotation (Placement(
-          transformation(extent={{-100,100},{-80,120}},
-                                                     rotation=0)));
+          transformation(extent={{-100,100},{-80,120}})));
     Modelica.Blocks.Sources.BooleanTable
                          table2(table={1,3,5,7}) annotation (Placement(
-          transformation(extent={{-100,60},{-80,80}},rotation=0)));
+          transformation(extent={{-100,60},{-80,80}})));
     Modelica.Blocks.Logical.And and1
       annotation (Placement(transformation(extent={{-60,100},{-40,120}})));
     Modelica.Blocks.Logical.Or or1

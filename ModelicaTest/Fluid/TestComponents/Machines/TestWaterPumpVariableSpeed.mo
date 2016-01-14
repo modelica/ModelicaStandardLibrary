@@ -8,19 +8,18 @@ model TestWaterPumpVariableSpeed
     startTime=1,
     duration=5,
     height=1500,
-    offset=0)   annotation (Placement(transformation(extent={{-100,60},{-80,80}},
-          rotation=0)));
+    offset=0)   annotation (Placement(transformation(extent={{-100,60},{-80,80}})));
   Modelica.Fluid.Sources.Boundary_pT Source(nPorts=1, redeclare package Medium
       = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     p=100000)
-  annotation (Placement(transformation(extent={{-100,20},{-80,40}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     T=system.T_ambient,
     use_p_in=false,
     p=100000)
-  annotation (Placement(transformation(extent={{34,26},{14,46}}, rotation=0)));
+  annotation (Placement(transformation(extent={{34,26},{14,46}})));
   Modelica.Fluid.Machines.PrescribedPump pump(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow_start=1,
@@ -31,23 +30,23 @@ model TestWaterPumpVariableSpeed
     use_N_in=true,
     p_a_start=100000,
     p_b_start=700000)      annotation (Placement(transformation(extent={{-64,16},
-            {-36,44}}, rotation=0)));
+            {-36,44}})));
   Modelica.Blocks.Sources.Ramp valveOpening(
     height=-1,
     duration=1,
     offset=1,
     startTime=8)
-  annotation (Placement(transformation(extent={{-40,80},{-20,60}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-40,80},{-20,60}})));
   Modelica.Fluid.Valves.ValveIncompressible Valve(
                                              redeclare package Medium =
         Modelica.Media.Water.StandardWater,
     m_flow_nominal=1,
     CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
     dp_nominal=1000000)
-  annotation (Placement(transformation(extent={{-16,26},{2,46}}, rotation=0)));
+  annotation (Placement(transformation(extent={{-16,26},{2,46}})));
   inner Modelica.Fluid.System system
                                    annotation (Placement(transformation(extent={{64,-4},
-            {84,16}},          rotation=0)));
+            {84,16}})));
 equation
   connect(Valve.port_b,Sink.ports[1])    annotation (Line(points={{2,36},{14,36}},
         color={0,127,255}));

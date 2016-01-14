@@ -14,15 +14,14 @@ model TestMixingVolumesPressureStates
     energyDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial,
     use_portsData=false)
-                 annotation (Placement(transformation(extent={{-30,38},{-10,58}},
-          rotation=0)));
+                 annotation (Placement(transformation(extent={{-30,38},{-10,58}})));
 
   Modelica.Fluid.Sources.MassFlowSource_h flowSource2(nPorts=1,
     m_flow=1,
     h=2e5,
     redeclare package Medium = Medium)
                    annotation (Placement(transformation(extent={{-100,30},{-80,
-            50}}, rotation=0)));
+            50}})));
   Modelica.Fluid.Vessels.ClosedVolume mixingVolume2(
     V=1e-3,
     p_start=system.p_ambient,
@@ -31,24 +30,22 @@ model TestMixingVolumesPressureStates
     redeclare package Medium = Medium,
     nPorts=2,
     use_portsData=false)
-                 annotation (Placement(transformation(extent={{10,38},{30,58}},
-          rotation=0)));
+                 annotation (Placement(transformation(extent={{10,38},{30,58}})));
   Modelica.Fluid.Sensors.Temperature Tmix_in(
                                          redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{-50,70},{-30,90}}, rotation=0)));
+    annotation (Placement(transformation(extent={{-50,70},{-30,90}})));
   Modelica.Fluid.Sensors.Temperature Tmix_out(
                                           redeclare package Medium = Medium)
-    annotation (Placement(transformation(extent={{30,68},{50,88}}, rotation=0)));
+    annotation (Placement(transformation(extent={{30,68},{50,88}})));
   Modelica.Fluid.Sources.Boundary_ph sink2(nPorts=1,             redeclare
       package Medium =
                Medium,
     h=Medium.h_default,
     p=101325)
-    annotation (Placement(transformation(extent={{100,30},{80,50}}, rotation=0)));
+    annotation (Placement(transformation(extent={{100,30},{80,50}})));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
-    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
   Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
     simpleGenericOrifice2(
     redeclare package Medium = Medium,
@@ -57,7 +54,7 @@ model TestMixingVolumesPressureStates
     redeclare package WallFriction =
         Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar)
                                 annotation (Placement(transformation(extent={{
-            50,30},{70,50}}, rotation=0)));
+            50,30},{70,50}})));
   Modelica.Fluid.Pipes.BaseClasses.WallFriction.TestWallFrictionAndGravity
     simpleGenericOrifice1(
     redeclare package Medium = Medium,
@@ -66,7 +63,7 @@ model TestMixingVolumesPressureStates
     redeclare package WallFriction =
         Modelica.Fluid.Pipes.BaseClasses.WallFriction.Laminar)
                                 annotation (Placement(transformation(extent={{
-            -70,30},{-50,50}}, rotation=0)));
+            -70,30},{-50,50}})));
 equation
   connect(simpleGenericOrifice2.port_b,sink2. ports[1])
                                                     annotation (Line(

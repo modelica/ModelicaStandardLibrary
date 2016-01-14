@@ -354,7 +354,6 @@ whereas the transient model may have only one ground since AC side and DC side a
       Sensors.PowerSensor sensor0 annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
       Basic.Impedance zk(Z_ref(re=0.72, im=0.96)) annotation (Placement(transformation(
             extent={{-10,-10}, {10,10}},
-            rotation=0,
             origin={-20,-10})));
       Sources.VariableCurrentSource load(gamma(fixed=true, start=0)) annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},

@@ -11,30 +11,26 @@ model TestVolume
     massDynamics=Modelica.Fluid.Types.Dynamics.SteadyState,
     portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.0254),
       Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=0.0254)})
-         annotation (Placement(transformation(extent={{-40,14},{-20,34}},
-          rotation=0)));
+         annotation (Placement(transformation(extent={{-40,14},{-20,34}})));
   Modelica.Fluid.Sources.MassFlowSource_h FlowSource(nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     m_flow=1,
-    h=3e6) annotation (Placement(transformation(extent={{-82,0},{-62,20}},
-          rotation=0)));
+    h=3e6) annotation (Placement(transformation(extent={{-82,0},{-62,20}})));
   Modelica.Fluid.Sources.Boundary_pT Sink(nPorts=1, redeclare package Medium =
         Modelica.Media.Water.StandardWater, p=101325,
     T=system.T_ambient)
-    annotation (Placement(transformation(extent={{60,0},{40,20}}, rotation=0)));
+    annotation (Placement(transformation(extent={{60,0},{40,20}})));
   Modelica.Fluid.Valves.ValveLinear Valve(   redeclare package Medium =
         Modelica.Media.Water.StandardWater,
     dp_nominal=10000,
     m_flow_nominal=0.1)                                    annotation (Placement(
-        transformation(extent={{2,0},{22,20}}, rotation=0)));
+        transformation(extent={{2,0},{22,20}})));
   Modelica.Blocks.Sources.Step Step1(
     startTime=1,
     height=-0.5,
-    offset=1) annotation (Placement(transformation(extent={{-40,48},{-20,68}},
-          rotation=0)));
+    offset=1) annotation (Placement(transformation(extent={{-40,48},{-20,68}})));
   inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
-    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
 equation
   connect(Valve.port_b, Sink.ports[1])
     annotation (Line(points={{22,10},{40,10}}, color={0,127,255}));

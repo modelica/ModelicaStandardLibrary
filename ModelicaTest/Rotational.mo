@@ -9,22 +9,21 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       extends Modelica.Icons.Example;
 
       Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
-            transformation(extent={{-80,0},{-60,20}}, rotation=0)));
+            transformation(extent={{-80,0},{-60,20}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (
-          Placement(transformation(extent={{-40,-20},{-20,0}}, rotation=0)));
+          Placement(transformation(extent={{-40,-20},{-20,0}})));
       Modelica.Mechanics.Rotational.Components.Inertia J1(
         J=0.2,
         phi(start=0, fixed=true),
         w(start=0, fixed=true)) annotation (Placement(transformation(extent={{-10,
-                0},{10,20}}, rotation=0)));
+                0},{10,20}})));
       Modelica.Mechanics.Rotational.Components.IdealGear gear(ratio=5,
           useSupport=true) annotation (Placement(transformation(extent={{20,0},
-                {40,20}}, rotation=0)));
+                {40,20}})));
       Modelica.Mechanics.Rotational.Components.Inertia J2(J=5) annotation (
-          Placement(transformation(extent={{50,0},{70,20}}, rotation=0)));
+          Placement(transformation(extent={{50,0},{70,20}})));
     equation
       connect(sine.y, torque.tau) annotation (Line(
           points={{-59,10},{-42,10}},
@@ -60,26 +59,23 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-60,
-                40},{-40,60}}, rotation=0)));
+                40},{-40,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=1)
-        annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{-20,40},{0,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-60,
-                -20},{-40,0}}, rotation=0)));
+                -20},{-40,0}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
-                30,-20},{50,0}}, rotation=0)));
+                30,-20},{50,0}})));
       Modelica.Mechanics.Rotational.Components.Spring spring1(c=1e4)
-        annotation (Placement(transformation(extent={{-30,-20},{-10,0}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-30,-20},{-10,0}})));
       Modelica.Mechanics.Rotational.Components.Spring spring2(c=1e4)
-        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{0,-20},{20,0}})));
 
     equation
       connect(inertia1.flange_b, inertia2.flange_a) annotation (Line(
@@ -105,26 +101,24 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       extends Modelica.Icons.Example;
 
       Modelica.Blocks.Sources.Sine sine2(freqHz=1) annotation (Placement(
-            transformation(extent={{-100,0},{-80,20}}, rotation=0)));
+            transformation(extent={{-100,0},{-80,20}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
-        annotation (Placement(transformation(extent={{-60,0},{-40,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed1 annotation (
-          Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+          Placement(transformation(extent={{-60,-20},{-40,0}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-30,
-                0},{-10,20}}, rotation=0)));
+                0},{-10,20}})));
       Modelica.Mechanics.Rotational.Components.IdealGear idealGear2(ratio=1,
           useSupport=true) annotation (Placement(transformation(extent={{0,0},{
-                20,20}}, rotation=0)));
+                20,20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(J=1)
-        annotation (Placement(transformation(extent={{60,0},{80,20}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{60,0},{80,20}})));
       Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction1(
          useSupport=true) annotation (Placement(transformation(extent={{30,0},{
-                50,20}}, rotation=0)));
+                50,20}})));
     equation
       connect(sine2.y, torque2.tau) annotation (Line(
           points={{-79,10},{-62,10}},
@@ -165,56 +159,53 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
       extends Modelica.Icons.Example;
 
       Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
-            transformation(extent={{-80,50},{-60,70}}, rotation=0)));
+            transformation(extent={{-80,50},{-60,70}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
-        annotation (Placement(transformation(extent={{-44,50},{-24,70}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-44,50},{-24,70}})));
       Modelica.Mechanics.Rotational.Components.Inertia J1(
         J=0.2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-                50},{10,70}}, rotation=0)));
+                50},{10,70}})));
       Modelica.Mechanics.Rotational.Components.IdealGear gear(ratio=5,
           useSupport=true) annotation (Placement(transformation(extent={{20,50},
-                {40,70}}, rotation=0)));
+                {40,70}})));
       Modelica.Mechanics.Rotational.Components.Inertia J2(J=5) annotation (
-          Placement(transformation(extent={{52,50},{72,70}}, rotation=0)));
+          Placement(transformation(extent={{52,50},{72,70}})));
       Modelica.Blocks.Sources.Sine sine1(freqHz=1) annotation (Placement(
-            transformation(extent={{-80,-10},{-60,10}}, rotation=0)));
+            transformation(extent={{-80,-10},{-60,10}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
-        annotation (Placement(transformation(extent={{-44,-10},{-24,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-44,-10},{-24,10}})));
       Modelica.Mechanics.Rotational.Components.Inertia J3(
         J=0.2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-                -10},{10,10}}, rotation=0)));
+                -10},{10,10}})));
       Modelica.Mechanics.Rotational.Components.IdealGear gear1(ratio=1/5,
           useSupport=true) annotation (Placement(transformation(extent={{40,-10},
-                {20,10}}, rotation=0)));
+                {20,10}})));
       Modelica.Mechanics.Rotational.Components.Inertia J4(J=5) annotation (
-          Placement(transformation(extent={{52,-10},{72,10}}, rotation=0)));
+          Placement(transformation(extent={{52,-10},{72,10}})));
       Modelica.Blocks.Sources.Sine sine2(freqHz=1) annotation (Placement(
-            transformation(extent={{-80,-70},{-60,-50}}, rotation=0)));
+            transformation(extent={{-80,-70},{-60,-50}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
-        annotation (Placement(transformation(extent={{-44,-70},{-24,-50}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-44,-70},{-24,-50}})));
       Modelica.Mechanics.Rotational.Components.Inertia J5(
         J=0.2,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-                -70},{10,-50}}, rotation=0)));
+                -70},{10,-50}})));
       Modelica.Mechanics.Rotational.Components.IdealGear gear2(ratio=1/5,
           useSupport=true) annotation (Placement(transformation(extent={{40,-70},
-                {20,-50}}, rotation=0)));
+                {20,-50}})));
       Modelica.Mechanics.Rotational.Components.Inertia J6(J=5) annotation (
-          Placement(transformation(extent={{72,-70},{52,-50}}, rotation=0)));
+          Placement(transformation(extent={{72,-70},{52,-50}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed1 annotation (
-          Placement(transformation(extent={{-10,30},{10,50}}, rotation=0)));
+          Placement(transformation(extent={{-10,30},{10,50}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed2 annotation (
-          Placement(transformation(extent={{-10,-26},{10,-6}}, rotation=0)));
+          Placement(transformation(extent={{-10,-26},{10,-6}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed3 annotation (
-          Placement(transformation(extent={{-10,-90},{10,-70}}, rotation=0)));
+          Placement(transformation(extent={{-10,-90},{10,-70}})));
     equation
       connect(sine.y, torque.tau) annotation (Line(
           points={{-59,60},{-46,60}},
@@ -308,42 +299,42 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         J=5,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-60,
-                55},{-40,75}}, rotation=0)));
+                55},{-40,75}})));
       Modelica.Mechanics.Rotational.Components.Inertia J4(
         J=5,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-8,
-                55},{12,75}}, rotation=0)));
+                55},{12,75}})));
       Modelica.Mechanics.Rotational.Components.Inertia J6(
         J=5,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
-                65,55},{45,75}}, rotation=0)));
+                65,55},{45,75}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia1(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-30,
-                -10},{-10,10}}, rotation=0)));
+                -10},{-10,10}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia2(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
-                10,-10},{30,10}}, rotation=0)));
+                10,-10},{30,10}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-80,
-                -100},{-60,-80}}, rotation=0)));
+                -100},{-60,-80}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-6,
-                -64},{-26,-44}}, rotation=0)));
+                -64},{-26,-44}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia5(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{0,
-                -100},{20,-80}}, rotation=0)));
+                -100},{20,-80}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia6(
         J=1,
         phi(fixed=true, start=0),
@@ -352,25 +343,22 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
             extent={{-10,10},{10,-10}},
             rotation=90)));
       Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
-        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
       Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
-        annotation (Placement(transformation(extent={{60,-10},{40,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{60,-10},{40,10}})));
       Modelica.Blocks.Sources.Sine sine1(freqHz=1) annotation (Placement(
-            transformation(extent={{-90,-10},{-70,10}}, rotation=0)));
+            transformation(extent={{-90,-10},{-70,10}})));
       Modelica.Blocks.Sources.Sine sine2(freqHz=1) annotation (Placement(
-            transformation(extent={{90,-10},{70,10}}, rotation=0)));
+            transformation(extent={{90,-10},{70,10}})));
       Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary1(
           ratio=2) annotation (Placement(transformation(extent={{-50,-100},{-30,
-                -80}}, rotation=0)));
+                -80}})));
       Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary2(
-          ratio=2) annotation (Placement(transformation(extent={{60,-100},{80,-80}},
-              rotation=0)));
+          ratio=2) annotation (Placement(transformation(extent={{60,-100},{80,-80}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed1 annotation (
-          Placement(transformation(extent={{-60,-27},{-40,-7}}, rotation=0)));
+          Placement(transformation(extent={{-60,-27},{-40,-7}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed2 annotation (
-          Placement(transformation(extent={{40,-24},{60,-4}}, rotation=0)));
+          Placement(transformation(extent={{40,-24},{60,-4}})));
     equation
       connect(torque1.flange, inertia1.flange_a) annotation (Line(
           points={{-40,0},{-37.5,0},{-37.5,0},{-35,0},{-35,
@@ -503,16 +491,16 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-80,
-                40},{-60,60}}, rotation=0)));
+                40},{-60,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia J2(J=1) annotation (
-          Placement(transformation(extent={{-20,40},{-40,60}}, rotation=0)));
+          Placement(transformation(extent={{-20,40},{-40,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia J3(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
-                20,40},{40,60}}, rotation=0)));
+                20,40},{40,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia J4(J=1) annotation (
-          Placement(transformation(extent={{60,40},{80,60}}, rotation=0)));
+          Placement(transformation(extent={{60,40},{80,60}})));
     equation
       connect(J1.flange_b, J2.flange_b) annotation (Line(
           points={{-60,50},{-40,50}},
@@ -559,95 +547,90 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         J=1,
         phi(start=0.017453292519943, fixed=true),
         w(start=2, fixed=true)) annotation (Placement(transformation(extent={{-90,
-                40},{-70,60}}, rotation=0)));
+                40},{-70,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia2(
         J=1,
         stateSelect=StateSelect.default,
         w(fixed=true, start=2),
         phi(fixed=false, start=0.017453292519943),
         a(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-                40},{10,60}}, rotation=0)));
+                40},{10,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(
         J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
-                40,40},{60,60}}, rotation=0)));
+                40,40},{60,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(
         J=1,
         stateSelect=StateSelect.always,
         a(fixed=false),
         w(fixed=true, start=-2),
         phi(fixed=true, start=-0.017453292519943)) annotation (Placement(
-            transformation(extent={{80,40},{100,60}}, rotation=0)));
+            transformation(extent={{80,40},{100,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia5(
         J=1,
         stateSelect=StateSelect.avoid,
         a(fixed=false),
         w(fixed=true, start=33),
         phi(fixed=true, start=0.38397243543875)) annotation (Placement(
-            transformation(extent={{-90,0},{-70,20}}, rotation=0)));
+            transformation(extent={{-90,0},{-70,20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia6(
         J=1,
         a(fixed=true, start=44),
         phi(fixed=false),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-                0},{10,20}}, rotation=0)));
+                0},{10,20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7(
         J=1,
         a(fixed=true, start=3),
         phi(fixed=true, start=0.017453292519943),
         w(fixed=true, start=2)) annotation (Placement(transformation(extent={{
-                20,0},{40,20}}, rotation=0)));
+                20,0},{40,20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7a(
         J=1,
         a(start=3),
         phi(start=0.017453292519943),
         w(start=2, fixed=true)) annotation (Placement(transformation(extent={{
-                80,0},{100,20}}, rotation=0)));
+                80,0},{100,20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia8(
         J=1,
         w(fixed=true, start=0),
         a(fixed=true, start=0),
         phi(fixed=false, start=0)) annotation (Placement(transformation(extent=
-                {{-80,-40},{-60,-20}}, rotation=0)));
+                {{-80,-40},{-60,-20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia8a(
         J=1,
         phi(fixed=true, start=0),
         w(start=0, fixed=true)) annotation (Placement(transformation(extent={{-20,
-                -40},{0,-20}}, rotation=0)));
+                -40},{0,-20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia9(
         J=1,
         a(fixed=true, start=33),
         w(fixed=true, start=22),
         phi(fixed=true, start=0.19198621771938)) annotation (Placement(
-            transformation(extent={{20,-40},{40,-20}}, rotation=0)));
+            transformation(extent={{20,-40},{40,-20}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia9a(
         J=1,
         a(start=33),
         phi(start=0.19198621771938),
         w(start=22, fixed=true)) annotation (Placement(transformation(extent={{
-                80,-40},{100,-20}}, rotation=0)));
+                80,-40},{100,-20}})));
       Modelica.Mechanics.Rotational.Components.Spring spring(c=10000)
-        annotation (Placement(transformation(extent={{-40,40},{-20,60}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (
-          Placement(transformation(extent={{-60,40},{-40,60}}, rotation=0)));
+          Placement(transformation(extent={{-60,40},{-40,60}})));
       Modelica.Mechanics.Rotational.Components.Spring spring1(c=10000)
-        annotation (Placement(transformation(extent={{50,0},{70,20}}, rotation=
-                0)));
+        annotation (Placement(transformation(extent={{50,0},{70,20}})));
       Modelica.Mechanics.Rotational.Components.Spring spring2(c=10000)
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
       Modelica.Mechanics.Rotational.Components.Fixed fixed1 annotation (
-          Placement(transformation(extent={{-60,0},{-40,20}}, rotation=0)));
+          Placement(transformation(extent={{-60,0},{-40,20}})));
       Modelica.Mechanics.Rotational.Components.Spring spring3(c=10000)
-        annotation (Placement(transformation(extent={{-50,-40},{-30,-20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-50,-40},{-30,-20}})));
       Modelica.Mechanics.Rotational.Components.Spring spring4(c=10000)
-        annotation (Placement(transformation(extent={{50,-40},{70,-20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
     equation
       connect(spring.flange_b, inertia2.flange_a) annotation (Line(
           points={{-20,50},{-10,50}},
@@ -707,36 +690,32 @@ But for compatibility reasons they were not deleted yet.")}));
       extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (
-          Placement(transformation(extent={{-100,60},{-80,80}}, rotation=0)));
+          Placement(transformation(extent={{-100,60},{-80,80}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=1)
-        annotation (Placement(transformation(extent={{-40,60},{-20,80}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=1)
-        annotation (Placement(transformation(extent={{-40,20},{-20,40}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia3(J=1)
-        annotation (Placement(transformation(extent={{-40,-20},{-20,0}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia4(J=1, w(fixed=
               true, start=0)) annotation (Placement(transformation(extent={{-40,
-                -60},{-20,-40}}, rotation=0)));
+                -60},{-20,-40}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia5(J=1, phi(fixed=
               true, start=0)) annotation (Placement(transformation(extent={{-40,
-                -100},{-20,-80}}, rotation=0)));
+                -100},{-20,-80}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia6(
         J=1,
         phi(fixed=true, start=0),
         w(fixed=true, start=0)) annotation (Placement(transformation(extent={{
-                20,40},{40,60}}, rotation=0)));
+                20,40},{40,60}})));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7(J=1)
-        annotation (Placement(transformation(extent={{74,40},{94,60}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{74,40},{94,60}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper1(
         c=1e4,
         d=10,
         w_rel(start=2, fixed=true),
         phi_rel(start=1, fixed=true)) annotation (Placement(transformation(
-              extent={{-70,60},{-50,80}}, rotation=0)));
+              extent={{-70,60},{-50,80}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper2(
         c=1e4,
         d=10,
@@ -744,7 +723,7 @@ But for compatibility reasons they were not deleted yet.")}));
         a_rel(fixed=true),
         w_rel(fixed=true, start=-2),
         phi_rel(fixed=false, start=-1)) annotation (Placement(transformation(
-              extent={{-70,20},{-50,40}}, rotation=0)));
+              extent={{-70,20},{-50,40}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper3(
         c=1e4,
         d=10,
@@ -752,7 +731,7 @@ But for compatibility reasons they were not deleted yet.")}));
         a_rel(fixed=false),
         w_rel(fixed=true, start=2),
         phi_rel(fixed=true, start=1)) annotation (Placement(transformation(
-              extent={{-70,-20},{-50,0}}, rotation=0)));
+              extent={{-70,-20},{-50,0}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper4(
         c=1e4,
         d=10,
@@ -760,7 +739,7 @@ But for compatibility reasons they were not deleted yet.")}));
         a_rel(fixed=false),
         phi_rel(fixed=true),
         w_rel(fixed=false)) annotation (Placement(transformation(extent={{-70,-60},
-                {-50,-40}}, rotation=0)));
+                {-50,-40}})));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper5(
         c=1e4,
         d=10,
@@ -768,12 +747,12 @@ But for compatibility reasons they were not deleted yet.")}));
         a_rel(fixed=false),
         phi_rel(fixed=false),
         w_rel(fixed=true, start=3)) annotation (Placement(transformation(extent=
-               {{-70,-100},{-50,-80}}, rotation=0)));
+               {{-70,-100},{-50,-80}})));
       Modelica.Mechanics.Rotational.Components.Spring spring(c=1e4) annotation (
-         Placement(transformation(extent={{48,40},{68,60}}, rotation=0)));
+         Placement(transformation(extent={{48,40},{68,60}})));
       Modelica.Mechanics.Rotational.Components.RelativeStates relativeStates(
           phi_rel(fixed=true), w_rel(fixed=true)) annotation (Placement(
-            transformation(extent={{48,20},{68,40}}, rotation=0)));
+            transformation(extent={{48,20},{68,40}})));
     equation
       connect(springDamper1.flange_a, fixed.flange) annotation (Line(
           points={{-70,70},{-90,70}},
@@ -853,34 +832,32 @@ they were not deleted yet.")}));
     extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Rotational.Sources.Speed speed1(f_crit=5, useSupport=
-          false) annotation (Placement(transformation(extent={{-20,60},{0,80}},
-            rotation=0)));
+          false) annotation (Placement(transformation(extent={{-20,60},{0,80}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=1) annotation (
-        Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
+        Placement(transformation(extent={{20,60},{40,80}})));
     Modelica.Mechanics.Rotational.Sources.Speed speed2(
       f_crit=5,
       exact=true,
       useSupport=false) annotation (Placement(transformation(extent={{-20,20},{
-              0,40}}, rotation=0)));
+              0,40}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=1) annotation (
-        Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
+        Placement(transformation(extent={{20,20},{40,40}})));
     Modelica.Blocks.Sources.Sine sine2(freqHz=1) annotation (Placement(
-          transformation(extent={{-60,20},{-40,40}}, rotation=0)));
+          transformation(extent={{-60,20},{-40,40}})));
     Modelica.Blocks.Sources.Step step(startTime=0.5) annotation (Placement(
-          transformation(extent={{-60,60},{-40,80}}, rotation=0)));
+          transformation(extent={{-60,60},{-40,80}})));
     Modelica.Mechanics.Translational.Sources.Speed speed3(f_crit=5, s(start=1))
-      annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
     Modelica.Mechanics.Translational.Components.Mass mass1(m=2) annotation (
-        Placement(transformation(extent={{20,-20},{40,0}}, rotation=0)));
+        Placement(transformation(extent={{20,-20},{40,0}})));
     Modelica.Blocks.Sources.Step step1(startTime=0.5) annotation (Placement(
-          transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+          transformation(extent={{-60,-20},{-40,0}})));
     Modelica.Mechanics.Translational.Sources.Speed speed4(exact=true, s(start=1))
-      annotation (Placement(transformation(extent={{-20,-60},{0,-40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
     Modelica.Mechanics.Translational.Components.Mass mass2(m=2) annotation (
-        Placement(transformation(extent={{20,-60},{40,-40}}, rotation=0)));
+        Placement(transformation(extent={{20,-60},{40,-40}})));
     Modelica.Blocks.Sources.Sine sine4(freqHz=1) annotation (Placement(
-          transformation(extent={{-60,-60},{-40,-40}}, rotation=0)));
+          transformation(extent={{-60,-60},{-40,-40}})));
   equation
     connect(speed1.flange, inertia1.flange_a)
       annotation (Line(points={{0,70},{20,70}}, color={0,0,0}));
@@ -907,26 +884,24 @@ they were not deleted yet.")}));
     Modelica.Mechanics.MultiBody.Parts.Body Body1(
       I_33=2,
       r_CM={0,0,0},
-      m=1) annotation (Placement(transformation(extent={{66,36},{86,56}},
-            rotation=0)));
+      m=1) annotation (Placement(transformation(extent={{66,36},{86,56}})));
     Modelica.Mechanics.MultiBody.Joints.Revolute ActuatedRevolute1(
         useAxisFlange=true) annotation (Placement(transformation(extent={{32,0},
-              {52,20}}, rotation=0)));
+              {52,20}})));
     inner Modelica.Mechanics.MultiBody.World world(g=0) annotation (Placement(
-          transformation(extent={{0,0},{20,20}}, rotation=0)));
+          transformation(extent={{0,0},{20,20}})));
     Modelica.Mechanics.Rotational.Sources.Move move(useSupport=false)
-      annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
+      annotation (Placement(transformation(extent={{20,40},{40,60}})));
     Modelica.Blocks.Routing.Multiplex3 Multiplex3_1 annotation (Placement(
-          transformation(extent={{-56,40},{-36,60}}, rotation=0)));
+          transformation(extent={{-56,40},{-36,60}})));
     Modelica.Blocks.Sources.Constant Constant1(k=1) annotation (Placement(
-          transformation(extent={{-100,16},{-80,36}}, rotation=0)));
+          transformation(extent={{-100,16},{-80,36}})));
     Modelica.Blocks.Sources.Constant Constant2(k=0) annotation (Placement(
-          transformation(extent={{-100,70},{-80,90}}, rotation=0)));
+          transformation(extent={{-100,70},{-80,90}})));
     Modelica.Mechanics.Translational.Sources.Move move1 annotation (Placement(
-          transformation(extent={{-20,-40},{0,-20}}, rotation=0)));
+          transformation(extent={{-20,-40},{0,-20}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass(m=2)
-      annotation (Placement(transformation(extent={{20,-40},{40,-20}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
   equation
     connect(ActuatedRevolute1.frame_b, Body1.frame_a) annotation (Line(
         points={{52,10},{62,10},{62,46},{66,46}},
@@ -957,55 +932,54 @@ they were not deleted yet.")}));
     extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Rotational.Components.Inertia inertia(J=3) annotation (
-        Placement(transformation(extent={{-80,80},{-60,100}}, rotation=0)));
+        Placement(transformation(extent={{-80,80},{-60,100}})));
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear(ratio=3,
         useSupport=true) annotation (Placement(transformation(extent={{-50,80},
-              {-30,100}}, rotation=0)));
+              {-30,100}})));
     Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary(
-        ratio=3) annotation (Placement(transformation(extent={{-16,80},{4,100}},
-            rotation=0)));
+        ratio=3) annotation (Placement(transformation(extent={{-16,80},{4,100}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (Placement(
-          transformation(extent={{-50,50},{-30,70}}, rotation=0)));
+          transformation(extent={{-50,50},{-30,70}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(J=2) annotation (
-        Placement(transformation(extent={{-50,120},{-30,140}}, rotation=0)));
+        Placement(transformation(extent={{-50,120},{-30,140}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
       J=4,
       phi(start=0, fixed=true),
       w(start=0, fixed=true)) annotation (Placement(transformation(extent={{40,
-              80},{60,100}}, rotation=0)));
+              80},{60,100}})));
     Modelica.Mechanics.Rotational.Components.Spring spring(c=1e4) annotation (
-        Placement(transformation(extent={{12,80},{32,100}}, rotation=0)));
+        Placement(transformation(extent={{12,80},{32,100}})));
     Modelica.Mechanics.Rotational.Components.Damper damper(
       d=10,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{12,98},{
-              32,118}}, rotation=0)));
+              32,118}})));
     Modelica.Mechanics.Rotational.Components.SpringDamper springDamper(
       c=1e4,
       d=10,
       phi_rel0=1.7453292519943e-05,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{-78,120},
-              {-58,140}}, rotation=0)));
+              {-58,140}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia3(
       J=2,
       phi(start=0.0174532925199433),
       w(start=2)) annotation (Placement(transformation(extent={{-112,120},{-92,
-              140}}, rotation=0)));
+              140}})));
     Modelica.Mechanics.Rotational.Components.ElastoBacklash elastoBacklash(
       c=1e4,
       d=20,
       b=1.7453292519943e-07,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{-10,120},
-              {10,140}}, rotation=0)));
+              {10,140}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia4(J=2) annotation (
-        Placement(transformation(extent={{20,120},{40,140}}, rotation=0)));
+        Placement(transformation(extent={{20,120},{40,140}})));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
       tau_pos=[0, 2],
       peak=1.1,
       useSupport=true) annotation (Placement(transformation(extent={{44,120},{
-              64,140}}, rotation=0)));
+              64,140}})));
     Modelica.Mechanics.Rotational.Components.Clutch clutch(
       mue_pos=[0, 1],
       peak=1.1,
@@ -1013,14 +987,13 @@ they were not deleted yet.")}));
       fn_max=1.3,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{-106,100},
-              {-86,80}}, rotation=0)));
+              {-86,80}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia5(J=3) annotation (
-        Placement(transformation(extent={{-136,80},{-116,100}}, rotation=0)));
+        Placement(transformation(extent={{-136,80},{-116,100}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
-          transformation(extent={{-124,50},{-104,70}}, rotation=0)));
+          transformation(extent={{-124,50},{-104,70}})));
     Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=true,
-        fn_max=1) annotation (Placement(transformation(extent={{80,80},{100,100}},
-            rotation=0)));
+        fn_max=1) annotation (Placement(transformation(extent={{80,80},{100,100}})));
     Modelica.Blocks.Sources.Sine sine1(freqHz=1) annotation (Placement(
           transformation(
           origin={90,130},
@@ -1028,13 +1001,13 @@ they were not deleted yet.")}));
           rotation=270)));
     Modelica.Mechanics.Rotational.Components.LossyGear lossyGear(useSupport=
           true, ratio=1) annotation (Placement(transformation(extent={{-140,120},
-              {-120,140}}, rotation=0)));
+              {-120,140}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia6(
       J=2,
       a(fixed=false),
       phi(fixed=true, start=0.0174532925199433),
       w(fixed=true, start=2)) annotation (Placement(transformation(extent={{-170,
-              120},{-150,140}}, rotation=0)));
+              120},{-150,140}})));
     Modelica.Mechanics.Rotational.Components.Gearbox gear2_1(
       ratio=2,
       lossTable=[0, 0.9, 1, 0, 0],
@@ -1044,129 +1017,121 @@ they were not deleted yet.")}));
       b=1.7453292519943e-07,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{-100,0},
-              {-80,20}}, rotation=0)));
+              {-80,20}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia7(J=3) annotation (
-        Placement(transformation(extent={{-130,0},{-110,20}}, rotation=0)));
+        Placement(transformation(extent={{-130,0},{-110,20}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia8(
       J=3,
       phi(start=0, fixed=true),
       w(start=0, fixed=true)) annotation (Placement(transformation(extent={{-68,
-              0},{-48,20}}, rotation=0)));
+              0},{-48,20}})));
     Modelica.Mechanics.Rotational.Sources.Position position(useSupport=true, w(
           fixed=true)) annotation (Placement(transformation(extent={{30,30},{50,
-              50}}, rotation=0)));
+              50}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed1 annotation (Placement(
-          transformation(extent={{-100,-20},{-80,0}}, rotation=0)));
+          transformation(extent={{-100,-20},{-80,0}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed2 annotation (Placement(
-          transformation(extent={{28,10},{48,30}}, rotation=0)));
+          transformation(extent={{28,10},{48,30}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia9(J=3) annotation (
-        Placement(transformation(extent={{60,30},{80,50}}, rotation=0)));
+        Placement(transformation(extent={{60,30},{80,50}})));
     Modelica.Blocks.Sources.Sine sine2(freqHz=1) annotation (Placement(
-          transformation(extent={{0,30},{20,50}}, rotation=0)));
+          transformation(extent={{0,30},{20,50}})));
     Modelica.Blocks.Sources.Sine sine3(freqHz=1) annotation (Placement(
-          transformation(extent={{0,-20},{20,0}}, rotation=0)));
+          transformation(extent={{0,-20},{20,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia10(J=3) annotation (
-       Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
+       Placement(transformation(extent={{60,-20},{80,0}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed3 annotation (Placement(
-          transformation(extent={{30,-40},{50,-20}}, rotation=0)));
+          transformation(extent={{30,-40},{50,-20}})));
     Modelica.Mechanics.Rotational.Sources.Speed speed(useSupport=true)
-      annotation (Placement(transformation(extent={{30,-20},{50,0}}, rotation=0)));
+      annotation (Placement(transformation(extent={{30,-20},{50,0}})));
     Modelica.Blocks.Sources.Sine sine4(freqHz=1) annotation (Placement(
-          transformation(extent={{0,-80},{20,-60}}, rotation=0)));
+          transformation(extent={{0,-80},{20,-60}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia11(J=3) annotation (
-       Placement(transformation(extent={{60,-80},{80,-60}}, rotation=0)));
+       Placement(transformation(extent={{60,-80},{80,-60}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed4 annotation (Placement(
-          transformation(extent={{30,-100},{50,-80}}, rotation=0)));
+          transformation(extent={{30,-100},{50,-80}})));
     Modelica.Mechanics.Rotational.Sources.Accelerate accelerate(useSupport=true)
-      annotation (Placement(transformation(extent={{30,-80},{50,-60}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{30,-80},{50,-60}})));
     Modelica.Blocks.Sources.Sine sine5[3](each amplitude=2, freqHz={1,1,1})
-      annotation (Placement(transformation(extent={{0,-140},{20,-120}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{0,-140},{20,-120}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia12(J=3) annotation (
-       Placement(transformation(extent={{60,-140},{80,-120}}, rotation=0)));
+       Placement(transformation(extent={{60,-140},{80,-120}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed5 annotation (Placement(
-          transformation(extent={{30,-160},{50,-140}}, rotation=0)));
+          transformation(extent={{30,-160},{50,-140}})));
     Modelica.Mechanics.Rotational.Sources.Move move(useSupport=true)
-      annotation (Placement(transformation(extent={{30,-140},{50,-120}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{30,-140},{50,-120}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=true)
-      annotation (Placement(transformation(extent={{130,80},{110,100}},rotation=
-             0)));
+      annotation (Placement(transformation(extent={{130,80},{110,100}})));
     Modelica.Blocks.Sources.Sine sine6(freqHz=1) annotation (Placement(
-          transformation(extent={{160,80},{140,100}}, rotation=0)));
+          transformation(extent={{160,80},{140,100}})));
     Modelica.Mechanics.Rotational.Sources.Torque2 torque2_1 annotation (
-        Placement(transformation(extent={{92,-20},{112,0}}, rotation=0)));
+        Placement(transformation(extent={{92,-20},{112,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia13(
       J=3,
       phi(start=0, fixed=true),
       w(start=0, fixed=true)) annotation (Placement(transformation(extent={{120,
-              -20},{140,0}}, rotation=0)));
+              -20},{140,0}})));
     Modelica.Blocks.Sources.Sine sine7(freqHz=1) annotation (Placement(
-          transformation(extent={{74,6},{94,26}}, rotation=0)));
+          transformation(extent={{74,6},{94,26}})));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
       linearSpeedDependentTorque(
       tau_nominal=10,
       w_nominal=10,
       useSupport=true) annotation (Placement(transformation(extent={{-162,0},{-142,
-              20}}, rotation=0)));
+              20}})));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
       quadraticSpeedDependentTorque(
       tau_nominal=100,
       w_nominal=1,
       useSupport=true) annotation (Placement(transformation(extent={{-10,0},{-32,
-              20}}, rotation=0)));
+              20}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
         tau_constant=11, useSupport=true) annotation (Placement(transformation(
-            extent={{-140,-60},{-120,-40}}, rotation=0)));
+            extent={{-140,-60},{-120,-40}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia14(
       J=3,
       phi(start=0, fixed=true),
       w(start=0, fixed=true)) annotation (Placement(transformation(extent={{-104,
-              -80},{-84,-60}}, rotation=0)));
+              -80},{-84,-60}})));
     Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(
       stepTorque=22,
       offsetTorque=11,
       startTime=1,
       useSupport=true) annotation (Placement(transformation(extent={{-140,-100},
-              {-120,-80}}, rotation=0)));
+              {-120,-80}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed6 annotation (Placement(
-          transformation(extent={{-140,-120},{-120,-100}}, rotation=0)));
+          transformation(extent={{-140,-120},{-120,-100}})));
     Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=
           11, useSupport=true) annotation (Placement(transformation(extent={{-90,
-              -110},{-70,-90}}, rotation=0)));
+              -110},{-70,-90}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia15(J=3, phi(start=0,
           fixed=true)) annotation (Placement(transformation(extent={{-60,-110},
-              {-40,-90}}, rotation=0)));
+              {-40,-90}})));
     Modelica.Mechanics.Rotational.Components.RelativeStates relativeStates
-      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
     Modelica.Mechanics.Rotational.Sensors.AngleSensor angleSensor annotation (
-        Placement(transformation(extent={{98,-80},{118,-60}}, rotation=0)));
+        Placement(transformation(extent={{98,-80},{118,-60}})));
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
-        Placement(transformation(extent={{98,-56},{118,-36}}, rotation=0)));
+        Placement(transformation(extent={{98,-56},{118,-36}})));
     Modelica.Mechanics.Rotational.Sensors.AccSensor accSensor annotation (
-        Placement(transformation(extent={{98,-106},{118,-86}}, rotation=0)));
+        Placement(transformation(extent={{98,-106},{118,-86}})));
     Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relAngleSensor
-      annotation (Placement(transformation(extent={{120,30},{140,50}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{120,30},{140,50}})));
     Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor
-      annotation (Placement(transformation(extent={{146,-48},{166,-28}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{146,-48},{166,-28}})));
     Modelica.Mechanics.Rotational.Sensors.RelAccSensor relAccSensor annotation (
-       Placement(transformation(extent={{140,-90},{160,-70}}, rotation=0)));
+       Placement(transformation(extent={{140,-90},{160,-70}})));
     Modelica.Mechanics.Rotational.Sensors.TorqueSensor torqueSensor annotation (
-       Placement(transformation(extent={{-60,-150},{-40,-130}}, rotation=0)));
+       Placement(transformation(extent={{-60,-150},{-40,-130}})));
     Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor annotation (
-        Placement(transformation(extent={{-90,-150},{-70,-130}}, rotation=0)));
+        Placement(transformation(extent={{-90,-150},{-70,-130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia16(J=3) annotation (
-       Placement(transformation(extent={{-120,-150},{-100,-130}}, rotation=0)));
+       Placement(transformation(extent={{-120,-150},{-100,-130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia17(
                                                               J=2,
       phi(fixed=true, start=0),
       w(fixed=true, start=0))                                      annotation (
-        Placement(transformation(extent={{-70,-200},{-50,-180}},
-                                                               rotation=0)));
+        Placement(transformation(extent={{-70,-200},{-50,-180}})));
     Modelica.Mechanics.Rotational.Components.ElastoBacklash2 elastoBacklash2(
       c=1e4,
       d=20,
@@ -1175,11 +1140,10 @@ they were not deleted yet.")}));
       b=1.7453292519943e-07,
       stateSelect=StateSelect.always)
                          annotation (Placement(transformation(extent={{-30,-200},
-              {-10,-180}},
-                         rotation=0)));
+              {-10,-180}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia18(
                                                               J=2) annotation (
-        Placement(transformation(extent={{0,-200},{20,-180}},rotation=0)));
+        Placement(transformation(extent={{0,-200},{20,-180}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque1
       annotation (Placement(transformation(extent={{-96,-200},{-76,-180}})));
     Modelica.Blocks.Sources.ExpSine expSine(freqHz=2, damping=0.5)
@@ -1470,8 +1434,7 @@ they were not deleted yet.")}));
     connect(torque1.tau, expSine.y) annotation (Line(points={{-98,-190},{-108,
             -190},{-119,-190}}, color={0,0,127}));
     annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-160,-200},{160,160}},
-          initialScale=0.1)));
+            preserveAspectRatio=true, extent={{-160,-200},{160,160}})));
   end AllComponents;
 
   model TestBearingConversion
@@ -1480,70 +1443,69 @@ they were not deleted yet.")}));
 
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear(useSupport=
           false, ratio=1) annotation (Placement(transformation(extent={{-150,
-              160},{-130,180}}, rotation=0)));
+              160},{-130,180}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-180,
-              160},{-160,180}}, rotation=0)));
+              160},{-160,180}})));
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear1(useSupport=
           true, ratio=1) annotation (Placement(transformation(extent={{-118,160},
-              {-98,180}}, rotation=0)));
+              {-98,180}})));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
         useSupport=true) annotation (Placement(transformation(extent={{-90,160},
-              {-70,180}}, rotation=0)));
+              {-70,180}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-180,
-              110},{-160,130}}, rotation=0)));
+              110},{-160,130}})));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction1(
         useSupport=false) annotation (Placement(transformation(extent={{-150,
-              110},{-130,130}}, rotation=0)));
+              110},{-130,130}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed annotation (Placement(
-          transformation(extent={{-118,144},{-98,164}}, rotation=0)));
+          transformation(extent={{-118,144},{-98,164}})));
     Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=true,
         fn_max=1) annotation (Placement(transformation(extent={{-150,40},{-130,
-              60}}, rotation=0)));
+              60}})));
     Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
-          transformation(extent={{-180,70},{-160,90}}, rotation=0)));
+          transformation(extent={{-180,70},{-160,90}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-180,
-              40},{-160,60}}, rotation=0)));
+              40},{-160,60}})));
     Modelica.Mechanics.Rotational.Components.Brake brake1(useSupport=false,
-        fn_max=1) annotation (Placement(transformation(extent={{-70,40},{-50,60}},
-            rotation=0)));
+        fn_max=1) annotation (Placement(transformation(extent={{-70,40},{-50,60}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia3(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-100,
-              40},{-80,60}}, rotation=0)));
+              40},{-80,60}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed1 annotation (Placement(
-          transformation(extent={{-150,20},{-130,40}}, rotation=0)));
+          transformation(extent={{-150,20},{-130,40}})));
     Modelica.Mechanics.Rotational.Components.LossyGear lossyGear(useSupport=
           false, ratio=1) annotation (Placement(transformation(extent={{-70,110},
-              {-50,130}}, rotation=0)));
+              {-50,130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia4(J=1) annotation (
-        Placement(transformation(extent={{-100,110},{-80,130}}, rotation=0)));
+        Placement(transformation(extent={{-100,110},{-80,130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia5(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-40,
-              110},{-20,130}}, rotation=0)));
+              110},{-20,130}})));
     Modelica.Mechanics.Rotational.Components.LossyGear lossyGear1(useSupport=
           true, ratio=1) annotation (Placement(transformation(extent={{30,110},
-              {50,130}}, rotation=0)));
+              {50,130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia6(J=1) annotation (
-        Placement(transformation(extent={{0,110},{20,130}}, rotation=0)));
+        Placement(transformation(extent={{0,110},{20,130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia7(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{60,
-              110},{80,130}}, rotation=0)));
+              110},{80,130}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed2 annotation (Placement(
-          transformation(extent={{30,90},{50,110}}, rotation=0)));
+          transformation(extent={{30,90},{50,110}})));
     Modelica.Mechanics.Rotational.Components.Gearbox gear2_1(
       useSupport=false,
       ratio=1,
@@ -1551,28 +1513,28 @@ they were not deleted yet.")}));
       d=0,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{30,40},{
-              50,60}}, rotation=0)));
+              50,60}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia8(J=1) annotation (
-        Placement(transformation(extent={{0,40},{20,60}}, rotation=0)));
+        Placement(transformation(extent={{0,40},{20,60}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia9(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{60,
-              40},{80,60}}, rotation=0)));
+              40},{80,60}})));
     Modelica.Mechanics.Rotational.Sources.Position position(useSupport=false, w(
           fixed=true)) annotation (Placement(transformation(extent={{-140,-20},
-              {-120,0}}, rotation=0)));
+              {-120,0}})));
     Modelica.Blocks.Sources.Sine sine1(freqHz=1) annotation (Placement(
-          transformation(extent={{-180,-20},{-160,0}}, rotation=0)));
+          transformation(extent={{-180,-20},{-160,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia12(J=1) annotation (
-       Placement(transformation(extent={{-110,-20},{-90,0}}, rotation=0)));
+       Placement(transformation(extent={{-110,-20},{-90,0}})));
     Modelica.Mechanics.Rotational.Sources.Position position1(useSupport=true, w(
           fixed=true)) annotation (Placement(transformation(extent={{-140,-50},
-              {-120,-30}}, rotation=0)));
+              {-120,-30}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia13(J=1) annotation (
-       Placement(transformation(extent={{-110,-50},{-90,-30}}, rotation=0)));
+       Placement(transformation(extent={{-110,-50},{-90,-30}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed4 annotation (Placement(
-          transformation(extent={{-140,-66},{-120,-46}}, rotation=0)));
+          transformation(extent={{-140,-66},{-120,-46}})));
     Modelica.Mechanics.Rotational.Components.Gearbox gear2_2(
       useSupport=true,
       ratio=1,
@@ -1580,147 +1542,138 @@ they were not deleted yet.")}));
       d=0,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{30,160},
-              {50,180}}, rotation=0)));
+              {50,180}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia10(J=1) annotation (
-       Placement(transformation(extent={{2,160},{22,180}}, rotation=0)));
+       Placement(transformation(extent={{2,160},{22,180}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia11(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{60,
-              160},{80,180}}, rotation=0)));
+              160},{80,180}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed3 annotation (Placement(
-          transformation(extent={{30,144},{50,164}}, rotation=0)));
+          transformation(extent={{30,144},{50,164}})));
     Modelica.Mechanics.Rotational.Sources.Speed position2(useSupport=false)
-      annotation (Placement(transformation(extent={{-20,-20},{0,0}}, rotation=0)));
+      annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
     Modelica.Blocks.Sources.Sine sine2(freqHz=1) annotation (Placement(
-          transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+          transformation(extent={{-60,-20},{-40,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia14(J=1) annotation (
-       Placement(transformation(extent={{10,-20},{30,0}}, rotation=0)));
+       Placement(transformation(extent={{10,-20},{30,0}})));
     Modelica.Mechanics.Rotational.Sources.Speed position3(useSupport=true)
-      annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia15(J=1) annotation (
-       Placement(transformation(extent={{10,-50},{30,-30}}, rotation=0)));
+       Placement(transformation(extent={{10,-50},{30,-30}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed5 annotation (Placement(
-          transformation(extent={{-20,-66},{0,-46}}, rotation=0)));
+          transformation(extent={{-20,-66},{0,-46}})));
     Modelica.Mechanics.Rotational.Sources.Accelerate position4(useSupport=false)
-      annotation (Placement(transformation(extent={{100,-20},{120,0}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{100,-20},{120,0}})));
     Modelica.Blocks.Sources.Sine sine3(freqHz=1) annotation (Placement(
-          transformation(extent={{60,-20},{80,0}}, rotation=0)));
+          transformation(extent={{60,-20},{80,0}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia16(J=1) annotation (
-       Placement(transformation(extent={{130,-20},{150,0}}, rotation=0)));
+       Placement(transformation(extent={{130,-20},{150,0}})));
     Modelica.Mechanics.Rotational.Sources.Accelerate position5(useSupport=true)
-      annotation (Placement(transformation(extent={{100,-50},{120,-30}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-50},{120,-30}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia17(J=1) annotation (
-       Placement(transformation(extent={{130,-50},{150,-30}}, rotation=0)));
+       Placement(transformation(extent={{130,-50},{150,-30}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed6 annotation (Placement(
-          transformation(extent={{100,-66},{120,-46}}, rotation=0)));
+          transformation(extent={{100,-66},{120,-46}})));
     Modelica.Mechanics.Rotational.Sources.Move position6(useSupport=false)
-      annotation (Placement(transformation(extent={{-140,-110},{-120,-90}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-110},{-120,-90}})));
     Modelica.Blocks.Sources.Sine sine4[3](freqHz={1,1,1}) annotation (Placement(
-          transformation(extent={{-180,-110},{-160,-90}}, rotation=0)));
+          transformation(extent={{-180,-110},{-160,-90}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia18(J=1) annotation (
-       Placement(transformation(extent={{-110,-110},{-90,-90}}, rotation=0)));
+       Placement(transformation(extent={{-110,-110},{-90,-90}})));
     Modelica.Mechanics.Rotational.Sources.Move position7(useSupport=true)
-      annotation (Placement(transformation(extent={{-140,-140},{-120,-120}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-140},{-120,-120}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia19(J=1) annotation (
-       Placement(transformation(extent={{-110,-140},{-90,-120}}, rotation=0)));
+       Placement(transformation(extent={{-110,-140},{-90,-120}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed8 annotation (Placement(
-          transformation(extent={{-140,-158},{-120,-138}}, rotation=0)));
+          transformation(extent={{-140,-158},{-120,-138}})));
     Modelica.Blocks.Sources.Sine sine5(freqHz=1) annotation (Placement(
-          transformation(extent={{-58,-110},{-38,-90}}, rotation=0)));
+          transformation(extent={{-58,-110},{-38,-90}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false)
-      annotation (Placement(transformation(extent={{-20,-110},{0,-90}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-20,-110},{0,-90}})));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
       linearSpeedDependentTorque(
       tau_nominal=1,
       w_nominal=1,
       useSupport=false) annotation (Placement(transformation(extent={{-20,-144},
-              {0,-124}}, rotation=0)));
+              {0,-124}})));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
       quadraticSpeedDependentTorque(
       tau_nominal=1,
       w_nominal=1,
       useSupport=false) annotation (Placement(transformation(extent={{-20,-180},
-              {0,-160}}, rotation=0)));
+              {0,-160}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
         tau_constant=1, useSupport=false) annotation (Placement(transformation(
-            extent={{40,-144},{20,-124}}, rotation=0)));
+            extent={{40,-144},{20,-124}})));
     Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep(
       useSupport=false,
       stepTorque=1,
       offsetTorque=0) annotation (Placement(transformation(extent={{40,-180},{
-              20,-160}}, rotation=0)));
+              20,-160}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia20(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{20,
-              -110},{40,-90}}, rotation=0)));
+              -110},{40,-90}})));
     Modelica.Blocks.Sources.Sine sine6(freqHz=1) annotation (Placement(
-          transformation(extent={{60,-110},{80,-90}}, rotation=0)));
+          transformation(extent={{60,-110},{80,-90}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
-      annotation (Placement(transformation(extent={{100,-110},{120,-90}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-110},{120,-90}})));
     Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque
       linearSpeedDependentTorque1(
       tau_nominal=1,
       w_nominal=1,
       useSupport=true) annotation (Placement(transformation(extent={{100,-144},
-              {120,-124}}, rotation=0)));
+              {120,-124}})));
     Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
       quadraticSpeedDependentTorque1(
       tau_nominal=1,
       w_nominal=1,
       useSupport=true) annotation (Placement(transformation(extent={{100,-180},
-              {120,-160}}, rotation=0)));
+              {120,-160}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque1(
         tau_constant=1, useSupport=true) annotation (Placement(transformation(
-            extent={{160,-144},{140,-124}}, rotation=0)));
+            extent={{160,-144},{140,-124}})));
     Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStep1(
       useSupport=true,
       stepTorque=1,
       offsetTorque=0) annotation (Placement(transformation(extent={{160,-180},{
-              140,-160}}, rotation=0)));
+              140,-160}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia21(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{140,
-              -110},{160,-90}}, rotation=0)));
+              -110},{160,-90}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed7 annotation (Placement(
-          transformation(extent={{130,-200},{150,-180}}, rotation=0)));
+          transformation(extent={{130,-200},{150,-180}})));
     Modelica.Mechanics.Rotational.Components.IdealGearR2T idealGearR2T(
       useSupportR=false,
       useSupportT=false,
-      ratio=1) annotation (Placement(transformation(extent={{130,160},{150,180}},
-            rotation=0)));
+      ratio=1) annotation (Placement(transformation(extent={{130,160},{150,180}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia22(J=1) annotation (
-       Placement(transformation(extent={{100,160},{120,180}}, rotation=0)));
+       Placement(transformation(extent={{100,160},{120,180}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass(
       m=1,
       s(fixed=true),
       v(fixed=true)) annotation (Placement(transformation(extent={{160,160},{
-              180,180}}, rotation=0)));
+              180,180}})));
     Modelica.Mechanics.Rotational.Components.IdealGearR2T idealGearR2T1(
       useSupportR=true,
       useSupportT=true,
-      ratio=1) annotation (Placement(transformation(extent={{130,110},{150,130}},
-            rotation=0)));
+      ratio=1) annotation (Placement(transformation(extent={{130,110},{150,130}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia23(J=1) annotation (
-       Placement(transformation(extent={{100,110},{120,130}}, rotation=0)));
+       Placement(transformation(extent={{100,110},{120,130}})));
     Modelica.Mechanics.Translational.Components.Mass slidingMass1(
       m=1,
       s(fixed=true),
       v(fixed=true)) annotation (Placement(transformation(extent={{160,110},{
-              180,130}}, rotation=0)));
+              180,130}})));
     Modelica.Mechanics.Rotational.Components.Fixed fixed9 annotation (Placement(
-          transformation(extent={{120,92},{140,112}}, rotation=0)));
+          transformation(extent={{120,92},{140,112}})));
     Modelica.Mechanics.Translational.Components.Fixed fixed10 annotation (
-        Placement(transformation(extent={{142,92},{162,112}}, rotation=0)));
+        Placement(transformation(extent={{142,92},{162,112}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
         points={{-160,170},{-150,170}},
@@ -1996,70 +1949,65 @@ they were not deleted yet.")}));
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-              80},{10,100}}, rotation=0)));
+              80},{10,100}})));
     Modelica.Mechanics.Rotational.Components.BearingFriction bearingFriction(
         useSupport=false) annotation (Placement(transformation(extent={{20,80},
-              {40,100}}, rotation=0)));
+              {40,100}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque(useSupport=false)
-      annotation (Placement(transformation(extent={{-40,80},{-20,100}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-40,80},{-20,100}})));
     Modelica.Blocks.Sources.Sine sine(amplitude=10, freqHz=1) annotation (
-        Placement(transformation(extent={{-80,80},{-60,100}}, rotation=0)));
+        Placement(transformation(extent={{-80,80},{-60,100}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
       J=1,
       phi(fixed=true, start=0),
       w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-10,
-              20},{10,40}}, rotation=0)));
+              20},{10,40}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=false)
-      annotation (Placement(transformation(extent={{-40,20},{-20,40}}, rotation=
-             0)));
+      annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
     Modelica.Blocks.Sources.Sine sine1(amplitude=10, freqHz=1) annotation (
-        Placement(transformation(extent={{-80,20},{-60,40}}, rotation=0)));
+        Placement(transformation(extent={{-80,20},{-60,40}})));
     Modelica.Mechanics.Rotational.Components.Brake brake(useSupport=false,
-        fn_max=1) annotation (Placement(transformation(extent={{20,20},{40,40}},
-            rotation=0)));
+        fn_max=1) annotation (Placement(transformation(extent={{20,20},{40,40}})));
     Modelica.Blocks.Sources.Step step(height=100, startTime=0.5) annotation (
-        Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
+        Placement(transformation(extent={{-10,50},{10,70}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia2(
       J=1,
       phi(start=0, fixed=true),
       w(start=0, fixed=true)) annotation (Placement(transformation(extent={{-10,
-              -40},{10,-20}}, rotation=0)));
+              -40},{10,-20}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=false)
-      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
     Modelica.Blocks.Sources.Sine sine2(amplitude=10, freqHz=1) annotation (
-        Placement(transformation(extent={{-80,-40},{-60,-20}}, rotation=0)));
+        Placement(transformation(extent={{-80,-40},{-60,-20}})));
     Modelica.Mechanics.Rotational.Components.Clutch clutch(
       fn_max=1,
       phi_rel(fixed=true),
       w_rel(fixed=true)) annotation (Placement(transformation(extent={{20,-40},
-              {40,-20}}, rotation=0)));
+              {40,-20}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia3(J=1) annotation (
-        Placement(transformation(extent={{50,-40},{70,-20}}, rotation=0)));
+        Placement(transformation(extent={{50,-40},{70,-20}})));
     Modelica.Blocks.Sources.Step step1(height=100, startTime=0.5) annotation (
-        Placement(transformation(extent={{-12,-10},{8,10}}, rotation=0)));
+        Placement(transformation(extent={{-12,-10},{8,10}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia4(
       J=1,
       phi(start=0, fixed=true),
       w(start=0, fixed=true)) annotation (Placement(transformation(extent={{-8,
-              -100},{12,-80}}, rotation=0)));
+              -100},{12,-80}})));
     Modelica.Mechanics.Rotational.Sources.Torque torque3(useSupport=false)
-      annotation (Placement(transformation(extent={{-38,-100},{-18,-80}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-38,-100},{-18,-80}})));
     Modelica.Blocks.Sources.Sine sine3(amplitude=10, freqHz=1) annotation (
-        Placement(transformation(extent={{-78,-100},{-58,-80}}, rotation=0)));
+        Placement(transformation(extent={{-78,-100},{-58,-80}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia5(J=1) annotation (
-        Placement(transformation(extent={{50,-100},{70,-80}}, rotation=0)));
+        Placement(transformation(extent={{50,-100},{70,-80}})));
     Modelica.Blocks.Sources.Step step2(height=100, startTime=0.5) annotation (
-        Placement(transformation(extent={{-10,-70},{10,-50}}, rotation=0)));
+        Placement(transformation(extent={{-10,-70},{10,-50}})));
     Modelica.Mechanics.Rotational.Components.OneWayClutch oneWayClutch(
       fn_max=1,
       phi_rel(fixed=true),
       w_rel(fixed=true),
       startForward(fixed=true),
       stuck(fixed=true)) annotation (Placement(transformation(extent={{40,-100},
-              {20,-80}}, rotation=0)));
+              {20,-80}})));
   equation
     connect(inertia.flange_b, bearingFriction.flange_a) annotation (Line(
         points={{10,90},{20,90}},
