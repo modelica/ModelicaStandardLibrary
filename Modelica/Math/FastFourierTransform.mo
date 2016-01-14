@@ -173,7 +173,7 @@ A plot of the resulting FFT is shown in the next image:
 <h4>Description</h4>
 <p>
 From the maximum interested frequency f_max (in [Hz]) and the frequency resolution f_resolution (in [Hz]) the
-function computes the key FFT data as used byFFT blocks and prints them to the output window.
+function computes the key FFT data as used by the FFT blocks and prints them to the output window.
 </p>
 
 <h4>Example</h4>
@@ -493,7 +493,7 @@ which is a complete example where an FFT is computed during simulation and store
       output Real phases[    div(size(u,1),2)+1] "Phases of FFT";
     protected
       Real work[3*size(u,1) + 2*(div(size(u,1),2)+1)];
-      external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases) annotation(Library="ModelicaExternalC");
+      external "C" info = ModelicaFFT_kiss_fftr(u, size(u,1), work, size(work,1), amplitudes, phases) annotation(Include="#include \"ModelicaFFT.c\"",Library="ModelicaExternalC");
       annotation (Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
