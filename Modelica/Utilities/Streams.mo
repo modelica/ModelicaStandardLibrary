@@ -171,7 +171,16 @@ file is already closed or does not exist.
     output Integer dim[2] "Number of rows and columns of the 2D Real array";
     external "C" ModelicaIO_readMatrixSizes(fileName, matrixName, dim)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(Documentation(info="<html><p>Read the 2D dimensions from a binary MATLAB MAT-file.</p></html>"));
+    annotation(Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+dim = Streams.<b>readMatrixSize</b>(fileName, matrixName)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Read the 2D dimensions from a binary MATLAB MAT-file.
+</p>
+</html>"));
   end readMatrixSize;
 
   function readRealMatrix "Read 2D Real values from file"
@@ -183,7 +192,16 @@ file is already closed or does not exist.
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2))
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(Documentation(info="<html><p>Read a 2D Real array from a binary MATLAB MAT-file.</p></html>"));
+    annotation(Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Read a 2D Real array from a binary MATLAB MAT-file.
+</p>
+</html>"));
   end readRealMatrix;
 
   function writeRealMatrix "Write 2D Real values to file"
@@ -199,7 +217,16 @@ file is already closed or does not exist.
     output Boolean success "true if successful";
     external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(Documentation(info="<html><p>Save a 2D Real array in a MATLAB MAT-file.</p></html>"));
+    annotation(Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+success = Streams.<b>writeRealMatrix</b>(fileName, matrixName, matrix, append, format)
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Save a 2D Real array in a MATLAB MAT-file.
+</p>
+</html>"));
   end writeRealMatrix;
   annotation (
     Documentation(info="<html>
