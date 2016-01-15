@@ -377,10 +377,10 @@ from a file.
     parameter Real A[3,2] = [11, 12;
                              21, 22;
                              31, 32];
-    Boolean success1;
-    Boolean success2;
-    Boolean success3;
-    Boolean success4;
+    output Boolean success1;
+    output Boolean success2;
+    output Boolean success3;
+    output Boolean success4;
   equation
     when initial() then
        success1 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
@@ -389,7 +389,7 @@ from a file.
        success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
-    annotation (      Documentation(info="<html>
+    annotation (experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to write a Real matrix in Matlab MAT format on file
 using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
@@ -412,13 +412,13 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName,dim3[1],dim3[2]);
     Real x(start=1, fixed=true);
   equation
-    der(x) = -x;
+    der(x) = -A1[1,1]*x;
     when initial() then
        print("... Matrix " + matrixName + "[" + String(size(A1,1)) + "," + String(size(A1,2)) + "] read from file " + file1);
        print("...    " + matrixName + "[1,1] = " + String(A1[1,1]));
     end when;
 
-    annotation (      Documentation(info="<html>
+    annotation(experiment(StopTime=0.1), Documentation(info="<html>
 <p>
 Example model that shows how to read a Real matrix in Matlab MAT format from file
 using functions
