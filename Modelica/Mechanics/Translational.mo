@@ -3884,8 +3884,6 @@ blocks of the block library Modelica.Blocks.Source.
         extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-        input Real dummy
-          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         output Real q;
       algorithm
         q := q_qd_qdd[1];
@@ -3897,9 +3895,6 @@ blocks of the block library Modelica.Blocks.Source.
         extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-        input Real dummy
-          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-        input Real dummy_der;
         output Real qd;
       algorithm
         qd := q_qd_qdd[2];
@@ -3912,16 +3907,12 @@ blocks of the block library Modelica.Blocks.Source.
         extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-        input Real dummy
-          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-        input Real dummy_der;
-        input Real dummy_der2;
         output Real qdd;
       algorithm
         qdd := q_qd_qdd[3];
       end position_der2;
     equation
-      s = position(u, time);
+      s = position(u);
       annotation (Documentation(info="<html>
 <p>
 Flange <b>flange_b</b> is <b>forced</b> to move relative to the support connector  with a predefined motion

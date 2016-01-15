@@ -2452,10 +2452,10 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
         Text(extent={{-150.0,-120.0},{150.0,-80.0}},
           textString="J=%J"),
         Rectangle(
-          lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{-50,-50},{50,50}},
-          radius = 10)}));
+          lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{-50,-50},{50,50}},
+          radius=  10)}));
     end Inertia;
 
     model Disc
@@ -4627,15 +4627,15 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{10,-100},{50,100}})}),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
         Rectangle(lineColor=  {64,64,64},
           fillColor=  {192,192,192},
@@ -6240,8 +6240,6 @@ blocks of the block library Modelica.Blocks.Sources.
         extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-        input Real dummy
-          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         output Real q;
       algorithm
         q := q_qd_qdd[1];
@@ -6252,9 +6250,6 @@ blocks of the block library Modelica.Blocks.Sources.
         extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-        input Real dummy
-          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-        input Real dummy_der;
         output Real qd;
       algorithm
         qd := q_qd_qdd[2];
@@ -6267,17 +6262,13 @@ blocks of the block library Modelica.Blocks.Sources.
         extends Modelica.Icons.Function;
         input Real q_qd_qdd[3]
           "Required values for position, speed, acceleration";
-        input Real dummy
-          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
-        input Real dummy_der;
-        input Real dummy_der2;
         output Real qdd;
       algorithm
         qdd := q_qd_qdd[3];
       end position_der2;
     equation
       phi = flange.phi - phi_support;
-      phi = position(u, time);
+      phi = position(u);
       annotation (Documentation(info="<html>
 <p>
 Flange <b>flange</b> is <b>forced</b> to move relative to flange support with a predefined motion
@@ -7889,13 +7880,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin = {-35,40},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}}),
+            origin=  {-35,40},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}}),
           Rectangle(
-            origin = {35,21},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}})}), Documentation(
+            origin=  {35,21},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.
