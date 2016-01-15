@@ -793,7 +793,7 @@ where the following signal is computed during simulation
 </p>
 
 <pre>
-   y = 5 + 3*sin(2*pi*2) + 1.5*sin(2*pi*3)
+   y = 5 + 3*sin(2*pi*2) + 1.5*cos(2*pi*3)
 </pre>
 
 <p>

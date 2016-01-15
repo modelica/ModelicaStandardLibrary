@@ -398,6 +398,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
   end WriteRealMatrixToFile;
 
   model ReadRealMatrixFromFile
+    "Demonstrate usage of function Streams.readRealMatrix"
     import Modelica.Utilities.Streams.print;
     extends Modelica.Icons.Example;
     parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat");
@@ -449,7 +450,14 @@ the following examples are present.
      and can therefore be an expression.<br>&nbsp;</li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.readRealParameterModel\">readRealParameterModel</a>
      is a test model to demonstrate the usage of \"readRealParameter\". The model
-     contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".
+     contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".<br>&nbsp;
+     </li>
+<li> Model <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
+     demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various Matlab MAT formats on file..<br>&nbsp;
+     </li>
+<li> Model <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">ReadRealMatrixFromFile</a>
+     demonstrates the usage of functions \"Streams.readMatrixSize\" and \"Streams.readRealMatrix\"
+     to read a matrix in various Matlab MAT formats from file.
      </li>
 </ul>
 </html>"));

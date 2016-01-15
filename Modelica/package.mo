@@ -2371,7 +2371,7 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
      Modelica Specification <b>3.2 revision 2</b>.<br>&nbsp;
      </li>
 
-<li> About <b>240</b> tickets have been fixed in this release:
+<li> About <b>240</b> tickets have been fixed in this release and the previous maintenance releases:
      <ul>
      <li> <b>Version 3.2.1 Build.3</b> with respect to 3.2.1 (Build.2):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
@@ -2421,7 +2421,11 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
 
      <li> <b>Version 3.2.2</b> (Build.1) with respect to 3.2.1 Build.4:<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
-          have been fixed for this release.</li>
+          have been fixed for this release.<br>
+          The ModelicaStandardTables object library (.lib, .dll, .a, .so, depending on tool) has
+          been split into the libraries <b>ModelicaStandardTables</b>, <b>ModelicaMatIO</b>, <b>zlib</b> and the new
+          object library <b>ModelicaIO</b> has been added. In exceptional cases, this can
+          be non-backwards compatible.</li>
      </ul>
 </ul>
 
@@ -2494,8 +2498,29 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
   <li><a href=\"modelica://Modelica.Math.Distributions\">Modelica.Math.Distributions</a></li>
   <li><a href=\"modelica://Modelica.Math.Special\">Modelica.Math.Special</a></li>
   </ul>
-  (These extensions have been developed by  Andreas Kl&ouml;ckner, Frans van der Linden, Dirk Zimmer, and Martin Otter, from
+  (These extensions have been developed by  Andreas Kl&ouml;ckner, Frans van der Linden, Dirk Zimmer, and Martin Otter from
   DLR Institute of System Dynamics and Control).
+    </td></tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities\">Modelica.Utilities</a> functions for <b>matrix read/write</b></td>
+    <td valign=\"top\">
+   New functions are provided in the <a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
+   sublibrary to write matrices in Matlab MAT format on file and read matrices in this format from file.
+   The Matlab MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF) are supported by these functions.
+   Additionally, example models are provided under 
+   <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
+   to demonstrates the usage of these functions in models. For more details see below.<br>
+   (These extensions have been developed by Thomas Beutlich from ITI GmbH).
+    </td></tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Math\">Modelica.Math</a> sublibrary for <b>FFT</b></td>
+    <td valign=\"top\">
+   The new sublibrary <a href=\"modelica://Modelica.Math.FastFourierTransform\">FastFourierTransform</a>
+   provides utility and convenience functions to compute the Fast Fourier Transform (FFT).
+   Additionally two examples are present to demonstrate how to compute an FFT during continuous-time
+   simulation and store the result on file. For more details see below.<br>
+  (These extensions have been developed by Martin Kuhn and Martin Otter from
+   DLR Institute of System Dynamics and Control).
     </td></tr>
 </table>
 
