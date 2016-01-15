@@ -8043,7 +8043,7 @@ versionBuild=0,
 versionDate="2016-03-11",
 dateModified = "2016-03-11 08:44:41Z",
 revisionId="$Id::                                       $",
-uses(Complex(version="3.2.1"), ModelicaServices(version="3.2.1")),
+uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
 conversion(
  noneFromVersion="3.2.1",
  noneFromVersion="3.2",
