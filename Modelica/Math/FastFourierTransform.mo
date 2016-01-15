@@ -585,13 +585,13 @@ success = <b>realFFTwriteToFile</b>(t_computed, fileName, f_max, amplitudes, pha
 
 <h4>Description</h4>
 <p>
-This functions stores the result of an FFT computation on file, so that it can 
+This functions stores the result of an FFT computation on file, so that it can
 be easily plotted. <b>amplitudes</b> and <b>phases</b> are the vectors that hold the
 amplitudes and phases values of an FFT computation. If the size of the phases vector is zero,
 no phases will be stored on file. Otherwise, phases must have the same dimension as the amplitudes
 vector. The frequency vector f is constructed within the function from the dimension of the
 amplitudes vector and the information that amplitudes[end] is at frequency <b>f_max</b>.
-The <b>format</b> argument defines the file format (for details see 
+The <b>format</b> argument defines the file format (for details see
 <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>).
 Argument <b>t_computed</b> is the actual time instant when the FFT was computed.
 It is used in the print message after the result was stored on file.
@@ -610,7 +610,7 @@ The matrix on file has the following structure:
 <h4>Example</h4>
 
 <p>
-See detailed example model: 
+See detailed example model:
 <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>.
 </p>
 
