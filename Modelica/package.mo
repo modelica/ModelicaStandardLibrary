@@ -2507,7 +2507,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
    New functions are provided in the <a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
    sublibrary to write matrices in Matlab MAT format on file and read matrices in this format from file.
    The Matlab MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF) are supported by these functions.
-   Additionally, example models are provided under 
+   Additionally, example models are provided under
    <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
    to demonstrates the usage of these functions in models. For more details see below.<br>
    (These extensions have been developed by Thomas Beutlich from ITI GmbH).
@@ -8103,8 +8103,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li><b>1360</b> models and blocks, and</li>
-<li><b>1280</b> functions</li>
+<li><b>1600</b> models and blocks, and</li>
+<li><b>1350</b> functions</li>
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes). It is fully compliant
