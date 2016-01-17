@@ -4588,7 +4588,7 @@ enabling signal is taken from the optional signal input <code>enable</code>.
           points={{10,60},{100,60}},
           color={0,0,255}));
       connect(diode_n1.p, dc_n) annotation (Line(
-          points={{10,-60},{102,-60}},
+          points={{10,-60},{100,-60}},
           color={0,0,255}));
       connect(diode_n1.heatPort, heatPort) annotation (Line(
           points={{20,-50},{20,-100},{0,-100}},
@@ -4741,7 +4741,7 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
           points={{-20,60},{100,60}},
           color={0,0,255}));
       connect(thyristor_n1.p, dc_n) annotation (Line(
-          points={{-20,-60},{102,-60}},
+          points={{-20,-60},{100,-60}},
           color={0,0,255}));
       connect(thyristor_n1.heatPort, heatPort) annotation (Line(
           points={{-10,-50},{0,-50},{0,-100}},
@@ -4907,7 +4907,7 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
           points={{-20,60},{100,60}},
           color={0,0,255}));
       connect(diode_n1.p, dc_n) annotation (Line(
-          points={{-20,-60},{102,-60}},
+          points={{-20,-60},{100,-60}},
           color={0,0,255}));
       connect(diode_n1.heatPort, heatPort) annotation (Line(
           points={{-10,-50},{0,-50},{0,-100}},
@@ -5330,7 +5330,7 @@ The circuit topology is the same as in
         final Goff=fill(GoffThyristor, m),
         final Vknee=fill(VkneeThyristor, m),
         each final useHeatPort=useHeatPort,
-        final off(start=offStart, fixed=fill(true, m)))
+        final idealThyristor(off(start=offStart, fixed=fill(true, m))))
         "Thyristors conducting AC potentials" annotation (Placement(transformation(
             origin={-10,0},
             extent={{10,10},{-10,-10}},
@@ -5474,7 +5474,7 @@ See example
           points={{0,-50},{0,-60},{70,-60}},
           color={0,0,255}));
       connect(star_n.pin_n, dc_n) annotation (Line(
-          points={{90,-60},{102,-60}},
+          points={{90,-60},{100,-60}},
           color={0,0,255}));
       connect(thermalCollector.port_a, diode_n.heatPort) annotation (Line(
           points={{20,-80},{20,-40},{10,-40}},
@@ -5546,8 +5546,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
         annotation (choices(checkBox=true));
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.ACplug;
       extends Modelica.Electrical.PowerConverters.Interfaces.ACDC.DCtwoPin;
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-           293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
       extends Interfaces.Enable.Enable2m;
       Modelica.Electrical.MultiPhase.Ideal.IdealThyristor thyristor_p(
         final m=m,
@@ -5555,7 +5554,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
         final Goff=fill(GoffThyristor, m),
         final Vknee=fill(VkneeThyristor, m),
         each final useHeatPort=useHeatPort,
-        final off(start=offStart_p, fixed=fill(true, m)))
+        final idealThyristor(off(start=offStart_p, fixed=fill(true, m))))
         "Thyristors connected to positive DC potential" annotation (Placement(
             transformation(
             origin={0,40},
@@ -5567,7 +5566,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
         final Goff=fill(GoffThyristor, m),
         final Vknee=fill(VkneeThyristor, m),
         each final useHeatPort=useHeatPort,
-        final off(start=offStart_n, fixed=fill(true, m)))
+        final idealThyristor(off(start=offStart_n, fixed=fill(true, m))))
         "Thyristors connected to negative DC potential" annotation (Placement(
             transformation(
             origin={0,-10},
@@ -5600,7 +5599,7 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
           points={{0,-20},{0,-30},{70,-30}},
           color={0,0,255}));
       connect(star_n.pin_n, dc_n) annotation (Line(
-          points={{90,-30},{100,-30},{100,-60},{102,-60}},
+          points={{90,-30},{100,-30},{100,-60},{100,-60}},
           color={0,0,255}));
       connect(heatPort, thermalConnector.port_b) annotation (Line(
           points={{0,-100},{20,-100}},
@@ -5958,7 +5957,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
         final Goff=fill(GoffThyristor, m),
         final Vknee=fill(VkneeThyristor, m),
         each final useHeatPort=useHeatPort,
-        final off(start=offStart_p, fixed=fill(true, m)))
+        final idealThyristor(off(start=offStart_p, fixed=fill(true, m))))
         "Thyristors conducting positive plug AC potentials" annotation (
           Placement(transformation(
             origin={-10,60},
@@ -5970,7 +5969,7 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
         final Goff=fill(GoffThyristor, m),
         final Vknee=fill(VkneeThyristor, m),
         each final useHeatPort=useHeatPort,
-        final off(start=offStart_n, fixed=fill(true, m)))
+        final idealThyristor(off(start=offStart_n, fixed=fill(true, m))))
         "Thyristors conducting negative plug AC potentials" annotation (
           Placement(transformation(
             origin={-10,-60},
@@ -6604,7 +6603,7 @@ The firing signal is generated by comparing the sampled duty cycle input with a 
                 lineColor={0,0,0},
                 fillColor={0,0,0},
                 fillPattern=FillPattern.Solid),                                                                                                    Text(extent={{
-                    -150,-120},{150,-160}},                                                                                                    textString=  "%name", lineColor=  {0, 0, 255})}),
+                    -150,-120},{150,-160}},                                                                                                    textString = "%name", lineColor = {0, 0, 255})}),
           Documentation(info="<html>
 This model linearly transforms the input voltage signal into a duty cycle. For the unipolar case the input voltage range is between zero and <code>vMax</code>. In case of bipolar input the input voltage is in the range between <code>-vMax</code> and <code>vMax</code>.
 </html>"));
