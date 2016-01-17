@@ -1498,7 +1498,6 @@ This shows the improvements in the numerics when balance=true is set.
 </html>"));
   end PadeDelay2;
 
-
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
     model AllOptions
@@ -1720,15 +1719,18 @@ This shows the improvements in the numerics when balance=true is set.
     Modelica.Blocks.Discrete.UnitDelay unitDelay(samplePeriod=samplePeriod)
       annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
     Modelica.Blocks.Discrete.TransferFunction transferFunction(
-        samplePeriod=samplePeriod, a={1,0.1})
+        samplePeriod=samplePeriod, a={1,0.1},
+      y(start=0, fixed=true))
       annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
     Modelica.Blocks.Discrete.StateSpace stateSpace(
       B=[0; 2],
       C=[2,3],
       D=[0.1],
       samplePeriod=samplePeriod,
-      A=[0,1; -1,-0.1])
-      annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+      A=[0,1; -1,-0.1],
+      y(each start=0, each fixed=true),
+      x(each start=0, each fixed=true))
+                           annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
     Modelica.Blocks.Discrete.TriggeredSampler triggeredSampler(y_start=2)
       annotation (Placement(transformation(extent={{20,70},{40,90}})));
     Modelica.Blocks.Sources.BooleanPulse booleanPulse(period=0.2)

@@ -190,7 +190,7 @@ the output y is identical to parameter yStart.
   block TransferFunction "Discrete Transfer Function block"
     parameter Real b[:]={1} "Numerator coefficients of transfer function.";
     parameter Real a[:]={1} "Denominator coefficients of transfer function.";
-    extends Interfaces.DiscreteSISO(y(start=0,fixed=true));
+    extends Interfaces.DiscreteSISO;
     output Real x[size(a, 1) - 1](each start=0, each fixed=true)
       "State of transfer function from controller canonical form";
   protected
@@ -296,8 +296,8 @@ states can be set as start values of <b>x</b>.</p>
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
 
-    extends Interfaces.DiscreteMIMO(final nin=size(B, 2), final nout=size(C, 1), y(each start=0, each fixed=true));
-    output Real x[size(A, 1)](each start=0, each fixed=true) "State vector";
+    extends Interfaces.DiscreteMIMO(final nin=size(B, 2), final nout=size(C, 1));
+    output Real x[size(A, 1)] "State vector";
 
   equation
     when sampleTrigger then
