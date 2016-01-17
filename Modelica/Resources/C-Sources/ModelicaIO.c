@@ -44,13 +44,13 @@ static void ModelicaNotExistError(const char* name) {
 
 MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
     const char* varName, int* dim) {
-    ModelicaNotExistError("ModelicaInternal_readMatrixSizes"); }
+    ModelicaNotExistError("ModelicaIO_readMatrixSizes"); }
 MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
     const char* varName, double* a, size_t m, size_t n) {
-    ModelicaNotExistError("ModelicaInternal_readRealMatrix"); }
+    ModelicaNotExistError("ModelicaIO_readRealMatrix"); }
 MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
     const char* varName, double* a, size_t m, size_t n, int append, const char* version) {
-    ModelicaNotExistError("ModelicaInternal_writeRealMatrix"); return 0; }
+    ModelicaNotExistError("ModelicaIO_writeRealMatrix"); return 0; }
 #else
 
 #include <stdio.h>
@@ -58,38 +58,38 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
 #include "ModelicaMatIO.h"
 
 static void transpose(double* table, size_t nRow, size_t nCol) {
-   /* Reference:
+  /* Reference:
 
-      Cycle-based in-place array transposition
-      (http://en.wikipedia.org/wiki/In-place_matrix_transposition#Non-square_matrices:_Following_the_cycles)
-    */
+     Cycle-based in-place array transposition
+     (http://en.wikipedia.org/wiki/In-place_matrix_transposition#Non-square_matrices:_Following_the_cycles)
+  */
 
-   size_t i;
-   for (i = 1; i < nRow*nCol - 1; i++) {
-      size_t x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
-      /* Continue if cycle is of length one or predecessor already was visited */
-      if (x <= i) {
-         continue;
-      }
-      /* Continue if cycle already was visited */
-      while (x > i) {
-         x = nRow*(x % nCol) + x/nCol;
-      }
-      if (x < i) {
-         continue;
-      }
-      {
-         double tmp = table[i];
-         size_t s = i; /* start index in the cycle */
-         x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
-         while (x != i) {
-            table[s] = table[x];
-            s = x;
+    size_t i;
+    for (i = 1; i < nRow*nCol - 1; i++) {
+        size_t x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
+        /* Continue if cycle is of length one or predecessor already was visited */
+        if (x <= i) {
+            continue;
+        }
+        /* Continue if cycle already was visited */
+        while (x > i) {
             x = nRow*(x % nCol) + x/nCol;
-         }
-         table[s] = tmp;
-      }
-   }
+        }
+        if (x < i) {
+            continue;
+        }
+        {
+            double tmp = table[i];
+            size_t s = i; /* start index in the cycle */
+            x = nRow*(i % nCol) + i/nCol; /* predecessor of i in the cycle */
+            while (x != i) {
+                table[s] = table[x];
+                s = x;
+                x = nRow*(x % nCol) + x/nCol;
+            }
+            table[s] = tmp;
+        }
+    }
 }
 
 MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
