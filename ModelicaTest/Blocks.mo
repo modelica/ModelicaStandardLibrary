@@ -1498,6 +1498,7 @@ This shows the improvements in the numerics when balance=true is set.
 </html>"));
   end PadeDelay2;
 
+
   package FilterTests "Test of Blocks.Continuous.Filter"
     extends Modelica.Icons.ExamplesPackage;
     model AllOptions
@@ -1702,4 +1703,60 @@ This shows the improvements in the numerics when balance=true is set.
     end DifferentInitialization;
   end FilterTests;
 
+  model Discrete
+    extends Modelica.Icons.Example;
+    parameter Modelica.SIunits.Time samplePeriod=0.02
+      "Sample period of component";
+    Modelica.Blocks.Sources.Sine sine(freqHz=3)
+      annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
+    Modelica.Blocks.Discrete.Sampler sampler(samplePeriod=samplePeriod)
+      annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
+    Modelica.Blocks.Discrete.ZeroOrderHold zeroOrderHold(samplePeriod=
+          samplePeriod)
+      annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    Modelica.Blocks.Discrete.FirstOrderHold firstOrderHold(samplePeriod=
+          samplePeriod)
+      annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
+    Modelica.Blocks.Discrete.UnitDelay unitDelay(samplePeriod=samplePeriod)
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+    Modelica.Blocks.Discrete.TransferFunction transferFunction(
+        samplePeriod=samplePeriod, a={1,0.1})
+      annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+    Modelica.Blocks.Discrete.StateSpace stateSpace(
+      B=[0; 2],
+      C=[2,3],
+      D=[0.1],
+      samplePeriod=samplePeriod,
+      A=[0,1; -1,-0.1])
+      annotation (Placement(transformation(extent={{-40,-80},{-20,-60}})));
+    Modelica.Blocks.Discrete.TriggeredSampler triggeredSampler(y_start=2)
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Modelica.Blocks.Sources.BooleanPulse booleanPulse(period=0.2)
+      annotation (Placement(transformation(extent={{0,40},{20,60}})));
+    Modelica.Blocks.Discrete.TriggeredMax triggeredMax
+      annotation (Placement(transformation(extent={{60,70},{80,90}})));
+  equation
+    connect(sine.y, sampler.u)
+      annotation (Line(points={{-59,80},{-42,80}}, color={0,0,127}));
+    connect(sine.y, zeroOrderHold.u) annotation (Line(points={{-59,80},{-52,80},{-52,
+            50},{-42,50}}, color={0,0,127}));
+    connect(sine.y, firstOrderHold.u) annotation (Line(points={{-59,80},{-52,80},{
+            -52,20},{-42,20}}, color={0,0,127}));
+    connect(sine.y, unitDelay.u) annotation (Line(points={{-59,80},{-52,80},{-52,-10},
+            {-42,-10}}, color={0,0,127}));
+    connect(sine.y, transferFunction.u) annotation (Line(points={{-59,80},{-52,80},
+            {-52,-40},{-42,-40}}, color={0,0,127}));
+    connect(sine.y, stateSpace.u[1]) annotation (Line(points={{-59,80},{-52,80},{-52,
+            -70},{-42,-70}}, color={0,0,127}));
+    connect(sine.y, triggeredSampler.u) annotation (Line(points={{-59,80},{-52,
+            80},{-52,96},{2,96},{2,80},{18,80}}, color={0,0,127}));
+    connect(booleanPulse.y, triggeredSampler.trigger)
+      annotation (Line(points={{21,50},{30,50},{30,68.2}}, color={255,0,255}));
+    connect(sine.y, triggeredMax.u) annotation (Line(points={{-59,80},{-56,80},
+            {-52,80},{-52,96},{54,96},{54,80},{58,80}}, color={0,0,127}));
+    connect(booleanPulse.y, triggeredMax.trigger)
+      annotation (Line(points={{21,50},{70,50},{70,68.2}}, color={255,0,255}));
+    annotation (experiment(StopTime=1.1), Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+          coordinateSystem(preserveAspectRatio=false)));
+  end Discrete;
 end Blocks;

@@ -534,7 +534,8 @@ to be used as base class for a corresponding controller.
     parameter SI.Time startTime=0 "First sample time instant";
   protected
     output Boolean sampleTrigger "True, if sample time instant";
-    output Boolean firstTrigger "Rising edge signals first sample instant";
+    output Boolean firstTrigger(start=false, fixed=true)
+      "Rising edge signals first sample instant";
   equation
     sampleTrigger = sample(startTime, samplePeriod);
     when sampleTrigger then
