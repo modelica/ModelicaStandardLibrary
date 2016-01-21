@@ -5261,7 +5261,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           "Argument of complex magnetic potential difference";
         Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
           "Complex magnetic flux";
-        Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+        Modelica.SIunits.MagneticFlux abs_Phi=
             Modelica.ComplexMath.'abs'(Phi)
           "Magnitude of complex magnetic flux";
         Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
@@ -5407,7 +5407,7 @@ The single phase winding consists of a
           "Argument of complex magnetic potential difference";
         Modelica.SIunits.ComplexMagneticFlux Phi=port_p.Phi
           "Complex magnetic flux";
-        Modelica.SIunits.MagneticPotentialDifference abs_Phi=
+        Modelica.SIunits.MagneticFlux abs_Phi=
             Modelica.ComplexMath.'abs'(Phi)
           "Magnitude of complex magnetic flux";
         Modelica.SIunits.Angle arg_Phi=Modelica.ComplexMath.arg(Phi)
