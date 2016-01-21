@@ -3632,8 +3632,8 @@ Modelica.Blocks library.
     model Position
       "Forced movement of a flange according to a reference position"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
@@ -3726,8 +3726,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Speed "Forced movement of a flange according to a reference speed"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
@@ -3820,8 +3820,8 @@ blocks of the block library Modelica.Blocks.Sources.
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
@@ -3878,41 +3878,47 @@ blocks of the block library Modelica.Blocks.Source.
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput u[3]
         "Position, velocity and acceleration of flange as input signals"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
+              rotation=0)));
     protected
       function position
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3]
-          "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         output Real q;
       algorithm
         q := q_qd_qdd[1];
-        annotation (derivative(noDerivative=q_qd_qdd) = position_der, Inline=
-              false);
+        annotation (derivative(noDerivative=q_qd_qdd) = position_der, LateInline=true);
       end position;
 
       function position_der
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3]
-          "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        input Real dummy_der;
         output Real qd;
       algorithm
         qd := q_qd_qdd[2];
         annotation (derivative(
             noDerivative=q_qd_qdd,
-            order=2) = position_der2, Inline=false);
+            order=2) = position_der2, LateInline=true);
       end position_der;
 
       function position_der2
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3]
-          "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real dummy
+          "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
+        input Real dummy_der;
+        input Real dummy_der2;
         output Real qdd;
       algorithm
         qdd := q_qd_qdd[3];
       end position_der2;
     equation
-      s = position(u);
+      s = position(u, time);
       annotation (Documentation(info="<html>
 <p>
 Flange <b>flange_b</b> is <b>forced</b> to move relative to the support connector  with a predefined motion
@@ -3942,16 +3948,18 @@ blocks of the block library Modelica.Blocks.Sources.
                   extent={{-192,-38},{-32,-70}},
                   lineColor={0,0,0},
                   textString="s,v,a"),Line(points={{-30,-32},{30,-32}}, color={
-              0,0,0}),Line(points={{0,-32},{0,-100}}),Line(
-              points={{30,-42},{20,-52}}),Line(points={{30,-32},
-              {10,-52}}),Line(points={{20,-32},{0,-52}}, color={
-              0,0,0}),Line(points={{10,-32},{-10,-52}}),Line(
-              points={{0,-32},{-20,-52}}),Line(points={{-10,-32},
-              {-30,-52}}),Line(points={{-20,-32},{-30,-42}}),Rectangle(
+              0,0,0}),Line(points={{0,-32},{0,-100}}, color={0,0,0}),Line(
+              points={{30,-42},{20,-52}}, color={0,0,0}),Line(points={{30,-32},
+              {10,-52}}, color={0,0,0}),Line(points={{20,-32},{0,-52}}, color={
+              0,0,0}),Line(points={{10,-32},{-10,-52}}, color={0,0,0}),Line(
+              points={{0,-32},{-20,-52}}, color={0,0,0}),Line(points={{-10,-32},
+              {-30,-52}}, color={0,0,0}),Line(points={{-20,-32},{-30,-42}},
+              color={0,0,0}),Rectangle(
                   extent={{-100,20},{100,-20}},
                   lineColor={0,127,0},
                   fillColor={215,215,215},
-                  fillPattern=FillPattern.Solid),Line(points={{0,52},{0,32}}),Line(points={{-29,32},{30,32}}),
+                  fillPattern=FillPattern.Solid),Line(points={{0,52},{0,32}},
+              color={0,0,0}),Line(points={{-29,32},{30,32}}, color={0,0,0}),
               Text(
                   extent={{150,60},{-150,100}},
                   textString="%name",
