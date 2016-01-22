@@ -722,11 +722,6 @@ that consists of the following elements:
 </ul>
 
 <p>
-In order to have consistent interfaces, the function explained above should be extended from the Interfaces provided in
-package <a href=\"Interfaces\">Interfaces</a>.
-</p>
-
-<p>
 The Generators package contains the <b>xorshift</b> suite of random number generators
 from Sebastiano Vigna (from 2014; based on work of George Marsaglia).
 The properties of these random
@@ -845,7 +840,7 @@ The xorshift random number generators are used in the following way in the
      other generators from two Integer values, due
      to the very good startup properties.</li>
 
-<li> Xorshift128plus (xorshift128+) is the default random number generator
+<li> Xorshift128plus (xorshift128+) is the random number generator
      used by the blocks in <a href=\"Modelica.Blocks.Noise\">Blocks.Noise</a>.
      Since these blocks hold the internal state vector for every block instance, and the
      internal state vector is copied whenever a new random number is drawn, it is important
