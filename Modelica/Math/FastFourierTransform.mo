@@ -198,6 +198,7 @@ with the only difference that just the amplitudes of the FFT are stored on file 
 
   function realFFTinfo
     "Print information about real FFT for given f_max and f_resolution"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams.print;
     input Modelica.SIunits.Frequency f_max "Maximum frequency";
     input Modelica.SIunits.Frequency f_resolution "Frequency resolution";
@@ -288,6 +289,7 @@ results in the following output:
   end realFFTinfo;
 
   function realFFTsamplePoints "Return number of sample points for a real FFT"
+     extends Modelica.Icons.Function;
      input Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
      input Modelica.SIunits.Frequency f_resolution "Frequency resolution";
      input Integer f_max_factor(min=1)=5
@@ -405,6 +407,7 @@ results in the following output:
   end realFFTsamplePoints;
 
   function realFFT "Return amplitude and phase vectors for a real FFT"
+    extends Modelica.Icons.Function;
     input Real  u[:]
       "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
     input Integer nfi
@@ -532,6 +535,7 @@ which is a complete example where an FFT is computed during simulation and store
   end realFFT;
 
   function realFFTwriteToFile "Write real FFT computation to file"
+    extends Modelica.Icons.Function;
      import Modelica.Utilities.Streams.print;
      import Modelica.SIunits.Conversions.to_deg;
      import Modelica.Utilities.Streams.writeRealMatrix;
@@ -626,8 +630,8 @@ See detailed example model:
   package Internal
     "Internal library that should not be used directly by a user"
     extends Modelica.Icons.InternalPackage;
-    function rawRealFFT
-      "Compute raw Fast Fourier Transform for real signal vector"
+    function rawRealFFT "Compute raw Fast Fourier Transform for real signal vector"
+      extends Modelica.Icons.Function;
       input Real  u[:]
         "Signal for which FFT shall be computed (size(nu,1) MUST be EVEN and should be an integer multiple of 2,3,5, that is size(nu,1) = 2^a*3^b*5^c, with a,b,c Integer >= 0)";
       output Integer info
@@ -711,8 +715,8 @@ used in this function.
 </html>"));
     end rawRealFFT;
 
-    function prime235Factorization
-      "Factorization of an integer in prime numbers 2,3,5"
+    function prime235Factorization "Factorization of an integer in prime numbers 2,3,5"
+      extends Modelica.Icons.Function;
       input Integer n;
       output Boolean success "= true, if factorization in 2,3,5 is possible";
       output Integer e2 "n = 2^e2*3^e3*5^e5";
