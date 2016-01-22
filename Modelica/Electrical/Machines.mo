@@ -36,7 +36,6 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
     class Discrimination "Discrimination of Machine models"
       extends Modelica.Icons.Information;
       annotation (preferredView="info",Documentation(info="<html>
-  <p>
   <table>
   <thead>
   <tr>
@@ -80,12 +79,15 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   </table>
   </p>
   <p>
-  <h5>Note:</h5>
+
+  <h4>Note:</h4>
   <ul>
   <li>Transient and quasiStatic models are parameter compatible.</li>
   <li>Induction machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
   <li>Synchronous machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
-  </ul></p>
+  </ul>
+<p>
+</p>
   </html>"));
     end Discrimination;
 
