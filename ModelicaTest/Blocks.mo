@@ -1763,4 +1763,19 @@ This shows the improvements in the numerics when balance=true is set.
     annotation (experiment(StopTime=1.1), Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
           coordinateSystem(preserveAspectRatio=false)));
   end Discrete;
+
+  block Hysteresis
+      extends Modelica.Icons.Example;
+   Modelica.Blocks.Logical.Hysteresis
+               hysteresis(uLow=-0.5, uHigh=0.5)   annotation (Placement(transformation(extent={{12,-9},
+              {30,9}})));
+    Modelica.Blocks.Sources.Sine Signal(freqHz=1) "temperature in warm well"
+      annotation (Placement(transformation(extent={{-34,-9},{-16,9}})));
+  equation
+
+    connect(Signal.y, hysteresis.u)
+      annotation (Line(points={{-15.1,0},{10.2,0}},          color={0,0,127}));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}})), experiment(StopTime=3));
+  end Hysteresis;
 end Blocks;

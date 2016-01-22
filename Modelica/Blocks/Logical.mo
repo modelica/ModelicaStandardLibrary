@@ -536,7 +536,8 @@ u1, else it is set equal to u3.</p>
   initial equation
     pre(y) = pre_y_start;
   equation
-    y = u > uHigh or pre(y) and u >= uLow;
+    assert(uHigh > uLow,"Hysteresis limits wrong (uHigh <= uLow)");
+    y = not pre(y) and u > uHigh or pre(y) and u >= uLow;
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={Polygon(
