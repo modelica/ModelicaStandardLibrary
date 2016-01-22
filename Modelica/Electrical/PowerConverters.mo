@@ -5579,6 +5579,14 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalConnector(final m=m) if useHeatPort
         annotation (Placement(transformation(extent={{10,-100},{30,-80}})));
+      Blocks.Logical.Pre pre_p[m] annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-60,-36})));
+      Blocks.Logical.Pre pre_n[m] annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-20,-36})));
     equation
       if not useHeatPort then
         LossPower = sum(thyristor_p.idealThyristor.LossPower) + sum(thyristor_n.idealThyristor.LossPower);
@@ -5610,12 +5618,14 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
       connect(thyristor_p.heatPort, thermalConnector.port_a) annotation (Line(
           points={{10,40},{20,40},{20,-80}},
           color={191,0,0}));
-      connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
-          points={{-60,-69},{-60,47},{-11,47}},
-          color={255,0,255}));
-      connect(andCondition_n.y, thyristor_n.fire) annotation (Line(
-          points={{60,-69},{60,-40},{-20,-40},{-20,-3},{-11,-3}},
-          color={255,0,255}));
+      connect(andCondition_p.y, pre_p.u)
+        annotation (Line(points={{-60,-69},{-60,-48}}, color={255,0,255}));
+      connect(pre_p.y, thyristor_p.fire) annotation (Line(points={{-60,-25},{
+              -60,-25},{-60,46},{-60,47},{-11,47}}, color={255,0,255}));
+      connect(pre_n.y, thyristor_n.fire) annotation (Line(points={{-20,-25},{
+              -20,-3},{-11,-3}}, color={255,0,255}));
+      connect(andCondition_n.y, pre_n.u) annotation (Line(points={{60,-69},{60,
+              -60},{-20,-60},{-20,-48}}, color={255,0,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -5718,6 +5728,10 @@ See example
       Modelica.Thermal.HeatTransfer.Components.ThermalCollector
         thermalCollector(final m=m) if useHeatPort
         annotation (Placement(transformation(extent={{10,-100},{30,-80}})));
+      Blocks.Logical.Pre pre[m] annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-60,-46})));
     equation
       if not useHeatPort then
         LossPower = sum(thyristor_p.idealThyristor.LossPower) + sum(diode_n.idealDiode.LossPower);
@@ -5749,9 +5763,10 @@ See example
       connect(thyristor_p.heatPort, thermalCollector.port_a) annotation (Line(
           points={{10,40},{20,40},{20,-80}},
           color={191,0,0}));
-      connect(andCondition_p.y, thyristor_p.fire) annotation (Line(
-          points={{-60,-69},{-60,47},{-11,47}},
-          color={255,0,255}));
+      connect(andCondition_p.y, pre.u)
+        annotation (Line(points={{-60,-69},{-60,-58}}, color={255,0,255}));
+      connect(pre.y, thyristor_p.fire) annotation (Line(points={{-60,-35},{-60,
+              -35},{-60,48},{-60,47},{-11,47}}, color={255,0,255}));
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
