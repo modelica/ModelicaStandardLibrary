@@ -2927,6 +2927,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                         u1*(y00 - y01 - y10 + y11))*der_u2;
                     der_y /= (u10 - u11);
                     der_y /= (u20 - u21);
+                    break;
                 }
 
                 case AKIMA_C1:
@@ -4174,6 +4175,9 @@ static double* readTable(const char* tableName, const char* fileName,
                     table = readTxtTable(tableName, fileName, nRow, nCol);
                 }
                 if (table == NULL) {
+#if defined(TABLE_SHARE)
+                    free(key);
+#endif
                     return table;
                 }
 #if defined(TABLE_SHARE)
@@ -4192,11 +4196,15 @@ static double* readTable(const char* tableName, const char* fileName,
                     iter->table = table;
                     HASH_ADD_KEYPTR(hh, tableShare, key, strlen(key), iter);
                 }
+                else {
+                    free(key);
+                }
             }
             else if (force) {
                 /* Share hit -> Update table share (only if not shared
                    by multiple table objects)
                 */
+                free(key);
                 if (iter->refCount == 1) {
                     free(iter->table);
                     iter->nRow = *nRow;
@@ -4211,6 +4219,7 @@ static double* readTable(const char* tableName, const char* fileName,
                 /* Share hit -> Read from table share and increment table
                    reference counter
                 */
+                free(key);
                 if (table != NULL) {
                     free(table);
                 }
@@ -4266,8 +4275,8 @@ static double* readMatTable(const char* tableName, const char* fileName,
             free(tableNameCopy);
             (void)Mat_Close(mat);
             ModelicaFormatError(
-                "Table matrix \"%s\" not found on file \"%s\".\n", tableName,
-                fileName);
+                "Table variable \"%s\" not found on file \"%s\".\n",
+                token == NULL ? tableName : token, fileName);
             return NULL;
         }
 
@@ -4281,6 +4290,15 @@ static double* readMatTable(const char* tableName, const char* fileName,
             token = strtok(NULL, ".");
         }
         free(tableNameCopy);
+
+        if (matvar == NULL) {
+            Mat_VarFree(matvarRoot);
+            (void)Mat_Close(mat);
+            ModelicaFormatError(
+                "Table matrix \"%s\" not found on file \"%s\".\n", tableName,
+                fileName);
+            return NULL;
+        }
 
         /* Check if matvar is a matrix */
         if (matvar->rank != 2) {

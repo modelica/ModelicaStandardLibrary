@@ -129,8 +129,8 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
         free(varNameCopy);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Variable \"%s\" not found on file \"%s\".\n", varName,
-            fileName);
+            "Variable \"%s\" not found on file \"%s\".\n",
+            token == NULL ? varName : token, fileName);
         return;
     }
 
@@ -144,6 +144,14 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
         token = strtok(NULL, ".");
     }
     free(varNameCopy);
+
+    if (matvar == NULL) {
+        Mat_VarFree(matvarRoot);
+        (void)Mat_Close(mat);
+        ModelicaFormatError(
+            "Matrix \"%s\" not found on file \"%s\".\n", varName, fileName);
+        return;
+    }
 
     /* Check if matvar is a matrix */
     if (matvar->rank != 2) {
@@ -196,8 +204,8 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
         free(varNameCopy);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Variable \"%s\" not found on file \"%s\".\n", varName,
-            fileName);
+            "Variable \"%s\" not found on file \"%s\".\n",
+            token == NULL ? varName : token, fileName);
         return;
     }
 
@@ -211,6 +219,14 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
         token = strtok(NULL, ".");
     }
     free(varNameCopy);
+
+    if (matvar == NULL) {
+        Mat_VarFree(matvarRoot);
+        (void)Mat_Close(mat);
+        ModelicaFormatError(
+            "Matrix \"%s\" not found on file \"%s\".\n", varName, fileName);
+        return;
+    }
 
     /* Check if matvar is a matrix */
     if (matvar->rank != 2) {
