@@ -1764,7 +1764,7 @@ This shows the improvements in the numerics when balance=true is set.
           coordinateSystem(preserveAspectRatio=false)));
   end Discrete;
 
-  block Hysteresis
+  model Hysteresis
       extends Modelica.Icons.Example;
    Modelica.Blocks.Logical.Hysteresis
                hysteresis(uLow=-0.5, uHigh=0.5)   annotation (Placement(transformation(extent={{12,-9},

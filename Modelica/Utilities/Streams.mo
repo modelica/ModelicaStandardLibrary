@@ -75,7 +75,8 @@ Note, a fileName can be defined as URI by using the helper function
     output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (string, endOfFile) = Streams.<b>readLine</b>(fileName, lineNumber)
@@ -103,7 +104,8 @@ and endOfFile=true. Otherwise endOfFile=false.
 
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 numberOfLines = Streams.<b>countLines</b>(fileName)
@@ -151,7 +153,8 @@ by \"\\n\" in the string.
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>close</b>(fileName)
@@ -206,9 +209,10 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     input Integer ncol "Number of columns of the 2D Real array";
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2))
-    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(Documentation(info="<html>
+    annotation(__OpenModelica_Impure=true, __Dymola_pure=false,Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
 
+    annotation(__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol)

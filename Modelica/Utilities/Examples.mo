@@ -302,7 +302,8 @@ function can be used as part of another scan operation.
        Streams.error("Parameter \"" + name + "\" not found in file \"" + fileName + "\"");
     end if;
 
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 result = <b>readRealParameter</b>(fileName, name);

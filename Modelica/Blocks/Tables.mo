@@ -49,7 +49,8 @@ package Tables
         "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+        annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+                    Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table defined by matrix"
@@ -350,7 +351,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+        annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+                    Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end readTableData;
 
     function getTableValue "Interpolate 1-dim. table defined by matrix"
@@ -646,7 +648,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         "= true: Print info message; = false: No info message";
       output Real readSuccess "Table read success";
       external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+        annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+                    Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end readTableData;
 
     function getTableValue "Interpolate 2-dim. table defined by matrix"

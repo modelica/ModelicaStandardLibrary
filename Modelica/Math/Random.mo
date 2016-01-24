@@ -979,7 +979,8 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
 
       external "C" seed = ModelicaRandom_automaticGlobalSeed(dummy) annotation (Library="ModelicaExternalC");
 
-     annotation (Documentation(info="<html>
+     annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 seed = Utilities.<b>automaticGlobalSeed</b>(dummy);
@@ -1226,7 +1227,8 @@ random number generator to fill the internal state vector with 64 bit random num
         "A random number with a uniform distribution on the interval (0,1]";
       external "C" y = ModelicaRandom_impureRandom_xorshift1024star(id)
         annotation (Library="ModelicaExternalC");
-      annotation(Documentation(info="<html>
+      annotation(__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <b>impureRandom</b>(id);
@@ -1307,7 +1309,8 @@ is returned, so the function is impure.
       y  := integer(r*imax) + integer((1-r)*imin);
       y  := min(imax, max(imin, y));
 
-      annotation (Documentation(info="<html>
+      annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+ Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <b>impureRandomInteger</b>(id, imin=1, imax=Modelica.Constants.Integer_inf);

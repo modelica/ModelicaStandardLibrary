@@ -7,7 +7,8 @@ function getWorkDirectory "Get full path name of work directory"
   output String directory "Full path name of work directory";
 // POSIX function "getcwd"
   external "C" directory = ModelicaInternal_getcwd(0) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 </html>"));
 end getWorkDirectory;
@@ -17,7 +18,8 @@ function setWorkDirectory "Set work directory"
   input String directory "New work directory";
 // POSIX function "chdir"
 external "C" ModelicaInternal_chdir(directory) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 </html>"));
 end setWorkDirectory;
@@ -32,7 +34,8 @@ function getEnvironmentVariable "Get content of environment variable"
   output Boolean exist
       "= true, if environment variable exists; = false, if it does not exist";
   external "C" ModelicaInternal_getenv(name, convertToSlash, content, exist) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 </html>"));
 end getEnvironmentVariable;
@@ -44,7 +47,8 @@ function setEnvironmentVariable "Set content of local environment variable"
   input Boolean convertFromSlash =  false
       "True, if '/' in content shall be changed to the native directory separator";
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 </html>"));
 end setEnvironmentVariable;
@@ -59,7 +63,8 @@ end setEnvironmentVariable;
     output Integer year "Year";
     external "C" ModelicaInternal_getTime(ms,sec,min,hour,day,mon,year)
       annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 (ms, sec, min, hour, day, mon, year) = System.<b>getTime</b>();
@@ -132,7 +137,8 @@ All returned values are of type Integer and have the following meaning:
   function getPid "Retrieve the current process id"
     output Integer pid "Process ID";
     external "C" pid=  ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 pid = System.<b>getPid</b>();
@@ -178,7 +184,8 @@ function command "Execute command in default shell"
   input String string "String to be passed to shell";
   output Integer result "Return value from command (depends on environment)";
   external "C" result = system(string) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 </html>"));
 end command;
@@ -188,7 +195,8 @@ function exit "Terminate execution of Modelica environment"
   input Integer status=0
       "Result to be returned by environment (0 means success)";
   external "C" exit(status) annotation(Include="#include <stdlib.h>", Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 </html>"));
 end exit;
