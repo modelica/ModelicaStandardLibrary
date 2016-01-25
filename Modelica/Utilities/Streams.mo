@@ -207,14 +207,16 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     input String matrixName "Name / identifier of the 2D Real array on the file";
     input Integer nrow "Number of rows of the 2D Real array";
     input Integer ncol "Number of columns of the 2D Real array";
+    input Boolean verboseRead = true
+      "= true: Print info message; = false: No info message";
     output Real matrix[nrow, ncol] "2D Real array";
-    external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2))
+    external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(__OpenModelica_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol)
+matrix = Streams.<b>readRealMatrix</b>(fileName, matrixName, nrow, ncol, verboseRead)
 </pre></blockquote>
 
 <h4>Description</h4>

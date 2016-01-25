@@ -42,7 +42,7 @@
 #endif
 
 void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ int* dim) MODELICA_NONNULLATTR;
-void ModelicaIO_readRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ double* a, size_t m, size_t n) MODELICA_NONNULLATTR;
+void ModelicaIO_readRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ double* a, size_t m, size_t n, int verbose) MODELICA_NONNULLATTR;
 int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _In_ double* a, size_t m, size_t n, int append, _In_z_ const char* version) MODELICA_NONNULLATTR;
 
 #endif

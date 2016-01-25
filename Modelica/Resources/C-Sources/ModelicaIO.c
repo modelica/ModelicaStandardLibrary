@@ -46,7 +46,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
     const char* varName, int* dim) {
     ModelicaNotExistError("ModelicaIO_readMatrixSizes"); }
 MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
-    const char* varName, double* a, size_t m, size_t n) {
+    const char* varName, double* a, size_t m, size_t n, int verbose) {
     ModelicaNotExistError("ModelicaIO_readRealMatrix"); }
 MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
     const char* varName, double* a, size_t m, size_t n, int append, const char* version) {
@@ -172,7 +172,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
 }
 
 MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
-    const char* varName, double* a, size_t m, size_t n) {
+    const char* varName, double* a, size_t m, size_t n, int verbose) {
     mat_t* mat;
     matvar_t* matvar;
     matvar_t* matvarRoot;
@@ -180,6 +180,12 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
     int tableReadError = 0;
     char* varNameCopy;
     char* token;
+
+    if (verbose == 1) {
+        /* Print info message, that matrix / file is loading */
+        ModelicaFormatMessage("... loading \"%s\" from \"%s\"\n",
+            varName, fileName);
+    }
 
     varNameCopy = (char*)malloc((strlen(varName) + 1)*sizeof(char));
     if (varNameCopy != NULL) {
