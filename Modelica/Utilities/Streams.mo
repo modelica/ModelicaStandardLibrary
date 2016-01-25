@@ -209,8 +209,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     input Integer ncol "Number of columns of the 2D Real array";
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2))
-    annotation(__OpenModelica_Impure=true, __Dymola_pure=false,Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-
+    annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
     annotation(__OpenModelica_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
