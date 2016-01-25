@@ -139,7 +139,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Blocks <span class="numrows">(9 matches)</span></h2>
+    <h2 class="report-result">Component: Blocks <span class="numrows">(10 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -232,6 +232,15 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       Missing initial conditions provided for blocks of the Modelica.Blocks.Discrete sub-library
+                    </td>
+              </tr>
+              <tr class="odd prio4">
+                    <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1888" title="View ticket" class="closed">#1888</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1888" title="View ticket">Reduce events in hysteresis</a>
+                    </td>
+                    <td class="changelog">
+                      Blocks.Logical.Hysteresis: Slightly reformulated to reduce the number of events
                     </td>
               </tr>
       </tbody>
@@ -1039,7 +1048,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Mechanics.Rotational <span class="numrows">(6 matches)</span></h2>
+    <h2 class="report-result">Component: Mechanics.Rotational <span class="numrows">(7 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -1072,6 +1081,15 @@ Color coding of "Priority":
                     </td>
               </tr>
               <tr class="even prio3">
+                    <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1523" title="View ticket" class="closed">#1523</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1523" title="View ticket">Move block + MultiBody model can give issues with index reduction</a>
+                    </td>
+                    <td class="changelog">
+                      Usage of Move blocks of Rotational or Translational library sometimes failed. This has been fixed
+                    </td>
+              </tr>
+              <tr class="odd prio3">
                     <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1557" title="View ticket" class="closed">#1557</a></td>
                     <td class="summary">
                       <a href="https://trac.modelica.org/Modelica/ticket/1557" title="View ticket">Nominal values in MSL Rotational examples</a>
@@ -1080,7 +1098,7 @@ Color coding of "Priority":
                       Added nominal values to small state variables in Rotational examples (LossyGearDemo1/2)
                     </td>
               </tr>
-              <tr class="odd prio4">
+              <tr class="even prio4">
                     <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1777" title="View ticket" class="closed">#1777</a></td>
                     <td class="summary">
                       <a href="https://trac.modelica.org/Modelica/ticket/1777" title="View ticket">Missing comment string in Rotational</a>
@@ -1089,7 +1107,7 @@ Color coding of "Priority":
                       Interfaces.PartialFriction: Added missing description string to variable mode
                     </td>
               </tr>
-              <tr class="even prio3">
+              <tr class="odd prio3">
                     <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1818" title="View ticket" class="closed">#1818</a></td>
                     <td class="summary">
                       <a href="https://trac.modelica.org/Modelica/ticket/1818" title="View ticket">constant torque with regularization around zero</a>
@@ -1098,7 +1116,7 @@ Color coding of "Priority":
                       Added new models Modelica.Mechanics.Rotational.Sources.SignTorque and Modelica.Mechanics.Translational.Sources.SignForce; Added new variable Modelica.Mechanics.Rotational.Sources.ConstantTorque.w
                     </td>
               </tr>
-              <tr class="odd prio3">
+              <tr class="even prio3">
                     <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1872" title="View ticket" class="closed">#1872</a></td>
                     <td class="summary">
                       <a href="https://trac.modelica.org/Modelica/ticket/1872" title="View ticket">New Rotational component ElastoBacklash2</a>
@@ -1345,7 +1363,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Utilities <span class="numrows">(6 matches)</span></h2>
+    <h2 class="report-result">Component: Utilities <span class="numrows">(7 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -1411,6 +1429,15 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       Added functions to write matrices in various Matlab MAT formats on file and to read such matrices from file
+                    </td>
+              </tr>
+              <tr class="even prio2">
+                    <td class="batchmod_selector sel"><input value="807" title="Select ticket 807 for modification" name="selected_ticket" type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1886" title="View ticket" class="closed">#1886</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1886" title="View ticket">Modelica.Utilities.Files.exist does't work if considered as a pure function</a>
+                    </td>
+                    <td class="changelog">
+                      Marked impure functions with vendor-specific annotations for impure functions
                     </td>
               </tr>
       </tbody>
