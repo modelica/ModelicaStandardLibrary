@@ -75,7 +75,7 @@ Note, a fileName can be defined as URI by using the helper function
     output Boolean endOfFile
       "If true, end-of-file was reached when trying to read line";
    external "C" string=  ModelicaInternal_readLine(fileName,lineNumber,endOfFile) annotation(Library="ModelicaExternalC");
-    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+    annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -104,7 +104,7 @@ and endOfFile=true. Otherwise endOfFile=false.
 
     output Integer numberOfLines "Number of lines in file";
   external "C" numberOfLines=  ModelicaInternal_countLines(fileName) annotation(Library="ModelicaExternalC");
-    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+    annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -153,7 +153,7 @@ by \"\\n\" in the string.
                  annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName) annotation(Library="ModelicaExternalC");
-    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+    annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -212,7 +212,7 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     output Real matrix[nrow, ncol] "2D Real array";
     external "C" ModelicaIO_readRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), verboseRead)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(__OpenModelica_Impure=true, __Dymola_pure=false,
+    annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

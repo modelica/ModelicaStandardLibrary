@@ -116,7 +116,7 @@ algorithm
                    "since it does not exist");
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -153,7 +153,7 @@ function copy "Generate a copy of a file or of a directory"
      copyDirectoryContents(Modelica.Utilities.Internal.FileSystem.readDirectory(
                                        oldName, Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
                                                 oldName)), oldName, newName, replace);
-     annotation(__OpenModelica_Impure=true, __Dymola_pure=false);
+     annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
   end copyDirectory;
 
   function copyDirectoryContents
@@ -171,7 +171,7 @@ function copy "Generate a copy of a file or of a directory"
         newName_i := newName + "/" + oldNames[i];
         Files.copy(oldName_i, newName_i, replace);
      end for;
-annotation(__OpenModelica_Impure=true, __Dymola_pure=false);
+annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
   end copyDirectoryContents;
 //..............................................................
 
@@ -217,7 +217,7 @@ algorithm
                        oldName2, newName2);
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -272,7 +272,7 @@ algorithm
      Files.remove(oldName);
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -327,7 +327,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
                                         name2, Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
                                                 name2)), name2);
      Modelica.Utilities.Internal.FileSystem.rmdir(name2);
-     annotation(__OpenModelica_Impure=true, __Dymola_pure=false);
+     annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
   end removeDirectory;
 
   function removeDirectoryContents
@@ -338,7 +338,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
       for i in 1:size(fileNames,1) loop
          Files.remove(name2 + "/" + fileNames[i]);
       end for;
-      annotation(__OpenModelica_Impure=true, __Dymola_pure=false);
+      annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
   end removeDirectoryContents;
 //..............................................................
   String fullName;
@@ -352,7 +352,7 @@ algorithm
      removeDirectory(fullName);
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -390,7 +390,7 @@ algorithm
                    "This is not possible, because it is a special file (pipe, device, etc.)");
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -434,7 +434,7 @@ function createDirectory
      else
         exists :=false;
      end if;
-     annotation(__OpenModelica_Impure=true, __Dymola_pure=false);
+     annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
   end existDirectory;
 
   function assertCorrectIndex
@@ -506,7 +506,7 @@ algorithm
         end while;
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -538,7 +538,7 @@ algorithm
   result := Modelica.Utilities.Internal.FileSystem.stat(
                           name) > Types.FileType.NoFile;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -569,7 +569,7 @@ algorithm
      Streams.error("A special file (pipe, device, etc.) \"" + name + "\" already exists.\n" + message);
   end if;
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -594,7 +594,7 @@ function fullPathName "Get full path name of file or directory name"
   output String fullName "Full path of 'name'";
 external "C" fullName = ModelicaInternal_fullPathName(name) annotation(Library="ModelicaExternalC");
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -659,7 +659,7 @@ algorithm
        name :=pathName;
      end if;
    end if;
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -686,7 +686,7 @@ function temporaryFileName
   output String fileName "Full path name of temporary file";
   external "C" fileName=ModelicaInternal_temporaryFileName(0) annotation(Library="ModelicaExternalC");
 
-  annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+  annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -706,7 +706,7 @@ end temporaryFileName;
      extends
       Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
      extends ModelicaServices.ExternalReferences.loadResource;
-    annotation (__OpenModelica_Impure=true, __Dymola_pure=false,
+    annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
 Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
