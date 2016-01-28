@@ -1493,7 +1493,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
     annotation (experiment(StopTime=0.02),      Documentation(info="<html>
 <p>
 The setting with order=4 gives the same result with balance=false and balance=true.
-If order=5 or higher is set, then the balance=false setting gives extremly slow
+If order=5 or higher is set, then the balance=false setting gives extremely slow
 simulation. If the balance=false blocks are removed, the simulation is very fast.
 This shows the improvements in the numerics when balance=true is set.
 </p>

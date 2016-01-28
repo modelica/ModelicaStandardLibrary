@@ -3989,7 +3989,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               textString="VCV")}),
         Documentation(info="<html>
-<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
+<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
 <pre>    p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
 <p>The controlling port (left) current vector is zero.</p>
@@ -4085,7 +4085,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
               lineColor={0,0,255},
               textString="VCC")}),
         Documentation(info="<html>
-<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
+<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
 <pre>    p2.i = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
 <p>The controlling port (left) current vector is zero.</p>
@@ -4182,7 +4182,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
               lineColor={0,0,255},
               textString="CCV")}),
         Documentation(info="<html>
-<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
+<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
 <pre>    p2.v - n2.v = f(pc[2].i, pc[4].i,...)</pre>
 <p>The controlling port (left) current vector is zero.</p>
@@ -4285,7 +4285,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               lineColor={0,0,255},
               textString="CCC")}),
         Documentation(info="<html>
-<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
+<p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivatives.</p>
 <p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
 <pre>    p2.i = f(pc[2].i, pc[4].i,...)</pre>
 <p>The controlling port (left) voltage is zero for each pair: pc[2].v - pc[1].v = 0, ...</p><p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0, ...</p>

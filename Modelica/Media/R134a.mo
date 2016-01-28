@@ -2538,7 +2538,7 @@ This function integrates the derivative of temperature w.r.t. time in order to a
       end while;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the density of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The saftey margin to the phase boundary is 1[K] and 1000[Pa].
+<p> This function calculates the density of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
 </p>
 <h4>Restrictions</h4>
 The function cannot be inverted in a numerical way. Please use functions <a href=\"modelica://Modelica.Media.R134a.R134a_ph.rho_props_ph\">rho_props_ph</a> and <a href=\"modelica://Modelica.Media.R134a.R134a_ph.T_props_ph\">T_props_ph</a> for this purpose.
@@ -2564,7 +2564,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       h := R134aData.data.R*T*(f.tau*f.ftau + f.delta*f.fdelta);
 
       annotation (Documentation(info="<html>
-<p> This function calculates the specific enthalpy of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The saftey margin to the phase boundary is 1[K] and 1000[Pa].
+<p> This function calculates the specific enthalpy of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
 </p>
 </html>"));
     end hofpT;

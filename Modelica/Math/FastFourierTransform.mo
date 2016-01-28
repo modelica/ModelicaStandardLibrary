@@ -104,7 +104,7 @@ A plot of the resulting FFT is shown in the next image:
 </p>
 
 <p>
-Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitely set to zero, since the corresponding
+Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitly set to zero, since the corresponding
 \"phase\" is numerical noise (and would just be confusing).
 Furthermore, note that the FFT phases are with respect to a cos(..) signal.
 </p>
