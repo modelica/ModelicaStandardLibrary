@@ -4722,10 +4722,10 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
         annotation (Dialog(tab="LeakageInductance"));
       parameter SI.RelativePermeability mu_rel(min=Modelica.Constants.eps)=
            1
-        "Constant relative permeability of leackage inductance (> 0 required)"
+        "Constant relative permeability of leakage inductance (> 0 required)"
         annotation (Dialog(tab="LeakageInductance"));
       final parameter SI.Permeance G_m=Modelica.Constants.mue_0*
-          mu_rel*A/L "Magnetic permeance of leackage inductance";
+          mu_rel*A/L "Magnetic permeance of leakage inductance";
 
       //for information only:
       SI.MagneticFlux Psi "Flux linkage for information only";
@@ -4746,7 +4746,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
       V_m = i*N "Ampere's law";
       N*der(Phi_ind) = -v "Faraday's law";
 
-      // leackage equations
+      // leakage equations
       Phi_leak = G_m*V_m;
       Phi = Phi_ind + Phi_leak;
 
@@ -5953,9 +5953,9 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         Boolean asc(start=true, fixed=true) "=asc without chatter";
         Boolean asc2 "Hstat is ascending der(Hstat)>0";
         Boolean delAsc(start=false)
-          "whipeout history vertex at ascending Hstat";
+          "wipeout history vertex at ascending Hstat";
         Boolean delDesc(start=false)
-          "whipeout history vertex at descending Hstat";
+          "wipeout history vertex at descending Hstat";
         Boolean del(start=false) "delAsc or delDesc";
         Boolean init(start=false, fixed=true)
           "If init=1 then J runs on the initial magnetization curve";
@@ -5966,7 +5966,7 @@ An overview of all available hysteresis and permanent magnet elements of the pac
         SI.MagneticFieldStrength aSav[Count]
           "1xCount array of alpha history (vertices on Preisach Plane)";
         SI.MagneticFieldStrength bSav[Count]
-          "1xCount array of beta history (verttices on Preisach Plane)";
+          "1xCount array of beta history (vertices on Preisach Plane)";
 
         SI.MagneticFluxDensity E "Everett function";
         SI.MagneticFieldStrength H1 "Term for computing the Everett function";
@@ -8114,9 +8114,9 @@ on the model behaviour.
 <dl><dt>diffHyst = hystF - hystR;</dt>
 <dl><dt>dhR = hystF - b;</dt>
 <dl><dt>dhF = b - hystR;</dt>
-<dl><dt>if the magnetic field itensity increases (der(h)&gt;0)</dt>
+<dl><dt>if the magnetic field intensity increases (der(h)&gt;0)</dt>
 <dl><dt>der(b) = dhR/diffHyst * der(hystR);</dt>
-<dl><dt>if the magnetex field itensity decreases (der(h)&lt;0)</dt>
+<dl><dt>if the magnetic field intensity decreases (der(h)&lt;0)</dt>
 <dl><dt>der(b) = dhF/diffHyst * der(hystF);</dt>
 <dl><dt><img src=\"modelica://HysteresisTest/pics/tellinen01.png\"/></dt>
 <dd>Fig.1 - Description of the Tellinen hysteresis model. </dd>

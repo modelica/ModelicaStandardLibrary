@@ -173,7 +173,7 @@ vector direction displayed according to this rule:
 The cut-force <code>m2.flange_a.f</code>
 of the right mass is directed into the
 direction of movement if the values are positive. Similarly,
-the velocitiy <code>m2.v</code> of the right mass
+the velocity <code>m2.v</code> of the right mass
 is also directed into the
 direction of movement if the values are positive
 </p>

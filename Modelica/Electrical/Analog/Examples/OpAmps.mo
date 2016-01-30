@@ -66,7 +66,7 @@ package OpAmps
         color={0,0,255}));
     annotation (
       Documentation(info="<html>
-                        <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
+                        <p>This is an inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
                         </html>"),
       experiment(
         StartTime=0,
@@ -146,7 +146,7 @@ package OpAmps
         color={0,0,255}));
     annotation (Documentation(info=
                    "<html>
-                         <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplfication k.</p>
+                         <p>This is a non inverting amplifier. Resistance R1 can be chosen, R2 is defined by the desired amplification k.</p>
                          </html>"),
       experiment(
         StartTime=0,
@@ -945,7 +945,7 @@ package OpAmps
     annotation (Documentation(info=
                    "<html>
                         <p>This signal generator consists of a Schmitt Trigger and an integrator. The output of the first OpAmp (Schmidt Trigger) s a rectangular signal, the output of the second OpAmp (integrator) is a triangular signal. </p>
-                        <p>The switching level of the comparator defines the ampltude of the triangle, the frequency is defined by: f = Vps/VAmp/(4*R*C) according to:</p>
+                        <p>The switching level of the comparator defines the amplitude of the triangle, the frequency is defined by: f = Vps/VAmp/(4*R*C) according to:</p>
                         <p>U. Tietze and C. Schenk, Halbleiter-Schaltungstechnik (German), 11th edition, Springer 1999, Chapter 14.5.2</p>
                         </html>"),
       experiment(

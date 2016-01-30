@@ -545,7 +545,7 @@ This icon is indicates a record.
 <p>
 Obsolete class, only kept for backwards compatibility.
 The type classes TypeReal, TypeInteger etc. have been introduced to associate an icon to the
-built-in base classes Real, Integer etc. Instead for Complex, an icon is already introducded in its
+built-in base classes Real, Integer etc. Instead for Complex, an icon is already introduced in its
 definition (which is not possible for the built-in classes). Therefore, TypeComplex is just an alias
 to Complex and is therefore superfluous.
 </p>

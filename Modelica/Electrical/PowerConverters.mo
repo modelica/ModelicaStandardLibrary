@@ -68,7 +68,7 @@ can be used.
       extends Modelica.Icons.Information;
       annotation (DocumentationClass=true, Documentation(info="<html>
 
-<p>The following DC/DC converter topologies are currently included in the PowerConverters libraray.</p>
+<p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
 
 <p>
 <ul>
@@ -3413,7 +3413,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
       package ExampleTemplates "Templates of examples"
         extends Modelica.Icons.Package;
         partial model SinglePhaseTwoLevel
-          "Single phas two level inverter including control"
+          "Single phase two level inverter including control"
           import Modelica;
           extends Icons.ExampleTemplate;
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -4420,13 +4420,13 @@ General information about controllers is summarized in
 </html>"));
       end VoltageCenterTap2mPulse;
 
-      block Filter "PT1 + allpass filter"
+      block Filter "PT1 + all-pass filter"
         extends Modelica.Blocks.Interfaces.SISO;
         import Modelica.Constants.pi;
         parameter Modelica.SIunits.Frequency f=50 "Mains Frequency";
         parameter Modelica.SIunits.Frequency fCut=2*f "Cut off frequency";
         final parameter Integer na(final min=2) = 2
-          "Count of 1st order allpass";
+          "Count of 1st order all-pass";
         final parameter Modelica.SIunits.Frequency fa=f/tan(pi/na - atan(f/fCut)
             /(2*na));
         parameter Real yStart=0 "Start value of output"
@@ -4458,7 +4458,7 @@ General information about controllers is summarized in
             color={0,0,127}));
         annotation (
           Documentation(info="<html>
-<p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order allpass filters tuned on supply frequency <code>f</code>.</p>
+<p>First order filter with cut-off frequency <code>fCut</code>. The phase shift of the filter is compensated by a series of two first order all-pass filters tuned on supply frequency <code>f</code>.</p>
 </html>"),Icon(graphics={Polygon(
                       lineColor={192,192,192},
                       fillColor={192,192,192},

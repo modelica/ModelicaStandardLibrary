@@ -149,7 +149,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 2.4.0, 2010-04-20 (Anton Haumer)</h5>
 
 <ul>
-  <li>Included core, fricton and stray load models for rotating electric machines</li>
+  <li>Included core, friction and stray load models for rotating electric machines</li>
 </ul>
 
 <h5>Version 2.3.0, 2010-02-16 (Anton Haumer)</h5>
@@ -10571,7 +10571,7 @@ a ground has to be used where necessary for currents flowing back.
                       extent={{-88,-72},{84,-92}},
                       lineColor={0,0,0},
                       textString="angle")}), Documentation(info="<html>
-Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the spave phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
+Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
@@ -10669,7 +10669,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
                       extent={{-62,-74},{14,-86}},
                       lineColor={0,0,0},
                       textString="zero")}), Documentation(info="<html>
-Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
+Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
 </html>"));
       end FromSpacePhasor;
 
@@ -10843,7 +10843,7 @@ Transformation of multi phase values (of voltages or currents) to space phasor a
         y := fill(x0, m) + InverseTransformation*x;
 
         annotation (Inline=true, Documentation(info="<html>
-Transformation of space phasor and zero sequence value to mutli phase values (of voltages or currents).
+Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
 </html>"));
       end FromSpacePhasor;
 

@@ -247,7 +247,7 @@ This is the library of quasi static fundamental wave models for multi phase elec
         output Modelica.SIunits.ComplexCurrent Ie=resistor_e.i[1]
           "Current of electric representation";
         output Modelica.SIunits.ComplexCurrent Im=resistor_m.i[1]
-          "Current of magentic representation";
+          "Current of magnetic representation";
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground_e
           annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground_m
@@ -4231,7 +4231,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
                     0,255})}),
           Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the suppyl are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
+Resistances and stray inductances of the machine refer to an <code>m</code> phase stator. The symmetry of the stator and the supply are assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
 
 <ul>

@@ -141,7 +141,7 @@ w12_1 = Frames.<b>angularVelocity1</b>(R12);
 <p>
 The function call <code>Frames.<b>angularVelocity1</b>(R12)</code> returns the
 the angular velocity w12_1 of frame 2 with respect to frame 1 resolved in frame 1,
-from the orientation object R12 that describes the orientationto rotate frame 1 into frame 2.
+from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
 </p>
 </html>"));
   end angularVelocity1;
@@ -309,7 +309,7 @@ R = Frames.<b>nullRotation</b>(R);
 <p>
 The function call <code>Frames.<b>rnullRotation</b>()</code> returns an orientation matrix
 R describing the orientation object to rotate frame 1 into frame 2, if frame 1 and frame 2 are identical.
-(= transformation matrix is identy matrix and angular velocity is zero).
+(= transformation matrix is identity matrix and angular velocity is zero).
 </p>
 </html>"));
   end nullRotation;

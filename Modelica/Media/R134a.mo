@@ -46,29 +46,29 @@ package R134a "R134a: Medium model for R134a"
     end InverseDerivatives_rhoT;
 
     record EOSIdealCoeff
-      "Record for coefficients of ideal term of helmholtz equation of state"
+      "Record for coefficients of ideal term of Helmholtz equation of state"
       extends Modelica.Icons.Record;
 
       parameter Integer nc=5 "No. of coefficients in a";
       parameter Real[nc] a
-        "Coefficients of ideal term of helmholtz equation of state";
+        "Coefficients of ideal term of Helmholtz equation of state";
 
     end EOSIdealCoeff;
 
     record EOSResidualCoeff
-      "Record for coefficients of residual term of helmholtz equation of state"
+      "Record for coefficients of residual term of Helmholtz equation of state"
       extends Modelica.Icons.Record;
 
       parameter Integer nc=20 "No. of coefficients in c, d, t, n";
       parameter Integer ns1 "No. of zero coefficients in c";
       parameter Real[nc] c
-        "Coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of Helmholtz equation of state";
       parameter Real[nc] d
-        "Coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of Helmholtz equation of state";
       parameter Real[nc] t
-        "Coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of Helmholtz equation of state";
       parameter Real[nc] n
-        "Coefficients of residual term of helmholtz equation of state";
+        "Coefficients of residual term of Helmholtz equation of state";
 
     end EOSResidualCoeff;
 
@@ -1344,7 +1344,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
     end saturationPressure;
 
     redeclare function extends specificHeatCapacityCp
-      "Specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input"
+      "Specific heat capacity at constant pressure | turns infinite in two-phase region! | use setState_phX function for input"
 
     protected
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
@@ -1421,10 +1421,10 @@ Please note, that the function can also be called in the two-phase region, but t
           2.4348205e+03,-2.0807957e+02}
         "Coefficients for term of 2nd viscosity virial coefficient";
       constant Real c[6]={-0.331249e-01,-0.468509e-03,0.156983,3.073830,-0.306398,
-          0.215221} "Coefficients for term of residiual viscosity";
+          0.215221} "Coefficients for term of residual viscosity";
       constant Real DCRIT_mol=4.9788 "Critical density in mol/l";
       Real d_red "Reduced density";
-      Real B_eta "2nd visosity virial coeff.";
+      Real B_eta "2nd viscosity virial coeff.";
       Real E "Temperature contribution to residual viscosity";
       Real eta_res "Residual part";
       Real eta_star "Dilute part";
@@ -1459,7 +1459,7 @@ Please note, that the function can also be called in the two-phase region, but t
 </p>
 <h4>References</h4>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of visocsity of pure refrigerants and mixtures</b>.
+<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <p><img src=\"modelica://Modelica/Resources/Images/Media/R134a/log(p)eta-Diagram-R134a.png\"/> </p>
@@ -1499,7 +1499,7 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
       f := f_R134a(state.d, state.T);
       f_ref := f_R134a(state.d, coeff.T_ref);
 
-      // dilute gase contribution
+      // dilute gas contribution
       lambda_dg := coeff.a_0 + coeff.a_1*state.T;
 
       // reduced lambda
@@ -1682,7 +1682,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
     algorithm
       f := state.h - state.p/state.d - state.T*specificEntropy(state);
       annotation (Documentation(info="<html>
-<p> This function calculates the specific Helmholtz energy of R134a from the state record (e.g., use setState_phX function for input). The helmholtz energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).
+<p> This function calculates the specific Helmholtz energy of R134a from the state record (e.g., use setState_phX function for input). The Helmholtz energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 </p>
 </html>"));
     end specificHelmholtzEnergy;
@@ -1877,7 +1877,7 @@ The isentropic efficiency function should not be applied in liquid region.
       end if;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy. In one-phase region the function calls the fundamental helmholtz equation of Tillner-Roth (1994). In two-phase the density and temperature is computed from cubic splines for saturated pressure, liquid and vapor density.
+<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy. In one-phase region the function calls the fundamental Helmholtz equation of Tillner-Roth (1994). In two-phase the density and temperature is computed from cubic splines for saturated pressure, liquid and vapor density.
 </p>
 <h4>Restrictions</h4>
 The function cannot be inverted in a numerical way. Please use functions <a href=\"modelica://Modelica.Media.R134a.R134a_ph.rho_props_ph\">rho_props_ph</a> and <a href=\"modelica://Modelica.Media.R134a.R134a_ph.T_props_ph\">T_props_ph</a> for this purpose.
@@ -1912,7 +1912,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
 
       Modelica.SIunits.SpecificEnthalpy hl "Liquid enthalpy";
       Boolean liquid "Is liquid";
-      Boolean supercritical "Is supercritcal";
+      Boolean supercritical "Is supercritical";
       Integer int "Interval number";
       Real pred "Reduced pressure";
       Real localx "Oordinate of local spline";
@@ -1920,7 +1920,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       Real dh "Difference in h";
       Real dp "Difference in p";
       Real damping "Damping constant";
-      Real det "Determinante";
+      Real det "Determinant";
       Real deld "Density change";
       Real delt "Temperature change";
       Modelica.Media.Common.HelmholtzDerivs f "Helmholtz derivatives";
@@ -1992,7 +1992,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
       end while;
 
       annotation (Documentation(info="<html>
-<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy in one-phase region. The function calls the fundamental helmholtz equation of Tillner-Roth (1994) which is requiring density and temperature for input. Thus, a newton iteration is performed to determine density and temperature. The newton iteration stops if the inputs for pressure difference delp and specific enthalpy difference delh are larger than the actual differences derived from the newton iteration.
+<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy in one-phase region. The function calls the fundamental Helmholtz equation of Tillner-Roth (1994) which is requiring density and temperature for input. Thus, a newton iteration is performed to determine density and temperature. The newton iteration stops if the inputs for pressure difference delp and specific enthalpy difference delh are larger than the actual differences derived from the newton iteration.
 </p>
 <h4>Restrictions</h4>
 The function shall only be used for one-phase inputs since the fundamental equation is not valid for two-phase states.
@@ -2026,14 +2026,14 @@ The function shall only be used for one-phase inputs since the fundamental equat
       Integer i "Newton iteration number";
       Real ds "Difference in s";
       Real dp "Difference in p";
-      Real det "Determinante";
+      Real det "Determinant";
       Real deld "Density change";
       Real delt "Temperature change";
       Modelica.Media.Common.HelmholtzDerivs f
-        "Dimensionless Helmholtz function and dervatives w.r.t. dimensionless d and T";
+        "Dimensionless Helmholtz function and derivatives w.r.t. dimensionless d and T";
       Modelica.Media.Common.NewtonDerivatives_ps nDerivs "Newton derivatives";
       Boolean liquid "Is liquid";
-      Boolean supercritical "Is supercritcal";
+      Boolean supercritical "Is supercritical";
       Boolean found "Iteration converged";
       Integer int "Interval number";
       Real pred "Reduced pressure";
@@ -2616,7 +2616,7 @@ The functions provided by this package shall be used inside of the restricted li
 Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states methode for estimation of visocsity of pure refrigerants and mixtures</b>.
+<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
@@ -9397,7 +9397,7 @@ The functions provided by this package shall be used inside of the restricted li
 Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states methode for estimation of visocsity of pure refrigerants and mixtures</b>.
+<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>

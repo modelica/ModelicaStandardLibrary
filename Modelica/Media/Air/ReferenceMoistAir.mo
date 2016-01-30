@@ -245,7 +245,7 @@ package ReferenceMoistAir
   function massFractionWaterVapor "Return mass fraction of water vapor"
     extends Modelica.Icons.Function;
     input ThermodynamicState state "Thermodynamic state record";
-    output MassFraction X "Mass fraction of water varpor";
+    output MassFraction X "Mass fraction of water vapor";
   protected
     Real xw;
     Real xws;
@@ -310,7 +310,7 @@ package ReferenceMoistAir
     xw := X[1]/(1 - X[1]);
   end waterContent_X;
 
-  redeclare function extends relativeHumidity "Return relativ humidity"
+  redeclare function extends relativeHumidity "Return relative humidity"
   algorithm
     phi := Utilities.phi_pTX(
         state.p,
@@ -643,7 +643,7 @@ package ReferenceMoistAir
 
   end thermalConductivity;
 
-  package Utilities "Utilitiy package for moist air"
+  package Utilities "Utility package for moist air"
     extends Modelica.Icons.UtilitiesPackage;
 
     final constant MoleFraction[4] MMX={18.015257E-003,28.01348E-003,
@@ -784,7 +784,7 @@ package ReferenceMoistAir
                       p=p,
                       T=T,
                       X=X)), Documentation(revisions="<html>
-2013-07-18 Stefan Wischhusen: Corrected inverse intervall of pressure to complete range of medium model.
+2013-07-18 Stefan Wischhusen: Corrected inverse interval of pressure to complete range of medium model.
 </html>"));
       end p_dTX;
     end Inverses;
@@ -2172,9 +2172,9 @@ package ReferenceMoistAir
         Real ddelpi "Auxiliary variable";
         Real d2 "Auxiliary variable";
         Modelica.Media.Common.GibbsDerivs g
-          "Dimensionless Gibbs function and dervatives w.r.t. pi and tau";
+          "Dimensionless Gibbs function and derivatives w.r.t. pi and tau";
         Modelica.Media.Common.HelmholtzDerivs f
-          "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+          "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
         Real Tc=T - 273.15 "Celsius temperature for region check";
         Real Chi "Symmetrized compressibility";
         // slightly different variables for industrial use
@@ -2542,7 +2542,7 @@ package ReferenceMoistAir
           input SI.AbsolutePressure p "Absolute pressure";
           input SI.Temperature T "Temperature";
           output Common.GibbsDerivs2 g
-            "Gibbs function and dervatives w.r.t. T and p";
+            "Gibbs function and derivatives w.r.t. T and p";
 
         protected
           final constant Real[5] g_0={-0.632020233449497E+006,0.655022213658955,

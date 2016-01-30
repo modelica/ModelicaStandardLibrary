@@ -45,7 +45,7 @@ package Random "Library of functions for generating random numbers"
     public
       Integer id "A unique number used to sort equations correctly";
       discrete Real rImpure "Impure Real random number";
-      Integer iImpure "Impure Integer rndom number";
+      Integer iImpure "Impure Integer random number";
     algorithm
       when initial() then
         id := Utilities.initializeImpureRandom(globalSeed, time);
@@ -989,7 +989,7 @@ seed = Utilities.<b>automaticGlobalSeed</b>(dummy);
 <h4>Description</h4>
 <p>Returns an automatically computed seed (Integer). Typically, this seed is computed from:</p>
 <ol>
-<li> The current localtime by computing the number of milli-seconds up to the current hour</li>
+<li> The current local time by computing the number of milli-seconds up to the current hour</li>
 <li> The process id (added to the first part by multiplying it with the prime number 6007).</li>
 </ol>
 <p>

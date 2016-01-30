@@ -2460,7 +2460,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave\">Modelica.Magnetic.QuasiStatic.FundamentalWave</a></td>
     <td valign=\"top\">
-    This library provides quasistatic models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
+    This library provides quasi-static models of multiphase machines (induction machines, synchronous machines) in parallel (with the same parameters but different electric connectors)
     to the transient models in <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a>.<br>
     Quasistatic means that electric transients are neglected, voltages and currents are supposed to be sinusoidal. Mechanical and thermal transients are taken into account.<br>
     This library is especially useful in combination with the <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>
@@ -2902,7 +2902,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                                       Spice3BenchmarkMosfetCharacterization<br>
                                       Spice3BenchmarkRtlInverter<br>
                                       Spice3BenchmarkFourBitBinaryAdder</td>
-    <td valign=\"top\"> Spice3 examples and benchmarks from the SPICE3 Version e3 Users's Manual </td></tr>
+    <td valign=\"top\"> Spice3 examples and benchmarks from the SPICE3 Version e3 User's Manual </td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Spice3.Basic.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\"> K_CoupledInductors</td>
     <td valign=\"top\"> Inductive coupling via coupling factor K </td></tr>

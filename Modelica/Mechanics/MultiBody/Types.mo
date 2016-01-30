@@ -16,7 +16,7 @@ package Types "Constants and types with choices, especially to build menus"
     Documentation(info="<html>
 <p>
 Type definition of an axis vector with scroll down menu that provides
-the most ofen used axes vectors along the coordinate axes of a frame.
+the most often used axes vectors along the coordinate axes of a frame.
 For an example see parameter \"n\" in model
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Revolute\">Joints.Revolute</a>.
 </p>

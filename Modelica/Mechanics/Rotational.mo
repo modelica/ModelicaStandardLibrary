@@ -508,7 +508,7 @@ unnecessarily stringent).
 
       annotation (Documentation(info="<html>
 <p>
-Several elements of this libray model <b>Coulomb friction</b> with the method proposed in:
+Several elements of this library model <b>Coulomb friction</b> with the method proposed in:
 </p>
 
 <dl>

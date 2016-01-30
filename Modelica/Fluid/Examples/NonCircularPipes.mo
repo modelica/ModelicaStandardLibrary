@@ -45,7 +45,7 @@ equation
 <p>
 In this example two pipes are used to demonstrate the use of circular (default) and non-circular pipes,
 where the topmost pipe is circular with a length of 100 m and an inner diameter of 10 mm and the second pipe
-is a circular ring pipe with inner diameter of 5 mm and an outer diamter of 15 mm.
+is a circular ring pipe with inner diameter of 5 mm and an outer diameter of 15 mm.
 </p>
 <p>
 Both pipes are connected to a pT source (water, 293.15 K, 10 bar) and a mass flow sink (0.1 kg/s inflow).

@@ -537,7 +537,7 @@ Three variable pairs can be the independent variables of the model:
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications.</li>
 <li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where air is always in the same phase (liquid or gas).</li>
-<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
+<li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critical states.</li>
 </ol>
 <p>
 The following quantities are always computed:
@@ -598,7 +598,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
           input SI.Density d "Density";
           input SI.Temperature T "Temperature (K)";
           output Modelica.Media.Common.HelmholtzDerivs f
-            "Dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
+            "Dimensionless Helmholtz function and derivatives w.r.t. delta and tau";
 
         protected
           final constant Real[13] N_0={0.605719400E-007,-0.210274769E-004,-0.158860716E-003,

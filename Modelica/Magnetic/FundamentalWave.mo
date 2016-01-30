@@ -370,7 +370,7 @@ the re-structuring of the model required to change the initial conditions of the
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
-<li>Bug fix of wrong orientation of squirrel and damper cage modells, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
+<li>Bug fix of wrong orientation of squirrel and damper cage models, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket #1223</li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket #1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
