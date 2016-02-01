@@ -6233,8 +6233,7 @@ blocks of the block library Modelica.Blocks.Sources.
       Modelica.SIunits.Angle phi "Rotation angle of flange with respect to support";
       Modelica.Blocks.Interfaces.RealInput u[3]
         "Angle, angular velocity and angular acceleration of flange with respect to support as input signals"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     protected
       function position
         extends Modelica.Icons.Function;
@@ -6300,8 +6299,7 @@ blocks of the block library Modelica.Blocks.Sources.
 </p>
 </html>"), Icon(
         coordinateSystem(preserveAspectRatio=true,
-          extent={{-100.0,-100.0},{100.0,100.0}},
-          initialScale=0.1),
+          extent={{-100.0,-100.0},{100.0,100.0}}),
           graphics={
         Text(extent={{-80.0,-100.0},{-80.0,-60.0}},
           textString="phi,w,a"),

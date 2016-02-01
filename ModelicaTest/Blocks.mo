@@ -1760,8 +1760,7 @@ This shows the improvements in the numerics when balance=true is set.
             {-52,80},{-52,96},{54,96},{54,80},{58,80}}, color={0,0,127}));
     connect(booleanPulse.y, triggeredMax.trigger)
       annotation (Line(points={{21,50},{70,50},{70,68.2}}, color={255,0,255}));
-    annotation (experiment(StopTime=1.1), Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)));
+    annotation (experiment(StopTime=1.1));
   end Discrete;
 
   model Hysteresis
@@ -1775,7 +1774,6 @@ This shows the improvements in the numerics when balance=true is set.
 
     connect(Signal.y, hysteresis.u)
       annotation (Line(points={{-15.1,0},{10.2,0}},          color={0,0,127}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}})), experiment(StopTime=3));
+    annotation ( experiment(StopTime=3));
   end Hysteresis;
 end Blocks;

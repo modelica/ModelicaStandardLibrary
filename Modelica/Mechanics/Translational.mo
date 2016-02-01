@@ -3878,8 +3878,7 @@ blocks of the block library Modelica.Blocks.Source.
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       Modelica.Blocks.Interfaces.RealInput u[3]
         "Position, velocity and acceleration of flange as input signals"
-        annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     protected
       function position
         extends Modelica.Icons.Function;
