@@ -60,8 +60,21 @@ extern "C" {
 #define MODELICA_NORETURN _Noreturn
 #define MODELICA_NORETURNATTR
 #elif __cplusplus >= 201103L
+#if (defined(__GNUC__) && __GNUC__ >= 5) || \
+    (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 4 && __GNUC_MINOR__ >= 8)
 #define MODELICA_NORETURN [[noreturn]]
 #define MODELICA_NORETURNATTR
+#elif (defined(__GNUC__) && __GNUC__ >= 3) || \
+      (defined(__GNUC__) && defined(__GNUC_MINOR__) && __GNUC__ == 2 && __GNUC_MINOR__ >= 8)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR __attribute__((noreturn))
+#elif defined(__GNUC__)
+#define MODELICA_NORETURN
+#define MODELICA_NORETURNATTR
+#else
+#define MODELICA_NORETURN [[noreturn]]
+#define MODELICA_NORETURNATTR
+#endif
 #elif defined(__clang__)
 #if __has_attribute(noreturn)
 #define MODELICA_NORETURN
