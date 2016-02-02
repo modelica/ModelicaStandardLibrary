@@ -25,9 +25,9 @@ package UsersGuide "User's Guide"
     </style>
 </head>
 <body lang=\"en-US\">
-    <p>All files in this directory (&ldquo;ModelicaServices&rdquo;) and in all
+    <p>All files in this directory (&quot;ModelicaServices&quot;) and in all
     subdirectories are licensed by the <strong>Modelica Association</strong>
-    under the &ldquo;Modelica License&nbsp;2&rdquo;.</p>
+    under the &quot;Modelica License&nbsp;2&quot;.</p>
     <p style=\"margin-left: 40px;\"><strong>Licensor:</strong><br>
     Modelica Association<br>
     (Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping)<br>
@@ -61,16 +61,16 @@ package UsersGuide "User's Guide"
     License&nbsp;2</strong></p>
     <p><strong>1. Definitions.</strong></p>
     <ol type=\"a\">
-        <li>&ldquo;License&rdquo; is this Modelica License.</li>
-        <li>&ldquo;Original Work&rdquo; is any work of authorship, including
+        <li>&quot;License&quot; is this Modelica License.</li>
+        <li>&quot;Original Work&quot; is any work of authorship, including
         software, images, documents, data files, that contains the above
         licensing notice or that is packed together with a licensing notice
         referencing it.</li>
-        <li>&ldquo;Licensor&rdquo; is the provider of the Original Work who has
+        <li>&quot;Licensor&quot; is the provider of the Original Work who has
         placed this licensing notice adjacent to the copyright notice(s) for
         the Original Work. The Original Work is either directly provided by the
         owner of the Original Work, or by a licensee of the owner.</li>
-        <li>&ldquo;Derivative Work&rdquo; is any modification of the Original
+        <li>&quot;Derivative Work&quot; is any modification of the Original
         Work which represents, as a whole, an original work of authorship. For
         the matter of clarity and as examples:
             <ol type=\"a\">
@@ -90,20 +90,20 @@ package UsersGuide "User's Guide"
                 Original Work (of a Modelica package).</li>
             </ol>
         </li>
-        <li>&ldquo;Modified Work&rdquo; is any modification of the Original
+        <li>&quot;Modified Work&quot; is any modification of the Original
         Work with the following exceptions: (a) fixing of errors and/or (b)
         adding vendor specific Modelica annotations and/or (c) using a subset
         of the classes of a Modelica package, and/or (d) using a different
         representation, e.g., a binary representation.</li>
-        <li>&ldquo;Source Code&rdquo; means the preferred form of the Original
+        <li>&quot;Source Code&quot; means the preferred form of the Original
         Work for making modifications to it and all available documentation
         describing how to modify the Original Work.</li>
-        <li>&ldquo;You&rdquo; means an individual or a legal entity exercising
+        <li>&quot;You&quot; means an individual or a legal entity exercising
         rights under, and complying with all of the terms of, this
         License.</li>
-        <li>&ldquo;Modelica package&rdquo; means any Modelica library that is
+        <li>&quot;Modelica package&quot; means any Modelica library that is
         defined with the
-        &ldquo;<code><strong>package</strong>&nbsp;&lt;Name&gt;&nbsp;...&nbsp;<strong>end</strong>&nbsp;&lt;Name&gt;;</code>&rdquo;
+        &quot;<code><strong>package</strong>&nbsp;&lt;Name&gt;&nbsp;...&nbsp;<strong>end</strong>&nbsp;&lt;Name&gt;;</code>&quot;
         Modelica language element.</li>
     </ol>
     <p><strong>2. Grant of Copyright License.</strong> Licensor grants You a
@@ -199,9 +199,9 @@ package UsersGuide "User's Guide"
     <p><strong>8. Attribution Rights.</strong> You must retain in the Source
     Code of the Original Work and of any Derivative Works that You create, all
     author, copyright, patent, or trademark notices, as well as any descriptive
-    text identified therein as an &ldquo;Attribution Notice&rdquo;. The same
+    text identified therein as an &quot;Attribution Notice&quot;. The same
     applies to the licensing notice of this License in the Original Work. For
-    the matter of clarity, &ldquo;author notice&rdquo; means the notice that
+    the matter of clarity, &quot;author notice&quot; means the notice that
     identifies the original author(s).<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You must cause the Source Code for any
     Derivative Works that You create to carry a prominent Attribution Notice
@@ -212,7 +212,7 @@ package UsersGuide "User's Guide"
     appropriately displayed, e.g., in the documentation of the Derivative
     Work.</p>
     <p><strong>9. Disclaimer of Warranty.<br></strong> <u><strong>The Original
-    Work is provided under this License on an &ldquo;as is&rdquo; basis and
+    Work is provided under this License on an &quot;as is&quot; basis and
     without warranty, either express or implied, including, without limitation,
     the warranties of non-infringement, merchantability or fitness for a
     particular purpose. The entire risk as to the quality of the Original Work
@@ -289,7 +289,7 @@ package UsersGuide "User's Guide"
         <li>
             <p>Modelica License&nbsp;1 is unclear whether the licensed Modelica
             package can be distributed under a different license.
-            Version&nbsp;2 explicitly allows that &ldquo;Derivative Work&rdquo;
+            Version&nbsp;2 explicitly allows that &quot;Derivative Work&quot;
             can be distributed under any license of Your choice, see examples
             in Section&nbsp;1d) as to what qualifies as Derivative Work (so,
             version&nbsp;2 is clearer).</p>
@@ -306,14 +306,14 @@ package UsersGuide "User's Guide"
             have identical names, but different functionality.</p>
         </li>
         <li>
-            <p>Modelica License&nbsp;1 states that &ldquo;It is not allowed to
+            <p>Modelica License&nbsp;1 states that &quot;It is not allowed to
             charge a fee for the original version or a modified version of the
             software, besides a reasonable fee for distribution and
-            support&rdquo;. Version&nbsp;2 has a similar intention for all
+            support&quot;. Version&nbsp;2 has a similar intention for all
             Original Work under <u>Modelica License&nbsp;2</u> (to remain free
             of charge and open source) but states this more clearly as
-            &ldquo;No fee, neither as a copyright-license fee, nor as a selling
-            fee for the copy as such may be charged&rdquo;. Contrary to
+            &quot;No fee, neither as a copyright-license fee, nor as a selling
+            fee for the copy as such may be charged&quot;. Contrary to
             version&nbsp;1, Modelica License&nbsp;2 has no restrictions on fees
             for Derivative Work that is provided under a different license (so,
             version&nbsp;2 is clearer and has fewer restrictions).</p>
@@ -365,8 +365,8 @@ package UsersGuide "User's Guide"
     package under <u>Modelica License&nbsp;2</u>. This means that your Modelica
     package could be under a commercial/proprietary license, but one or more
     classes of it are under Modelica License&nbsp;2.<br>
-    Note, a &ldquo;type&rdquo; class (e.g., type Angle =
-    Real(unit=&ldquo;rad&rdquo;)) can be copied and included unmodified under a
+    Note, a &quot;type&quot; class (e.g., type Angle =
+    Real(unit=&quot;rad&quot;)) can be copied and included unmodified under a
     commercial/proprietary license (for details, see the next question).</p>
     <p><strong>Can I copy a type class or</strong> <u><strong>part</strong></u>
     <strong>of a model, block, function, record, connector class, out of a
@@ -377,8 +377,8 @@ package UsersGuide "User's Guide"
     <p>Yes, according to article&nbsp;2d), since this will in the end usually
     qualify as Derivative Work. The reasoning is the following: A type class or
     part of another class (e.g., an equation, a declaration, part of a class
-    description) cannot be utilized &ldquo;by its own&rdquo;. In order to make
-    this &ldquo;usable&rdquo;, you have to add additional code in order that
+    description) cannot be utilized &quot;by its own&quot;. In order to make
+    this &quot;usable&quot;, you have to add additional code in order that
     the class can be utilized. This is therefore usually Derivative Work and
     Derivative Work can be provided under a different license. Note, this only
     holds, if the additional code introduced is sufficient to qualify for
@@ -390,24 +390,24 @@ package UsersGuide "User's Guide"
     License&nbsp;2) and include it in</strong> <u><strong>modified</strong></u>
     <strong>form in a</strong> <u><strong>commercial/proprietary</strong></u>
     <strong>Modelica package?</strong></p>
-    <p>Yes. If the modification can be seen as a &ldquo;Derivative Work&rdquo;,
+    <p>Yes. If the modification can be seen as a &quot;Derivative Work&quot;,
     you can place it under your commercial/proprietary license. If the
-    modification does not qualify as &ldquo;Derivative Work&rdquo; (e.g., bug
+    modification does not qualify as &quot;Derivative Work&quot; (e.g., bug
     fixes, vendor specific annotations), it must remain under Modelica
     License&nbsp;2. This means that your Modelica package could be under a
     commercial/proprietary license, but one or more parts of it are under
     Modelica License&nbsp;2.</p>
-    <p><strong>Can I distribute a &ldquo;save total model&rdquo; under my
+    <p><strong>Can I distribute a &quot;save total model&quot; under my
     commercial/proprietary license, even if classes under Modelica
     License&nbsp;2 are included?</strong></p>
-    <p>Your classes of the &ldquo;save total model&rdquo; can be distributed
+    <p>Your classes of the &quot;save total model&quot; can be distributed
     under your commercial/proprietary license, but the classes under Modelica
     License&nbsp;2 must remain under Modelica License&nbsp;2. This means you
-    can distribute a &ldquo;save total model&rdquo;, but some parts might be
+    can distribute a &quot;save total model&quot;, but some parts might be
     under Modelica License&nbsp;2.</p>
     <p><strong>Can I distribute a Modelica package (under Modelica
     License&nbsp;2) in encrypted form?</strong></p>
-    <p>Yes. Note, if the encryption does not allow &ldquo;copying&rdquo; of
+    <p>Yes. Note, if the encryption does not allow &quot;copying&quot; of
     classes (in to unencrypted Modelica source code), you have to send the
     Modelica source code of this package to your customer, if he/she wishes it,
     according to article&nbsp;6.</p>
@@ -427,7 +427,7 @@ package UsersGuide "User's Guide"
     <p><strong>Is my modification to a Modelica package (under Modelica
     License&nbsp;2) a Derivative Work?</strong></p>
     <p>It is not possible to give a general answer to it. To be regarded as
-    &ldquo;an original work of authorship&rdquo;, a derivative work must be
+    &quot;an original work of authorship&quot;, a derivative work must be
     different enough from the original or must contain a substantial amount of
     new material. Making minor changes or additions of little substance to a
     preexisting work will not qualify the work as a new version for such
@@ -438,7 +438,7 @@ package UsersGuide "User's Guide"
     <ol type=\"a\">
         <li>
             <p>A Modelica tool extracts information out of a Modelica package
-            and presents the result in form of a &ldquo;manual&rdquo; for this
+            and presents the result in form of a &quot;manual&quot; for this
             package in, e.g., html, doc, or pdf format.</p>
         </li>
         <li>
@@ -455,7 +455,7 @@ package UsersGuide "User's Guide"
     </ol>
     <p><strong>Can I sell a manual that was basically derived by extracting
     information automatically from a Modelica package under Modelica
-    License&nbsp;2 (e.g., a &ldquo;reference guide&rdquo; of the Modelica
+    License&nbsp;2 (e.g., a &quot;reference guide&quot; of the Modelica
     Standard Library)?</strong></p>
     <p>Yes. Extracting information from a Modelica package, and providing it in
     a human readable, suitable format, like html, doc or pdf format, where the
