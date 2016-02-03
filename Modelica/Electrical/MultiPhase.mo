@@ -2409,7 +2409,6 @@ like thyristor, diode, switch, transformer.
   package Blocks "Blocks for multi phase systems"
     extends Modelica.Icons.Package;
     block QuasiRMS
-      import Modelica;
       extends Modelica.Blocks.Interfaces.SO;
       parameter Integer m(min=2) = 3 "Number of phases";
       Modelica.Blocks.Interfaces.RealInput u[m]

@@ -316,56 +316,6 @@ to the original vector are given, such that sorted_v = v[indices].
 </html>"));
 end sort;
 
-function matrixVectorProduct
-      "Returns the product of a complex matrix and a complex vector"
-  extends Modelica.Icons.Function;
-  input Complex m[:,:] "Complex matrix";
-  input Complex v[size(m, 2)] "Complex vector";
-  output Complex result[size(m,1)] "Complex result vector m*v";
-algorithm
-  //assert(size(m, 2)==size(v, 1), "Dimensions have to agree: size(m, 2)=size(v, 1)");
-  //Variant 1
-  for j in 1:size(m,1) loop
-    result[j] := Complex(0);
-    for k in 1:size(m,2) loop
-      result[j] := result[j] + m[j,k]*v[k];
-    end for;
-  end for;
-  //Variant 2
-  /*
-  for j in 1:size(m,1) loop
-    result[j] := Modelica.ComplexMath.'sum'({m[j,k]*v[k] for k in 1:size(m,2)});
-  end for;
-  */
-  //Variant 3
-  /*
-  result:={Modelica.ComplexMath.'sum'({m[j,k]*v[k] for k in 1:size(m,2)}) for j in 1:size(m,1)};
-  */
-  annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-result=Vectors.<b>matrixVectorProduct</b>(m, v);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-The function call \"<code>Vectors.<b>matrixVectorProduct</b>(m, v)</code>\" returns the
-<b>product</b> of complex matrix m time complex vector v.
-</p>
-
-<h4>Example</h4>
-<blockquote><pre>
-  m = {{1, 1+j}, {1-j, j};
-  v = {1, j};
-  result = matrixVectorProduct(m, v); // ={j, -j}
-</pre></blockquote>
-
-<h4>Note</h4>
-<p>
-The dimensions of m, v and result must agree: size(m,2) = size(v,1) and size(m,1) = size(result,1)
-</>p
-</html>"));
-end matrixVectorProduct;
   annotation(Documentation(info="<html>
 <p>
 This library provides functions operating on vectors

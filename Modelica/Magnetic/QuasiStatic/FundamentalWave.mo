@@ -3121,8 +3121,6 @@ relationship of the voltage and current space phasor.
         "Negative complex magnetic port" annotation (Placement(transformation(
               extent={{90,-110},{110,-90}})));
       parameter Integer m=3 "Number of phases";
-      final parameter Complex sTM[m,m]=
-        Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
       parameter Real effectiveTurns "Effective number of turns";
       constant Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
@@ -3172,11 +3170,13 @@ relationship of the voltage and current space phasor.
       // A technical solution with a rotator cannot be applied to the equations below
       final parameter Complex N=effectiveTurns*Modelica.ComplexMath.exp(Complex(
           0, orientation)) "Complex effective number of turns";
-      Modelica.SIunits.ComplexVoltage vSymmetricalComponent[m]=sTM*v
+      Modelica.SIunits.ComplexVoltage vSymmetricalComponent[m]
         "Symmetrical components of voltages";
-      Modelica.SIunits.ComplexCurrent iSymmetricalComponent[m]=sTM*i
+      Modelica.SIunits.ComplexCurrent iSymmetricalComponent[m]
         "Symmetrical components of currents";
     protected
+      final parameter Complex sTM[m,m]=
+        Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
       final parameter Integer indexNonPos[:]=
           Electrical.MultiPhase.Functions.indexNonPositiveSequence(m)
         "Indices of all non positive sequence components";
@@ -3184,6 +3184,13 @@ relationship of the voltage and current space phasor.
           Electrical.MultiPhase.Functions.indexPositiveSequence(m)
         "Indices of all positive sequence components";
     equation
+      // Symmetrical components (preferred): vSymmetricalComponent = sTM*v; iSymmetricalComponent = sTM*i;
+      for j in 1:m loop
+        vSymmetricalComponent[j] = Complex(sum({sTM[j,k].re*v[k].re - sTM[j,k].im*v[k].im for k in 1:m}),
+                                           sum({sTM[j,k].re*v[k].im + sTM[j,k].im*v[k].re for k in 1:m}));
+        iSymmetricalComponent[j] = Complex(sum({sTM[j,k].re*i[k].re - sTM[j,k].im*i[k].im for k in 1:m}),
+                                           sum({sTM[j,k].re*i[k].im + sTM[j,k].im*i[k].re for k in 1:m}));
+      end for;
       // Magnetic flux and flux balance of the magnetic ports
       port_p.Phi = Phi;
       port_p.Phi + port_n.Phi = Complex(0, 0);

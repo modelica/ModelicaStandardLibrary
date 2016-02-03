@@ -2651,10 +2651,6 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">realFFT</td>
     <td valign=\"top\">Return amplitude and phase vectors for a real FFT</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.ComplexMath.Vectors.</b></td></tr>
-<tr><td valign=\"top\" width=\"150\">matrixVectorProduct </td>
-    <td valign=\"top\">Returns complex result vector = complex matrix times complex vector (since some tools do not support operator overloading in this case)</td></tr>
-
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">readMatrixSize</td>
     <td valign=\"top\">Read dimensions of a Real matrix from a MATLAB MAT file</td></tr>

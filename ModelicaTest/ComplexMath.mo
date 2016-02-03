@@ -16,10 +16,6 @@ extends Modelica.Icons.ExamplesPackage;
     Real Ref;
     Boolean bRes;
     Boolean bRef;
-    Complex m[2,2];
-    Complex v[2];
-    Complex resvec[2];
-    Complex refvec[2];
     constant Real epsilon=1E-14;
   algorithm
     success:=false;
@@ -188,12 +184,6 @@ extends Modelica.Icons.ExamplesPackage;
     res:=Modelica.ComplexMath.'sqrt'(c1);
     ref:=Complex(+1.09868411346781,+0.455089860562227);
     assert(Modelica.ComplexMath.'abs'(ref-res)<epsilon, "sqrt failed");
-
-    m:={{Complex(1,0), Complex(1,1)}, {Complex(1,-1), Complex(0,1)}};
-    v:={Complex(1,0), Complex(0,1)};
-    resvec:=Modelica.ComplexMath.Vectors.matrixVectorProduct(m, v);//m*v
-    refvec:={Complex(0,1), Complex(0,-1)};
-    assert(sum(Modelica.ComplexMath.'abs'(refvec-resvec))<epsilon, "matrixVectorProduct failed");
 
     success:=true;
   end ComplexFunctions;

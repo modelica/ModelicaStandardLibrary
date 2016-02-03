@@ -2024,7 +2024,11 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       final parameter Complex sTM[m, m]=
         Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
     equation
-      y = sTM*u;
+      // Symmetrical components (preferred): y = sTM*u;
+      for j in 1:m loop
+        y[j] = Complex(sum({sTM[j,k].re*u[k].re - sTM[j,k].im*u[k].im for k in 1:m}),
+                       sum({sTM[j,k].re*u[k].im + sTM[j,k].im*u[k].re for k in 1:m}));
+      end for;
       annotation ( Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
