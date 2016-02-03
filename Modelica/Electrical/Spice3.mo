@@ -1613,7 +1613,6 @@ RC 3 4 1K<br/>
     model Spice3BenchmarkFourBitBinaryAdder
       "ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER"
       extends Modelica.Icons.Example;
-      import Modelica.Electrical.Spice3.*;
 
       output Real X1_p9_v =  X1.p9.v;
       output Real X1_p10_v = X1.p10.v;
@@ -1637,19 +1636,19 @@ RC 3 4 1K<br/>
       parameter Semiconductors.ModelcardBJT QMOD(BF=75, RB=100, CJE=1e-012, CJC=3e-012);
 
       // *   NODES:  INPUT(2), OUTPUT, VCC
-      Semiconductors.Q_NPNBJT Q1(modelcard=QMOD);
-      Semiconductors.D_DIODE D1CLAMP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
-      Semiconductors.Q_NPNBJT Q2(modelcard=QMOD);
-      Semiconductors.D_DIODE D2CLAMP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
-      Basic.R_Resistor RB(R=4000);
-      Basic.R_Resistor R1(R=1600);
-      Semiconductors.Q_NPNBJT Q3(modelcard=QMOD);
-      Basic.R_Resistor R2(R=1000);
-      Basic.R_Resistor RC(R=130);
-      Semiconductors.Q_NPNBJT Q4(modelcard=QMOD);
-      Semiconductors.D_DIODE DVBEDROP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
-      Semiconductors.Q_NPNBJT Q5(modelcard=QMOD);
-      Basic.Ground g;
+      Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT Q1(modelcard=QMOD);
+      Modelica.Electrical.Spice3.Semiconductors.D_DIODE D1CLAMP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
+      Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT Q2(modelcard=QMOD);
+      Modelica.Electrical.Spice3.Semiconductors.D_DIODE D2CLAMP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RB(R=4000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor R1(R=1600);
+      Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT Q3(modelcard=QMOD);
+      Modelica.Electrical.Spice3.Basic.R_Resistor R2(R=1000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RC(R=130);
+      Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT Q4(modelcard=QMOD);
+      Modelica.Electrical.Spice3.Semiconductors.D_DIODE DVBEDROP(modelcarddiode=DMOD, SENS_AREA=false, IC=-1e40);
+      Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT Q5(modelcard=QMOD);
+      Modelica.Electrical.Spice3.Basic.Ground g;
       Modelica.Electrical.Analog.Interfaces.Pin p1;
       Modelica.Electrical.Analog.Interfaces.Pin p2;
       Modelica.Electrical.Analog.Interfaces.Pin p3;
@@ -1926,17 +1925,17 @@ RC 3 4 1K<br/>
     end FOURBIT;
 
       // *** DEFINE NOMINAL CIRCUIT
-      parameter Semiconductors.ModelcardDIODE DMOD;
-      parameter Semiconductors.ModelcardBJT QMOD(BF=75, RB=100, CJE=1e-012, CJC=3e-012);
-      Sources.V_constant VCC(V=5);
-      Sources.V_pulse VIN1A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1e-008, PER=5e-008);
-      Sources.V_pulse VIN1B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=2e-008, PER=1e-007);
-      Sources.V_pulse VIN2A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=4e-008, PER=2e-007);
-      Sources.V_pulse VIN2B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=8e-008, PER=4e-007);
-      Sources.V_pulse VIN3A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1.6e-007, PER=8e-007);
-      Sources.V_pulse VIN3B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=3.2e-007, PER=1.6e-006);
-      Sources.V_pulse VIN4A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=6.4e-007, PER=3.2e-006);
-      Sources.V_pulse VIN4B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1.28e-006, PER=6.4e-006);
+      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardDIODE DMOD;
+      parameter Modelica.Electrical.Spice3.Semiconductors.ModelcardBJT QMOD(BF=75, RB=100, CJE=1e-012, CJC=3e-012);
+      Modelica.Electrical.Spice3.Sources.V_constant VCC(V=5);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN1A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1e-008, PER=5e-008);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN1B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=2e-008, PER=1e-007);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN2A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=4e-008, PER=2e-007);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN2B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=8e-008, PER=4e-007);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN3A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1.6e-007, PER=8e-007);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN3B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=3.2e-007, PER=1.6e-006);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN4A( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=6.4e-007, PER=3.2e-006);
+      Modelica.Electrical.Spice3.Sources.V_pulse VIN4B( V1=0, V2=3, TD=0, TR=1e-008, TF=1e-008, PW=1.28e-006, PER=6.4e-006);
       FOURBIT X1( X1(   X1( X1( Q1(vbe(start=0, fixed=true)),
                                 Q2(vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q3(Binternal(start=0), icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
@@ -2132,13 +2131,13 @@ RC 3 4 1K<br/>
                                 Q4(Binternal(start=0),icapbe(start=0), vbc(start=0, fixed=true), vbe(start=0, fixed=true)),
                                 Q5(vbc(start=0, fixed=true), vbe(start=0, fixed=true))))));
 
-      Basic.R_Resistor RBIT0(R=1000);
-      Basic.R_Resistor RBIT1(R=1000);
-      Basic.R_Resistor RBIT2(R=1000);
-      Basic.R_Resistor RBIT3(R=1000);
-      Basic.R_Resistor RCOUT(R=1000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RBIT0(R=1000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RBIT1(R=1000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RBIT2(R=1000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RBIT3(R=1000);
+      Modelica.Electrical.Spice3.Basic.R_Resistor RCOUT(R=1000);
       // *** (FOR THOSE WITH MONEY (AND MEMORY) TO BURN)
-      Basic.Ground g;
+      Modelica.Electrical.Spice3.Basic.Ground g;
 
     protected
       Modelica.Electrical.Analog.Interfaces.Pin n99;
@@ -6673,10 +6672,8 @@ on the model behaviour.
       record Mosfet "Record for Mosfet parameters"
         extends Spice3.Internal.Model.Model;
 
-        SI.Length m_len(start = 1e-4)
-          "L, length of channel region";
-        SI.Length m_width(           start = 1e-4)
-          "W, width of channel region";
+        SI.Length m_len(start = 1e-4) "L, length of channel region";
+        SI.Length m_width(           start = 1e-4) "W, width of channel region";
         SI.Area m_drainArea(       start=
               Spice3.Internal.SpiceConstants.CKTdefaultMosAD)
           "AD, area of drain diffusion";
@@ -6685,10 +6682,8 @@ on the model behaviour.
           "AS, area of source diffusion";
         Real m_drainSquares(    start = 1.0) "NRD, length of drain in squares";
         Real m_sourceSquares(   start = 1.0) "NRS, length of source in squares";
-        SI.Length m_drainPerimeter(  start = 0.0)
-          "PD, Drain perimeter";
-        SI.Length m_sourcePerimeter( start = 0.0)
-          "PS, Source perimeter";
+        SI.Length m_drainPerimeter(  start = 0.0) "PD, Drain perimeter";
+        SI.Length m_sourcePerimeter( start = 0.0) "PS, Source perimeter";
         SI.Voltage m_dICVDS(          start = 0.0)
           "IC_VDS, Initial D-S voltage";
         Real m_dICVDSIsGiven "IC_VDS, IsGivenValue";
@@ -6704,10 +6699,8 @@ on the model behaviour.
       //----------------------obsolete-----------------------------------
         Integer m_bPMOS(        start = 0) "P type MOSFET model";
         Integer m_nLevel(       start = 1) "MOS model level";
-        SI.Length m_drainPerimiter(  start = 0.0)
-          "PD, Drain perimeter";
-        SI.Length m_sourcePerimiter( start = 0.0)
-          "PS, Source perimeter";
+        SI.Length m_drainPerimiter(  start = 0.0) "PD, Drain perimeter";
+        SI.Length m_sourcePerimiter( start = 0.0) "PS, Source perimeter";
       //-----------------------------------------------------------------
         Boolean m_uic;
 
@@ -6775,8 +6768,7 @@ on the model behaviour.
         SI.Current m_cdrain "Ids";
         SI.Conductance m_gds "Gds, Drain-Source conductance";
         SI.Transconductance m_gm "Gm, Transconductance";
-        SI.Transconductance m_gmbs
-          "Gmbs, Bulk-Source transconductance";
+        SI.Transconductance m_gmbs "Gmbs, Bulk-Source transconductance";
         SI.Capacitance m_capbsb "Cbsb";
         SI.Charge m_chargebsb "Qbsb";
         SI.Capacitance m_capbss "Cbss";
@@ -6786,8 +6778,7 @@ on the model behaviour.
         SI.Capacitance m_capbds "Cbds";
         SI.Charge m_chargebds "Qbds";
         Real m_Beta "Beta";
-        SI.Capacitance m_capGSovl
-          "Cgso, Gate-source overlap cap.";
+        SI.Capacitance m_capGSovl "Cgso, Gate-source overlap cap.";
         SI.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
         SI.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
         SI.Capacitance m_capOx "Cox";
@@ -6958,8 +6949,7 @@ on the model behaviour.
          //---------------------------------------------------------------------
          SI.Conversions.NonSIunits.Area_cmPerVoltageSecond
           m_surfaceMobility( start = 600.0) "UO, Surface mobility";
-         SI.Length m_latDiff(             start = 0.0)
-          "LD, Lateral diffusion";
+         SI.Length m_latDiff(             start = 0.0) "LD, Lateral diffusion";
          SI.Current m_jctSatCur(           start = 1.0e-14)
           "IS, Bulk junction sat. current";
          SI.Resistance m_drainResistance(     start = 0)
@@ -6968,8 +6958,7 @@ on the model behaviour.
          SI.Resistance m_sourceResistance(    start = 0)
           "RS, Source ohmic resistance";
          Real m_sourceResistanceIsGiven "Source resistance IsGivenValue";
-         SI.Transconductance m_transconductance
-          "input - use tTransconductance";
+         SI.Transconductance m_transconductance "input - use tTransconductance";
          Real m_transconductanceIsGiven "Transconductance IsGivenValue";
          SI.Temp_K m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
@@ -8746,7 +8735,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 </html>"));
       end Mos2Calc;
 
-      function mos2ModelLineParamsInitEquations "Initial precalculation obsolete, use mos2ModelLineParamsInitEquationsRevised"
+      function mos2ModelLineParamsInitEquations
+        "Initial precalculation obsolete, use mos2ModelLineParamsInitEquationsRevised"
        extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
@@ -10060,7 +10050,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 </html>"));
       end mos2RenameParametersRevised;
 
-      function mos2RenameParameters "Parameter renaming to internal names obsolete, use mos2RenameParametersRevised"
+      function mos2RenameParameters
+        "Parameter renaming to internal names obsolete, use mos2RenameParametersRevised"
          extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
@@ -10212,16 +10203,12 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       record DiodeModelLineParams "Record for Diode model line parameters"
       extends Modelica.Icons.Record;
-        SI.Current m_satCur( start = 1.0e-14)
-          "IS, Saturation current";
-        SI.Resistance m_resist( start = 0.0)
-          "RS, Ohmic resistance";
+        SI.Current m_satCur( start = 1.0e-14) "IS, Saturation current";
+        SI.Resistance m_resist( start = 0.0) "RS, Ohmic resistance";
         Real m_emissionCoeff( start = 1.0) "N, Emission Coefficient";
         SI.Time m_transitTime( start = 0.0) "TT, Transit Time";
-        SI.Capacitance m_junctionCap( start = 0.0)
-          "CJO, Junction capacitance";
-        SI.Voltage m_junctionPot( start = 1.0)
-          "VJ, Junction potential";
+        SI.Capacitance m_junctionCap( start = 0.0) "CJO, Junction capacitance";
+        SI.Voltage m_junctionPot( start = 1.0) "VJ, Junction potential";
         SI.LinearTemperatureCoefficient m_gradingCoeff( start = 0.5)
           "M, Grading coefficient";                                                                           //unit check by maj
         SI.ActivationEnergy m_activationEnergy( start = 1.11)
@@ -10230,8 +10217,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           "XTI, Saturation current temperature exp.";
         Real m_depletionCapCoeff( start = 0.5)
           "FC, Forward bias junction fit parameter";
-        SI.Voltage m_breakdownVoltage
-          "BV, Reverse breakdown voltage";
+        SI.Voltage m_breakdownVoltage "BV, Reverse breakdown voltage";
         Real m_pBvIsGiven "BV is given value";
         SI.Current m_breakdownCurrent( start = 1.0e-3)
           "IBV, Current at reverse breakdown voltage";
@@ -10262,8 +10248,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       extends Modelica.Icons.Record;
         Real m_area(start = 1.0) "AREA, Area factor";
         Boolean m_bOff(start = false) "OFF, Initially off";
-        SI.Voltage m_dIC(start = 0.0)
-          "IC, Initial device voltage";
+        SI.Voltage m_dIC(start = 0.0) "IC, Initial device voltage";
         Real m_pIcIsGiven "IC is given value";
         Boolean m_bSensArea(start = false)
           "SENS_AREA, flag to request sensitivity WRT area";
@@ -10592,8 +10577,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       record ResistorParams "Resistor device parameters"
       extends Modelica.Icons.Record;
-          SI.Resistance m_dResist( start=1000)
-          "Device is a resistor model";
+          SI.Resistance m_dResist( start=1000) "Device is a resistor model";
           Real m_dResIsGiven "Resistance is given value";
           SI.Length m_dWidth( start=0) "Width";
           Real m_dWidthIsGiven "Width is given value";
@@ -10601,8 +10585,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           Real m_dLengthIsGiven "Length is given value";
           Boolean m_bSensResist( start = false)
           "flag to request sensitivity WRT resistance";
-          SI.Temp_C m_dTemp(start = 27)
-          "Resistor device temperature";
+          SI.Temp_C m_dTemp(start = 27) "Resistor device temperature";
 
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the resistor model in SPICE3.</p>
@@ -10780,8 +10763,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         SI.Temp_K m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
-        SI.Current m_satCur(start=1.0e-16)
-          "IS, Saturation Current";
+        SI.Current m_satCur(start=1.0e-16) "IS, Saturation Current";
         Real m_betaF( start = 100.0) "BF, Ideal forward beta";
         Real m_emissionCoeffF(  start = 1.0) "NF, Forward emission coefficient";
         Real m_leakBEemissionCoeff( start = 1.5)
@@ -10800,32 +10782,24 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_emissionCoeffR( start = 1.0) "NR, Reverse emission coefficient";
         Real m_leakBCemissionCoeff( start = 2.0)
           "NC, B-C leakage emission coefficient";
-        SI.Voltage m_earlyVoltF(start=0.0)
-          "VAF, Forward Early voltage";
+        SI.Voltage m_earlyVoltF(start=0.0) "VAF, Forward Early voltage";
         SI.Current m_rollOffF(start=0.0)
           "IKF, Forward beta roll-off corner current";
-        SI.Voltage m_earlyVoltR(start=0.0)
-          "VAR, Reverse Early voltage";
+        SI.Voltage m_earlyVoltR(start=0.0) "VAR, Reverse Early voltage";
         SI.Current m_rollOffR(start=0.0)
           "IKR, reverse beta roll-off corner current";
-        SI.Resistance m_emitterResist(start=0.0)
-          "RE, Emitter resistance";
-        SI.Resistance m_collectorResist(start=0.0)
-          "RC, Collector resistance";
+        SI.Resistance m_emitterResist(start=0.0) "RE, Emitter resistance";
+        SI.Resistance m_collectorResist(start=0.0) "RC, Collector resistance";
         SI.Current m_baseCurrentHalfResist(start=0.0)
           "IRB, Current for base resistance=(rb+rbm)/2";
-        SI.Resistance m_baseResist(start=0.0)
-          "RB, Zero bias base resistance";
-        SI.Resistance m_minBaseResist(start=0.0)
-          "RBM, Minimum base resistance";
+        SI.Resistance m_baseResist(start=0.0) "RB, Zero bias base resistance";
+        SI.Resistance m_minBaseResist(start=0.0) "RBM, Minimum base resistance";
         Real m_minBaseResistIsGiven;
         SI.Capacitance m_depletionCapBE(start=0.0)
           "CJE, Zero bias B-E depletion capacitance";
-        SI.Voltage m_potentialBE(start=0.75)
-          "VJE, B-E built in potential";
+        SI.Voltage m_potentialBE(start=0.75) "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
-        SI.Time m_transitTimeF(start=0.0)
-          "TF, Ideal forward transit time";
+        SI.Time m_transitTimeF(start=0.0) "TF, Ideal forward transit time";
         Real m_transitTimeBiasCoeffF( start = 0.0)
           "XTF, Coefficient for bias dependence of TF";
         SI.Current m_transitTimeHighCurrentF(start=0.0)
@@ -10835,16 +10809,13 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Frequency m_excessPhase(start=0.0) "PTF, Excess phase";
         SI.Capacitance m_depletionCapBC(start=0.0)
           "CJC, Zero bias B-C depletion capacitance";
-        SI.Voltage m_potentialBC(start=0.75)
-          "VJC, B-C built in potential";
+        SI.Voltage m_potentialBC(start=0.75) "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
           "MJC, B-C junction grading coefficient";
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
-        SI.Time m_transitTimeR(start=0.0)
-          "TR, Ideal reverse transit time";
-        SI.Capacitance m_capCS(start=0.0)
-          "CJS, Zero bias C-S capacitance";
+        SI.Time m_transitTimeR(start=0.0) "TR, Ideal reverse transit time";
+        SI.Capacitance m_capCS(start=0.0) "CJS, Zero bias C-S capacitance";
         SI.Voltage m_potentialSubstrate(start=0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
@@ -11487,10 +11458,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         input Real AREA "Area factor";
         input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-        input SI.Voltage IC_VBE
-          "Initial condition value, not yet implemented";
-        input SI.Voltage IC_VCE
-          "Initial condition value, not yet implemented";
+        input SI.Voltage IC_VBE "Initial condition value, not yet implemented";
+        input SI.Voltage IC_VCE "Initial condition value, not yet implemented";
         input Boolean UIC "Use initial conditions, UIC";
         input Boolean SENS_AREA
           "Flag for sensitivity analysis, not yet implemented";
@@ -11589,8 +11558,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Boolean m_bPNP( start = false) "PNP type device";
         SI.Temp_C m_tnom( start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
-        SI.Current m_satCur( start = 1.0e-16)
-          "IS, Saturation Current";
+        SI.Current m_satCur( start = 1.0e-16) "IS, Saturation Current";
         Real m_betaF( start = 100.0) "BF, Ideal forward beta";
         Real m_emissionCoeffF(  start = 1.0) "NF, Forward emission coefficient";
         Real m_leakBEemissionCoeff( start = 1.5)
@@ -11609,16 +11577,13 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_emissionCoeffR( start = 1.0) "NR, Reverse emission coefficient";
         Real m_leakBCemissionCoeff( start = 2.0)
           "NC, B-C leakage emission coefficient";
-        SI.Voltage m_earlyVoltF( start = 0.0)
-          "VAF, Forward Early voltage";
+        SI.Voltage m_earlyVoltF( start = 0.0) "VAF, Forward Early voltage";
         SI.Current m_rollOffF( start = 0.0)
           "IKF, Forward beta roll-off corner current";
-        SI.Voltage m_earlyVoltR( start = 0.0)
-          "VAR, Reverse Early voltage";
+        SI.Voltage m_earlyVoltR( start = 0.0) "VAR, Reverse Early voltage";
         SI.Current m_rollOffR( start = 0.0)
           "IKR, reverse beta roll-off corner current";
-        SI.Resistance m_emitterResist( start = 0.0)
-          "RE, Emitter resistance";
+        SI.Resistance m_emitterResist( start = 0.0) "RE, Emitter resistance";
         SI.Resistance m_collectorResist( start = 0.0)
           "RC, Collector resistance";
         SI.Current m_baseCurrentHalfResist( start = 0.0)
@@ -11630,11 +11595,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_minBaseResistIsGiven;
         SI.Capacitance m_depletionCapBE( start = 0.0)
           "CJE, Zero bias B-E depletion capacitance";
-        SI.Voltage m_potentialBE( start = 0.75)
-          "VJE, B-E built in potential";
+        SI.Voltage m_potentialBE( start = 0.75) "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
-        SI.Time m_transitTimeF( start = 0.0)
-          "TF, Ideal forward transit time";
+        SI.Time m_transitTimeF( start = 0.0) "TF, Ideal forward transit time";
         Real m_transitTimeBiasCoeffF( start = 0.0)
           "XTF, Coefficient for bias dependence of TF";
         SI.Current m_transitTimeHighCurrentF( start = 0.0)
@@ -11644,16 +11607,13 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         SI.Temp_C m_excessPhase( start = 0.0) "PTF, Excess phase";
         SI.Capacitance m_depletionCapBC( start = 0.0)
           "CJC, Zero bias B-C depletion capacitance";
-        SI.Voltage m_potentialBC( start = 0.75)
-          "VJC, B-C built in potential";
+        SI.Voltage m_potentialBC( start = 0.75) "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
           "MJC, B-C junction grading coefficient";
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
-        SI.Time m_transitTimeR( start = 0.0)
-          "TR, Ideal reverse transit time";
-        SI.Capacitance m_capCS( start = 0.0)
-          "CJS, Zero bias C-S capacitance";
+        SI.Time m_transitTimeR( start = 0.0) "TR, Ideal reverse transit time";
+        SI.Capacitance m_capCS( start = 0.0) "CJS, Zero bias C-S capacitance";
         SI.Voltage m_potentialSubstrate( start = 0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
@@ -12416,10 +12376,8 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
        input Real AREA "Area factor";
        input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-       input SI.Voltage IC_VBE
-          "Initial condition value, not yet implemented";
-       input SI.Voltage IC_VCE
-          "Initial condition value, not yet implemented";
+       input SI.Voltage IC_VBE "Initial condition value, not yet implemented";
+       input SI.Voltage IC_VCE "Initial condition value, not yet implemented";
        input Boolean SENS_AREA
           "Flag for sensitivity analysis, not yet implemented";
 
