@@ -2506,8 +2506,8 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Utilities\">Modelica.Utilities</a> functions for <b>matrix read/write</b></td>
     <td valign=\"top\">
    New functions are provided in the <a href=\"modelica://Modelica.Utilities.Streams\">Modelica.Utilities.Streams</a>
-   sublibrary to write matrices in Matlab MAT format on file and read matrices in this format from file.
-   The Matlab MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF) are supported by these functions.
+   sublibrary to write matrices in MATLAB MAT format on file and read matrices in this format from file.
+   The MATLAB MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF) are supported by these functions.
    Additionally, example models are provided under
    <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
    to demonstrate the usage of these functions in models. For more details see below.<br>
@@ -2653,11 +2653,11 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">readMatrixSize</td>
-    <td valign=\"top\">Read dimensions of a Real matrix from a Matlab MAT file</td></tr>
+    <td valign=\"top\">Read dimensions of a Real matrix from a MATLAB MAT file</td></tr>
 <tr><td valign=\"top\" width=\"150\">readRealMatrix</td>
-    <td valign=\"top\">Read Real matrix from Matlab MAT file</td></tr>
+    <td valign=\"top\">Read Real matrix from MATLAB MAT file</td></tr>
 <tr><td valign=\"top\" width=\"150\">writeRealMatrix</td>
-    <td valign=\"top\">Write Real matrix to a Matlab MAT file</td></tr>
+    <td valign=\"top\">Write Real matrix to a MATLAB MAT file</td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Strings.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">hashString</td>

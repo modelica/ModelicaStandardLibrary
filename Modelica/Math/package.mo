@@ -3412,11 +3412,11 @@ to compute the solution of a linear system of differential equations</p>
 <p>In several sources it is not recommended to use Taylor series expansion to
 calculate the exponential of a matrix, such as in 'C.B. Moler and C.F. Van Loan:
 Nineteen dubious ways to compute the exponential of a matrix. SIAM Review 20,
-pp. 801-836, 1979' or in the documentation of m-file expm2 in Matlab version 6
-(http://www.MathWorks.com) where it is stated that 'As a practical numerical
-method, this is often slow and inaccurate'. These statements are valid for a
-direct implementation of the Taylor series expansion, but <i>not</i> for the
-implementation variant used in this function.
+pp. 801-836, 1979' or in the documentation of m-file expm2 in MATLAB version 6
+(<a href=\"http://www.mathworks.com\">http://www.mathworks.com</a>) where it is
+stated that 'As a practical numerical method, this is often slow and inaccurate'.
+These statements are valid for a direct implementation of the Taylor series
+expansion, but <i>not</i> for the implementation variant used in this function.
 </p>
 
 </html>", revisions="<html>

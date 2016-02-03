@@ -392,7 +392,7 @@ from a file.
 
     annotation (experiment(StopTime=0.1), Documentation(info="<html>
 <p>
-Example model that shows how to write a Real matrix in Matlab MAT format on file
+Example model that shows how to write a Real matrix in MATLAB MAT format on file
 using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
 <p>
 </html>"));
@@ -422,7 +422,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
 
     annotation(experiment(StopTime=0.1), Documentation(info="<html>
 <p>
-Example model that shows how to read a Real matrix in Matlab MAT format from file
+Example model that shows how to read a Real matrix in MATLAB MAT format from file
 using functions
 <a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a> and
 <a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>.
@@ -454,11 +454,11 @@ the following examples are present.
      contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".<br>&nbsp;
      </li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
-     demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various Matlab MAT formats on file..<br>&nbsp;
+     demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various MATLAB MAT formats on file..<br>&nbsp;
      </li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">ReadRealMatrixFromFile</a>
      demonstrates the usage of functions \"Streams.readMatrixSize\" and \"Streams.readRealMatrix\"
-     to read a matrix in various Matlab MAT formats from file.
+     to read a matrix in various MATLAB MAT formats from file.
      </li>
 </ul>
 </html>"));
