@@ -2510,7 +2510,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
    The Matlab MAT formats v4, v6, v7 and v7.3 (in case the tool supports HDF) are supported by these functions.
    Additionally, example models are provided under
    <a href=\"modelica://Modelica.Utilities.Examples\">Modelica.Utilities.Examples</a>
-   to demonstrates the usage of these functions in models. For more details see below.<br>
+   to demonstrate the usage of these functions in models. For more details see below.<br>
    (These extensions have been developed by Thomas Beutlich from ITI GmbH).
     </td></tr>
 
