@@ -3103,6 +3103,8 @@ relationship of the voltage and current space phasor.
     model MultiPhaseElectroMagneticConverter
       "Multi phase electro magnetic converter"
       import Modelica.Constants.pi;
+      import Modelica.ComplexMath.Vectors.matrixVectorProduct;
+      import Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix;
       constant Complex j=Complex(0, 1);
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) "Positive plug" annotation (Placement(transformation(
@@ -3148,8 +3150,8 @@ relationship of the voltage and current space phasor.
         "Magnitude of complex apparent power";
       Modelica.SIunits.ApparentPower S_total=sqrt(P_total^2 + Q_total^2)
         "Magnitude of total complex apparent power";
-      Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1
-          :m} "Power factor";
+      Real pf[m]={cos(Modelica.ComplexMath.arg(Complex(P[k], Q[k]))) for k in 1:m}
+        "Power factor";
 
       // Local electromagnetic fundamental wave quantities
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
@@ -3171,10 +3173,10 @@ relationship of the voltage and current space phasor.
       final parameter Complex N=effectiveTurns*Modelica.ComplexMath.exp(Complex(
           0, orientation)) "Complex effective number of turns";
       Modelica.SIunits.ComplexVoltage vSymmetricalComponent[m]=
-          Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m)*v
+        matrixVectorProduct(symmetricTransformationMatrix(m), v)
         "Symmetrical components of voltages";
       Modelica.SIunits.ComplexCurrent iSymmetricalComponent[m]=
-          Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m)*i
+        matrixVectorProduct(symmetricTransformationMatrix(m), i)
         "Symmetrical components of currents";
     protected
       final parameter Integer indexNonPos[:]=
