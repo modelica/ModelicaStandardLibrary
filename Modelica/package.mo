@@ -2573,7 +2573,7 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
 <tr><td valign=\"top\" width=\"150\">LogFrequencySweep</td>
     <td valign=\"top\"> The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), the output is the decimal power of this logarithmic ramp.</td></tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples..Utilities.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.Utilities.</b></td></tr>
 <tr><td valign=\"top\" width=\"150\">SpringDamperNoRelativeStates</td>
     <td valign=\"top\">Introduced to fix ticket <a href=\"https://trac.modelica.org/Modelica/ticket/1375\">1375</a></td></tr>
 
