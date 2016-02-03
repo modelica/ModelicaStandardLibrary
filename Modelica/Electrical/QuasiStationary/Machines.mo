@@ -8,92 +8,93 @@ package Machines "Quasistationary machine models"
     model TransformerTestbench "Transformer Testbench"
       extends Modelica.Icons.Example;
       parameter Integer m=3 "Number of phases";
-      parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m) "Load resistance";
-      output Modelica.SIunits.Voltage VS=polarVS[1].len "Grid voltage";
-      output Modelica.SIunits.Angle phiS=polarVS[1].phi "Grid phase";
-      output Modelica.SIunits.Voltage VL=polarVL[1].len "Load voltage";
-      output Modelica.SIunits.Angle phiL=polarVL[1].phi "Load phase";
+      parameter Modelica.SIunits.Resistance RL[m]=fill(1/3, m)
+        "Load resistance";
+      output Modelica.SIunits.Voltage VS=polarVS.len "Grid voltage";
+      output Modelica.SIunits.Angle phiS=polarVS.phi "Grid phase";
+      output Modelica.SIunits.Voltage VL=polarVL.len "Load voltage";
+      output Modelica.SIunits.Angle phiL=polarVL.phi "Load phase";
       QuasiStationary.MultiPhase.Sources.VoltageSource source(
         f=50,
         V=fill(100/sqrt(3), 3),
         m=m,
         gamma(fixed=true, start=0))
              annotation (Placement(transformation(
-            origin={-90,-10},
+            origin={-90,0},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       QuasiStationary.MultiPhase.Basic.Star starS(m=m) annotation (Placement(
             transformation(
-            origin={-90,-40},
+            origin={-90,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundS annotation (Placement(
-            transformation(extent={{-100,-80},{-80,-60}})));
+            transformation(extent={{-100,-70},{-80,-50}})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorS(m=m)
-        annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
+        annotation (Placement(transformation(extent={{-90,10},{-70,30}})));
       QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorS(m=m)
-        annotation (Placement(transformation(extent={{-60,20},{-40,0}})));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarIS[m] annotation (Placement(
+        annotation (Placement(transformation(extent={{-60,30},{-40,10}})));
+      ComplexBlocks.ComplexMath.ComplexToPolar polarIS annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={-50,40})));
+            origin={-50,80})));
       QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorS(m=m)
         annotation (Placement(transformation(
-            origin={-50,-30},
+            origin={-50,-20},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarVS[m] annotation (Placement(
+      ComplexBlocks.ComplexMath.ComplexToPolar polarVS annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={-50,-60})));
+            origin={-50,-80})));
       QuasiStationary.MultiPhase.Basic.Delta deltaS(m=m) annotation (Placement(
             transformation(
-            origin={-50,-10},
+            origin={-50,0},
             extent={{-10,-10},{10,10}})));
       QuasiStationary.SinglePhase.Basic.Resistor earth(R_ref=1e6) annotation (
           Placement(transformation(
-            origin={0,-40},
+            origin={0,-30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundT annotation (Placement(
-            transformation(extent={{-10,-80},{10,-60}})));
+            transformation(extent={{-10,-70},{10,-50}})));
       QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorL(m=m)
         annotation (Placement(transformation(
-            origin={50,-30},
+            origin={50,-20},
             extent={{-10,-10},{10,10}})));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarVL[m] annotation (Placement(
+      ComplexBlocks.ComplexMath.ComplexToPolar polarVL annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
-            origin={50,-60})));
+            origin={50,-80})));
       QuasiStationary.MultiPhase.Basic.Delta deltaL(m=m) annotation (Placement(
             transformation(
-            origin={50,-10},
+            origin={50,0},
             extent={{-10,10},{10,-10}},
             rotation=180)));
       QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorL(m=m)
-        annotation (Placement(transformation(extent={{40,20},{60,0}})));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarIL[m] annotation (Placement(
+        annotation (Placement(transformation(extent={{40,30},{60,10}})));
+      ComplexBlocks.ComplexMath.ComplexToPolar polarIL annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
-            origin={50,40})));
+            origin={50,80})));
       QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
-        annotation (Placement(transformation(extent={{70,0},{90,20}})));
+        annotation (Placement(transformation(extent={{70,10},{90,30}})));
       QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m) annotation (
          Placement(transformation(
-            origin={90,-10},
+            origin={90,0},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       QuasiStationary.MultiPhase.Basic.Star starL(m=m) annotation (Placement(
             transformation(
-            origin={90,-40},
+            origin={90,-30},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundL annotation (Placement(
-            transformation(extent={{80,-80},{100,-60}})));
+            transformation(extent={{80,-70},{100,-50}})));
       Modelica.Electrical.Machines.Utilities.TransformerData transformerData(
         C1=Modelica.Utilities.Strings.substring(
                 transformer.VectorGroup,
@@ -108,7 +109,7 @@ package Machines "Quasistationary machine models"
         V2=100,
         SNominal=30E3,
         v_sc=0.05,
-        P_sc=300) annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+        P_sc=300) annotation (Placement(transformation(extent={{-10,50},{10,70}})));
       QuasiStationary.Machines.BasicMachines.Transformers.Yd.Yd01 transformer(
         n=transformerData.n,
         R1=transformerData.R1,
@@ -120,88 +121,112 @@ package Machines "Quasistationary machine models"
         T2Ref=293.15,
         alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
         T1Operational=293.15,
-        T2Operational=293.15) annotation (Placement(transformation(extent={{-20,
-                -10},{20,30}})));
+        T2Operational=293.15) annotation (Placement(transformation(extent={{-20,0},{
+                20,40}})));
+      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsIS(final m=m)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-50,50})));
+      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsIL(final m=m)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={50,50})));
+      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsVS(final m=m)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-50,-50})));
+      MultiPhase.Blocks.SymmetricalComponents symmetricalComponentsVL(final m=m)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={50,-50})));
     equation
       connect(starS.pin_n, groundS.pin) annotation (Line(
-          points={{-90,-50},{-90,-60}},
+          points={{-90,-40},{-90,-50}},
           color={85,170,255}));
       connect(source.plug_n, starS.plug_p) annotation (Line(
-          points={{-90,-20},{-90,-30}},
+          points={{-90,-10},{-90,-20}},
           color={85,170,255}));
       connect(starL.pin_n, groundL.pin) annotation (Line(
-          points={{90,-50},{90,-60}},
+          points={{90,-40},{90,-50}},
           color={85,170,255}));
       connect(load.plug_n, starL.plug_p) annotation (Line(
-          points={{90,-20},{90,-30}},
+          points={{90,-10},{90,-20}},
           color={85,170,255}));
       connect(source.plug_p, electricalPowerSensorS.currentP) annotation (Line(
-          points={{-90,0},{-90,10}},
+          points={{-90,10},{-90,20}},
           color={85,170,255}));
       connect(electricalPowerSensorS.currentP, electricalPowerSensorS.voltageP)
         annotation (Line(
-          points={{-90,10},{-90,20},{-80,20}},
+          points={{-90,20},{-90,30},{-80,30}},
           color={85,170,255}));
       connect(electricalPowerSensorS.currentN, currentSensorS.plug_p)
         annotation (Line(
-          points={{-70,10},{-60,10}},
+          points={{-70,20},{-60,20}},
           color={85,170,255}));
       connect(currentSensorS.plug_n, transformer.plug1) annotation (Line(
-          points={{-40,10},{-20,10}},
+          points={{-40,20},{-20,20}},
           color={85,170,255}));
       connect(transformer.plug2, currentSensorL.plug_p) annotation (Line(
-          points={{20,10},{40,10}},
+          points={{20,20},{40,20}},
           color={85,170,255}));
       connect(currentSensorL.plug_n, electricalPowerSensorL.currentP)
         annotation (Line(
-          points={{60,10},{70,10}},
+          points={{60,20},{70,20}},
           color={85,170,255}));
       connect(electricalPowerSensorL.currentP, electricalPowerSensorL.voltageP)
         annotation (Line(
-          points={{70,10},{70,20},{80,20}},
+          points={{70,20},{70,30},{80,30}},
           color={85,170,255}));
       connect(electricalPowerSensorL.currentN, load.plug_p) annotation (Line(
-          points={{90,10},{90,0}},
+          points={{90,20},{90,10}},
           color={85,170,255}));
       connect(electricalPowerSensorL.voltageN, starL.plug_p) annotation (Line(
-          points={{80,0},{80,-30},{90,-30}},
+          points={{80,10},{80,-20},{90,-20}},
           color={85,170,255}));
       connect(electricalPowerSensorS.voltageN, starS.plug_p) annotation (Line(
-          points={{-80,0},{-80,-30},{-90,-30}},
+          points={{-80,10},{-80,-20},{-90,-20}},
           color={85,170,255}));
       connect(earth.pin_n, groundT.pin) annotation (Line(
-          points={{0,-50},{0,-60}},
+          points={{0,-40},{0,-50}},
           color={85,170,255}));
       connect(deltaS.plug_p, voltageSensorS.plug_n) annotation (Line(
-          points={{-60,-10},{-60,-30}},
+          points={{-60,0},{-60,-20}},
           color={85,170,255}));
       connect(deltaS.plug_n, voltageSensorS.plug_p) annotation (Line(
-          points={{-40,-10},{-40,-30}},
+          points={{-40,0},{-40,-20}},
           color={85,170,255}));
       connect(currentSensorS.plug_n, deltaS.plug_n) annotation (Line(
-          points={{-40,10},{-40,-10}},
+          points={{-40,20},{-40,0}},
           color={85,170,255}));
       connect(deltaL.plug_p, voltageSensorL.plug_n) annotation (Line(
-          points={{60,-10},{60,-30}},
+          points={{60,0},{60,-20}},
           color={85,170,255}));
       connect(deltaL.plug_n, voltageSensorL.plug_p) annotation (Line(
-          points={{40,-10},{40,-30}},
+          points={{40,0},{40,-20}},
           color={85,170,255}));
       connect(currentSensorL.plug_p, deltaL.plug_n) annotation (Line(
-          points={{40,10},{40,-10}},
+          points={{40,20},{40,0}},
           color={85,170,255}));
-      connect(polarIS.u, currentSensorS.y) annotation (Line(
-          points={{-50,28},{-50,21}},
-          color={85,170,255}));
-      connect(polarIL.u, currentSensorL.y) annotation (Line(
-          points={{50,28},{50,21}},
-          color={85,170,255}));
-      connect(voltageSensorS.y, polarVS.u) annotation (Line(
-          points={{-50,-41},{-50,-48}},
-          color={85,170,255}));
-      connect(voltageSensorL.y, polarVL.u) annotation (Line(
-          points={{50,-41},{50,-48}},
-          color={85,170,255}));
+      connect(symmetricalComponentsIS.u, currentSensorS.y)
+        annotation (Line(points={{-50,38},{-50,31}}, color={85,170,255}));
+      connect(symmetricalComponentsIL.u, currentSensorL.y)
+        annotation (Line(points={{50,38},{50,31}}, color={85,170,255}));
+      connect(symmetricalComponentsIS.y[1], polarIS.u) annotation (Line(points={{-50,
+              61},{-50,64.5},{-50,68}}, color={85,170,255}));
+      connect(symmetricalComponentsIL.y[1], polarIL.u)
+        annotation (Line(points={{50,61},{50,68}}, color={85,170,255}));
+      connect(voltageSensorS.y, symmetricalComponentsVS.u)
+        annotation (Line(points={{-50,-31},{-50,-38}}, color={85,170,255}));
+      connect(symmetricalComponentsVS.y[1], polarVS.u)
+        annotation (Line(points={{-50,-61},{-50,-68}}, color={85,170,255}));
+      connect(voltageSensorL.y, symmetricalComponentsVL.u) annotation (Line(points={
+              {50,-31},{50,-34.5},{50,-38}}, color={85,170,255}));
+      connect(symmetricalComponentsVL.y[1], polarVL.u) annotation (Line(points={{50,
+              -61},{50,-64.5},{50,-68}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 Transformer testbench:<br>
 You may choose different connections as well as vary the load (even not symmetrical).<br>
@@ -2000,7 +2025,8 @@ Copyright &copy; 1998-2015, Modelica Association and Anton Haumer.
     package Components "Machine components like AirGaps"
       extends Modelica.Icons.Package;
 
-      partial model PartialCore "Partial model of transformer core with 3 windings"
+      partial model PartialCore
+        "Partial model of transformer core with 3 windings"
         parameter Integer m(final min=1) = 3 "Number of phases";
         parameter Real n12(start=1) "Turns ratio 1:2";
         parameter Real n13(start=1) "Turns ratio 1:3";
@@ -2148,18 +2174,23 @@ This package contains components for modeling quasi stationary electrical induct
   package Interfaces "SpacePhasor connector and PartialMachines"
     extends Modelica.Icons.InterfacesPackage;
 
-    partial model PartialBasicTransformer "Partial model of three-phase transformer"
+    partial model PartialBasicTransformer
+      "Partial model of three-phase transformer"
       extends Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer;
       constant Integer m(min=1) = 3 "Number of phases";
       constant String VectorGroup="Yy00";
-      parameter Real n(start=1) "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";
+      parameter Real n(start=1)
+        "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)";
       parameter Modelica.SIunits.Resistance R1(start=5E-3/(if C1 == "D" then 1
              else 3)) "Primary resistance per phase at TRef"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.SIunits.Temperature T1Ref(start=293.15) "Reference temperature of primary resistance"
+      parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
+        "Reference temperature of primary resistance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-        alpha20_1(start=0) "Temperature coefficient of primary resistance at 20 degC"
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20_1(start=0)
+        "Temperature coefficient of primary resistance at 20 degC"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1 == "D"
              then 1 else 3)) "Primary stray inductance per phase"
@@ -2167,21 +2198,25 @@ This package contains components for modeling quasi stationary electrical induct
       parameter Modelica.SIunits.Resistance R2(start=5E-3/(if C2 == "d" then 1
              else 3)) "Secondary resistance per phase at TRef"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.SIunits.Temperature T2Ref(start=293.15) "Reference temperature of secondary resistance"
+      parameter Modelica.SIunits.Temperature T2Ref(start=293.15)
+        "Reference temperature of secondary resistance"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
-        alpha20_2(start=0) "Temperature coefficient of secondary resistance at 20 degC"
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20_2(start=0)
+        "Temperature coefficient of secondary resistance at 20 degC"
         annotation (Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L2sigma(start=78E-6/(if C2 == "d"
              then 1 else 3)) "Secondary stray inductance per phase"
         annotation (Dialog(tab="Nominal resistances and inductances"));
-      parameter Boolean useThermalPort=false "Enable / disable (=fixed temperatures) thermal port"
+      parameter Boolean useThermalPort=false
+        "Enable / disable (=fixed temperatures) thermal port"
         annotation (Evaluate=true);
-      parameter Modelica.SIunits.Temperature T1Operational(start=293.15) "Operational temperature of primary resistance"
-                                                        annotation (Dialog(
+      parameter Modelica.SIunits.Temperature T1Operational(start=293.15)
+        "Operational temperature of primary resistance" annotation (Dialog(
             group="Operational temperatures", enable=not useThermalPort));
-      parameter Modelica.SIunits.Temperature T2Operational(start=293.15) "Operational temperature of secondary resistance"
-                                                          annotation (Dialog(
+      parameter Modelica.SIunits.Temperature T2Operational(start=293.15)
+        "Operational temperature of secondary resistance" annotation (Dialog(
             group="Operational temperatures", enable=not useThermalPort));
       output Modelica.Electrical.Machines.Interfaces.PowerBalanceTransformer
         powerBalance(
@@ -2192,10 +2227,14 @@ This package contains components for modeling quasi stationary electrical induct
         final lossPower1=-sum(r1.resistor.LossPower),
         final lossPower2=-sum(r2.resistor.LossPower),
         final lossPowerCore=0) "Power balance";
-      output Modelica.SIunits.ComplexVoltage v1[m]=plug1.pin.v "Primary voltage";
-      output Modelica.SIunits.ComplexCurrent i1[m]=plug1.pin.i "Primary current";
-      output Modelica.SIunits.ComplexVoltage v2[m]=plug2.pin.v "Secondary voltage";
-      output Modelica.SIunits.ComplexCurrent i2[m]=plug2.pin.i "Secondary current";
+      output Modelica.SIunits.ComplexVoltage v1[m]=plug1.pin.v
+        "Primary voltage";
+      output Modelica.SIunits.ComplexCurrent i1[m]=plug1.pin.i
+        "Primary current";
+      output Modelica.SIunits.ComplexVoltage v2[m]=plug2.pin.v
+        "Secondary voltage";
+      output Modelica.SIunits.ComplexCurrent i2[m]=plug2.pin.i
+        "Secondary current";
     protected
       constant String C1=Modelica.Utilities.Strings.substring(
               VectorGroup,
@@ -2208,11 +2247,11 @@ This package contains components for modeling quasi stationary electrical induct
       parameter Real ni=n*(if C2 == "z" then sqrt(3) else 2)*(if C2 == "d"
            then 1 else sqrt(3))/(if C1 == "D" then 1 else sqrt(3));
     public
-      QuasiStationary.MultiPhase.Interfaces.PositivePlug plug1(final m=m) "Primary plug"
-                       annotation (Placement(transformation(extent={{-110,-10},
+      QuasiStationary.MultiPhase.Interfaces.PositivePlug plug1(final m=m)
+        "Primary plug" annotation (Placement(transformation(extent={{-110,-10},
                 {-90,10}})));
-      QuasiStationary.MultiPhase.Interfaces.NegativePlug plug2(final m=m) "Secondary plug"
-                         annotation (Placement(transformation(extent={{90,-10},
+      QuasiStationary.MultiPhase.Interfaces.NegativePlug plug2(final m=m)
+        "Secondary plug" annotation (Placement(transformation(extent={{90,-10},
                 {110,10}})));
       QuasiStationary.MultiPhase.Basic.Resistor r1(
         final m=m,
@@ -2374,7 +2413,8 @@ This package contains the quasi stationary space phasor connector and partial mo
 </html>"));
   end Interfaces;
 
-  package SpacePhasors "Space phasor components for quasi stationary electric machines"
+  package SpacePhasors
+    "Space phasor components for quasi stationary electric machines"
     extends Modelica.Icons.Package;
     package Blocks
       extends Modelica.Icons.Package;

@@ -3103,8 +3103,6 @@ relationship of the voltage and current space phasor.
     model MultiPhaseElectroMagneticConverter
       "Multi phase electro magnetic converter"
       import Modelica.Constants.pi;
-      import Modelica.ComplexMath.Vectors.matrixVectorProduct;
-      import Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix;
       constant Complex j=Complex(0, 1);
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) "Positive plug" annotation (Placement(transformation(
@@ -3123,6 +3121,8 @@ relationship of the voltage and current space phasor.
         "Negative complex magnetic port" annotation (Placement(transformation(
               extent={{90,-110},{110,-90}})));
       parameter Integer m=3 "Number of phases";
+      final parameter Complex sTM[m,m]=
+        Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
       parameter Real effectiveTurns "Effective number of turns";
       constant Modelica.SIunits.Angle orientation=0
         "Orientation of the first winding axis";
@@ -3172,11 +3172,9 @@ relationship of the voltage and current space phasor.
       // A technical solution with a rotator cannot be applied to the equations below
       final parameter Complex N=effectiveTurns*Modelica.ComplexMath.exp(Complex(
           0, orientation)) "Complex effective number of turns";
-      Modelica.SIunits.ComplexVoltage vSymmetricalComponent[m]=
-        matrixVectorProduct(symmetricTransformationMatrix(m), v)
+      Modelica.SIunits.ComplexVoltage vSymmetricalComponent[m]=sTM*v
         "Symmetrical components of voltages";
-      Modelica.SIunits.ComplexCurrent iSymmetricalComponent[m]=
-        matrixVectorProduct(symmetricTransformationMatrix(m), i)
+      Modelica.SIunits.ComplexCurrent iSymmetricalComponent[m]=sTM*i
         "Symmetrical components of currents";
     protected
       final parameter Integer indexNonPos[:]=
