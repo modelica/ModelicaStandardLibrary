@@ -37,7 +37,9 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
   Modelica.Electrical.Analog.Ideal.CloserWithArc switch2(
     dVdt=10000,
     V0=30,
-    Vmax=60)       annotation (Placement(transformation(extent={{0,-50},{20,
+    Vmax=60,
+    off(fixed=true))
+                   annotation (Placement(transformation(extent={{0,-50},{20,
             -30}})));
 
 equation

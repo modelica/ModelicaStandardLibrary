@@ -1,7 +1,6 @@
 within Modelica.Electrical.Analog.Examples;
 model ControlledSwitchWithArc
   "Comparison of controlled switch models both with and without arc"
-
   extends Modelica.Icons.Example;
   Modelica.Electrical.Analog.Basic.Ground ground1
     annotation (Placement(transformation(extent={{20,-20},{40,0}})));
@@ -10,7 +9,8 @@ model ControlledSwitchWithArc
         origin={-20,20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1)
+  Modelica.Electrical.Analog.Basic.Inductor inductor1(L=0.1, i(fixed=true,
+        start=0))
     annotation (Placement(transformation(extent={{40,30},{60,50}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor1(R=1)
     annotation (Placement(transformation(
@@ -26,7 +26,8 @@ model ControlledSwitchWithArc
         origin={-20,-60},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1)
+  Modelica.Electrical.Analog.Basic.Inductor inductor2(L=0.1, i(fixed=true,
+        start=0))
     annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
   Modelica.Electrical.Analog.Basic.Resistor resistor2(R=1)
     annotation (Placement(transformation(
@@ -36,7 +37,9 @@ model ControlledSwitchWithArc
   Modelica.Electrical.Analog.Ideal.ControlledCloserWithArc switch2(
     V0=30,
     dVdt=10000,
-    Vmax=60)       annotation (Placement(transformation(extent={{0,-50},{20,
+    Vmax=60,
+    off(fixed=true))
+                   annotation (Placement(transformation(extent={{0,-50},{20,
             -30}})));
   Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=1, freqHz=1)
     annotation (Placement(transformation(
@@ -45,10 +48,6 @@ model ControlledSwitchWithArc
         origin={-70,-10})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
-
-initial equation
-  inductor1.i = 0;
-  inductor2.i = 0;
 equation
   connect(inductor1.n,resistor1. p) annotation (Line(points={{60,40},{80,40},
           {80,30}}, color={0,0,255}));

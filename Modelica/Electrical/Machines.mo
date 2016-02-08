@@ -2941,7 +2941,8 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           Goff=fill(1e-5, m),
           V0=fill(30, m),
           dVdt=fill(10e3, m),
-          Vmax=fill(60, m))
+          Vmax=fill(60, m),
+          closerWithArc(off(start=fill(true, m), fixed=fill(true, m))))
           annotation (Placement(transformation(extent={{0,40},{-20,60}})));
         Modelica.Electrical.MultiPhase.Basic.Resistor loadResistor(m=m, R=fill(
               RLoad, m))

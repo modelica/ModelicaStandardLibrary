@@ -5,54 +5,21 @@ package Ideal
   extends Modelica.Icons.Package;
 
   model IdealDiode "Ideal diode"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Forward state-on differential resistance (closed diode resistance)";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Backward state-off conductance (opened diode conductance)";
-    parameter SI.Voltage Vknee(final min=0) = 0
-      "Forward threshold voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
-    Boolean off(start=true) "Switching state";
-  protected
-    Real s(start=0, final unit="1")
-      "Auxiliary variable for actual position on the ideal diode characteristic";
-    /* s = 0: knee point
-     s < 0: below knee point, diode conducting
-     s > 0: above knee point, diode locking */
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
+    extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
   equation
     off = s < 0;
-    v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-    i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-
-    LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<P>
-This is an ideal switch which is<br><br>
-<b>open </b>(off), if it is reversed biased (voltage drop less than 0)<br>
-<b>closed</b> (on), if it is conducting (current > 0).<br>
-<br/>
-This is the behaviour if all parameters are exactly zero.<br><br>
-Note, there are circuits, where this ideal description
-with zero resistance and zero conductance is not possible.
-In order to prevent singularities during switching, the opened
-diode has a small conductance <i>Gon</i> and the closed diode has a low
-resistance <i>Roff</i> which is default.
-</P>
-<P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br>
-along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled.
+<p>
+This is an ideal diode, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
+The diode is conducting if voltage &gt; Vknee.<br>
+The diode is locking if current &lt; Vknee/Goff.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSemiconductor<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -65,115 +32,31 @@ behavior is <b>not</b> modelled.
 </ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{40,0}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
-          Line(
-            visible=useHeatPort,
-            points={{0,-100},{0,-20}},
-            color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-156,101},{144,61}},
-            textString="%name",
-            lineColor={0,0,255})}),
+              100}})),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
-            128,128}),Polygon(
-              points={{70,4},{80,0},{70,-4},{70,4}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),Line(points={{0,80},{0,-80}},
-            color={128,128,128}),Polygon(
-              points={{-4,70},{0,80},{4,70},{-4,70}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{10,80},{20,70}},
-              lineColor={128,128,128},
-              textString="i"),Text(
-              extent={{70,-10},{80,-20}},
-              lineColor={128,128,128},
-              textString="v"),Line(
-              points={{-80,-40},{-20,-10},{20,10},{40,70}},
-              thickness=0.5),Line(
-              points={{20,9},{20,0}},
-              color={128,128,128},
-              pattern=LinePattern.Dot),Text(
-              extent={{20,0},{40,-10}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Vknee"),Text(
-              extent={{20,70},{40,60}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Ron"),Text(
-              extent={{-20,10},{0,0}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Goff"),Ellipse(
-              extent={{18,12},{22,8}},
-              pattern=LinePattern.Dot,
-              lineColor={0,0,255})}));
+              100,100}})));
   end IdealDiode;
 
   model IdealThyristor "Ideal thyristor"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed thyristor resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened thyristor conductance";
-    parameter SI.Voltage Vknee(final min=0) = 0
-      "Forward threshold voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
-    Boolean off(start=true) "Switching state";
+    extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
     Modelica.Blocks.Interfaces.BooleanInput fire annotation (Placement(
           transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected
-    Real s(final unit="1")
-      "Auxiliary variable: if on then current, if opened then voltage";
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     off = s < 0 or pre(off) and not fire;
-    v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-    i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-    LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>This is an ideal thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or both the thyristor already open (off = true) and fire is false<br>
-<b>closed</b> (not off), if both the voltage drop is greater or equal 0 and either the thyristor was already closed (off=false) or fire is true.
-</P>
 <p>
-This is the behaviour if all parameters are exactly zero.<br><br>
-Note, there are circuits, where this ideal description
-with zero resistance and zero conductance is not possible.
-In order to prevent singularities during switching, the opened
-thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
-resistance <i>Ron</i> which is default.
-</P>
-<P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br>
-along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
-</p>
+This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
+The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
+If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking. 
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSemiconductor<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -187,18 +70,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Text(
-            extent={{-150,-47},{150,-87}},
-            textString="%name",
-            lineColor={0,0,255}),
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{40,0}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,20},{70,60},{70,90}}, color={0,0,255}),
           Line(points={{40,50},{60,30}}, color={0,0,255}),
           Line(
@@ -207,98 +78,33 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             color={127,0,0},
             pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
-            128,128}),Polygon(
-              points={{70,4},{80,0},{70,-4},{70,4}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),Line(points={{0,80},{0,-80}},
-            color={128,128,128}),Polygon(
-              points={{-4,70},{0,80},{4,70},{-4,70}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{10,80},{20,70}},
-              lineColor={128,128,128},
-              textString="i"),Text(
-              extent={{70,-10},{80,-20}},
-              lineColor={128,128,128},
-              textString="v"),Line(
-              points={{-80,-40},{-20,-10},{20,10},{40,70}},
-              thickness=0.5),Line(
-              points={{20,9},{20,0}},
-              color={128,128,128},
-              pattern=LinePattern.Dot),Text(
-              extent={{20,0},{40,-10}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Vknee"),Text(
-              extent={{20,70},{40,60}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Ron"),Text(
-              extent={{-20,10},{0,0}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Goff"),Ellipse(
-              extent={{18,12},{22,8}},
-              pattern=LinePattern.Dot,
-              lineColor={0,0,255}),Line(
+              100,100}}), graphics={
+                                   Line(
               points={{20,10},{70,40}},
               thickness=0.5)}));
   end IdealThyristor;
 
   model IdealGTOThyristor "Ideal GTO thyristor"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed thyristor resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened thyristor conductance";
-    parameter SI.Voltage Vknee(final min=0) = 0
-      "Forward threshold voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
-    Boolean off(start=true) "Switching state";
+    extends Modelica.Electrical.Analog.Interfaces.IdealSemiconductor;
     Modelica.Blocks.Interfaces.BooleanInput fire annotation (Placement(
           transformation(
           origin={70,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected
-    Real s(final unit="1")
-      "Auxiliary variable: if on then current, if opened then voltage";
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
     off = s < 0 or not fire;
-    v = (s*unitCurrent)*(if off then 1 else Ron) + Vknee;
-    i = (s*unitVoltage)*(if off then Goff else 1) + Goff*Vknee;
-    LossPower = v*i;
     annotation (
       Documentation(info="<html>
-<p>This is an ideal GTO thyristor model which is<br><br>
-<b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
-<b>closed</b> (not off), if the voltage drop is greater or equal 0  and fire is true.
-</P>
 <p>
-This is the behaviour if all parameters are exactly zero.<br><br>
-Note, there are circuits, where this ideal description
-with zero resistance and zero conductance is not possible.
-In order to prevent singularities during switching, the opened
-thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
-resistance <i>Ron</i> which is default.
-</P>
-<P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
-the knee point <br>
-along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+This is an ideal GTO thyristor or switching transistor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
+The GTO thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
+Otherwise, the GTO thyristor is locking.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSemiconductor<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -312,14 +118,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Polygon(
-            points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{40,0}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
-          Line(points={{30,40},{30,-40}}, color={0,0,255}),
           Line(points={{30,10},{70,50},{70,90}}, color={0,0,255}),
           Line(points={{50,50},{70,30}}, color={0,0,255}),
           Line(
@@ -327,10 +125,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             points={{0,-100},{0,-20}},
             color={127,0,0},
             pattern=LinePattern.Dot),
-          Text(
-            extent={{-149,-43},{151,-83}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(
             points={{30,22},{70,62}},
             color={0,0,255}),
@@ -343,51 +137,10 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             points={{46,33},{53,33},{53,26},{46,33}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
-            fillColor={0,0,255}),
-          Text(
-            extent={{0,62},{0,34}},
-            lineColor={0,0,255},
-            fillColor={0,0,255},
-            fillPattern=FillPattern.Solid,
-            textString="GTO")}),
+            fillColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-80,0},{80,0}}, color={128,
-            128,128}),Polygon(
-              points={{70,4},{80,0},{70,-4},{70,4}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),Line(points={{0,80},{0,-80}},
-            color={128,128,128}),Polygon(
-              points={{-4,70},{0,80},{4,70},{-4,70}},
-              lineColor={128,128,128},
-              fillColor={128,128,128},
-              fillPattern=FillPattern.Solid),Text(
-              extent={{10,80},{20,70}},
-              lineColor={128,128,128},
-              textString="i"),Text(
-              extent={{70,-10},{80,-20}},
-              lineColor={128,128,128},
-              textString="v"),Line(
-              points={{-80,-40},{-20,-10},{20,10},{40,70}},
-              thickness=0.5),Line(
-              points={{20,9},{20,0}},
-              color={128,128,128},
-              pattern=LinePattern.Dot),Text(
-              extent={{20,0},{40,-10}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Vknee"),Text(
-              extent={{20,70},{40,60}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Ron"),Text(
-              extent={{-20,10},{0,0}},
-              lineColor={128,128,128},
-              pattern=LinePattern.Dot,
-              textString="Goff"),Ellipse(
-              extent={{18,12},{22,8}},
-              pattern=LinePattern.Dot,
-              lineColor={0,0,255}),Line(
+              100,100}}), graphics={
+                                   Line(
               points={{20,10},{70,40}},
               thickness=0.5)}));
   end IdealGTOThyristor;
@@ -1418,50 +1171,26 @@ where the constant <i>G</i> is called the gyration conductance.
   end Short;
 
   model IdealOpeningSwitch "Ideal electrical opener"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitch;
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (Placement(
           transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected
-    Real s(final unit="1") "Auxiliary variable";
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
-    v = (s*unitCurrent)*(if control then 1 else Ron);
-    i = (s*unitVoltage)*(if control then Goff else 1);
-
-    LossPower = v*i;
+    off = control;
     annotation (
       Documentation(info="<html>
 <P>
-The ideal opening switch has a positive pin p and a negative pin n.
-The switching behaviour is controlled by the input signal control.
-If control is true, pin p is not connected
-with negative pin n. Otherwise, pin p is connected
-with negative pin n.<br><br>
-
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron.
-The limiting case is also allowed, i.e., the resistance Ron of the
-closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits,
-where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+The switching behaviour of the ideal opening switch is controlled by the input signal control: off = control.<br>
+For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </P>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitch<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -1472,77 +1201,38 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-151,-21},{149,-61}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,0},
-            {96,0}}, color={0,0,255}),Text(
-              extent={{-100,-40},{100,-79}},
-              textString="%name",
-              lineColor={0,0,255}),Line(points={{0,51},{0,26}}, color={0,0,255}),
-            Line(points={{40,20},{40,0}}, color={0,0,255})}));
+              100,100}})));
   end IdealOpeningSwitch;
 
   model IdealClosingSwitch "Ideal electrical closer"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitch;
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open" annotation (Placement(
           transformation(
           origin={0,70},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-  protected
-    Real s(final unit="1") "Auxiliary variable";
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
-    v = (s*unitCurrent)*(if control then Ron else 1);
-    i = (s*unitVoltage)*(if control then 1 else Goff);
-
-    LossPower = v*i;
+    off = not control;
     annotation (
       Documentation(info="<html>
 <P>
-The ideal closing switch has a positive pin p and a negative pin n.
-The switching behaviour is controlled by input signal control.
-If control is true, pin p is connected
-with negative pin n. Otherwise, pin p is not connected
-with negative pin n.<br><br>
-
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron.
-The limiting case is also allowed, i.e., the resistance Ron of the
-closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits,
-where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+The switching behaviour of the ideal closing switch is controlled by the input signal control: off = not control.<br>
+For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </P>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitch<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -1553,82 +1243,39 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,51},{0,26}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-152,-28},{148,-68}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,0},
-            {96,0}}, color={0,0,255}),Text(
-              extent={{-100,-40},{100,-79}},
-              textString="%name",
-              lineColor={0,0,255}),Line(points={{0,51},{0,26}}, color={0,0,255})}));
+              100,100}})));
   end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
-
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
-    Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
-              -10},{-90,10}})));
-    Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,-10},
-              {110,10}})));
-    Interfaces.Pin control
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitch;
+    Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-  protected
-    Real s(final unit="1") "Auxiliary variable";
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
+    off = control.v > level;
     control.i = 0;
-    0 = p.i + n.i;
-    p.v - n.v = (s*unitCurrent)*(if (control.v > level) then 1 else Ron);
-    p.i = (s*unitVoltage)*(if (control.v > level) then Goff else 1);
-
-    LossPower = (p.v - n.v)*p.i;
     annotation (
       Documentation(info="<html>
 <P>
-The ideal switch has a positive pin p and a negative pin n.
-The switching behaviour is controlled by the control pin.
-If its voltage exceeds the voltage of the parameter level,
-pin p is not connected with negative pin n.
-Otherwise, pin p is connected with negative pin n.<br><br>
-
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron.
-The limiting case is also allowed, i.e., the resistance Ron of the
-closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits,
-where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+The switching behaviour of the controlled  ideal opening switch is controlled by the control pin: off = control.v &gt; level<br>
+For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </P>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitch<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -1639,81 +1286,41 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-150,-34},{150,-74}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,0},
-            {96,0}}, color={0,0,255}),Line(points={{0,96},{0,25}}, color={0,0,
-            255}),Line(points={{40,20},{40,0}}, color={0,0,255})}));
+              100,100}})));
   end ControlledIdealOpeningSwitch;
 
   model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
-
     parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
-    Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
-          transformation(extent={{90,-10},{110,10}})));
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitch;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-  protected
-    Real s(final unit="1") "Auxiliary variable";
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
   equation
+    off = control.v < level;
     control.i = 0;
-    0 = p.i + n.i;
-    p.v - n.v = (s*unitCurrent)*(if (control.v > level) then Ron else 1);
-    p.i = (s*unitVoltage)*(if (control.v > level) then 1 else Goff);
-
-    LossPower = (p.v - n.v)*p.i;
     annotation (
       Documentation(info="<html>
 <P>
-The closing ideal switch has a positive pin p and a negative pin n.
-The switching behaviour is controlled by the control pin.
-If its voltage exceeds the voltage of the parameter level,
-pin p is connected with negative pin n.
-Otherwise, pin p is not connected with negative pin n.<br><br>
-
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff
-and the closed switch has a (very low) resistance Ron.
-The limiting case is also allowed, i.e., the resistance Ron of the
-closed switch could be exactly zero and the conductance Goff of the
-open switch could be also exactly zero. Note, there are circuits,
-where a description with zero Ron or zero Goff is not possible.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+The switching behaviour of the controlled ideal closing switch is controlled by the control pin: off = control.v &lt; level<br>
+For further details, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitch\">IdealSwitch</a>.
 </P>
+
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitch<br>
+       </li>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
        </li>
@@ -1724,147 +1331,44 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot),
-          Text(
-            extent={{-149,-32},{151,-72}},
-            textString="%name",
-            lineColor={0,0,255})}),
+            pattern=LinePattern.Dot)}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,0},
-            {96,0}}, color={0,0,255}),Line(points={{0,96},{0,25}}, color={0,0,
-            255})}));
+              100,100}})));
   end ControlledIdealClosingSwitch;
 
   model OpenerWithArc "Ideal opening switch with simple arc model"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron=1E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff=1E-5
-      "Opened switch conductance";
-    parameter SI.Voltage V0(start=30) "Initial arc voltage";
-    parameter SI.VoltageSlope dVdt(start=10E3)
-      "Arc voltage slope";
-    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Blocks.Interfaces.BooleanInput control
       "false => p--n connected, true => switch open" annotation (Placement(
           transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-
-  protected
-    Boolean off=control;
-    Boolean on=not off;
-    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
-    Boolean quenched(start=true, fixed=true);
   equation
-    when edge(off) then
-      tSwitch = time;
-    end when;
-    quenched = off and (abs(i) <= abs(v)*Goff or pre(quenched));
-    if on then
-      v = Ron*i;
-    else
-      if quenched then
-        i = Goff*v;
-      else
-        v = min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-      end if;
-    end if;
-    LossPower = v*i;
+    off = control;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{40,50},{32,32},{48,28},{40,18}}, color={255,0,0}),
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-90,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{90,0}}),
           Line(points={{0,90},{0,26}}, color={255,85,255}),
-          Line(points={{40,18},{40,0}}),
-          Text(
-            extent={{-150,-35},{150,-75}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
-            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
-              extent={{30,-60},{50,-70}},
-              lineColor={0,0,0},
-              textString="time"),Text(
-              extent={{-60,60},{-20,50}},
-              lineColor={0,0,0},
-              textString="voltage"),Text(
-              extent={{-60,-30},{-40,-40}},
-              lineColor={0,0,0},
-              textString="V0"),Text(
-              extent={{-50,40},{-30,30}},
-              lineColor={0,0,0},
-              textString="Vmax"),Text(
-              extent={{-40,10},{-20,0}},
-              lineColor={0,0,0},
-              textString="dVdt"),Polygon(
-              points={{-60,60},{-62,52},{-58,52},{-60,60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{60,-60},{54,-58},{54,-62},{60,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+          Line(points={{40,18},{40,0}})}),
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 <p>
-The basic model interrupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
-In order to give a better idea for the voltage across the switch, a simple arc model is added:
-</p>
-<p>
-When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed.
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
-(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
-</p>
-<pre>
-     | voltage
-Vmax |      +-----
-     |     /
-     |    /
-V0   |   +
-     |   |
-     +---+-------- time
-</pre>
-<p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
-<code>i=Goff*v</code>.
-</p>
-<p>
-When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately,
-i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
-</p>
-<p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
-In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
+       </li>
 <li><i>June, 2009   </i>
        by Christoph Clauss<br> adapted to OpenerWithArc<br>
        </li>
@@ -1876,124 +1380,32 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   end OpenerWithArc;
 
   model CloserWithArc "Ideal closing switch with simple arc model"
-    extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    parameter SI.Resistance Ron=1E-5 "Closed switch resistance";
-    parameter SI.Conductance Goff=1E-5
-      "Opened switch conductance";
-    parameter SI.Voltage V0(start=30) "Initial arc voltage";
-    parameter SI.VoltageSlope dVdt(start=10E3)
-      "Arc voltage slope";
-    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open" annotation (Placement(
           transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=270)));
-
-  protected
-    Boolean on=control;
-    Boolean off(start=false, fixed=true);
-    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
-    Boolean quenched(start=true, fixed=true);
   equation
-    off = not on;
-    when edge(off) then
-      tSwitch = time;
-    end when;
-    quenched = off and (abs(i) <= abs(v)*Goff or pre(quenched));
-    if on then
-      v = Ron*i;
-    else
-      if quenched then
-        i = Goff*v;
-      else
-        v = min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-      end if;
-    end if;
-    LossPower = v*i;
+    off = not control;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0}),
-          Ellipse(extent={{-44,4},{-36,-4}}),
-          Line(points={{-90,0},{-44,0}}),
-          Line(points={{-37,2},{40,50}}),
-          Line(points={{40,0},{90,0}}),
-          Line(points={{0,90},{0,26}}, color={255,85,255}),
-          Text(
-            extent={{-152,-29},{148,-69}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(graphics={Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,
-            255}),Line(points={{-60,-60},{-40,-60},{-40,-40},{-20,40},{40,40}}),Text(
-              extent={{30,-60},{50,-70}},
-              lineColor={0,0,0},
-              textString="time"),Text(
-              extent={{-60,60},{-20,50}},
-              lineColor={0,0,0},
-              textString="voltage"),Text(
-              extent={{-60,-30},{-40,-40}},
-              lineColor={0,0,0},
-              textString="V0"),Text(
-              extent={{-50,40},{-30,30}},
-              lineColor={0,0,0},
-              textString="Vmax"),Text(
-              extent={{-40,10},{-20,0}},
-              lineColor={0,0,0},
-              textString="dVdt"),Polygon(
-              points={{-60,60},{-62,52},{-58,52},{-60,60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),Polygon(
-              points={{60,-60},{54,-58},{54,-62},{60,-60}},
-              lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
+          Line(points={{0,90},{0,26}}, color={255,85,255})}),
       Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 <p>
-The basic model interrupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
-In order to give a better idea for the voltage across the switch, a simple arc model is added:
-</p>
-<p>
-When the Boolean input <code>control</code> signals to open the switch, a voltage across the opened switch is impressed.
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
-(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
-</p>
-<pre>
-     | voltage
-Vmax |      +-----
-     |     /
-     |    /
-V0   |   +
-     |   |
-     +---+-------- time
-</pre>
-<p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
-<code>i=Goff*v</code>.
-</p>
-<p>
-When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately,
-i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
-</p>
-<p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
-In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
+       </li>
 <li><i>May, 2009   </i>
        by Anton Haumer<br> initially implemented<br>
        </li>
@@ -2003,267 +1415,94 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
-
-    parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance";
-    parameter SI.Voltage V0(start=30) "Initial arc voltage";
-    parameter SI.VoltageSlope dVdt(start=10E3)
-      "Arc voltage slope";
-    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
-    Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
-          transformation(extent={{90,-10},{110,10}})));
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    SI.Current i;
-    SI.Voltage v;
-  protected
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
-    Boolean off=(control.v > level);
-    Boolean on=not off;
-    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
-    Boolean quenched(start=true);
   equation
+    off = control.v > level;
     control.i = 0;
-    0 = p.i + n.i;
-    i = p.i;
-    p.v - n.v = v;
-
-    when edge(off) then
-      tSwitch = time;
-    end when;
-    quenched = off and (abs(i) <= abs(v)*Goff or pre(quenched));
-    if on then
-      v = Ron*i;
-    else
-      if quenched then
-        i = Goff*v;
-      else
-        v = min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-      end if;
-    end if;
-    LossPower = v*i;
     annotation (
       Documentation(info="<html>
-
 <p>
-This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
-</p>
-
-<p>
-The basic model interrupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
-In order to give a better idea for the voltage across the switch, a simple arc model is added:
+This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch\">ControlledIdealOpeningSwitch</a>.
 </p>
 <p>
-When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed.
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
-(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
-</p>
-<pre>
-     | voltage
-Vmax |      +-----
-     |     /
-     |    /
-V0   |   +
-     |   |
-     +---+-------- time
-</pre>
-<p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
-<code>i=Goff*v</code>.
-</p>
-<p>
-When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately,
-i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
-</p>
-<p>
-<b>Please note:</b>
-In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
-In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-</p>
-<p>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
+For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
 </html>", revisions="<html>
-<dl>
-<dt><i>1998</i></dt>
-<dd>by Christoph Clauss initially implemented</dd>
-</dl>
+<ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
+       </li>
+<li><i>May, 2009   </i>
+       by Anton Haumer<br> initially implemented<br>
+       </li>
+</ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
-          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0}),
-          Text(
-            extent={{-148,-34},{152,-74}},
-            textString="%name",
-            lineColor={0,0,255})}),
+          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,0},
-            {96,0}}, color={0,0,255}),Line(points={{0,96},{0,25}}, color={0,0,
-            255}),Line(points={{40,20},{40,0}}, color={0,0,255})}));
+              100,100}})));
   end ControlledOpenerWithArc;
 
   model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
-
-    parameter SI.Voltage level=0.5 "Switch level";
-    parameter SI.Resistance Ron(final min=0) = 1.E-5
-      "Closed switch resistance";
-    parameter SI.Conductance Goff(final min=0) = 1.E-5
-      "Opened switch conductance";
-    parameter SI.Voltage V0(start=30) "Initial arc voltage";
-    parameter SI.VoltageSlope dVdt(start=10E3)
-      "Arc voltage slope";
-    parameter SI.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
-          293.15);
-    Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
-          transformation(extent={{-110,-10},{-90,10}})));
-    Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
-          transformation(extent={{90,-10},{110,10}})));
+    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
+    extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open"
       annotation (Placement(transformation(
           origin={0,100},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    SI.Current i;
-    SI.Voltage v;
-  protected
-    constant SI.Voltage unitVoltage=1 annotation (HideResult=true);
-    constant SI.Current unitCurrent=1 annotation (HideResult=true);
-    Boolean off(start=false, fixed=true);
-    Boolean on=not off;
-    discrete SI.Time tSwitch(start=-Modelica.Constants.inf, fixed=true);
-    Boolean quenched(start=true, fixed=true);
   equation
-    off = (control.v < level);
+    off = control.v < level;
     control.i = 0;
-    0 = p.i + n.i;
-    i = p.i;
-    p.v - n.v = v;
-
-    when edge(off) then
-      tSwitch = time;
-    end when;
-    quenched = off and (abs(i) <= abs(v)*Goff or pre(quenched));
-    if on then
-      v = Ron*i;
-    else
-      if quenched then
-        i = Goff*v;
-      else
-        v = min(Vmax, V0 + dVdt*(time - tSwitch))*sign(i);
-      end if;
-    end if;
-    LossPower = v*i;
     annotation (
       Documentation(info="<html>
 <p>
-This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
+This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.ControlledIdealClosingSwitch\">ControlledIdealClosingSwitch</a>.
 </p>
 <p>
-The basic model interrupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
-In order to give a better idea for the voltage across the switch, a simple arc model is added:
+For details of the arc effect, see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc\">IdealSwitchWithArc</a>.
 </p>
-<p>
-When the control pin voltage <code>control.v</code> signals to open the switch, a voltage across the opened switch is impressed.
-This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
-(simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
-</p>
-<pre>
-     | voltage
-Vmax |      +-----
-     |     /
-     |    /
-V0   |   +
-     |   |
-     +---+-------- time
-</pre>
-<p>
-This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
-<code>i=Goff*v</code>.
-</p>
-<p>
-When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately,
-i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
-</p>
-<p>
-<b>Please note:</b>
-In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
-In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-</p>
-<p>
-<b>Please note:</b>
-In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b>not</b> modelled. The parameters are not temperature dependent.
-</p>
-
 </html>", revisions="<html>
-<dl>
-<dt><i>1998</i></dt>
-<dd>by Christoph Clauss<br> initially implemented</dd>
-</dl>
+<ul>
+<li><i>February 7, 2016   </i>
+       by Anton Haumer<br> extending from partial IdealSwitchWithArc<br>
+       </li>
+<li><i>May, 2009   </i>
+       by Anton Haumer<br> initially implemented<br>
+       </li>
+</ul>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-44,4},{-36,-4}}, lineColor={0,0,255}),
-          Line(points={{-90,0},{-44,0}}, color={0,0,255}),
-          Line(points={{-37,2},{40,50}}, color={0,0,255}),
-          Line(points={{40,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,25}}, color={0,0,255}),
-          Text(
-            extent={{-100,-70},{100,-100}},
-            textString="%name",
-            lineColor={0,0,255}),
           Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-44,4},{-36,-4}},
-            lineColor={0,0,255}),Line(points={{-96,0},{-44,0}}, color={0,0,255}),
-            Line(points={{-37,2},{40,50}}, color={0,0,255}),Line(points={{40,0},
-            {96,0}}, color={0,0,255}),Line(points={{0,96},{0,25}}, color={0,0,
-            255})}));
+              100,100}})));
   end ControlledCloserWithArc;
 
   model IdealTriac "Ideal triac, based on ideal thyristors"
 
-    parameter SI.Resistance Ron(final min=0) = 1.e-5
-      "Closed triac resistance";
+    parameter SI.Resistance Ron(final min=0) = 1.e-5 "Closed triac resistance";
     parameter SI.Conductance Goff(final min=0) = 1.e-5
       "Opened triac conductance";
     parameter SI.Voltage Vknee(
       final min=0,
       start=0) = 0.8 "Threshold voltage for positive and negative phase";
 
-    parameter SI.Resistance Rdis=100
-      "Resistance of disturbance elimination";
-    parameter SI.Capacitance Cdis=0.005
-      "Capacity of disturbance elimination";
+    parameter SI.Resistance Rdis=100 "Resistance of disturbance elimination";
+    parameter SI.Capacitance Cdis=0.005 "Capacity of disturbance elimination";
 
     Modelica.Electrical.Analog.Ideal.IdealThyristor idealThyristor(
       Ron=Ron,
@@ -2393,8 +1632,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           origin={0,90})));
     parameter Integer N(final min=1, start=8)
       "Resolution in bits - output signal width";
-    parameter SI.Voltage VRefHigh(start=10)
-      "High reference voltage";
+    parameter SI.Voltage VRefHigh(start=10) "High reference voltage";
     parameter SI.Voltage VRefLow(final max=VRefHigh, start=0)
       "Low reference voltage";
     parameter SI.Resistance Rin(start=10^6) "Input resistance";
