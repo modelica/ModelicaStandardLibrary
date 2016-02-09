@@ -1380,7 +1380,7 @@ This class summarizes general information about the implementation which is not 
     &lt;tr&gt;
       &lt;td valign=\"top\"&gt;[Farnleitner1999]&lt;/td&gt;
       &lt;td valign=\"top\"&gt;E. Farnleitner,
-        &quot;Computational ?uid dynamics analysis for rotating
+        &quot;Computational Fluid dynamics analysis for rotating
               electrical machinery,&quot;
         Ph.D. dissertation, University of Leoben,
         Department  of Applied Mathematics, Leoben, Austria, 1999.&lt;/td&gt;
@@ -6720,7 +6720,7 @@ The following <b>new components</b> have been added to <b>existing</b> libraries
           <td valign=\"top\"> Simple controlled valve with either linear or
                    exponential characteristic.</td></tr>
 <tr><td valign=\"top\"> Sources. IdealPump </td>
-          <td valign=\"top\"> Simple ideal pump (resp. fan)  dependent on the shaft?s speed;
+          <td valign=\"top\"> Simple ideal pump (resp. fan)  dependent on the shaft's speed;
                    pressure increase versus volume flow is defined as a linear
                    function. Torque * Speed = Pressure increase * Volume flow
                    (without losses).</td></tr>
