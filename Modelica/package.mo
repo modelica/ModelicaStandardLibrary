@@ -636,7 +636,7 @@ equations should have a graphical representation in PNG format. For that purpose
 specific math typing capabilities can be used. Alternatively the LaTeX to HTML translator
 <a href=\"http://www.latex2html.org\">LaTeX2HTML</a>, or the
 <a href=\"http://www.homeschoolmath.net/worksheets/equation_editor.php\">Online Equation Editor</a>
-or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs</a> can be used.
+or <a href=\"http://www.codecogs.com/latex/eqneditor.php\">codecogs</a> can be used.
 </p>
 
 <p>
