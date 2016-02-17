@@ -1522,10 +1522,7 @@ This class summarizes contact information of the contributing persons.
         <a href=\"http://www.linkedin.com/in/dietmarw\">D. Winkler</a>
       </td>
       <td valign=\"top\">
-        <a href=\"http://www.hit.no\">Telemark University College</a><br>
-        PO box 203<br>
-        3901 Porsgrunn<br>
-        Norway
+        DWE, Norway
       </td>
     </tr>
   </table>

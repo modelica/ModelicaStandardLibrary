@@ -6799,10 +6799,7 @@ class Contact "Contact"
 <dl>
 <dt><b>Library Officers:</b>
 <dd> <a href=\"http://www.linkedin.com/in/dietmarw\">Dietmar Winkler</a><br>
-     Telemark University College<br>
-     PO box 203<br>
-     NO-3901 Porsgrunn<br>
-     Norway<br>
+     DWE, Norway<br>
      &nbsp;<br>
      and<br>&nbsp;<br>
     <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
@@ -6821,7 +6818,7 @@ class Contact "Contact"
 
 <li> Martin Otter (DLR) updated ModelicaReference for Modelica 3.0.</li>
 
-<li> Dietmar Winkler (Telemark University College) updated ModelicaReference for
+<li> Dietmar Winkler (DWE) updated ModelicaReference for
      Modelica 3.1 and 3.2</li>
 
 <li> Stefan Vorkoetter (Maplesoft) provided ModelicaReference.ModelicaGrammar
