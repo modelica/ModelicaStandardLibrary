@@ -1374,7 +1374,7 @@ This class summarizes general information about the implementation which is not 
       &lt;td valign=\"top\"&gt;R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
               controlled induction machines,&quot;
-        Master&#39;;s thesis, Vienna University of Technology,
+        Master&#39;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -1418,7 +1418,7 @@ This class summarizes general information about the implementation which is not 
       <td valign=\"top\">R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
               controlled induction machines,&quot;
-        Master&#39;;s thesis, Vienna University of Technology,
+        Master&#39;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.</td>
     </tr>
     <tr>
