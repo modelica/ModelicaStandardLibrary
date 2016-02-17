@@ -1454,7 +1454,7 @@ This class summarizes contact information of the contributing persons.
 <h5>Example</h5>
 
 <pre>
-&lt;p&gt;This package is developed an maintained by the following contributors&lt;/p&gt;
+&lt;p&gt;This package is developed and maintained by the following contributors&lt;/p&gt;
   &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     &lt;tr&gt;
       &lt;th&gt;&lt;/th&gt;
@@ -1487,7 +1487,7 @@ This class summarizes contact information of the contributing persons.
 
 <p>appears as</p>
 
-<p>This package is developed an maintained by the following contributors</p>
+<p>This package is developed and maintained by the following contributors</p>
   <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <th></th>
