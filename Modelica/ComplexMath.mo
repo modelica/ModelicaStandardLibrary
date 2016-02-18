@@ -624,11 +624,8 @@ end Vectors;
     input Complex v[:] "Vector";
     output Complex result "Complex sum of vector elements";
   algorithm
-    result:=Complex(0);
-    for i in 1:size(v,1) loop
-      result:=result + v[i];
-    end for;
-    annotation(Documentation(info="<html>
+    result:=Complex(sum(v[:].re), sum(v[:].im));
+    annotation(Inline=true, Documentation(info="<html>
 <p>This function returns the Complex sum of the Complex input vector</p>
 </html>"));
   end 'sum';
