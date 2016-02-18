@@ -10,7 +10,9 @@ package Streams "Read from files and write to files"
                  annotation(Dialog(saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName) annotation(Library="ModelicaExternalC");
-    annotation (Documentation(info="<html>
+
+    annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 Streams.<b>print</b>(string);
@@ -255,7 +257,9 @@ See <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">Ex
     output Boolean success "true if successful";
     external "C" success = ModelicaIO_writeRealMatrix(fileName, matrixName, matrix, size(matrix, 1), size(matrix, 2), append, format)
     annotation(Library={"ModelicaIO", "ModelicaMatIO", "zlib"});
-    annotation(Documentation(info="<html>
+
+    annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
+Documentation(info="<html>
 
 <h4>Syntax</h4>
 <blockquote><pre>
