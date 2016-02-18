@@ -316,6 +316,15 @@ to the original vector are given, such that sorted_v = v[indices].
 </html>"));
 end sort;
 
+  function matrixVectorProduct "Returns M*v of a Complex matrix M and a Complex vector v"
+    extends Modelica.Icons.Function;
+    input Complex M[:,:] "Complex matrix";
+    input Complex v[size(M,2)] "Complex vector";
+    output Complex result[size(M,1)] "Complex result vector M*v";
+  algorithm
+    result:={Modelica.ComplexMath.'sum'({M[j,k]*v[k] for k in 1:size(M,2)}) for j in 1:size(M,1)};
+    annotation(Inline=true);
+  end matrixVectorProduct;
   annotation(Documentation(info="<html>
 <p>
 This library provides functions operating on vectors
