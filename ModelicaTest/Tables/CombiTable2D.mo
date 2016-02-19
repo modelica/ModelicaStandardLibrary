@@ -351,47 +351,25 @@ package CombiTable2D
           Modelica.Blocks.Types.Smoothness.ConstantSegments)
       "External table object";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
-      input Boolean verboseRead = true "Verbose read";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValue;
-
     function tableSurface
       "Function defining the surface characteristic of a 2D surface"
-      extends
-        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+      import Modelica.Blocks.Tables.Internal;
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
     protected
       Real tableOnFileRead;
     algorithm
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := Internal.readTable2DData(tableID);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := (i - 1)/2;
           Y[i, j] := (j - 1)/2;
-          Z[i, j] := getTableValue(
+          Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
-                Y[i, j]);
+                Y[i, j],
+                tableOnFileRead);
         end for;
       end for;
       C := fill({0,200,0}, 0, 0);
@@ -427,47 +405,25 @@ package CombiTable2D
           Modelica.Blocks.Types.Smoothness.LinearSegments)
       "External table object";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
-      input Boolean verboseRead = true "Verbose read";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValue;
-
     function tableSurface
       "Function defining the surface characteristic of a 2D surface"
-      extends
-        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+      import Modelica.Blocks.Tables.Internal;
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=false);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
     protected
       Real tableOnFileRead;
     algorithm
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := Internal.readTable2DData(tableID);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := (i - 1)/2;
           Y[i, j] := (j - 1)/2;
-          Z[i, j] := getTableValue(
+          Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
-                Y[i, j]);
+                Y[i, j],
+                tableOnFileRead);
         end for;
       end for;
       C := fill({0,200,0}, 0, 0);
@@ -503,29 +459,6 @@ package CombiTable2D
           Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
       "External table object";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Integer forceRead "Force reading of table data";
-      input Boolean verboseRead = true "Verbose read";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID,
-        forceRead, verboseRead) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      output Real y;
-    external"C" y = ModelicaStandardTables_CombiTable2D_getValue(
-            tableID,
-            u1,
-            u2) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableValue;
-
     function calcColor "Color Calculation"
       extends Modelica.Icons.Function;
       input Real G "Input Parameter";
@@ -553,22 +486,23 @@ package CombiTable2D
 
     function tableSurface
       "Function defining the surface characteristic of a 2D surface"
-      extends
-        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+      import Modelica.Blocks.Tables.Internal;
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
           final multiColoredSurface=true);
       input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
     protected
       Real tableOnFileRead;
     algorithm
-      tableOnFileRead := readTableData(tableID, 0);
+      tableOnFileRead := Internal.readTable2DData(tableID);
       for i in 1:nu loop
         for j in 1:nv loop
           X[i, j] := i - 1;
           Y[i, j] := j - 1;
-          Z[i, j] := getTableValue(
+          Z[i, j] := Internal.getTable2DValue(
                 tableID,
                 X[i, j],
-                Y[i, j]);
+                Y[i, j],
+                tableOnFileRead);
           C[i, j, :] := calcColor(Z[i, j]/64)*255;
         end for;
       end for;

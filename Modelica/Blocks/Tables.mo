@@ -48,89 +48,14 @@ package Tables
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_u;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
-    function getTableAbscissaUmin
-      "Return minimum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMin "Minimum abscissa value in table";
-      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmin;
-
-    function getTableAbscissaUmax
-      "Return maximum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMax "Maximum abscissa value in table";
-      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmax;
-
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
+      tableOnFileRead := Internal.readTable1DData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
-    u_min := getTableAbscissaUmin(tableID, tableOnFileRead);
-    u_max := getTableAbscissaUmax(tableID, tableOnFileRead);
+    u_min := Internal.getTable1DAbscissaUmin(tableID, tableOnFileRead);
+    u_max := Internal.getTable1DAbscissaUmax(tableID, tableOnFileRead);
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -141,11 +66,11 @@ package Tables
     end if;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:n loop
-        y[i] = getTableValueNoDer(tableID, i, u[i], tableOnFileRead);
+        y[i] = Internal.getTable1DValueNoDer(tableID, i, u[i], tableOnFileRead);
       end for;
     else
       for i in 1:n loop
-        y[i] = getTableValue(tableID, i, u[i], tableOnFileRead);
+        y[i] = Internal.getTable1DValue(tableID, i, u[i], tableOnFileRead);
       end for;
     end if;
     annotation (
@@ -402,89 +327,14 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Integer icol;
-      input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_u;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
-    function getTableAbscissaUmin
-      "Return minimum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMin "Minimum abscissa value in table";
-      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmin;
-
-    function getTableAbscissaUmax
-      "Return maximum abscissa value of 1-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real uMax "Maximum abscissa value in table";
-      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableAbscissaUmax;
-
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
+      tableOnFileRead := Internal.readTable1DData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
-    u_min := getTableAbscissaUmin(tableID, tableOnFileRead);
-    u_max := getTableAbscissaUmax(tableID, tableOnFileRead);
+    u_min := Internal.getTable1DAbscissaUmin(tableID, tableOnFileRead);
+    u_max := Internal.getTable1DAbscissaUmax(tableID, tableOnFileRead);
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -495,11 +345,11 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     end if;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = getTableValueNoDer(tableID, i, u, tableOnFileRead);
+        y[i] = Internal.getTable1DValueNoDer(tableID, i, u, tableOnFileRead);
       end for;
     else
       for i in 1:nout loop
-        y[i] = getTableValue(tableID, i, u, tableOnFileRead);
+        y[i] = Internal.getTable1DValue(tableID, i, u, tableOnFileRead);
       end for;
     end if;
     annotation (
@@ -743,63 +593,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
-    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation(__ModelicaAssociation_Impure=true);
-    end readTableData;
-
-    function getTableValue "Interpolate 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getDerTableValue);
-    end getTableValue;
-
-    function getTableValueNoDer
-      "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      output Real y;
-      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getTableValueNoDer;
-
-    function getDerTableValue
-      "Derivative of interpolated 2-dim. table defined by matrix"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-      input Real u1;
-      input Real u2;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
-      input Real der_u1;
-      input Real der_u2;
-      output Real der_y;
-      external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
-        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
-    end getDerTableValue;
-
   initial algorithm
     if tableOnFile then
-      tableOnFileRead := readTableData(tableID, false, verboseRead);
+      tableOnFileRead := Internal.readTable2DData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
@@ -812,9 +608,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
-      y = getTableValueNoDer(tableID, u1, u2, tableOnFileRead);
+      y = Internal.getTable2DValueNoDer(tableID, u1, u2, tableOnFileRead);
     else
-      y = getTableValue(tableID, u1, u2, tableOnFileRead);
+      y = Internal.getTable2DValue(tableID, u1, u2, tableOnFileRead);
     end if;
     annotation (
       Documentation(info="<html>
@@ -1035,6 +831,235 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             textString="y",
             lineColor={0,0,255})}));
   end CombiTable2D;
+
+  package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
+    extends Modelica.Icons.InternalPackage;
+    function readTimeTableData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      output Real readSuccess "Table read success";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTimeTableData;
+
+    function getTimeTableValue
+      "Interpolate 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(
+          noDerivative=nextTimeEvent,
+          noDerivative=pre_nextTimeEvent,
+          noDerivative=tableAvailable) = getDerTimeTableValue);
+    end getTimeTableValue;
+
+    function getTimeTableValueNoDer
+      "Interpolate 1-dim. table where first column is time (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTimeTableValueNoDer;
+
+    function getDerTimeTableValue
+      "Derivative of interpolated 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      input Real der_timeIn;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTimeTableValue;
+
+    function getTimeTableTmin
+      "Return minimum abscissa value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real timeMin "Minimum abscissa value in table";
+      external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTimeTableTmin;
+
+    function getTimeTableTmax
+      "Return maximum abscissa value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real timeMax "Maximum abscissa value in table";
+      external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTimeTableTmax;
+
+    function getNextTimeEvent
+      "Return next time event value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real timeIn;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real nextTimeEvent "Next time event in table";
+      external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getNextTimeEvent;
+
+    function readTable1DData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      output Real readSuccess "Table read success";
+      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTable1DData;
+
+    function getTable1DValue "Interpolate 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(noDerivative=tableAvailable) = getDerTable1DValue);
+    end getTable1DValue;
+
+    function getTable1DValueNoDer
+      "Interpolate 1-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable1DValueNoDer;
+
+    function getDerTable1DValue
+      "Derivative of interpolated 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Integer icol;
+      input Real u;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      input Real der_u;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTable1DValue;
+
+    function getTable1DAbscissaUmin
+      "Return minimum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real uMin "Minimum abscissa value in table";
+      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable1DAbscissaUmin;
+
+    function getTable1DAbscissaUmax
+      "Return maximum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real uMax "Maximum abscissa value in table";
+      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable1DAbscissaUmax;
+
+    function readTable2DData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      input Boolean verboseRead = true
+        "= true: Print info message; = false: No info message";
+      output Real readSuccess "Table read success";
+      external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation(__ModelicaAssociation_Impure=true);
+    end readTable2DData;
+
+    function getTable2DValue "Interpolate 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+      annotation (derivative(noDerivative=tableAvailable) = getDerTable2DValue);
+    end getTable2DValue;
+
+    function getTable2DValueNoDer
+      "Interpolate 2-dim. table defined by matrix (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getTable2DValueNoDer;
+
+    function getDerTable2DValue
+      "Derivative of interpolated 2-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
+      input Real u1;
+      input Real u2;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      input Real der_u1;
+      input Real der_u2;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTable2D_getDerValue(tableID, u1, u2, der_u1, der_u2)
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
+    end getDerTable2DValue;
+  end Internal;
   annotation (Documentation(info="<html>
 <p>This package contains blocks for one- and two-dimensional interpolation in tables.</p>
 <h4>Special interest topic: Statically stored tables for real-time simulation targets</h4>
