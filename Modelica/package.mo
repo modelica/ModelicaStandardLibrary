@@ -8006,7 +8006,12 @@ User's Guides that can be accessed by the following links:
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide\">Rotational</a>
     </td>
-   <td valign=\"top\">Library to model 1-dimensional mechanical systems</td>
+   <td valign=\"top\">Library to model 1-dimensional, rotational mechanical systems</td>
+</tr>
+
+<tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.UsersGuide\">Translational</a>
+    </td>
+   <td valign=\"top\">Library to model 1-dimensional, translational mechanical systems</td>
 </tr>
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Fluid.UsersGuide\">Fluid</a></td>
