@@ -3152,7 +3152,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-100,11},{100,6}},
                   lineColor={0,0,255},
                   textString="Target: kc == f(m_flow)")}),
-            experiment(Tolerance=1e-005));
+            experiment(StopTime=1.01, Tolerance=1e-005));
         end kc_overall;
 
         model kc_overall_KC "Verification of function kc_overall_KC"
@@ -3751,7 +3751,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{6,12},{52,4}},
                   lineColor={0,0,255},
                   textString="UWT+UFF")}),
-            experiment(Tolerance=1e-005));
+            experiment(StopTime=1.01, Tolerance=1e-005));
         end kc_laminar_KC;
 
         model kc_overall "Verification of function kc_overall"

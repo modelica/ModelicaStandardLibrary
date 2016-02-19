@@ -4098,7 +4098,8 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(extent={{-120,-160},{100,160}},
-              preserveAspectRatio=true)), experiment(Tolerance=1e-007));
+              preserveAspectRatio=true)), experiment(StopTime=1.1, Tolerance=
+              1e-007));
     end SpringDamperParallel;
 
     model Damper2
@@ -4199,7 +4200,7 @@ a linear damper is connected here.
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,-62.3333},{-5.6,-62.3333}},
+          points={{131,2},{14,2},{14,-65.2667},{-5.6,-65.2667}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
@@ -4237,7 +4238,7 @@ a linear damper is connected here.
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force1.force[3]) annotation (Line(
-          points={{131,2},{14,2},{14,108.333},{-7.6,108.333}},
+          points={{131,2},{14,2},{14,111.267},{-7.6,111.267}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
@@ -4264,7 +4265,7 @@ a linear damper is connected here.
           color={0,0,127},
           smooth=Smooth.None));
       connect(const.y, force2.force[3]) annotation (Line(
-          points={{131,2},{96,2},{96,-214.333},{-7.6,-214.333}},
+          points={{131,2},{96,2},{96,-217.267},{-7.6,-217.267}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
@@ -4309,15 +4310,15 @@ a linear damper is connected here.
           thickness=0.5,
           smooth=Smooth.None));
       connect(trapezoid.y, force2.force[1]) annotation (Line(
-          points={{133,-116},{104,-116},{104,-217.267},{-7.6,-217.267}},
+          points={{133,-116},{104,-116},{104,-214.333},{-7.6,-214.333}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(trapezoid.y, force.force[1]) annotation (Line(
-          points={{133,-116},{103.5,-116},{103.5,-65.2667},{-5.6,-65.2667}},
+          points={{133,-116},{103.5,-116},{103.5,-62.3333},{-5.6,-62.3333}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(trapezoid.y, force1.force[1]) annotation (Line(
-          points={{133,-116},{104,-116},{104,111.267},{-7.6,111.267}},
+          points={{133,-116},{104,-116},{104,108.333},{-7.6,108.333}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(extent={{-100,-360},{180,220}},
