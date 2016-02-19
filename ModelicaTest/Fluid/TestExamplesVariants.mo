@@ -23,7 +23,7 @@ package TestExamplesVariants
     Modelica.Fluid.Examples.BranchingDynamicPipes (
       system(momentumDynamics =  Modelica.Fluid.Types.Dynamics.SteadyState))
     "Alternative case for BranchingDynamicPipes using steady-state momentum balance"
-  annotation(experiment(StopTime=10));
+    annotation(experiment(StopTime=10, Tolerance=1e-5));
 
   model BranchingDynamicPipes_StandardWater =
     Modelica.Fluid.Examples.BranchingDynamicPipes (
