@@ -171,7 +171,10 @@ function copy "Generate a copy of a file or of a directory"
         newName_i := newName + "/" + oldNames[i];
         Files.copy(oldName_i, newName_i, replace);
      end for;
-annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
+      annotation (
+        __OpenModelica_Impure=true,
+        __Modelon_Impure=true,
+        __Dymola_pure=false);
   end copyDirectoryContents;
 //..............................................................
 
@@ -706,8 +709,9 @@ end temporaryFileName;
      extends
       Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
      extends ModelicaServices.ExternalReferences.loadResource;
-    annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
-Documentation(info="<html>
+    annotation (
+      Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 fileReference = FileSystem.<b>loadResource</b>(uri);
