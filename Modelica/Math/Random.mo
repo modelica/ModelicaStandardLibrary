@@ -1010,7 +1010,7 @@ This function should be only called once during initialization.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica_Noise.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
+<a href=\"modelica://Modelica.Math.Random.Utilities.automaticLocalSeed\">automaticLocalSeed</a>.
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
