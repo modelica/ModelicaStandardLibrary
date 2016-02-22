@@ -973,17 +973,15 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
 
     function automaticGlobalSeed
       "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
-      input Real dummy
-        "Dummy variable to force evaluation at run-time; use 'time' as input argument";
       output Integer seed "Automatically generated seed";
 
-      external "C" seed = ModelicaRandom_automaticGlobalSeed(dummy) annotation (Library="ModelicaExternalC");
+      external "C" seed = ModelicaRandom_automaticGlobalSeed() annotation (Library="ModelicaExternalC");
 
      annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
-Documentation(info="<html>
+        Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-seed = Utilities.<b>automaticGlobalSeed</b>(dummy);
+seed = Utilities.<b>automaticGlobalSeed</b>();
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -1000,20 +998,14 @@ is called, other means to compute a seed may be used.
 <p>
 Note, this is an impure function that returns always a different value, when it is newly called.
 This function should be only called once during initialization.
-In order that tools are not able to optimize this (impure) function away, a dummy
-argument is provided. Pass \"time\" in this argument.
 </p>
 
 <h4>Example</h4>
 <pre>
      <b>parameter</b> Boolean useAutomaticSeed = false;
      <b>parameter</b> Integer fixedSeed = 67867967;
-     <b>final parameter</b> Integer seed(fixed = false);
-  <b>initial equation</b>
-     seed = <b>if</b> useAutomaticSeed <b>then</b>
-                 Random.Utilities.automaticGlobalSeed(time)
-            <b>else</b>
-                 fixedSeed;
+     <b>final parameter</b> Integer seed = <b>if</b> useAutomaticSeed <b>then</b>
+                                   Random.Utilities.automaticGlobalSeed() <b>else</b> fixedSeed;;
 </pre>
 
 <h4>See also</h4>
@@ -1032,7 +1024,7 @@ argument is provided. Pass \"time\" in this argument.
 
 <table border=0>
 <tr><td valign=\"top\">
-         <img src=\"modelica://Modelica_Noise/Resources/Images/Blocks/Noise/dlr_logo.png\">
+         <img src=\"modelica://Modelica/Resources/Images/Blocks/Noise/dlr_logo.png\">
 </td><td valign=\"bottom\">
          Initial version implemented by
          A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
@@ -1123,15 +1115,11 @@ path is provided.
       "Initializes the internal state of the impure random number generator"
       input Integer seed
         "The input seed to initialize the impure random number generator";
-      input Real dummy
-        "Dummy variable to force evaluation at run-time; use 'time' as input argument";
       output Integer id
         "Identification number to be passed as input to function impureRandom, in order that sorting is correct";
     protected
       constant Integer localSeed = 715827883
         "Since there is no local seed, a large prime number is used";
-      Integer iDummy = integer(dummy);
-      Integer localSeed2 = if iDummy == 1 then iDummy*localSeed else localSeed;
       Integer rngState[33]
         "The internal state vector of the impure random number generator";
 
@@ -1145,15 +1133,16 @@ path is provided.
 
     algorithm
       // Determine the internal state (several iterations with a generator that quickly generates good numbers
-      rngState := initialStateWithXorshift64star(localSeed2, seed, size(rngState, 1));
-      id :=localSeed2;
+      rngState := initialStateWithXorshift64star(localSeed, seed, size(rngState, 1));
+      id :=localSeed;
 
       // Copy the internal state into the internal C static memory
       setInternalState(rngState, id);
-      annotation (Documentation(info="<html>
+      annotation (
+      Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-id = <b>initializeImpureRandom</b>(seed, dummy);
+id = <b>initializeImpureRandom</b>(seed;
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -1178,13 +1167,8 @@ random number generator to fill the internal state vector with 64 bit random num
   Real r;
   <b>function</b> random = impureRandom (<b>final</b> id=id);
 <b>protected </b>
-  Integer id;
+  Integer id = initializeImpureRandom(seed);
 <b>equation</b>
-  // Initialize the random number generator
-  <b>when</b> initial() <b>then</b>
-    id = initializeImpureRandom(seed, time);
-  <b>end when</b>;
-
   // Use the random number generator
   <b>when</b> sample(0,0.001) <b>then</b>
      r = random();
@@ -1228,7 +1212,8 @@ random number generator to fill the internal state vector with 64 bit random num
       external "C" y = ModelicaRandom_impureRandom_xorshift1024star(id)
         annotation (Library="ModelicaExternalC");
       annotation(__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
-Documentation(info="<html>
+        Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <b>impureRandom</b>(id);
@@ -1310,7 +1295,8 @@ is returned, so the function is impure.
       y  := min(imax, max(imin, y));
 
       annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
- Documentation(info="<html>
+        Documentation(info=
+                    "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 r = <b>impureRandomInteger</b>(id, imin=1, imax=Modelica.Constants.Integer_inf);
@@ -1335,6 +1321,26 @@ is returned, so the function is impure.
 </p>
 <h4>Note</h4>
 <p>This function is impure!</p>
+</html>", revisions="<html>
+<p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Date</th> <th align=\"left\">Description</th></tr>
+
+<tr><td valign=\"top\"> June 22, 2015 </td>
+    <td valign=\"top\">
+
+<table border=0>
+<tr><td valign=\"top\">
+         <img src=\"modelica://Modelica/Resources/Images/Logos/dlr_logo.png\">
+</td><td valign=\"bottom\">
+         Initial version implemented by
+         A. Kl&ouml;ckner, F. v.d. Linden, D. Zimmer, M. Otter.<br>
+         <a href=\"http://www.dlr.de/rmc/sr/en\">DLR Institute of System Dynamics and Control</a>
+</td></tr></table>
+</td></tr>
+
+</table>
+</p>
 </html>"));
     end impureRandomInteger;
   annotation (Documentation(info="<html>

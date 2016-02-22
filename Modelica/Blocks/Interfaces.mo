@@ -1702,15 +1702,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
     parameter Modelica.SIunits.Time startTime = 0.0
       "Start time for sampling the raw random numbers"
       annotation(Dialog(tab="Advanced", group="Initialization",enable=enableNoise));
-
-    // Generate the actually used local seed
-    discrete Integer localSeed "The actual localSeed";
-  equation
-    when initial() then
-      localSeed = if useAutomaticLocalSeed then impureRandomInteger(globalSeed.id_impure) else fixedLocalSeed;
-    end when;
-
-    // Retrieve values from outer global seed
+    final parameter Integer localSeed = if useAutomaticLocalSeed then impureRandomInteger(globalSeed.id_impure) else fixedLocalSeed "The actual localSeed";
   protected
     outer Modelica.Blocks.Noise.GlobalSeed globalSeed
       "Definition of global seed via inner/outer";
