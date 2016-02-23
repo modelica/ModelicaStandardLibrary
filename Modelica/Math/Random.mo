@@ -975,7 +975,7 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
       "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
       output Integer seed "Automatically generated seed";
 
-      external "C" seed = ModelicaRandom_automaticGlobalSeed() annotation (Library="ModelicaExternalC");
+      external "C" seed = ModelicaRandom_automaticGlobalSeed(0) annotation (Library="ModelicaExternalC");
 
      annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false,
         Documentation(info="<html>
