@@ -43,12 +43,11 @@ package Random "Library of functions for generating random numbers"
 
     // Impure random number generators with hidden state
     public
-      Integer id "A unique number used to sort equations correctly";
+      parameter Integer id = Utilities.initializeImpureRandom(globalSeed) "A unique number used to sort equations correctly";
       discrete Real rImpure "Impure Real random number";
       Integer iImpure "Impure Integer random number";
     algorithm
       when initial() then
-        id := Utilities.initializeImpureRandom(globalSeed, time);
         rImpure := 0;
         iImpure := 0;
       elsewhen sample(0,samplePeriod) then
