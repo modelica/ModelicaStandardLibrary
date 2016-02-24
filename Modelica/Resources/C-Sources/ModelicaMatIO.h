@@ -50,13 +50,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 3
+#define MATIO_RELEASE_LEVEL 6
 
 /* Matio version number */
-#define MATIO_VERSION 153
+#define MATIO_VERSION 156
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.3"
+#define MATIO_VERSION_STR "1.5.6"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -155,10 +155,10 @@ enum mat_acc {
  */
 enum mat_ft {
     MAT_FT_MAT73  = 0x0200,   /**< @brief Matlab version 7.3 file             */
-    MAT_FT_MAT5   = 0x0100,   /**< @brief Matlab level-5 file                 */
-    MAT_FT_MAT4   = 0x0010    /**< @brief Version 4 file                      */
+    MAT_FT_MAT5   = 0x0100,   /**< @brief Matlab version 5 file               */
+    MAT_FT_MAT4   = 0x0010,   /**< @brief Matlab version 4 file               */
+    MAT_FT_UNDEFINED =   0    /**< @brief Undefined version                   */
 };
-
 
 /** @brief Matlab data types
  *
@@ -273,15 +273,15 @@ struct matvar_internal;
  * @ingroup MAT
  */
 typedef struct matvar_t {
-    size_t nbytes;                     /**< Number of bytes for the MAT variable */
-    int    rank;                       /**< Rank (Number of dimensions) of the data */
+    size_t nbytes;                    /**< Number of bytes for the MAT variable */
+    int    rank;                      /**< Rank (Number of dimensions) of the data */
     enum matio_types   data_type;     /**< Data type(MAT_T_*) */
     int   data_size;                  /**< Bytes / element for the data */
     enum matio_classes class_type;    /**< Class type in Matlab(MAT_C_DOUBLE, etc) */
     int   isComplex;                  /**< non-zero if the data is complex, 0 if real */
     int   isGlobal;                   /**< non-zero if the variable is global */
     int   isLogical;                  /**< non-zero if the variable is logical */
-    size_t *dims;                    /**< Array of lengths for each dimension */
+    size_t *dims;                     /**< Array of lengths for each dimension */
     char *name;                       /**< Name of the variable */
     void *data;                       /**< Pointer to the data */
     int   mem_conserve;               /**< 1 if Memory was conserved with data */
