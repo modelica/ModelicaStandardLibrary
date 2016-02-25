@@ -812,7 +812,7 @@ In this example the eddy current losses are implemented in two different ways. C
                           fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
-")}),       experiment,
+")}),           experiment(StopTime=1.5, Interval=0.001),
             Documentation(info="<html>
 <h4>Direct on line (DOL) starting of an induction machine with squirrel cage</h4>
 <p>
