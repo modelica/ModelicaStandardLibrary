@@ -106,7 +106,8 @@ package Tanks "Library demonstrating the usage of the tank model"
     extends Modelica.Icons.Example;
     import Modelica.Fluid;
     Modelica.Fluid.Vessels.OpenTank upperTank(
-      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      redeclare package Medium =
+          Modelica.Media.CompressibleLiquids.LinearColdWater,
       height=20,
       level_start=2,
       crossArea=0.2,
@@ -117,7 +118,8 @@ package Tanks "Library demonstrating the usage of the tank model"
            10)})
       annotation (Placement(transformation(extent={{-40,20},{0,60}})));
     Modelica.Fluid.Sources.MassFlowSource_T massFlowRate(nPorts=1,
-      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      redeclare package Medium =
+          Modelica.Media.CompressibleLiquids.LinearColdWater,
       m_flow=0.2,
       use_m_flow_in=true)
       annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
@@ -125,10 +127,11 @@ package Tanks "Library demonstrating the usage of the tank model"
                                         annotation (Placement(transformation(
             extent={{-150,-112},{-130,-92}})));
     Modelica.Fluid.Sensors.Pressure pressure(redeclare package Medium =
-          Modelica.Media.Water.StandardWater) annotation (Placement(
+          Modelica.Media.CompressibleLiquids.LinearColdWater) annotation (Placement(
           transformation(extent={{40,16},{60,36}})));
     Modelica.Fluid.Pipes.StaticPipe pipe(
-      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      redeclare package Medium =
+          Modelica.Media.CompressibleLiquids.LinearColdWater,
       diameter=0.02,
       height_ab=-20,
       length=200) annotation (Placement(transformation(
@@ -138,7 +141,8 @@ package Tanks "Library demonstrating the usage of the tank model"
 
     Modelica.Fluid.Vessels.OpenTank lowerTank(
       height=20,
-      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      redeclare package Medium =
+          Modelica.Media.CompressibleLiquids.LinearColdWater,
       level_start=2,
       crossArea=1,
       nPorts=2,
@@ -158,7 +162,8 @@ package Tanks "Library demonstrating the usage of the tank model"
     Modelica.Blocks.Sources.Constant m_flow_on(k=2)
       annotation (Placement(transformation(extent={{-140,-60},{-120,-40}})));
     Modelica.Fluid.Pipes.StaticPipe overflow(
-      redeclare package Medium = Modelica.Media.Water.StandardWater,
+      redeclare package Medium =
+          Modelica.Media.CompressibleLiquids.LinearColdWater,
       diameter=0.02,
       length=200,
       height_ab=-20)
