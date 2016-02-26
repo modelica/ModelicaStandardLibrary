@@ -59,7 +59,7 @@
 #if !defined(NO_FILE_SYSTEM)
 #if defined(__gnu_linux__)
 #define _GNU_SOURCE 1
-#elif defined(__MINGW32__)
+#elif defined(__MINGW32__) && !defined(__USE_MINGW_ANSI_STDIO)
 #define __USE_MINGW_ANSI_STDIO 1
 #endif
 #include <stdarg.h>
@@ -137,7 +137,7 @@
 #define HAVE_LONG_LONG_INT 1
 #endif
 #endif
-#if defined(__GNUC__)
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
 #define HAVE_LONG_LONG_INT 1
 #endif
 
@@ -221,7 +221,7 @@
 #define HAVE_UNSIGNED_LONG_LONG_INT 1
 #endif
 #endif
-#if defined(__GNUC__)
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
 #define HAVE_UNSIGNED_LONG_LONG_INT 1
 #endif
 
@@ -20493,7 +20493,7 @@ Mat_VarReadNextInfoIterate(hid_t fid, const char *name, const H5L_info_t *info, 
     H5O_info_t object_info;
     struct mat_read_next_iter_data *mat_data;
 
-    //* FIXME: follow symlinks, datatypes? */
+    /* FIXME: follow symlinks, datatypes? */
 
     /* Check that this is not the /#refs# group */
     if ( 0 == strcmp(name, "#refs#") )
