@@ -14486,7 +14486,7 @@ Mat_VarReadNumeric5(mat_t *mat,matvar_t *matvar,void *data,size_t N)
             nBytes = (tag[0] & 0xffff0000) >> 16;
         } else {
             data_in_tag = 0;
-            bytesread = fread(tag+1,4,1,(FILE*)mat->fp);
+            bytesread += fread(tag+1,4,1,(FILE*)mat->fp);
             if ( mat->byteswap )
                 (void)Mat_uint32Swap(tag+1);
             nBytes = tag[1];
@@ -15052,7 +15052,7 @@ Read5(mat_t *mat, matvar_t *matvar)
 #endif
             } else {
                 (void)fseek((FILE*)mat->fp,matvar->internal->datapos,SEEK_SET);
-                bytesread = fread(tag,4,1,(FILE*)mat->fp);
+                bytesread += fread(tag,4,1,(FILE*)mat->fp);
                 if ( byteswap )
                     (void)Mat_uint32Swap(tag);
                 packed_type = TYPE_FROM_TAG(tag[0]);
@@ -15061,7 +15061,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                     nBytes = (tag[0] & 0xffff0000) >> 16;
                 } else {
                     data_in_tag = 0;
-                    bytesread = fread(tag+1,4,1,(FILE*)mat->fp);
+                    bytesread += fread(tag+1,4,1,(FILE*)mat->fp);
                     if ( byteswap )
                         (void)Mat_uint32Swap(tag+1);
                     nBytes = tag[1];
@@ -15172,7 +15172,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                 }
 #endif
             } else {
-                bytesread = fread(tag,4,1,(FILE*)mat->fp);
+                bytesread += fread(tag,4,1,(FILE*)mat->fp);
                 if ( mat->byteswap )
                     (void)Mat_uint32Swap(tag);
                 packed_type = TYPE_FROM_TAG(tag[0]);
@@ -15181,7 +15181,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                     N = (tag[0] & 0xffff0000) >> 16;
                 } else {
                     data_in_tag = 0;
-                    bytesread = fread(&N,4,1,(FILE*)mat->fp);
+                    bytesread += fread(&N,4,1,(FILE*)mat->fp);
                     if ( mat->byteswap )
                         Mat_int32Swap(&N);
                 }
@@ -15235,7 +15235,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                 }
 #endif
             } else {
-                bytesread = fread(tag,4,1,(FILE*)mat->fp);
+                bytesread += fread(tag,4,1,(FILE*)mat->fp);
                 if ( mat->byteswap )
                     Mat_uint32Swap(tag);
                 packed_type = TYPE_FROM_TAG(tag[0]);
@@ -15244,7 +15244,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                     N = (tag[0] & 0xffff0000) >> 16;
                 } else {
                     data_in_tag = 0;
-                    bytesread = fread(&N,4,1,(FILE*)mat->fp);
+                    bytesread += fread(&N,4,1,(FILE*)mat->fp);
                     if ( mat->byteswap )
                         Mat_int32Swap(&N);
                 }
@@ -15298,7 +15298,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                 }
 #endif
             } else {
-                bytesread = fread(tag,4,1,(FILE*)mat->fp);
+                bytesread += fread(tag,4,1,(FILE*)mat->fp);
                 if ( mat->byteswap )
                     Mat_uint32Swap(tag);
                 packed_type = TYPE_FROM_TAG(tag[0]);
@@ -15307,7 +15307,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                     N = (tag[0] & 0xffff0000) >> 16;
                 } else {
                     data_in_tag = 0;
-                    bytesread = fread(&N,4,1,(FILE*)mat->fp);
+                    bytesread += fread(&N,4,1,(FILE*)mat->fp);
                     if ( mat->byteswap )
                         Mat_int32Swap(&N);
                 }
@@ -15411,7 +15411,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                         (void)fseek((FILE*)mat->fp,8-(nBytes % 8),SEEK_CUR);
 
                     /* Complex Data Tag */
-                    bytesread = fread(tag,4,1,(FILE*)mat->fp);
+                    bytesread += fread(tag,4,1,(FILE*)mat->fp);
                     if ( byteswap )
                         (void)Mat_uint32Swap(tag);
                     packed_type = TYPE_FROM_TAG(tag[0]);
@@ -15420,7 +15420,7 @@ Read5(mat_t *mat, matvar_t *matvar)
                         nBytes = (tag[0] & 0xffff0000) >> 16;
                     } else {
                         data_in_tag = 0;
-                        bytesread = fread(tag+1,4,1,(FILE*)mat->fp);
+                        bytesread += fread(tag+1,4,1,(FILE*)mat->fp);
                         if ( byteswap )
                             (void)Mat_uint32Swap(tag+1);
                         nBytes = tag[1];
@@ -16179,7 +16179,7 @@ ReadData5(mat_t *mat,matvar_t *matvar,void *data,
 
     (void)fseek((FILE*)mat->fp,matvar->internal->datapos,SEEK_SET);
     if ( matvar->compression == MAT_COMPRESSION_NONE ) {
-        bytesread = fread(tag,4,2,(FILE*)mat->fp);
+        bytesread += fread(tag,4,2,(FILE*)mat->fp);
         if ( mat->byteswap ) {
             Mat_int32Swap(tag);
             Mat_int32Swap(tag+1);
@@ -16253,7 +16253,7 @@ ReadData5(mat_t *mat,matvar_t *matvar,void *data,
                 ReadDataSlab2(mat,complex_data->Re,matvar->class_type,
                     matvar->data_type,matvar->dims,start,stride,edge);
                 (void)fseek((FILE*)mat->fp,matvar->internal->datapos+real_bytes,SEEK_SET);
-                bytesread = fread(tag,4,2,(FILE*)mat->fp);
+                bytesread += fread(tag,4,2,(FILE*)mat->fp);
                 if ( mat->byteswap ) {
                     Mat_int32Swap(tag);
                     Mat_int32Swap(tag+1);
@@ -16316,7 +16316,7 @@ ReadData5(mat_t *mat,matvar_t *matvar,void *data,
                     start,stride,edge);
 
                 (void)fseek((FILE*)mat->fp,matvar->internal->datapos+real_bytes,SEEK_SET);
-                bytesread = fread(tag,4,2,(FILE*)mat->fp);
+                bytesread += fread(tag,4,2,(FILE*)mat->fp);
                 if ( mat->byteswap ) {
                     Mat_int32Swap(tag);
                     Mat_int32Swap(tag+1);
@@ -16454,7 +16454,7 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
         return -1;
     (void)fseek((FILE*)mat->fp,matvar->internal->datapos,SEEK_SET);
     if ( matvar->compression == MAT_COMPRESSION_NONE ) {
-        bytesread = fread(tag,4,2,(FILE*)mat->fp);
+        bytesread += fread(tag,4,2,(FILE*)mat->fp);
         if ( mat->byteswap ) {
             Mat_int32Swap(tag);
             Mat_int32Swap(tag+1);
@@ -16526,7 +16526,7 @@ Mat_VarReadDataLinear5(mat_t *mat,matvar_t *matvar,void *data,int start,
             ReadDataSlab1(mat,complex_data->Re,matvar->class_type,
                           matvar->data_type,start,stride,edge);
             (void)fseek((FILE*)mat->fp,matvar->internal->datapos+real_bytes,SEEK_SET);
-            bytesread = fread(tag,4,2,(FILE*)mat->fp);
+            bytesread += fread(tag,4,2,(FILE*)mat->fp);
             if ( mat->byteswap ) {
                 Mat_int32Swap(tag);
                 Mat_int32Swap(tag+1);
