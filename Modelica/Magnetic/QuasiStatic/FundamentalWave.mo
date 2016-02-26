@@ -3103,7 +3103,6 @@ relationship of the voltage and current space phasor.
     model MultiPhaseElectroMagneticConverter
       "Multi phase electro magnetic converter"
       import Modelica.Constants.pi;
-      import Modelica.ComplexMath.Vectors.matrixVectorProduct;
       constant Complex j=Complex(0, 1);
       Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
         plug_p(final m=m) "Positive plug" annotation (Placement(transformation(
@@ -3186,17 +3185,12 @@ relationship of the voltage and current space phasor.
         "Indices of all positive sequence components";
     equation
       // Symmetrical components (preferred): vSymmetricalComponent = sTM*v; iSymmetricalComponent = sTM*i;
-      /*
-  for j in 1:m loop
-    vSymmetricalComponent[j] = Complex(sum({sTM[j,k].re*v[k].re - sTM[j,k].im*v[k].im for k in 1:m}),
-                                       sum({sTM[j,k].re*v[k].im + sTM[j,k].im*v[k].re for k in 1:m}));
-    iSymmetricalComponent[j] = Complex(sum({sTM[j,k].re*i[k].re - sTM[j,k].im*i[k].im for k in 1:m}),
-                                       sum({sTM[j,k].re*i[k].im + sTM[j,k].im*i[k].re for k in 1:m}));
-  end for;
- */
-     vSymmetricalComponent = matrixVectorProduct(sTM,v);
-     iSymmetricalComponent = matrixVectorProduct(sTM,i);
-
+      for j in 1:m loop
+        vSymmetricalComponent[j] = Complex(sum({sTM[j,k].re*v[k].re - sTM[j,k].im*v[k].im for k in 1:m}),
+                                           sum({sTM[j,k].re*v[k].im + sTM[j,k].im*v[k].re for k in 1:m}));
+        iSymmetricalComponent[j] = Complex(sum({sTM[j,k].re*i[k].re - sTM[j,k].im*i[k].im for k in 1:m}),
+                                           sum({sTM[j,k].re*i[k].im + sTM[j,k].im*i[k].re for k in 1:m}));
+      end for;
       // Magnetic flux and flux balance of the magnetic ports
       port_p.Phi = Phi;
       port_p.Phi + port_n.Phi = Complex(0, 0);

@@ -2018,7 +2018,6 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 
     block SymmetricalComponents
       "Creates symmetrical components from signals representing quasi static phasors"
-      import Modelica.ComplexMath.Vectors.matrixVectorProduct;
       extends Modelica.ComplexBlocks.Interfaces.ComplexMIMO(final nin=m,final nout=m);
       parameter Integer m=3 "Number of phases";
     protected
@@ -2026,13 +2025,10 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
         Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
     equation
       // Symmetrical components (preferred): y = sTM*u;
-      /*
-  for j in 1:m loop
-    y[j] = Complex(sum({sTM[j,k].re*u[k].re - sTM[j,k].im*u[k].im for k in 1:m}),
-                   sum({sTM[j,k].re*u[k].im + sTM[j,k].im*u[k].re for k in 1:m}));
-  end for;
-  */
-      y = matrixVectorProduct(sTM,u);
+      for j in 1:m loop
+        y[j] = Complex(sum({sTM[j,k].re*u[k].re - sTM[j,k].im*u[k].im for k in 1:m}),
+                       sum({sTM[j,k].re*u[k].im + sTM[j,k].im*u[k].re for k in 1:m}));
+      end for;
       annotation ( Icon(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
