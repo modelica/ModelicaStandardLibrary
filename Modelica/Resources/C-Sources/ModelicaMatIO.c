@@ -7723,6 +7723,8 @@ static int       Mat_VarWrite73(mat_t *mat,matvar_t *matvar,int compress);
 #endif
 #if defined(_MSC_VER) || defined(__MINGW32__)
 #   define SIZE_T_FMTSTR "Iu"
+#elif defined(__GNUC__) && __STDC_VERSION__ < 199901L
+#   define SIZE_T_FMTSTR "lu"
 #else
 #   define SIZE_T_FMTSTR "zu"
 #endif
@@ -7775,7 +7777,7 @@ Mat_PrintNumber(enum matio_types type, void *data)
 #elif defined(HAVE_UNSIGNED_LONG_LONG_INT)
             printf("%llu",(unsigned long long)(*(mat_uint64_t*)data));
 #else
-            printf("%lu",(long)(*(mat_uint64_t*)data));
+            printf("%lu",(unsigned long)(*(mat_uint64_t*)data));
 #endif
             break;
 #endif
@@ -7792,10 +7794,18 @@ Mat_PrintNumber(enum matio_types type, void *data)
             printf("%hu",*(mat_uint16_t*)data);
             break;
         case MAT_T_INT8:
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
             printf("%hhd",*(mat_int8_t*)data);
+#else
+            printf("%hd",(mat_int16_t)(*(mat_int8_t*)data));
+#endif
             break;
         case MAT_T_UINT8:
+#if defined(__GNUC__) && __STDC_VERSION__ >= 199901L
             printf("%hhu",*(mat_uint8_t*)data);
+#else
+            printf("%hu",(mat_uint16_t)(*(mat_uint8_t*)data));
+#endif
             break;
         default:
             break;
