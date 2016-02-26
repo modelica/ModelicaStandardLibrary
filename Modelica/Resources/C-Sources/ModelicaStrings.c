@@ -524,7 +524,7 @@ Modelica_ERROR:
     return;
 }
 
-MODELICA_EXPORT int ModelicaStrings_hashString(const char* str) {
+MODELICA_EXPORT int ModelicaStrings_hashString(const char* inStr) {
     /* Compute an unsigned int hash code from a character string
      *
      * Author: Arash Partow - 2002                                            *
@@ -539,7 +539,10 @@ MODELICA_EXPORT int ModelicaStrings_hashString(const char* str) {
      */
     unsigned int hash = 0xAAAAAAAA;
     unsigned int i    = 0;
-    unsigned int len  = (unsigned int)strlen(str);
+    unsigned int len  = (unsigned int)strlen(inStr);
+    const unsigned char *str =(const unsigned char*)(inStr); 
+    /* Use unsigned char to be independent of compiler settings, */
+    /* https://trac.modelica.org/Modelica/ticket/1926 */
 
     union hash_tag {
         unsigned int iu;
