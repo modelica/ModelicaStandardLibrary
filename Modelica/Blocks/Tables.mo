@@ -21,7 +21,7 @@ package Tables
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
     parameter Boolean verboseRead=true
-      "= true, if info message that file is loading is to be printed"
+      "= true, if info message that file is loading is to be printed (provided tableOnFile=true)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
@@ -36,16 +36,8 @@ package Tables
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
-          smoothness) "External table object";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := Internal.readTable1DData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
+          smoothness,
+          if tableOnFile then verboseRead else false) "External table object";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -56,11 +48,11 @@ package Tables
     end if;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:n loop
-        y[i] = Internal.getTable1DValueNoDer(tableID, i, u[i], tableOnFileRead);
+        y[i] = Internal.getTable1DValueNoDer(tableID, i, u[i]);
       end for;
     else
       for i in 1:n loop
-        y[i] = Internal.getTable1DValue(tableID, i, u[i], tableOnFileRead);
+        y[i] = Internal.getTable1DValue(tableID, i, u[i]);
       end for;
     end if;
     annotation (
@@ -270,7 +262,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
     parameter Boolean verboseRead=true
-      "= true, if info message that file is loading is to be printed"
+      "= true, if info message that file is loading is to be printed (provided tableOnFile=true)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
@@ -285,16 +277,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
-          smoothness) "External table object";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := Internal.readTable1DData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
+          smoothness,
+          if tableOnFile then verboseRead else false) "External table object";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -305,11 +289,11 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     end if;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = Internal.getTable1DValueNoDer(tableID, i, u, tableOnFileRead);
+        y[i] = Internal.getTable1DValueNoDer(tableID, i, u);
       end for;
     else
       for i in 1:nout loop
-        y[i] = Internal.getTable1DValue(tableID, i, u, tableOnFileRead);
+        y[i] = Internal.getTable1DValue(tableID, i, u);
       end for;
     end if;
     annotation (
@@ -518,7 +502,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
     parameter Boolean verboseRead=true
-      "= true, if info message that file is loading is to be printed"
+      "= true, if info message that file is loading is to be printed (provided tableOnFile=true)"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
@@ -529,16 +513,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
-          smoothness) "External table object";
-    parameter Real tableOnFileRead(fixed=false)
-      "= 1, if table was successfully read from file";
-
-  initial algorithm
-    if tableOnFile then
-      tableOnFileRead := Internal.readTable2DData(tableID, false, verboseRead);
-    else
-      tableOnFileRead := 1.;
-    end if;
+          smoothness,
+          if tableOnFile then verboseRead else false) "External table object";
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -548,9 +524,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         "tableOnFile = false and parameter table is an empty matrix");
     end if;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
-      y = Internal.getTable2DValueNoDer(tableID, u1, u2, tableOnFileRead);
+      y = Internal.getTable2DValueNoDer(tableID, u1, u2);
     else
-      y = Internal.getTable2DValue(tableID, u1, u2, tableOnFileRead);
+      y = Internal.getTable2DValue(tableID, u1, u2);
     end if;
     annotation (
       Documentation(info="<html>
@@ -771,30 +747,15 @@ MATLAB is a registered trademark of The MathWorks, Inc.
   package Internal "Internal external object definitions for table functions that should not be directly utilized by the user"
     extends Modelica.Icons.InternalPackage;
 
-    function readTable1DData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      input Boolean verboseRead=true
-        "= true: Print info message; = false: No info message";
-      output Real readSuccess "Table read success";
-      external"C" readSuccess = ModelicaStandardTables_CombiTable1D_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
-    end readTable1DData;
-
     function getTable1DValue "Interpolate 1-dim. table defined by matrix"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (derivative(noDerivative=tableAvailable) = getTable1DValueDer);
+      annotation (derivative = getTable1DValueDer);
     end getTable1DValue;
 
       function getTable1DValueDer
@@ -803,8 +764,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       input Real der_u;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTable1D_getDerValue(tableID, icol, u, der_u)
@@ -817,37 +776,20 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
       input Integer icol;
       input Real u;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTable1D_getValue(tableID, icol, u)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTable1DValueNoDer;
-
-    function readTable2DData "Read table data from ASCII text or MATLAB MAT-file"
-        extends Modelica.Icons.Function;
-        input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
-        input Boolean forceRead = false
-          "= true: Force reading of table data; = false: Only read, if not yet read.";
-        input Boolean verboseRead=true
-          "= true: Print info message; = false: No info message";
-        output Real readSuccess "Table read success";
-        external"C" readSuccess = ModelicaStandardTables_CombiTable2D_read(tableID, forceRead, verboseRead)
-          annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-        annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
-    end readTable2DData;
 
     function getTable2DValue "Interpolate 2-dim. table defined by matrix"
         extends Modelica.Icons.Function;
         input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
         input Real u1;
         input Real u2;
-        input Real tableAvailable
-          "Dummy input to ensure correct sorting of function calls";
         output Real y;
         external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
           annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-        annotation (derivative(noDerivative=tableAvailable) = getTable2DValueDer);
+        annotation (derivative = getTable2DValueDer);
     end getTable2DValue;
 
     function getTable2DValueDer
@@ -856,8 +798,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
         input Real u1;
         input Real u2;
-        input Real tableAvailable
-          "Dummy input to ensure correct sorting of function calls";
         input Real der_u1;
         input Real der_u2;
         output Real der_y;
@@ -871,25 +811,10 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         input Modelica.Blocks.Types.ExternalCombiTable2D tableID;
         input Real u1;
         input Real u2;
-        input Real tableAvailable
-          "Dummy input to ensure correct sorting of function calls";
         output Real y;
         external"C" y = ModelicaStandardTables_CombiTable2D_getValue(tableID, u1, u2)
           annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTable2DValueNoDer;
-
-    function readTimeTableData "Read table data from ASCII text or MATLAB MAT-file"
-      extends Modelica.Icons.Function;
-      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Boolean forceRead = false
-        "= true: Force reading of table data; = false: Only read, if not yet read.";
-      output Real readSuccess "Table read success";
-      input Boolean verboseRead=true
-        "= true: Print info message; = false: No info message";
-      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
-    end readTimeTableData;
 
 
     function getTimeTableValue
@@ -900,15 +825,12 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
       annotation (derivative(
           noDerivative=nextTimeEvent,
-          noDerivative=pre_nextTimeEvent,
-          noDerivative=tableAvailable) = getTimeTableValueDer);
+          noDerivative=pre_nextTimeEvent) = getTimeTableValueDer);
     end getTimeTableValue;
 
     function getTimeTableValueDer
@@ -919,8 +841,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       input Real der_timeIn;
       output Real der_y;
       external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
@@ -935,8 +855,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       input Modelica.SIunits.Time timeIn;
       discrete input Modelica.SIunits.Time nextTimeEvent;
       discrete input Modelica.SIunits.Time pre_nextTimeEvent;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Real y;
       external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
@@ -946,8 +864,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Return minimum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMin "Minimum time value in table";
       external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
@@ -957,8 +873,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       "Return maximum time value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time timeMax "Maximum time value in table";
       external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
@@ -969,8 +883,6 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Modelica.SIunits.Time timeIn;
-      input Real tableAvailable
-        "Dummy input to ensure correct sorting of function calls";
       output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
       external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
