@@ -2520,7 +2520,7 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
 
         Modelica.Electrical.Analog.Basic.Ground ground annotation (Placement(
               transformation(
-              origin={-80,-28},
+              origin={-80,60},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
@@ -2542,11 +2542,11 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               rotation=270)));
         PowerConverters.ACDC.DiodeBridge2mPulse diodeBridge2mPulse(m=m) annotation (
             Placement(transformation(
-              extent={{-10,-10},{10,10}},
+              extent={{-10,10},{10,-10}},
               rotation=90,
               origin={-10,30})));
         Analog.Basic.VariableResistor variableResistor
-          annotation (Placement(transformation(extent={{-20,50},{0,70}})));
+          annotation (Placement(transformation(extent={{0,50},{-20,70}})));
         Blocks.Math.Gain          gain(k=unitK*R/wNominal)
                                        annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -2573,8 +2573,13 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
               extent={{-10,10},{10,-10}},
               rotation=180,
               origin={-30,-10})));
+        Analog.Basic.Resistor grounding(R=1e6) annotation (Placement(transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={-70,30})));
       initial equation
         smpm.is[1:2] = zeros(2);
+        smpm.i_0_s = 0;
 
       equation
         connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
@@ -2588,10 +2593,11 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
         connect(diodeBridge2mPulse.ac, currentQuasiRMSSensor.plug_p)
           annotation (Line(points={{-10,20},{-10,15},{-10,10}},
                                                               color={0,0,255}));
-        connect(variableResistor.p, diodeBridge2mPulse.dc_p) annotation (Line(points={{-20,60},
-                {-20,50},{-16,50},{-16,40}},          color={0,0,255}));
+        connect(variableResistor.p, diodeBridge2mPulse.dc_p) annotation (Line(points={{0,60},{
+                0,50},{-4,50},{-4,40}},               color={0,0,255}));
         connect(variableResistor.n, diodeBridge2mPulse.dc_n)
-          annotation (Line(points={{0,60},{0,50},{-4,50},{-4,40}}, color={0,0,255}));
+          annotation (Line(points={{-20,60},{-20,50},{-16,50},{-16,40}},
+                                                                   color={0,0,255}));
         connect(smpm.flange, inertiaLoad.flange_a)
           annotation (Line(points={{0,-40},{50,-40}}));
         connect(gain.u, speedSensor.w)
@@ -2602,10 +2608,6 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
           annotation (Line(points={{40,71},{40,80},{22,80}}, color={0,0,127}));
         connect(ac2dc.y, variableResistor.R)
           annotation (Line(points={{-1,80},{-10,80},{-10,71}}, color={0,0,127}));
-        connect(ground.p, terminalBox.starpoint)
-          annotation (Line(points={{-70,-28},{-19,-28}},           color={0,0,255}));
-        connect(starM.pin_n, ground.p) annotation (Line(points={{-70,-10},{-70,
-                -10},{-70,-28}}, color={0,0,255}));
         connect(starM.plug_p, voltageQuasiRMSSensor.plug_n) annotation (Line(
               points={{-50,-10},{-48,-10},{-40,-10}}, color={0,0,255}));
         connect(voltageQuasiRMSSensor.plug_p, currentQuasiRMSSensor.plug_n)
@@ -2613,6 +2615,14 @@ Default machine parameters of model <a href=\"modelica://Modelica.Electrical.Mac
                 255}));
         connect(smpm.flange, speedSensor.flange)
           annotation (Line(points={{0,-40},{40,-40},{40,-10}}));
+        connect(terminalBox.starpoint, starM.pin_n) annotation (Line(points={{-19,-28},
+                {-44,-28},{-70,-28},{-70,-10}}, color={0,0,255}));
+        connect(ground.p, variableResistor.n)
+          annotation (Line(points={{-70,60},{-46,60},{-20,60}}, color={0,0,255}));
+        connect(ground.p, grounding.n)
+          annotation (Line(points={{-70,60},{-70,60},{-70,40}}, color={0,0,255}));
+        connect(starM.pin_n, grounding.p)
+          annotation (Line(points={{-70,-10},{-70,5},{-70,20}}, color={0,0,255}));
         annotation (experiment(StopTime=0.8, Interval=0.001), Documentation(
               info="<html>
 <p>
