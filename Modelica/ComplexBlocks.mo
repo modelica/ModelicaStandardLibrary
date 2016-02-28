@@ -1972,9 +1972,17 @@ zero or negative.
             extent={{-20,-20},{20,20}},
             rotation=90,
             origin={0,-120})));
+    protected
+      Complex bw[size(b,1)];
+      Complex aw[size(a,1)];
+      Complex bSum;
+      Complex aSum;
     equation
-      y = u*'sum'({b[i]*(j*w)^(i-1) for i in 1:size(b,1)})/
-            'sum'({a[i]*(j*w)^(i-1) for i in 1:size(a,1)});
+      bw = {b[i]*(j*w)^(i-1) for i in 1:size(b,1)};
+      aw = {a[i]*(j*w)^(i-1) for i in 1:size(a,1)};
+      bSum = Complex(sum(bw.re), sum(bw.im));
+      aSum = Complex(sum(aw.re), sum(aw.im));
+      y = u*bSum/aSum;
       annotation (Icon(graphics={
           Text(
             lineColor={0,0,127},
@@ -2251,7 +2259,7 @@ The output y is a complex phasor with constant magnitude, spinning with constant
       parameter Modelica.SIunits.Time duration(min=0.0, start=1)
         "Duration of ramp (= 0.0 gives a Step)";
     equation
-      y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/duration));
+      y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/max(duration,eps)));
        annotation ( Documentation(info="<html>
 <p>The output performs a logarithmic freqency sweep:<br>
 The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
