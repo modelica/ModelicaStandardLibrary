@@ -15,11 +15,9 @@ package Noise "Library of noise blocks"
         annotation(Dialog(enable=not useAutomaticSeed));
     final parameter Integer seed(fixed=false) "Actually used global seed";
     final parameter Integer id_impure(fixed=false)
-      "ID for impure random number generators Modelica.Math.Random.Utilities.impureXXX"
-                                                                                               annotation(HideResult=true);
+      "ID for impure random number generators Modelica.Math.Random.Utilities.impureXXX"        annotation(HideResult=true);
   initial equation
-    seed = if useAutomaticSeed then Modelica.Math.Random.Utilities.automaticGlobalSeed() else fixedSeed
-      "Actually used global seed";
+    seed = if useAutomaticSeed then Modelica.Math.Random.Utilities.automaticGlobalSeed() else fixedSeed;
     id_impure = Modelica.Math.Random.Utilities.initializeImpureRandom(seed);
 
     annotation (
