@@ -1,6 +1,6 @@
 dnl Init
 AC_PREREQ([2.63])
-AC_INIT([Modelica Standard Library Tables],[3.2.1],[https://trac.modelica.org/Modelica],[libmodelicastandardtables],[https://modelica.org])
+AC_INIT([Modelica Standard Library Tables],[3.2.2],[https://trac.modelica.org/Modelica],[libmodelicastandardtables],[https://modelica.org])
 
 AM_INIT_AUTOMAKE([subdir-objects])
 AC_CONFIG_MACRO_DIR([m4])
@@ -63,7 +63,7 @@ for HDF_FIRST in Yes No; do
       HDF5="Yes"
       if test "$HDF_FIRST" = "Yes" && test "$host" = "$build" && apt-cache show libhdf5-dev > /dev/null 2>&1; then
         HDF5_INSTALL_CMD="apt-get install libhdf5-dev"
-        if gksudo --description "HDF5 is an optional dependency of ModelicaTables used to read MATLAB 7.3 files. $HDF5_INSTALL_CMD" $HDF5_INSTALL_CMD; then
+        if gksudo --description "HDF5 is an optional dependency of ModelicaMatIO used to read/write MATLAB 7.3 files. $HDF5_INSTALL_CMD" $HDF5_INSTALL_CMD; then
           continue
         else
           HDF5="No";
@@ -127,9 +127,9 @@ if test "$SHARED_TABLES" = "Yes"; then
 CPPFLAGS="$CPPFLAGS -DTABLE_SHARE=1"
 fi
 
-echo "Modelica Standard Tables may use ZLIB: $ZLIB"
-echo "Modelica Standard Tables may use HDF5: $HDF5"
-echo "Modelica Standard Tables may use MAT7.3: $HDF5"
+echo "ModelicaMatIO may use ZLIB: $ZLIB"
+echo "ModelicaMatIO may use HDF5: $HDF5"
+echo "ModelicaMatIO may use MAT7.3: $HDF5"
 
 if test "$libdir" = '${exec_prefix}/lib'; then
   # It is hard to detect where to put the libraries if we cross-compile. Let the tool decide where to put it.
