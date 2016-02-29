@@ -10,11 +10,13 @@ AC_PROG_CC
 AC_PROG_CPP
 AC_PROG_MAKE_SET
 LT_INIT([disable-static])
-
+AC_SUBST(LIBZLIB)
+AC_SUBST(LIBHDF5)
 dnl Check for HDF5, etc
 
 AC_SEARCH_LIBS([floor],[m])
 
+LIBS_BEFORE="$LIBS"
 ZLIB="Yes"
 STATIC_ZLIB="No"
 AC_ARG_ENABLE(hdf5,
@@ -25,12 +27,16 @@ AC_ARG_ENABLE(shared-tables,
   [  --enable-shared-tables[=yes] Adds support for shared tables, reducing file I/O and reducing memory footprint],[test "xyes" = x"$enableval" && SHARED_TABLES="Yes"],[SHARED_TABLES="Yes"])
 AC_ARG_ENABLE(static-zlib, [  --enable-static-zlib[=no]],[test "xyes" = x"$enableval" && STATIC_ZLIB="Yes"],[STATIC_ZLIB="No"])
 
+LIBZLIB="libzlib.la"
 if test "$ZLIB" = "Yes"; then
   AC_CHECK_HEADERS(zlib.h,[AC_SEARCH_LIBS([gzclose], [z], [ZLIB="Yes"], [ZLIB="No"])],[ZLIB="No"])
   if test "$ZLIB" = "No" && test -d ../../C-Sources/zlib; then
     ZLIB="Yes, from sources"
+  else
+    LIBZLIB="$LIBS"
   fi
 fi
+LIBS="$LIBS_BEFORE"
 
 AM_CONDITIONAL([INCLUDEZLIB], [test "$ZLIB" = "Yes, from sources" -o "$STATIC_ZLIB" = "Yes"])
 
@@ -101,8 +107,10 @@ done
 
 if test "$HDF5" = "No"; then
   AC_MSG_RESULT([1.8 API not available])
-  LIBS=$LIBS_BEFORE
+else
+  LIBHDF5="$LIBS"
 fi
+LIBS=$LIBS_BEFORE
 
 fi
 
