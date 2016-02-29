@@ -2427,8 +2427,9 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
           In <a href=\"modelica://Modelica/Resources/C-sources/_readme.txt\">Resources/C-sources/_readme.txt</a>
           the issue is explained in detailed and how to resolve it.
           For a <b>user</b> this might be a non-backwards compatible change if he/she implemented an
-          own external C interface function to one of the functions in the ModelicaMatIO or zlib libraries.
-          In this case, the library annotation to these functions need to be adapted.</li>
+          own external C interface function to one of the functions in the ModelicaStandardTables, 
+          ModelicaMatIO or zlib libraries. In this case, the library annotation to these functions need to be 
+          adapted.</li>
      </ul>
 </li>
 </ul>
