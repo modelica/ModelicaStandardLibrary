@@ -138,7 +138,7 @@ initial equation
                 level,
                 minimumLength=1,
                 significantDigits=2)))}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 Model of a tank that is open to the ambient at the fixed pressure
 <code>p_ambient</code>.
@@ -164,7 +164,7 @@ at the height of the respective port.
 The relationship between pressure drop and mass flow rate at the port must then be provided by connected components;
 Heights of ports as well as kinetic and potential energy of fluid entering or leaving are not taken into account anymore.
 </p>
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>Dec. 12, 2008</i> by Ruediger Franke: move port definitions
    to BaseClasses.PartialLumpedVessel; also use energy and mass balance from common base class</li>
@@ -209,10 +209,10 @@ end OpenTank;
 
         parameter Medium.MassFlowRate m_flow_nominal = if system.use_eps_Re then system.m_flow_nominal else 1e2*system.m_flow_small
         "Nominal value for mass flow rates in ports"
-          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
+          annotation(Dialog(tab="Advanced", group="Port properties"));
         parameter SI.MassFlowRate m_flow_small(min=0) = if system.use_eps_Re then system.eps_m_flow*m_flow_nominal else system.m_flow_small
         "Regularization range at zero mass flow rate"
-          annotation(Dialog(tab="Advanced", group="Port properties", enable=stiffCharacteristicForEmptyPort));
+          annotation(Dialog(tab="Advanced", group="Port properties"));
         parameter Boolean use_Re = system.use_eps_Re
         "= true, if turbulent region is defined by Re, otherwise by m_flow_small"
           annotation(Dialog(tab="Advanced", group="Port properties"), Evaluate=true);
@@ -410,8 +410,7 @@ of the modeller. Increase nPorts to add an additional port.
 
         connect(heatPort, heatTransfer.heatPorts[1]) annotation (Line(
             points={{-100,0},{-87,0},{-87,0},{-74,0}},
-            color={191,0,0},
-            smooth=Smooth.None));
+            color={191,0,0}));
        annotation (
         Documentation(info="<html>
 <p>
@@ -424,7 +423,7 @@ The following modeling assumption are made:
 <li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
 <li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
 <li>outflow of ambient media is prevented at each port assuming check valve behavior.
-    If <code> fluidlevel &lt; portsData_height[i] </code>and &nbsp; <code> ports[i].p &lt; vessel_ps_static[i]</code> massflow at the port is set to 0.</li>
+    If <code> fluidlevel &lt; portsData_height[i] </code>and &nbsp; <code> ports[i].p &lt; vessel_ps_static[i]</code> mass flow at the port is set to 0.</li>
 </ul>
 <p>
 Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the &nbsp;<b><code>portsData</code></b> record.

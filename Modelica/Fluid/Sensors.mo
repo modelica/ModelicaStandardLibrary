@@ -10,8 +10,7 @@ package Sensors
                                             final unit="Pa",
                                             displayUnit="bar",
                                             min=0) "Pressure at port"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
   equation
     p = port.p;
     annotation (
@@ -28,7 +27,7 @@ package Sensors
             extent={{151,-20},{57,-50}},
             lineColor={0,0,0},
             textString="p")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This component monitors the absolute pressure at its fluid port. The sensor is
 ideal, i.e., it does not influence the fluid.
@@ -43,8 +42,7 @@ ideal, i.e., it does not influence the fluid.
                                             final unit="kg/m3",
                                             displayUnit="g/cm3",
                                             min=0) "Density in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     d = Medium.density(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
@@ -61,13 +59,13 @@ ideal, i.e., it does not influence the fluid.
             lineColor={0,0,0},
             textString="d"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the density of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 
-</HTML>"));
+</html>"));
   end Density;
 
   model DensityTwoPort "Ideal two port density sensor"
@@ -107,7 +105,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the density of the fluid flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -121,13 +119,12 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature",
                                             final unit = "K", displayUnit = "degC", min=0)
       "Temperature in port medium"
-      annotation (Placement(transformation(extent={{60,-10},{80,10}}, rotation=
-              0)));
+      annotation (Placement(transformation(extent={{60,-10},{80,10}})));
 
   equation
     T = Medium.temperature(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
   annotation (defaultComponentName="temperature",
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This component monitors the temperature of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -153,15 +150,13 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineThickness=0.5),
           Line(
             points={{-12,40},{-12,-64}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{12,40},{12,-64}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-40,-20},{-12,-20}}, color={0,0,0}),
-          Line(points={{-40,20},{-12,20}}, color={0,0,0}),
-          Line(points={{-40,60},{-12,60}}, color={0,0,0}),
+          Line(points={{-40,-20},{-12,-20}}),
+          Line(points={{-40,20},{-12,20}}),
+          Line(points={{-40,60},{-12,60}}),
           Line(points={{12,0},{60,0}}, color={0,0,127})}),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
@@ -183,15 +178,13 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-54}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{12,50},{12,-54}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-40,-10},{-12,-10}}, color={0,0,0}),
-          Line(points={{-40,30},{-12,30}}, color={0,0,0}),
-          Line(points={{-40,70},{-12,70}}, color={0,0,0}),
+          Line(points={{-40,-10},{-12,-10}}),
+          Line(points={{-40,30},{-12,30}}),
+          Line(points={{-40,70},{-12,70}}),
           Text(
             extent={{126,-30},{6,-60}},
             lineColor={0,0,0},
@@ -253,20 +246,18 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineThickness=0.5),
           Line(
             points={{-12,50},{-12,-35}},
-            color={0,0,0},
             thickness=0.5),
           Line(
             points={{12,50},{12,-34}},
-            color={0,0,0},
             thickness=0.5),
-          Line(points={{-40,-10},{-12,-10}}, color={0,0,0}),
-          Line(points={{-40,20},{-12,20}}, color={0,0,0}),
-          Line(points={{-40,50},{-12,50}}, color={0,0,0}),
+          Line(points={{-40,-10},{-12,-10}}),
+          Line(points={{-40,20},{-12,20}}),
+          Line(points={{-40,50},{-12,50}}),
           Text(
             extent={{94,122},{0,92}},
             lineColor={0,0,0},
             textString="T")}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the temperature of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -280,8 +271,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput h_out(final quantity="SpecificEnergy",
                                                 final unit="J/kg")
       "Specific enthalpy in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     h_out = inStream(port.h_outflow);
@@ -298,7 +288,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,0},
             textString="h"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the specific enthalpy of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -334,7 +324,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the specific enthalpy of a passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -348,8 +338,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Modelica.Blocks.Interfaces.RealOutput s(final quantity="SpecificEntropy",
                                             final unit="J/(kg.K)")
       "Specific entropy in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   equation
     s = Medium.specificEntropy(Medium.setState_phX(port.p, inStream(port.h_outflow), inStream(port.Xi_outflow)));
@@ -366,7 +355,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,0},
             textString="s"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the specific entropy of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -410,7 +399,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the specific entropy of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -424,8 +413,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     parameter String substanceName = "water" "Name of mass fraction";
 
     Modelica.Blocks.Interfaces.RealOutput Xi "Mass fraction in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
     parameter Integer ind(fixed=false)
@@ -458,7 +446,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,0},
             textString="Xi"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the mass fraction contained in the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -511,11 +499,11 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the mass fraction of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
-</p> </HTML>", revisions="<html>
+</p> </html>", revisions="<html>
 <ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
 </ul>
@@ -528,8 +516,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     parameter String substanceName = "CO2" "Name of trace substance";
 
     Modelica.Blocks.Interfaces.RealOutput C "Trace substance in port medium"
-      annotation (Placement(transformation(extent={{100,-10},{120,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
   protected
     parameter Integer ind(fixed=false)
@@ -563,7 +550,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
             lineColor={0,0,0},
             textString="C"),
           Line(points={{70,0},{100,0}}, color={0,0,127})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the trace substances contained in the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -611,7 +598,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the trace substance of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -642,7 +629,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
             textString="m_flow"),
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the mass flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -687,7 +674,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
           Line(points={{0,100},{0,70}}, color={0,0,127}),
           Line(points={{-100,0},{-70,0}}, color={0,128,255}),
           Line(points={{70,0},{100,0}}, color={0,128,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This component monitors the volume flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
@@ -716,7 +703,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
             extent={{130,-70},{4,-100}},
             lineColor={0,0,0},
             textString="p_rel")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The relative pressure \"port_a.p - port_b.p\" is determined between
 the two ports of this component and is provided as output signal. The
@@ -747,7 +734,7 @@ through the sensor is allowed.
             extent={{128,-70},{10,-100}},
             lineColor={0,0,0},
             textString="T_rel")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 The relative temperature \"T(port_a) - T(port_b)\" is determined between
 the two ports of this component and is provided as output signal. The
@@ -797,12 +784,10 @@ as signal.
 
       Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
                                     redeclare package Medium = Medium)
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Fluid.Interfaces.FluidPort_b port_b(m_flow(min=0),
                                     redeclare package Medium = Medium)
-        annotation (Placement(transformation(extent={{110,-12},{90,8}}, rotation=
-                0), iconTransformation(extent={{110,-10},{90,10}})));
+        annotation (Placement(transformation(extent={{110,-12},{90,8}}), iconTransformation(extent={{110,-10},{90,10}})));
 
     equation
       // Zero flow equations for connectors
@@ -827,15 +812,13 @@ as signal.
               lineColor={0,0,255}),
             Line(
               points={{32,3},{-58,3}},
-              color={0,128,255},
-              smooth=Smooth.None),
+              color={0,128,255}),
             Polygon(
               points={{22,18},{62,3},{22,-12},{22,18}},
               lineColor={0,128,255},
-              smooth=Smooth.None,
               fillColor={0,128,255},
               fillPattern=FillPattern.Solid)}),
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The relative pressure \"port_a.p - port_b.p\" is determined between
 the two ports of this component and is provided as output signal. The

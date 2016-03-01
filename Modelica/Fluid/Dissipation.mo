@@ -1072,7 +1072,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         SI.ReynoldsNumber Re_Lp=max(1e-3, abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
             A_c)) "Reynolds number based on louver pitch";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
-        Real j "Colburn j faktor";
+        Real j "Colburn j factor";
 
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
              - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
@@ -1281,7 +1281,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         SI.ReynoldsNumber Re_Dc=max(1e-3, abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
             A_c)) "Reynolds number based on fin collar diameter";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
-        Real j "Colburn j faktor";
+        Real j "Colburn j factor";
 
         SI.Area A_c=IN_con.A_fr*((IN_con.F_p*IN_con.P_t - IN_con.F_p*IN_con.D_c - (
             IN_con.P_t - IN_con.D_c)*IN_con.delta_f)/(IN_con.F_p*IN_con.P_t))
@@ -1298,14 +1298,14 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
       4*A_c/(IN_con.A_fr*(2*(IN_con.P_t-IN_con.D_c+IN_con.F_p-IN_con.delta_f)/(IN_con.F_p*IN_con.P_t))) else
       0 "Hydraulic diameter";*/
 
-        Real J1=0 "Exponent for computation of Colburn j faktor";
-        Real J2=0 "Exponent for computation of Colburn j faktor";
-        Real J3=0 "Exponent for computation of Colburn j faktor";
-        Real J4=0 "Exponent for computation of Colburn j faktor";
-        Real J5=0 "Exponent for computation of Colburn j faktor";
-        Real J6=0 "Exponent for computation of Colburn j faktor";
-        Real J7=0 "Exponent for computation of Colburn j faktor";
-        Real J8=0 "Exponent for computation of Colburn j faktor";
+        Real J1=0 "Exponent for computation of Colburn j factor";
+        Real J2=0 "Exponent for computation of Colburn j factor";
+        Real J3=0 "Exponent for computation of Colburn j factor";
+        Real J4=0 "Exponent for computation of Colburn j factor";
+        Real J5=0 "Exponent for computation of Colburn j factor";
+        Real J6=0 "Exponent for computation of Colburn j factor";
+        Real J7=0 "Exponent for computation of Colburn j factor";
+        Real J8=0 "Exponent for computation of Colburn j factor";
 
       algorithm
         if IN_con.geometry == TYP.PlainFin then
@@ -3434,13 +3434,13 @@ Generally this function is numerically best used for the <b>incompressible case<
             IN_con.d_hyd) + 5.74/Re_turb_min^0.9))^2
           "Darcy friction factor considering surface roughness at starting transition to constant turbulent regime";
         TYP.DarcyFrictionFactor lambda_turb_min_smooth=0.25/(Modelica.Math.log10(5.74/Re_turb_min^0.9))^2
-          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regimee";
+          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regime";
 
         TYP.DarcyFrictionFactor lambda_turb_max_rough=0.25/(Modelica.Math.log10(k/(3.7*
             IN_con.d_hyd) + 5.74/Re_turb_max^0.9))^2
           "Darcy friction factor considering surface roughness at starting transition to constant turbulent regime";
         TYP.DarcyFrictionFactor lambda_turb_max_smooth=0.25/(Modelica.Math.log10(5.74/Re_turb_max^0.9))^2
-          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regimee";
+          "Darcy friction factor neglecting surface roughness at starting transition to constant turbulent regime";
 
         SI.Velocity v_turb_min = Re_turb_min*IN_var.eta/(IN_var.rho*d_hyd)
           "Mean velocity for starting of transition to constant turbulent regime";
@@ -4623,7 +4623,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
     extends Modelica.Icons.VariantsPackage;
 
       function dp_suddenChange_DP
-        "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
+        "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without baffles | sharp edge"
         extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
@@ -4719,7 +4719,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
       end dp_suddenChange_DP;
 
       function dp_suddenChange_MFLOW
-        "Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
+        "Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without baffles | sharp edge"
         extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
@@ -5640,7 +5640,7 @@ This record is used as <b> input record </b> for the pressure loss function
             x_flow) "Void fraction";
 
         //SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel
-        //SOURCE_2: Considering frictional pressrue loss w.r.t. to correlation of Chisholm
+        //SOURCE_2: Considering frictional pressure loss w.r.t. to correlation of Chisholm
         SI.Pressure DP_fric=if IN_con.frictionalPressureLoss == TYP.Friedel then
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(
             IN_con,
@@ -5815,8 +5815,7 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
       protected
         type TYP1 =
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
-        type TYP2 =
-            Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
+        type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
 
@@ -5925,8 +5924,7 @@ Generally this function is numerically best used for the <b> incompressible case
       protected
         type TYP1 =
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
-        type TYP2 =
-            Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
+        type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
 
@@ -7918,7 +7916,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility.</p>
 
 <h4>References</h4>
-<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
+<dl><dt>Elmqvist,H., M.Otter and S.E. Cellier: </dt>
 <dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Idelchik,I.E.: </dt>
 <dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
@@ -8392,7 +8390,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 </p>
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8500,7 +8498,7 @@ The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8642,7 +8640,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8699,7 +8697,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 
 <h4>References</h4>
 <dl>
- <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+ <dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8759,7 +8757,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8863,7 +8861,7 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
 
 <h4>References</h4>
 <dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+<dt>Elmqvist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -8976,7 +8974,7 @@ The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mas
 
 <h4>References</h4>
 <dl>
- <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+ <dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
 symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -9087,7 +9085,7 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
 
 <h4>References</h4>
 <dl>
- <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+ <dt>Elmqvist,H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
     symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
@@ -10968,8 +10966,8 @@ For |x| &gt; 1 both functions return identical results.
             dy := (C1 + 3*C3*x*x)*dx;
           end if;
          annotation (Documentation(revisions="<html>
-2014-04-29 Stefan Wischhusen: Corrected branch for x<=-adeltax, removed dpow and ddeltax.
-2015-10-13 Stefan Wischhusen: Removed noEvent() from if clause.
+ 2014-04-29 Stefan Wischhusen: Corrected branch for x<=-adeltax, removed dpow and ddeltax.
+ 2015-10-13 Stefan Wischhusen: Removed noEvent() from if clause.
 </html>"));
         end SmoothPower_der;
 
@@ -11073,7 +11071,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   points={{60,-40},{60,-60},{100,-20},{100,0},{60,-40}},
                   lineColor={0,0,0},
                   lineThickness=1,
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Rectangle(
@@ -11086,13 +11083,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   points={{60,40},{60,20},{100,60},{100,80},{60,40}},
                   lineColor={0,0,0},
                   lineThickness=1,
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Polygon(
                   points={{100,60},{100,0},{60,0},{60,20},{100,60}},
                   lineThickness=1,
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None,
@@ -11100,7 +11095,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Polygon(
                   points={{-100,-40},{-100,20},{60,20},{60,0},{-60,0},{-100,-40}},
                   lineThickness=1,
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None,
@@ -11109,22 +11103,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   points={{-100,40},{-60,80},{100,80},{60,40},{-100,40}},
                   lineColor={0,0,0},
                   lineThickness=1,
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Line(
                   points={{-100,20},{60,20},{100,60}},
-                  thickness=1,
-                  smooth=Smooth.None,
-                  color={0,0,0}),
+                  thickness=1),
                 Line(
                   points={{-100,-40},{60,-40},{100,0}},
-                  thickness=1,
-                  smooth=Smooth.None),
+                  thickness=1),
                 Line(
                   points={{20,80},{-20,40}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   thickness=0.5),
                 Rectangle(
@@ -11142,8 +11130,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="h"),
                 Line(
                   points={{60,-66},{-100,-66}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   thickness=0.5),
                 Rectangle(
@@ -11163,13 +11149,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   points={{-100,-40},{-60,0},{100,0},{60,-40},{-100,-40}},
                   lineColor={0,0,0},
                   lineThickness=1,
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Line(
                   points={{-80,20},{-80,-40}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   thickness=0.5),
                 Rectangle(
@@ -11186,8 +11169,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="s"),
                 Line(
                   points={{26,-10},{-24,-10}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.None},
                   thickness=1),
                 Rectangle(
@@ -11219,8 +11200,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineColor={0,0,0}),
                 Line(
                   points={{80,-28},{80,48}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   thickness=0.5),
                 Rectangle(
@@ -11260,30 +11239,20 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Line(
                   points={{-60,82},{-60,-84}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.Dash),
                 Line(
                   points={{-62,-26},{60,-36}},
-                  pattern=LinePattern.Solid,
-                  thickness=1,
-                  smooth=Smooth.None),
+                  thickness=1),
                 Line(
                   points={{-62,24},{60,14}},
-                  pattern=LinePattern.Solid,
-                  thickness=1,
-                  smooth=Smooth.None),
+                  thickness=1),
                 Line(
                   points={{-60,-16},{62,-26}},
-                  pattern=LinePattern.Solid,
-                  thickness=1,
-                  smooth=Smooth.None),
+                  thickness=1),
                 Line(
                   points={{-60,34},{62,24}},
-                  pattern=LinePattern.Solid,
-                  thickness=1,
-                  smooth=Smooth.None),
+                  thickness=1),
                 Ellipse(
                   extent={{38,64},{78,24}},
                   lineColor={0,0,0},
@@ -11311,28 +11280,22 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Polygon(
                   points={{-60,-26},{60,-36},{60,-76},{-60,-66},{-60,-26}},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   pattern=LinePattern.None),
                 Line(
                   points={{-60,-46},{60,-56}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.Dash),
                 Polygon(
                   points={{-60,24},{60,14},{60,-26},{-60,-16},{-60,24}},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   pattern=LinePattern.None),
                 Line(
                   points={{-60,4},{60,-6}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.Dash),
                 Ellipse(
                   extent={{40,-36},{80,-76}},
@@ -11343,15 +11306,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Polygon(
                   points={{-62,74},{58,64},{58,24},{-62,34},{-62,74}},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   pattern=LinePattern.None),
                 Line(
                   points={{-60,54},{60,44}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.Dash),
                 Ellipse(
                   extent={{-80,74},{-40,34}},
@@ -11362,60 +11322,43 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Polygon(
                   points={{-60,24},{60,64},{60,24},{-60,-16},{-60,24}},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   pattern=LinePattern.None),
                 Line(
                   points={{8,28},{-8,22}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled},
                   thickness=1),
                 Line(
                   points={{12,-24},{-4,-30}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled},
                   thickness=1),
                 Polygon(
                   points={{-60,-26},{60,14},{60,-26},{-60,-66},{-60,-26}},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillPattern=FillPattern.Forward,
                   fillColor={255,255,170},
                   pattern=LinePattern.None),
                 Line(
                   points={{60,24},{-60,-16}},
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   thickness=0.5),
                 Line(
                   points={{60,14},{-60,-26}},
-                  thickness=0.5,
-                  smooth=Smooth.None),
+                  thickness=0.5),
                 Line(
                   points={{60,-26},{-60,-66}},
-                  thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0}),
+                  thickness=0.5),
                 Line(
                   points={{-60,74},{60,64}},
-                  thickness=0.5,
-                  smooth=Smooth.None),
+                  thickness=0.5),
                 Line(
                   points={{-60,24},{60,64}},
-                  thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0}),
+                  thickness=0.5),
                 Line(
                   points={{-60,-66},{60,-76}},
-                  thickness=0.5,
-                  smooth=Smooth.None),
+                  thickness=0.5),
                 Line(
                   points={{10,-22},{-6,-28}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled},
                   thickness=1),
                 Ellipse(
@@ -11432,33 +11375,23 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-74,78},{-46,78}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Line(
                   points={{2,3},{-14,3}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled},
                   thickness=1,
                   origin={-38,55},
                   rotation=180),
                 Line(
                   points={{0,82},{0,-86}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.DashDot),
                 Line(
                   points={{60,-32},{60,-82}},
                   thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   pattern=LinePattern.DashDot),
                 Line(
                   points={{-60,-82},{60,-82}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{-18,-76},{18,-88}},
@@ -11475,26 +11408,18 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="d_mean"),
                 Line(
                   points={{46,-56},{88,-56}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.DashDot),
                 Line(
                   points={{60,18},{60,-30}},
                   thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   pattern=LinePattern.DashDot),
                 Line(
                   points={{46,-6},{88,-6}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   pattern=LinePattern.DashDot),
                 Line(
                   points={{84,-6},{84,-56}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{74,-24},{98,-36}},
@@ -11505,14 +11430,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Line(
                   points={{-74,82},{-74,52}},
                   thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   pattern=LinePattern.DashDot),
                 Line(
                   points={{-46,82},{-46,52}},
                   thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   pattern=LinePattern.DashDot),
                 Text(
                   extent={{72,-26},{98,-36}},
@@ -11542,8 +11463,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Line(
                   points={{-40,54},{-40,50}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=1),
                 Text(
                   extent={{-44,56},{-22,48}},
@@ -11566,8 +11485,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillColor={255,255,170}),
                 Line(
                   points={{-100,-20},{100,-20}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Text(
                   extent={{-14,-20},{12,-30}},
@@ -11578,8 +11495,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="L"),
                 Line(
                   points={{-20,16},{20,16}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled}),
                 Text(
                   extent={{-14,26},{12,16}},
@@ -11602,20 +11517,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineColor={0,0,0}),Polygon(
                   points={{-100,-20},{-60,20},{100,20},{60,-20},{-100,-20}},
                   lineColor={0,0,0},
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineThickness=0.5),Polygon(
                   points={{60,-20},{60,-40},{100,0},{100,20},{60,-20}},
                   lineColor={0,0,0},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),Line(
                   points={{-20,0},{20,0}},
                   thickness=1,
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   arrow={Arrow.None,Arrow.Filled}),Text(
                   extent={{-14,10},{12,0}},
                   lineColor={0,0,0},
@@ -11624,8 +11535,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid,
                   textString="v"),Line(
                   points={{-100,-48},{60,-48}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),Rectangle(
                   extent={{-26,-44},{-18,-54}},
                   fillColor={255,255,255},
@@ -11712,7 +11621,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Polygon(
                   points={{0,10},{100,-48},{100,-80},{0,-20},{0,10}},
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None),
@@ -11724,7 +11632,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid),
                 Polygon(
                   points={{0,40},{100,-20},{100,-48},{0,10},{0,40}},
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None),
@@ -11735,45 +11642,35 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Polygon(
                   points={{-100,-40},{-100,-20},{0,-20},{0,-40},{-100,-40}},
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineColor={0,0,0}),
                 Polygon(
                   points={{0,-40},{0,-20},{100,-80},{100,-100},{0,-40}},
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineColor={0,0,0}),
                 Polygon(
                   points={{0,40},{0,60},{100,0},{100,-20},{0,40}},
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineColor={0,0,0}),
                 Polygon(
                   points={{-100,40},{-100,60},{0,60},{0,40},{-100,40}},
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineColor={0,0,0}),
                 Line(
                   points={{0,10},{100,-48}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled},
                   thickness=0.5),
                 Line(
                   points={{-100,10},{0,10}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   arrow={Arrow.Filled,Arrow.None}),
                 Line(
                   points={{-78,40},{-78,-20}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{-90,32},{-62,18}},
@@ -11816,9 +11713,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-2,4},{2,10}},
-                  color={0,0,0},
-                  thickness=0.5,
-                  smooth=Smooth.None)}));
+                  thickness=0.5)}));
 
         end BendEdged_d;
 
@@ -11829,8 +11724,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 graphics={
                 Line(
                   points={{-92,80},{-60,80}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot),
                 Ellipse(
@@ -11852,9 +11745,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{0,74},{0,46}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{-10,66},{10,56}},
@@ -11882,23 +11773,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Forward),
                 Line(
                   points={{0,14},{0,-14}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={-60,36},
                   rotation=90),
                 Line(
                   points={{-92,40},{-60,40}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot),
                 Line(
                   points={{-90,80},{-90,40}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{-98,64},{-82,54}},
@@ -11914,16 +11799,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="D_ann"),
                 Line(
                   points={{-16,0},{16,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={-74,46},
                   rotation=270),
                 Line(
                   points={{-16,0},{16,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={-46,46},
@@ -11948,17 +11829,13 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-22,0},{22,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={60,60},
                   rotation=90),
                 Line(
                   points={{0,4},{0,-14}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={46,42},
                   rotation=90),
@@ -11976,29 +11853,21 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="a_ell"),
                 Line(
                   points={{0,0},{22,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={42,38},
                   rotation=90),
                 Line(
                   points={{60,72},{92,72}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot),
                 Line(
                   points={{38,60},{92,60}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot),
                 Line(
                   points={{0,4},{0,-8}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={88,68},
                   rotation=360),
@@ -12028,25 +11897,19 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineThickness=0.5),
                 Line(
                   points={{-16,0},{16,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={-56,-2},
                   rotation=270),
                 Line(
                   points={{-16,0},{16,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={-24,-2},
                   rotation=270),
                 Line(
                   points={{0,14},{0,-18}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={-42,-14},
                   rotation=90),
@@ -12064,25 +11927,19 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="a_rec"),
                 Line(
                   points={{-16,0},{16,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={-31,20},
                   rotation=360),
                 Line(
                   points={{-16,0},{16,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={-31,-2},
                   rotation=360),
                 Line(
                   points={{0,12},{0,-10}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={-16,10},
                   rotation=180),
@@ -12102,61 +11959,47 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   points={{20,-10},{40,30},{60,-10},{20,-10}},
                   lineColor={0,0,0},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward),
                 Polygon(
                   points={{26,-6},{40,22},{54,-6},{26,-6}},
                   lineColor={0,0,0},
                   lineThickness=0.5,
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(
                   points={{-16,0},{-4,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={26,-22},
                   rotation=270),
                 Line(
                   points={{0,20},{0,-8}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={46,-16},
                   rotation=90),
                 Line(
                   points={{-16,0},{-4,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={54,-22},
                   rotation=270),
                 Line(
                   points={{-16,0},{12,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={56,22},
                   rotation=360),
                 Line(
                   points={{-16,0},{12,0}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   pattern=LinePattern.Dot,
                   origin={56,-6},
                   rotation=360),
                 Line(
                   points={{0,20},{0,-8}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={64,14},
                   rotation=180),
@@ -12186,14 +12029,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="a_tri"),
                 Line(
                   points={{36,14},{38,12},{42,12},{44,14}},
-                  color={0,0,0},
-                  thickness=0.5,
-                  smooth=Smooth.None),
+                  thickness=0.5),
                 Line(
                   points={{-12,-2},{0,-8}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.None},
                   origin={40,24},
                   rotation=360),
@@ -12242,25 +12081,19 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="sudden contraction"),
                 Line(
                   points={{-20,0},{20,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled},
                   origin={0,-72},
                   rotation=180),
                 Line(
                   points={{-20,0},{20,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={-48,0},
                   rotation=90),
                 Line(
                   points={{-62,0},{20,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={52,20},
                   rotation=90),
@@ -12304,15 +12137,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="design flow direction"),
                 Line(
                   points={{-24,-4},{16,-4}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled}),
                 Line(
                   points={{-20,70},{20,70}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.None,Arrow.Filled})}));
 
         end OrificeSuddenChangeSection_d;
@@ -12340,17 +12169,13 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineColor={0,0,0}),
                 Line(
                   points={{-20,0},{20,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={-48,0},
                   rotation=90),
                 Line(
                   points={{-62,0},{20,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={70,20},
                   rotation=90),
@@ -12375,9 +12200,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Line(
                   points={{-40,-32},{40,-32}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{-100,40},{-40,-42}},
@@ -12386,9 +12209,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineColor={0,0,0}),
                 Line(
                   points={{-62,0},{20,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={-70,20},
                   rotation=90),
@@ -12407,9 +12228,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   textString="A_1"),
                 Line(
                   points={{-42,0},{-2,0}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled},
                   origin={0,22},
                   rotation=90),
@@ -12466,15 +12285,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillColor={255,255,170}),
                 Polygon(
                   points={{-80,-54},{-80,46},{80,46},{80,-54},{-80,-54}},
-                  smooth=Smooth.None,
                   fillColor={255,255,170},
                   fillPattern=FillPattern.Forward,
                   lineThickness=0.5,
                   pattern=LinePattern.None),
                 Line(
                   points={{-80,52},{80,52}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
@@ -12497,9 +12313,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineThickness=0.5),
                 Line(
                   points={{0,26},{0,-34}},
-                  color={0,0,0},
                   thickness=0.5,
-                  smooth=Smooth.None,
                   arrow={Arrow.Filled,Arrow.Filled}),
                 Rectangle(
                   extent={{-6,-74},{10,-86}},
@@ -12521,28 +12335,20 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   lineThickness=0.5),
                 Line(
                   points={{-80,46},{80,46}},
-                  thickness=0.5,
-                  smooth=Smooth.None),
+                  thickness=0.5),
                 Line(
                   points={{-80,-54},{80,-54}},
-                  thickness=0.5,
-                  smooth=Smooth.None),
+                  thickness=0.5),
                 Line(
                   points={{-80,26},{80,26}},
                   pattern=LinePattern.Dash,
-                  thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0}),
+                  thickness=0.5),
                 Line(
                   points={{-80,-34},{80,-34}},
                   thickness=0.5,
-                  smooth=Smooth.None,
-                  color={0,0,0},
                   pattern=LinePattern.Dash),
                 Line(
                   points={{-62,-4},{98,-4}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5),
                 Rectangle(
                   extent={{-12,2},{10,-8}},
@@ -12574,15 +12380,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Line(points={{-60,0},{-100,0}}, color={0,127,255}),
                 Polygon(
                   points={{-60,50},{-60,-50},{60,-50},{60,50},{-60,50}},
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None),
                 Line(points={{60,0},{100,0}}, color={0,127,255}),
                 Line(
                   points={{-60,50},{-60,-50},{60,50},{60,-50},{-60,50}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5)}));
 
         end Valve_d;
@@ -12593,15 +12396,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                     -100},{100,100}}), graphics={
                 Polygon(
                   points={{-60,50},{-60,-50},{60,-50},{60,50},{-60,50}},
-                  smooth=Smooth.None,
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid,
                   pattern=LinePattern.None),
                 Line(points={{-60,0},{-100,0}}, color={0,127,255}),
                 Line(
                   points={{-60,50},{-60,-50},{60,50},{60,-50},{-60,50}},
-                  color={0,0,0},
-                  smooth=Smooth.None,
                   thickness=0.5),
                 Line(points={{60,0},{100,0}}, color={0,127,255})}));
         end FlowModel;
@@ -13399,7 +13199,7 @@ reference 01IS07022B). The project is started in October 2007 and will end in Ma
 <h4>  License condition </h4>
 <p>
 <b>Licensed by XRG-Simulation GmbH under the Modelica License 2</b><br>
-Copyright &copy; 2007-2015, XRG Simulation GmbH.
+Copyright &copy; 2007-2013, XRG Simulation GmbH.
 </p>
 
 <p>

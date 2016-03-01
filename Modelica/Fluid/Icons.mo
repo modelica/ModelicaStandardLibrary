@@ -19,7 +19,6 @@ Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.
             radius=25.0),
           Rectangle(
             lineColor={128,128,128},
-            fillPattern=FillPattern.None,
             extent={{-100,-100},{100,100}},
             radius=25.0),
           Ellipse(

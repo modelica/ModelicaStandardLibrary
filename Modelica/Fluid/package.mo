@@ -11,7 +11,7 @@ package UsersGuide "User's Guide"
   class Overview "Overview"
     extends Modelica.Icons.Information;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 <p>
 The Modelica.Fluid library provides basic interfaces and
 components to model 1-dimensional thermo-fluid flow in networks of pipes.
@@ -1082,7 +1082,7 @@ system, and the typical customizations available in the Modelica.Fluid models.
   class ReleaseNotes "Release notes"
     extends Modelica.Icons.ReleaseNotes;
 
-    annotation (Documentation(info="<HTML>
+    annotation (Documentation(info="<html>
 
 <h4>Version 1.1, 2009-06-21</h4>
 
@@ -1287,7 +1287,7 @@ Modelica.Fluid was further improved:
      Resized input connector, so that it has the same size as the
      standard input connectors.<br>
      Changed icon text to input connector to \"N_in [rpm]\".<br>
-     Added unit 1/min to the external and internal input connector.</li>
+     Added unit rev/min to the external and internal input connector.</li>
 
 <li> PartialValve<br>
      fillcolor=white added to icon<br>
@@ -1683,7 +1683,7 @@ and many have contributed.
 
 </html>"));
 end Contact;
-  annotation (DocumentationClass=true, Documentation(info="<HTML>
+  annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
 <b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the
@@ -1694,27 +1694,14 @@ media from the Modelica.Media library. This means especially that an
 incompressible or compressible medium, a single or a multiple
 substance medium with one or more phases might be used.
 </p>
-</HTML>"));
+</html>"));
 end UsersGuide;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 annotation (Icon(graphics={
         Polygon(points={{-70,26},{68,-44},{68,26},{2,-10},{-70,-42},{-70,26}},
             lineColor={0,0,0}),
-        Line(points={{2,42},{2,-10}}, color={0,0,0}),
+        Line(points={{2,42},{2,-10}}),
         Rectangle(
           extent={{-18,50},{22,42}},
           lineColor={0,0,0},

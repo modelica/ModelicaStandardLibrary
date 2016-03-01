@@ -77,8 +77,8 @@ initial equation
 Your model is using an outer \"system\" component but
 an inner \"system\" component is not defined.
 For simulation drag Modelica.Fluid.System into your model
-to specify system properties.
-",  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+to specify system properties.",
+    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
@@ -89,12 +89,12 @@ to specify system properties.
           extent={{-150,150},{150,110}},
           lineColor={0,0,255},
           textString="%name"),
-        Line(points={{-86,-30},{82,-30}}, color={0,0,0}),
-        Line(points={{-82,-68},{-52,-30}}, color={0,0,0}),
-        Line(points={{-48,-68},{-18,-30}}, color={0,0,0}),
-        Line(points={{-14,-68},{16,-30}}, color={0,0,0}),
-        Line(points={{22,-68},{52,-30}}, color={0,0,0}),
-        Line(points={{74,84},{74,14}}, color={0,0,0}),
+        Line(points={{-86,-30},{82,-30}}),
+        Line(points={{-82,-68},{-52,-30}}),
+        Line(points={{-48,-68},{-18,-30}}),
+        Line(points={{-14,-68},{16,-30}}),
+        Line(points={{22,-68},{52,-30}}),
+        Line(points={{74,84},{74,14}}),
         Polygon(
           points={{60,14},{88,14},{74,-18},{60,14}},
           lineColor={0,0,0},
@@ -110,7 +110,6 @@ to specify system properties.
           textString="defaults"),
         Line(
           points={{-82,14},{-42,-20},{2,30}},
-          color={0,0,0},
           thickness=0.5),
         Ellipse(
           extent={{-10,40},{12,18}},

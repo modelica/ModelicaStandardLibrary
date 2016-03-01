@@ -6,8 +6,8 @@ package Machines
     "varying cylindric volume depending on the position of the piston"
     import Modelica.Constants.pi;
 
-    parameter SI.Area pistonCrossArea "cross sectional area of piston";
-    parameter SI.Volume clearance "remaining volume at zero piston stroke";
+    parameter SI.Area pistonCrossArea "Cross sectional area of piston";
+    parameter SI.Volume clearance "Remaining volume at zero piston stroke";
 
     SI.Volume V "fluid volume";
 
@@ -18,7 +18,7 @@ package Machines
 
     Modelica.Mechanics.Translational.Interfaces.Flange_b flange
       "translation flange for piston" annotation (Placement(transformation(
-            extent={{-10,90},{10,110}},   rotation=0)));
+            extent={{-10,90},{10,110}})));
 
   equation
     assert(flange.s >= 0, "Piston stroke (given by flange.s) must not be smaller than zero!");
@@ -48,13 +48,11 @@ package Machines
           Polygon(
             points={{-52,62},{-48,62},{-48,-30},{-52,-30},{-52,62}},
             lineColor={95,95,95},
-            smooth=Smooth.None,
             fillColor={135,135,135},
             fillPattern=FillPattern.Backward),
           Polygon(
             points={{48,60},{52,60},{52,-34},{48,-34},{48,60}},
             lineColor={95,95,95},
-            smooth=Smooth.None,
             fillColor={135,135,135},
             fillPattern=FillPattern.Backward),
           Rectangle(
@@ -71,13 +69,11 @@ package Machines
             points={{-48,-90},{48,-90},{48,70},{52,70},{52,-94},{-52,-94},{-52,
                 70},{-48,70},{-48,-90}},
             lineColor={95,95,95},
-            smooth=Smooth.None,
             fillColor={135,135,135},
             fillPattern=FillPattern.Backward),
           Line(
             visible=use_HeatTransfer,
             points={{-100,0},{-52,0}},
-            smooth=Smooth.None,
             color={198,0,0})}),
       Documentation(info="<html>
 <p> Mixing volume with varying size. The size of the volume is given by:</p>
@@ -106,8 +102,7 @@ package Machines
     SI.Angle phi "Shaft angle";
     SI.AngularVelocity omega "Shaft angular velocity";
     Modelica.Mechanics.Rotational.Interfaces.Flange_a shaft
-    annotation (Placement(transformation(extent={{-10,90},{10,110}},
-                                                                   rotation=0)));
+    annotation (Placement(transformation(extent={{-10,90},{10,110}})));
   equation
     phi = shaft.phi;
     omega = der(phi);
@@ -120,10 +115,10 @@ package Machines
             lineColor={0,0,0},
             fillPattern=FillPattern.VerticalCylinder,
             fillColor={95,95,95})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.
 <p>The model extends <code>PartialPump</code>
- </HTML>",
+ </html>",
        revisions="<html>
 <ul>
 <li><i>31 Oct 2005</i>
@@ -214,7 +209,7 @@ package Machines
             visible=use_m_flow_set,
             extent={{-20,108},{170,92}},
             textString="m_flow_set")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>
 This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps)
 with ideally controlled mass flow rate or pressure.
@@ -228,7 +223,7 @@ Use this model if the pump characteristics is of secondary interest.
 The actual characteristics can be configured later on for the appropriate rotational speed N.
 Then the model can be replaced with a Pump with rotational shaft or with a PrescribedPump.
 </p>
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>15 Dec 2008</i>
@@ -245,7 +240,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     parameter Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm
       N_const =                                                                     N_nominal
       "Constant rotational speed" annotation(Dialog(enable = not use_N_in));
-    Modelica.Blocks.Interfaces.RealInput N_in(unit="1/min") if use_N_in
+    Modelica.Blocks.Interfaces.RealInput N_in(unit="rev/min") if use_N_in
       "Prescribed rotational speed"
       annotation (Placement(transformation(
           extent={{-20,-20},{20,20}},
@@ -256,7 +251,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
           origin={0,100})));
 
   protected
-    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="1/min")
+    Modelica.Blocks.Interfaces.RealInput N_in_internal(unit="rev/min")
       "Needed to connect to conditional connector";
   equation
     // Connect statement active only if use_p_in = true
@@ -274,11 +269,11 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             visible=use_N_in,
             extent={{14,98},{178,82}},
             textString="N_in [rpm]")}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
 <p>The model extends <code>PartialPump</code>
 <p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <code>n_const</code> (which can be different from <code>N_nominal</code>) is assumed.</p>
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>31 Oct 2005</i>
@@ -421,7 +416,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             redeclare final package Medium = Medium,
             final state_in = Medium.setState_phX(port_a.p, inStream(port_a.h_outflow), inStream(port_a.Xi_outflow)),
             final state = medium.state) "Monitoring model"
-       annotation (Placement(transformation(extent={{-64,-42},{-20,0}}, rotation=0)));
+       annotation (Placement(transformation(extent={{-64,-42},{-20,0}})));
     protected
     constant SI.Height unitHead = 1;
     constant SI.MassFlowRate unitMassFlowRate = 1;
@@ -483,8 +478,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 
     connect(heatTransfer.heatPorts[1], heatPort) annotation (Line(
         points={{40,-34},{40,-60}},
-        color={127,0,0},
-        smooth=Smooth.None));
+        color={127,0,0}));
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
                 100}}), graphics={
@@ -510,7 +504,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
               pattern=LinePattern.None,
               fillPattern=FillPattern.HorizontalCylinder,
               fillColor={255,255,255})}),
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>This is the base model for pumps.
 <p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
 
@@ -550,7 +544,7 @@ should be taken into account or to model a housing. This might be desirable if a
 in order to compute the Net Positive Suction Head available and check for cavitation,
 provided a two-phase medium model is used (see Advanced tab).
 </p>
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>8 Jan 2013</i>

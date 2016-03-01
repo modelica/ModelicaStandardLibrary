@@ -182,7 +182,7 @@ The details of the model are described in the
                            Medium.reference_p,
                            Medium.reference_T,
                            Medium.reference_X)
-        "Medium state to compute dp_small"                                        annotation(HideResult=true);
+        "Medium state to compute dp_small";
       parameter Medium.AbsolutePressure dp_small(min=0)=
                  Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                    Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
@@ -376,7 +376,6 @@ equation
           extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{-60,-50},{-60,50},{60,-50},{60,50}},
-            color={0,0,0},
             thickness=0.5),
           Line(points={{-60,0},{-100,0}}, color={0,127,255}),
           Line(points={{60,0},{100,0}}, color={0,127,255}),
@@ -522,7 +521,7 @@ model AbruptAdaptor
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,-100},
-                {100,100},{0,100},{0,40}}, color={0,0,0}),
+                {100,100},{0,100},{0,40}}),
           Rectangle(
             extent={{-100,40},{0,-40}},
             lineColor={255,255,255},
@@ -534,7 +533,7 @@ model AbruptAdaptor
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,-100},
-                {100,100},{0,100},{0,40}}, color={0,0,0}),
+                {100,100},{0,100},{0,40}}),
           Line(
             points={{-60,-40},{-60,40}},
             color={0,0,255},
@@ -592,12 +591,10 @@ end AbruptAdaptor;
 
     Modelica.Fluid.Interfaces.FluidPort_a port_a(
       redeclare package Medium=Medium)
-      annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
-            rotation=0)));
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     Modelica.Fluid.Interfaces.FluidPorts_b ports_b[nPorts_b](
       redeclare each package Medium=Medium)
-      annotation (Placement(transformation(extent={{30,40},{50,-40}},
-                                  rotation=0)));
+      annotation (Placement(transformation(extent={{30,40},{50,-40}})));
 
     Medium.MassFraction ports_b_Xi_inStream[nPorts_b,Medium.nXi]
       "inStream mass fractions at ports_b";
@@ -677,12 +674,10 @@ then ideal mixing would take place in the connection set, outside the volume. Th
   equation
     connect(port_1, port_2) annotation (Line(
         points={{-100,0},{100,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(port_1, port_3) annotation (Line(
         points={{-100,0},{0,0},{0,100}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     annotation(Documentation(info="<html>
   This model is the simplest implementation for a splitting/joining component for
   three flows. Its use is not required. It just formulates the balance
@@ -1004,12 +999,12 @@ As a short summary:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,
-                      -100},{100,100},{0,100},{0,40}}, color={0,0,0})}),
+                      -100},{100,100},{0,100},{0,40}})}),
                                    Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                 graphics={
                 Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,
-                      -100},{100,100},{0,100},{0,40}}, color={0,0,0}),
+                      -100},{100,100},{0,100},{0,40}}),
                 Rectangle(
                   extent={{-100,40},{0,-40}},
                   lineColor={255,255,255},
@@ -1021,7 +1016,7 @@ As a short summary:
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(points={{0,40},{-100,40},{-100,-40},{0,-40},{0,-100},{100,
-                      -100},{100,100},{0,100},{0,40}}, color={0,0,0}),
+                      -100},{100,100},{0,100},{0,40}}),
                 Line(
                   points={{-60,-40},{-60,40}},
                   color={0,0,255},
@@ -1334,7 +1329,7 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
       function massFlowRate_dp_and_Re
         "Return mass flow rate from constant loss factor data, pressure drop and Re (m_flow = f(dp))"
               extends Modelica.Icons.Function;
-
+        import Modelica.Constants.pi;
         input SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
         input SI.Density rho_a "Density at port_a";
         input SI.Density rho_b "Density at port_b";
@@ -1349,7 +1344,6 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         output SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
 
       protected
-        constant Real pi=Modelica.Constants.pi;
         Real k0=2*data.c0/(pi*data.D_Re^3);
         Real k1 = lossConstant_D_zeta(if data.zeta1_at_a then data.diameter_a else data.diameter_b,data.zeta1);
         Real k2 = lossConstant_D_zeta(if data.zeta2_at_a then data.diameter_a else data.diameter_b,data.zeta2);
@@ -1475,7 +1469,7 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
       function pressureLoss_m_flow_and_Re
         "Return pressure drop from constant loss factor, mass flow rate and Re (dp = f(m_flow))"
               extends Modelica.Icons.Function;
-
+        import Modelica.Constants.pi;
         input SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
         input SI.Density rho_a "Density at port_a";
         input SI.Density rho_b "Density at port_b";
@@ -1490,7 +1484,6 @@ a polynomial in order to have a finite derivative at zero mass flow rate.
         output SI.Pressure dp "Pressure drop (dp = port_a.p - port_b.p)";
 
       protected
-        constant Real pi=Modelica.Constants.pi;
         Real k0 = 2*data.c0/(pi*data.D_Re^3);
         Real k1 = lossConstant_D_zeta(if data.zeta1_at_a then data.diameter_a else data.diameter_b,data.zeta1);
         Real k2 = lossConstant_D_zeta(if data.zeta2_at_a then data.diameter_a else data.diameter_b,data.zeta2);
@@ -1600,7 +1593,7 @@ The used sufficient criteria for monotonicity follows from:
                              Medium.reference_p,
                              Medium.reference_T,
                              Medium.reference_X)
-          "Medium state to compute nominal pressure drop"                                        annotation(HideResult=true);
+          "Medium state to compute nominal pressure drop";
         parameter Modelica.SIunits.Pressure dp_nominal=
           pressureLoss_m_flow(m_flow_nominal, Medium.density(state_nominal), Medium.density(state_nominal), data, m_flow_small)
           "Nominal pressure loss";
@@ -2110,20 +2103,17 @@ where
             Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_1
                == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-              rotation=0)));
+        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
       Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium =
             Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_2
                == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
-        annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{90,-10},{110,10}})));
       Modelica.Fluid.Interfaces.FluidPort_a port_3(
         redeclare package Medium=Medium,
         m_flow(min=if (portFlowDirection_3==PortFlowDirection.Entering) then 0.0 else -Modelica.Constants.inf,
         max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
-        annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
-               0)));
+        annotation (Placement(transformation(extent={{-10,90},{10,110}})));
 
     protected
       parameter PortFlowDirection portFlowDirection_1=PortFlowDirection.Bidirectional

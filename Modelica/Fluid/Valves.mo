@@ -38,7 +38,7 @@ package Valves "Components for the regulation and control of fluid flow"
         m_flow = homotopy(relativeFlowCoefficient*Av*sqrt(Medium.density(state_a))*
                                Utilities.regRoot2(dp,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
-        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
+        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
                   (if dp>=0 then Utilities.regRoot(dp, dp_turbulent) else 0);
     */
@@ -50,13 +50,13 @@ package Valves "Components for the regulation and control of fluid flow"
         m_flow = homotopy(relativeFlowCoefficient*Av*
                                Utilities.regRoot2(dp,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
                           relativeFlowCoefficient*m_flow_nominal*dp/dp_nominal);
-        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
+        /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and instead of smooth=2)
     m_flow = smooth(0, Utilities.regRoot(dp, dp_turbulent)*(if dp>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
     */
       end if;
 
     annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.<
 /p>
@@ -139,7 +139,7 @@ explained in detail in the
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*sqrt(Medium.density(state_a))*
                              Utilities.regRoot2(dpEff,dp_turbulent,1.0,0.0,use_yd0=true,yd0=0.0),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
-     /* In Modelica 3.1 (Disadvantage: Unnecessary event at dpEff=0, and smooth=0, instead of smooth=2)
+     /* In Modelica 3.1 (Disadvantage: Unnecessary event at dpEff=0, and instead of smooth=2)
     m_flow = valveCharacteristic(opening)*Av*sqrt(Medium.density(state_a))*
                   (if dpEff>=0 then Utilities.regRoot(dpEff, dp_turbulent) else 0);
    */
@@ -151,14 +151,14 @@ explained in detail in the
       m_flow = homotopy(valveCharacteristic(opening_actual)*Av*
                              Utilities.regRoot2(dpEff,dp_turbulent,Medium.density(state_a),Medium.density(state_b)),
                         valveCharacteristic(opening_actual)*m_flow_nominal*dp/dp_nominal);
-      /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and smooth=0, instead of smooth=2)
+      /* In Modelica 3.1 (Disadvantage: Unnecessary event at dp=0, and instead of smooth=2)
      m_flow = valveCharacteristic(opening)*Av*
       smooth(0, Utilities.regRoot(dpEff, dp_turbulent)*(if dpEff>=0 then sqrt(Medium.density(state_a)) else sqrt(Medium.density(state_b))));
    */
     end if;
 
     annotation (
-      Documentation(info="<HTML>
+      Documentation(info="<html>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
 
 <p>
@@ -178,7 +178,7 @@ explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
-</HTML>",
+</html>",
         revisions="<html>
 <ul>
 <li><i>2 Nov 2005</i>
@@ -267,7 +267,7 @@ explained in detail in the
     end if;
 
     annotation (
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, compressible fluid, no phase change, also covering choked-flow conditions.</p>
 
 <p>
@@ -287,7 +287,7 @@ explained in detail in the
 <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics\">User's Guide</a>.
 </p>
 
-</HTML>",
+</html>",
       revisions="<html>
 <ul>
 <li><i>2 Nov 2005</i>
@@ -327,7 +327,7 @@ explained in detail in the
     Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,50},{0,0}}, color={0,0,0}),
+          Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
             lineColor={0,0,0},
@@ -339,19 +339,19 @@ explained in detail in the
             fillPattern=FillPattern.Solid),
           Polygon(
             points=DynamicSelect({{-100,0},{100,-0},{100,0},{0,0},{-100,-0},{-100,
-                0}}, {{-100,50*opening_actual},{-100,50*opening_actual},{100,-50*opening_actual},{
-                100,50*opening_actual},{0,0},{-100,-50*opening_actual},{-100,50*opening_actual}}),
+                0}}, {{-100,50*opening},{-100,50*opening},{100,-50*opening},{
+                100,50*opening},{0,0},{-100,-50*opening},{-100,50*opening}}),
             fillColor={0,255,0},
             lineColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
                 50}}, lineColor={0,0,0})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
 a simple model of a variable pressure loss is needed.</p>
 <p>A medium model must be nevertheless be specified, so that the fluid ports can be connected to other components using the same medium model.</p>
 <p>The model is adiabatic (no heat losses to the ambient) and neglects changes in kinetic energy from the inlet to the outlet.</p>
-</HTML>",
+</html>",
       revisions="<html>
 <ul>
 <li><i>2 Nov 2005</i>
@@ -388,7 +388,7 @@ a simple model of a variable pressure loss is needed.</p>
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}}), graphics={
-          Line(points={{0,50},{0,0}}, color={0,0,0}),
+          Line(points={{0,50},{0,0}}),
           Rectangle(
             extent={{-20,60},{20,50}},
             lineColor={0,0,0},
@@ -400,7 +400,7 @@ a simple model of a variable pressure loss is needed.</p>
                       {255,255,255}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <b>true</b>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <b>false</b>.
 </p>
@@ -410,7 +410,7 @@ This very simple model provides a (small) pressure drop which is proportional to
 In a diagram animation, the valve is shown in \"green\", when
 it is open.
 </p>
-</HTML>",
+</html>",
       revisions="<html>
 <ul>
 <li><i>Nov 2005</i>
@@ -514,7 +514,7 @@ it is open.
     equation
       y = smooth(0, noEvent( if u < uMin then uMin else u));
       annotation (
-        Documentation(info="<HTML>
+        Documentation(info="<html>
 <p>
 The block passes its input signal as output signal
 as long as the input is above uMin. If this is not the case,
@@ -535,7 +535,7 @@ y=uMin is passed as output.
           lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}, color={0,0,0}),
+        Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}),
         Text(
           extent={{-150,-150},{150,-110}},
           lineColor={0,0,0},
@@ -559,7 +559,7 @@ y=uMin is passed as output.
           lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}),
+        Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}),
         Text(
           extent={{46,-6},{68,-18}},
           lineColor={128,128,128},
@@ -594,8 +594,7 @@ y=uMin is passed as output.
 
       connect(filter.y, opening_filtered) annotation (Line(
           points={{48.7,51},{60,51},{60,50},{70,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
 
       if filteredOpening then
          connect(filter.y, opening_actual);
@@ -605,17 +604,15 @@ y=uMin is passed as output.
 
       connect(minLimiter.y, filter.u) annotation (Line(
           points={{24.7,51},{32.6,51}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(minLimiter.u, opening) annotation (Line(
           points={{8.6,51},{0,51},{0,90}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{0,52},{0,0}}, color={0,0,0}),
+            Line(points={{0,52},{0,0}}),
             Rectangle(
               extent={{-20,60},{20,52}},
               lineColor={0,0,0},
@@ -642,14 +639,11 @@ y=uMin is passed as output.
               fillPattern=FillPattern.Solid),
             Line(visible=filteredOpening,
               points={{-20,25},{-20,63},{0,41},{20,63},{20,25}},
-              color={0,0,0},
-              smooth=Smooth.None,
               thickness=0.5),
             Line(visible=filteredOpening,
               points={{40,60},{60,60}},
-              color={0,0,127},
-              smooth=Smooth.None)}),
-        Documentation(info="<HTML>
+              color={0,0,127})}),
+        Documentation(info="<html>
 <p>This is the base model for the <code>ValveIncompressible</code>, <code>ValveVaporizing</code>, and <code>ValveCompressible</code> valve models. The model is based on the IEC 534 / ISA S.75 standards for valve sizing.</p>
 <p>The model optionally supports reverse flow conditions (assuming symmetrical behaviour) or check valve operation, and has been suitably regularized, compared to the equations in the standard, in order to avoid numerical singularities around zero pressure drop operating conditions.</p>
 <p>The model assumes adiabatic operation (no heat losses to the ambient); changes in kinetic energy
@@ -715,7 +709,7 @@ filteredOpening = <b>true</b>, riseTime = 1 s, and leakageOpening = 0.02.
      alt=\"ValveFilteredOpening.png\">
 </blockquote>
 
-</HTML>", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>Sept. 5, 2010</i>
     by <a href=\"mailto:martin.otter@dlr.de\">Martin Otter</a>:<br>
