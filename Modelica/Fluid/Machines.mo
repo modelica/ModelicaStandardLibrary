@@ -669,7 +669,7 @@ provided a two-phase medium model is used (see Advanced tab).
           "Coefficients of polynomial head curve";
       SI.VolumeFlowRate V_flow_min = min(V_flow_nominal);
       SI.VolumeFlowRate V_flow_max = max(V_flow_nominal);
-      Real max_dhdV = max({c[2] .+ sum((i-1)*V_flow_nominal.^(i-2)*c[i] for i in 3:N)});
+      Real max_dhdV = c[2] + max(sum((i-1)*V_flow_nominal.^(i-2)*c[i] for i in 3:N));
       Real poly;
     algorithm
       assert(max_dhdV <= -Modelica.Constants.small,
