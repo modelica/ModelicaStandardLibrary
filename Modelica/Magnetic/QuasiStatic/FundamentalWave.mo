@@ -5785,7 +5785,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
     model ConstantMagneticPotentialDifference
       "Source with constant magnetic potential difference"
       extends Interfaces.PartialTwoPort;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       parameter Modelica.SIunits.ComplexMagneticPotentialDifference V_m=Complex(
           re=1, im=0) "Complex magnetic potential difference";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m=
@@ -5904,7 +5904,7 @@ SignalFlux</a>
 
     model ConstantFlux "Source of constant magnetic flux"
       extends Interfaces.PartialTwoPort;
-      parameter Modelica.SIunits.Frequency f(start=1) "frequency of the source";
+      parameter Modelica.SIunits.Frequency f(start=1) "Frequency of the source";
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
       Modelica.SIunits.MagneticPotentialDifference abs_V_m=
@@ -6481,7 +6481,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
     end TerminalBox;
 
     model MultiTerminalBox "Terminal box Y/D-connection"
-      parameter Integer m(min=1) = 3 "number of phases";
+      parameter Integer m(min=1) = 3 "Number of phases";
       final parameter Integer mSystems=
           Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m);
       final parameter Integer mBasic=integer(m/mSystems);
