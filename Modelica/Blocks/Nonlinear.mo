@@ -19,9 +19,9 @@ package Nonlinear
         assert(uMax >= uMin, "Limiter: Limits must be consistent. However, uMax (=" + String(uMax) +
                              ") < uMin (=" + String(uMin) + ")");
         if strict then
-           y = homotopy(actual=  smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=u);
+           y = homotopy(actual = smooth(0, noEvent(if u > uMax then uMax else if u < uMin then uMin else u)), simplified=u);
         else
-           y = homotopy(actual=  smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=u);
+           y = homotopy(actual = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u), simplified=u);
         end if;
         annotation (
           Documentation(info="<html>
@@ -113,12 +113,12 @@ as output.
                                 annotation (Placement(transformation(extent={{
               -140,-100},{-100,-60}})));
   equation
-    assert(limit1 > limit2, "Limits limit1/limit2 are not consistent");
+    assert(limit1 >= limit2, "Input signals are not consistent: limit1 < limit2");
 
     if strict then
-       y = homotopy(actual=  smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=u);
+       y = homotopy(actual = smooth(0, noEvent(if u > limit1 then limit1 else if u < limit2 then limit2 else u)), simplified=u);
     else
-       y = homotopy(actual=  smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=u);
+       y = homotopy(actual = smooth(0,if u > limit1 then limit1 else if u < limit2 then limit2 else u), simplified=u);
     end if;
 
     annotation (
