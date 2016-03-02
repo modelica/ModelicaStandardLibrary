@@ -5882,7 +5882,7 @@ SignalFlux</a>
 </html>"));
     end ConstantFlux;
 
-    model SignalFlux "Source of constant magnetic flux"
+    model SignalFlux "Source of time varying magnetic flux"
       extends Interfaces.PartialTwoPort;
       Modelica.SIunits.ComplexMagneticPotentialDifference V_m
         "Complex magnetic potential difference";
