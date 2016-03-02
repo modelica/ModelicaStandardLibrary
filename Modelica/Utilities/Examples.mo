@@ -361,7 +361,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     parameter SI.AngularVelocity w_rel0 = readRealParameter(file, "w_rel0")
       "Relative angular velocity";
   equation
-    when terminal () then
+    when terminal() then
       Streams.close(file);
     end when;
 
