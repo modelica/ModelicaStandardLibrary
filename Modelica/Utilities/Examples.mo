@@ -442,7 +442,7 @@ the following examples are present.
 <li> Function <a href=\"modelica://Modelica.Utilities.Examples.calculator\">calculator</a>
      is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
-     For example: calculator(\"1.5*sin(pi/6)\"); <br>&nbsp;</li>
+     For example: calculator(\"1.5*sin(pi/6)\");<br>&nbsp;</li>
 <li> Function <a href=\"modelica://Modelica.Utilities.Examples.expression\">expression</a>
      is the basic function used in \"calculator\" to evaluate an expression.
      It is useful if the expression interpreter is used in a larger
@@ -457,7 +457,7 @@ the following examples are present.
      contains 3 parameters that are read from file \"Modelica.Utilities/data/Examples_readRealParameters.txt\".<br>&nbsp;
      </li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.WriteRealMatrixToFile\">WriteRealMatrixToFile</a>
-     demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various MATLAB MAT formats on file..<br>&nbsp;
+     demonstrates the usage of function \"Streams.writeReaMatrix\" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
      </li>
 <li> Model <a href=\"modelica://Modelica.Utilities.Examples.ReadRealMatrixFromFile\">ReadRealMatrixFromFile</a>
      demonstrates the usage of functions \"Streams.readMatrixSize\" and \"Streams.readRealMatrix\"
