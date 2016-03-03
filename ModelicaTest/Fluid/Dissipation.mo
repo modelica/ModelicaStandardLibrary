@@ -4854,7 +4854,7 @@ extends Modelica.Icons.ExamplesPackage;
                     dp_IN_var[i],
                     input_dp[i]) for i in 1:n};
 
-          annotation (__Dymola_Commands(file=
+          annotation (experiment(StopTime=1.0), __Dymola_Commands(file=
                   "modelica://ModelicaTest/Resources/Scripts/Dymola/pressureLoss/bend/dp_edgedOverall_DPMFLOW.mos"
                 "Verification of dp_edgedOverall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={

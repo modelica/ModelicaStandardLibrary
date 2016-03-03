@@ -4384,7 +4384,7 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(extent={{-120,80},{40,200}},
+      annotation (experiment(StopTime=1.0),Diagram(coordinateSystem(extent={{-120,80},{40,200}},
               preserveAspectRatio=true)));
     end SpringDamperSeries;
 
@@ -5909,7 +5909,7 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-
+      annotation(experiment(StopTime=1.0));
     end CheckConstaintTorqueUniversalJoint;
 
     model Revolute2
