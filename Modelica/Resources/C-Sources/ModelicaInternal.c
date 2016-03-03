@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2016, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2002-2016, Modelica Association and DLR
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -25,8 +25,8 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* The functions are mostly non-portable. The following #define's are used
-   to define the system calls of the operating system
+/* The functions in this file are mostly non-portable. The following #define's
+   are used to define the system calls of the operating system
 
    _WIN32         : System calls of Windows'95, Windows'NT
                     (Note, that these system calls allow both '/' and '\'

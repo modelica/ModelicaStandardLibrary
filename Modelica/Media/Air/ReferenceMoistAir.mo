@@ -4660,6 +4660,6 @@ Some parts of this library refer to the ThermoFluid library developed at Lund Un
 <p>
 In no event will XRG Simulation GmbH be liable for any direct, indirect, incidental, special, exemplary, or consequential damages, arising in any way out of the use of this software, even if advised of the possibility of such damage.
 </p>
-<h4> Copyright (C) 2013, XRG Simulation GmbH </h4>
+<h4> Copyright &copy; 2013-2016, XRG Simulation GmbH </h4>
 </html>"));
 end ReferenceMoistAir;

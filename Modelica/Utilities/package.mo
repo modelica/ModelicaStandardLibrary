@@ -209,7 +209,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
+Copyright &copy; 1998-2016, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>

@@ -6715,7 +6715,7 @@ The model output can be used to feed a quasi static current source with phase in
   annotation (preferredView="info", Documentation(info="<html>
   <p><b>For a discrimination of various machine models, see <a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.Discrimination\">discrimination</a></b>.</p>
 <p>
-Copyright &copy; 2013-2015, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2013-2016, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>

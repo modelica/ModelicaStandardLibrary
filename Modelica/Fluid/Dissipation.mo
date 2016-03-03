@@ -13199,7 +13199,7 @@ reference 01IS07022B). The project is started in October 2007 and will end in Ma
 <h4>  License condition </h4>
 <p>
 <b>Licensed by XRG-Simulation GmbH under the Modelica License 2</b><br>
-Copyright &copy; 2007-2013, XRG Simulation GmbH.
+Copyright &copy; 2007-2016, XRG Simulation GmbH.
 </p>
 
 <p>

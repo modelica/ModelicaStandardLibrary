@@ -28,7 +28,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h4>Acknowledgements</h4>
 
 <p>
-Copyright &copy; 1998-2013, Modelica Association, Anton Haumer and Christian Kral.
+Copyright &copy; 1998-2016, Modelica Association, Anton Haumer and Christian Kral.
 </p>
 
 </html>"));
