@@ -22,7 +22,7 @@ Color coding of "Priority":
   </tbody>
 </table>
 
-  <h2 class="report-result">Component: --MSL-general-- <span class="numrows">(7 matches)</span></h2>
+  <h2 class="report-result">Component: --MSL-general-- <span class="numrows">(9 matches)</span></h2>
   <table class="listing tickets">
     <thead>
     <tr class="trac-columns">
@@ -99,6 +99,24 @@ Color coding of "Priority":
                       Changed the ambiguous unit "1/min" to "rev/min"
                     </td>
               </tr>
+              <tr class="odd prio2">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1886" title="View ticket" class="closed">#1886</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1886" title="View ticket">Modelica.Utilities.Files.exist doesn't work if considered as a pure function</a>
+                    </td>
+                    <td class="changelog">
+                      Marked impure functions with the vendor specific annotation __ModelicaAssociation_Impure=true
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1924" title="View ticket" class="closed">#1924</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1924" title="View ticket">Regression Testing MSL 3.2.2-beta.2</a>
+                    </td>
+                    <td class="changelog">
+                      Regression testing issues have been all explained
+                    </td>
+              </tr>
       </tbody>
       <tbody>
         <tr class="trac-group">
@@ -139,7 +157,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Blocks <span class="numrows">(10 matches)</span></h2>
+    <h2 class="report-result">Component: Blocks <span class="numrows">(11 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -243,11 +261,20 @@ Color coding of "Priority":
                       Blocks.Logical.Hysteresis: Slightly reformulated to reduce the number of events
                     </td>
               </tr>
+              <tr class="even prio2">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1934" title="View ticket" class="closed">#1934</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1934" title="View ticket">Modelica.Blocks.Nonlinear.VariableLimiter, questionable assert statement</a>
+                    </td>
+                    <td class="changelog">
+                      Assertion test of Blocks.Nonlinear.VariableLimiter slightly relaxed from assert(limit1 &gt; limit2,&hellip;) to assert(limit1 &ge; limit2, &hellip;)
+                    </td>
+              </tr>
       </tbody>
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: C-Sources <span class="numrows">(10 matches)</span></h2>
+    <h2 class="report-result">Component: C-Sources <span class="numrows">(12 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -349,6 +376,24 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       Updated matio library to v1.5.6 (ModelicaMatIO.[ch])
+                    </td>
+              </tr>
+              <tr class="even prio1">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1928" title="View ticket" class="closed">#1928</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1928" title="View ticket">Latest ModelicaExternalC breaks MSL 3.2.1</a>
+                    </td>
+                    <td class="changelog">
+                      Clarified how tools should handle MSL 3.2.2 C-sources in order to maintain backwards compatibility with MSL 3.2.1.
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1939" title="View ticket" class="closed">#1939</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1939" title="View ticket">ModelicaInternal: Cached file not closed on line miss in ModelicaStreams_openFileForReading</a>
+                    </td>
+                    <td class="changelog">
+                      Fixed repeated opening of cached file in case of line miss in ModelicaStreams_openFileForReading
                     </td>
               </tr>
       </tbody>
@@ -697,7 +742,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Fluid <span class="numrows">(6 matches)</span></h2>
+    <h2 class="report-result">Component: Fluid <span class="numrows">(7 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -763,6 +808,15 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       TraceSubstances.RoomCO2WithControls: Corrected protected modifier
+                    </td>
+              </tr>
+              <tr class="even prio3">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1935" title="View ticket" class="closed">#1935</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1935" title="View ticket">Odd expression in Fluid/Machines</a>
+                    </td>
+                    <td class="changelog">
+                      Rewrote Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow.max_dhdV
                     </td>
               </tr>
       </tbody>
@@ -895,7 +949,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Magnetic.QuasiStatic <span class="numrows">(1 match)</span></h2>
+    <h2 class="report-result">Component: Magnetic.QuasiStatic <span class="numrows">(2 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -916,6 +970,15 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       Changed electrical stray inductances of rotor cage models to stray reluctances in the magnetic domain; this change was required to have symmetrical implementations of stator and rotor models; the change applies to the quasi static FundamentalWave packages
+                    </td>
+              </tr>
+              <tr class="odd prio5">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1931" title="View ticket" class="closed">#1931</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1931" title="View ticket">Wrong comment of QuasiStatic.FundamentalWave.Sources.SignalFlux</a>
+                    </td>
+                    <td class="changelog">
+                      Wrong description text for SignalFlux corrected in Magnetic.FundamentalWave.Sources and in Magnetic.QuasiStatic.FundamentalWave.Sources
                     </td>
               </tr>
       </tbody>
@@ -1476,13 +1539,13 @@ Color coding of "Priority":
                       Added functions to write matrices in various MATLAB MAT formats on file and to read such matrices from file
                     </td>
               </tr>
-              <tr class="even prio2">
-                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1886" title="View ticket" class="closed">#1886</a></td>
+              <tr class="even prio3">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1940" title="View ticket" class="closed">#1940</a></td>
                     <td class="summary">
-                      <a href="https://trac.modelica.org/Modelica/ticket/1886" title="View ticket">Modelica.Utilities.Files.exist doesn't work if considered as a pure function</a>
+                      <a href="https://trac.modelica.org/Modelica/ticket/1940" title="View ticket">Resource leak in Modelica.Utilities.Examples.readRealParameterModel</a>
                     </td>
                     <td class="changelog">
-                      Marked impure functions with vendor-specific annotations for impure functions
+                      Fixed resource leak in example Modelica.Utilities.Examples.readRealParameterModel
                     </td>
               </tr>
       </tbody>
