@@ -3,7 +3,7 @@ libModelicaExternalC_la_SOURCES      = ../../C-Sources/ModelicaFFT.c ../../C-Sou
 libModelicaIO_la_SOURCES             = ../../C-Sources/ModelicaIO.c
 libModelicaIO_la_LIBADD              = libModelicaMatIO.la
 libModelicaMatIO_la_SOURCES          = ../../C-Sources/ModelicaMatIO.c
-libModelicaMatIO_la_LIBADD           = @LIBZLIB@ @LIBHDF5@
+libModelicaMatIO_la_LIBADD           = libzlib.la @LIBZLIB@ @LIBHDF5@
 libModelicaStandardTables_la_SOURCES = ../../C-Sources/ModelicaStandardTables.c
 libModelicaStandardTables_la_LIBADD  = libModelicaMatIO.la
 
