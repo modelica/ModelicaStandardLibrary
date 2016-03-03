@@ -46,10 +46,6 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
-      Jan. 15, 2016: by Thomas Beutlich, ITI GmbH
-                     Call Mat_VarReadDataAll instead of Mat_VarReadData in
-                     readMatTable (ticket #1881)
-
       Dec. 16, 2015: by Thomas Beutlich, ITI GmbH
                      Added univariate Steffen-spline interpolation (ticket #1814)
 
@@ -4327,12 +4323,23 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
+        table = (double*)malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
+        if (table == NULL) {
+            Mat_VarFree(matvarRoot);
+            (void)Mat_Close(mat);
+            ModelicaError("Memory allocation error\n");
+            return NULL;
+        }
+
         nRow = matvar->dims[0];
         nCol = matvar->dims[1];
-        tableReadError = Mat_VarReadDataAll(mat, matvar);
-        if (tableReadError == 0) {
-            matvar->mem_conserve = 1;
-            table = (double*)matvar->data;
+        {
+            int start[2] = {0, 0};
+            int stride[2] = {1, 1};
+            int edge[2];
+            edge[0] = (int)nRow;
+            edge[1] = (int)nCol;
+            tableReadError = Mat_VarReadData(mat, matvar, table, start, stride, edge);
         }
 
         Mat_VarFree(matvarRoot);

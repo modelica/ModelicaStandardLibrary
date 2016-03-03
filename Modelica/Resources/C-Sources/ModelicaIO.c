@@ -286,10 +286,13 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
         return;
     }
 
-    tableReadError = Mat_VarReadDataAll(mat, matvar);
-    if (tableReadError == 0) {
-        matvar->mem_conserve = 1;
-        a = (double*)matvar->data;
+    {
+        int start[2] = {0, 0};
+        int stride[2] = {1, 1};
+        int edge[2];
+        edge[0] = (int)nRow;
+        edge[1] = (int)nCol;
+        tableReadError = Mat_VarReadData(mat, matvar, a, start, stride, edge);
     }
 
     Mat_VarFree(matvarRoot);
