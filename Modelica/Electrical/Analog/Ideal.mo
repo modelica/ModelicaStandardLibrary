@@ -30,11 +30,7 @@ The diode is locking if current &lt; Vknee/Goff.
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}})),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+</html>"));
   end IdealDiode;
 
   model IdealThyristor "Ideal thyristor"
@@ -51,7 +47,7 @@ The diode is locking if current &lt; Vknee/Goff.
 <p>
 This is an ideal thyristor, for details see partial model <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.IdealSemiconductor\">IdealSemiconductor</a><br>
 The thyristor is conducting if voltage &gt; Vknee AND fire = true.<br>
-If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking. 
+If fire gets false, the current has to fall below Vknee*Goff, then the tyhristor gets locking.
 </html>", revisions="<html>
 <ul>
 <li><i>February 7, 2016   </i>
@@ -1207,9 +1203,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            pattern=LinePattern.Dot)}));
   end IdealOpeningSwitch;
 
   model IdealClosingSwitch "Ideal electrical closer"
@@ -1248,9 +1242,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            pattern=LinePattern.Dot)}));
   end IdealClosingSwitch;
 
   model ControlledIdealOpeningSwitch "Controlled ideal electrical opener"
@@ -1292,9 +1284,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            pattern=LinePattern.Dot)}));
   end ControlledIdealOpeningSwitch;
 
   model ControlledIdealClosingSwitch "Controlled ideal electrical closer"
@@ -1336,9 +1326,7 @@ For further details, see partial model <a href=\"modelica://Modelica.Electrical.
             visible=useHeatPort,
             points={{0,-100},{0,25}},
             color={127,0,0},
-            pattern=LinePattern.Dot)}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            pattern=LinePattern.Dot)}));
   end ControlledIdealClosingSwitch;
 
   model OpenerWithArc "Ideal opening switch with simple arc model"
@@ -1448,9 +1436,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
               100}}), graphics={
           Line(points={{0,90},{0,25}}, color={0,0,255}),
           Line(points={{40,20},{40,0}}, color={0,0,255}),
-          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+          Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}));
   end ControlledOpenerWithArc;
 
   model ControlledCloserWithArc
@@ -1487,9 +1473,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,90},{0,25}}, color={0,0,255}),
-          Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+          Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}));
   end ControlledCloserWithArc;
 
   model IdealTriac "Ideal triac, based on ideal thyristors"

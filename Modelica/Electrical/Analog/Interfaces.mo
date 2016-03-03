@@ -539,11 +539,11 @@ This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
-semiconductor has a small conductance <i>Gon</i> 
+semiconductor has a small conductance <i>Gon</i>
 and the closed semiconductor has a low resistance <i>Roff</i> which is default.
 </P>
 <P>
-The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace 
+The parameter <i>Vknee</i> which is the forward threshold voltage, allows to displace
 the knee point <br> along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 <br> <br>
 <b>Please note:</b>
@@ -643,7 +643,7 @@ behavior is <b>not</b> modelled.
 <P>
 The ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the boolean signal off.
-If off is true, pin p is not connected with negative pin n. 
+If off is true, pin p is not connected with negative pin n.
 Otherwise, pin p is connected with negative pin n.<br><br>
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
@@ -681,9 +681,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           Text(
             extent={{-150,-30},{150,-70}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})));
+            lineColor={0,0,255})}));
   end IdealSwitch;
 
   partial model IdealSwitchWithArc "Ideal switch with simple arc model"

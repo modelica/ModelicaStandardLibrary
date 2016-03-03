@@ -432,7 +432,7 @@ drive.
     end Contact;
 
     annotation (DocumentationClass=true, Documentation(info="<html>
-<p>Library <b>Translational</b> is a <b>free</b> Modelica package providing 1-dimensional, translational mechanical components to model in a convenient way translational mechanical systems. 
+<p>Library <b>Translational</b> is a <b>free</b> Modelica package providing 1-dimensional, translational mechanical components to model in a convenient way translational mechanical systems.
 More details are given in the following sub-sections:
 </p>
 
