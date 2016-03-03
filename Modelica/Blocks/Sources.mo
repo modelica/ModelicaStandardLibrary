@@ -2222,7 +2222,6 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 
   block CombiTimeTable
     "Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)"
-    import Modelica.Blocks.Tables.Internal;
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1);
           size(offset, 1)]));
     parameter Boolean tableOnFile=false
@@ -2241,7 +2240,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         loadSelector(filter="Text files (*.txt);;MATLAB MAT-files (*.mat)",
             caption="Open file in which table is present")));
     parameter Boolean verboseRead=true
-      "= true, if info message that file is loading is to be printed (provided tableOnFile=true)"
+      "= true, if info message that file is loading is to be printed"
       annotation (Dialog(group="Table data definition",enable=tableOnFile));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"
@@ -2260,18 +2259,18 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.SIunits.Time timeScale(
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Dialog(group="Table data interpretation"), Evaluate=true);
-    final parameter Real t_minScaled = Internal.getTimeTableTmin(tableID)
-      "Minimum (scaled) abscissa value defined in table";
-    final parameter Real t_maxScaled = Internal.getTimeTableTmax(tableID)
-      "Maximum (scaled) abscissa value defined in table";
-    final parameter Modelica.SIunits.Time t_min = t_minScaled*timeScale
+    final parameter Modelica.SIunits.Time t_min(fixed=false)
       "Minimum abscissa value defined in table";
-    final parameter Modelica.SIunits.Time t_max = t_maxScaled*timeScale
+    final parameter Modelica.SIunits.Time t_max(fixed=false)
       "Maximum abscissa value defined in table";
+    final parameter Real t_minScaled(fixed=false)
+      "Minimum (scaled) abscissa value defined in table";
+    final parameter Real t_maxScaled(fixed=false)
+      "Maximum (scaled) abscissa value defined in table";
   protected
     final parameter Real p_offset[nout]=(if size(offset, 1) == 1 then ones(nout)*offset[1] else offset)
       "Offsets of output signals";
-    parameter Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
+    Modelica.Blocks.Types.ExternalCombiTimeTable tableID=
         Modelica.Blocks.Types.ExternalCombiTimeTable(
           if tableOnFile then tableName else "NoName",
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
@@ -2279,14 +2278,123 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
           startTime/timeScale,
           columns,
           smoothness,
-          extrapolation,
-          if tableOnFile then verboseRead else false) "External table object";
+          extrapolation) "External table object";
     discrete Modelica.SIunits.Time nextTimeEvent(start=0, fixed=true)
       "Next time event instant";
     discrete Real nextTimeEventScaled(start=0, fixed=true)
       "Next scaled time event instant";
+    parameter Real tableOnFileRead(fixed=false)
+      "= 1, if table was successfully read from file";
     constant Real DBL_MAX = 1.7976931348623158e+308;
     Real timeScaled "Scaled time";
+
+    function readTableData "Read table data from ASCII text or MATLAB MAT-file"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Boolean forceRead = false
+        "= true: Force reading of table data; = false: Only read, if not yet read.";
+      output Real readSuccess "Table read success";
+      input Boolean verboseRead
+        "= true: Print info message; = false: No info message";
+      external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+      annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
+    end readTableData;
+
+    function getTableValue
+      "Interpolate 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Modelica.SIunits.Time timeIn;
+      discrete input Modelica.SIunits.Time nextTimeEvent;
+      discrete input Modelica.SIunits.Time pre_nextTimeEvent;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+      annotation (derivative(
+          noDerivative=nextTimeEvent,
+          noDerivative=pre_nextTimeEvent,
+          noDerivative=tableAvailable) = getDerTableValue);
+    end getTableValue;
+
+    function getTableValueNoDer
+      "Interpolate 1-dim. table where first column is time (but do not provide a derivative function)"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Modelica.SIunits.Time timeIn;
+      discrete input Modelica.SIunits.Time nextTimeEvent;
+      discrete input Modelica.SIunits.Time pre_nextTimeEvent;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real y;
+      external"C" y = ModelicaStandardTables_CombiTimeTable_getValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableValueNoDer;
+
+    function getDerTableValue
+      "Derivative of interpolated 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Integer icol;
+      input Modelica.SIunits.Time timeIn;
+      discrete input Modelica.SIunits.Time nextTimeEvent;
+      discrete input Modelica.SIunits.Time pre_nextTimeEvent;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      input Real der_timeIn;
+      output Real der_y;
+      external"C" der_y = ModelicaStandardTables_CombiTimeTable_getDerValue(tableID, icol, timeIn, nextTimeEvent, pre_nextTimeEvent, der_timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getDerTableValue;
+
+    function getTableTimeTmin
+      "Return minimum time value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Modelica.SIunits.Time timeMin "Minimum time value in table";
+      external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableTimeTmin;
+
+    function getTableTimeTmax
+      "Return maximum time value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Modelica.SIunits.Time timeMax "Maximum time value in table";
+      external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableTimeTmax;
+
+    function getNextTimeEvent
+      "Return next time event value of 1-dim. table where first column is time"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
+      input Modelica.SIunits.Time timeIn;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
+      external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getNextTimeEvent;
+
+  initial algorithm
+    if tableOnFile then
+      tableOnFileRead := readTableData(tableID, false, verboseRead);
+    else
+      tableOnFileRead := 1.;
+    end if;
+    t_minScaled := getTableTimeTmin(tableID, tableOnFileRead);
+    t_maxScaled := getTableTimeTmax(tableID, tableOnFileRead);
+    t_min := t_minScaled*timeScale;
+    t_max := t_maxScaled*timeScale;
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -2297,7 +2405,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end if;
     timeScaled = time/timeScale;
     when {time >= pre(nextTimeEvent),initial()} then
-      nextTimeEventScaled = Internal.getNextTimeEvent(tableID, timeScaled);
+      nextTimeEventScaled = getNextTimeEvent(tableID, timeScaled, tableOnFileRead);
       if (nextTimeEventScaled < DBL_MAX) then
         nextTimeEvent = nextTimeEventScaled*timeScale;
       else
@@ -2306,11 +2414,11 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end when;
     if smoothness == Modelica.Blocks.Types.Smoothness.ConstantSegments then
       for i in 1:nout loop
-        y[i] = p_offset[i] + Internal.getTimeTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
+        y[i] = p_offset[i] + getTableValueNoDer(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
       end for;
     else
       for i in 1:nout loop
-        y[i] = p_offset[i] + Internal.getTimeTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled));
+        y[i] = p_offset[i] + getTableValue(tableID, i, timeScaled, nextTimeEventScaled, pre(nextTimeEventScaled), tableOnFileRead);
       end for;
     end if;
     annotation (
