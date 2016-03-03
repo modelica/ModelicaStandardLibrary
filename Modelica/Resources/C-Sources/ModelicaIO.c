@@ -345,14 +345,14 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
     if ( append == 0 ) {
         mat = Mat_CreateVer(fileName, NULL, matv);
         if (mat == NULL) {
-           ModelicaFormatError("Not possible to newly create file \"%s\"\n(maybe version 7.3 not supported)\n", fileName);
-           return 0;
+            ModelicaFormatError("Not possible to newly create file \"%s\"\n(maybe version 7.3 not supported)\n", fileName);
+            return 0;
         }
     } else {
         mat = Mat_Open(fileName, (int)MAT_ACC_RDWR | matv);
         if (mat == NULL) {
-           ModelicaFormatError("Not possible to open file \"%s\"\n", fileName);
-           return 0;
+            ModelicaFormatError("Not possible to open file \"%s\"\n", fileName);
+            return 0;
         }
     }
 
