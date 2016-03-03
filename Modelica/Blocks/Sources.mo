@@ -2298,7 +2298,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
         "= true: Print info message; = false: No info message";
       external"C" readSuccess = ModelicaStandardTables_CombiTimeTable_read(tableID, forceRead, verboseRead)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-      annotation (__OpenModelica_Impure=true, __Modelon_Impure=true, __Dymola_pure=false);
+      annotation(__ModelicaAssociation_Impure=true);
     end readTableData;
 
     function getTableValue
