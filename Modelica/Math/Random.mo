@@ -1282,8 +1282,7 @@ is returned, so the function is impure.
       input Integer id
         "Identification number from initializeImpureRandom(..) function (is needed for correct sorting)";
       input Integer imin = 1 "Minimum integer to generate";
-      input Integer imax = Modelica.Constants.Integer_inf
-        "Maximum integer to generate";
+      input Integer imax = 268435456 "Maximum integer to generate (default = 2^28)";
       output Integer y
         "A random number with a uniform distribution on the interval [imin,imax]";
     protected
