@@ -18551,8 +18551,9 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
             herr_t herr;
 
             /* First iteration to retrieve number of relevant links */
-            herr = H5Literate_by_name(dset_id, matvar->name, H5_INDEX_NAME, H5_ITER_NATIVE,
-                NULL, Mat_H5ReadGroupInfoIterate, (void *)&group_data, H5P_DEFAULT);
+            herr = H5Literate_by_name(dset_id, matvar->internal->hdf5_name, H5_INDEX_NAME,
+                H5_ITER_NATIVE, NULL, Mat_H5ReadGroupInfoIterate,
+                (void *)&group_data, H5P_DEFAULT);
             if ( herr > 0 && group_data.nfields > 0 ) {
                 matvar->internal->fieldnames =
                     (char**)calloc(group_data.nfields,sizeof(*matvar->internal->fieldnames));
@@ -18560,15 +18561,17 @@ Mat_H5ReadGroupInfo(mat_t *mat,matvar_t *matvar,hid_t dset_id)
                 group_data.matvar = matvar;
                 if ( matvar->internal->fieldnames != NULL ) {
                     /* Second iteration to fill fieldnames */
-                    H5Literate_by_name(dset_id, matvar->name, H5_INDEX_NAME, H5_ITER_NATIVE,
-                        NULL, Mat_H5ReadGroupInfoIterate, (void *)&group_data, H5P_DEFAULT);
+                    H5Literate_by_name(dset_id, matvar->internal->hdf5_name, H5_INDEX_NAME,
+                        H5_ITER_NATIVE, NULL, Mat_H5ReadGroupInfoIterate,
+                        (void *)&group_data, H5P_DEFAULT);
                 }
                 matvar->internal->num_fields = (unsigned)group_data.nfields;
+                nfields = group_data.nfields;
             }
         }
     }
 
-    if ( matvar->internal->num_fields > 0 ) {
+    if ( nfields > 0 ) {
         H5O_info_t object_info;
         H5Oget_info_by_name(dset_id, matvar->internal->fieldnames[0], &object_info, H5P_DEFAULT);
         obj_type = object_info.type;
@@ -18758,7 +18761,7 @@ Mat_H5ReadGroupInfoIterate(hid_t dset_id, const char *name, const H5L_info_t *in
         default:
             break;
     }
-    return 0;
+    return 1;
 }
 
 static void
