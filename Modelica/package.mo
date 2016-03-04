@@ -2437,20 +2437,41 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
 <p>
 This release of package Modelica, and the accompanying ModelicaTest, has been tested with the
 following tools (the tools are listed alphabetically. At the time of the test, some of the
-tools might not yet supported the complete Modelica package):
+tools might not yet supported the complete Modelica package. For more details of the tests
+see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
 </p>
 
 <ul>
-<li> Dymola 2016 FD01 with pedantic flag (Windows 64 bit).<br>
-    (\"pedantic flag\" means that strict Modelica compliance is checked).</li>
-<li> Maplesim Parser</li>
-<li> OpenModelica 1.9.4 xxx (Windows, Linux, Mac)<br>
-     Test reports for the daily builds are available
-     <a href=\"https://trac.openmodelica.org/OpenModelica/wiki\">here</a>.
-     Test reports of comparisons with Dymola result files are available
-     <a href=\"https://test.openmodelica.org/hudson/job/OpenModelica_TEST_CLANG/lastCompletedBuild/testReport/(root)/simulation_libraries_msl32/\">here</a>.
+<li> <b>Dymola 2017 Beta.1</b> (Windows 64 bit, \"Check\" with pedantic flag, that is checking strict 
+     Modelica compliance, and \"Check with Simulation\").<br>
+     <a href=\"https://trac.modelica.org/Modelica/ticket/1924\">#1924</a>: 
+     Regression testing of 3.2.2+build.0-beta.2 using Dymola 2017 Dev 4 with respect to
+     3.2.1+build.4 reference files<br>
+     <a href=\"https://trac.modelica.org/Modelica/ticket/1949\">#1949</a>:
+     Regression testing of 3.2.2+build.0-beta.3 using Dymola 2017 Beta 1 with respect to
+     3.2.1+build.4 reference files</li>
+<li> <b>Maplesim Parser</b></li>
+<li> <b>OpenModelica 1.9.4 Beta.2</b> (Windows, Linux, Mac)<br>
+     <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_Compilation/\">Compilation</a> of models of 3.2.2.<br>
+     <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_cpp_Simulation/\">Simulation</a> of models of 3.2.2.<br>
+     <a href=\"https://test.openmodelica.org/libraries/MSL_trunk/BuildModelRecursive.html\">Regression testing</a> of 3.2.2 using OpenModelica 1.9.4 with respect
+     to 3.2.1+build.4 reference files.</li> 
      </li>
 </ul>
+
+<p>
+The following Modelica packages have been tested that they work together with this release of package Modelica
+(alphabetical list):
+</p>
+
+<ul>
+<li> Modelica_Synchronous 0.92</li>
+<li> Optimization 2.2.2 (DLR)</li>
+<li> PowerTrain 2.4.0 (DLR) </li>
+<li> FlightDynamics 1.0.1 (DLR) </li>
+<li> FlexibleBodies 2.2 (DLR)</li>
+</ul>
+
 
 <p><br>
 The following <b style=\"color:blue\">new libraries</b> have been added:
