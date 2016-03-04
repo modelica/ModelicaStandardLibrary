@@ -967,7 +967,7 @@ equation
   connect(clock.y,t_new. u[1]) annotation (Line(
       points={{-59,10},{-42,10}},
       color={0,0,127}));
-  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.1\")));
+  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version=\"3.2.2\")));
 end Test25_usertab;
 </pre>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
