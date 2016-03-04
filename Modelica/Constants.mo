@@ -88,7 +88,7 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
        by Thomas Beutlich:<br>
        Constants updated according to 2014 CODATA values.</li>
 <li><i>Nov 8, 2004</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       by Christian Schweiger:<br>
        Constants updated according to 2002 CODATA values.</li>
 <li><i>Dec 9, 1999</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>

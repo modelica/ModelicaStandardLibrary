@@ -140,7 +140,7 @@ package IF97_Utilities
 </h4>
 <ul>
 <li>First implemented: <i>July, 2000</i>
-       by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+       by Hubertus Tummescheit
        </li>
 </ul>
  <address>Author: Hubertus Tummescheit, <br>
@@ -171,7 +171,7 @@ package IF97_Utilities
 </h4>
 <ul>
 <li>First implemented: <i>July, 2000</i>
-       by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+       by Hubertus Tummescheit
        </li>
 </ul>
  <address>Author: Hubertus Tummescheit, <br>
@@ -1597,7 +1597,7 @@ package IF97_Utilities
 <h4>Version Info and Revision history</h4>
 <ul>
 <li>First implemented: <i>July, 2000</i>
-       by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+       by Hubertus Tummescheit
        </li>
 </ul>
 <address>Authors: Hubertus Tummescheit, Jonas Eborn and Falko Jens Wagner<br>
@@ -3697,7 +3697,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           </h4>
           <ul>
           <li>First implemented: <i>July, 2000</i>
-          by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+          by Hubertus Tummescheit
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
@@ -4179,7 +4179,7 @@ Ordinary Water Substance<br>
           </h4>
           <ul>
           <li>First implemented: <i>October, 2002</i>
-          by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+          by Hubertus Tummescheit
           </li>
           </ul>
           <address>Authors: Hubertus Tummescheit and Jonas Eborn<br>
@@ -4816,7 +4816,7 @@ Ordinary Water Substance<br>
           </h4>
           <ul>
           <li>First implemented: <i>July, 2000</i>
-          by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+          by Hubertus Tummescheit
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
@@ -5449,7 +5449,7 @@ Ordinary Water Substance<br>
           </h4>
           <ul>
           <li>First implemented: <i>July, 2000</i>
-          by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+          by Hubertus Tummescheit
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
@@ -5543,7 +5543,7 @@ Ordinary Water Substance<br>
           </h4>
           <ul>
           <li>First implemented: <i>July, 2000</i>
-          by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+          by Hubertus Tummescheit
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>
@@ -5802,7 +5802,7 @@ Ordinary Water Substance<br>
           </h4>
           <ul>
           <li>First implemented: <i>July, 2000</i>
-          by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+          by Hubertus Tummescheit
           </li>
           </ul>
           <address>Author: Hubertus Tummescheit, <br>

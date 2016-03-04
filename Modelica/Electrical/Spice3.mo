@@ -2767,7 +2767,7 @@ The corresponding SPICE description
 <dt>
 <b>Main Authors:</b>
 <dd>
-<a href=\"http://people.eas.iis.fhg.de/Christoph.Clauss/\">Christoph Clau&szlig;</a>
+Christoph Clau&szlig;
     &lt;<a href=\"mailto:clauss@eas.iis.fhg.de\">clauss@eas.iis.fhg.de</a>&gt;<br>
 
     Fraunhofer Institute for Integrated Circuits<br>

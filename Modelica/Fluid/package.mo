@@ -1677,8 +1677,7 @@ and many have contributed.
 
 <p>
   Partial financial support of ABB and DLR by BMBF (BMBF F&ouml;rderkennzeichen: 01IS07022F) for the further development
-     of this library within the <a href=\"http://www.itea2.org\">ITEA</a> project
-     <a href=\"http://www.itea2.org/public/project_leaflets/EUROSYSLIB_profile_oct-07.pdf\">EUROSYSLIB</a>
+     of this library within the <a href=\"http://www.itea2.org\">ITEA</a> project EUROSYSLIB
      is highly appreciated.</p>
 
 </html>"));

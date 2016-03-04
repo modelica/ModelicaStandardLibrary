@@ -7059,7 +7059,7 @@ It is based on the
     <tr>
       <td valign=\"top\"></td>
       <td valign=\"top\">2003-07-10</td>
-      <td valign=\"top\"><a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a></td>
+      <td valign=\"top\">Christian Schweiger</td>
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>

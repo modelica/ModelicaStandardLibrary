@@ -9163,11 +9163,11 @@ provide a package in the following way:
 </html>", revisions="<html>
       <ul>
       <li>First implemented: <i>July, 2000</i>
-      by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
+      by Hubertus Tummescheit
       for the ThermoFluid Library with help from Jonas Eborn and Falko Jens Wagner
       </li>
       <li>Code reorganization, enhanced documentation, additional functions: <i>December, 2002</i>
-      by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a> and move to Modelica
+      by Hubertus Tummescheit and move to Modelica
                             properties library.</li>
       <li>Inclusion into Modelica.Media: September 2003 </li>
       </ul>

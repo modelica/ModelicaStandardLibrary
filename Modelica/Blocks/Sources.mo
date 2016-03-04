@@ -2203,7 +2203,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <h4>Release Notes</h4>
 <ul>
 <li><i>Oct. 21, 2002</i>
-       by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       by Christian Schweiger:<br>
        Corrected interface from
 <pre>
     parameter Real table[:, :]=[0, 0; 1, 1; 2, 4];
@@ -3535,7 +3535,7 @@ usually requires a trimming calculation.
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       and Christian Schweiger:<br>
        Integer sources added. Step, TimeTable and BooleanStep slightly changed.</li>
 <li><i>Nov. 8, 1999</i>
        by <a href=\"mailto:clauss@eas.iis.fhg.de\">Christoph Clau&szlig;</a>,

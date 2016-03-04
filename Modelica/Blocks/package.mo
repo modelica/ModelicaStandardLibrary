@@ -2861,7 +2861,7 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
        </li>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
-       and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
+       and Christian Schweiger:<br>
        New subpackage Examples, additional components.
        </li>
 <li><i>June 20, 2000</i>

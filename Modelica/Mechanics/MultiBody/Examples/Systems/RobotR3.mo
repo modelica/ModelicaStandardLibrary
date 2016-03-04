@@ -1894,9 +1894,9 @@ more involved.
 <p>
 In order to get a nice animation, CAD data from a KUKA robot
 is used, since CAD data of the original r3 robot was not available.
-The KUKA CAD data was derived from public data of KUKA available at:
-<a href=\"http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html\">
-http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html</a>.
+The KUKA CAD data was derived from public data of
+<a href=\"http://www.kuka-robotics.com/\">
+KUKA</a>.
 Since dimensions of the corresponding KUKA robot are similar but not
 identical to the r3 robot, the data of the r3 robot (such as arm lengths) have been modified, such that it matches the CAD data.
 </p>
