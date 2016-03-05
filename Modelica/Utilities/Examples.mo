@@ -301,8 +301,8 @@ function can be used as part of another scan operation.
     if not found then
        Streams.error("Parameter \"" + name + "\" not found in file \"" + fileName + "\"");
     end if;
-    annotation (
-Documentation(info="<html>
+    annotation (Documentation(info=
+                   "<html>
 <h4>Syntax</h4>
 <blockquote><pre>
 result = <b>readRealParameter</b>(fileName, name);
@@ -405,22 +405,34 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     "Demonstrate usage of function Streams.readRealMatrix"
     import Modelica.Utilities.Streams.print;
     extends Modelica.Icons.Example;
-    parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat");
-    parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat");
-    parameter String file3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat");
-    parameter String matrixName = "Matrix_A";
-    parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName);
-    parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName);
-    parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(file3,matrixName);
-    parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName,dim1[1],dim1[2]);
-    parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(file2,matrixName,dim2[1],dim2[2]);
-    parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName,dim3[1],dim3[2]);
+    parameter String file = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of matrix"
+      annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
+    parameter String matrixName = "Matrix_A" "Matrix name in file";
+    final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName) "Dimension of matrix";
+    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Matrix data";
+
+    final parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
+    final parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
+    final parameter String file3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat") "File name of check matrix 3";
+    final parameter String matrixName1 = "Matrix_A" "Names of check matrices";
+    final parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName1) "Dimensions of check matrix 1";
+    final parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName1) "Dimensions of check matrix 2";
+    final parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(file3,matrixName1) "Dimensions of check matrix 3";
+    final parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Data of check matrix 1";
+    final parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(file2,matrixName1,dim2[1],dim2[2]) "Data of check matrix 2";
+    final parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName1,dim3[1],dim3[2]) "Data of check matrix 3";
     Real x(start=1, fixed=true);
+  protected
+    constant Real eps = 10* Modelica.Constants.eps;
   equation
-    der(x) = -A1[1,1]*x;
+    assert(abs(A1[1,1] - 11) <= eps, "Resources/Data/Utilities/Test_RealMatrix_v4.mat not correctly loaded");
+    assert(abs(A2[1,1] - 11) <= eps, "Resources/Data/Utilities/Test_RealMatrix_v6.mat not correctly loaded");
+    assert(abs(A3[1,1] - 11) <= eps, "Resources/Data/Utilities/Test_RealMatrix_v7.mat not correctly loaded");
+
+    der(x) = -A[1,1]*x;
     when initial() then
-       print("... Matrix " + matrixName + "[" + String(size(A1,1)) + "," + String(size(A1,2)) + "] read from file " + file1);
-       print("...    " + matrixName + "[1,1] = " + String(A1[1,1]));
+       print("... Matrix " + matrixName + "[" + String(size(A,1)) + "," + String(size(A,2)) + "] read from file " + file);
+       print("...    " + matrixName + "[1,1] = " + String(A[1,1]));
     end when;
 
     annotation(experiment(StopTime=0.1), Documentation(info="<html>
@@ -430,6 +442,11 @@ using functions
 <a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a> and
 <a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>.
 <p>
+
+<p>
+Additionally, specific matrices from the supported file formats are loaded and it is checked
+whether the loaded matrices have the expected values.
+</p>
 </html>"));
   end ReadRealMatrixFromFile;
   annotation (Documentation(info="<html>
