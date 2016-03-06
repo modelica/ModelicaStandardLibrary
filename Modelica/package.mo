@@ -2370,11 +2370,11 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
 
 <li> About <b>240</b> tickets have been fixed in this release and the previous maintenance releases:
      <ul>
-     <li> <b>Version 3.2.1 Build.3</b> with respect to 3.2.1 (Build.2):<br>
+     <li> <b>Version 3.2.1 Build.3</b> (July 30, 2015) with respect to 3.2.1 Build.2 (August 14, 2013):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
           have been fixed for this maintenance release.<br>&nbsp; </li>
 
-     <li> <b>Version 3.2.1 Build.4</b> with respect to 3.2.1 Build.3:
+     <li> <b>Version 3.2.1 Build.4</b> (Sept. 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
           <ul>
             <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
                  have been fixed for this maintenance release. Critical tickets:</li>
@@ -2432,6 +2432,15 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
           adapted.</li>
      </ul>
 </li>
+</ul>
+
+<p>
+The exact difference between package Modelica version 3.2.2 and version 3.2.1 is
+summarized in the following two comparison tables:
+</p>
+<ul>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences322To321Build4.html\">Difference 3.2.2 to 3.2.1 Build 4</a>, </li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/Differences321Build4toBuild2.html\">Difference 3.2.1 Build 4 to 3.2.1 Build 2</a>.</li>
 </ul>
 
 <p>
