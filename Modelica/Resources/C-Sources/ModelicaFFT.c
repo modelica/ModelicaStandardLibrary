@@ -35,7 +35,7 @@
    The functions in this file are non-portable. The following #define's are used
    to define the system calls of the operating system
 
-   _MSC_VER       : Microsoft Visual C++
+   __GNUC__       : GNU C compiler
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definitions:
                     - "static" that is all functions become static
