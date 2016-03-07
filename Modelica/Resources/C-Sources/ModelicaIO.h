@@ -25,6 +25,18 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/* Definition of interface to external functions for array I/O
+   in the Modelica Standard Library:
+
+      Modelica.Utilities.Streams.readMatrixSize
+      Modelica.Utilities.Streams.readRealMatrix
+      Modelica.Utilities.Streams.writeRealMatrix
+
+   Release Notes:
+      Mar. 03, 2016: by Thomas Beutlich, ITI GmbH and Martin Otter, DLR
+                     Implemented a first version (ticket #1856)
+*/
+
 #if !defined(MODELICAIO_H)
 #define MODELICAIO_H
 
