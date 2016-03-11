@@ -939,7 +939,7 @@ extends Modelica.Icons.ExamplesPackage;
        u1 := Special.erfInv(y1);
        err  := max(abs(u - u1));
        print("erf and erfInv: err = " + String(err));
-       assert( err < 1e-12, "Functions erf and erfInc computed not precisely enough");
+       assert( err < 1e-12, "Functions erf and erfInv computed not precisely enough");
 
        // check erfc
        y1 := ones(nPoints) - Special.erf(u);
