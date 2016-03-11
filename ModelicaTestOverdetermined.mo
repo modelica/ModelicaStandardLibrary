@@ -588,13 +588,13 @@ The initial equations are consistent however and a tool shall reduce them approp
   end ConsistentInitialization;
 
   package InconsistentInitialization
-      "Test cases of systems with overdetermined initialization problems due to index reduction that are inconsistent (should given an error during initialization)"
+      "Test cases of systems with overdetermined initialization problems due to index reduction that are inconsistent (should give an error during initialization)"
     extends Modelica.Icons.ExamplesPackage;
     package Fluid
       "Test cases with Fluid systems"
     extends Modelica.Icons.ExamplesPackage;
       model TwoVolumesEquationsFullInitialInconsistent
-        "Fully specified initial values all for dynamic variables, inconsistent values. An error should be reported"
+        "Fully specified initial values for all dynamic variables, inconsistent values. An error should be reported"
         extends Modelica.Icons.Example;
         extends ConsistentInitialization.Fluid.BaseClasses.TwoVolumesEquations;
       initial equation
