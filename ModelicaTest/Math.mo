@@ -946,21 +946,21 @@ extends Modelica.Icons.ExamplesPackage;
        y2 := Special.erfc(u);
        err  := max(abs(y1 - y2));
        print("erfc: err = " + String(err));
-       assert( err < 1e-14, "Error function erf computed not precisely enough");
+       assert( err < 1e-14, "Error function erfc computed not precisely enough");
 
-       // check erfcInv
+       // cross check erfc and erfcInv
        y1 := Special.erfc(u);
        u1 := Special.erfcInv(y1);
        err  := max(abs(u - u1));
        print("erfc and erfcInv: err = " + String(err));
-       assert( err < 1e-12, "Error function erf computed not precisely enough");
+       assert( err < 1e-12, "Functions erfc and erfcInv computed not precisely enough");
 
        // check sinc
        y3a := Special.sinc(u3);
        y3b := sin(u3)./u3;
        err  := max(abs(y3a - y3b));
        print("sinc = " + String(err));
-       assert( err < 1e-15, "sinc function computed not precisely enough");
+       assert( err < 1e-15, "Function sinc function computed not precisely enough");
 
        ok :=true;
       annotation (Documentation(revisions="<html>
