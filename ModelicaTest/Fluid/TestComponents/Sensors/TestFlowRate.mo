@@ -30,26 +30,21 @@ model TestFlowRate
 equation
   connect(sine.y, massFlowRate1.m_flow_in) annotation (Line(
       points={{-79,10},{-70,10},{-70,18},{-60,18}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(massFlowRate1.ports[1], simpleGenericOrifice.port_a)
                                                            annotation (Line(
       points={{-40,10},{-32,10},{-32,0},{-20,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volumeFlowRate.port_b, boundary_fixed.ports[1])
                                                       annotation (Line(
       points={{70,0},{80,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(massFlowRate.port_b, volumeFlowRate.port_a) annotation (Line(
       points={{30,0},{50,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(simpleGenericOrifice.port_b, massFlowRate.port_a) annotation (Line(
       points={{0,0},{10,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (
     experiment(StopTime=1.01, Tolerance=1e-006));
 end TestFlowRate;

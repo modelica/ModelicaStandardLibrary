@@ -86,21 +86,17 @@ equation
                 color={0,127,255}));
   connect(pipe2.port_b,tank2. ports[1]) annotation (Line(
       points={{8,24},{8,34},{8,34},{8,44}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valveDelayed.port_b, pipe2.port_a)
                                          annotation (Line(
       points={{-12,-18},{8,-18},{8,4}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valveDelayed.port_a, pipe1.port_a)
                                          annotation (Line(
       points={{-28,-18},{-52,-18},{-52,4}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(step.y, valveDelayed.opening) annotation (Line(
       points={{-39,-40},{-20,-40},{-20,-24.4}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (experiment(StopTime=10));
 end TestDelayedValve;

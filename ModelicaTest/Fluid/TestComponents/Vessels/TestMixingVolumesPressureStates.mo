@@ -68,34 +68,27 @@ equation
   connect(simpleGenericOrifice2.port_b,sink2. ports[1])
                                                     annotation (Line(
       points={{70,40},{80,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(flowSource2.ports[1],simpleGenericOrifice1.port_a)
                                                           annotation (Line(
       points={{-80,40},{-70,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(simpleGenericOrifice1.port_b, Tmix_in.port) annotation (Line(
       points={{-50,40},{-40,40},{-40,70}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(Tmix_out.port, simpleGenericOrifice2.port_a) annotation (Line(
       points={{40,68},{40,40},{50,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(simpleGenericOrifice1.port_b, mixingVolume1.ports[1]) annotation (
       Line(
       points={{-50,40},{-36,40},{-36,38},{-22,38}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(mixingVolume1.ports[2], mixingVolume2.ports[2]) annotation (Line(
       points={{-18,38},{-18,34},{22,34},{22,38}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(mixingVolume2.ports[1], simpleGenericOrifice2.port_a) annotation (
       Line(
       points={{18,38},{34,38},{34,40},{50,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation ( experiment(StopTime=10));
 end TestMixingVolumesPressureStates;

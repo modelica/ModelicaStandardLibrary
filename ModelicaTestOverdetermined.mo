@@ -64,22 +64,18 @@ package ModelicaTestOverdetermined
         connect(source.ports[1], pipe.port_a)         annotation (Line(
             points={{-60,0},{-55,0},{-55,0},{-50,
                 0},{-50,0},{-40,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(pipe.port_b, valve.port_a)               annotation (Line(
             points={{-20,0},{-15,0},{-15,0},{-10,
                 0},{-10,0},{0,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(valve.port_b, sink.ports[1])                          annotation (Line(
             points={{20,0},{25,0},{25,0},{30,
                 0},{30,0},{40,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(ramp.y, valve.opening)               annotation (Line(
             points={{25,40},{10,40},{10,8}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
 
         annotation (Documentation(info="<html>
 All pressure states of the pipe are lumped into one.
@@ -156,22 +152,18 @@ The initial equations are consistent however and a tool shall reduce them approp
         connect(source.ports[1], pipe.port_a)         annotation (Line(
             points={{-60,0},{-55,0},{-55,0},{-50,
                 0},{-50,0},{-40,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(pipe.port_b, valve.port_a)               annotation (Line(
             points={{-20,0},{-15,0},{-15,0},{-10,
                 0},{-10,0},{0,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(valve.port_b, sink.ports[1])                          annotation (Line(
             points={{20,0},{25,0},{25,0},{30,
                 0},{30,0},{40,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(ramp.y, valve.opening)               annotation (Line(
             points={{25,40},{10,40},{10,8}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (Documentation(info="<html>
 The initial values are overdetermined as the first pipe segment is directly connected to a source with fixed pressure.
 The initial equations are consistent however and a tool shall reduce them appropriately.
@@ -256,24 +248,19 @@ The initial equations are consistent however and a tool shall reduce them approp
       equation
         connect(source.ports[1], pipe1.port_a) annotation (Line(
             points={{-70,0},{-50,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(valve.port_b,sink. ports[1])                          annotation (Line(
             points={{46,0},{66,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(ramp.y,valve. opening)               annotation (Line(
             points={{51,40},{36,40},{36,8}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(pipe1.port_b, pipe2.port_a) annotation (Line(
             points={{-30,0},{-14,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(pipe2.port_b, valve.port_a) annotation (Line(
             points={{6,0},{26,0}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
       end DynamicPipesSeriesSteadyStateInitial;
 
       model DynamicPipesSeriesLargeNSteadyStateInitial
@@ -402,24 +389,19 @@ The initial equations are consistent however and a tool shall reduce them approp
         equation
           connect(source.ports[1], V1.ports[1]) annotation (Line(
               points={{-60,-10},{-40,-10},{-40,0}},
-              color={0,127,255},
-              smooth=Smooth.None));
+              color={0,127,255}));
           connect(V1.ports[2], V2.ports[1]) annotation (Line(
               points={{-36,0},{-36,-10},{-4,-10},{-4,0}},
-              color={0,127,255},
-              smooth=Smooth.None));
+              color={0,127,255}));
           connect(V2.ports[2], valveLinear.port_a) annotation (Line(
               points={{0,0},{0,-10},{20,-10}},
-              color={0,127,255},
-              smooth=Smooth.None));
+              color={0,127,255}));
           connect(valveLinear.port_b, sink.ports[1]) annotation (Line(
               points={{40,-10},{60,-10}},
-              color={0,127,255},
-              smooth=Smooth.None));
+              color={0,127,255}));
           connect(one.y, valveLinear.opening) annotation (Line(
               points={{23,34},{30,34},{30,-2}},
-              color={0,0,127},
-              smooth=Smooth.None));
+              color={0,0,127}));
         end TwoVolumes;
 
         model TwoVolumesEquations
@@ -556,16 +538,13 @@ The initial equations are consistent however and a tool shall reduce them approp
         equation
           connect(fixed.flange, spring.flange_a) annotation (Line(
               points={{-60,0},{-42,0}},
-              color={0,127,0},
-              smooth=Smooth.None));
+              color={0,127,0}));
           connect(spring.flange_b, mass1.flange_a) annotation (Line(
               points={{-22,0},{-12,0}},
-              color={0,127,0},
-              smooth=Smooth.None));
+              color={0,127,0}));
           connect(mass1.flange_b, mass2.flange_a) annotation (Line(
               points={{8,0},{26,0}},
-              color={0,127,0},
-              smooth=Smooth.None));
+              color={0,127,0}));
         end TwoMasses;
 
         model TwoMassesEquations
@@ -647,7 +626,6 @@ The initial equations are consistent however and a tool shall reduce them approp
                    Polygon(
           points={{-70,0},{-44,0},{-24,-34},{50,56},{78,56},{-24,-74},{-70,0}},
           lineColor={75,138,73},
-          smooth=Smooth.None,
           fillColor={75,138,73},
           fillPattern=FillPattern.Solid)}),
        preferredView="info",

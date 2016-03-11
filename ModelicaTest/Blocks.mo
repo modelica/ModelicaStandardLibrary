@@ -96,8 +96,7 @@ package Blocks "Test models for Modelica.Blocks"
       annotation (Line(points={{50,81},{50,98}}, color={0,0,127}));
     connect(sine.y, der1.u) annotation (Line(
         points={{21,-130},{38,-130}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-140},{100,140}})));
   end Continuous;
@@ -222,12 +221,10 @@ package Blocks "Test models for Modelica.Blocks"
             -70},{-2,-70}}, color={0,0,127}));
     connect(sine.y, slewRateLimiter.u) annotation (Line(
         points={{-59,30},{-20,30},{-20,50},{-2,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(slewRateLimiter.y, idealDerivative.u) annotation (Line(
         points={{21,50},{38,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.1));
   end Limiters;
 
@@ -283,76 +280,58 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(sine1.y, limiter1.u) annotation (Line(
         points={{-59,70},{-42,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine1.y, limiter2.u) annotation (Line(
         points={{-59,70},{-52,70},{-52,30},{-42,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine2.y, variableLimiter1.u) annotation (Line(
         points={{-59,-30},{-22,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine2a.y, variableLimiter1.limit1) annotation (Line(
         points={{-59,2},{-50,2},{-50,-22},{-22,-22}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine2ab.y, variableLimiter1.limit2) annotation (Line(
         points={{-59,-70},{-52,-70},{-52,-38},{-22,-38}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(variableLimiter2.limit1, variableLimiter1.limit1) annotation (Line(
         points={{-22,-62},{-34,-62},{-34,-22},{-22,-22}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(variableLimiter2.limit2, variableLimiter1.limit2) annotation (Line(
         points={{-22,-78},{-46,-78},{-46,-38},{-22,-38}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(variableLimiter2.u, variableLimiter1.u) annotation (Line(
         points={{-22,-70},{-40,-70},{-40,-30},{-22,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine3.y, slewRateLimiter1.u) annotation (Line(
         points={{21,70},{38,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(slewRateLimiter1.y, der1.u) annotation (Line(
         points={{61,70},{70,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine3.y, slewRateLimiter2.u) annotation (Line(
         points={{21,70},{28,70},{28,40},{38,40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(slewRateLimiter2.y, der2.u) annotation (Line(
         points={{61,40},{70,40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine3.y, limIntegrator1.u) annotation (Line(
         points={{21,70},{28,70},{28,10},{38,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(limIntegrator2.u, limIntegrator1.u) annotation (Line(
         points={{38,-20},{28,-20},{28,10},{38,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(PID1.u_s, limIntegrator1.u) annotation (Line(
         points={{36,-50},{28,-50},{28,10},{38,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(variableLimiter2.y, PID1.u_m) annotation (Line(
         points={{1,-70},{48,-70},{48,-62}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(PID2.u_s, limIntegrator1.u) annotation (Line(
         points={{38,-90},{28,-90},{28,10},{38,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(PID2.u_m, PID1.u_m) annotation (Line(
         points={{50,-102},{50,-110},{16,-110},{16,-70},{48,-70},{48,-62}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.1));
   end StrictLimiters;
 
@@ -405,20 +384,16 @@ package Blocks "Test models for Modelica.Blocks"
       annotation (Line(points={{3.1,-10},{17.8,-10}}, color={0,0,127}));
     connect(integrator1.y, diff1.u1) annotation (Line(
         points={{43.1,70},{58,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(kinematicPTP1b.q[1], diff1.u2) annotation (Line(
         points={{-39,40},{66,40},{66,62}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(integrator3.y, diff2.u1) annotation (Line(
         points={{43.1,-10},{62,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(kinematicPTP2b.q[1], diff2.u2) annotation (Line(
         points={{-39,-40},{70,-40},{70,-18}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=3));
   end KinematicPTP;
 
@@ -488,93 +463,70 @@ package Blocks "Test models for Modelica.Blocks"
         Placement(transformation(extent={{183.5,43.5},{196.5,56.5}})));
   equation
     connect(inertia.flange_b, speedSensor.flange) annotation (Line(
-        points={{-60,70},{-50,70}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-60,70},{-50,70}}));
     connect(speedSensor.w, integrator.u) annotation (Line(
         points={{-29,70},{-16,70},{-16,40},{-2,40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(speedSensor.w, gain.u) annotation (Line(
         points={{-29,70},{-16,70},{-16,90},{-2,90}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(speedSensor.w, limIntegrator.u) annotation (Line(
         points={{-29,70},{-16,70},{-16,10},{-2,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(derivative.u, speedSensor.w) annotation (Line(
         points={{-2,-20},{-16,-20},{-16,70},{-29,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(firstOrder.u, speedSensor.w) annotation (Line(
         points={{-2,-50},{-16,-50},{-16,70},{-29,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(secondOrder.u, speedSensor.w) annotation (Line(
         points={{-2,-80},{-16,-80},{-16,70},{-29,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(speedSensor.w, PI.u) annotation (Line(
         points={{-29,70},{58,70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(speedSensor.w, PID.u) annotation (Line(
         points={{-29,70},{40,70},{40,40},{58,40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(speedSensor.w, PID1.u_s) annotation (Line(
         points={{-29,70},{40,70},{40,10},{58,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(gain.y, PID1.u_m) annotation (Line(
         points={{21,90},{94,90},{94,-8},{70,-8},{70,-2}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sineVoltage.n, ground.p) annotation (Line(
         points={{120,-30},{120,-50}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(sineVoltage.p, currentSensor.p) annotation (Line(
         points={{120,-10},{120,0},{138,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(voltageSensor.p, resistor.p) annotation (Line(
         points={{190,-10},{190,0},{168,0},{168,-10}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(resistor.p, currentSensor.n) annotation (Line(
         points={{168,-10},{168,0},{158,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(voltageSensor.n, resistor.n) annotation (Line(
         points={{190,-30},{190,-40},{168,-40},{168,-30}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(resistor.n, sineVoltage.n) annotation (Line(
         points={{168,-30},{168,-40},{120,-40},{120,-30}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(currentSensor.i, product.u1) annotation (Line(
         points={{148,10},{172,10},{172,23},{224,23}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(voltageSensor.v, product.u2) annotation (Line(
         points={{200,-20},{210.5,-20},{210.5,17},{224,17}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(currentSensor.i, Asec.u) annotation (Line(
         points={{148,10},{172,10},{172,50},{182.2,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(product.y, Wsec.u) annotation (Line(
         points={{235.5,20},{248,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(Vsec.u, voltageSensor.v) annotation (Line(
         points={{244.8,-20},{222.4,-20},{222.4,-20},{200,-20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.01));
   end UnitDeduction;
 
@@ -647,179 +599,137 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(table1.y, and1.u1) annotation (Line(
         points={{-79,110},{-62,110}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(table2.y, and1.u2) annotation (Line(
         points={{-79,70},{-72,70},{-72,102},{-62,102}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(and1.y, or1.u1) annotation (Line(
         points={{-39,110},{-22,110}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(table2.y, or1.u2) annotation (Line(
         points={{-79,70},{-34,70},{-34,102},{-22,102}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(table1.y, xor.u1) annotation (Line(
         points={{-79,110},{-72,110},{-72,150},{-22,150}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(and1.y, xor.u2) annotation (Line(
         points={{-39,110},{-32,110},{-32,142},{-22,142}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(xor.y, nor.u1) annotation (Line(
         points={{1,150},{18,150}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, nor.u2) annotation (Line(
         points={{1,110},{10,110},{10,142},{18,142}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(nor.y, nand.u1) annotation (Line(
         points={{41,150},{58,150}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(table2.y, nand.u2) annotation (Line(
         points={{-79,70},{46,70},{46,142},{58,142}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, not1.u) annotation (Line(
         points={{1,110},{18,110}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(not1.y, pre1.u) annotation (Line(
         points={{41,110},{58,110}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, edge1.u) annotation (Line(
         points={{1,110},{10,110},{10,10},{18,10}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, fallingEdge.u) annotation (Line(
         points={{1,110},{10,110},{10,-30},{18,-30}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(or1.y, change1.u) annotation (Line(
         points={{1,110},{10,110},{10,-70},{18,-70}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(sine.y, greaterThreshold.u) annotation (Line(
         points={{-79,-10},{-62,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, greaterEqualThreshold.u) annotation (Line(
         points={{-79,-10},{-72,-10},{-72,-38},{-62,-38}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, lessThreshold.u) annotation (Line(
         points={{-79,-10},{-72,-10},{-72,-66},{-62,-66}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, lessEqualThreshold.u) annotation (Line(
         points={{-79,-10},{-72,-10},{-72,-94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(ramp.y, greater.u2) annotation (Line(
         points={{-81,-138},{-62,-138}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(ramp.y, greaterEqual.u2) annotation (Line(
         points={{-81,-138},{-74,-138},{-74,-154},{-32,-154},{-32,-138},{-22,
             -138}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(less.u2, greaterEqual.u2) annotation (Line(
         points={{18,-138},{10,-138},{10,-154},{-32,-154},{-32,-138},{-22,-138}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
 
     connect(lessEqual.u2, greaterEqual.u2) annotation (Line(
         points={{58,-138},{50,-138},{50,-154},{-32,-154},{-32,-138},{-22,-138}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
 
     connect(greater.u1, lessEqualThreshold.u) annotation (Line(
         points={{-62,-130},{-72,-130},{-72,-94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(greaterEqual.u1, lessEqualThreshold.u) annotation (Line(
         points={{-22,-130},{-30,-130},{-30,-112},{-72,-112},{-72,-94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
 
     connect(less.u1, lessEqualThreshold.u) annotation (Line(
         points={{18,-130},{12,-130},{12,-112},{-72,-112},{-72,-94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(lessEqual.u1, lessEqualThreshold.u) annotation (Line(
         points={{58,-130},{52,-130},{52,-112},{-72,-112},{-72,-94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(zeroCrossing.u, greaterThreshold.u) annotation (Line(
         points={{-62,22},{-72,22},{-72,-10},{-62,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(greaterThreshold.y, zeroCrossing.enable) annotation (Line(
         points={{-39,-10},{-22,-10},{-22,4},{-50,4},{-50,10}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(nand.y, logicalSwitch.u1) annotation (Line(
         points={{81,150},{90,150},{90,138},{98,138}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(pre1.y, logicalSwitch.u2) annotation (Line(
         points={{81,110},{88,110},{88,130},{98,130}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(table2.y, logicalSwitch.u3) annotation (Line(
         points={{-79,70},{92,70},{92,122},{98,122}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(change1.y, switch1.u2) annotation (Line(
         points={{41,-70},{78,-70}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(switch1.u1, lessEqualThreshold.u) annotation (Line(
         points={{78,-62},{52,-62},{52,-112},{-72,-112},{-72,-94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(switch1.u3, greaterEqual.u2) annotation (Line(
         points={{78,-78},{66,-78},{66,-106},{106,-106},{106,-154},{-32,-154},{
             -32,-138},{-22,-138}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, hysteresis.u) annotation (Line(
         points={{-79,-10},{-72,-10},{-72,50},{-62,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(onOffController.reference, lessEqualThreshold.u) annotation (Line(
         points={{78,-24},{66,-24},{66,-24},{52,-24},{52,-112},{-72,-112},{-72,
             -94},{-62,-94}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(onOffController.u, greaterEqual.u2) annotation (Line(
         points={{78,-36},{66,-36},{66,-106},{106,-106},{106,-154},{-32,-154},{
             -32,-138},{-22,-138}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(table2.y, triggeredTrapezoid.u) annotation (Line(
         points={{-79,70},{104,70}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(timer.u, logicalSwitch.u3) annotation (Line(
         points={{98,30},{94,30},{94,30},{92,30},{92,122},{98,122}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(nand.y, rSFlipFlop.S) annotation (Line(
         points={{81,150},{128,150},{128,136},{138,136}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(pre1.y, rSFlipFlop.R) annotation (Line(
         points={{81,110},{130,110},{130,124},{138,124}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     annotation (experiment(StopTime=10), Diagram(coordinateSystem(
             preserveAspectRatio=false,extent={{-100,-180},{180,180}})));
   end Logical;
@@ -875,12 +785,10 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(expSine.y, mean1.u) annotation (Line(
         points={{-59,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(expSine.y, rootMeanSquare.u) annotation (Line(
         points={{-59,50},{-52,50},{-52,10},{-42,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=2));
   end RootMeanSquare;
 
@@ -896,12 +804,10 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(sine.y, zeroOrderHold.u) annotation (Line(
         points={{-59,10},{-50,10},{-50,30},{-42,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine.y, firstOrderHold.u) annotation (Line(
         points={{-59,10},{-50,10},{-50,-10},{-42,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=2));
   end FirstOrderHold;
 
@@ -923,16 +829,13 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(booleanTable.y, onDelay1.u) annotation (Line(
         points={{-39,70},{-15.6,70}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanStep3.y, onDelay3.u) annotation (Line(
         points={{-39,-10},{-15.6,-10}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     connect(booleanStep2.y, onDelay2.u) annotation (Line(
         points={{-39,30},{-15.6,30}},
-        color={255,0,255},
-        smooth=Smooth.None));
+        color={255,0,255}));
     annotation (experiment(StopTime=11), Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-140},{100,140}})));
   end OnDelay;
@@ -967,36 +870,28 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(cosine.y, mean.u) annotation (Line(
         points={{-59,90},{-22,90}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, rectifiedMean.u) annotation (Line(
         points={{-59,90},{-40,90},{-40,50},{-22,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, rootMeanSquare.u) annotation (Line(
         points={{-59,90},{-40,90},{-40,10},{-22,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, harmonic.u) annotation (Line(
         points={{-59,90},{-40,90},{-40,-30},{-22,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(harmonic.y_rms, polarToRectangular.u_abs) annotation (Line(
         points={{1,-24},{18,-24}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(harmonic.y_arg, polarToRectangular.u_arg) annotation (Line(
         points={{1,-36},{18,-36}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(polarToRectangular.y_re, rectangularToPolar.u_re) annotation (Line(
         points={{41,-24},{58,-24}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(polarToRectangular.y_im, rectangularToPolar.u_im) annotation (Line(
         points={{41,-36},{58,-36}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
   end Mean;
@@ -1076,108 +971,82 @@ package Blocks "Test models for Modelica.Blocks"
   equation
     connect(cosine.y, to_degC.u) annotation (Line(
         points={{-59,110},{-42,110}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_degF.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,80},{-42,80}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_degRk.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_deg.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,20},{-46,20},{-46,20},{-42,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_rpm.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,-10},{-42,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_degC.y, from_degC.u) annotation (Line(
         points={{-19,110},{-16,110},{-16,110},{-12,110}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_degF.y, from_degF.u) annotation (Line(
         points={{-19,80},{-12,80}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_degRk.y, from_degRk.u) annotation (Line(
         points={{-19,50},{-12,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_deg.y, from_deg.u) annotation (Line(
         points={{-19,20},{-14,20},{-14,20},{-12,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_rpm.y, from_rpm.u) annotation (Line(
         points={{-19,-10},{-12,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_kmh.y, from_kmh.u) annotation (Line(
         points={{-19,-40},{-12,-40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_day.y, from_day.u) annotation (Line(
         points={{-19,-70},{-12,-70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_hour.y, from_hour.u) annotation (Line(
         points={{-19,-100},{-12,-100}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_minute.y, from_minute.u) annotation (Line(
         points={{-19,-130},{-12,-130}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_kmh.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,-40},{-42,-40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_day.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,-70},{-42,-70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_hour.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,-100},{-42,-100}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_minute.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,-130},{-42,-130}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_litre.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,128},{28,128},{28,110},{38,110}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_kWh.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,128},{28,128},{28,80},{38,80}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_litre.y, from_litre.u) annotation (Line(
         points={{61,110},{68,110}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_kWh.y, from_kWh.u) annotation (Line(
         points={{61,80},{70,80}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_bar.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,128},{28,128},{28,50},{38,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(cosine.y, to_gps.u) annotation (Line(
         points={{-59,110},{-50,110},{-50,128},{28,128},{28,20},{38,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_bar.y, from_bar.u) annotation (Line(
         points={{61,50},{70,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(to_gps.y, from_gps.u) annotation (Line(
         points={{61,20},{70,20}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-140},{100,140}}), graphics));
   end ConversionBlocks;
@@ -1336,8 +1205,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
                 74.6},{-27.8,79.1},{-22.2,79.8},{-16.6,76.6},{-10.9,69.7},{-5.3,
                 59.4},{1.1,44.1},{9.17,21.2},{26.1,-30.8},{33.3,-50.2},{39.7,-64.2},
                 {45.3,-73.1},{51,-78.4},{56.6,-80},{62.2,-77.6},{67.9,-71.5},{
-                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, color={0,0,0},
-                smooth=Smooth.Bezier),
+                73.5,-61.9},{79.9,-47.2},{88,-24.8},{96,0}}, smooth=Smooth.Bezier),
           Text(
             extent={{67,22},{96,6}},
             lineColor={160,160,164},
@@ -1388,36 +1256,28 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 
     connect(step.y, padeDelayOld1.u) annotation (Line(
         points={{-59,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(step.y, padeDelay1.u) annotation (Line(
         points={{-59,50},{-52,50},{-52,10},{-42,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelayOld1.y, compare1.u1) annotation (Line(
         points={{-19,50},{-2,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay1.y, compare1.u2) annotation (Line(
         points={{-19,10},{6,10},{6,42}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelayOld2.y,compare2. u1) annotation (Line(
         points={{-19,-30},{-2,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay2.y,compare2. u2) annotation (Line(
         points={{-19,-70},{6,-70},{6,-38}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelayOld2.u, Sine.y) annotation (Line(
         points={{-42,-30},{-59,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay2.u, Sine.y) annotation (Line(
         points={{-42,-70},{-50,-70},{-50,-30},{-59,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=1.0));
   end PadeDelay1;
 
@@ -1460,36 +1320,28 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 
     connect(step.y, padeDelay1b.u) annotation (Line(
         points={{-59,50},{-52,50},{-52,10},{-42,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay1b.y, compare1.u2) annotation (Line(
         points={{-19,10},{6,10},{6,42}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay2a.y, compare2.u1) annotation (Line(
         points={{-19,-30},{-2,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay2b.y, compare2.u2) annotation (Line(
         points={{-19,-70},{6,-70},{6,-38}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay2a.u, Sine.y) annotation (Line(
         points={{-42,-30},{-59,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(padeDelay2b.u, Sine.y) annotation (Line(
         points={{-42,-70},{-50,-70},{-50,-30},{-59,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(step.y, padeDelay1a.u) annotation (Line(
         points={{-59,50},{-42,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(compare1.u1, padeDelay1a.y) annotation (Line(
         points={{-2,50},{-19,50}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (experiment(StopTime=0.02),      Documentation(info="<html>
 <p>
 The setting with order=4 gives the same result with balance=false and balance=true.
@@ -1614,36 +1466,28 @@ This shows the improvements in the numerics when balance=true is set.
     equation
       connect(step.y, CriticalDamping_a.u) annotation (Line(
           points={{-39,50},{-22,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(step.y, CriticalDamping_b.u) annotation (Line(
           points={{-39,50},{-32,50},{-32,70},{20,70},{20,50},{38,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(step.y, Bessel_a.u) annotation (Line(
           points={{-39,50},{-32,50},{-32,10},{-22,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(step.y, Bessel_b.u) annotation (Line(
           points={{-39,50},{-32,50},{-32,70},{20,70},{20,10},{38,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Butterworth_a.u, step.y) annotation (Line(
           points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(step.y, Butterworth_b.u) annotation (Line(
           points={{-39,50},{-32,50},{-32,70},{20,70},{20,-30},{38,-30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(ChebyshevI_a.u, step.y) annotation (Line(
           points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(step.y, ChebyshevI_b.u) annotation (Line(
           points={{-39,50},{-32,50},{-32,70},{20,70},{20,-70},{38,-70}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=0.9), Icon(graphics={Text(
                   extent={{-82,54},{86,22}},
                   lineColor={0,0,0},

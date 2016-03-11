@@ -100,12 +100,10 @@ equation
         color={0,127,255}));
   connect(V2.opening, Opening.y) annotation (Line(
       points={{-34,0},{-34,8},{-62,8},{-62,72},{-75,72}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(V3.opening, Opening.y) annotation (Line(
       points={{-34,-38},{-34,-26},{-62,-26},{-62,72},{-75,72}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(V4.port_b,SinkP4.ports[1])
                                   annotation (Line(points={{-24,-78},{8,-78}}));
   connect(SourceP4.ports[1],V4.port_a)
@@ -113,7 +111,6 @@ equation
         color={0,127,255}));
   connect(V4.opening, Opening.y) annotation (Line(
       points={{-34,-70},{-34,-58},{-62,-58},{-62,72},{-75,72}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation ( experiment(StopTime=1.01));
 end TestValveCoefficients;

@@ -85,45 +85,35 @@ equation
   assert(abs(Tdiff)/50 < 1e-3, "OnePortTemperature and TwoPortTemperature shall give the same result");
   connect(ramp.y, source1.m_flow_in)     annotation (Line(
       points={{-79,40},{-74,40},{-74,48},{-68,48}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(ramp.y, source2.m_flow_in)     annotation (Line(
       points={{-79,40},{-76,40},{-76,-12},{-68,-12}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(orifice1.port_b,sink1.ports[1])
                                        annotation (Line(
       points={{60,40},{80,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(orifice2.port_a, Tmix2.port_b) annotation (Line(
       points={{40,-20},{20,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(orifice2.port_b,sink2.ports[1])
                                        annotation (Line(
       points={{60,-20},{80,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(Tmix1.port, orifice1.port_a) annotation (Line(
       points={{10,60},{10,40},{40,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source1.ports[1], volume1.ports[1])     annotation (Line(
       points={{-48,40},{-34,40},{-34,30},{-22,30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume1.ports[2], orifice1.port_a) annotation (Line(
       points={{-18,30},{10,30},{10,40},{40,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source2.ports[1], volume2.ports[1])     annotation (Line(
       points={{-48,-20},{-35,-20},{-35,-30},{-24,-30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume2.ports[2], Tmix2.port_a) annotation (Line(
       points={{-20,-30},{-11,-30},{-11,-20},{0,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (experiment(StopTime=15));
 end TestTemperature1;

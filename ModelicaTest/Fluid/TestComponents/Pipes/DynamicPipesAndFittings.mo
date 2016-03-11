@@ -336,63 +336,51 @@ equation
   connect(pipe11.port_b, muliPort11.port_a) annotation (Line(
       points={{-60,-52},{-50,-52}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(muliPort11.ports_b[2], pipe12.port_a) annotation (Line(
       points={{-42,-54},{-40,-54},{-40,-62},{-29,-62}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(muliPort11.ports_b[1], pipe9.port_a) annotation (Line(
       points={{-42,-50},{-40,-50},{-40,-40},{-29,-40}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(multiPort10.port_a, pipe10.port_a) annotation (Line(
       points={{10,-52},{20,-52}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(pipe9.port_b, multiPort10.ports_b[1]) annotation (Line(
       points={{-9,-40},{0,-40},{0,-50},{2,-50}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(pipe12.port_b, multiPort10.ports_b[2]) annotation (Line(
       points={{-9,-62},{0,-62},{0,-54},{2,-54}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(junction2.port_3, pipe3.port_a) annotation (Line(
       points={{12,64},{20,64}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(pipe2.port_b, junction2.port_1) annotation (Line(
       points={{-10,78},{2,78},{2,74}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(pipe4.port_b, junction2.port_2) annotation (Line(
       points={{-10,48},{2,48},{2,54}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(pipe1.port_b, junction1.port_3) annotation (Line(
       points={{-60,64},{-52,64}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(junction1.port_1, pipe4.port_a) annotation (Line(
       points={{-42,54},{-42,48},{-30,48}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(junction1.port_2, pipe2.port_a) annotation (Line(
       points={{-42,74},{-42,78},{-30,78}},
       color={0,127,255},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation ( experiment(StopTime=20),
     Documentation(info="<html>
 Test of different dynamic pipe models. The first system uses explicit junctions, in the third system some of the pipe models are replaced by non-symmetric components.

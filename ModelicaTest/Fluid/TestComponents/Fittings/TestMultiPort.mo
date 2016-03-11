@@ -64,16 +64,13 @@ equation
   connect(multiPort.ports_b[1], pipe2.port_a)
                                              annotation (Line(
       points={{-20,-18},{10,-18},{10,14}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(multiPort.ports_b[2], pipe1.port_a)
                                              annotation (Line(
       points={{-20,-22},{35,-22},{35,-20},{40,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source1.ports[1], multiPort.port_a) annotation (Line(
       points={{-40,-20},{-28,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation ( experiment(StopTime=1.01));
 end TestMultiPort;

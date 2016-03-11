@@ -52,20 +52,16 @@ equation
           -30}},              color={0,127,255}));
   connect(N_pump.y, pump.N_in) annotation (Line(
       points={{-59,10},{-30,10},{-30,-20}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(pump.port_b, valve.port_a) annotation (Line(
       points={{-20,-30},{0,-30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valve.port_b, Sink.ports[1]) annotation (Line(
       points={{22,-30},{40,-30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valveOpening.y, valve.opening) annotation (Line(
       points={{-17,42},{11,42},{11,-22}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
 annotation (
   experiment(StopTime=3, Tolerance=1e-006),
   Documentation(info=""));

@@ -104,83 +104,63 @@ equation
         color={0,0,127}));
   connect(C.y, source1.C_in[1]) annotation (Line(
       points={{-79,-50},{-76,-50},{-76,-26},{-70,-26}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(X.y, source1.X_in[1]) annotation (Line(
       points={{-79,2},{-76,2},{-76,-22},{-70,-22}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(X2.y, source1.X_in[2]) annotation (Line(
       points={{-79,-22},{-70,-22}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(volume1.ports[3], traceSubstance1.port) annotation (Line(
       points={{24.6667,20},{34,20},{34,24},{46,24}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume2.ports[3], traceSubstance2.port) annotation (Line(
       points={{24.6667,-20},{34,-20},{34,-16},{44,-16}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume3.ports[3], traceSubstance3.port) annotation (Line(
       points={{24.6667,-80},{25,-80},{25,-76},{46,-76}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume1.ports[2], pipe1.port_a) annotation (Line(
       points={{22,20},{50,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume2.ports[2], pipe2.port_a) annotation (Line(
       points={{22,-20},{50,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(volume3.ports[2], pipe3.port_a) annotation (Line(
       points={{22,-80},{52,-80}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe1.port_b, source2.ports[1]) annotation (Line(
       points={{70,20},{70,-6},{80,-6},{80,-22.6667}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe2.port_b, source2.ports[2]) annotation (Line(
       points={{70,-20},{80,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe3.port_b, source2.ports[3]) annotation (Line(
       points={{72,-80},{76,-80},{76,-17.3333},{80,-17.3333}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source1.ports[2], traceSubstance.port) annotation (Line(
       points={{-48,-18},{-44,-18},{-44,18}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source1.ports[1], multiPort.port_a) annotation (Line(
       points={{-48,-15.3333},{-44,-15.3333},{-44,0},{-36,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(source1.ports[3], pipe6.port_a) annotation (Line(
       points={{-48,-20.6667},{-32,-20.6667},{-32,-80},{-16,-80}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(multiPort.ports_b[1], pipe4.port_a) annotation (Line(
       points={{-28,2},{-22,2},{-22,20},{-16,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(multiPort.ports_b[2], pipe5.port_a) annotation (Line(
       points={{-28,-2},{-22,-2},{-22,-20},{-16,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe4.port_b, volume1.ports[1]) annotation (Line(
       points={{4,20},{19.3333,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe5.port_b, volume2.ports[1]) annotation (Line(
       points={{4,-20},{19.3333,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipe6.port_b, volume3.ports[1]) annotation (Line(
       points={{4,-80},{19.3333,-80}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation ( experiment(StopTime=1.01));
 end TestMultiPortTraceSubstances;

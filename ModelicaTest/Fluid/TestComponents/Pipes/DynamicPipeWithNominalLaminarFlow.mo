@@ -89,28 +89,22 @@ equation
   assert(abs(pipeN10.port_a.p - pipeN10nParallel10.port_a.p) < 1, "!!!Incorrect pressure for nParallel>1!!!");
   connect(boundary.ports[1], pipeN10.port_a) annotation (Line(
       points={{-50,40},{-10,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipeN10.port_b, boundary1.ports[1]) annotation (Line(
       points={{10,40},{50,40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(boundary2.ports[1], pipeN20.port_a) annotation (Line(
       points={{-50,0},{-10,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipeN20.port_b, boundary3.ports[1]) annotation (Line(
       points={{10,0},{50,0}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(boundary4.ports[1], pipeN10nParallel10.port_a) annotation (Line(
       points={{-50,-40},{-10,-40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pipeN10nParallel10.port_b, boundary5.ports[1]) annotation (Line(
       points={{10,-40},{50,-40}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (      experiment(StopTime=1.01),
   Documentation(info="<html>
 Test of discretization and nParallel pipes. Cf. ticket #215.

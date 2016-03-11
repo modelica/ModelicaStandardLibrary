@@ -2259,9 +2259,9 @@ where the different effects are visualized:
                   points={{-12,-38},{-12,36}},
                   thickness=1),Line(points={{-12,-28},{8,-28}}),
               Line(points={{-12,24},{-6,24}}),Line(points={{72,0},
-              {98,0}}, color={0,127,0}),Line(points={{72,22},{72,-42}}, color={
-              0,0,0}),Line(points={{-6,24},{6,34},{18,14},{34,34},{46,14},{60,
-              34},{68,22}}),Rectangle(
+              {98,0}}, color={0,127,0}),Line(points={{72,22},{72,-42}}),
+              Line(points={{-6,24},{6,34},{18,14},{34,34},{46,14},{60,34},{68,22}}),
+              Rectangle(
                   extent={{8,-6},{38,-50}},
                   lineColor={0,0,0},
                   fillColor={192,192,192},
@@ -3803,30 +3803,40 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-54,-36},{-174,-68}},
-                  lineColor={0,0,0},
-                  textString="v_ref"),Line(points={{-30,-32},{30,-32}}, color={
-              0,0,0}),Line(points={{0,-32},{0,-100}}),Line(
-              points={{30,-42},{20,-52}}),Line(points={{30,-32},
-              {10,-52}}),Line(points={{20,-32},{0,-52}}, color={
-              0,0,0}),Line(points={{10,-32},{-10,-52}}),Line(
-              points={{0,-32},{-20,-52}}),Line(points={{-10,-32},
-              {-30,-52}}),Line(points={{-20,-32},{-30,-42}}),Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,127,0},
-                  fillColor={215,215,215},
-                  fillPattern=FillPattern.Solid),Line(points={{-29,32},{30,32}}),Line(points={{0,52},{0,32}}),Text(
-                  extent={{150,60},{-150,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{146,-38},{32,-64}},
-                  lineColor={0,0,0},
-                  textString="exact="),Text(
-                  extent={{140,-76},{22,-102}},
-                  lineColor={0,0,0},
-                  textString="%exact")}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+             graphics={
+               Text(
+                 extent={{-54,-36},{-174,-68}},
+                 lineColor={0,0,0},
+                 textString="v_ref"),
+               Line(points={{-30,-32},{30,-32}}),
+               Line(points={{0,-32},{0,-100}}),
+               Line(points={{30,-42},{20,-52}}),
+               Line(points={{30,-32},{10,-52}}),
+               Line(points={{20,-32},{0,-52}}),
+               Line(points={{10,-32},{-10,-52}}),
+               Line(points={{0,-32},{-20,-52}}),
+               Line(points={{-10,-32},{-30,-52}}),
+               Line(points={{-20,-32},{-30,-42}}),
+               Rectangle(
+                 extent={{-100,20},{100,-20}},
+                 lineColor={0,127,0},
+                 fillColor={215,215,215},
+                 fillPattern=FillPattern.Solid),
+               Line(points={{-29,32},{30,32}}),
+               Line(points={{0,52},{0,32}}),
+               Text(
+                 extent={{150,60},{-150,100}},
+                 textString="%name",
+                 lineColor={0,0,255}),
+               Text(
+                 extent={{146,-38},{32,-64}},
+                 lineColor={0,0,0},
+                 textString="exact="),
+               Text(
+                 extent={{140,-76},{22,-102}},
+                 lineColor={0,0,0},
+                 textString="%exact")}));
     end Speed;
 
     model Accelerate
@@ -3864,24 +3874,31 @@ The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-56,-40},{-166,-68}},
-                  lineColor={0,0,0},
-                  textString="a_ref"),Line(points={{-30,-32},{30,-32}}, color={
-              0,0,0}),Line(points={{0,-32},{0,-100}}),Line(
-              points={{30,-42},{20,-52}}),Line(points={{30,-32},
-              {10,-52}}),Line(points={{20,-32},{0,-52}}, color={
-              0,0,0}),Line(points={{10,-32},{-10,-52}}),Line(
-              points={{0,-32},{-20,-52}}),Line(points={{-10,-32},
-              {-30,-52}}),Line(points={{-20,-32},{-30,-42}}),Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,127,0},
-                  fillColor={215,215,215},
-                  fillPattern=FillPattern.Solid),Line(points={{-29,32},{30,32}}),Line(points={{0,52},{0,32}}),Text(
-                  extent={{150,60},{-150,100}},
-                  textString="%name",
-                  lineColor={0,0,255})}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+             graphics={
+               Text(
+                 extent={{-56,-40},{-166,-68}},
+                 lineColor={0,0,0},
+                 textString="a_ref"),
+               Line(points={{-30,-32},{30,-32}}),
+               Line(points={{0,-32},{0,-100}}),
+               Line(points={{30,-42},{20,-52}}),
+               Line(points={{30,-32},{10,-52}}),
+               Line(points={{20,-32},{0,-52}}),
+               Line(points={{10,-32},{-10,-52}}),
+               Line(points={{0,-32},{-20,-52}}),
+               Line(points={{-10,-32},{-30,-52}}),
+               Line(points={{-20,-32},{-30,-42}}),
+               Rectangle(
+                 extent={{-100,20},{100,-20}},
+                 lineColor={0,127,0},
+                 fillColor={215,215,215},
+                 fillPattern=FillPattern.Solid),
+               Line(points={{-29,32},{30,32}}),
+               Line(points={{0,52},{0,32}}),
+               Text(extent={{150,60},{-150,100}},
+                 textString="%name",
+                 lineColor={0,0,255})}));
     end Accelerate;
 
     model Move
@@ -3932,7 +3949,7 @@ blocks of the block library Modelica.Blocks.Source.
       s = position(u, time);
       annotation (Documentation(info="<html>
 <p>
-Flange <b>flange_b</b> is <b>forced</b> to move relative to the support connector  with a predefined motion
+Flange <b>flange_b</b> is <b>forced</b> to move relative to the support connector with a predefined motion
 according to the input signals:
 </p>
 <pre>
@@ -3954,27 +3971,32 @@ The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics={Text(
-                  extent={{-192,-38},{-32,-70}},
-                  lineColor={0,0,0},
-                  textString="s,v,a"),Line(points={{-30,-32},{30,-32}}, color={
-              0,0,0}),Line(points={{0,-32},{0,-100}}, color={0,0,0}),Line(
-              points={{30,-42},{20,-52}}, color={0,0,0}),Line(points={{30,-32},
-              {10,-52}}, color={0,0,0}),Line(points={{20,-32},{0,-52}}, color={
-              0,0,0}),Line(points={{10,-32},{-10,-52}}, color={0,0,0}),Line(
-              points={{0,-32},{-20,-52}}, color={0,0,0}),Line(points={{-10,-32},
-              {-30,-52}}, color={0,0,0}),Line(points={{-20,-32},{-30,-42}},
-              color={0,0,0}),Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,127,0},
-                  fillColor={215,215,215},
-                  fillPattern=FillPattern.Solid),Line(points={{0,52},{0,32}},
-              color={0,0,0}),Line(points={{-29,32},{30,32}}, color={0,0,0}),
-              Text(
-                  extent={{150,60},{-150,100}},
-                  textString="%name",
-                  lineColor={0,0,255})}));
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+             graphics={
+               Text(
+                 extent={{-192,-38},{-32,-70}},
+                 lineColor={0,0,0},
+                 textString="s,v,a"),
+               Line(points={{-30,-32},{30,-32}}),
+               Line(points={{0,-32},{0,-100}}),
+               Line(points={{30,-42},{20,-52}}),
+               Line(points={{30,-32},{10,-52}}),
+               Line(points={{20,-32},{0,-52}}),
+               Line(points={{10,-32},{-10,-52}}),
+               Line(points={{0,-32},{-20,-52}}),
+               Line(points={{-10,-32},{-30,-52}}),
+               Line(points={{-20,-32},{-30,-42}}),
+               Rectangle(
+                 extent={{-100,20},{100,-20}},
+                 lineColor={0,127,0},
+                 fillColor={215,215,215},
+                 fillPattern=FillPattern.Solid),
+               Line(points={{0,52},{0,32}}),
+               Line(points={{-29,32},{30,32}}),
+             Text(
+                 extent={{150,60},{-150,100}},
+                 textString="%name",
+                 lineColor={0,0,255})}));
     end Move;
 
     model Force

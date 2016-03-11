@@ -89,28 +89,21 @@ equation
                               color={0,127,255}));
   connect(valveOpening.y, Valve.opening) annotation (Line(
       points={{49,50},{40,50},{40,18}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(motor.pin_ap, stepVoltage.p) annotation (Line(
       points={{-34.8,52},{-34,52},{-34,60},{-80,60},{-80,50}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(stepVoltage.n, motor.pin_an) annotation (Line(
       points={{-80,30},{-62,30},{-62,52},{-49.2,52}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(stepVoltage.n, ground.p) annotation (Line(
       points={{-80,30},{-80,24}},
-      color={0,0,255},
-      smooth=Smooth.None));
+      color={0,0,255}));
   connect(pump.heatPort, housing.port) annotation (Line(
       points={{11,1},{20,1},{20,-20},{9,-20}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   connect(pump.shaft, motor.flange) annotation (Line(
-      points={{5,25},{5,40},{-30,40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{5,25},{5,40},{-30,40}}));
 annotation (
   experiment(StopTime=8, Tolerance=1e-006),
   Documentation(info=""));

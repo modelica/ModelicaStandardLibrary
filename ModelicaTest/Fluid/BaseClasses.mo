@@ -187,16 +187,13 @@ The regularization can be changed for the PressureLoss model.
                                                 color={0,127,255}));
     connect(staticPipe1.port_b, volume.ports[1])   annotation (Line(
         points={{-40,0},{-2,0},{-2,10}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(staticPipe2.port_a, volume.ports[2])   annotation (Line(
         points={{40,0},{2,0},{2,10}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(heatPort, volume.heatPort) annotation (Line(
         points={{0,54},{0,40},{-20,40},{-20,20},{-10,20}},
-        color={191,0,0},
-        smooth=Smooth.None));
+        color={191,0,0}));
     annotation (defaultComponentName="pipe",Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}),

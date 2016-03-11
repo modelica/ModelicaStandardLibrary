@@ -566,7 +566,6 @@ This icon is designed for an <b>enumeration</b>
                   points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,83},
                       {-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,66},
                       {52,58},{58,51}},
-                  color={0,0,0},
                   thickness=0.5),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
@@ -590,7 +589,6 @@ This icon is designed for an <b>enumeration</b>
                   points={{-98,14},{-92,27},{-84,42},{-72,62},{-63,74},{-50,86},
                       {-33,95},{-20,98},{-6,98},{9,94},{21,87},{34,79},{46,69},
                       {54,61},{60,54}},
-                  color={0,0,0},
                   thickness=0.5),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
@@ -727,7 +725,7 @@ This leads to the following animation
                   fillPattern=FillPattern.Solid),
                 Line(points={{-100,11},{-94,24},{-86,39},{-74,59},{-65,71},{-52,
                       83},{-35,92},{-22,95},{-8,95},{7,91},{19,84},{32,76},{44,
-                      66},{52,58},{58,51}}, color={0,0,0}),
+                      66},{52,58},{58,51}}),
                 Polygon(
                   points={{97,18},{72,77},{38,42},{97,18}},
                   lineColor={0,0,0},
@@ -752,7 +750,7 @@ This leads to the following animation
                 Text(extent={{-137,-47},{148,-108}}, textString="%name"),
                 Line(points={{-100,10},{-92,26},{-84,42},{-76,52},{-60,68},{-46,
                       76},{-31,82},{-17,85},{-2,87},{14,86},{26,82},{37,75},{46,
-                      69},{54,61},{60,54}}, color={0,0,0}),
+                      69},{54,61},{60,54}}),
                 Polygon(
                   points={{99,21},{74,80},{40,45},{99,21}},
                   lineColor={0,0,0},
@@ -962,12 +960,12 @@ This leads to the following animation
                   lineColor={0,0,0},
                   fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),
-                Line(points={{-64,0},{-20,0}}, color={0,0,0}),
-                Line(points={{20,0},{65,0}}, color={0,0,0}),
+                Line(points={{-64,0},{-20,0}}),
+                Line(points={{20,0},{65,0}}),
                 Line(points={{-79,47},{-70,61},{-59,72},{-45,81},{-32,84},{-20,
-                      85}}, color={0,0,0}),
+                      85}}),
                 Line(points={{76,47},{66,60},{55,69},{49,74},{41,80},{31,84},{
-                      20,85}}, color={0,0,0})}),
+                      20,85}})}),
             Documentation(info="<HTML>
 <p>
 The <b>6</b> signals of the <b>load</b> connector are interpreted
@@ -1074,8 +1072,8 @@ with the blocks of package Modelica.Blocks.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
                 graphics={
-                Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-                Line(points={{70,0},{100,0}}, color={0,0,0}),
+                Line(points={{-70,0},{-101,0}}),
+                Line(points={{70,0},{100,0}}),
                 Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
                 Text(
                   extent={{-132,76},{129,124}},
@@ -1101,8 +1099,8 @@ with the blocks of package Modelica.Blocks.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
                 graphics={
-                Line(points={{-70,0},{-100,0}}, color={0,0,0}),
-                Line(points={{70,0},{100,0}}, color={0,0,0}),
+                Line(points={{-70,0},{-100,0}}),
+                Line(points={{70,0},{100,0}}),
                 Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
                 Line(
                   points={{80,0},{80,-100}},
@@ -1397,11 +1395,11 @@ position a degree of freedom is lost.
                     extent={{-142,-108},{147,-69}},
                     lineColor={0,0,0},
                     textString="n=%n"),
-                  Line(points={{-60,60},{-60,90}}, color={0,0,0}),
-                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
-                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
-                  Line(points={{20,80},{20,60}}, color={0,0,0}),
-                  Line(points={{20,70},{41,70}}, color={0,0,0}),
+                  Line(points={{-60,60},{-60,90}}),
+                  Line(points={{-20,70},{-60,70}}),
+                  Line(points={{-20,80},{-20,60}}),
+                  Line(points={{20,80},{20,60}}),
+                  Line(points={{20,70},{41,70}}),
                   Polygon(
                     points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
                     lineColor={0,0,0},
@@ -1436,11 +1434,11 @@ position a degree of freedom is lost.
                     lineColor={0,0,0},
                     fillPattern=FillPattern.HorizontalCylinder,
                     fillColor={192,192,192}),
-                  Line(points={{-60,60},{-60,96}}, color={0,0,0}),
-                  Line(points={{-20,70},{-60,70}}, color={0,0,0}),
-                  Line(points={{-20,80},{-20,60}}, color={0,0,0}),
-                  Line(points={{20,80},{20,60}}, color={0,0,0}),
-                  Line(points={{20,70},{41,70}}, color={0,0,0}),
+                  Line(points={{-60,60},{-60,96}}),
+                  Line(points={{-20,70},{-60,70}}),
+                  Line(points={{-20,80},{-20,60}}),
+                  Line(points={{20,80},{20,60}}),
+                  Line(points={{20,70},{41,70}}),
                   Polygon(
                     points={{-9,30},{10,30},{30,50},{-29,50},{-9,30}},
                     lineColor={0,0,0},
@@ -1721,7 +1719,7 @@ degree of freedom is lost.
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}),
                   graphics={
-                  Line(points={{-30,-50},{-30,50}}, color={0,0,0}),
+                  Line(points={{-30,-50},{-30,50}}),
                   Line(points={{0,-67},{90,-67}}, color={128,128,128}),
                   Text(
                     extent={{31,-68},{68,-81}},
@@ -2950,7 +2948,7 @@ It is used e.g., to build up equation-based parts of a drive train.</p>
         equation
           tau_support = -adapter.flange_b.tau;
           connect(adapter.flange_a, bearing) annotation (Line(points={{
-                  0,-70},{0,-70},{0,-100}}, color={0,0,0}));
+                  0,-70},{0,-70},{0,-100}}));
           annotation (obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
         Documentation(info="<html>
@@ -2989,18 +2987,18 @@ of several base components.</p>
                   lineColor={255,255,255},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
-                Line(points={{-30,-70},{30,-70}}, color={0,0,0}),
-                Line(points={{-30,-90},{-10,-70}}, color={0,0,0}),
-                Line(points={{-10,-90},{10,-70}}, color={0,0,0}),
+                Line(points={{-30,-70},{30,-70}}),
+                Line(points={{-30,-90},{-10,-70}}),
+                Line(points={{-10,-90},{10,-70}}),
                 Rectangle(
                   extent={{-20,-100},{20,-140}},
                   lineColor={192,192,192},
                   fillColor={192,192,192},
                   fillPattern=FillPattern.Solid),
-                Line(points={{10,-90},{30,-70}}, color={0,0,0}),
-                Line(points={{0,-70},{0,-110}}, color={0,0,0}),
+                Line(points={{10,-90},{30,-70}}),
+                Line(points={{0,-70},{0,-110}}),
                 Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},
-                      {26,90},{46,80},{64,62}}, color={0,0,0}),
+                      {26,90},{46,80},{64,62}}),
                 Text(
                   extent={{-150,140},{150,100}},
                   lineColor={0,0,255},
@@ -3044,7 +3042,7 @@ with the blocks of package Modelica.Blocks.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
                 graphics={
-                Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+                Line(points={{-70,0},{-90,0}}),
                 Line(points={{70,0},{100,0}}, color={0,0,127}),
                 Text(
                   extent={{150,80},{-150,120}},
@@ -3090,8 +3088,8 @@ with the blocks of package Modelica.Blocks.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
                 graphics={
-                Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-                Line(points={{70,0},{90,0}}, color={0,0,0}),
+                Line(points={{-70,0},{-90,0}}),
+                Line(points={{70,0},{90,0}}),
                 Line(points={{0,-100},{0,-70}}, color={0,0,127}),
                 Text(
                   extent={{-150,70},{150,110}},
@@ -3101,8 +3099,8 @@ with the blocks of package Modelica.Blocks.
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}}),
                 graphics={
-                Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-                Line(points={{70,0},{90,0}}, color={0,0,0}),
+                Line(points={{-70,0},{-90,0}}),
+                Line(points={{70,0},{90,0}}),
                 Line(points={{0,-100},{0,-70}}, color={0,0,255})}));
         end RelativeSensor;
       end Interfaces;
@@ -3251,8 +3249,8 @@ user interface when the type is used as parameter in a declaration.
                 lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
-              Line(points={{-30,-40},{30,-40}}, color={0,0,0}),
-              Line(points={{0,-40},{0,-90}}, color={0,0,0}),
+              Line(points={{-30,-40},{30,-40}}),
+              Line(points={{0,-40},{0,-90}}),
               Polygon(
                 points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
                     {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}},
@@ -3263,13 +3261,13 @@ user interface when the type is used as parameter in a declaration.
                 extent={{-150,60},{150,20}},
                 lineColor={0,0,0},
                 textString="eta=%eta"),
-              Line(points={{30,-50},{20,-60}}, color={0,0,0}),
-              Line(points={{30,-40},{10,-60}}, color={0,0,0}),
-              Line(points={{20,-40},{0,-60}}, color={0,0,0}),
-              Line(points={{10,-40},{-10,-60}}, color={0,0,0}),
-              Line(points={{0,-40},{-20,-60}}, color={0,0,0}),
-              Line(points={{-10,-40},{-30,-60}}, color={0,0,0}),
-              Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}),
+              Line(points={{30,-50},{20,-60}}),
+              Line(points={{30,-40},{10,-60}}),
+              Line(points={{20,-40},{0,-60}}),
+              Line(points={{10,-40},{-10,-60}}),
+              Line(points={{0,-40},{-20,-60}}),
+              Line(points={{-10,-40},{-30,-60}}),
+              Line(points={{-20,-40},{-30,-50}})}),
           Documentation(info="<html>
 <p>
 THIS COMPONENT IS <b>OBSOLETE</b> and should <b>no longer be used</b>. It is only
@@ -3331,10 +3329,10 @@ from tables of the gear manufacturers.
                 lineColor={0,0,0},
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),
-              Line(points={{-30,-40},{30,-40}}, color={0,0,0}),
-              Line(points={{0,60},{0,40}}, color={0,0,0}),
-              Line(points={{-30,40},{29,40}}, color={0,0,0}),
-              Line(points={{0,-40},{0,-90}}, color={0,0,0}),
+              Line(points={{-30,-40},{30,-40}}),
+              Line(points={{0,60},{0,40}}),
+              Line(points={{-30,40},{29,40}}),
+              Line(points={{0,-40},{0,-90}}),
               Polygon(
                 points={{-30,-20},{60,-20},{60,-80},{70,-80},{50,-100},{30,-80},
                     {40,-80},{40,-30},{-30,-30},{-30,-20},{-30,-20}},
@@ -3351,13 +3349,13 @@ from tables of the gear manufacturers.
                 fillColor={128,128,128},
                 fillPattern=FillPattern.Solid),
               Line(points={{-78,76},{-7,76}}, color={128,128,128}),
-              Line(points={{30,-50},{20,-60}}, color={0,0,0}),
-              Line(points={{30,-40},{10,-60}}, color={0,0,0}),
-              Line(points={{20,-40},{0,-60}}, color={0,0,0}),
-              Line(points={{10,-40},{-10,-60}}, color={0,0,0}),
-              Line(points={{0,-40},{-20,-60}}, color={0,0,0}),
-              Line(points={{-10,-40},{-30,-60}}, color={0,0,0}),
-              Line(points={{-20,-40},{-30,-50}}, color={0,0,0})}));
+              Line(points={{30,-50},{20,-60}}),
+              Line(points={{30,-40},{10,-60}}),
+              Line(points={{20,-40},{0,-60}}),
+              Line(points={{10,-40},{-10,-60}}),
+              Line(points={{0,-40},{-20,-60}}),
+              Line(points={{-10,-40},{-30,-60}}),
+              Line(points={{-20,-40},{-30,-50}})}));
       end GearEfficiency;
 
       model Gear
@@ -3399,26 +3397,22 @@ from tables of the gear manufacturers.
           annotation (Placement(transformation(extent={{10,-10},{30,10}})));
       equation
         connect(flange_a, gearRatio.flange_a)
-          annotation (Line(points={{-100,0},{-70,0}}, color={0,0,0}));
+          annotation (Line(points={{-100,0},{-70,0}}));
         connect(gearRatio.flange_b, gearEfficiency.flange_a)
-          annotation (Line(points={{-50,0},{-30,0}}, color={0,0,0}));
+          annotation (Line(points={{-50,0},{-30,0}}));
         connect(gearEfficiency.flange_b, bearingFriction.flange_a)
-          annotation (Line(points={{-10,0},{10,0}}, color={0,0,0}));
+          annotation (Line(points={{-10,0},{10,0}}));
         connect(bearingFriction.flange_b, elastoBacklash.flange_a)
-          annotation (Line(points={{30,0},{50,0}}, color={0,0,0}));
+          annotation (Line(points={{30,0},{50,0}}));
         connect(elastoBacklash.flange_b, flange_b)
-          annotation (Line(points={{70,0},{100,0}}, color={0,0,0}));
+          annotation (Line(points={{70,0},{100,0}}));
         connect(gearEfficiency.bearing, adapter.flange_b) annotation (Line(points={{-20,-10},
                 {-20,-40},{0,-40},{0,-50}},           color={
                 0,0,0}));
         connect(bearingFriction.support, adapter.flange_b) annotation (Line(
-            points={{20,-10},{20,-40},{0,-40},{0,-50}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{20,-10},{20,-40},{0,-40},{0,-50}}));
         connect(gearRatio.support, adapter.flange_b) annotation (Line(
-            points={{-60,-10},{-60,-40},{0,-40},{0,-50}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-60,-10},{-60,-40},{0,-40},{0,-50}}));
 
         annotation (
           obsolete=
@@ -3438,7 +3432,6 @@ to the left and/or the right flange.
               Rectangle(
                 extent={{-40,60},{40,-60}},
                 lineColor={0,0,0},
-                pattern=LinePattern.Solid,
                 lineThickness=0.25,
                 fillPattern=FillPattern.HorizontalCylinder,
                 fillColor={192,192,192}),

@@ -48,23 +48,18 @@ model TestSweptVolume
 equation
   connect(sweptVolume.ports[1], boundary.ports[1]) annotation (Line(
       points={{20,10},{40,10}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(boundary.p_in, trapezoid.y) annotation (Line(
       points={{62,18},{80,18},{80,50},{61,50}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(mass.flange_a, sweptVolume.flange) annotation (Line(
       points={{-10,10},{0,10}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(mass.flange_b, springDamper.flange_a) annotation (Line(
       points={{-30,10},{-40,10}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(springDamper.flange_b, fixed.flange) annotation (Line(
       points={{-60,10},{-70,10}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   annotation (                           experiment(StopTime=5));
 end TestSweptVolume;

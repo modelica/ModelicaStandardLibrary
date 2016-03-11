@@ -61,7 +61,6 @@ equation
           {36,44}}, color={0,0,127}));
   connect(valveOpening.y, Valve.opening) annotation (Line(
       points={{-39,70},{-7,70},{-7,44}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (experiment(StopTime=10));
 end TestWaterPumpPowerCharacteristic;

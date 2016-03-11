@@ -39,11 +39,9 @@ equation
                 color={0,0,127}));
   connect(FlowSource.ports[1], Volume.ports[1]) annotation (Line(
       points={{-62,10},{-32,10},{-32,14}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(Volume.ports[2], Valve.port_a) annotation (Line(
       points={{-28,14},{-28,10},{2,10}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (                       experiment(StopTime=5));
 end TestVolume;

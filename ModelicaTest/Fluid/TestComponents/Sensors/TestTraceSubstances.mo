@@ -33,21 +33,17 @@ equation
   connect(boundary_prescriberho_1.ports[1], traceSubstance.port)
                                                              annotation (Line(
       points={{-20,20},{0,20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(boundary_prescriberho_2.ports[1], traceSubstance1.port_a)
                                                                 annotation (Line(
       points={{-20,-20},{-10,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(C.y, boundary_prescriberho_1.C_in[1]) annotation (Line(
       points={{-59,0},{-50,0},{-50,12},{-42,12}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(C.y, boundary_prescriberho_2.C_in[1]) annotation (Line(
       points={{-59,0},{-50,0},{-50,-28},{-42,-28}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (
     experiment(StopTime=2, Tolerance=1e-006));
 end TestTraceSubstances;

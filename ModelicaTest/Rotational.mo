@@ -27,28 +27,17 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     equation
       connect(sine.y, torque.tau) annotation (Line(
           points={{-59,10},{-42,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque.support, fixed.flange) annotation (Line(
-          points={{-30,0},{-30,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-30,0},{-30,-10}}));
       connect(torque.flange, J1.flange_a) annotation (Line(
-          points={{-20,10},{-10,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-20,10},{-10,10}}));
       connect(gear.flange_b, J2.flange_a) annotation (Line(
-          points={{40,10},{50,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,10},{50,10}}));
       connect(fixed.flange, gear.support) annotation (Line(
-          points={{-30,-10},{30,-10},{30,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-30,-10},{30,-10},{30,0}}));
       connect(J1.flange_b, gear.flange_a) annotation (Line(
-          points={{10,10},{20,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{10,10},{20,10}}));
       annotation (experiment(StopTime=1.1));
     end SimpleDriveTrain;
 
@@ -79,21 +68,13 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
 
     equation
       connect(inertia1.flange_b, inertia2.flange_a) annotation (Line(
-          points={{-40,50},{-20,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,50},{-20,50}}));
       connect(inertia3.flange_b, spring1.flange_a) annotation (Line(
-          points={{-40,-10},{-30,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,-10},{-30,-10}}));
       connect(spring1.flange_b, spring2.flange_a) annotation (Line(
-          points={{-10,-10},{0,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-10,-10},{0,-10}}));
       connect(spring2.flange_b, inertia4.flange_a) annotation (Line(
-          points={{20,-10},{30,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{20,-10},{30,-10}}));
       annotation (experiment(StopTime=1.1));
     end ConnectionPossibilities;
 
@@ -122,36 +103,21 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     equation
       connect(sine2.y, torque2.tau) annotation (Line(
           points={{-79,10},{-62,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque2.support, fixed1.flange) annotation (Line(
-          points={{-50,0},{-50,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,0},{-50,-10}}));
       connect(torque2.flange, inertia3.flange_a) annotation (Line(
-          points={{-40,10},{-30,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,10},{-30,10}}));
       connect(fixed1.flange, idealGear2.support) annotation (Line(
-          points={{-50,-10},{10,-10},{10,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,-10},{10,-10},{10,0}}));
       connect(inertia3.flange_b, idealGear2.flange_a) annotation (Line(
-          points={{-10,10},{0,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-10,10},{0,10}}));
       connect(idealGear2.flange_b, bearingFriction1.flange_a) annotation (Line(
-          points={{20,10},{30,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{20,10},{30,10}}));
       connect(bearingFriction1.flange_b, inertia4.flange_a) annotation (Line(
-          points={{50,10},{60,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{50,10},{60,10}}));
       connect(fixed1.flange, bearingFriction1.support) annotation (Line(
-          points={{-50,-10},{40,-10},{40,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,-10},{40,-10},{40,0}}));
       annotation (experiment(StopTime=1.1));
     end SupportTorque1;
 
@@ -209,83 +175,49 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     equation
       connect(sine.y, torque.tau) annotation (Line(
           points={{-59,60},{-46,60}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque.flange, J1.flange_a) annotation (Line(
-          points={{-24,60},{-10,60}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-24,60},{-10,60}}));
       connect(gear.flange_b, J2.flange_a) annotation (Line(
-          points={{40,60},{52,60}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,60},{52,60}}));
       connect(J1.flange_b, gear.flange_a) annotation (Line(
-          points={{10,60},{20,60}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{10,60},{20,60}}));
       connect(sine1.y, torque1.tau) annotation (Line(
           points={{-59,0},{-46,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque1.flange, J3.flange_a) annotation (Line(
-          points={{-24,0},{-10,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-24,0},{-10,0}}));
       connect(J3.flange_b, gear1.flange_b) annotation (Line(
-          points={{10,0},{20,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{10,0},{20,0}}));
       connect(gear1.flange_a, J4.flange_a) annotation (Line(
-          points={{40,0},{52,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,0},{52,0}}));
       connect(sine2.y, torque2.tau) annotation (Line(
           points={{-59,-60},{-46,-60}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque2.flange, J5.flange_a) annotation (Line(
-          points={{-24,-60},{-10,-60}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-24,-60},{-10,-60}}));
       connect(J5.flange_b, gear2.flange_b) annotation (Line(
-          points={{10,-60},{20,-60}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{10,-60},{20,-60}}));
       connect(gear2.flange_a, J6.flange_b) annotation (Line(
-          points={{40,-60},{52,-60}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,-60},{52,-60}}));
       connect(torque.support, fixed1.flange) annotation (Line(
-          points={{-34,50},{-34,40},{0,40}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-34,50},{-34,40},{0,40}}));
       connect(fixed1.flange, gear.support) annotation (Line(
-          points={{0,40},{30,40},{30,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{0,40},{30,40},{30,50}}));
       connect(torque1.support, fixed2.flange) annotation (Line(
-          points={{-34,-10},{-34,-16},{0,-16}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-34,-10},{-34,-16},{0,-16}}));
       connect(fixed2.flange, gear1.support) annotation (Line(
-          points={{0,-16},{30,-16},{30,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{0,-16},{30,-16},{30,-10}}));
       connect(torque2.support, fixed3.flange) annotation (Line(
-          points={{-34,-70},{-34,-80},{0,-80}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-34,-70},{-34,-80},{0,-80}}));
       connect(fixed3.flange, gear2.support) annotation (Line(
-          points={{0,-80},{30,-80},{30,-70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{0,-80},{30,-80},{30,-70}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Polygon(
                   points={{-23,87},{-13,84},{-23,81},{-23,87}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{-23,84},{-53,84}},
-              color={0,0,0}),Text(
+                  fillPattern=FillPattern.Solid),Line(points={{-23,84},{-53,84}}),Text(
                   extent={{-18,88},{72,80}},
                   lineColor={0,0,0},
                   textString="(positive) axis of rotation")}), experiment(
@@ -362,48 +294,30 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
     equation
       connect(torque1.flange, inertia1.flange_a) annotation (Line(
           points={{-40,0},{-37.5,0},{-37.5,0},{-35,0},{-35,
-              0},{-30,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              0},{-30,0}}));
       connect(sine1.y, torque1.tau) annotation (Line(
           points={{-69,0},{-67.25,0},{-67.25,0},{-65.5,0},
               {-65.5,0},{-62,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(torque2.flange, inertia2.flange_b) annotation (Line(
           points={{40,0},{37.5,0},{37.5,0},{35,0},{35,0},
-              {30,0}},
-          color={0,0,0},
-          smooth=Smooth.None));
+              {30,0}}));
       connect(sine2.y, torque2.tau) annotation (Line(
           points={{69,0},{67.25,0},{67.25,0},{65.5,0},{
               65.5,0},{62,0}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(idealPlanetary1.sun, inertia3.flange_b) annotation (Line(
-          points={{-50,-90},{-60,-90}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,-90},{-60,-90}}));
       connect(idealPlanetary1.carrier, inertia4.flange_b) annotation (Line(
-          points={{-50,-86},{-56,-86},{-56,-54},{-26,-54}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,-86},{-56,-86},{-56,-54},{-26,-54}}));
       connect(inertia5.flange_b, idealPlanetary2.sun) annotation (Line(
-          points={{20,-90},{60,-90}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{20,-90},{60,-90}}));
       connect(inertia6.flange_a, idealPlanetary2.carrier) annotation (Line(
-          points={{40,-60},{40,-86},{60,-86}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,-60},{40,-86},{60,-86}}));
       connect(torque1.support, fixed1.flange) annotation (Line(
-          points={{-50,-10},{-50,-17}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,-10},{-50,-17}}));
       connect(fixed2.flange, torque2.support) annotation (Line(
-          points={{50,-14},{50,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{50,-14},{50,-10}}));
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}}),
@@ -411,15 +325,14 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                   extent={{-28,94},{62,86}},
                   lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-61,
-              65},{-80,65}}, color={0,0,0}),Polygon(
+              65},{-80,65}}),Polygon(
                   points={{-68,67},{-61,65},{-68,63},{-68,67}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-57,69},{-91,73}},
                   lineColor={0,0,0},
-                  textString="J2.flange_a.tau"),Line(points={{-42,45},{-61,45}},
-              color={0,0,0}),Polygon(
+                  textString="J2.flange_a.tau"),Line(points={{-42,45},{-61,45}}),Polygon(
                   points={{-49,47},{-42,45},{-49,43},{-49,47}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -434,8 +347,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-5,69},{-39,73}},
                   lineColor={0,0,0},
-                  textString="J4.flange_a.tau"),Line(points={{10,45},{-9,45}},
-              color={0,0,0}),Polygon(
+                  textString="J4.flange_a.tau"),Line(points={{10,45},{-9,45}}),Polygon(
                   points={{3,47},{10,45},{3,43},{3,47}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -450,8 +362,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                   fillPattern=FillPattern.Solid),Text(
                   extent={{48,69},{14,73}},
                   lineColor={0,0,0},
-                  textString="J6.flange_b.tau"),Line(points={{63,45},{44,45}},
-              color={0,0,0}),Polygon(
+                  textString="J6.flange_b.tau"),Line(points={{63,45},{44,45}}),Polygon(
                   points={{56,47},{63,45},{56,43},{56,47}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -467,7 +378,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                   extent={{-19,24},{71,16}},
                   lineColor={0,0,0},
                   textString="(positive) axis of rotation"),Line(points={{-23,
-              20},{-53,20}}, color={0,0,0}),Polygon(
+              20},{-53,20}}),Polygon(
                   points={{-23,23},{-13,20},{-23,17},{-23,23}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -475,8 +386,7 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                   points={{-47,-47},{-54,-49},{-47,-51},{-47,-47}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{-52,-49},{-33,-49}},
-              color={0,0,0}),Line(points={{31.5,-79.5},{31.5,-60.5}}, color={0,
+                  fillPattern=FillPattern.Solid),Line(points={{-52,-49},{-33,-49}}),Line(points={{31.5,-79.5},{31.5,-60.5}}, color={0,
               0,0}),Polygon(
                   points={{29.5,-75.5},{31.5,-82.5},{33.5,-75.5},{29.5,-75.5}},
                   lineColor={0,0,0},
@@ -503,16 +413,11 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
           Placement(transformation(extent={{60,40},{80,60}})));
     equation
       connect(J1.flange_b, J2.flange_b) annotation (Line(
-          points={{-60,50},{-40,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-60,50},{-40,50}}));
       connect(J3.flange_b, J4.flange_b) annotation (Line(
-          points={{40,50},{50,50},{50,30},{90,30},{90,50},{80,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,50},{50,50},{50,30},{90,30},{90,50},{80,50}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics={Line(points={{-60,66},{-80,66}},
-              color={0,0,0}),Polygon(
+                -100,-100},{100,100}}), graphics={Line(points={{-60,66},{-80,66}}),Polygon(
                   points={{-67,68},{-60,66},{-67,64},{-67,68}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -520,17 +425,15 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
                   points={{-34,68},{-41,66},{-34,64},{-34,68}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{-20,66},{-39,66}},
-              color={0,0,0}),Text(
+                  fillPattern=FillPattern.Solid),Line(points={{-20,66},{-39,66}}),Text(
                   extent={{-10,60},{14,40}},
                   lineColor={0,0,0},
-                  textString="="),Line(points={{40,66},{20,66}}, color={0,0,0}),
+                  textString="="),Line(points={{40,66},{20,66}}),
               Polygon(
                   points={{33,68},{40,66},{33,64},{33,68}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{80,66},{60,66}},
-              color={0,0,0}),Polygon(
+                  fillPattern=FillPattern.Solid),Line(points={{80,66},{60,66}}),Polygon(
                   points={{73,68},{80,66},{73,64},{73,68}},
                   lineColor={0,0,0},
                   fillColor={0,0,0},
@@ -633,45 +536,25 @@ package Rotational "Test models for Modelica.Mechanics.Rotational"
         annotation (Placement(transformation(extent={{50,-40},{70,-20}})));
     equation
       connect(spring.flange_b, inertia2.flange_a) annotation (Line(
-          points={{-20,50},{-10,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-20,50},{-10,50}}));
       connect(fixed.flange, spring.flange_a) annotation (Line(
-          points={{-50,50},{-40,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,50},{-40,50}}));
       connect(inertia7.flange_b, spring1.flange_a) annotation (Line(
-          points={{40,10},{50,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,10},{50,10}}));
       connect(spring1.flange_b, inertia7a.flange_a) annotation (Line(
-          points={{70,10},{80,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{70,10},{80,10}}));
       connect(spring2.flange_b, inertia6.flange_a) annotation (Line(
-          points={{-20,10},{-10,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-20,10},{-10,10}}));
       connect(fixed1.flange, spring2.flange_a) annotation (Line(
-          points={{-50,10},{-40,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,10},{-40,10}}));
       connect(inertia8.flange_b, spring3.flange_a) annotation (Line(
-          points={{-60,-30},{-50,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-60,-30},{-50,-30}}));
       connect(spring3.flange_b, inertia8a.flange_a) annotation (Line(
-          points={{-30,-30},{-20,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-30,-30},{-20,-30}}));
       connect(inertia9.flange_b, spring4.flange_a) annotation (Line(
-          points={{40,-30},{50,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,-30},{50,-30}}));
       connect(spring4.flange_b, inertia9a.flange_a) annotation (Line(
-          points={{70,-30},{80,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{70,-30},{80,-30}}));
       annotation (experiment(StopTime=1.1), Diagram(graphics={Rectangle(
               extent={{-90,98},{90,64}},
               lineColor={255,170,85},
@@ -755,66 +638,37 @@ But for compatibility reasons they were not deleted yet.")}));
             transformation(extent={{48,20},{68,40}})));
     equation
       connect(springDamper1.flange_a, fixed.flange) annotation (Line(
-          points={{-70,70},{-90,70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-70,70},{-90,70}}));
       connect(springDamper1.flange_b, inertia1.flange_a) annotation (Line(
-          points={{-50,70},{-40,70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-50,70},{-40,70}}));
       connect(inertia2.flange_a, springDamper2.flange_b) annotation (Line(
-          points={{-40,30},{-50,30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,30},{-50,30}}));
       connect(springDamper2.flange_a, fixed.flange) annotation (Line(
-          points={{-70,30},{-80,30},{-80,70},{-90,70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-70,30},{-80,30},{-80,70},{-90,70}}));
       connect(inertia3.flange_a, springDamper3.flange_b) annotation (Line(
-          points={{-40,-10},{-50,-10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,-10},{-50,-10}}));
       connect(springDamper3.flange_a, fixed.flange) annotation (Line(
-          points={{-70,-10},{-80,-10},{-80,70},{-90,70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-70,-10},{-80,-10},{-80,70},{-90,70}}));
       connect(inertia4.flange_a, springDamper4.flange_b) annotation (Line(
-          points={{-40,-50},{-50,-50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,-50},{-50,-50}}));
       connect(springDamper4.flange_a, fixed.flange) annotation (Line(
-          points={{-70,-50},{-80,-50},{-80,70},{-90,70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-70,-50},{-80,-50},{-80,70},{-90,70}}));
       connect(inertia5.flange_a, springDamper5.flange_b) annotation (Line(
-          points={{-40,-90},{-50,-90}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-40,-90},{-50,-90}}));
       connect(springDamper5.flange_a, fixed.flange) annotation (Line(
-          points={{-70,-90},{-80,-90},{-80,70},{-90,70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-70,-90},{-80,-90},{-80,70},{-90,70}}));
       connect(inertia6.flange_b, spring.flange_a) annotation (Line(
-          points={{40,50},{48,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{40,50},{48,50}}));
       connect(spring.flange_b, inertia7.flange_a) annotation (Line(
-          points={{68,50},{74,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{68,50},{74,50}}));
       connect(relativeStates.flange_b, spring.flange_b) annotation (Line(
-          points={{68,30},{68,50}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{68,30},{68,50}}));
       connect(spring.flange_a, relativeStates.flange_a) annotation (Line(
-          points={{48,50},{48,30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{48,50},{48,30}}));
       annotation (experiment(StopTime=1.1), Diagram(graphics={Polygon(
                   points={{-72,86},{-72,54},{-14,54},{-14,6},{-72,6},{-72,-32},
                 {100,-32},{100,20},{10,20},{10,86},{-72,86}},
                   lineColor={255,170,85},
-                  smooth=Smooth.None,
                   fillColor={255,213,170},
                   fillPattern=FillPattern.Solid),Text(
                   extent={{10,20},{90,-30}},
@@ -860,9 +714,9 @@ they were not deleted yet.")}));
           transformation(extent={{-60,-60},{-40,-40}})));
   equation
     connect(speed1.flange, inertia1.flange_a)
-      annotation (Line(points={{0,70},{20,70}}, color={0,0,0}));
+      annotation (Line(points={{0,70},{20,70}}));
     connect(speed2.flange, inertia2.flange_a)
-      annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+      annotation (Line(points={{0,30},{20,30}}));
     connect(sine2.y, speed2.w_ref)
       annotation (Line(points={{-39,30},{-22,30}}, color={0,0,127}));
     connect(step.y, speed1.w_ref)
@@ -905,14 +759,12 @@ they were not deleted yet.")}));
   equation
     connect(ActuatedRevolute1.frame_b, Body1.frame_a) annotation (Line(
         points={{52,10},{62,10},{62,46},{66,46}},
-        color={0,0,0},
         thickness=0.5));
     connect(world.frame_b, ActuatedRevolute1.frame_a) annotation (Line(
         points={{20,10},{32,10}},
-        color={0,0,0},
         thickness=0.5));
     connect(move.flange, ActuatedRevolute1.axis)
-      annotation (Line(points={{40,50},{42,50},{42,20}}, color={0,0,0}));
+      annotation (Line(points={{40,50},{42,50},{42,20}}));
     connect(Multiplex3_1.y, move.u)
       annotation (Line(points={{-35,50},{18,50}}, color={0,0,127}));
     connect(Constant1.y, Multiplex3_1.u3[1]) annotation (Line(points={{-79,26},
@@ -1150,287 +1002,159 @@ they were not deleted yet.")}));
       annotation (Placement(transformation(extent={{-140,-200},{-120,-180}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
-        points={{-60,90},{-50,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-60,90},{-50,90}}));
     connect(idealGear.flange_b, idealPlanetary.sun) annotation (Line(
-        points={{-30,90},{-16,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-30,90},{-16,90}}));
     connect(idealGear.support, fixed.flange) annotation (Line(
-        points={{-40,80},{-40,60}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-40,80},{-40,60}}));
     connect(idealPlanetary.carrier, inertia1.flange_b) annotation (Line(
-        points={{-16,94},{-22,94},{-22,130},{-30,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-16,94},{-22,94},{-22,130},{-30,130}}));
     connect(idealPlanetary.ring, spring.flange_a) annotation (Line(
-        points={{4,90},{12,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{4,90},{12,90}}));
     connect(spring.flange_b, inertia2.flange_a) annotation (Line(
-        points={{32,90},{40,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{32,90},{40,90}}));
     connect(idealPlanetary.ring, damper.flange_a) annotation (Line(
-        points={{4,90},{8,90},{8,108},{12,108}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{4,90},{8,90},{8,108},{12,108}}));
     connect(damper.flange_b, inertia2.flange_a) annotation (Line(
-        points={{32,108},{40,108},{40,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{32,108},{40,108},{40,90}}));
     connect(springDamper.flange_b, inertia1.flange_a) annotation (Line(
-        points={{-58,130},{-50,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-58,130},{-50,130}}));
     connect(inertia3.flange_b, springDamper.flange_a) annotation (Line(
-        points={{-92,130},{-78,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-92,130},{-78,130}}));
     connect(inertia1.flange_b, elastoBacklash.flange_a) annotation (Line(
-        points={{-30,130},{-10,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-30,130},{-10,130}}));
     connect(elastoBacklash.flange_b, inertia4.flange_a) annotation (Line(
-        points={{10,130},{20,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{10,130},{20,130}}));
     connect(inertia4.flange_b, bearingFriction.flange_a) annotation (Line(
-        points={{40,130},{44,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,130},{44,130}}));
     connect(fixed.flange, bearingFriction.support) annotation (Line(
-        points={{-40,60},{70,60},{70,114},{54,114},{54,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-40,60},{70,60},{70,114},{54,114},{54,120}}));
     connect(clutch.flange_b, inertia.flange_a) annotation (Line(
-        points={{-86,90},{-80,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-86,90},{-80,90}}));
     connect(inertia5.flange_b, clutch.flange_a) annotation (Line(
-        points={{-116,90},{-106,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-116,90},{-106,90}}));
     connect(sine.y, clutch.f_normalized) annotation (Line(
         points={{-103,60},{-96,60},{-96,79}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(inertia2.flange_b, brake.flange_a) annotation (Line(
-        points={{60,90},{80,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{60,90},{80,90}}));
     connect(sine1.y, brake.f_normalized) annotation (Line(
         points={{90,119},{90,101}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(fixed.flange, brake.support) annotation (Line(
-        points={{-40,60},{90,60},{90,80}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-40,60},{90,60},{90,80}}));
     connect(lossyGear.flange_b, inertia3.flange_a) annotation (Line(
-        points={{-120,130},{-112,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,130},{-112,130}}));
     connect(inertia6.flange_b, lossyGear.flange_a) annotation (Line(
-        points={{-150,130},{-140,130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-150,130},{-140,130}}));
     connect(lossyGear.support, fixed.flange) annotation (Line(
         points={{-130,120},{-130,110},{-150,110},{-150,40},{-60,40},{-60,60},{-40,
-            60}},
-        color={0,0,0},
-        smooth=Smooth.None));
+            60}}));
     connect(inertia7.flange_b, gear2_1.flange_a) annotation (Line(
-        points={{-110,10},{-100,10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-110,10},{-100,10}}));
     connect(gear2_1.flange_b, inertia8.flange_a) annotation (Line(
-        points={{-80,10},{-68,10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-80,10},{-68,10}}));
     connect(fixed1.flange, gear2_1.support) annotation (Line(
-        points={{-90,-10},{-90,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-90,-10},{-90,0}}));
     connect(fixed2.flange, position.support) annotation (Line(
-        points={{38,20},{38,30},{40,30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{38,20},{38,30},{40,30}}));
     connect(position.flange, inertia9.flange_a) annotation (Line(
-        points={{50,40},{60,40}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,40},{60,40}}));
     connect(sine2.y, position.phi_ref) annotation (Line(
         points={{21,40},{28,40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine3.y, speed.w_ref) annotation (Line(
         points={{21,-10},{28,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(speed.flange, inertia10.flange_a) annotation (Line(
-        points={{50,-10},{60,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,-10},{60,-10}}));
     connect(speed.support, fixed3.flange) annotation (Line(
-        points={{40,-20},{40,-30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,-20},{40,-30}}));
     connect(sine4.y, accelerate.a_ref) annotation (Line(
         points={{21,-70},{28,-70}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(accelerate.flange, inertia11.flange_a) annotation (Line(
-        points={{50,-70},{60,-70}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,-70},{60,-70}}));
     connect(accelerate.support, fixed4.flange) annotation (Line(
-        points={{40,-80},{40,-90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,-80},{40,-90}}));
     connect(sine5.y, move.u) annotation (Line(
         points={{21,-130},{28,-130}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(move.flange, inertia12.flange_a) annotation (Line(
-        points={{50,-130},{60,-130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,-130},{60,-130}}));
     connect(move.support, fixed5.flange) annotation (Line(
-        points={{40,-140},{40,-150}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,-140},{40,-150}}));
     connect(brake.flange_b, torque.flange) annotation (Line(
-        points={{100,90},{110,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{100,90},{110,90}}));
     connect(fixed.flange, torque.support) annotation (Line(
-        points={{-40,60},{120,60},{120,80}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-40,60},{120,60},{120,80}}));
     connect(sine6.y, torque.tau) annotation (Line(
         points={{139,90},{132,90}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(torque2_1.flange_a, inertia10.flange_b) annotation (Line(
-        points={{92,-10},{80,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{92,-10},{80,-10}}));
     connect(torque2_1.flange_b, inertia13.flange_a) annotation (Line(
-        points={{112,-10},{120,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{112,-10},{120,-10}}));
     connect(sine7.y, torque2_1.tau) annotation (Line(
         points={{95,16},{102,16},{102,-6}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(linearSpeedDependentTorque.flange, inertia7.flange_a) annotation (
         Line(
-        points={{-142,10},{-130,10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-142,10},{-130,10}}));
     connect(linearSpeedDependentTorque.support, fixed1.flange) annotation (Line(
-        points={{-152,0},{-152,-10},{-90,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-152,0},{-152,-10},{-90,-10}}));
     connect(quadraticSpeedDependentTorque.flange, inertia8.flange_b)
       annotation (Line(
-        points={{-32,10},{-48,10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-32,10},{-48,10}}));
     connect(fixed1.flange, quadraticSpeedDependentTorque.support) annotation (
         Line(
-        points={{-90,-10},{-21,-10},{-21,0}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-90,-10},{-21,-10},{-21,0}}));
     connect(constantTorque.flange, inertia14.flange_a) annotation (Line(
-        points={{-120,-50},{-110,-50},{-110,-70},{-104,-70}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,-50},{-110,-50},{-110,-70},{-104,-70}}));
     connect(torqueStep.flange, inertia14.flange_a) annotation (Line(
-        points={{-120,-90},{-110,-90},{-110,-70},{-104,-70}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,-90},{-110,-90},{-110,-70},{-104,-70}}));
     connect(fixed6.flange, torqueStep.support) annotation (Line(
-        points={{-130,-110},{-130,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-130,-110},{-130,-100}}));
     connect(fixed6.flange, constantTorque.support) annotation (Line(
-        points={{-130,-110},{-150,-110},{-150,-60},{-130,-60}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-130,-110},{-150,-110},{-150,-60},{-130,-60}}));
     connect(torqueStep.support, constantSpeed.support) annotation (Line(
-        points={{-130,-100},{-130,-110},{-80,-110}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-130,-100},{-130,-110},{-80,-110}}));
     connect(constantSpeed.flange, inertia15.flange_a) annotation (Line(
-        points={{-70,-100},{-60,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-70,-100},{-60,-100}}));
     connect(inertia8.flange_b, relativeStates.flange_b) annotation (Line(
-        points={{-48,10},{-40,10},{-40,-30},{-60,-30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-48,10},{-40,10},{-40,-30},{-60,-30}}));
     connect(relativeStates.flange_a, inertia7.flange_b) annotation (Line(
-        points={{-80,-30},{-110,-30},{-110,10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-80,-30},{-110,-30},{-110,10}}));
     connect(inertia11.flange_b, angleSensor.flange) annotation (Line(
-        points={{80,-70},{98,-70}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{80,-70},{98,-70}}));
     connect(inertia11.flange_b, speedSensor.flange) annotation (Line(
-        points={{80,-70},{84,-70},{84,-46},{98,-46}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{80,-70},{84,-70},{84,-46},{98,-46}}));
     connect(inertia11.flange_b, accSensor.flange) annotation (Line(
-        points={{80,-70},{84,-70},{84,-96},{98,-96}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{80,-70},{84,-70},{84,-96},{98,-96}}));
     connect(inertia9.flange_b, relAngleSensor.flange_a) annotation (Line(
-        points={{80,40},{120,40}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{80,40},{120,40}}));
     connect(inertia13.flange_b, relAngleSensor.flange_b) annotation (Line(
-        points={{140,-10},{150,-10},{150,40},{140,40}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{140,-10},{150,-10},{150,40},{140,40}}));
     connect(inertia13.flange_b, relSpeedSensor.flange_a) annotation (Line(
-        points={{140,-10},{140,-38},{146,-38}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{140,-10},{140,-38},{146,-38}}));
     connect(inertia12.flange_b, relSpeedSensor.flange_b) annotation (Line(
-        points={{80,-130},{178,-130},{178,-38},{166,-38}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{80,-130},{178,-130},{178,-38},{166,-38}}));
     connect(inertia13.flange_b, relAccSensor.flange_a) annotation (Line(
-        points={{140,-10},{140,-80}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{140,-10},{140,-80}}));
     connect(relAccSensor.flange_b, inertia12.flange_b) annotation (Line(
-        points={{160,-80},{168,-80},{168,-130},{80,-130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{160,-80},{168,-80},{168,-130},{80,-130}}));
     connect(inertia15.flange_b, torqueSensor.flange_b) annotation (Line(
-        points={{-40,-100},{-30,-100},{-30,-140},{-40,-140}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-40,-100},{-30,-100},{-30,-140},{-40,-140}}));
     connect(torqueSensor.flange_a, powerSensor.flange_b) annotation (Line(
-        points={{-60,-140},{-70,-140}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-60,-140},{-70,-140}}));
     connect(inertia16.flange_b, powerSensor.flange_a) annotation (Line(
-        points={{-100,-140},{-90,-140}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-100,-140},{-90,-140}}));
     connect(inertia17.flange_b, elastoBacklash2.flange_a) annotation (Line(
-          points={{-50,-190},{-40,-190},{-30,-190}}, color={0,0,0}));
+          points={{-50,-190},{-40,-190},{-30,-190}}));
     connect(elastoBacklash2.flange_b, inertia18.flange_a)
-      annotation (Line(points={{-10,-190},{-5,-190},{0,-190}}, color={0,0,0}));
+      annotation (Line(points={{-10,-190},{-5,-190},{0,-190}}));
     connect(inertia17.flange_a, torque1.flange) annotation (Line(points={{-70,
-            -190},{-74,-190},{-76,-190}}, color={0,0,0}));
+            -190},{-74,-190},{-76,-190}}));
     connect(torque1.tau, expSine.y) annotation (Line(points={{-98,-190},{-108,
             -190},{-119,-190}}, color={0,0,127}));
     annotation (experiment(StopTime=0.9), Diagram(coordinateSystem(
@@ -1676,268 +1400,155 @@ they were not deleted yet.")}));
         Placement(transformation(extent={{142,92},{162,112}})));
   equation
     connect(inertia.flange_b, idealGear.flange_a) annotation (Line(
-        points={{-160,170},{-150,170}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-160,170},{-150,170}}));
     connect(idealGear.flange_b, idealGear1.flange_a) annotation (Line(
-        points={{-130,170},{-118,170}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-130,170},{-118,170}}));
     connect(idealGear1.flange_b, bearingFriction.flange_a) annotation (Line(
-        points={{-98,170},{-90,170}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-98,170},{-90,170}}));
     connect(inertia1.flange_b, bearingFriction1.flange_a) annotation (Line(
-        points={{-160,120},{-150,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-160,120},{-150,120}}));
     connect(idealGear1.support, fixed.flange) annotation (Line(
-        points={{-108,160},{-108,154}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-108,160},{-108,154}}));
     connect(fixed.flange, bearingFriction.support) annotation (Line(
-        points={{-108,154},{-80,154},{-80,160}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-108,154},{-80,154},{-80,160}}));
     connect(sine.y, brake.f_normalized) annotation (Line(
         points={{-159,80},{-140,80},{-140,61}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(inertia2.flange_b, brake.flange_a) annotation (Line(
-        points={{-160,50},{-150,50}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-160,50},{-150,50}}));
     connect(inertia3.flange_b, brake1.flange_a) annotation (Line(
-        points={{-80,50},{-70,50}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-80,50},{-70,50}}));
     connect(sine.y, brake1.f_normalized) annotation (Line(
         points={{-159,80},{-60,80},{-60,61}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(brake.support, fixed1.flange) annotation (Line(
-        points={{-140,40},{-140,30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-140,40},{-140,30}}));
     connect(inertia4.flange_b, lossyGear.flange_a) annotation (Line(
-        points={{-80,120},{-70,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-80,120},{-70,120}}));
     connect(lossyGear.flange_b, inertia5.flange_a) annotation (Line(
-        points={{-50,120},{-40,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-50,120},{-40,120}}));
     connect(inertia6.flange_b, lossyGear1.flange_a) annotation (Line(
-        points={{20,120},{30,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,120},{30,120}}));
     connect(lossyGear1.flange_b, inertia7.flange_a) annotation (Line(
-        points={{50,120},{60,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,120},{60,120}}));
     connect(fixed2.flange, lossyGear1.support) annotation (Line(
-        points={{40,100},{40,110}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,100},{40,110}}));
     connect(inertia8.flange_b, gear2_1.flange_a) annotation (Line(
-        points={{20,50},{30,50}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,50},{30,50}}));
     connect(gear2_1.flange_b, inertia9.flange_a) annotation (Line(
-        points={{50,50},{60,50}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,50},{60,50}}));
     connect(sine1.y, position.phi_ref) annotation (Line(
         points={{-159,-10},{-142,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(position.flange, inertia12.flange_a) annotation (Line(
-        points={{-120,-10},{-110,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,-10},{-110,-10}}));
     connect(position1.flange, inertia13.flange_a) annotation (Line(
-        points={{-120,-40},{-110,-40}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,-40},{-110,-40}}));
     connect(sine1.y, position1.phi_ref) annotation (Line(
         points={{-159,-10},{-150,-10},{-150,-40},{-142,-40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(position1.support, fixed4.flange) annotation (Line(
-        points={{-130,-50},{-130,-56}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-130,-50},{-130,-56}}));
     connect(inertia10.flange_b, gear2_2.flange_a) annotation (Line(
-        points={{22,170},{30,170}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{22,170},{30,170}}));
     connect(gear2_2.flange_b, inertia11.flange_a) annotation (Line(
-        points={{50,170},{60,170}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{50,170},{60,170}}));
     connect(fixed3.flange, gear2_2.support) annotation (Line(
-        points={{40,154},{40,160}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,154},{40,160}}));
     connect(position2.flange, inertia14.flange_a) annotation (Line(
-        points={{0,-10},{10,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{0,-10},{10,-10}}));
     connect(position3.flange, inertia15.flange_a) annotation (Line(
-        points={{0,-40},{10,-40}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{0,-40},{10,-40}}));
     connect(position3.support, fixed5.flange) annotation (Line(
-        points={{-10,-50},{-10,-56}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-10,-50},{-10,-56}}));
     connect(sine2.y, position2.w_ref) annotation (Line(
         points={{-39,-10},{-22,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine2.y, position3.w_ref) annotation (Line(
         points={{-39,-10},{-30,-10},{-30,-40},{-22,-40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(position4.flange, inertia16.flange_a) annotation (Line(
-        points={{120,-10},{130,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,-10},{130,-10}}));
     connect(position5.flange, inertia17.flange_a) annotation (Line(
-        points={{120,-40},{130,-40}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,-40},{130,-40}}));
     connect(position5.support, fixed6.flange) annotation (Line(
-        points={{110,-50},{110,-56}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{110,-50},{110,-56}}));
     connect(sine3.y, position4.a_ref) annotation (Line(
         points={{81,-10},{98,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine3.y, position5.a_ref) annotation (Line(
         points={{81,-10},{90,-10},{90,-40},{98,-40}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(position6.flange, inertia18.flange_a) annotation (Line(
-        points={{-120,-100},{-110,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,-100},{-110,-100}}));
     connect(position7.flange, inertia19.flange_a) annotation (Line(
-        points={{-120,-130},{-110,-130}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-120,-130},{-110,-130}}));
     connect(position7.support, fixed8.flange) annotation (Line(
-        points={{-130,-140},{-130,-148}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-130,-140},{-130,-148}}));
     connect(sine4.y, position6.u) annotation (Line(
         points={{-159,-100},{-142,-100}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine4.y, position7.u) annotation (Line(
         points={{-159,-100},{-152,-100},{-152,-130},{-142,-130}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(sine5.y, torque.tau) annotation (Line(
         points={{-37,-100},{-22,-100}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(torque.flange, inertia20.flange_a) annotation (Line(
-        points={{0,-100},{20,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{0,-100},{20,-100}}));
     connect(linearSpeedDependentTorque.flange, inertia20.flange_a) annotation (
         Line(
-        points={{0,-134},{10,-134},{10,-100},{20,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{0,-134},{10,-134},{10,-100},{20,-100}}));
     connect(quadraticSpeedDependentTorque.flange, inertia20.flange_a)
       annotation (Line(
-        points={{0,-170},{10,-170},{10,-100},{20,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{0,-170},{10,-170},{10,-100},{20,-100}}));
     connect(constantTorque.flange, inertia20.flange_a) annotation (Line(
-        points={{20,-134},{10,-134},{10,-100},{20,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,-134},{10,-134},{10,-100},{20,-100}}));
     connect(torqueStep.flange, inertia20.flange_a) annotation (Line(
-        points={{20,-170},{10,-170},{10,-100},{20,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,-170},{10,-170},{10,-100},{20,-100}}));
     connect(sine6.y, torque1.tau) annotation (Line(
         points={{81,-100},{98,-100}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(torque1.flange, inertia21.flange_a) annotation (Line(
-        points={{120,-100},{140,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,-100},{140,-100}}));
     connect(linearSpeedDependentTorque1.flange, inertia21.flange_a) annotation (
        Line(
-        points={{120,-134},{130,-134},{130,-100},{140,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,-134},{130,-134},{130,-100},{140,-100}}));
     connect(quadraticSpeedDependentTorque1.flange, inertia21.flange_a)
       annotation (Line(
-        points={{120,-170},{130,-170},{130,-100},{140,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,-170},{130,-170},{130,-100},{140,-100}}));
     connect(constantTorque1.flange, inertia21.flange_a) annotation (Line(
-        points={{140,-134},{130,-134},{130,-100},{140,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{140,-134},{130,-134},{130,-100},{140,-100}}));
     connect(torqueStep1.flange, inertia21.flange_a) annotation (Line(
-        points={{140,-170},{130,-170},{130,-100},{140,-100}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{140,-170},{130,-170},{130,-100},{140,-100}}));
     connect(torqueStep1.support, fixed7.flange) annotation (Line(
-        points={{150,-180},{140,-180},{140,-190}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{150,-180},{140,-180},{140,-190}}));
     connect(constantTorque1.support, fixed7.flange) annotation (Line(
-        points={{150,-144},{170,-144},{170,-180},{140,-180},{140,-190}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{150,-144},{170,-144},{170,-180},{140,-180},{140,-190}}));
     connect(quadraticSpeedDependentTorque1.support, fixed7.flange) annotation (
         Line(
-        points={{110,-180},{140,-180},{140,-190}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{110,-180},{140,-180},{140,-190}}));
     connect(linearSpeedDependentTorque1.support, fixed7.flange) annotation (
         Line(
-        points={{110,-144},{90,-144},{90,-180},{140,-180},{140,-190}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{110,-144},{90,-144},{90,-180},{140,-180},{140,-190}}));
     connect(torque1.support, fixed7.flange) annotation (Line(
-        points={{110,-110},{110,-110},{90,-110},{90,-180},{140,-180},{140,-190}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{110,-110},{110,-110},{90,-110},{90,-180},{140,-180},{140,-190}}));
 
     connect(inertia22.flange_b, idealGearR2T.flangeR) annotation (Line(
-        points={{120,170},{130,170}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,170},{130,170}}));
     connect(idealGearR2T.flangeT, slidingMass.flange_a) annotation (Line(
         points={{150,170},{160,170}},
-        color={0,127,0},
-        smooth=Smooth.None));
+        color={0,127,0}));
     connect(inertia23.flange_b, idealGearR2T1.flangeR) annotation (Line(
-        points={{120,120},{130,120}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{120,120},{130,120}}));
     connect(idealGearR2T1.flangeT, slidingMass1.flange_a) annotation (Line(
         points={{150,120},{160,120}},
-        color={0,127,0},
-        smooth=Smooth.None));
+        color={0,127,0}));
     connect(idealGearR2T1.supportR, fixed9.flange) annotation (Line(
-        points={{130,110},{130,102}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{130,110},{130,102}}));
     connect(fixed10.flange, idealGearR2T1.supportT) annotation (Line(
         points={{152,102},{152,110},{150,110}},
-        color={0,127,0},
-        smooth=Smooth.None));
+        color={0,127,0}));
     annotation (experiment(StopTime=0.5), Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-200,-200},{200,200}})));
   end TestBearingConversion;
@@ -2010,73 +1621,46 @@ they were not deleted yet.")}));
               {20,-80}})));
   equation
     connect(inertia.flange_b, bearingFriction.flange_a) annotation (Line(
-        points={{10,90},{20,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{10,90},{20,90}}));
     connect(torque.flange, inertia.flange_a) annotation (Line(
-        points={{-20,90},{-10,90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-20,90},{-10,90}}));
     connect(sine.y, torque.tau) annotation (Line(
         points={{-59,90},{-42,90}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(torque1.flange, inertia1.flange_a) annotation (Line(
-        points={{-20,30},{-10,30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-20,30},{-10,30}}));
     connect(sine1.y, torque1.tau) annotation (Line(
         points={{-59,30},{-42,30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(inertia1.flange_b, brake.flange_a) annotation (Line(
-        points={{10,30},{20,30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{10,30},{20,30}}));
     connect(step.y, brake.f_normalized) annotation (Line(
         points={{11,60},{30,60},{30,41}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(torque2.flange, inertia2.flange_a) annotation (Line(
-        points={{-20,-30},{-10,-30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-20,-30},{-10,-30}}));
     connect(sine2.y, torque2.tau) annotation (Line(
         points={{-59,-30},{-42,-30}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(inertia2.flange_b, clutch.flange_a) annotation (Line(
-        points={{10,-30},{20,-30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{10,-30},{20,-30}}));
     connect(clutch.flange_b, inertia3.flange_a) annotation (Line(
-        points={{40,-30},{50,-30}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,-30},{50,-30}}));
     connect(step1.y, clutch.f_normalized) annotation (Line(
         points={{9,0},{30,0},{30,-19}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(torque3.flange, inertia4.flange_a) annotation (Line(
-        points={{-18,-90},{-8,-90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-18,-90},{-8,-90}}));
     connect(sine3.y, torque3.tau) annotation (Line(
         points={{-57,-90},{-40,-90}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(step2.y, oneWayClutch.f_normalized) annotation (Line(
         points={{11,-60},{30,-60},{30,-79}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(oneWayClutch.flange_b, inertia4.flange_b) annotation (Line(
-        points={{20,-90},{12,-90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{20,-90},{12,-90}}));
     connect(oneWayClutch.flange_a, inertia5.flange_a) annotation (Line(
-        points={{40,-90},{50,-90}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{40,-90},{50,-90}}));
     annotation (experiment(StopTime=1.1));
   end TestFriction;
 
@@ -2115,13 +1699,13 @@ they were not deleted yet.")}));
         w0=1) annotation (Placement(transformation(extent={{40,-40},{20,-20}})));
   equation
     connect(inertia1.flange_b, linearSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,60},{0,60},{20,60}}, color={0,0,0}));
+      annotation (Line(points={{-20,60},{0,60},{20,60}}));
     connect(inertia2.flange_b, quadraticSpeedDependentTorque.flange)
-      annotation (Line(points={{-20,30},{0,30},{20,30}}, color={0,0,0}));
+      annotation (Line(points={{-20,30},{0,30},{20,30}}));
     connect(inertia3.flange_b, constantTorque.flange)
-      annotation (Line(points={{-20,0},{0,0},{20,0}}, color={0,0,0}));
+      annotation (Line(points={{-20,0},{0,0},{20,0}}));
     connect(signTorque.flange, inertia4.flange_b)
-      annotation (Line(points={{20,-30},{0,-30},{-20,-30}}, color={0,0,0}));
+      annotation (Line(points={{20,-30},{0,-30},{-20,-30}}));
     annotation (
       experiment(StopTime=2));
   end TestBraking;

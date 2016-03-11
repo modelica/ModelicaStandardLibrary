@@ -39,22 +39,18 @@ extends Modelica.Icons.ExamplesPackage;
     connect(source.ports[1], pipe.port_a)         annotation (Line(
         points={{-60,0},{-55,0},{-55,0},{-50,
             0},{-50,0},{-40,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
         points={{-20,0},{-15,0},{-15,0},{-10,
             0},{-10,0},{0,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
         points={{20,0},{25,0},{25,0},{30,
             0},{30,0},{40,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(ramp.y, valve.opening)               annotation (Line(
         points={{25,40},{10,40},{10,8}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (      experiment(StopTime=3));
   end DynamicPipeClosingValve;
 
@@ -110,22 +106,18 @@ extends Modelica.Icons.ExamplesPackage;
     connect(source.ports[1], pipe.port_a)         annotation (Line(
         points={{-60,0},{-55,0},{-55,0},{-50,
             0},{-50,0},{-40,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
         points={{-20,0},{-15,0},{-15,0},{-10,
             0},{-10,0},{0,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
         points={{20,0},{25,0},{25,0},{30,
             0},{30,0},{40,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(ramp.y, valve.opening)               annotation (Line(
         points={{25,40},{10,40},{10,8}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (      experiment(StopTime=4),
       Documentation(info="<html>
 The simulation shall start in steady-state (see system.energyDynamics on the Assumptions tab).
@@ -1452,22 +1444,18 @@ Simulation starts with both valves open. At t=1, valve 1 closes; between t=3 and
     connect(source.ports[1], pipe.port_a)         annotation (Line(
         points={{-60,0},{-55,0},{-55,0},{-50,
             0},{-50,0},{-40,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
         points={{-20,0},{-15,0},{-15,0},{-10,
             0},{-10,0},{0,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
         points={{20,0},{25,0},{25,0},{30,
             0},{30,0},{40,0}},
-        color={0,127,255},
-        smooth=Smooth.None));
+        color={0,127,255}));
     connect(ramp.y, valve.opening)               annotation (Line(
         points={{25,40},{10,40},{10,8}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (      experiment(StopTime=4));
   end LumpedPipeInitialization;
 
@@ -1653,8 +1641,7 @@ pressure in order to get positive flow rates.
             {-44,-40},{-30,-40}}, color={0,127,255}));
     connect(valveOpening1.y, valveIncompressible1.opening) annotation (Line(
         points={{1,0},{18,0},{18,-32}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>

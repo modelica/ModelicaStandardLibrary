@@ -59,7 +59,6 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
     connect(rod1.frame_a,r1. frame_b) annotation (Line(
         points={{-6.66134e-016,10},{-6.66134e-016,6},{-6.66134e-016,0},{4.44089e-016,
             0}},
-        color={0,0,0},
         thickness=0.5));
     connect(rod2.frame_a,world. frame_b) annotation (Line(
         points={{16,-50},{-8,-50}},
@@ -87,21 +86,16 @@ package MultiBody "Test models for Modelica.Mechanics.MultiBody"
         thickness=0.5));
     connect(combiTimeTable.y,deg2rad1. u) annotation (Line(
         points={{-79,-10},{-72,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(move.flange, r1.axis) annotation (Line(
-        points={{-18,-10},{-10,-10}},
-        color={0,0,0},
-        smooth=Smooth.None));
+        points={{-18,-10},{-10,-10}}));
     connect(deg2rad1.y, move.u) annotation (Line(
         points={{-49,-10},{-40,-10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
     connect(r2.frame_b, bodyShape.frame_a) annotation (Line(
         points={{30,40},{38,40}},
         color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
+        thickness=0.5));
     annotation (experiment(StopTime=3), Documentation(info="<html>
 <p>
 This model is a combination of a multi-body system with a kinematic loop
@@ -227,51 +221,39 @@ in the situation at hand.
 
     connect(boxBody1.frame_b, Spherical2.frame_a) annotation (Line(
         points={{10,10},{32,10}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical2.frame_b, boxBody2.frame_a) annotation (Line(
         points={{52,10},{74,10}},
-        color={0,0,0},
         thickness=0.5));
     connect(world.frame_b, Spherical1.frame_a) annotation (Line(
         points={{-68,10},{-52,10}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical1.frame_b, boxBody1.frame_a) annotation (Line(
         points={{-32,10},{-10,10}},
-        color={0,0,0},
         thickness=0.5));
     connect(boxBody3.frame_b, Spherical4.frame_a) annotation (Line(
         points={{10,-30},{32,-30}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical4.frame_b, boxBody4.frame_a) annotation (Line(
         points={{52,-30},{76,-30}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical3.frame_b, boxBody3.frame_a) annotation (Line(
         points={{-32,-30},{-10,-30}},
-        color={0,0,0},
         thickness=0.5));
     connect(world.frame_b, Spherical3.frame_a) annotation (Line(
         points={{-68,10},{-60,10},{-60,-30},{-52,-30}},
-        color={0,0,0},
         thickness=0.5));
     connect(boxBody5.frame_b, Spherical6.frame_a) annotation (Line(
         points={{10,-70},{32,-70}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical6.frame_b, boxBody6.frame_a) annotation (Line(
         points={{52,-70},{74,-70}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical5.frame_b, boxBody5.frame_a) annotation (Line(
         points={{-32,-70},{-10,-70}},
-        color={0,0,0},
         thickness=0.5));
     connect(Spherical5.frame_a, world.frame_b) annotation (Line(
         points={{-52,-70},{-60,-70},{-60,10},{-68,10}},
-        color={0,0,0},
         thickness=0.5));
     annotation (experiment(StopTime=3), Documentation(info="<html>
 <p>
@@ -343,39 +325,30 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
       j2_v = j2.v;
       connect(j2.frame_b, b2.frame_a) annotation (Line(
           points={{32,-70},{50,-70},{50,-60}},
-          color={0,0,0},
           thickness=0.5));
       connect(j1.frame_b, b1.frame_a) annotation (Line(
           points={{-34,-30},{-30,-30},{-30,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(j1.frame_a, world.frame_b) annotation (Line(
           points={{-54,-30},{-60,-30},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_a, world.frame_b) annotation (Line(
           points={{-32,-70},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(
           points={{-12,-70},{12,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b1.frame_b, spherical.frame_a) annotation (Line(
           points={{-30,10},{-30,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(spherical.frame_b, FixedTranslation1.frame_a) annotation (Line(
           points={{0,30},{12,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(FixedTranslation1.frame_b, Universal1.frame_a) annotation (Line(
           points={{32,30},{44,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(b2.frame_b, Universal1.frame_b) annotation (Line(
           points={{50,-40},{50,-2},{80,-2},{80,30},{64,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
@@ -467,23 +440,18 @@ for rodLength:
     equation
       connect(j2.frame_b, b2.frame_a) annotation (Line(
           points={{32,-70},{50,-70},{50,-60}},
-          color={0,0,0},
           thickness=0.5));
       connect(j1.frame_b, b1.frame_a) annotation (Line(
           points={{-34,-30},{-30,-30},{-30,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(j1.frame_a, world.frame_b) annotation (Line(
           points={{-54,-30},{-60,-30},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b1.frame_b, sphericalSpherical.frame_b) annotation (Line(
           points={{-30,10},{-30,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(sphericalSpherical.frame_a, b2.frame_b) annotation (Line(
           points={{0,30},{50,30},{50,-40}},
-          color={0,0,0},
           thickness=0.5));
       j1_phi = j1.phi;
       j2_s = j2.s;
@@ -491,11 +459,9 @@ for rodLength:
       j2_v = j2.v;
       connect(b3.frame_a, world.frame_b) annotation (Line(
           points={{-32,-70},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(
           points={{-12,-70},{12,-70}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
@@ -582,36 +548,28 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j2_v = j2.v;
       connect(j2.frame_b, b2.frame_a) annotation (Line(
           points={{32,-70},{50,-70},{50,-60}},
-          color={0,0,0},
           thickness=0.5));
       connect(j1.frame_b, b1.frame_a) annotation (Line(
           points={{-34,-30},{-30,-30},{-30,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(j1.frame_a, world.frame_b) annotation (Line(
           points={{-54,-30},{-60,-30},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b1.frame_b, universalSpherical.frame_b) annotation (Line(
           points={{-30,10},{-30,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(universalSpherical.frame_a, b2.frame_b) annotation (Line(
           points={{0,30},{50,30},{50,-40}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_a, world.frame_b) annotation (Line(
           points={{-32,-70},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(
           points={{-12,-70},{12,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixedFrame4.frame_a, universalSpherical.frame_ia) annotation (
           Line(
           points={{-10,60},{-10,50},{-6,50},{-6,40}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=5), Documentation(info="<html>
 <p>
@@ -721,52 +679,39 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j2_v = j2.v;
       connect(j2.frame_b, b2.frame_a) annotation (Line(
           points={{30,-70},{40,-70},{40,-40}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_a, world.frame_b) annotation (Line(
           points={{-30,-70},{-60,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(
           points={{-10,-70},{10,-70}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, jointUSR.frame_b) annotation (Line(
           points={{-60,-70},{-40,-70},{-40,10},{-20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(jointUSR.frame_a, b2.frame_b) annotation (Line(
           points={{0,10},{40,10},{40,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(damper.flange_b, jointUSR.axis) annotation (Line(
-          points={{-60,20},{-50,20},{-50,18},{-20,18}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-60,20},{-50,20},{-50,18},{-20,18}}));
       connect(damper.flange_a, jointUSR.bearing) annotation (Line(
-          points={{-60,0},{-50,0},{-50,14},{-20,14}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-60,0},{-50,0},{-50,14},{-20,14}}));
       connect(Body1.frame_a, jointUSR.frame_ib) annotation (Line(
           points={{-30,40},{-18,40},{-18,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Body2.frame_a, jointUSR.frame_ia) annotation (Line(
           points={{20,60},{10,60},{10,30},{-2,30},{-2,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Body3.frame_a, jointUSR.frame_im) annotation (Line(
           points={{-10,60},{-10,20},{-10,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame.frame_a, jointUSR.frame_ia) annotation (Line(
           points={{20,30},{-2,30},{-2,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=2), Documentation(info="<html>
 <p>
 This is a fourth version of the \"four-bar\" mechanism. In this case
@@ -854,49 +799,41 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j1_w = der(jointSSR.revolute.phi);
       j2_v = j2.v;
       connect(jointSSR.axis, damper.flange_b) annotation (Line(points={{-20,18},
-              {-50,18},{-50,20},{-60,20}}, color={0,0,0}));
+              {-50,18},{-50,20},{-60,20}}));
       connect(jointSSR.bearing, damper.flange_a) annotation (Line(points={{-20,
-              14},{-50,14},{-50,0},{-60,0}}, color={0,0,0}));
+              14},{-50,14},{-50,0},{-60,0}}));
       connect(world.frame_b, b3.frame_a) annotation (Line(
           points={{-60,-70},{-30,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, jointSSR.frame_b) annotation (Line(
           points={{-60,-70},{-40,-70},{-40,10},{-20,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(
           points={{-10,-70},{10,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(j2.frame_b, b2.frame_a) annotation (Line(
           points={{30,-70},{40,-70},{40,-40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(b2.frame_b, jointSSR.frame_a) annotation (Line(
           points={{40,-20},{40,10},{0,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Body1.frame_a, jointSSR.frame_ib) annotation (Line(
           points={{-30,40},{-18,40},{-18,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Body2.frame_a, jointSSR.frame_im) annotation (Line(
           points={{0,40},{-10,40},{-10,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(FixedFrame1.frame_a, jointSSR.frame_ib) annotation (Line(
           points={{-30,70},{-18,70},{-18,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1), Documentation(info="<html>
 <p>
 This is a fourth version of the \"four-bar\" mechanism. In this case
@@ -990,38 +927,31 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(ground_rod.frame_b, jointUSP.frame_b) annotation (Line(
           points={{-12,-70},{30,-70},{30,30},{20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, ground_rod.frame_a) annotation (Line(
           points={{-60,-70},{-32,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, revolute.frame_a) annotation (Line(
           points={{-60,-70},{-50,-70},{-50,-30},{-40,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute.frame_b, body1.frame_a) annotation (Line(
           points={{-20,-30},{-10,-30},{-10,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body1.frame_b, jointUSP.frame_a) annotation (Line(
           points={{-10,0},{-10,30},{0,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(jointUSP.frame_ia, body2.frame_a) annotation (Line(
           points={{2,40},{2,60},{-10,60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(jointUSP.frame_ib, body3.frame_a) annotation (Line(
           points={{18,40},{18,60},{30,60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=5), Documentation(info=""));
     end JointUSP;
   end FourbarVariants;
@@ -1084,27 +1014,21 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     equation
       connect(bar2.frame_a, world.frame_b) annotation (Line(
           points={{0,30},{-40,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(spring1.frame_b, body.frame_a) annotation (Line(
           points={{-24,-4},{-24,-30},{0,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(spring2.frame_b, body.frame_b) annotation (Line(
           points={{42,-4},{20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(bar2.frame_b, spring2.frame_a) annotation (Line(
           points={{20,30},{42,30},{42,16}},
-          color={0,0,0},
           thickness=0.5));
       connect(spring1.frame_a, world.frame_b) annotation (Line(
           points={{-24,16},{-24,30},{-40,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(FrameTorque1.frame_b, body.frame_b) annotation (Line(
           points={{38,-32},{30,-32},{30,-30},{20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant1.y, FrameTorque1.torque)
         annotation (Line(points={{73,-32},{60,-32}}, color={0,0,255}));
@@ -1164,16 +1088,13 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(forceAndTorque.frame_b, cutForce.frame_a) annotation (Line(
           points={{-14,-30},{0,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sine1.y, forceAndTorque.force) annotation (Line(
           points={{-59,-18},{-48,-18},{-48,-24},{-36,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sine2.y, forceAndTorque.torque) annotation (Line(
           points={{-59,-60},{-48,-60},{-48,-36},{-36,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end DifferentiationOfForces;
 
@@ -1257,11 +1178,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               -50},{56,-50},{56,-32}}, color={0,0,127}));
       connect(force1.frame_a, fixed2.frame_b) annotation (Line(
           points={{60,50},{60,50},{80,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, force2.frame_a) annotation (Line(
           points={{80,-20},{70,-20},{60,-20}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Force;
@@ -1396,11 +1315,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               -50},{-54,-50},{-54,-32}}, color={0,0,127}));
       connect(force1.frame_a, fixed2.frame_b) annotation (Line(
           points={{-50,50},{-38.5,50},{-30,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, force2.frame_a) annotation (Line(
           points={{-30,-20},{-40,-20},{-50,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(force3.frame_b, body3.frame_b)
         annotation (Line(points={{142,50},{120,50}}));
@@ -1424,28 +1341,22 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{32,-60},{36,-60},{36,-80},{92,-80}}));
       connect(force3.frame_a, fixed7.frame_b) annotation (Line(
           points={{162,50},{171.5,50},{180,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed8.frame_b, force4.frame_a) annotation (Line(
           points={{180,-20},{170,-20},{160,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant3[1:3].y, force3.force[1:3]) annotation (Line(
           points={{150,79},{150,70},{160,70},{160,60.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant3[4:6].y, force3.torque[1:3]) annotation (Line(
           points={{150,79},{150,70},{152,70},{152,60.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[1:3].y, force4.force[1:3]) annotation (Line(
           points={{170,-59},{170,-48},{158,-48},{158,-30.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[4:6].y, force4.torque[1:3]) annotation (Line(
           points={{170,-59},{170,-48},{150,-48},{150,-30.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-200,-100},{200,100}})));
     end Force2;
@@ -1528,28 +1439,22 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
       connect(forceAndTorque1.frame_a, fixed2.frame_b) annotation (Line(
           points={{62,50},{71.5,50},{71.5,50},{80,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, forceAndTorque2.frame_a) annotation (Line(
           points={{80,-20},{70,-20},{60,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant1[1:3].y, forceAndTorque1.force[1:3]) annotation (Line(
           points={{50,79},{50,70},{60,70},{60,60.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant1[4:6].y, forceAndTorque1.torque[1:3]) annotation (Line(
           points={{50,79},{50,70},{52,70},{52,60.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[1:3].y, forceAndTorque2.force[1:3]) annotation (Line(
           points={{70,-59},{70,-48},{58,-48},{58,-30.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[4:6].y, forceAndTorque2.torque[1:3]) annotation (Line(
           points={{70,-59},{70,-48},{50,-48},{50,-30.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end ForcesAndTorques;
 
@@ -1734,7 +1639,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       connect(rod3.frame_a, rod4.frame_a) annotation (Line(
           points={{-42,-40},{-42,-37.5},{-42,-35},{-42,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (Line(
           points={{-2,-64},{-42,-64},{-42,-60}},
@@ -1878,8 +1782,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           Line(
           points={{20,10},{30,10},{30,-12},{50,-12},{50,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(BodyCylinder3.frame_a, Revolute3.frame_b)
         annotation (Line(points={{0,-38},{-20,-38}}));
       connect(frameForce3.frame_b, BodyCylinder3.frame_b)
@@ -1895,18 +1798,15 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(world.frame_b, Revolute3.frame_a) annotation (Line(
           points={{-70,-58},{-56,-58},{-56,-38},{-40,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(frameForce4.frame_resolve, world.frame_b) annotation (Line(
           points={{50,-88},{50,-106},{-66,-106},{-66,-58},{-70,-58}},
           color={95,95,95},
-          pattern=LinePattern.Dot,
-          smooth=Smooth.None));
+          pattern=LinePattern.Dot));
       connect(Revolute4.frame_a, world.frame_b) annotation (Line(
           points={{-40,-78},{-56,-78},{-56,-58},{-70,-58}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (
         experiment(StopTime=2, Tolerance=1e-006),
         Diagram(coordinateSystem(extent={{-100,-120},{100,100}},
@@ -1983,31 +1883,25 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
       connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
           points={{79,70},{72,70},{72,62.6667},{62,62.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
           points={{79,70},{72,70},{72,74.6667},{62,74.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
           points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
           points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(fixed2.frame_b, FixedRotation1.frame_a) annotation (Line(
           points={{-68,-60},{-64,-60},{-64,-80},{-34,-80}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(FixedRotation1.frame_b, frameTorque2.frame_resolve) annotation (
           Line(
           points={{-14,-80},{50,-80},{50,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FrameForcesAndTorques;
 
@@ -2083,25 +1977,20 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
       connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
           points={{79,70},{72,70},{72,62.6667},{62,62.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
           points={{79,70},{72,70},{72,74.6667},{62,74.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
           points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
           points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(body2.frame_b, frameTorque2.frame_resolve) annotation (Line(
           points={{20,-20},{28,-20},{28,-60},{50,-60},{50,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=2, Tolerance=1e-6));
     end FrameForcesAndTorques2;
 
@@ -2173,40 +2062,32 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
       connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
           points={{79,70},{72,70},{72,62.6667},{62,62.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
           points={{79,70},{72,70},{72,74.6667},{62,74.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
           points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
           points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, Revolute3.frame_a) annotation (Line(
           points={{-80,30},{-52,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
           points={{-78,-14},{-80,-14},{-80,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, Revolute4.frame_a) annotation (Line(
           points={{-78,-34},{-70,-34},{-70,-60},{-60,-60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Revolute4.frame_a, frameTorque2.frame_resolve) annotation (Line(
           points={{-60,-60},{-58,-60},{-58,-84},{44,-84},{44,-30},{50,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=2, Tolerance=1e-6));
     end FrameForcesAndTorques3;
 
@@ -2268,12 +2149,10 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{20,-50},{50,-50},{50,0}}));
       connect(Constant1.y, frameTorque1.torque) annotation (Line(
           points={{79,90},{62,90}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2.y, frameTorque2.torque) annotation (Line(
           points={{79,10},{62,10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation ( experiment(StopTime=1.1));
     end FrameTorques;
 
@@ -2360,17 +2239,14 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{40,50},{20,50}}));
       connect(Constant1.y, frameTorque1.torque) annotation (Line(
           points={{79,90},{62,90}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2.y, frameTorque2.torque) annotation (Line(
           points={{79,50},{62,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(body2.frame_b, frameTorque2.frame_resolve) annotation (Line(
           points={{20,50},{22,50},{22,18},{50,18},{50,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(frameTorque3.frame_b, body3.frame_b)
         annotation (Line(points={{36,-16},{16,-16}}));
       connect(Revolute3.frame_b, body3.frame_a)
@@ -2381,27 +2257,22 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{36,-56},{16,-56}}));
       connect(Constant3.y, frameTorque3.torque) annotation (Line(
           points={{75,-16},{58,-16}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4.y, frameTorque4.torque) annotation (Line(
           points={{75,-56},{58,-56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, Revolute3.frame_a) annotation (Line(
           points={{-70,-16},{-46,-16}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, Revolute4.frame_a) annotation (Line(
           points={{-70,-16},{-58,-16},{-58,-56},{-46,-56}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Revolute4.frame_a, frameTorque4.frame_resolve) annotation (Line(
           points={{-46,-56},{-46,-82},{46,-82},{46,-66}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FrameTorques2;
 
@@ -2494,60 +2365,46 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               {14,20},{20,20},{20,14}}, color={0,191,0}));
       connect(jointUPS.frame_ib, body2.frame_a) annotation (Line(
           points={{18,30},{18,24},{32,24}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, rod2.frame_a) annotation (Line(
           points={{-60,70},{-40,70},{-40,74}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, rod1.frame_a) annotation (Line(
           points={{-60,70},{-40,70},{-40,64}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
           points={{-40,94},{-40,98},{-30,98},{-30,90},{-20,90}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute1.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{0,90},{12,90},{20,90}},
-          color={0,0,0},
           thickness=0.5));
       connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
           points={{40,90},{50,90},{50,40},{20,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(body1.frame_a, jointUPS.frame_ia) annotation (Line(
           points={{-14,24},{2,24},{2,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
           points={{-40,44},{-40,40},{0,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
           points={{-40,-10},{-40,-6},{-30,-6},{-30,-20},{-20,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute2.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{0,-20},{20,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, rod4.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,-36},{-40,-36},{-40,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod3.frame_a, rod4.frame_a) annotation (Line(
           points={{-40,-40},{-40,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (Line(
           points={{0,-64},{-40,-64},{-40,-60}},
-          color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (
           Line(
           points={{20,-64},{50,-64},{50,-20},{40,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.flange_b, damper2.flange_b) annotation (
           Line(points={{16,-75},{20,-75},{20,-90}}, color={0,191,0}));
@@ -2660,11 +2517,9 @@ a linear damper is connected here.
               70,-42},{56,-42},{56,-32}}, color={0,0,255}));
       connect(torque1.frame_a, fixed2.frame_b) annotation (Line(
           points={{62,50},{80,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, torque2.frame_a) annotation (Line(
           points={{80,-20},{60,-20}},
-          color={0,0,0},
           thickness=0.5));
       annotation ( experiment(StopTime=1.1));
     end Torque;
@@ -2796,11 +2651,9 @@ a linear damper is connected here.
               70,-42},{56,-42},{56,-32}}, color={0,0,255}));
       connect(torque1.frame_a, fixed2.frame_b) annotation (Line(
           points={{62,50},{80,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, torque2.frame_a) annotation (Line(
           points={{80,-20},{60,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(torque3.frame_b, body3.frame_b)
         annotation (Line(points={{42,-140},{20,-140}}));
@@ -2824,28 +2677,22 @@ a linear damper is connected here.
         annotation (Line(points={{-68,-250},{-64,-250},{-64,-270},{-8,-270}}));
       connect(torque3.frame_a, fixed7.frame_b) annotation (Line(
           points={{62,-140},{80,-140}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed8.frame_b, torque4.frame_a) annotation (Line(
           points={{80,-210},{60,-210}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant3[1:3].y, torque3.force) annotation (Line(
           points={{50,-111},{56,-111},{56,-120},{60,-120},{60,-128}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant3[4:6].y, torque3.torque) annotation (Line(
           points={{50,-111},{51,-111},{51,-128},{52,-128}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[1:3].y, torque4.force) annotation (Line(
           points={{70,-249},{64,-249},{64,-243},{58,-243},{58,-222}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[4:6].y, torque4.torque) annotation (Line(
           points={{70,-249},{70,-240},{52,-240},{52,-222},{50,-222}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-300},{100,100}})), experiment(StopTime=1.1));
@@ -2981,11 +2828,9 @@ a linear damper is connected here.
               -30,-42},{-44,-42},{-44,-32}}, color={0,0,255}));
       connect(torque1.frame_a, fixed2.frame_b) annotation (Line(
           points={{-38,50},{-20,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, torque2.frame_a) annotation (Line(
           points={{-20,-20},{-40,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(torque3.frame_b, body3.frame_b)
         annotation (Line(points={{140,50},{120,50}}));
@@ -3001,48 +2846,38 @@ a linear damper is connected here.
         annotation (Line(points={{60,-60},{80,-60},{80,-50}}));
       connect(torque3.frame_a, fixed7.frame_b) annotation (Line(
           points={{160,50},{180,50}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed8.frame_b, torque4.frame_a) annotation (Line(
           points={{180,-20},{160,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant3[1:3].y, torque3.force[1:3]) annotation (Line(
           points={{150,79},{150,70},{158,70},{158,60.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant3[4:6].y, torque3.torque[1:3]) annotation (Line(
           points={{150,79},{150,60.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[1:3].y, torque4.force[1:3]) annotation (Line(
           points={{170,-59},{170,-48},{158,-48},{158,-30.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[4:6].y, torque4.torque[1:3]) annotation (Line(
           points={{170,-59},{170,-48},{150,-48},{150,-30.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(body2.frame_b, torque2.frame_resolve) annotation (Line(
           points={{-80,-20},{-74,-20},{-74,-42},{-54,-42},{-54,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, Revolute7.frame_a) annotation (Line(
           points={{30,-22},{34,-22},{34,10},{40,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, Revolute8.frame_a) annotation (Line(
           points={{30,-22},{34,-22},{34,-60},{40,-60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, torque4.frame_resolve) annotation (Line(
           points={{30,-22},{34,-22},{34,-80},{142,-80},{142,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=2, Tolerance=1e-6), Diagram(
             coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{200,
                 100}})));
@@ -3120,25 +2955,20 @@ a linear damper is connected here.
         annotation (Line(points={{-10,-60},{-10,-50},{0,-50}}));
       connect(Constant1.y, worldForce.force) annotation (Line(
           points={{79,70},{62,70}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2.y, worldTorque1.torque) annotation (Line(
           points={{79,30},{62,30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(forceAndTorque.frame_b, BodyCylinder3.frame_b) annotation (Line(
           points={{40,-50},{20,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Constant4[1:3].y, forceAndTorque.force) annotation (Line(
           points={{79,-50},{70,-50},{70,-44},{62,-44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[4:6].y, forceAndTorque.torque) annotation (Line(
           points={{79,-50},{72,-50},{72,-56},{62,-56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end WorldForces;
 
@@ -3199,8 +3029,7 @@ a linear damper is connected here.
         annotation (Line(points={{-60,70},{-40,70}}));
       connect(Constant1.y, worldForce.force) annotation (Line(
           points={{79,70},{62,70}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(BodyCylinder2.frame_a, Revolute2.frame_b)
         annotation (Line(points={{-2,28},{-22,28}}));
       connect(worldForce1.frame_b, BodyCylinder2.frame_b)
@@ -3209,13 +3038,11 @@ a linear damper is connected here.
         annotation (Line(points={{-62,28},{-42,28}}));
       connect(Constant2.y, worldForce1.force) annotation (Line(
           points={{77,28},{60,28}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, worldForce1.frame_resolve) annotation (Line(
           points={{76,-10},{64,-10},{64,18},{48,18}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(BodyCylinder3.frame_a, Revolute3.frame_b)
         annotation (Line(points={{0,-48},{-20,-48}}));
       connect(fixed3.frame_b, Revolute3.frame_a)
@@ -3223,20 +3050,16 @@ a linear damper is connected here.
       connect(worldForce2.frame_b, BodyCylinder3.frame_b) annotation (Line(
           points={{40,-50},{30,-50},{30,-48},{20,-48}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sine.y, worldForce2.force[2]) annotation (Line(
           points={{79,-50},{62,-50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, worldForce2.force[1]) annotation (Line(
           points={{79,-84},{72,-84},{72,-51.3333},{62,-51.3333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, worldForce2.force[3]) annotation (Line(
           points={{79,-84},{72,-84},{72,-48.6667},{62,-48.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end WorldForces2;
 
@@ -3305,8 +3128,7 @@ a linear damper is connected here.
         annotation (Line(points={{26,50},{6,50}}));
       connect(Constant2.y, worldTorque1.torque) annotation (Line(
           points={{65,50},{48,50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(fixed1.frame_b, Revolute1.frame_a)
         annotation (Line(points={{-58,-12},{-44,-12}}));
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
@@ -3315,13 +3137,11 @@ a linear damper is connected here.
         annotation (Line(points={{28,-12},{8,-12}}));
       connect(Constant1.y, worldTorque2.torque) annotation (Line(
           points={{65,-12},{50,-12}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, worldTorque2.frame_resolve) annotation (Line(
           points={{66,18},{54,18},{54,-2},{38,-2}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(BodyCylinder3.frame_a, Revolute3.frame_b)
         annotation (Line(points={{-4,-52},{-24,-52}}));
       connect(fixed3.frame_b, Revolute3.frame_a)
@@ -3329,12 +3149,10 @@ a linear damper is connected here.
       connect(worldTorque3.frame_b, BodyCylinder3.frame_b) annotation (Line(
           points={{28,-54},{22,-54},{22,-52},{16,-52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sine.y, worldTorque3.torque) annotation (Line(
           points={{69,-54},{50,-54}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end Worldtorque;
 
@@ -3425,16 +3243,13 @@ a linear damper is connected here.
       connect(forceAndTorque.frame_b, BodyCylinder3.frame_b) annotation (Line(
           points={{34,82},{20,82}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Constant4[1:3].y, forceAndTorque.force) annotation (Line(
           points={{73,82},{64,82},{64,88},{56,88}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant4[4:6].y, forceAndTorque.torque) annotation (Line(
           points={{73,82},{66,82},{66,76},{56,76}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(fixed1.frame_b, Revolute1.frame_a)
         annotation (Line(points={{-70,40},{-60,40}}));
       connect(Revolute1.frame_b, Revolute2.frame_a)
@@ -3444,21 +3259,17 @@ a linear damper is connected here.
       connect(forceAndTorque1.frame_b, BodyCylinder1.frame_b) annotation (Line(
           points={{34,40},{20,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, forceAndTorque1.frame_resolve) annotation (Line(
           points={{74,-2},{60,-2},{60,30},{44,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Constant1[1:3].y, forceAndTorque1.force) annotation (Line(
           points={{73,40},{66,40},{66,46},{56,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant1[4:6].y, forceAndTorque1.torque) annotation (Line(
           points={{73,40},{64,40},{64,34},{56,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(fixed2.frame_b, Revolute5.frame_a)
         annotation (Line(points={{-68,-40},{-62,-40},{-58,-40}}));
       connect(Revolute5.frame_b, Revolute6.frame_a)
@@ -3468,16 +3279,13 @@ a linear damper is connected here.
       connect(forceAndTorque2.frame_b, BodyCylinder2.frame_b) annotation (Line(
           points={{36,-40},{22,-40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Constant2[1:3].y, forceAndTorque2.force) annotation (Line(
           points={{73,-40},{66,-40},{66,-34},{58,-34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant2[4:6].y, forceAndTorque2.torque) annotation (Line(
           points={{73,-40},{66,-40},{66,-46},{58,-46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(extent={{-140,
                 -80},{140,120}}, preserveAspectRatio=true)));
     end WorldForceAndTorque;
@@ -3535,48 +3343,39 @@ a linear damper is connected here.
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-76,50},{-26,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring.frame_a) annotation (Line(
           points={{-76,50},{-48,50},{-48,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, spring1.frame_a) annotation (Line(
           points={{-6,50},{12,50},{12,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body.frame_a, spring.frame_b) annotation (Line(
           points={{-48,-10},{-48,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body1.frame_a, spring1.frame_b) annotation (Line(
           points={{12,-10},{12,-2},{12,-2},{12,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_a, spring.frame_a) annotation (Line(
           points={{-68,26},{-48,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_b, spring.frame_b) annotation (Line(
           points={{-68,6},{-48,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.frame_a, spring1.frame_a) annotation (Line(
           points={{-4,26},{12,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.frame_b, spring1.frame_b) annotation (Line(
           points={{-4,6},{12,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=3));
     end Spring;
 
@@ -3664,144 +3463,114 @@ a linear damper is connected here.
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
           points={{14,-131},{40,-131},{40,-108},{66,-108}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper.frame_b, body.frame_a) annotation (Line(
           points={{12,-108},{66,-108}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force.frame_b, body.frame_a) annotation (Line(
           points={{12,-77},{40,-77},{40,-108},{66,-108}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sine.y, force.force[1]) annotation (Line(
           points={{131,-50},{-22,-50},{-22,-62.3333},{-5.6,-62.3333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force.force[2]) annotation (Line(
           points={{131,2},{14,2},{14,-63.8},{-5.6,-63.8}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force.force[3]) annotation (Line(
           points={{131,2},{14,2},{14,-65.2667},{-5.6,-65.2667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
           points={{-80,-10},{-72,-10},{-72,151},{-12,151}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper1.frame_a, world.frame_b) annotation (Line(
           points={{-12,186},{-72,186},{-72,-10},{-80,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force1.frame_a, world.frame_b) annotation (Line(
           points={{-12,123},{-72,123},{-72,-10},{-80,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.frame_b, body1.frame_a) annotation (Line(
           points={{14,151},{38,151},{38,150},{64,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper1.frame_b, body1.frame_a) annotation (Line(
           points={{12,186},{38,186},{38,150},{64,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force1.frame_b, body1.frame_a) annotation (Line(
           points={{10,123},{38,123},{38,150},{64,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(const.y, force1.force[2]) annotation (Line(
           points={{131,2},{14,2},{14,109.8},{-7.6,109.8}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force1.force[3]) annotation (Line(
           points={{131,2},{14,2},{14,111.267},{-7.6,111.267}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sine.y, force1.force[1]) annotation (Line(
           points={{131,-50},{-22,-50},{-22,108.333},{-7.6,108.333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
           points={{-50,162},{-12,162},{-12,174}},
-          color={191,0,0},
-          smooth=Smooth.None));
+          color={191,0,0}));
       connect(prismatic2.frame_b, body2.frame_a) annotation (Line(
           points={{10,-305},{38,-305},{38,-260},{64,-260}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper2.frame_b, body2.frame_a) annotation (Line(
           points={{10,-270},{38,-270},{38,-260},{64,-260}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force2.frame_b, body2.frame_a) annotation (Line(
           points={{10,-229},{38,-229},{38,-260},{64,-260}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(const.y, force2.force[2]) annotation (Line(
           points={{131,2},{96,2},{96,-215.8},{-7.6,-215.8}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force2.force[3]) annotation (Line(
           points={{131,2},{96,2},{96,-217.267},{-7.6,-217.267}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sine.y, force2.force[1]) annotation (Line(
           points={{131,-50},{112,-50},{112,-214.333},{-7.6,-214.333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
           points={{-72,-56},{-72,-10},{-80,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
           points={{-72,-188},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-12,-131},{-42,-131},{-42,-76},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-12,-108},{-42,-108},{-42,-76},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-10,-77},{-42,-77},{-42,-76},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_b, force2.frame_a) annotation (Line(
           points={{-72,-208},{-44,-208},{-44,-229},{-12,-229}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper2.frame_a, fixedTranslation1.frame_b) annotation (Line(
           points={{-14,-270},{-44,-270},{-44,-208},{-72,-208}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic2.frame_a, fixedTranslation1.frame_b) annotation (Line(
           points={{-16,-305},{-44,-305},{-44,-208},{-72,-208}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (Diagram(coordinateSystem(extent={{-100,-360},{180,220}},
               preserveAspectRatio=true)), experiment(StopTime=7));
     end Damper;
@@ -3877,44 +3646,36 @@ a linear damper is connected here.
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-76,50},{-26,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring.frame_a) annotation (Line(
           points={{-76,50},{-48,50},{-48,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, spring1.frame_a) annotation (Line(
           points={{-6,50},{12,50},{12,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body2.frame_a, spring2.frame_b) annotation (Line(
           points={{70,-10},{70,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
           points={{28,50},{-6,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_b, spring2.frame_a) annotation (Line(
           points={{48,50},{70,50},{70,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body1.frame_a, spring.frame_b) annotation (Line(
           points={{-48,-10},{-48,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body.frame_a, spring1.frame_b) annotation (Line(
           points={{12,-10},{12,-2},{12,-2},{12,6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=3));
     end Spring2;
 
@@ -4010,93 +3771,76 @@ a linear damper is connected here.
       connect(world.frame_b, springDamperParallel.frame_a) annotation (Line(
           points={{-80,70},{-72,70},{-72,92},{2,92}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(pm1.frame_a, springDamperParallel.frame_b) annotation (Line(
           points={{70,92},{38,92}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(springDamperParallel.frame_a, universal.frame_a) annotation (Line(
           points={{2,92},{-12,92},{-12,142}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal.frame_b, prismatic.frame_a) annotation (Line(
           points={{8,142},{22,142}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_b, pm1.frame_a) annotation (Line(
           points={{42,142},{54,142},{54,92},{70,92}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
           points={{-72,28},{-72,70},{-80,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
           points={{-72,-106},{-72,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(pm2.frame_a, springDamperParallel1.frame_b) annotation (Line(
           points={{72,-24},{40,-24}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(springDamperParallel1.frame_a, universal1.frame_a) annotation (
           Line(
           points={{4,-24},{-10,-24},{-10,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal1.frame_b, prismatic1.frame_a) annotation (Line(
           points={{10,26},{24,26}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.frame_b, pm2.frame_a) annotation (Line(
           points={{44,26},{56,26},{56,-24},{72,-24}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(springDamperParallel1.frame_a, fixedTranslation.frame_b)
         annotation (Line(
           points={{4,-24},{-72,-24},{-72,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(pm3.frame_a, springDamperParallel2.frame_b) annotation (Line(
           points={{70,-126},{38,-126}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(springDamperParallel2.frame_a, universal2.frame_a) annotation (
           Line(
           points={{2,-126},{-12,-126},{-12,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal2.frame_b, prismatic2.frame_a) annotation (Line(
           points={{8,-76},{22,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic2.frame_b, pm3.frame_a) annotation (Line(
           points={{42,-76},{54,-76},{54,-126},{70,-126}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(springDamperParallel2.frame_a, fixedTranslation1.frame_b)
         annotation (Line(
           points={{2,-126},{-72,-126}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (Diagram(coordinateSystem(extent={{-120,-160},{100,160}},
               preserveAspectRatio=true)), experiment(StopTime=1.1, Tolerance=
               1e-007));
@@ -4183,144 +3927,114 @@ a linear damper is connected here.
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
           points={{14,-131},{40,-131},{40,-108},{66,-108}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper.frame_b, body.frame_a) annotation (Line(
           points={{12,-108},{66,-108}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force.frame_b, body.frame_a) annotation (Line(
           points={{12,-77},{40,-77},{40,-108},{66,-108}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(const.y, force.force[2]) annotation (Line(
           points={{131,2},{14,2},{14,-63.8},{-5.6,-63.8}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force.force[3]) annotation (Line(
           points={{131,2},{14,2},{14,-65.2667},{-5.6,-65.2667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, prismatic1.frame_a) annotation (Line(
           points={{-80,-10},{-72,-10},{-72,151},{-12,151}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper1.frame_a, world.frame_b) annotation (Line(
           points={{-12,186},{-72,186},{-72,-10},{-80,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force1.frame_a, world.frame_b) annotation (Line(
           points={{-12,123},{-72,123},{-72,-10},{-80,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.frame_b, body1.frame_a) annotation (Line(
           points={{14,151},{38,151},{38,150},{64,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper1.frame_b, body1.frame_a) annotation (Line(
           points={{12,186},{38,186},{38,150},{64,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force1.frame_b, body1.frame_a) annotation (Line(
           points={{10,123},{38,123},{38,150},{64,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(const.y, force1.force[2]) annotation (Line(
           points={{131,2},{14,2},{14,109.8},{-7.6,109.8}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force1.force[3]) annotation (Line(
           points={{131,2},{14,2},{14,111.267},{-7.6,111.267}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(heatCapacitor.port, damper1.heatPort) annotation (Line(
           points={{-50,162},{-12,162},{-12,174}},
-          color={191,0,0},
-          smooth=Smooth.None));
+          color={191,0,0}));
       connect(prismatic2.frame_b, body2.frame_a) annotation (Line(
           points={{10,-305},{38,-305},{38,-260},{64,-260}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper2.frame_b, body2.frame_a) annotation (Line(
           points={{10,-270},{38,-270},{38,-260},{64,-260}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force2.frame_b, body2.frame_a) annotation (Line(
           points={{10,-229},{38,-229},{38,-260},{64,-260}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(const.y, force2.force[2]) annotation (Line(
           points={{131,2},{96,2},{96,-215.8},{-7.6,-215.8}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(const.y, force2.force[3]) annotation (Line(
           points={{131,2},{96,2},{96,-217.267},{-7.6,-217.267}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
           points={{-72,-56},{-72,-10},{-80,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_a, fixedTranslation.frame_b) annotation (
           Line(
           points={{-72,-188},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-12,-131},{-42,-131},{-42,-76},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-12,-108},{-42,-108},{-42,-76},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(force.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-10,-77},{-42,-77},{-42,-76},{-72,-76}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_b, force2.frame_a) annotation (Line(
           points={{-72,-208},{-44,-208},{-44,-229},{-12,-229}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper2.frame_a, fixedTranslation1.frame_b) annotation (Line(
           points={{-14,-270},{-44,-270},{-44,-208},{-72,-208}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic2.frame_a, fixedTranslation1.frame_b) annotation (Line(
           points={{-16,-305},{-44,-305},{-44,-208},{-72,-208}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(trapezoid.y, force2.force[1]) annotation (Line(
           points={{133,-116},{104,-116},{104,-214.333},{-7.6,-214.333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(trapezoid.y, force.force[1]) annotation (Line(
           points={{133,-116},{103.5,-116},{103.5,-62.3333},{-5.6,-62.3333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(trapezoid.y, force1.force[1]) annotation (Line(
           points={{133,-116},{104,-116},{104,108.333},{-7.6,108.333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (Diagram(coordinateSystem(extent={{-100,-360},{180,220}},
               preserveAspectRatio=true)), experiment(StopTime=7));
     end Damper2;
@@ -4352,38 +4066,31 @@ a linear damper is connected here.
       connect(s1.frame_a, world.frame_b) annotation (Line(
           points={{-68,160},{-90,160}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sps1.frame_a, s1.frame_a) annotation (Line(
           points={{-68,136},{-68,160}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(s1.frame_b, pointMass.frame_a) annotation (Line(
           points={{-48,160},{-30,160},{-30,150},{-8,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sps1.frame_b, pointMass.frame_a) annotation (Line(
           points={{-48,136},{-30,136},{-30,150},{-8,150}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(s1.frame_a, universal1.frame_a) annotation (Line(
           points={{-68,160},{-68,190},{-66,190}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(pointMass.frame_a, prismatic1.frame_b) annotation (Line(
           points={{-8,150},{-8,190},{-16,190}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal1.frame_b, prismatic1.frame_a) annotation (Line(
           points={{-46,190},{-36,190}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.0),Diagram(coordinateSystem(extent={{-120,80},{40,200}},
               preserveAspectRatio=true)));
     end SpringDamperSeries;
@@ -4459,62 +4166,48 @@ a linear damper is connected here.
               {14,20},{22,20},{22,12}}, color={0,191,0}));
       connect(world.frame_b, rod2.frame_a) annotation (Line(
           points={{-60,70},{-40,70},{-40,74}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, rod1.frame_a) annotation (Line(
           points={{-60,70},{-40,70},{-40,64}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
           points={{-40,94},{-40,98},{-30,98},{-30,90},{-20,90}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute1.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{0,90},{12,90},{20,90}},
-          color={0,0,0},
           thickness=0.5));
       connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
           points={{40,90},{50,90},{50,40},{20,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
           points={{-40,44},{-40,40},{0,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
           points={{-40,-10},{-40,-6},{-30,-6},{-30,-20},{-20,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute2.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{0,-20},{20,-20}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, rod4.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,-36},{-40,-36},{-40,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rod3.frame_a, rod4.frame_a) annotation (Line(
           points={{-40,-40},{-40,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(damper2.flange_a, lineForceWithMass.flange_a) annotation (Line(
           points={{4,-90},{4,-70},{8,-70}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(damper2.flange_b, lineForceWithMass.flange_b) annotation (Line(
           points={{24,-90},{24,-70},{20,-70}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(rod3.frame_b, lineForceWithMass.frame_a) annotation (Line(
           points={{-40,-60},{4,-60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(lineForceWithMass.frame_b, bodyBox2.frame_b) annotation (Line(
           points={{24,-60},{50,-60},{50,-20},{40,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=3), Documentation(info="<html>
 <p>
 With this example it is demonstrated how to use the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS
@@ -4553,7 +4246,6 @@ a linear damper is connected here.
                 20},{-40,40}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,0,1}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute(
@@ -4580,23 +4272,18 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, revolute.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute.frame_b, axis.frame_a) annotation (Line(
           points={{-2,30},{4,30},{4,70},{10,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, revolute.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, revolute.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Revolute;
@@ -4637,23 +4324,19 @@ a linear damper is connected here.
         "Expected spring stiffness constant is not equal to the actual constant");
       connect(world.frame_b, rev.frame_a) annotation (Line(
           points={{-60,10},{-40,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-16,
-              50},{-16,26},{-30,26},{-30,20}}, color={0,0,0}));
+              50},{-16,26},{-30,26},{-30,20}}));
       connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{
-              -36,26},{-48,26},{-48,50},{-40,50}}, color={0,0,0}));
+              -36,26},{-48,26},{-48,50},{-40,50}}));
       connect(rev.frame_b, body.frame_a) annotation (Line(
           points={{-20,10},{0,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixed.frame_b, spring.frame_a) annotation (Line(
           points={{50,60},{50,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(body.frame_b, spring.frame_b) annotation (Line(
           points={{20,10},{50,10},{50,20}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end RevoluteInitialization;
@@ -4666,7 +4349,6 @@ a linear damper is connected here.
                 20},{-40,40}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={1,1,0}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
@@ -4692,23 +4374,18 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, prismatic.frame_a) annotation (Line(
           points={{-40,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
           points={{0,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(prismatic.frame_b, axis.frame_a) annotation (Line(
           points={{0,30},{4,30},{4,70},{10,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, prismatic.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, prismatic.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{0,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Prismatic;
@@ -4721,7 +4398,6 @@ a linear damper is connected here.
                 20},{-40,40}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,0,1}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       Modelica.Mechanics.MultiBody.Joints.Cylindrical cylindrical(
@@ -4751,23 +4427,18 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, cylindrical.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(cylindrical.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(cylindrical.frame_b, axis.frame_a) annotation (Line(
           points={{-2,30},{4,30},{4,70},{10,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, cylindrical.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, cylindrical.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Cylindrical;
@@ -4780,7 +4451,6 @@ a linear damper is connected here.
                 20},{-40,40}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis2(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,1,0},
         animation=false) annotation (Placement(transformation(extent={{10,60},{
@@ -4813,7 +4483,6 @@ a linear damper is connected here.
             rotation=270)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis1(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,0,1},
         animation=false) annotation (Placement(transformation(extent={{-34,60},
@@ -4821,27 +4490,21 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, universal.frame_a) annotation (Line(
           points={{-40,30},{-24,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(universal.frame_b, body.frame_a) annotation (Line(
           points={{-4,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(universal.frame_b, axis2.frame_a) annotation (Line(
           points={{-4,30},{4,30},{4,70},{10,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, universal.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-24,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, universal.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-4,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(universal.frame_a, axis1.frame_a) annotation (Line(
           points={{-24,30},{-24,30},{-24,56},{-48,56},{-48,70},{-34,70}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Universal;
@@ -4854,7 +4517,6 @@ a linear damper is connected here.
                 -10},{-40,10}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis2(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,1,0}) annotation (Placement(transformation(extent={{40,30},{60,50}})));
       Modelica.Mechanics.MultiBody.Joints.Planar planar(
@@ -4889,7 +4551,6 @@ a linear damper is connected here.
             rotation=270)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis1(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,0,1},
         r_tail={0,0,0.5}) annotation (Placement(transformation(extent={{-8,30},
@@ -4897,27 +4558,21 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, planar.frame_a) annotation (Line(
           points={{-40,0},{-20,0},{-10,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(planar.frame_b, body.frame_a) annotation (Line(
           points={{10,0},{40,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(planar.frame_b, axis2.frame_a) annotation (Line(
           points={{10,0},{20,0},{20,40},{40,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, planar.frame_a) annotation (Line(
           points={{-20,-30},{-20,0},{-10,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, planar.frame_b) annotation (Line(
           points={{20,-30},{20,-30},{20,0},{10,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(planar.frame_a, axis1.frame_a) annotation (Line(
           points={{-10,0},{-20,0},{-20,40},{-8,40}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Planar;
@@ -4952,19 +4607,15 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, spherical.frame_a) annotation (Line(
           points={{-40,0},{-20,0},{-10,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(spherical.frame_b, body.frame_a) annotation (Line(
           points={{10,0},{40,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, spherical.frame_a) annotation (Line(
           points={{-20,-30},{-20,0},{-10,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, spherical.frame_b) annotation (Line(
           points={{20,-30},{20,-30},{20,0},{10,0}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Spherical;
@@ -5002,19 +4653,15 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, freeMotion.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(freeMotion.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotion.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotion.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FreeMotion;
@@ -5074,19 +4721,15 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(freeMotionScalarInit.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit;
@@ -5147,19 +4790,15 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(freeMotionScalarInit.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit2;
@@ -5226,30 +4865,24 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(freeMotionScalarInit.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, spring.frame_a) annotation (Line(
           points={{-40,30},{-30,30},{-30,58},{-20,58}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring.frame_b, body.frame_a) annotation (Line(
           points={{0,58},{12,58},{12,30},{20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit3;
 
@@ -5318,30 +4951,24 @@ a linear damper is connected here.
     equation
       connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(freeMotionScalarInit.frame_b, body.frame_a) annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, spring.frame_a) annotation (Line(
           points={{-40,30},{-30,30},{-30,58},{-20,58}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring.frame_b, body.frame_a) annotation (Line(
           points={{0,58},{12,58},{12,30},{20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit4;
 
@@ -5414,33 +5041,27 @@ a linear damper is connected here.
       connect(world.frame_b, freeMotionScalarInit1.frame_a)
                                                            annotation (Line(
           points={{-40,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(freeMotionScalarInit1.frame_b, body.frame_a)
                                                           annotation (Line(
           points={{-2,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit1.frame_a)
                                                              annotation (Line(
           points={{-30,0},{-30,30},{-22,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit1.frame_b)
                                                               annotation (Line(
           points={{10,0},{12,0},{12,30},{-2,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, freeMotionScalarInit2.frame_a) annotation (Line(
           points={{-40,30},{-30,30},{-30,56},{-20,56}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotionScalarInit2.frame_b, body.frame_a) annotation (Line(
           points={{0,56},{12,56},{12,30},{20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FreeMotionScalarInit5;
 
@@ -5461,11 +5082,11 @@ a linear damper is connected here.
             false) annotation (Placement(transformation(extent={{80,-10},{60,10}})));
     equation
       connect(world.frame_b, sphericalSpherical.frame_a)
-        annotation (Line(points={{-40,0},{-20,0}}, color={0,0,0}));
+        annotation (Line(points={{-40,0},{-20,0}}));
       connect(sphericalSpherical.frame_b, Prismatic1.frame_a)
-        annotation (Line(points={{0,0},{20,0}}, color={0,0,0}));
+        annotation (Line(points={{0,0},{20,0}}));
       connect(Prismatic1.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{40,0},{60,0}}, color={0,0,0}));
+        annotation (Line(points={{40,0},{60,0}}));
       annotation (experiment(StopTime=1.1));
     end SphericalSpherical;
 
@@ -5499,14 +5120,12 @@ a linear damper is connected here.
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow rRod2(
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow prism(
@@ -5517,19 +5136,19 @@ a linear damper is connected here.
         length=0.2) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
     equation
       connect(world.frame_b, jointUSP.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointUSP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(jointUSP.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
-              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
+              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}));
       connect(n2_ia.frame_a, jointUSP.frame_ia) annotation (Line(points={{-20,
-              70},{-24,70},{-24,46},{-18,46},{-18,40}}, color={0,0,0}));
+              70},{-24,70},{-24,46},{-18,46},{-18,40}}));
       connect(jointUSP.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
-              40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
+              40},{-26,40},{-26,-10},{-20,-10}}));
       connect(rRod2.frame_a, jointUSP.frame_ib) annotation (Line(points={{40,-10},
-              {56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+              {56,-10},{56,58},{-2,58},{-2,40}}));
       connect(prism.frame_a, jointUSP.frame_b) annotation (Line(points={{0,-50},
-              {10,-50},{10,30},{0,30}}, color={0,0,0}));
+              {10,-50},{10,30},{0,30}}));
       annotation (experiment(StopTime=1.1));
     end JointUSP;
 
@@ -5563,20 +5182,19 @@ a linear damper is connected here.
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
     equation
       connect(world.frame_b, jointUPS.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointUPS.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(jointUPS.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
-              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
+              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}));
       connect(n2_ia.frame_a, jointUPS.frame_ia) annotation (Line(points={{-20,
-              70},{-24,70},{-24,46},{-18,46},{-18,40}}, color={0,0,0}));
+              70},{-24,70},{-24,46},{-18,46},{-18,40}}));
       connect(jointUPS.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
-              40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
+              40},{-26,40},{-26,-10},{-20,-10}}));
       annotation (experiment(StopTime=1.1));
     end JointUPS;
 
@@ -5601,7 +5219,6 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow rRod2(
         diameter=d,
         n=rRod2_ib,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod2_ib),
         r_tail={0.05,0.1,0}) annotation (Placement(transformation(extent={{40,-20},
                 {20,0}})));
@@ -5612,13 +5229,13 @@ a linear damper is connected here.
         n={0,0,1}) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
     equation
       connect(world.frame_b, jointSSR.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointSSR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(rRod2.frame_a, jointSSR.frame_ib) annotation (Line(points={{40,-10},
-              {56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+              {56,-10},{56,58},{-2,58},{-2,40}}));
       connect(prism.frame_a, jointSSR.frame_b) annotation (Line(points={{0,-50},
-              {10,-50},{10,30},{0,30}}, color={0,0,0}));
+              {10,-50},{10,30},{0,30}}));
       annotation (experiment(StopTime=1.1));
     end JointSSR;
 
@@ -5652,14 +5269,12 @@ a linear damper is connected here.
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow rRod2(
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow prism(
@@ -5669,19 +5284,19 @@ a linear damper is connected here.
         length=0.3) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
     equation
       connect(world.frame_b, jointUSR.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointUSR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(jointUSR.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
-              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
+              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}));
       connect(n2_ia.frame_a, jointUSR.frame_ia) annotation (Line(points={{-20,
-              70},{-24,70},{-24,46},{-18,46},{-18,40}}, color={0,0,0}));
+              70},{-24,70},{-24,46},{-18,46},{-18,40}}));
       connect(jointUSR.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
-              40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
+              40},{-26,40},{-26,-10},{-20,-10}}));
       connect(rRod2.frame_a, jointUSR.frame_ib) annotation (Line(points={{40,-10},
-              {56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+              {56,-10},{56,58},{-2,58},{-2,40}}));
       connect(prism.frame_a, jointUSR.frame_b) annotation (Line(points={{0,-50},
-              {10,-50},{10,30},{0,30}}, color={0,0,0}));
+              {10,-50},{10,30},{0,30}}));
       annotation (experiment(StopTime=1.1));
     end JointUSR;
 
@@ -5709,14 +5324,12 @@ a linear damper is connected here.
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow rRod2(
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow prism(
@@ -5733,20 +5346,19 @@ a linear damper is connected here.
                 {10,86}})));
     equation
       connect(world.frame_b, jointRRR.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointRRR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(jointRRR.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
-              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
+              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}));
       connect(jointRRR.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
-              40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
+              40},{-26,40},{-26,-10},{-20,-10}}));
       connect(rRod2.frame_a, jointRRR.frame_ib) annotation (Line(points={{40,-10},
-              {56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+              {56,-10},{56,58},{-2,58},{-2,40}}));
       connect(prism.frame_a, jointRRR.frame_b) annotation (Line(points={{0,-50},
-              {10,-50},{10,30},{0,30}}, color={0,0,0}));
+              {10,-50},{10,30},{0,30}}));
       connect(n1_a1.frame_a, jointRRR.frame_im) annotation (Line(
           points={{-10,76},{-10,76},{-10,40}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end JointRRR;
@@ -5781,14 +5393,12 @@ a linear damper is connected here.
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod1_ia,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod1_ia)) annotation (Placement(
             transformation(extent={{-20,-20},{0,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow rRod2(
         diameter=d,
         r_tail={0,-0.1,0},
         n=rRod2_ib,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod2_ib)) annotation (Placement(
             transformation(extent={{40,-20},{20,0}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow prism(
@@ -5799,20 +5409,19 @@ a linear damper is connected here.
         length=0.4) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
     equation
       connect(world.frame_b, jointRRP.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointRRP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(jointRRP.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
-              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
+              {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}));
       connect(jointRRP.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
-              40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
+              40},{-26,40},{-26,-10},{-20,-10}}));
       connect(rRod2.frame_a, jointRRP.frame_ib) annotation (Line(points={{40,-10},
-              {56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+              {56,-10},{56,58},{-2,58},{-2,40}}));
       connect(prism.frame_a, jointRRP.frame_b) annotation (Line(points={{0,-50},
-              {10,-50},{10,30},{0,30}}, color={0,0,0}));
+              {10,-50},{10,30},{0,30}}));
       connect(jointRRP.frame_im, n2_ia.frame_a) annotation (Line(
           points={{-10,40},{-10,55.5},{-20,55.5},{-20,70}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end JointRRP;
@@ -5839,7 +5448,6 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow rRod2(
         diameter=d,
         n=rRod2_ib,
-        color={0,0,0},
         length=Modelica.Math.Vectors.length(rRod2_ib),
         r_tail={0.05,0.1,0}) annotation (Placement(transformation(extent={{40,-20},
                 {20,0}})));
@@ -5850,13 +5458,13 @@ a linear damper is connected here.
         n={0,0,1}) annotation (Placement(transformation(extent={{0,-60},{-20,-40}})));
     equation
       connect(world.frame_b, jointSSP.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,30},{-20,30}}));
       connect(jointSSP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}));
       connect(rRod2.frame_a, jointSSP.frame_ib) annotation (Line(points={{40,-10},
-              {56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+              {56,-10},{56,58},{-2,58},{-2,40}}));
       connect(prism.frame_a, jointSSP.frame_b) annotation (Line(points={{0,-50},
-              {10,-50},{10,30},{0,30}}, color={0,0,0}));
+              {10,-50},{10,30},{0,30}}));
       annotation (experiment(StopTime=1.1));
     end JointSSP;
 
@@ -5885,30 +5493,24 @@ a linear damper is connected here.
       connect(torque.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{0,-50},{10,-50},{10,20},{20,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(signalTorque_x.y, torque.torque[1]) annotation (Line(
           points={{-39,-20},{-30,-20},{-30,-48.6667},{-22,-48.6667}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(signalTorque_y.y, torque.torque[2]) annotation (Line(
           points={{-39,-50},{-22,-50}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(signalTorque_z.y, torque.torque[3]) annotation (Line(
           points={{-39,-80},{-30,-80},{-30,-51.3333},{-22,-51.3333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(world.frame_b, universal.frame_a) annotation (Line(
           points={{-80,20},{-46,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{-26,20},{20,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation(experiment(StopTime=1.0));
     end CheckConstaintTorqueUniversalJoint;
 
@@ -5921,7 +5523,6 @@ a linear damper is connected here.
                 20},{-70,40}})));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis(
         length=0.5,
-        color={0,0,0},
         diameter=0.02,
         n={0,0,1}) annotation (Placement(transformation(extent={{10,60},{30,80}})));
       Modelica.Mechanics.MultiBody.Joints.Revolute revolute(
@@ -5999,70 +5600,51 @@ a linear damper is connected here.
       assert(revolute.w - revolute1.w < tol, "Angles of joints must be equal");
       connect(world.frame_b, revolute.frame_a) annotation (Line(
           points={{-70,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute.frame_b, body.frame_a) annotation (Line(
           points={{0,30},{10,30},{20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute.frame_b, axis.frame_a) annotation (Line(
           points={{0,30},{4,30},{4,70},{10,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, revolute.frame_a) annotation (Line(
           points={{-30,0},{-30,30},{-20,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, revolute.frame_b) annotation (Line(
           points={{10,0},{12,0},{12,30},{0,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(revolute1.frame_a, world.frame_b) annotation (Line(
           points={{-22,-38},{-46,-38},{-46,30},{-70,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute1.frame_b, body1.frame_a) annotation (Line(
           points={{-2,-38},{20,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(constantSpeed.support, revolute1.support) annotation (Line(
-          points={{-78,-34},{-78,-28},{-18,-28}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-78,-34},{-78,-28},{-18,-28}}));
       connect(constantSpeed.flange, revolute1.axis) annotation (Line(
-          points={{-68,-24},{-12,-24},{-12,-28}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-68,-24},{-12,-24},{-12,-28}}));
       connect(body2.frame_a, revolute2.frame_b) annotation (Line(
           points={{88,-120},{74,-120}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute3.axis, damper.flange_a) annotation (Line(
-          points={{-22,-110},{-20,-110},{-20,-86},{12,-86}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-22,-110},{-20,-110},{-20,-86},{12,-86}}));
       connect(revolute3.frame_a, world.frame_b) annotation (Line(
           points={{-32,-120},{-46,-120},{-46,30},{-70,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute3.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{-12,-120},{14,-120}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyCylinder.frame_b, revolute2.frame_a) annotation (Line(
           points={{34,-120},{54,-120}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(damper.flange_b, revolute2.axis) annotation (Line(
-          points={{32,-86},{64,-86},{64,-110}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{32,-86},{64,-86},{64,-110}}));
       annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(extent={{-100,
                 -140},{120,100}}, preserveAspectRatio=true)));
     end Revolute2;
@@ -6137,71 +5719,56 @@ a linear damper is connected here.
       connect(revolute1.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{18,52},{36,52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyCylinder.frame_b, revolute3.frame_a) annotation (Line(
           points={{56,52},{72,52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(torque.flange, revolute1.axis) annotation (Line(
-          points={{6,84},{6,62},{8,62}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{6,84},{6,62},{8,62}}));
       connect(realExpression.y, torque.tau) annotation (Line(
           points={{-25,84},{-16,84}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(revolute3.frame_b, bodyCylinder1.frame_a) annotation (Line(
           points={{92,52},{102,52},{102,30},{106,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyCylinder1.frame_b, revolute4.frame_a) annotation (Line(
           points={{106,10},{98,10},{98,-6},{86,-6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute4.frame_b, bodyCylinder2.frame_a) annotation (Line(
           points={{66,-6},{62.5,-6},{62.5,-6},{59,-6},{59,-6},{52,-6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyCylinder2.frame_b, revolute.frame_a) annotation (Line(
           points={{32,-6},{28,-6},{28,-6},{24,-6},{24,-6},{16,-6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute.frame_b, bodyCylinder3.frame_a) annotation (Line(
           points={{-4,-6},{-12,-6},{-12,12},{-20,12}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyCylinder3.frame_b, revolute1.frame_a) annotation (Line(
           points={{-20,32},{-12,32},{-12,52},{-2,52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, revolute2.frame_a) annotation (Line(
           points={{-140,50},{-122,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation.frame_b, fixedRotation1.frame_a) annotation (Line(
           points={{-66,50},{-52,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute2.frame_b, fixedRotation.frame_a) annotation (Line(
           points={{-102,50},{-86,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation1.frame_b, revolute1.frame_a) annotation (Line(
           points={{-32,50},{-18,50},{-18,52},{-2,52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=5), Diagram(coordinateSystem(extent={{-160,
                 -40},{120,100}}, preserveAspectRatio=true)));
     end RevolutePlanarLoopConstraint;
@@ -6266,59 +5833,47 @@ a linear damper is connected here.
       connect(freeMotion.frame_a, fixed.frame_b) annotation (Line(
           points={{60,10},{76,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, freeMotion.frame_b) annotation (Line(
           points={{16,10},{40,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_b, universal.frame_a) annotation (Line(
           points={{-44,10},{-34,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal.frame_b, bodyBox.frame_a) annotation (Line(
           points={{-14,10},{-4,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_a, world.frame_b) annotation (Line(
           points={{-64,10},{-80,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.support, spring.flange_a) annotation (Line(
           points={{-58,16},{-64,16},{-64,36}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(prismatic.axis, spring.flange_b) annotation (Line(
           points={{-46,16},{-44,16},{-44,36}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(prismatic1.frame_b, universal1.frame_a) annotation (Line(
           points={{-44,-52},{-34,-52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal1.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{-14,-52},{-4,-52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.frame_a, world.frame_b) annotation (Line(
           points={{-64,-52},{-77,-52},{-77,10},{-80,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic1.support, spring1.flange_a) annotation (Line(
           points={{-58,-46},{-64,-46},{-64,-26}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(prismatic1.axis, spring1.flange_b) annotation (Line(
           points={{-46,-46},{-44,-46},{-44,-26}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       annotation (experiment(StopTime=2, Tolerance=1e-006));
     end FreeMotion2;
 
@@ -6440,114 +5995,92 @@ a linear damper is connected here.
       assert(r3[1] < tol1 and r3[2] < tol1 and r3[3] < tol1,
         "Difference in positions between bodies is too much");
       connect(world.frame_b, sphericalSpherical.frame_a)
-        annotation (Line(points={{-80,70},{-36,70},{-20,70}}, color={0,0,0}));
+        annotation (Line(points={{-80,70},{-36,70},{-20,70}}));
       connect(spherical.frame_a, world.frame_b) annotation (Line(
           points={{-78,22},{-80,22},{-80,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_a, spherical.frame_b) annotation (Line(
           points={{-46,22},{-58,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation1.frame_b, spherical1.frame_a) annotation (Line(
           points={{34,22},{38,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spherical1.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{58,22},{68,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sphericalSpherical.frame_b, bodyBox.frame_a) annotation (Line(
           points={{0,70},{40,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, rs1.frame_a) annotation (Line(
           points={{60,70},{104,70},{104,58}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox1.frame_b, rs1.frame_b) annotation (Line(
           points={{88,22},{104,22},{104,38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body.frame_a, fixedTranslation.frame_b) annotation (Line(
           points={{-8,22},{-26,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body.frame_a, fixedTranslation1.frame_a) annotation (Line(
           points={{-8,22},{14,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sphericalSpherical1.frame_a, world.frame_b) annotation (Line(
           points={{-18,-38},{-80,-38},{-80,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sphericalSpherical1.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{2,-38},{38,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox2.frame_b, rs2.frame_b) annotation (Line(
           points={{58,-38},{104,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox1.frame_b, rs2.frame_a) annotation (Line(
           points={{88,22},{104,22},{104,-18}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, rs3.frame_a) annotation (Line(
           points={{60,70},{154,70},{154,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox2.frame_b, rs3.frame_b) annotation (Line(
           points={{58,-38},{154,-38},{154,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotionScalarInit.frame_a, world.frame_b) annotation (Line(
           points={{-20,94},{-52,94},{-52,70},{-80,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotionScalarInit.frame_b, bodyBox.frame_a) annotation (Line(
           points={{0,94},{20,94},{20,70},{40,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotionScalarInit1.frame_a, world.frame_b) annotation (Line(
           points={{-16,-68},{-80,-68},{-80,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotionScalarInit1.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{4,-68},{22,-68},{22,-38},{38,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(rs1.r_rel, r1) annotation (Line(
           points={{93,58},{76,58}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(rs2.r_rel, r2) annotation (Line(
           points={{93,-18},{76,-18}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(rs3.r_rel, r3) annotation (Line(
           points={{143,30},{124,30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{200,100}},
               preserveAspectRatio=false), graphics));
@@ -6661,105 +6194,84 @@ a linear damper is connected here.
       connect(spherical1.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{58,22},{68,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, rs1.frame_a) annotation (Line(
           points={{60,70},{104,70},{104,54}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox1.frame_b, rs1.frame_b) annotation (Line(
           points={{88,22},{104,22},{104,34}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox2.frame_b, rs2.frame_b) annotation (Line(
           points={{58,-38},{104,-38},{104,-22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox1.frame_b, rs2.frame_a) annotation (Line(
           points={{88,22},{104,22},{104,-2}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, rs3.frame_a) annotation (Line(
           points={{60,70},{160,70},{160,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox2.frame_b, rs3.frame_b) annotation (Line(
           points={{58,-38},{160,-38},{160,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, universalSpherical.frame_a) annotation (Line(
           points={{-80,70},{-22,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, universal.frame_a) annotation (Line(
           points={{-80,70},{-68,70},{-68,22},{-62,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, universalSpherical1.frame_a) annotation (Line(
           points={{-80,70},{-80,-38},{-16,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universalSpherical.frame_b, bodyBox.frame_a) annotation (Line(
           points={{-2,70},{40,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universalSpherical1.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{4,-38},{38,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-42,22},{-30,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, spherical1.frame_a) annotation (Line(
           points={{-10,22},{38,22}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, init.frame_a) annotation (Line(
           points={{-80,70},{-68,70},{-68,96},{-20,96}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(init.frame_b, bodyBox.frame_a) annotation (Line(
           points={{0,96},{32,96},{32,70},{40,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, init2.frame_a) annotation (Line(
           points={{-80,70},{-68,70},{-68,-68},{-18,-68}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(init2.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{2,-68},{22,-68},{22,-38},{38,-38}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(rs1.r_rel, r1) annotation (Line(
           points={{93,54},{70,54}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(rs3.r_rel, r3) annotation (Line(
           points={{149,30},{128,30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(rs2.r_rel, r2) annotation (Line(
           points={{93,-2},{74,-2}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=2, Tolerance=1e-006), Diagram(
             coordinateSystem(extent={{-120,-100},{200,100}},
               preserveAspectRatio=false), graphics));
@@ -6794,27 +6306,22 @@ a linear damper is connected here.
         "Expected spring stiffness constant is not equal to the actual constant");
       connect(world.frame_b, prismatic.frame_a) annotation (Line(
           points={{-46,10},{-12,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(prismatic.frame_b, body.frame_a) annotation (Line(
           points={{8,10},{8,10},{50,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(body.frame_a, spring.frame_b) annotation (Line(
           points={{50,10},{48,10},{48,46},{44,46}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-46,10},{-32,10},{-32,46},{-16,46}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, spring.frame_a) annotation (Line(
           points={{4,46},{24,46}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=5));
     end PrismaticInit;
 
@@ -6862,41 +6369,33 @@ a linear damper is connected here.
       connect(jointUSP.frame_im, body.frame_a) annotation (Line(
           points={{-8,60},{-4,60},{-4,72},{0,72}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, jointUSP.frame_a) annotation (Line(
           points={{-60,24},{-40,24},{-40,50},{-18,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring.flange_a, jointUSP.axis) annotation (Line(
           points={{32,76},{18,76},{18,58},{2,58}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(jointUSP.bearing, spring.flange_b) annotation (Line(
           points={{2,54},{16,54},{16,56},{32,56}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-60,24},{-50,24},{-50,-6},{-38,-6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, revolute.frame_a) annotation (Line(
           points={{-18,-6},{12,-6}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute.frame_b, bodyBox.frame_a) annotation (Line(
           points={{32,-6},{38,-6},{38,4},{44,4}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, jointUSP.frame_b) annotation (Line(
           points={{44,24},{24,24},{24,50},{2,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=4));
     end JointUSP2;
 
@@ -6936,41 +6435,33 @@ a linear damper is connected here.
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-40,-30},{-30,-30},{-30,-60},{-18,-60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, jointUPS.frame_a) annotation (Line(
           points={{-40,-30},{-20,-30},{-20,-10},{-4,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(jointUPS.axis, spring.flange_b) annotation (Line(
           points={{21.2,8},{20,8},{20,26},{22,26}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(jointUPS.bearing, spring.flange_a) annotation (Line(
           points={{6.8,8},{6,8},{6,26},{2,26}},
-          color={0,127,0},
-          smooth=Smooth.None));
+          color={0,127,0}));
       connect(jointUPS.frame_ib, body.frame_a) annotation (Line(
           points={{28.4,8},{39.2,8},{39.2,24},{50,24}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(jointUPS.frame_b, bodyBox.frame_b) annotation (Line(
           points={{32,-10},{48,-10},{48,-30},{64,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, universal.frame_a) annotation (Line(
           points={{2,-60},{12,-60},{12,-64},{22,-64}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal.frame_b, bodyBox.frame_a) annotation (Line(
           points={{42,-64},{54,-64},{54,-50},{64,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=4));
     end JointUPS2;
 
@@ -7018,71 +6509,51 @@ a linear damper is connected here.
       connect(cyl1.frame_b, gearConstraint.frame_a) annotation (Line(
           points={{22,50},{34,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(torque1.frame_b, cyl1.frame_a) annotation (Line(
           points={{-6,50},{2,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(torque1.frame_a, world.frame_b) annotation (Line(
           points={{-26,50},{-36,50},{-36,20},{-42,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(sine.y, torque1.torque) annotation (Line(
           points={{-79,70},{-22,70},{-22,62}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
-          points={{0,-30},{12,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{0,-30},{12,-30}}));
       connect(torque2.flange, inertia1.flange_a) annotation (Line(
-          points={{-28,-30},{-20,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-28,-30},{-20,-30}}));
       connect(sine[1].y, torque2.tau) annotation (Line(
           points={{-79,70},{-72,70},{-72,-30},{-50,-30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(mounting1D.flange_b, torque2.support) annotation (Line(
-          points={{0,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{0,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}}));
       connect(fixed.frame_b, mounting1D.frame_a) annotation (Line(
           points={{-28,-80},{-10,-80},{-10,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, gearConstraint.frame_b) annotation (Line(
           points={{-42,20},{60,20},{60,50},{54,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(cyl2.frame_a, gearConstraint.bearing) annotation (Line(
           points={{64,30},{44,30},{44,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(mounting1D.flange_b, idealGear.flange_b) annotation (Line(
-          points={{0,-60},{38,-60},{38,-30},{32,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{0,-60},{38,-60},{38,-30},{32,-30}}));
       connect(inertia2.flange_a, idealGear.support) annotation (Line(
-          points={{60,-50},{22,-50},{22,-40}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{60,-50},{22,-50},{22,-40}}));
       connect(cyl2.frame_b, fixedFrame2.frame_a) annotation (Line(
           points={{84,30},{92,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame1.frame_a, cyl1.frame_a) annotation (Line(
           points={{4,80},{2,80},{2,50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=5));
     end GearConstraint;
   end Joints;
@@ -7119,23 +6590,19 @@ a linear damper is connected here.
       connect(fixed1.frame_b, arrow.frame_a) annotation (Line(
           points={{-10,-10},{10,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixed1.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-10,-10},{0,-10},{0,10},{10,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(frameT1.frame_a, fixedTranslation.frame_a) annotation (Line(
           points={{-10,30},{0,30},{0,10},{10,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, frameT2.frame_a) annotation (Line(
           points={{30,10},{50,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FixedTranslation;
 
@@ -7187,38 +6654,31 @@ a linear damper is connected here.
       connect(world.frame_b, bar2.frame_a) annotation (Line(
           points={{-60,30},{20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring1.frame_a) annotation (Line(
           points={{-60,30},{0,30},{0,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, freeMotion.frame_a) annotation (Line(
           points={{-60,30},{-50,30},{-50,-30},{-40,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring1.frame_b, body.frame_a) annotation (Line(
           points={{0,-10},{0,-30},{20,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotion.frame_b, body.frame_a) annotation (Line(
           points={{-20,-30},{20,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(body.frame_b, spring2.frame_b) annotation (Line(
           points={{40,-30},{60,-30},{60,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bar2.frame_b, spring2.frame_a) annotation (Line(
           points={{40,30},{60,30},{60,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This is the same example as \"FreeBody\". The only difference
@@ -7377,48 +6837,39 @@ often possible to use the FreeMotion joint such that the singularity
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
           points={{76,-30},{96,-30},{96,-4}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
           points={{-74,30},{-60,30},{-60,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
           points={{-60,-10},{-60,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
           points={{-74,30},{-36,30},{-36,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
           points={{-36,-12},{-36,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
           points={{-74,30},{-6,30},{-6,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
           points={{-74,30},{16,30},{16,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring6.frame_b, pointMass.frame_a) annotation (Line(
           points={{16,-12},{16,-24},{16,-24},{16,-36}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (
         experiment(StopTime=10),
         Documentation(info="<html>
@@ -7573,48 +7024,39 @@ often possible to use the FreeMotion joint such that the singularity
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
           points={{76,-30},{96,-30},{96,-4}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
           points={{-74,30},{-60,30},{-60,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
           points={{-60,-10},{-60,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
           points={{-74,30},{-36,30},{-36,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
           points={{-36,-12},{-36,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
           points={{-74,30},{-6,30},{-6,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
           points={{-74,30},{16,30},{16,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
           points={{16,-36},{16,-24},{16,-12},{16,-12}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 
 </html>"));
@@ -7670,28 +7112,23 @@ often possible to use the FreeMotion joint such that the singularity
       connect(Fixed1.frame_b, body1.frame_a) annotation (Line(
           points={{-60,70},{-20,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Fixed2.frame_b, body2.frame_a) annotation (Line(
           points={{-60,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Fixed3.frame_b, bodyShape.frame_a) annotation (Line(
           points={{-60,-10},{-20,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Fixed4.frame_b, BodyBox1.frame_a) annotation (Line(
           points={{-60,-50},{-20,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(Fixed5.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{-60,-90},{-20,-90}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Bodies;
 
@@ -7763,38 +7200,31 @@ often possible to use the FreeMotion joint such that the singularity
       connect(frameT1.frame_a, fixedRotation.frame_a) annotation (Line(
           points={{-14,30},{0,30},{0,14},{10,14}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation.frame_b, frameT2.frame_a) annotation (Line(
           points={{30,14},{48,14}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
           points={{-14,-8},{-2,-8},{-2,14},{10,14}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation1.frame_b, frameT3.frame_a) annotation (Line(
           points={{30,-16},{40,-16},{40,-18},{48,-18}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation2.frame_b, frameT4.frame_a) annotation (Line(
           points={{30,-50},{40,-50},{40,-52},{48,-52}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation1.frame_a, world.frame_b) annotation (Line(
           points={{10,-16},{-2,-16},{-2,-8},{-14,-8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation2.frame_a, world.frame_b) annotation (Line(
           points={{10,-50},{-2,-50},{-2,-8},{-14,-8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end FixedRotation;
 
@@ -7863,23 +7293,19 @@ often possible to use the FreeMotion joint such that the singularity
       connect(fixedFrame.frame_a, body1.frame_a) annotation (Line(
           points={{-42,83},{-32,83},{-32,82},{-20,82}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame1.frame_a, bodyShape.frame_a) annotation (Line(
           points={{-44,55},{-32,55},{-32,56},{-20,56}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame2.frame_a, BodyBox1.frame_a) annotation (Line(
           points={{-42,13},{-30,13},{-30,16},{-20,16}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame3.frame_a, bodyCylinder.frame_a) annotation (Line(
           points={{-42,-23},{-30,-23},{-30,-26},{-20,-26},{-20,-24}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=4));
     end FlyingBodies;
 
@@ -8030,48 +7456,39 @@ often possible to use the FreeMotion joint such that the singularity
       connect(bodyShape.frame_b, spring2.frame_b) annotation (Line(
           points={{76,-30},{96,-30},{96,-4}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring3.frame_a) annotation (Line(
           points={{-74,30},{-60,30},{-60,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring3.frame_b, body.frame_a) annotation (Line(
           points={{-60,-10},{-60,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring4.frame_a) annotation (Line(
           points={{-74,30},{-36,30},{-36,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring4.frame_b, bodyBox.frame_a) annotation (Line(
           points={{-36,-12},{-36,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring5.frame_a) annotation (Line(
           points={{-74,30},{-6,30},{-6,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring5.frame_b, bodyCylinder.frame_a) annotation (Line(
           points={{-6,-10},{-6,-12.5},{-6,-12.5},{-6,-15},{-6,-20},{-6,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, spring6.frame_a) annotation (Line(
           points={{-74,30},{16,30},{16,8}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(pointMass.frame_a, spring6.frame_b) annotation (Line(
           points={{16,-36},{16,-24},{16,-12},{16,-12}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>This test case is made with the intent of verifying what choices are made by the compiler in terms of state selection when wrong indications are given, here all the bodies have the flag enforceStates=false but the bodies positions and velocities are the only possible states.</p>
 <p><br/>Dymola ignores the flag and uses bodies variables as states.</p>
@@ -8150,66 +7567,54 @@ often possible to use the FreeMotion joint such that the singularity
         connect(world.frame_b, spherical1.frame_a) annotation (Line(
             points={{-80,30},{-70,30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(spherical1.frame_b, bodyCylinder1.frame_a) annotation (Line(
             points={{-50,30},{-40,30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(bodyCylinder1.frame_b, fixedRotation1.frame_a) annotation (Line(
             points={{-20,30},{-10,30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedRotation1.frame_b, revolute.frame_a) annotation (Line(
             points={{10,30},{20,30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
             points={{40,30},{50,30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation.frame_b, bodyCylinder2.frame_a) annotation (
             Line(
             points={{70,30},{80,30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(spherical2.frame_b, bodyCylinder3.frame_a) annotation (Line(
             points={{-50,-30},{-40,-30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(bodyCylinder3.frame_b, fixedRotation2.frame_a) annotation (Line(
             points={{-20,-30},{-10,-30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixed.frame_b, spherical2.frame_a) annotation (Line(
             points={{-80,-30},{-70,-30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation1.frame_b, bodyCylinder4.frame_a) annotation (
             Line(
             points={{70,-30},{80,-30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedRotation2.frame_b, fixedTranslation1.frame_a) annotation (
             Line(
             points={{10,-30},{50,-30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(rotor1D.frame_a, fixedRotation2.frame_b) annotation (Line(
             points={{30,-50},{30,-30},{10,-30}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         annotation (experiment(StopTime=5, Tolerance=1e-008));
       end Rotor1D_1;
 
@@ -8261,54 +7666,41 @@ often possible to use the FreeMotion joint such that the singularity
         connect(world.frame_b, revolute.frame_a) annotation (Line(
             points={{-20,10},{0,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(revolute.frame_b, bodyCylinder.frame_a) annotation (Line(
             points={{20,10},{30,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque.frame_b, bodyCylinder.frame_b) annotation (Line(
             points={{50,40},{60,40},{60,10},{50,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque.frame_resolve, world.frame_b) annotation (Line(
             points={{44,50},{44,64},{-10,64},{-10,10},{-20,10}},
             color={95,95,95},
-            pattern=LinePattern.Dot,
-            smooth=Smooth.None));
+            pattern=LinePattern.Dot));
         connect(torque.frame_a, world.frame_b) annotation (Line(
             points={{30,40},{-10,40},{-10,10},{-20,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine.y, torque.torque) annotation (Line(
             points={{-69,60},{34,60},{34,52}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(fixed.frame_b, rotor1D.frame_a) annotation (Line(
             points={{-20,-80},{40,-80},{40,-40}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.flange, rotor1D.flange_a) annotation (Line(
-            points={{20,-30},{30,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{20,-30},{30,-30}}));
         connect(mounting1D.flange_b, torque1.support) annotation (Line(
-            points={{0,-50},{10,-50},{10,-40}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{0,-50},{10,-50},{10,-40}}));
         connect(mounting1D.frame_a, fixed.frame_b) annotation (Line(
             points={{-10,-60},{-10,-80},{-20,-80}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine[1].y, torque1.tau) annotation (Line(
             points={{-69,60},{-60,60},{-60,-30},{-2,-30}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (experiment(StopTime=3));
       end Rotor1D_2;
 
@@ -8381,99 +7773,72 @@ often possible to use the FreeMotion joint such that the singularity
         connect(revolute.frame_b, bodyCylinder.frame_a) annotation (Line(
             points={{40,10},{50,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque.frame_b, bodyCylinder.frame_b) annotation (Line(
             points={{70,40},{80,40},{80,10},{70,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine1.y, torque.torque) annotation (Line(
             points={{79,80},{54,80},{54,52}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(torque1.flange, rotor1D.flange_a) annotation (Line(
-            points={{40,-40},{50,-40}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{40,-40},{50,-40}}));
         connect(mounting1D.flange_b, torque1.support) annotation (Line(
-            points={{20,-56},{30,-56},{30,-50}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{20,-56},{30,-56},{30,-50}}));
         connect(r1.frame_a, world.frame_b) annotation (Line(
             points={{-30,10},{-60,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(position1.flange, r1.axis) annotation (Line(
-            points={{-30,60},{-20,60},{-20,20}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-30,60},{-20,60},{-20,20}}));
         connect(position1.support, mounting1D1.flange_b) annotation (Line(
-            points={{-40,50},{-40,34}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-40,50},{-40,34}}));
         connect(mounting1D1.frame_a, world.frame_b) annotation (Line(
             points={{-50,24},{-50,10},{-60,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine2.y, position1.phi_ref) annotation (Line(
             points={{-79,60},{-52,60}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(r1.frame_b, revolute.frame_a) annotation (Line(
             points={{-10,10},{20,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque.frame_resolve, revolute.frame_a) annotation (Line(
             points={{64,50},{10,50},{10,10},{20,10}},
             color={95,95,95},
-            pattern=LinePattern.Dot,
-            smooth=Smooth.None));
+            pattern=LinePattern.Dot));
         connect(torque.frame_a, revolute.frame_a) annotation (Line(
             points={{50,40},{10,40},{10,10},{20,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(position2.flange, r2.axis) annotation (Line(
-            points={{-30,-30},{-20,-30},{-20,-70}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-30,-30},{-20,-30},{-20,-70}}));
         connect(position2.support, mounting1D2.flange_b) annotation (Line(
-            points={{-40,-40},{-40,-56}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-40,-40},{-40,-56}}));
         connect(fixed.frame_b, r2.frame_a) annotation (Line(
             points={{-60,-80},{-30,-80}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixed.frame_b, mounting1D2.frame_a) annotation (Line(
             points={{-60,-80},{-50,-80},{-50,-66}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine2.y, position2.phi_ref) annotation (Line(
             points={{-79,60},{-70,60},{-70,30},{-92,30},{-92,-30},{-52,-30}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(r2.frame_b, rotor1D.frame_a) annotation (Line(
             points={{-10,-80},{60,-80},{60,-50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(r2.frame_b, mounting1D.frame_a) annotation (Line(
             points={{-10,-80},{10,-80},{10,-66}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine1[1].y, torque1.tau) annotation (Line(
             points={{79,80},{54,80},{54,60},{92,60},{92,-20},{0,-20},{0,-40},{
                 18,-40}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (experiment(StopTime=2));
       end Rotor1D_3;
 
@@ -8527,61 +7892,43 @@ often possible to use the FreeMotion joint such that the singularity
         connect(world.frame_b, gearConstraint.bearing) annotation (Line(
             points={{-40,20},{50,20},{50,40}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(cyl1.frame_b, gearConstraint.frame_a) annotation (Line(
             points={{30,50},{40,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gearConstraint.frame_b, cyl2.frame_a) annotation (Line(
             points={{60,50},{70,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.frame_b, cyl1.frame_a) annotation (Line(
             points={{0,50},{10,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.frame_a, world.frame_b) annotation (Line(
             points={{-20,50},{-30,50},{-30,20},{-40,20}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine.y, torque1.torque) annotation (Line(
             points={{-79,70},{-16,70},{-16,62}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
-            points={{0,-30},{10,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{0,-30},{10,-30}}));
         connect(idealGear.flange_b, inertia2.flange_a) annotation (Line(
-            points={{30,-30},{40,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{30,-30},{40,-30}}));
         connect(torque2.flange, inertia1.flange_a) annotation (Line(
-            points={{-30,-30},{-20,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-30,-30},{-20,-30}}));
         connect(sine[1].y, torque2.tau) annotation (Line(
             points={{-79,70},{-72,70},{-72,-30},{-52,-30}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(mounting1D.flange_b, idealGear.support) annotation (Line(
-            points={{0,-60},{10,-60},{10,-50},{20,-50},{20,-40}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{0,-60},{10,-60},{10,-50},{20,-50},{20,-40}}));
         connect(mounting1D.flange_b, torque2.support) annotation (Line(
-            points={{0,-60},{10,-60},{10,-50},{-40,-50},{-40,-40}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{0,-60},{10,-60},{10,-50},{-40,-50},{-40,-40}}));
         connect(fixed.frame_b, mounting1D.frame_a) annotation (Line(
             points={{-40,-80},{-10,-80},{-10,-70}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         annotation (experiment(StopTime=5));
       end GearConstraint;
 
@@ -8672,98 +8019,79 @@ often possible to use the FreeMotion joint such that the singularity
         connect(gc2.frame_b, bodyCylinder3.frame_a) annotation (Line(
             points={{148,-56},{182,-56}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedFrame1.frame_a, gc2.frame_b) annotation (Line(
             points={{186,-40},{172,-40},{172,-56},{148,-56}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation.frame_a, world.frame_b) annotation (Line(
             points={{-18,-4},{-18,-4},{-18,10},{-44,10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gc1.frame_b, bodyCylinder2.frame_a) annotation (Line(
             points={{148,44},{168,44},{168,26},{186,26}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gc1.frame_b, fixedFrame.frame_a) annotation (Line(
             points={{148,44},{188,44}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(bodyCylinder.frame_b, fixedTranslation1.frame_a) annotation (
             Line(
             points={{52,42},{68,42},{68,41},{82,41}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation1.frame_b, gc1.frame_a) annotation (Line(
             points={{102,41},{114,41},{114,44},{128,44}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(bodyCylinder1.frame_b, fixedTranslation2.frame_a) annotation (
             Line(
             points={{52,-83},{78,-83}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation2.frame_b, gc2.frame_a) annotation (Line(
             points={{98,-83},{114,-83},{114,-56},{128,-56}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation.frame_a, gc1.bearing) annotation (Line(
             points={{-18,-4},{-18,10},{138,10},{138,34}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation.frame_a, torque1.frame_a) annotation (Line(
             points={{-18,-4},{-18,40},{-10,40}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.frame_b, bodyCylinder.frame_a) annotation (Line(
             points={{10,40},{22,40},{22,42},{32,42}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation.frame_b, torque2.frame_a) annotation (Line(
             points={{-18,-24},{-10,-24},{-10,-54},{-8,-54}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedTranslation.frame_b, gc2.bearing) annotation (Line(
             points={{-18,-24},{-18,-104},{138,-104},{138,-66}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque2.frame_b, bodyCylinder1.frame_a) annotation (Line(
             points={{12,-54},{26,-54},{26,-83},{30,-83}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedFrame2.frame_a, bodyCylinder.frame_a) annotation (Line(
             points={{36,58},{36,42},{32,42}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(fixedFrame3.frame_a, bodyCylinder1.frame_a) annotation (Line(
             points={{34,-56},{30,-56},{30,-83}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(ramp.y, torque1.torque) annotation (Line(
             points={{-73.4,70},{-36,70},{-36,52},{-6,52}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(ramp.y, torque2.torque) annotation (Line(
             points={{-73.4,70},{-73.4,-68},{-4,-68},{-4,-66}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
 
         annotation (Diagram(coordinateSystem(extent={{-100,-140},{240,100}},
                 preserveAspectRatio=true)), experiment(StopTime=5));
@@ -8837,76 +8165,57 @@ often possible to use the FreeMotion joint such that the singularity
         connect(world.frame_b, revolute1.frame_a) annotation (Line(
             points={{-60,-10},{-46,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(revolute1.frame_b, revolute2.frame_a) annotation (Line(
             points={{-26,-10},{0,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(revolute2.frame_b, revolute3.frame_a) annotation (Line(
             points={{20,-10},{46,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.flange, revolute1.axis) annotation (Line(
-            points={{-42,-40},{-36,-40},{-36,-20}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-42,-40},{-36,-40},{-36,-20}}));
         connect(torque2.flange, revolute2.axis) annotation (Line(
-            points={{6,-40},{10,-40},{10,-20}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{6,-40},{10,-40},{10,-20}}));
         connect(torque3.flange, revolute3.axis) annotation (Line(
-            points={{52,-40},{56,-40},{56,-20}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{52,-40},{56,-40},{56,-20}}));
         connect(sine1.y, torque1.tau) annotation (Line(
             points={{-59.4,-40},{-53,-40}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(torque2.tau, sine2.y) annotation (Line(
             points={{-5,-40},{-11.4,-40}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(torque3.tau, sine3.y) annotation (Line(
             points={{41,-40},{36.6,-40}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(revolute3.frame_b, bodyBox1.frame_a) annotation (Line(
             points={{66,-10},{76,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gearConstraint.frame_b, bodyBox2.frame_a) annotation (Line(
             points={{20,50},{30,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gearConstraint.frame_a, bodyBox3.frame_b) annotation (Line(
             points={{-8.88178e-016,50},{-12,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gearConstraint.bearing, revolute3.frame_b) annotation (Line(
             points={{10,40},{10,20},{72,20},{72,-10},{66,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(bodyBox3.frame_a, torque.frame_b) annotation (Line(
             points={{-32,50},{-42,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque.frame_a, revolute1.frame_a) annotation (Line(
             points={{-62,50},{-72,50},{-72,20},{-52,20},{-52,-10},{-46,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine4.y, torque.torque) annotation (Line(
             points={{-75,70},{-58,70},{-58,62}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (Documentation(info="<html>
 </html>"),experiment(StopTime=1.0));
       end GearConstraint3;
@@ -9171,20 +8480,15 @@ often possible to use the FreeMotion joint such that the singularity
             color={95,95,95},
             thickness=0.0625));
           connect(inertia1.flange_b,idealGear.flange_a) annotation(Line(
-            points={{121,2},{126,2},{131,2}},
-            color={0,0,0}));
+            points={{121,2},{126,2},{131,2}}));
           connect(idealGear.flange_b,inertia2.flange_a) annotation(Line(
-            points={{151,2},{160,2}},
-            color={0,0,0}));
+            points={{151,2},{160,2}}));
           connect(torque4.flange,inertia1.flange_a) annotation(Line(
-            points={{91,2},{96,2},{101,2}},
-            color={0,0,0}));
+            points={{91,2},{96,2},{101,2}}));
           connect(mounting1D.flange_b,idealGear.support) annotation(Line(
-            points={{76,-23},{81,-23},{141,-23},{141,-13},{141,-8}},
-            color={0,0,0}));
+            points={{76,-23},{81,-23},{141,-23},{141,-13},{141,-8}}));
           connect(mounting1D.flange_b,torque4.support) annotation(Line(
-            points={{76,-23},{81,-23},{81,-13},{81,-8}},
-            color={0,0,0}));
+            points={{76,-23},{81,-23},{81,-13},{81,-8}}));
           connect(mounting1D.frame_a,fixedTranslation8.frame_b) annotation(Line(
             points={{66,-33},{66,-38},{66,-48},{61,-48},{56,-48}},
             color={95,95,95},
@@ -9204,41 +8508,33 @@ often possible to use the FreeMotion joint such that the singularity
         connect(freeMotion2.frame_b, absoluteSensor_1D.frame_a) annotation (Line(
             points={{-99,-48},{-99,-10},{-90,-10}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(freeMotion1.frame_b, absoluteSensor_MBS.frame_a) annotation (Line(
             points={{-99,102},{-98,102},{-98,20},{-90,20}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(inertia1.frame_a, fixedTranslation8.frame_b) annotation (Line(
             points={{111,-8},{111,-48},{56,-48}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(inertia2.frame_a, fixedTranslation8.frame_b) annotation (Line(
             points={{170,-8},{170,-48},{56,-48}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(cyl3.frame_b, cyl4.frame_a) annotation (Line(
             points={{120,-70},{160,-70}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(cyl3.frame_b, fixedTranslation8.frame_b) annotation (Line(
             points={{120,-70},{132,-70},{132,-48},{56,-48}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(constVec3.y, torque1.torque) annotation (Line(
             points={{-39,50},{-25,50},{-25,60}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(constVec3.y, torque3.torque) annotation (Line(
             points={{-39,50},{-26,50},{-26,-8},{-25,-8}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (
           experiment(StopTime=2),
           Diagram(coordinateSystem(extent={{-160,-120},{180,160}},
@@ -9258,7 +8554,6 @@ often possible to use the FreeMotion joint such that the singularity
                 points={{-112,-72},{-88,-28}},
                 color={255,85,85},
                 thickness=0.5,
-                smooth=Smooth.None,
                 arrow={Arrow.None,Arrow.Filled})}),
           Documentation(info="<html>
 <p>
@@ -9312,53 +8607,39 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         connect(world.frame_b, gearConstraint.bearing) annotation (Line(
             points={{-40,20},{50,20},{50,40}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(cyl1.frame_b, gearConstraint.frame_a) annotation (Line(
             points={{30,50},{40,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(gearConstraint.frame_b, cyl2.frame_a) annotation (Line(
             points={{60,50},{70,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.frame_b, cyl1.frame_a) annotation (Line(
             points={{0,50},{10,50}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(torque1.frame_a, world.frame_b) annotation (Line(
             points={{-20,50},{-30,50},{-30,20},{-40,20}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         connect(sine.y, torque1.torque) annotation (Line(
             points={{-79,70},{-16,70},{-16,62}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(torque2.flange, inertia1.flange_a) annotation (Line(
-            points={{-30,-30},{-20,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{-30,-30},{-20,-30}}));
         connect(sine[1].y, torque2.tau) annotation (Line(
             points={{-79,70},{-72,70},{-72,-30},{-52,-30}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(inertia1.flange_b, bevelGear1D.flange_a) annotation (Line(
-            points={{0,-30},{10,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{0,-30},{10,-30}}));
         connect(bevelGear1D.flange_b, inertia2.flange_a) annotation (Line(
-            points={{30,-30},{40,-30}},
-            color={0,0,0},
-            smooth=Smooth.None));
+            points={{30,-30},{40,-30}}));
         connect(fixed.frame_b, bevelGear1D.frame_a) annotation (Line(
             points={{12,-66},{20,-66},{20,-40}},
             color={95,95,95},
-            thickness=0.5,
-            smooth=Smooth.None));
+            thickness=0.5));
         annotation (experiment(StopTime=5));
       end Beveal1d;
     end Rotor1D;
@@ -9430,138 +8711,106 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       end for;
       connect(world.frame_b, rev.frame_a) annotation (Line(
           points={{-60,10},{-40,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-20,
-              50},{-20,30},{-30,30},{-30,20}}, color={0,0,0}));
+              50},{-20,30},{-30,30},{-30,20}}));
       connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{
-              -36,30},{-40,30},{-40,50}}, color={0,0,0}));
+              -36,30},{-40,30},{-40,50}}));
       connect(rev.frame_b, box.frame_a) annotation (Line(
           points={{-20,10},{0,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(box.frame_b, sensor_frame_a1.frame_a) annotation (Line(
           points={{20,10},{30,10},{30,30},{40,30}},
-          color={0,0,0},
           thickness=0.5));
       connect(box.frame_b, sensor_world1.frame_a) annotation (Line(
           points={{20,10},{30,10},{30,-10},{40,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(box.frame_b, sensor_frame_a2.frame_a) annotation (Line(
           points={{20,10},{30,10},{30,70},{40,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(box.frame_b, sensor_world2.frame_a) annotation (Line(
           points={{20,10},{30,10},{30,-50},{40,-50}},
-          color={0,0,0},
           thickness=0.5));
       connect(sensor_world2.frame_resolve, world.frame_b) annotation (Line(
           points={{60,-50},{60,-50},{70,-50},{70,-76},{-50,-76},{-50,10},{-60,
               10}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
 
       connect(sensor_frame_a2.frame_resolve, rev.frame_b) annotation (Line(
           points={{60,70},{60,70},{70,70},{70,90},{-10,90},{-10,10},{-20,10}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(sensor_frame_a2.r[1:3], err1[1:3].u1) annotation (Line(
           points={{40,58.3333},{40,56},{78,56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a2.v[1:3], err1[4:6].u1) annotation (Line(
           points={{44,58.3333},{44,56},{78,56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a2.a[1:3], err1[7:9].u1) annotation (Line(
           points={{48,58.3333},{48,56},{78,56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a2.angles[1:3], err1[10:12].u1) annotation (Line(
           points={{52,58.3333},{52,56},{78,56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a2.w[1:3], err1[13:15].u1) annotation (Line(
           points={{56,58.3333},{56,56},{78,56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a2.z[1:3], err1[16:18].u1) annotation (Line(
           points={{60,58.3333},{60,56},{78,56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a1.r[1:3], err1[1:3].u2) annotation (Line(
           points={{40,41.6667},{40,44},{78,44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a1.v[1:3], err1[4:6].u2) annotation (Line(
           points={{44,41.6667},{44,44},{78,44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a1.a[1:3], err1[7:9].u2) annotation (Line(
           points={{48,41.6667},{48,44},{78,44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a1.angles[1:3], err1[10:12].u2) annotation (Line(
           points={{52,41.6667},{52,44},{78,44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a1.w[1:3], err1[13:15].u2) annotation (Line(
           points={{56,41.6667},{56,44},{78,44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_frame_a1.z[1:3], err1[16:18].u2) annotation (Line(
           points={{60,41.6667},{60,44},{78,44}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world1.r[1:3], err2[1:3].u1) annotation (Line(
           points={{40,-21.6667},{40,-24},{78,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world1.v[1:3], err2[4:6].u1) annotation (Line(
           points={{44,-21.6667},{44,-24},{78,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world1.a[1:3], err2[7:9].u1) annotation (Line(
           points={{48,-21.6667},{48,-24},{78,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world1.angles[1:3], err2[10:12].u1) annotation (Line(
           points={{52,-21.6667},{52,-24},{78,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world1.w[1:3], err2[13:15].u1) annotation (Line(
           points={{56,-21.6667},{56,-24},{78,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world1.z[1:3], err2[16:18].u1) annotation (Line(
           points={{60,-21.6667},{60,-24},{78,-24}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world2.r[1:3], err2[1:3].u2) annotation (Line(
           points={{40,-38.3333},{40,-36},{78,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world2.v[1:3], err2[4:6].u2) annotation (Line(
           points={{44,-38.3333},{44,-36},{78,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world2.a[1:3], err2[7:9].u2) annotation (Line(
           points={{48,-38.3333},{48,-36},{78,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world2.angles[1:3], err2[10:12].u2) annotation (Line(
           points={{52,-38.3333},{52,-36},{78,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world2.w[1:3], err2[13:15].u2) annotation (Line(
           points={{56,-38.3333},{56,-36},{78,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(sensor_world2.z[1:3], err2[16:18].u2) annotation (Line(
           points={{60,-38.3333},{60,-36},{78,-36}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=5), Documentation(info=""));
     end AbsoluteSensor;
 
@@ -9589,18 +8838,15 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     equation
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
           points={{-60,0},{-40,0}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixedRotation.frame_b, freeMotion.frame_a) annotation (Line(
           points={{-20,0},{-6,0},{-6,2},{16,2}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation.frame_b, frame_a.frame_a) annotation (Line(
           points={{-20,0},{-10,0},{-10,-30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end AbsoluteSensor2;
 
@@ -9693,178 +8939,138 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(relative_a2.frame_resolve, revolute1.frame_b) annotation (Line(
           points={{42,-30},{42,-28},{34,-28},{34,-60},{-46,-60},{-46,-70},{-50,
               -70}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(relative_b2.frame_resolve, BodyBox1.frame_a) annotation (Line(
           points={{-2,0},{-2,0},{-2,10},{-2,10},{-46,10},{-46,30},{-40,30}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(fixed.frame_b, revolute1.frame_a) annotation (Line(
           points={{-80,-70},{-70,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute1.frame_b, BodyBox2.frame_a) annotation (Line(
           points={{-50,-70},{-40,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute.frame_b, BodyBox1.frame_a) annotation (Line(
           points={{-50,30},{-40,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, revolute.frame_a) annotation (Line(
           points={{-80,30},{-70,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, relativeSensor.frame_a) annotation (Line(
           points={{-80,30},{-74,30},{-74,60},{-70,60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relativeSensor.frame_b, revolute.frame_b) annotation (Line(
           points={{-50,60},{-46,60},{-46,30},{-50,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_a1.r_rel[1:3], err1[1:3].u1) annotation (Line(
           points={{41.6667,-20},{46,-20},{46,-14},{78,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a1.v_rel[1:3], err1[4:6].u1) annotation (Line(
           points={{41.6667,-16},{46,-16},{46,-14},{78,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a1.a_rel[1:3], err1[7:9].u1) annotation (Line(
           points={{41.6667,-12},{46,-12},{46,-14},{78,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a1.angles[1:3], err1[10:12].u1) annotation (Line(
           points={{41.6667,-8},{46,-8},{46,-14},{78,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a1.w_rel[1:3], err1[13:15].u1) annotation (Line(
           points={{41.6667,-4},{46,-4},{46,-14},{78,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a1.z_rel[1:3], err1[16:18].u1) annotation (Line(
           points={{41.6667,0},{46,0},{46,-14},{78,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a2.r_rel[1:3], err1[1:3].u2) annotation (Line(
           points={{61.6667,-50},{70,-50},{70,-26},{78,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a2.v_rel[1:3], err1[4:6].u2) annotation (Line(
           points={{61.6667,-46},{70,-46},{70,-26},{78,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a2.a_rel[1:3], err1[7:9].u2) annotation (Line(
           points={{61.6667,-42},{70,-42},{70,-26},{78,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a2.angles[1:3], err1[10:12].u2) annotation (Line(
           points={{61.6667,-38},{70,-38},{70,-26},{78,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a2.w_rel[1:3], err1[13:15].u2) annotation (Line(
           points={{61.6667,-34},{70,-34},{70,-26},{78,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a2.z_rel[1:3], err1[16:18].u2) annotation (Line(
           points={{61.6667,-30},{70,-30},{70,-26},{78,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b1.r_rel[1:3], err2[1:3].u1) annotation (Line(
           points={{-1.66667,-50},{-6,-50},{-6,-26},{-38,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b1.v_rel[1:3], err2[4:6].u1) annotation (Line(
           points={{-1.66667,-46},{-6,-46},{-6,-26},{-38,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b1.a_rel[1:3], err2[7:9].u1) annotation (Line(
           points={{-1.66667,-42},{-6,-42},{-6,-26},{-38,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b1.angles[1:3], err2[10:12].u1) annotation (Line(
           points={{-1.66667,-38},{-6,-38},{-6,-26},{-38,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b1.w_rel[1:3], err2[13:15].u1) annotation (Line(
           points={{-1.66667,-34},{-6,-34},{-6,-26},{-38,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b1.z_rel[1:3], err2[16:18].u1) annotation (Line(
           points={{-1.66667,-30},{-6,-30},{-6,-26},{-38,-26}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b2.r_rel[1:3], err2[1:3].u2) annotation (Line(
           points={{-21.6667,-20},{-26,-20},{-26,-14},{-38,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b2.v_rel[1:3], err2[4:6].u2) annotation (Line(
           points={{-21.6667,-16},{-26,-16},{-26,-14},{-38,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b2.a_rel[1:3], err2[7:9].u2) annotation (Line(
           points={{-21.6667,-12},{-26,-12},{-26,-14},{-38,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b2.angles[1:3], err2[10:12].u2) annotation (Line(
           points={{-21.6667,-8},{-26,-8},{-26,-14},{-38,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b2.w_rel[1:3], err2[13:15].u2) annotation (Line(
           points={{-21.6667,-4},{-26,-4},{-26,-14},{-38,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_b2.z_rel[1:3], err2[16:18].u2) annotation (Line(
           points={{-21.6667,0},{-26,0},{-26,-14},{-38,-14}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(relative_a1.frame_a, BodyBox2.frame_b) annotation (Line(
           points={{30,-20},{30,-70},{-20,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_a2.frame_a, BodyBox2.frame_b) annotation (Line(
           points={{50,-50},{50,-70},{-20,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_b1.frame_a, BodyBox2.frame_b) annotation (Line(
           points={{10,-50},{10,-70},{-20,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_b2.frame_a, BodyBox2.frame_b) annotation (Line(
           points={{-10,-20},{-10,-70},{-20,-70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_a1.frame_b, BodyBox1.frame_b) annotation (Line(
           points={{30,0},{30,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_a2.frame_b, BodyBox1.frame_b) annotation (Line(
           points={{50,-30},{52,-30},{52,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_b1.frame_b, BodyBox1.frame_b) annotation (Line(
           points={{10,-30},{12,-30},{12,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(relative_b2.frame_b, BodyBox1.frame_b) annotation (Line(
           points={{-10,0},{-10,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=2));
     end RelativeSensor;
 
@@ -9896,30 +9102,25 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     equation
       connect(world.frame_b, rev.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(damper.flange_b, rev.axis) annotation (Line(points={{0,50},{4,50},
-              {4,26},{-10,26},{-10,20}}, color={0,0,0}));
+              {4,26},{-10,26},{-10,20}}));
       connect(rev.support, damper.flange_a) annotation (Line(points={{-16,20},{
-              -16,26},{-28,26},{-28,50},{-20,50}}, color={0,0,0}));
+              -16,26},{-28,26},{-28,50},{-20,50}}));
       connect(rev.frame_b, BodyBox1.frame_a) annotation (Line(
           points={{0,10},{20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(Distance1.frame_b, BodyBox1.frame_b) annotation (Line(
           points={{0,-50},{60,-50},{60,10},{40,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(Distance1.frame_a, fixed.frame_b) annotation (Line(
           points={{-20,-50},{-40,-50}},
-          color={0,0,0},
           thickness=0.5));
       connect(Der1.y, Der2.u)
         annotation (Line(points={{21,-90},{38,-90}}, color={0,0,255}));
       connect(Distance1.distance, Der1.u) annotation (Line(
           points={{-10,-61},{-10,-90},{-2,-90}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=5));
     end Distance;
 
@@ -9951,19 +9152,15 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     equation
       connect(world.frame_b, Revolute1.frame_a) annotation (Line(
           points={{-60,10},{-40,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(Revolute1.frame_b, BodyBox1.frame_a) annotation (Line(
           points={{-20,10},{0,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(BodyBox1.frame_b, distance1.frame_a) annotation (Line(
           points={{20,10},{40,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(distance1.frame_b, fixed.frame_b) annotation (Line(
           points={{60,10},{70,10},{70,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(distance1.distance, Der1.u)
         annotation (Line(points={{50,-1},{50,-20},{58,-20}}, color={0,0,127}));
@@ -9971,11 +9168,9 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         annotation (Line(points={{50,-1},{50,-50},{58,-50}}, color={0,0,127}));
       connect(Revolute1.frame_a, distance2.frame_a) annotation (Line(
           points={{-40,10},{-50,10},{-50,40},{-40,40}},
-          color={0,0,0},
           thickness=0.5));
       connect(Revolute1.frame_b, distance2.frame_b) annotation (Line(
           points={{-20,10},{-10,10},{-10,40},{-20,40}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=0.5, Tolerance=1e-010));
     end Distance2;
@@ -10060,92 +9255,70 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
 
       connect(world.frame_b, rotate1a.frame_a) annotation (Line(
           points={{-80,10},{-60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1a.frame_b, cutForce1a.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_b, cutForce2a.frame_a) annotation (Line(
           points={{-40,-30},{-20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_a, world.frame_b) annotation (Line(
           points={{-60,-30},{-70,-30},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1b.frame_b, cutForce1b.frame_a) annotation (Line(
           points={{-40,70},{-20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.frame_resolve, rotate1b.frame_b) annotation (Line(
           points={{-2,60},{-2,60},{-2,50},{-40,50},{-40,70}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_b, cutForce2b.frame_a) annotation (Line(
           points={{-40,-90},{-20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_a, world.frame_b) annotation (Line(
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2b.frame_resolve, world.frame_b) annotation (Line(
           points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutForce1b.frame_b, translate1b.frame_a) annotation (Line(
           points={{0,70},{20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1b.frame_b, body1b.frame_a) annotation (Line(
           points={{40,70},{60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1a.frame_b, translate1a.frame_a) annotation (Line(
           points={{0,10},{10,10},{10,10},{20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
           points={{40,10},{50,10},{60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2a.frame_b, translate2a.frame_a) annotation (Line(
           points={{0,-30},{20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2a.frame_b, body2a.frame_a) annotation (Line(
           points={{40,-30},{60,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2b.frame_b, translate2b.frame_a) annotation (Line(
           points={{0,-90},{20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2b.frame_b, body2b.frame_a) annotation (Line(
           points={{40,-90},{60,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.force, err1.u1) annotation (Line(
           points={{-18,59},{-18,46},{8,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1a.force, err1.u2) annotation (Line(
           points={{-18,21},{-18,34},{8,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2a.force, err2.u1) annotation (Line(
           points={{-18,-41},{-18,-54},{8,-54}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2b.force, err2.u2) annotation (Line(
           points={{-18,-79},{-18,-66},{8,-66}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end CutForce;
 
@@ -10174,24 +9347,19 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     equation
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
           points={{-60,-10},{-40,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(fixedRotation.frame_b, cutForce.frame_a) annotation (Line(
           points={{-20,-10},{0,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce.frame_b, WorldForce1.frame_b) annotation (Line(
           points={{20,-10},{40,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_b.frame_a, cutForce.frame_b) annotation (Line(
           points={{30,20},{30,20},{30,-10},{20,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant1.y, WorldForce1.force) annotation (Line(
           points={{79,-10},{62,-10}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end CutForce2;
 
@@ -10275,92 +9443,70 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
 
       connect(world.frame_b, rotate1a.frame_a) annotation (Line(
           points={{-80,10},{-60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1a.frame_b, cutTorque1a.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_b, cutTorque2a.frame_a) annotation (Line(
           points={{-40,-30},{-20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_a, world.frame_b) annotation (Line(
           points={{-60,-30},{-70,-30},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1b.frame_b, cutTorque1b.frame_a) annotation (Line(
           points={{-40,70},{-20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque1b.frame_resolve, rotate1b.frame_b) annotation (Line(
           points={{-2,60},{-20,60},{-20,46},{-40,46},{-40,70}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_b, cutTorque2b.frame_a) annotation (Line(
           points={{-40,-90},{-20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_a, world.frame_b) annotation (Line(
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque2b.frame_resolve, world.frame_b) annotation (Line(
           points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutTorque1b.frame_b, translate1b.frame_a) annotation (Line(
           points={{0,70},{20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1b.frame_b, body1b.frame_a) annotation (Line(
           points={{40,70},{60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque1a.frame_b, translate1a.frame_a) annotation (Line(
           points={{0,10},{10,10},{10,10},{20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
           points={{40,10},{50,10},{60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque2a.frame_b, translate2a.frame_a) annotation (Line(
           points={{0,-30},{20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2a.frame_b, body2a.frame_a) annotation (Line(
           points={{40,-30},{60,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque2b.frame_b, translate2b.frame_a) annotation (Line(
           points={{0,-90},{20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2b.frame_b, body2b.frame_a) annotation (Line(
           points={{40,-90},{60,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque1b.torque, err1.u1) annotation (Line(
           points={{-18,59},{-18,46},{8,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutTorque1a.torque, err1.u2) annotation (Line(
           points={{-18,21},{-18,34},{8,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutTorque2a.torque, err2.u1) annotation (Line(
           points={{-18,-41},{-18,-54},{8,-54}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutTorque2b.torque, err2.u2) annotation (Line(
           points={{-18,-79},{-18,-66},{8,-66}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end CutTorque;
 
@@ -10389,21 +9535,17 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     equation
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
           points={{-60,-10},{-40,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(Constant1.y, worldTorque.torque)
         annotation (Line(points={{79,-10},{62,-10}}, color={0,0,255}));
       connect(fixedRotation.frame_b, cutTorque.frame_a) annotation (Line(
           points={{-20,-10},{0,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutTorque.frame_b, worldTorque.frame_b) annotation (Line(
           points={{20,-10},{40,-10}},
-          color={0,0,0},
           thickness=0.5));
       connect(frame_b.frame_a, cutTorque.frame_b) annotation (Line(
           points={{30,20},{30,20},{30,-10},{20,-10}},
-          color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end CutTorque2;
@@ -10492,108 +9634,82 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       end for;
       connect(world.frame_b, rotate1a.frame_a) annotation (Line(
           points={{-80,10},{-60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1a.frame_b, cutForce1a.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_b, cutForce2a.frame_a) annotation (Line(
           points={{-40,-30},{-20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_a, world.frame_b) annotation (Line(
           points={{-60,-30},{-70,-30},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1b.frame_b, cutForce1b.frame_a) annotation (Line(
           points={{-40,70},{-20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.frame_resolve, rotate1b.frame_b) annotation (Line(
           points={{-2,60},{-2,60},{-2,54},{-40,54},{-40,70}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_b, cutForce2b.frame_a) annotation (Line(
           points={{-40,-90},{-20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_a, world.frame_b) annotation (Line(
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2b.frame_resolve, world.frame_b) annotation (Line(
           points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutForce1b.frame_b, translate1b.frame_a) annotation (Line(
           points={{0,70},{20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1b.frame_b, body1b.frame_a) annotation (Line(
           points={{40,70},{60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1a.frame_b, translate1a.frame_a) annotation (Line(
           points={{0,10},{10,10},{10,10},{20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
           points={{40,10},{50,10},{50,10},{60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2a.frame_b, translate2a.frame_a) annotation (Line(
           points={{0,-30},{20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2a.frame_b, body2a.frame_a) annotation (Line(
           points={{40,-30},{60,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2b.frame_b, translate2b.frame_a) annotation (Line(
           points={{0,-90},{20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2b.frame_b, body2b.frame_a) annotation (Line(
           points={{40,-90},{60,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.force[1:3], err1[1:3].u1) annotation (Line(
           points={{-18,58.3333},{-18,46},{8,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1b.torque[1:3], err1[4:6].u1) annotation (Line(
           points={{-10,58.3333},{-10,46},{8,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1a.force[1:3], err1[1:3].u2) annotation (Line(
           points={{-18,21.6667},{-18,34},{8,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1a.torque[1:3], err1[4:6].u2) annotation (Line(
           points={{-10,21.6667},{-10,34},{8,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2a.force[1:3], err2[1:3].u1) annotation (Line(
           points={{-18,-41.6667},{-18,-54},{8,-54}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2a.torque[1:3], err2[4:6].u1) annotation (Line(
           points={{-10,-41.6667},{-10,-54},{8,-54}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2b.force[1:3], err2[1:3].u2) annotation (Line(
           points={{-18,-78.3333},{-18,-66},{8,-66}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2b.torque[1:3], err2[4:6].u2) annotation (Line(
           points={{-10,-78.3333},{-10,-66},{8,-66}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end CutForceAndTorque1;
 
@@ -10682,108 +9798,82 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
 
       connect(world.frame_b, rotate1a.frame_a) annotation (Line(
           points={{-80,10},{-60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1a.frame_b, cutForce1a.frame_a) annotation (Line(
           points={{-40,10},{-20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_b, cutForce2a.frame_a) annotation (Line(
           points={{-40,-30},{-20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2a.frame_a, world.frame_b) annotation (Line(
           points={{-60,-30},{-70,-30},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate1b.frame_b, cutForce1b.frame_a) annotation (Line(
           points={{-40,70},{-20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.frame_resolve, rotate1b.frame_b) annotation (Line(
           points={{-2,60},{-2,60},{-2,54},{-40,54},{-40,70}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_b, cutForce2b.frame_a) annotation (Line(
           points={{-40,-90},{-20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(rotate2b.frame_a, world.frame_b) annotation (Line(
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2b.frame_resolve, world.frame_b) annotation (Line(
           points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
-          color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutForce1b.frame_b, translate1b.frame_a) annotation (Line(
           points={{0,70},{20,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1b.frame_b, body1b.frame_a) annotation (Line(
           points={{40,70},{60,70}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1a.frame_b, translate1a.frame_a) annotation (Line(
           points={{0,10},{20,10},{20,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
           points={{40,10},{50,10},{50,10},{60,10}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2a.frame_b, translate2a.frame_a) annotation (Line(
           points={{0,-30},{20,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2a.frame_b, body2a.frame_a) annotation (Line(
           points={{40,-30},{60,-30}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce2b.frame_b, translate2b.frame_a) annotation (Line(
           points={{0,-90},{20,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(translate2b.frame_b, body2b.frame_a) annotation (Line(
           points={{40,-90},{60,-90}},
-          color={0,0,0},
           thickness=0.5));
       connect(cutForce1a.force[1:3], err1[1:3].u2) annotation (Line(
           points={{-18,21.6667},{-18,34},{8,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1a.torque[1:3], err1[4:6].u2) annotation (Line(
           points={{-10,21.6667},{-10,34},{8,34}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1b.force[1:3], err1[1:3].u1) annotation (Line(
           points={{-18,58.3333},{-18,46},{8,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce1b.torque[1:3], err1[4:6].u1) annotation (Line(
           points={{-10,58.3333},{-10,46},{8,46}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2a.force[1:3], err2[1:3].u1) annotation (Line(
           points={{-18,-41.6667},{-18,-56},{6,-56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2a.torque[1:3], err2[4:6].u1) annotation (Line(
           points={{-10,-41.6667},{-10,-56},{6,-56}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2b.force[1:3], err2[1:3].u2) annotation (Line(
           points={{-18,-78.3333},{-18,-68},{6,-68}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(cutForce2b.torque[1:3], err2[4:6].u2) annotation (Line(
           points={{-10,-78.3333},{-10,-68},{6,-68}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1.1));
     end CutForceAndTorque2;
 
@@ -10813,34 +9903,28 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
     equation
       connect(Constant1[1:3].y, forceAndTorque.force[1:3]) annotation (Line(
           points={{79,-10},{70,-10},{70,-17.3333},{62,-17.3333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(Constant1[4:6].y, forceAndTorque.torque[1:3]) annotation (Line(
           points={{79,-10},{70,-10},{70,-5.33333},{62,-5.33333}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       connect(forceAndTorque.frame_b, cutForceAndTorque.frame_b) annotation (
           Line(
           points={{40,-10},{20,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(cutForceAndTorque.frame_b, frame_b.frame_a) annotation (Line(
           points={{20,-10},{30,-10},{30,20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
           points={{-60,-10},{-40,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedRotation.frame_b, cutForceAndTorque.frame_a) annotation (
           Line(
           points={{-20,-10},{0,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end CutForceAndTorque3;
   end Sensors;
@@ -11019,8 +10103,7 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
         annotation (Line(points={{-70,20},{-70,0},{-30,0}}));
       connect(sine.y, arrow.r_head) annotation (Line(
           points={{-9,30},{-18,30}},
-          color={0,0,127},
-          smooth=Smooth.None));
+          color={0,0,127}));
       annotation (experiment(StopTime=1));
     end Arrow;
 
@@ -11052,28 +10135,23 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
           points={{-40,30},{-32,30},{-32,60},{-26,60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, torus1.frame_a) annotation (Line(
           points={{-40,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedTranslation.frame_b, torus2.frame_a) annotation (Line(
           points={{-6,60},{4,60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame.frame_a, torus1.frame_a) annotation (Line(
           points={{-10,-20},{-32,-20},{-32,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(fixedFrame1.frame_a, torus2.frame_a) annotation (Line(
           points={{12,86},{0,86},{0,60},{4,60}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=2));
     end Torus;
 
@@ -11089,8 +10167,7 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(world.frame_b, voluminousWheel.frame_a) annotation (Line(
           points={{-40,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=1.01));
     end VoluminousWheel;
 
@@ -11191,68 +10268,55 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(world.frame_b, jet.frame_a) annotation (Line(
           points={{-60,70},{-20,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, translate2.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,40},{-48,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(translate2.frame_b, hot.frame_a) annotation (Line(
           points={{-28,40},{-20,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, translate3.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,10},{-48,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(translate3.frame_b, gray.frame_a) annotation (Line(
           points={{-28,10},{-20,10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(translate4.frame_b, spring.frame_a) annotation (Line(
           points={{-28,-20},{-20,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, translate4.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,-20},{-48,-20}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(translate5.frame_b, summer.frame_a) annotation (Line(
           points={{-28,-50},{-20,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, translate5.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,-50},{-48,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, translate6.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,-80},{-48,-80}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(translate6.frame_b, autumn.frame_a) annotation (Line(
           points={{-28,-80},{-20,-80}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, translate7.frame_a) annotation (Line(
           points={{-60,70},{-52,70},{-52,-110},{-48,-110}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(translate7.frame_b, winter.frame_a) annotation (Line(
           points={{-28,-110},{-20,-110}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=0.1));
     end ColorMaps;
   end Visualizers;
@@ -11340,77 +10404,55 @@ This test model was proposed in ticket <a href=\"https://trac.modelica.org/Model
       connect(world.frame_b, rotor1D1.frame_a) annotation (Line(
           points={{-80,30},{-60,30},{-60,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, rotor1D2.frame_a) annotation (Line(
           points={{-80,30},{-30,30},{-30,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, rotor1D3.frame_a) annotation (Line(
           points={{-80,30},{0,30},{0,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, rotor1D4.frame_a) annotation (Line(
           points={{-80,30},{30,30},{30,40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(world.frame_b, rotor1D5.frame_a) annotation (Line(
           points={{-80,30},{-74,30},{-74,-8},{-50,-8},{-50,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(rotor1D5.frame_a, rotor1D6.frame_a) annotation (Line(
           points={{-50,0},{-50,-8},{10,-8},{10,0}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring.flange_a, rotor1D5.flange_b) annotation (Line(
-          points={{-30,10},{-40,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-30,10},{-40,10}}));
       connect(spring.flange_b, rotor1D6.flange_a) annotation (Line(
-          points={{-10,10},{0,10}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-10,10},{0,10}}));
       connect(world.frame_b, rotor1D7.frame_a) annotation (Line(
           points={{-80,30},{-74,30},{-74,-48},{-50,-48},{-50,-40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(rotor1D7.frame_a, rotor1D8.frame_a) annotation (Line(
           points={{-50,-40},{-50,-48},{10,-48},{10,-40}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring1.flange_a, rotor1D7.flange_b) annotation (Line(
-          points={{-30,-30},{-40,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-30,-30},{-40,-30}}));
       connect(spring1.flange_b, rotor1D8.flange_a) annotation (Line(
-          points={{-10,-30},{0,-30}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-10,-30},{0,-30}}));
       connect(world.frame_b, rotor1D9.frame_a) annotation (Line(
           points={{-80,30},{-74,30},{-74,-88},{-50,-88},{-50,-80}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(rotor1D9.frame_a, rotor1D10.frame_a) annotation (Line(
           points={{-50,-80},{-50,-88},{10,-88},{10,-80}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spring2.flange_a, rotor1D9.flange_b) annotation (Line(
-          points={{-30,-70},{-40,-70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-30,-70},{-40,-70}}));
       connect(spring2.flange_b, rotor1D10.flange_a) annotation (Line(
-          points={{-10,-70},{0,-70}},
-          color={0,0,0},
-          smooth=Smooth.None));
+          points={{-10,-70},{0,-70}}));
       annotation (experiment(StopTime=1.1), Diagram(graphics={Rectangle(
               extent={{-66,-16},{100,-94}},
               lineColor={255,170,85},
@@ -11529,93 +10571,75 @@ they were not deleted yet.")}));
       connect(world.frame_b, revolute.frame_a) annotation (Line(
           points={{-60,70},{-50,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(revolute.frame_b, bodyBox.frame_a) annotation (Line(
           points={{-30,70},{-20,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox.frame_b, actuatedRevolute.frame_a) annotation (Line(
           points={{0,70},{10,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(actuatedRevolute.frame_b, bodyBox1.frame_a) annotation (Line(
           points={{30,70},{40,70}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox1.frame_b, prismatic.frame_a) annotation (Line(
           points={{60,70},{70,70},{70,50},{-60,50},{-60,30},{-50,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(prismatic.frame_b, bodyBox2.frame_a) annotation (Line(
           points={{-30,30},{-20,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox2.frame_b, actuatedPrismatic.frame_a) annotation (Line(
           points={{0,30},{10,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(actuatedPrismatic.frame_b, bodyBox3.frame_a) annotation (Line(
           points={{30,30},{40,30}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox3.frame_b, cylindrical.frame_a) annotation (Line(
           points={{60,30},{70,30},{70,10},{-60,10},{-60,-10},{-50,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(cylindrical.frame_b, bodyBox4.frame_a) annotation (Line(
           points={{-30,-10},{-20,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox4.frame_b, universal.frame_a) annotation (Line(
           points={{0,-10},{10,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(universal.frame_b, bodyBox5.frame_a) annotation (Line(
           points={{30,-10},{40,-10}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox5.frame_b, planar.frame_a) annotation (Line(
           points={{60,-10},{70,-10},{70,-30},{-60,-30},{-60,-50},{-50,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(planar.frame_b, bodyBox6.frame_a) annotation (Line(
           points={{-30,-50},{-20,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(bodyBox6.frame_b, spherical.frame_a) annotation (Line(
           points={{0,-50},{10,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(spherical.frame_b, bodyBox7.frame_a) annotation (Line(
           points={{30,-50},{40,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotion.frame_a, bodyBox7.frame_b) annotation (Line(
           points={{-50,-90},{-60,-90},{-60,-70},{70,-70},{70,-50},{60,-50}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       connect(freeMotion.frame_b, bodyBox8.frame_a) annotation (Line(
           points={{-30,-90},{-20,-90}},
           color={95,95,95},
-          thickness=0.5,
-          smooth=Smooth.None));
+          thickness=0.5));
       annotation (experiment(StopTime=0.2));
     end Joints;
 

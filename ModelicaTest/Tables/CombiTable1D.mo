@@ -17,8 +17,7 @@ package CombiTable1D
         thickness=0.0625));
     connect(clock.y, t_new.u[1]) annotation (Line(
         points={{-59,10},{-42,10}},
-        color={0,0,127},
-        smooth=Smooth.None));
+        color={0,0,127}));
   end Test0;
 
   model Test1 "Single row, t_min = 0"

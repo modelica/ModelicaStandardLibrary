@@ -88,50 +88,40 @@ equation
                               color={0,127,255}));
   connect(pump.port_b, valve.port_a) annotation (Line(
       points={{-30,30},{-10,30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valve.port_b, sink.ports[1]) annotation (Line(
       points={{10,30},{30,30}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valveOpening.y, valve.opening) annotation (Line(
       points={{9,70},{0,70},{0,38}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(massFlowRate.y, pump.m_flow_set) annotation (Line(
       points={{-49,70},{-45,70},{-45,38.2}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(pump1.port_a, source1.ports[1])
                                      annotation (Line(points={{-50,-70},{-70,
           -70}},              color={0,127,255}));
   connect(pump1.port_b, valve1.port_a)
                                      annotation (Line(
       points={{-30,-70},{-10,-70}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valve1.port_b, sink1.ports[1])
                                        annotation (Line(
       points={{10,-70},{30,-70}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(valveOpening1.y, valve1.opening)
                                          annotation (Line(
       points={{9,-30},{0,-30},{0,-62}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(pressure1.y, pump1.p_set) annotation (Line(
       points={{-49,-30},{-35,-30},{-35,-61.8}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(sinkPressure.y, sink.p_in) annotation (Line(
       points={{69,70},{60,70},{60,38},{52,38}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(sinkPressure.y, sink1.p_in) annotation (Line(
       points={{69,70},{60,70},{60,-62},{52,-62}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
 annotation (
   experiment(StopTime=7, Tolerance=1e-006),
   Documentation(info=""));

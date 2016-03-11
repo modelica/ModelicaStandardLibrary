@@ -66,94 +66,72 @@ package FluxTubes "Test library for Modelica.Magnetic.FluxTubes"
   equation
     connect(ground1.p, stepVoltage.n) annotation (Line(
         points={{-80,50},{-80,60}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(stepVoltage.p, conductor.p) annotation (Line(
         points={{-80,80},{-70,80}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(conductor.n, converter.p) annotation (Line(
         points={{-50,80},{-40,80},{-40,76}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(converter.n, stepVoltage.n) annotation (Line(
         points={{-40,64},{-40,60},{-80,60}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(converter.port_p, leakageWithCoefficient.port_p) annotation (Line(
         points={{-20,76},{-20,80},{0,80}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(leakageWithCoefficient.port_p, constantReluctance.port_p) annotation (
        Line(
         points={{0,80},{20,80}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(constantReluctance.port_n, leakageWithCoefficient.port_n) annotation (
        Line(
         points={{20,60},{0,60}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(leakageWithCoefficient.port_n, converter.port_n) annotation (Line(
         points={{0,60},{-20,60},{-20,64}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(ground3.p, stepVoltage1.n) annotation (Line(
         points={{-80,-10},{-80,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(stepVoltage1.p, conductor1.p) annotation (Line(
         points={{-80,20},{-70,20}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(ground2.port, constantReluctance.port_n) annotation (Line(
         points={{20,50},{20,60}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(converter1.port_p, eddyCurrent.port_p) annotation (Line(
         points={{-20,16},{-20,20},{-10,20}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(conductor1.n, converter1.p) annotation (Line(
         points={{-50,20},{-40,20},{-40,16}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(converter1.n, stepVoltage1.n) annotation (Line(
         points={{-40,4},{-40,0},{-80,0}},
-        color={0,0,255},
-        smooth=Smooth.None));
+        color={0,0,255}));
     connect(ground.port, converter1.port_n) annotation (Line(
         points={{-20,-10},{-20,4}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(eddyCurrent.port_n, crossing.port_n2) annotation (Line(
         points={{10,20},{20,20}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(crossing.port_p2, short.port_p) annotation (Line(
         points={{40,20},{50,20}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(crossing.port_p1, converter1.port_n) annotation (Line(
         points={{20,0},{-20,0},{-20,4}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(constantPermeance.port_p, short.port_n) annotation (Line(
         points={{80,20},{70,20}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(constantPermeance.port_n, crossing.port_n1) annotation (Line(
         points={{80,0},{40,0}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(idle.port_p, short.port_n) annotation (Line(
         points={{90,20},{70,20}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     connect(idle.port_n, constantPermeance.port_n) annotation (Line(
         points={{90,0},{80,0}},
-        color={255,127,0},
-        smooth=Smooth.None));
+        color={255,127,0}));
     annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005));
   end BasicComponents;
 

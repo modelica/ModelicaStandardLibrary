@@ -80,36 +80,29 @@ equation
           {36,38}}, color={0,0,127}));
   connect(pump.port_b, Sink.ports[1]) annotation (Line(
       points={{-36,30},{-11,30},{-11,33},{14,33}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(Source.ports[2], pumpPolynomial.port_a)
                                               annotation (Line(
       points={{-80,31},{-72,31},{-72,-6},{-64,-6}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(Source.ports[3], pumpQuadraticLinear.port_a)
                                                   annotation (Line(
       points={{-80,29},{-74,29},{-74,-42},{-64,-42}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pumpPolynomial.port_b, Sink.ports[2])
                                             annotation (Line(
       points={{-36,-6},{-6,-6},{-6,31},{14,31}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pumpQuadraticLinear.port_b, Sink.ports[3])
                                                 annotation (Line(
       points={{-36,-42},{0,-42},{0,29},{14,29}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(Source.ports[4], pumpLinear.port_a) annotation (Line(
       points={{-80,27},{-76,27},{-76,-78},{-64,-78}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(pumpLinear.port_b, Sink.ports[4]) annotation (Line(
       points={{-36,-78},{6,-78},{6,27},{14,27}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
 annotation (
   experiment(StopTime=10, Tolerance=1e-006),
   Documentation(info="<html>

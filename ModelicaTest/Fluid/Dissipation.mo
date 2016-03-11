@@ -6791,28 +6791,22 @@ extends Modelica.Icons.ExamplesPackage;
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
             points={{-40,20},{-24,20}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_dp.port_b, OUT_dp.ports[1]) annotation (Line(
             points={{24,20},{80,20}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow.port_b, OUT_mflow.ports[1]) annotation (Line(
             points={{24,-40},{80,-40}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow.port_a, IN_mflow.ports[1]) annotation (Line(
             points={{-24,-40},{-40,-40}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(input_mflow.y, IN_mflow.m_flow_in) annotation (Line(
             points={{-79,-40},{-70,-40},{-70,-32},{-60,-32}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(input_p.y, IN_p.p_in) annotation (Line(
             points={{-79,20},{-72,20},{-72,28},{-62,28}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (
           Documentation(info="<html>
 <p>
@@ -6909,28 +6903,22 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
             points={{-40,20},{-24,20}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_dp.port_b, OUT_dp.ports[1]) annotation (Line(
             points={{24,20},{80,20}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow.port_b, OUT_mflow.ports[1]) annotation (Line(
             points={{24,-40},{80,-40}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow.port_a, IN_mflow.ports[1]) annotation (Line(
             points={{-24,-40},{-40,-40}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(input_mflow.y, IN_mflow.m_flow_in) annotation (Line(
             points={{-79,-40},{-70,-40},{-70,-32},{-60,-32}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(input_p.y, IN_p.p_in) annotation (Line(
             points={{-79,20},{-72,20},{-72,28},{-62,28}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (
           Documentation(info="<html>
 <p>
@@ -7151,76 +7139,58 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
             points={{60,168},{76,168}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_dp.port_b, OUT_dp.ports[1]) annotation (Line(
             points={{124,168},{180,168}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow.port_b, OUT_mflow.ports[1]) annotation (Line(
             points={{124,128},{180,128}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow.port_a, IN_mflow.ports[1]) annotation (Line(
             points={{76,128},{60,128}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(input_p.y, IN_p.p_in) annotation (Line(
             points={{21,166},{28,166},{28,176},{38,176}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(IN_p2.ports[1], from_dp2.port_a) annotation (Line(
             points={{60,8},{76,8}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_dp2.port_b, OUT_dp2.ports[1]) annotation (Line(
             points={{124,8},{180,8}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow2.port_b, OUT_mflow2.ports[1]) annotation (Line(
             points={{124,-32},{180,-32}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow2.port_a, IN_mflow2.ports[1]) annotation (Line(
             points={{76,-32},{60,-32}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(input_p2.y, IN_p2.p_in) annotation (Line(
             points={{21,6},{28,6},{28,16},{38,16}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(IN_p3.ports[1], from_dp3.port_a) annotation (Line(
             points={{-140,-70},{-124,-70}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_dp3.port_b, OUT_dp3.ports[1]) annotation (Line(
             points={{-76,-70},{-20,-70}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow3.port_b, OUT_mflow3.ports[1]) annotation (Line(
             points={{-76,-110},{-20,-110}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(from_mflow3.port_a, IN_mflow3.ports[1]) annotation (Line(
             points={{-124,-110},{-140,-110}},
-            color={0,127,255},
-            smooth=Smooth.None));
+            color={0,127,255}));
         connect(input_p3.y, IN_p3.p_in) annotation (Line(
             points={{-179,-72},{-172,-72},{-172,-62},{-162,-62}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(input_mflow.y, IN_mflow.m_flow_in) annotation (Line(
             points={{-179,-2},{-174,-2},{-174,136},{40,136}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(input_mflow.y, IN_mflow2.m_flow_in) annotation (Line(
             points={{-179,-2},{-174,-2},{-174,-24},{40,-24}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         connect(input_mflow.y, IN_mflow3.m_flow_in) annotation (Line(
             points={{-179,-2},{-174,-2},{-174,-102},{-160,-102}},
-            color={0,0,127},
-            smooth=Smooth.None));
+            color={0,0,127}));
         annotation (
           Documentation(info="<html>
 <p>

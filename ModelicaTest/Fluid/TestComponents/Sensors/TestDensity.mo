@@ -51,48 +51,38 @@ model TestDensity
 equation
   connect(sine1.y, massFlowRate2.m_flow_in) annotation (Line(
       points={{-79,-10},{-70,-10},{-70,-2},{-60,-2}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(massFlowRate2.ports[1], density2_1.port_a)
                                                  annotation (Line(
       points={{-40,-10},{-30,-10},{-30,-20},{-20,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(density2_1.port_b, simpleGenericOrifice1.port_a) annotation (Line(
       points={{0,-20},{20,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(simpleGenericOrifice1.port_b, density2_2.port_a) annotation (Line(
       points={{40,-20},{50,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(density2_2.port_b, boundary_fixed1.ports[1])
                                                    annotation (Line(
       points={{70,-20},{80,-20}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(sine.y, massFlowRate1.m_flow_in) annotation (Line(
       points={{-79,60},{-70,60},{-70,68},{-60,68}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(massFlowRate1.ports[1], density1_1.port)
                                                annotation (Line(
       points={{-40,60},{-26,60},{-26,50},{-10,50}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(density1_1.port, simpleGenericOrifice.port_a) annotation (Line(
       points={{-10,50},{20,50}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(density1_2.port, boundary_fixed.ports[1])
                                                 annotation (Line(
       points={{60,50},{80,50}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   connect(simpleGenericOrifice.port_b, density1_2.port) annotation (Line(
       points={{40,50},{60,50}},
-      color={0,127,255},
-      smooth=Smooth.None));
+      color={0,127,255}));
   annotation (
     experiment(StopTime=1.01, Tolerance=1e-006));
 end TestDensity;
