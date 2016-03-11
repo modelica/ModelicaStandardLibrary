@@ -332,6 +332,7 @@ For an overview, comparison with other random number generators, and links to ar
 
       function initialState
         "Returns an initial state for the xorshift128+ algorithm"
+        extends Modelica.Icons.Function;
         input Integer localSeed
           "The local seed to be used for generating initial states";
         input Integer globalSeed
@@ -972,6 +973,7 @@ If the same localSeed, globalSeed, nState is given, the same state vector is ret
 
     function automaticGlobalSeed
       "Creates an automatic integer seed (typically from the current time and process id; this is an impure function)"
+      extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
 
       external "C" seed = ModelicaRandom_automaticGlobalSeed(0.0) annotation (Library="ModelicaExternalC");
@@ -1038,6 +1040,7 @@ This function should be only called once during initialization.
 
     function automaticLocalSeed
       "Creates an automatic local seed from the instance name"
+      extends Modelica.Icons.Function;
       input String path
         "Full path name of the instance (inquire with getInstanceName())";
       output Integer seed "Automatically generated seed";
@@ -1112,6 +1115,7 @@ path is provided.
 
     function initializeImpureRandom
       "Initializes the internal state of the impure random number generator"
+      extends Modelica.Icons.Function;
       input Integer seed
         "The input seed to initialize the impure random number generator";
       output Integer id
@@ -1124,6 +1128,7 @@ path is provided.
 
       function setInternalState
         "Stores the given state vector in an external static variable"
+        extends Modelica.Icons.Function;
         input Integer[33] rngState "The initial state";
         input Integer id;
         external "C" ModelicaRandom_setInternalState_xorshift1024star(rngState, size(rngState,1), id)
@@ -1204,6 +1209,7 @@ random number generator to fill the internal state vector with 64 bit random num
 
     function impureRandom
       "Impure random number generator (with hidden state vector)"
+      extends Modelica.Icons.Function;
       input Integer id
         "Identification number from initializeImpureRandom(..) function (is needed for correct sorting)";
       output Real y
@@ -1279,6 +1285,7 @@ is returned, so the function is impure.
 
     function impureRandomInteger
       "Impure random number generator for integer values (with hidden state vector)"
+      extends Modelica.Icons.Function;
       input Integer id
         "Identification number from initializeImpureRandom(..) function (is needed for correct sorting)";
       input Integer imin = 1 "Minimum integer to generate";
