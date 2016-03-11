@@ -2474,14 +2474,26 @@ The following Modelica packages have been tested that they work together with th
 </p>
 
 <ul>
-<li> Modelica_Synchronous 0.92.1</li>
-<li> Modelica_LinearSystems2 2.3.4 </li>
-<li> Modelica_StateGraph2 2.0.3</li>
-<li> Buildings 2.1.0 (LBNL)</li>
-<li> Optimization 2.2.2 (DLR)</li>
-<li> PowerTrain 2.4.0 (DLR) </li>
-<li> FlightDynamics 1.0.1 (DLR) </li>
-<li> FlexibleBodies 2.2 (DLR)</li>
+<li>Modelica_Synchronous 0.92.1</li>
+<li>Modelica_LinearSystems2 2.3.4 </li>
+<li>Modelica_StateGraph2 2.0.3<br></li>
+<li>AirConditioning Library 1.12 (Modelon)</li>
+<li>Buildings 2.1.0 (LBNL)</li>
+<li>Electric Power Library 2.2.3 (Modelon)</li>
+<li>Engine Dynamics Library 1.2.5 (Modelon)</li>
+<li>FlexibleBodies 2.2 (DLR)</li>
+<li>FlightDynamics 1.0.1 (DLR)</li>
+<li>Fuel Cell Library 1.3.3 (Modelon)</li>
+<li>Heat Exchanger Library 1.4.1 (Modelon)</li>
+<li>Hydraulics Library 4.4 (Modelon)</li>
+<li>Hydro Power Library 2.6 (Modelon)</li>
+<li>Liquid Cooling Library 1.5 (Modelon)</li>
+<li>Optimization 2.2.2 (DLR)</li>
+<li>PowerTrain 2.4.0 (DLR)</li>
+<li>Pneumatics Library 2.0 (Modelon)</li>
+<li>Thermal Power Library 1.12 (Modelon)</li>
+<li>Vapor Cycle Library 1.3 (Modelon)</li>
+<li>Vehicle Dynamics Library 2.3 (Modelon)</li>
 </ul>
 
 
