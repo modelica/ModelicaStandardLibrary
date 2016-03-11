@@ -1,7 +1,7 @@
 /* ModelicaStandardTables.h - External table functions header
 
-   Copyright (C) 2008-2012, Modelica Association and DLR
-   Copyright (C) 2013-2016, Modelica Association, DLR and ITI GmbH
+   Copyright (C) 2013-2016, Modelica Association, DLR, and ITI GmbH
+   Copyright (C) 2008-2013, Modelica Association and DLR
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
