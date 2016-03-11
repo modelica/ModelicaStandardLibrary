@@ -2474,7 +2474,10 @@ The following Modelica packages have been tested that they work together with th
 </p>
 
 <ul>
-<li> Modelica_Synchronous 0.92</li>
+<li> Modelica_Synchronous 0.92.1</li>
+<li> Modelica_LinearSystems2 2.3.4 </li>
+<li> Modelica_StateGraph2 2.0.3</li>
+<li> Buildings 2.1.0 (LBNL)</li>
 <li> Optimization 2.2.2 (DLR)</li>
 <li> PowerTrain 2.4.0 (DLR) </li>
 <li> FlightDynamics 1.0.1 (DLR) </li>
