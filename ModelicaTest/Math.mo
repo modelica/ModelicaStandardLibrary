@@ -1442,10 +1442,8 @@ For more details of this distribution see
       protected
         Integer nu = size(u,1);
       algorithm
-        if nu < 1 then
-           return;
-        elseif nu==1 then
-           der_y[1] :=0.0;
+        if nu <= 1 then
+           der_y := fill(0.0, nu);
         else
            der_y[1] :=(y[2] - y[1])/(u[2] - u[1]);
            der_y[nu] := (y[nu] - y[nu-1])/(u[nu] - u[nu-1]);
@@ -1484,10 +1482,8 @@ For more details of this distribution see
       protected
         Integer nu = size(u,1);
       algorithm
-        if nu < 1 then
-           return;
-        elseif nu==1 then
-           der_y[1] :=0.0;
+        if nu <= 1 then
+           der_y := fill(0.0, nu);
         else
            for i in 1:nu-1 loop
               der_y[i] :=(y[i + 1] - y[i])/(u[i + 1] - u[i]);
