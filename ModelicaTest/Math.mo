@@ -821,7 +821,6 @@ extends Modelica.Icons.ExamplesPackage;
       "Demonstrate the generation of uniform random numbers in the range 0..1"
       import Modelica.Math.Random.Generators;
       import Modelica.Utilities.Streams.print;
-      import Modelica.Math.Random.Utilities.automaticLocalSeed;
       extends Modelica.Icons.Function;
       input Integer localSeed = 614657;
       input Integer globalSeed = 30020;
@@ -840,8 +839,8 @@ extends Modelica.Icons.ExamplesPackage;
       constant Integer nRandom = 5;
       constant String name1="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed1";
       constant String name2="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed2";
-      constant Integer localSeed1 = automaticLocalSeed(name1);
-      constant Integer localSeed2 = automaticLocalSeed(name2);
+      constant Integer localSeed1 = Modelica.Utilities.Strings.hashString(name1);
+      constant Integer localSeed2 = Modelica.Utilities.Strings.hashString(name2);
     algorithm
       print("\n... Demonstrate how to generate uniform random numbers with xorshift64*:");
 
@@ -1220,7 +1219,7 @@ extends Modelica.Icons.ExamplesPackage;
         (result,r2,r4a,r4b,r4c,r33, state2,state4a,state4b,state4c,state33) =  ModelicaTest.Math.Random.randomNumbers();
       end when;
 
-      annotation (experiment(StopTime=0.001, Interval=1));
+      annotation (experiment(StopTime=1.5, Interval=1));
     end TestRandomNumbers;
 
     model TestSpecial
