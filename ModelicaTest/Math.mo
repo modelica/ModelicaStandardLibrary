@@ -819,60 +819,66 @@ extends Modelica.Icons.ExamplesPackage;
   package Random
     function randomNumbers
       "Demonstrate the generation of uniform random numbers in the range 0..1"
+      import Modelica.Math.Random.Generators;
       import Modelica.Utilities.Streams.print;
-      import Modelica;
+      import Modelica.Math.Random.Utilities.automaticLocalSeed;
       extends Modelica.Icons.Function;
       input Integer localSeed = 614657;
       input Integer globalSeed = 30020;
       output Boolean ok;
+      output Integer state2[ Generators.Xorshift64star.nState];
+      output Integer state4a[Generators.Xorshift128plus.nState];
+      output Integer state4b[Generators.Xorshift128plus.nState];
+      output Integer state4c[Generators.Xorshift128plus.nState];
+      output Integer state33[Generators.Xorshift1024star.nState];
     protected
       constant Integer nRandom = 5;
-      Integer state2[2];
-      Integer state4[4];
-      Integer state33[33];
+      constant String name1="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed1";
+      constant String name2="Modelica.Blocks.Examples.NoiseExamples.AutomaticSeed.automaticSeed2";
+      constant Integer localSeed1 = automaticLocalSeed(name1);
+      constant Integer localSeed2 = automaticLocalSeed(name2);
       Real r;
+      Real ra, rb, rc;
     algorithm
       print("\n... Demonstrate how to generate uniform random numbers with xorshift64*:");
 
       // Generate initial state from localSeed and globalSeed
-      state2 :=
-        Modelica.Math.Random.Generators.Xorshift64star.initialState(
-        localSeed, globalSeed);
+      state2 := Generators.Xorshift64star.initialState(localSeed, globalSeed);
 
       // Generate random numbers
       for i in 1:nRandom loop
-        (r,state2) :=
-          Modelica.Math.Random.Generators.Xorshift64star.random(state2);
+        (r,state2) := Generators.Xorshift64star.random(state2);
         print("   random = " + String(r));
       end for;
 
-      print("\n... Demonstrate how to generate uniform random numbers with xorshift128+:");
+
+      print("\n... Demonstrate how to generate uniform random numbers with xorshift128+ (and 3 different localSeeds):");
 
       // Generate initial state from localSeed and globalSeed
-      state4 :=
-        Modelica.Math.Random.Generators.Xorshift128plus.initialState(
-        localSeed, globalSeed);
+      state4a := Generators.Xorshift128plus.initialState(localSeed,  globalSeed);
+      state4b := Generators.Xorshift128plus.initialState(localSeed1, globalSeed);
+      state4c := Generators.Xorshift128plus.initialState(localSeed2, globalSeed);
 
       // Generate random numbers
       for i in 1:nRandom loop
-        (r,state4) :=
-          Modelica.Math.Random.Generators.Xorshift128plus.random(state4);
-        print("   random = " + String(r));
+        (ra,state4a) := Generators.Xorshift128plus.random(state4a);
+        (rb,state4b) := Generators.Xorshift128plus.random(state4b);
+        (rc,state4c) := Generators.Xorshift128plus.random(state4c);
+        print("   random = " + String(ra) + ", " + String(rb) + ", " + String(rc));
       end for;
+
 
       print("\n... Demonstrate how to generate uniform random numbers with xorshift1024*:");
 
       // Generate initial state from localSeed and globalSeed
-      state33 :=
-        Modelica.Math.Random.Generators.Xorshift1024star.initialState(
-        localSeed, globalSeed);
+      state33 := Generators.Xorshift1024star.initialState(localSeed, globalSeed);
 
       // Generate random numbers
       for i in 1:nRandom loop
-        (r,state33) :=
-          Modelica.Math.Random.Generators.Xorshift1024star.random(state33);
+        (r,state33) := Generators.Xorshift1024star.random(state33);
         print("   random = " + String(r));
       end for;
+
       ok :=true;
       annotation (Documentation(info="<html>
 <p>
@@ -1178,12 +1184,18 @@ extends Modelica.Icons.ExamplesPackage;
     end automaticGlobalSeed;
 
     model TestRandomNumbers
+      import Modelica.Math.Random.Generators;
       extends Modelica.Icons.Example;
 
       output Boolean result;
+      output Integer state2[ Generators.Xorshift64star.nState];
+      output Integer state4a[Generators.Xorshift128plus.nState];
+      output Integer state4b[Generators.Xorshift128plus.nState];
+      output Integer state4c[Generators.Xorshift128plus.nState];
+      output Integer state33[Generators.Xorshift1024star.nState];
     algorithm
       when initial() then
-        result := ModelicaTest.Math.Random.randomNumbers();
+        (result,state2,state4a,state4b,state4c,state33) := ModelicaTest.Math.Random.randomNumbers();
       end when;
 
       annotation (experiment(StopTime=0));
