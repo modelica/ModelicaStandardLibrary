@@ -2353,7 +2353,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_2 "Version 3.2.2 (March 11, 2016)"
+class Version_3_2_2 "Version 3.2.2 (March 21, 2016)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2474,9 +2474,6 @@ The following Modelica packages have been tested that they work together with th
 </p>
 
 <ul>
-<li>Modelica_Synchronous 0.92.1</li>
-<li>Modelica_LinearSystems2 2.3.4 </li>
-<li>Modelica_StateGraph2 2.0.3<br></li>
 <li>AirConditioning Library 1.12 (Modelon)</li>
 <li>Buildings 2.1.0 (LBNL)</li>
 <li>Electric Power Library 2.2.3 (Modelon)</li>
@@ -2488,6 +2485,9 @@ The following Modelica packages have been tested that they work together with th
 <li>Hydraulics Library 4.4 (Modelon)</li>
 <li>Hydro Power Library 2.6 (Modelon)</li>
 <li>Liquid Cooling Library 1.5 (Modelon)</li>
+<li>Modelica_Synchronous 0.92.1</li>
+<li>Modelica_LinearSystems2 2.3.4 </li>
+<li>Modelica_StateGraph2 2.0.3</li>
 <li>Optimization 2.2.2 (DLR)</li>
 <li>PowerTrain 2.4.0 (DLR)</li>
 <li>Pneumatics Library 2.0 (Modelon)</li>
@@ -2736,6 +2736,7 @@ The following <b style=\"color:blue\">existing components</b> have been <b style
 
 </html>"));
 end Version_3_2_2;
+
   extends Modelica.Icons.ReleaseNotes;
 
 class Version_3_2_1 "Version 3.2.1 (August 14, 2013)"
@@ -8093,9 +8094,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2.2",
-versionBuild=0,
-versionDate="2016-03-11",
-dateModified = "2016-03-11 08:44:41Z",
+versionBuild=1,
+versionDate="2016-03-21",
+dateModified = "2016-03-21 08:44:41Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
 conversion(
