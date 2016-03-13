@@ -2659,8 +2659,6 @@ to <b style=\"color:blue\">existing</b> libraries:<br>
     <td valign=\"top\"> Return an initial state vector for a random number generator (based on xorshift64star algorithm)</td></tr>
 <tr><td valign=\"top\" width=\"150\">automaticGlobalSeed </td>
     <td valign=\"top\"> Creates an automatic integer seed from the current time and process id (= impure function)</td></tr>
-<tr><td valign=\"top\" width=\"150\">automaticLocalSeed </td>
-    <td valign=\"top\"> Creates an automatic local seed from the instance name</td></tr>
 <tr><td valign=\"top\" width=\"150\">initializeImpureRandom </td>
     <td valign=\"top\"> Initializes the internal state of the impure random number generator</td></tr>
 <tr><td valign=\"top\" width=\"150\">impureRandom</td>
