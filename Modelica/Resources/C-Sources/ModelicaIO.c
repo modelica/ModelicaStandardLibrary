@@ -360,7 +360,7 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
         matc = MAT_COMPRESSION_NONE;
     }
 
-    if ( append == 0 ) {
+    if (append == 0) {
         mat = Mat_CreateVer(fileName, NULL, matv);
         if (mat == NULL) {
             ModelicaFormatError("Not possible to newly create file \"%s\"\n(maybe version 7.3 not supported)\n", fileName);
@@ -372,6 +372,12 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
             ModelicaFormatError("Not possible to open file \"%s\"\n", fileName);
             return 0;
         }
+    }
+
+    if (matv != Mat_GetVersion(mat)) {
+        (void)Mat_Close(mat);
+        ModelicaFormatError("File \"%s\" is not of version %s\n", fileName, version);
+        return 0;
     }
 
     /* MAT file array is stored column-wise -> need to transpose */
