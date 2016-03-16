@@ -5701,83 +5701,6 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
 </html>"));
     end PermanentMagnetLosses;
 
-    model SignalVoltage
-      "Generic voltage source using the input signal as source voltage"
-
-      Electrical.Analog.Interfaces.PositivePin p
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Electrical.Analog.Interfaces.NegativePin n
-        annotation (Placement(transformation(extent={{110,-10},{90,10}})));
-      Modelica.Blocks.Interfaces.RealInput v(unit="V")
-        "Voltage between pin p and n (= p.v - n.v) as input signal" annotation (
-          Placement(transformation(
-            origin={0,70},
-            extent={{-20,-20},{20,20}},
-            rotation=270)));
-      SIunits.Current i "Current flowing from pin p to pin n";
-    equation
-      v = p.v - n.v;
-      0 = p.i + n.i;
-      i = p.i;
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}), graphics={
-            Ellipse(
-              extent={{-50,50},{50,-50}},
-              lineColor={0,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-            Line(points={{-90,0},{-50,0}}, color={0,0,255}),
-            Line(points={{50,0},{90,0}}, color={0,0,255}),
-            Line(points={{-50,0},{50,0}}, color={0,0,255}),
-            Text(
-              extent={{-150,-104},{150,-64}},
-              textString="%name",
-              lineColor={0,0,255}),
-            Text(
-              extent={{-120,50},{-20,0}},
-              lineColor={0,0,255},
-              textString="+"),
-            Text(
-              extent={{20,50},{120,0}},
-              lineColor={0,0,255},
-              textString="-")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Ellipse(
-                extent={{-50,50},{50,-50}},
-                lineColor={0,0,255},
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid),Line(points={{-96,0},{-50,0}},
-              color={0,0,255}),Line(points={{50,0},{96,0}}, color={0,0,255}),Line(
-              points={{-50,0},{50,0}}, color={0,0,255}),Line(points={{-109,20},{-84,
-              20}}, color={160,160,164}),Polygon(
-                points={{-94,23},{-84,20},{-94,17},{-94,23}},
-                lineColor={160,160,164},
-                fillColor={160,160,164},
-                fillPattern=FillPattern.Solid),Line(points={{91,20},{116,20}},
-              color={160,160,164}),Text(
-                extent={{-109,25},{-89,45}},
-                lineColor={160,160,164},
-                textString="i"),Polygon(
-                points={{106,23},{116,20},{106,17},{106,23}},
-                lineColor={160,160,164},
-                fillColor={160,160,164},
-                fillPattern=FillPattern.Solid),Text(
-                extent={{91,45},{111,25}},
-                lineColor={160,160,164},
-                textString="i"),Line(points={{-119,-5},{-119,5}}, color={160,160,
-              164}),Line(points={{-124,0},{-114,0}}, color={160,160,164}),Line(
-              points={{116,0},{126,0}}, color={160,160,164})}),
-        Documentation(revisions="<html>
-<ul>
-<li><i> 1998   </i>
-       by Martin Otter<br> initially implemented<br>
-       </li>
-</ul>
-</html>",   info="<html>
-<p>The signal voltage source is a parameterless converter of real valued signals into a the source voltage. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &quot;Opposite&quot; of a voltage sensor.</p>
-</html>"));
-    end SignalVoltage;
   end Losses;
 
   package Sources "Sources to supply magnetic networks"
@@ -6265,7 +6188,8 @@ Additionally the reference angle is specified in the connector. The time derivat
     end NegativeMagneticPort;
 
     partial model PartialTwoPort "Partial two port for graphical programming"
-      Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma) "Reference angular velocity (= der(port_p.reference.gamma))";
+      Modelica.SIunits.AngularVelocity omega=der(port_p.reference.gamma)
+        "Reference angular velocity (= der(port_p.reference.gamma))";
       FundamentalWave.Interfaces.PositiveMagneticPort port_p
         "Positive quasi static magnetic port" annotation (Placement(
             transformation(extent={{-110,-10},{-90,10}})));
