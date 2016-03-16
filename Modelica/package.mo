@@ -2353,7 +2353,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_2 "Version 3.2.2 (March 21, 2016)"
+class Version_3_2_2 "Version 3.2.2 (March 16, 2016)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2416,7 +2416,7 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
                 </li>
           </ul>
      </li>
-     <li> <b>Version 3.2.2</b> (Build.1) with respect to 3.2.1 Build.4:<br>
+     <li> <b>Version 3.2.2</b> (Build.2) with respect to 3.2.1 Build.4:<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
           have been fixed for this release.<br>
           The ModelicaStandardTables object library (.lib, .dll, .a, .so, depending on tool) has
@@ -2451,20 +2451,22 @@ see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
 </p>
 
 <ul>
-<li> <b>Dymola 2017 Beta.1</b> (Windows 64 bit, \"Check\" with pedantic flag, that is checking strict 
+<li> <b>Dymola 2017 Beta.1</b> (Windows 64 bit, \"Check\" with pedantic flag, that is checking strict
      Modelica compliance, and \"Check with Simulation\").<br>
-     <a href=\"https://trac.modelica.org/Modelica/ticket/1924\">#1924</a>: 
+     <a href=\"https://trac.modelica.org/Modelica/ticket/1924\">#1924</a>:
      Regression testing of 3.2.2+build.0-beta.2 using Dymola 2017 Dev 4 with respect to
      3.2.1+build.4 reference files<br>
      <a href=\"https://trac.modelica.org/Modelica/ticket/1949\">#1949</a>:
      Regression testing of 3.2.2+build.0-beta.3 using Dymola 2017 Beta 1 with respect to
      3.2.1+build.4 reference files</li>
+<li> <b>LMS Imagine.Lab Amesim 14.2</b> and <b>LMS Imagine.Lab Amesim 15 (development build)</b>.
+     No previously unreported regressions have been detected.</li>
 <li> <b>Maplesim Parser</b></li>
 <li> <b>OpenModelica 1.9.4 Beta.2</b> (Windows, Linux, Mac)<br>
      <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_Compilation/\">Compilation</a> of models of 3.2.2.<br>
      <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_cpp_Simulation/\">Simulation</a> of models of 3.2.2.<br>
      <a href=\"https://test.openmodelica.org/libraries/MSL_trunk/BuildModelRecursive.html\">Regression testing</a> of 3.2.2 using OpenModelica 1.9.4 with respect
-     to 3.2.1+build.4 reference files.</li> 
+     to 3.2.1+build.4 reference files.</li>
      </li>
 </ul>
 
@@ -8094,9 +8096,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2.2",
-versionBuild=1,
-versionDate="2016-03-21",
-dateModified = "2016-03-21 08:44:41Z",
+versionBuild=2,
+versionDate="2016-03-16",
+dateModified = "2016-03-16 08:44:41Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
 conversion(

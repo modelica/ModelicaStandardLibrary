@@ -377,23 +377,19 @@ from a file.
   model WriteRealMatrixToFile
     "Demonstrate usage of function Streams.writeRealMatrix"
     extends Modelica.Icons.Example;
-    parameter String fileName1 = "Test_RealMatrix_v4.mat" "File name of matrix 1"
-      annotation(Dialog(saveSelector(filter="MATLAB MAT files (*.mat)", caption="Save MATLAB v4 MAT file")));
-    parameter String fileName2 = "Test_RealMatrix_v6.mat" "File name of matrix 2"
-      annotation(Dialog(saveSelector(filter="MATLAB MAT files (*.mat)", caption="Save MATLAB v6 MAT file")));
-    parameter String fileName3 = "Test_RealMatrix_v7.mat" "File name of matrix 3"
-      annotation(Dialog(saveSelector(filter="MATLAB MAT files (*.mat)", caption="Save MATLAB v7 MAT file")));
-    parameter Real A[3,2] = [11, 12; 21, 22; 31, 32] "Matrix data";
-    output Boolean success1 "Success 1";
-    output Boolean success2 "Success 2";
-    output Boolean success3 "Success 3";
-    output Boolean success4 "Success 4";
+    parameter Real A[3,2] = [11, 12;
+                             21, 22;
+                             31, 32] "Matrix stored in different formats on files";
+    output Boolean success1;
+    output Boolean success2;
+    output Boolean success3;
+    output Boolean success4;
   equation
     when initial() then
-       success1 = Modelica.Utilities.Streams.writeRealMatrix(fileName1, "Matrix_A", A);
-       success2 = Modelica.Utilities.Streams.writeRealMatrix(fileName1, "Matrix_B", A, append=true, format="4");
-       success3 = Modelica.Utilities.Streams.writeRealMatrix(fileName2, "Matrix_A", A, format="6");
-       success4 = Modelica.Utilities.Streams.writeRealMatrix(fileName3, "Matrix_A", A, format="7");
+       success1 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
+       success2 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_B", A, append=true, format="4");
+       success3 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v6.mat", "Matrix_A", A, format="6");
+       success4 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v7.mat", "Matrix_A", A, format="7");
     end when;
 
     annotation (experiment(StopTime=0.1), Documentation(info="<html>
@@ -411,19 +407,20 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     parameter String file = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of matrix"
       annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     parameter String matrixName = "Matrix_A" "Matrix name in file";
-    final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(fileName1,matrixName) "Dimension of matrix";
-    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(fileName1,matrixName1,dim1[1],dim1[2]) "Matrix data";
-    final parameter String fileName1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
-    final parameter String fileName2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
-    final parameter String fileName3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat") "File name of check matrix 3";
+    final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName) "Dimension of matrix";
+    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Matrix data";
+
+    final parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
+    final parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
+    final parameter String file3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat") "File name of check matrix 3";
     final parameter String matrixName1 = "Matrix_A" "Names of check matrices";
-    final parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(fileName1,matrixName1) "Dimensions of check matrix 1";
-    final parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(fileName2,matrixName1) "Dimensions of check matrix 2";
-    final parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(fileName3,matrixName1) "Dimensions of check matrix 3";
-    final parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(fileName1,matrixName1,dim1[1],dim1[2]) "Data of check matrix 1";
-    final parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(fileName2,matrixName1,dim2[1],dim2[2]) "Data of check matrix 2";
-    final parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(fileName3,matrixName1,dim3[1],dim3[2]) "Data of check matrix 3";
-    Real x(start=1, fixed=true) "Dummy state";
+    final parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName1) "Dimensions of check matrix 1";
+    final parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName1) "Dimensions of check matrix 2";
+    final parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(file3,matrixName1) "Dimensions of check matrix 3";
+    final parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Data of check matrix 1";
+    final parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(file2,matrixName1,dim2[1],dim2[2]) "Data of check matrix 2";
+    final parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName1,dim3[1],dim3[2]) "Data of check matrix 3";
+    Real x(start=1, fixed=true);
   protected
     constant Real eps = 10* Modelica.Constants.eps;
   equation
