@@ -380,10 +380,10 @@ from a file.
     parameter Real A[3,2] = [11, 12;
                              21, 22;
                              31, 32] "Matrix stored in different formats on files";
-    output Boolean success1;
-    output Boolean success2;
-    output Boolean success3;
-    output Boolean success4;
+    output Boolean success1 "= true if writing to Test_RealMatrix_v4.mat is successful";
+    output Boolean success2 "= true if appending to Test_RealMatrix_v4.mat is successful";
+    output Boolean success3 "= true if writing to Test_RealMatrix_v6.mat is successful";
+    output Boolean success4 "= true if writing to Test_RealMatrix_v7.mat is successful";
   equation
     when initial() then
        success1 = Modelica.Utilities.Streams.writeRealMatrix("Test_RealMatrix_v4.mat", "Matrix_A", A);
@@ -420,7 +420,7 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     final parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Data of check matrix 1";
     final parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(file2,matrixName1,dim2[1],dim2[2]) "Data of check matrix 2";
     final parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName1,dim3[1],dim3[2]) "Data of check matrix 3";
-    Real x(start=1, fixed=true);
+    Real x(start=1, fixed=true) "Dummy state";
   protected
     constant Real eps = 10* Modelica.Constants.eps;
   equation

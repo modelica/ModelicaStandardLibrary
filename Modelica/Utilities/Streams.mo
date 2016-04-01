@@ -272,8 +272,9 @@ Function <b>writeRealMatrix</b>(..) writes the given matrix to a new or an exist
 (in format v4, v6, v7, and if HDF is supported in the Modelica tool, also v7.3).
 If <code>append = false</code> (= default), the file is newly created
 (or an existing file is deleted and re-created).
-If <code>append = true</code>, the matrix is included in an existing file
-(and argument format is ignored).
+If <code>append = true</code>, the matrix is included in an existing file or if the
+file does not yet exists this flag is ignored. If the file exists and
+<code>append = true</code>, argument format is ignored.
 </p>
 
 <p>
