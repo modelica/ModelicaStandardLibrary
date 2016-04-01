@@ -2353,7 +2353,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_2 "Version 3.2.2 (March 16, 2016)"
+class Version_3_2_2 "Version 3.2.2 (April 2, 2016)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2482,9 +2482,13 @@ The following Modelica packages have been tested that they work together with th
 <li>Engine Dynamics Library 1.2.5 (Modelon)</li>
 <li>FlexibleBodies 2.2 (DLR)</li>
 <li>FlightDynamics 1.0.1 (DLR)</li>
+<li>FluidDissipation 1.1.8 (XRG Simulation)</li>
 <li>Fuel Cell Library 1.3.3 (Modelon)</li>
 <li>Heat Exchanger Library 1.4.1 (Modelon)</li>
+<li>Human Comfort Library 2.1.0 (XRG Simulation)</li>
+<li>HVAC Library 2.1.0 (XRG Simulation)</li>
 <li>Hydraulics Library 4.4 (Modelon)</li>
+<li>Hydronics Library 2.1.0 (XRG Simulation)</li>
 <li>Hydro Power Library 2.6 (Modelon)</li>
 <li>Liquid Cooling Library 1.5 (Modelon)</li>
 <li>Modelica_Synchronous 0.92.1</li>
@@ -8096,9 +8100,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2.2",
-versionBuild=2,
-versionDate="2016-03-16",
-dateModified = "2016-03-16 08:44:41Z",
+versionBuild=3,
+versionDate="2016-04-02",
+dateModified = "2016-04-02 08:44:41Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
 conversion(
