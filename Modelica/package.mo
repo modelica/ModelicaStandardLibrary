@@ -2360,7 +2360,9 @@ class Version_3_2_2 "Version 3.2.2 (April 2, 2016)"
 <p>
 Version 3.2.2 is backward compatible to version 3.2.1, that is models developed with
 versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with version 3.2.2
-(with exception of the, usually uncritical, non-backwards compatible changes listed below).
+(with exception of the, usually uncritical, non-backwards compatible changes listed below,
+and one potentially critical non-backwards compatible change introduced in 3.2.1 Build.3 for the functions
+in Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details below).
 </p>
 
 <ul>
@@ -2429,8 +2431,14 @@ versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with 
           For a <b>user</b> this might be a non-backwards compatible change if he/she implemented an
           own external C interface function to one of the functions in the ModelicaStandardTables,
           ModelicaMatIO or zlib libraries. In this case, the library annotations to these functions need to be
-          adapted.</li>
+          adapted.<br>&nbsp;</li>
      </ul>
+</li>
+<li> In version 3.2.1 Build.3 a nonbackwards compatible change was introduced by accident in the functions of
+Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction by adding a new argument crossArea
+not at the end of the argument list. Whenever these functions are called with positional arguments,
+3.2.1 Build.3 and Build.4, as well as 3.2.2 will give a wrong result by a model that was
+constructed with 3.2.1 Build.2 or an earlier library version.
 </li>
 </ul>
 
