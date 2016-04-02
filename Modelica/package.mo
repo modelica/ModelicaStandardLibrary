@@ -2434,11 +2434,13 @@ in Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see detail
           adapted.<br>&nbsp;</li>
      </ul>
 </li>
-<li> In version 3.2.1 Build.3 a nonbackwards compatible change was introduced by accident in the functions of
+<li> In version 3.2.1 Build.3 a nonbackwards compatible change was introduced in the functions of
 Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction by adding a new argument crossArea
-not at the end of the argument list. Whenever these functions are called with positional arguments,
-3.2.1 Build.3 and Build.4, as well as 3.2.2 will give a wrong result by a model that was
-constructed with 3.2.1 Build.2 or an earlier library version.
+to fix non-circular pipes <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">#1601</a>.
+Whenever these base functions are called directly with positional arguments,
+3.2.1 Build.3 and Build.4, as well as 3.2.2 will give an error (pass roughness [m] as crossArea [m2])
+for a model that was constructed with 3.2.1 Build.2 or an earlier library version.
+The model at hand must be modified to also pass the crossArea or use named function arguments.
 </li>
 </ul>
 
