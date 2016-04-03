@@ -2353,7 +2353,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2_2 "Version 3.2.2 (April 2, 2016)"
+class Version_3_2_2 "Version 3.2.2 (April 3, 2016)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -8118,8 +8118,8 @@ annotation (
 preferredView="info",
 version="3.2.2",
 versionBuild=3,
-versionDate="2016-04-02",
-dateModified = "2016-04-02 08:44:41Z",
+versionDate="2016-04-03",
+dateModified = "2016-04-03 08:44:41Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="3.2.2"), ModelicaServices(version="3.2.2")),
 conversion(
