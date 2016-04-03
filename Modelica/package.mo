@@ -2360,9 +2360,10 @@ class Version_3_2_2 "Version 3.2.2 (April 2, 2016)"
 <p>
 Version 3.2.2 is backward compatible to version 3.2.1, that is models developed with
 versions 3.0, 3.0.1, 3.1, 3.2, or 3.2.1 will work without any changes also with version 3.2.2
-(with exception of the, usually uncritical, non-backwards compatible changes listed below,
-and one potentially critical non-backwards compatible change introduced in 3.2.1 Build.3 for the functions
-in Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details below).
+(with exception of the, usually uncritical, non-backwards compatible changes listed below with regards to
+external object libraries, and one bug fix introduced in 3.2.1 Build.3 for non-circular pipes
+that can be non-backwards compatible if a user constructed a new pipe model based on
+Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details below).
 </p>
 
 <ul>
@@ -2434,13 +2435,19 @@ in Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see detail
           adapted.<br>&nbsp;</li>
      </ul>
 </li>
-<li> In version 3.2.1 Build.3 a nonbackwards compatible change was introduced in the functions of
-Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction by adding a new argument crossArea
-to fix non-circular pipes <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">#1601</a>.
-Whenever these base functions are called directly with positional arguments,
-3.2.1 Build.3 and Build.4, as well as 3.2.2 will give an error (pass roughness [m] as crossArea [m2])
-for a model that was constructed with 3.2.1 Build.2 or an earlier library version.
-The model at hand must be modified to also pass the crossArea or use named function arguments.
+<li> In version 3.2.1 Build.3 a new argument crossArea was introduced in the functions of
+Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction to fix a subtle bug for the
+calculation of pipe friction for non-circular pipes, see <a href=\"https://trac.modelica.org/Modelica/ticket/1601\">#1601</a>
+and <a href=\"https://trac.modelica.org/Modelica/ticket/1656\">#1656</a>.
+If a user utilized a pipe model of Modelica.Fluid.Pipes, this does not matter because the pipe models have been
+improved in a fully backwards compatible way. However, if the user constructed an own pipe model based on
+the partial package PartialWallFriction and calls the functions defined in PartialWallFriction with
+positional (and not named) arguments, then a unit warning or error will occur (depending on the tool
+and tool-specific settings) because the new argument crossArea has unit [m2] and the previous
+argument at this place, roughness, has unit [m]. If the warning is ignored, the simulation result
+will be wrong, because the crossArea is used as roughness. The user needs to fix this by
+adapting his/her pipe model so that the crossArea is used in the function calls,
+or by using named function arguments.
 </li>
 </ul>
 
