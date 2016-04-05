@@ -22,7 +22,7 @@ Color coding of "Priority":
   </tbody>
 </table>
 
-  <h2 class="report-result">Component: --MSL-general-- <span class="numrows">(9 matches)</span></h2>
+  <h2 class="report-result">Component: --MSL-general-- <span class="numrows">(10 matches)</span></h2>
   <table class="listing tickets">
     <thead>
     <tr class="trac-columns">
@@ -115,6 +115,15 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       Regression testing issues have been all explained
+                    </td>
+              </tr>
+              <tr class="odd prio3">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1951" title="View ticket" class="closed">#1951</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1951" title="View ticket">Dead links in documentation</a>
+                    </td>
+                    <td class="changelog">
+                      Removed and updated dead HTML links in documentation.
                     </td>
               </tr>
       </tbody>
@@ -742,7 +751,7 @@ Color coding of "Priority":
       <tbody>
         <tr class="trac-group">
           <th colspan="4">
-    <h2 class="report-result">Component: Fluid <span class="numrows">(7 matches)</span></h2>
+    <h2 class="report-result">Component: Fluid <span class="numrows">(8 matches)</span></h2>
           </th>
         </tr>
     <tr class="trac-columns">
@@ -817,6 +826,15 @@ Color coding of "Priority":
                     </td>
                     <td class="changelog">
                       Rewrote Modelica.Fluid.Machines.BaseClasses.PumpCharacteristics.polynomialFlow.max_dhdV
+                    </td>
+              </tr>
+              <tr class="odd prio1">
+                    <td class="batchmod_selector sel"><input type="checkbox"></td><td class="id"><a href="https://trac.modelica.org/Modelica/ticket/1973" title="View ticket" class="closed">#1973</a></td>
+                    <td class="summary">
+                      <a href="https://trac.modelica.org/Modelica/ticket/1973" title="View ticket">Change in function massFlowRate corrupts existing models without warning or error</a>
+                    </td>
+                    <td class="changelog">
+                      Documented the potentially non-backards compatible change in the functions of PartialWallFriction in MSL 3.2.1+Build.3 due to a bug fix regarding non-circular pipes (can be releveant if wall friction functions are directly called, e.g., by pipe models constructed by the user)
                     </td>
               </tr>
       </tbody>
