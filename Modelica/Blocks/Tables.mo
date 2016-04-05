@@ -221,7 +221,7 @@ have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
 lines in the file and need not start at the beginning of a line).
 Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
-Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
 Other characters, like trailing non comments, are not allowed in the file.
@@ -523,7 +523,7 @@ have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
 lines in the file and need not start at the beginning of a line).
 Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
-Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
 Other characters, like trailing non comments, are not allowed in the file.
@@ -821,7 +821,7 @@ have to be given. The elements have to be provided as a sequence of
 numbers in row-wise order (therefore a matrix row can span several
 lines in the file and need not start at the beginning of a line).
 Numbers have to be given according to C syntax (such as 2.3, -2, +2.e4).
-Number separators are spaces, tab (\t), comma (,), or semicolon (;).
+Number separators are spaces, tab (\\t), comma (,), or semicolon (;).
 Several matrices may be defined one after another. Line comments start
 with the hash symbol (#) and can appear everywhere.
 Other characters, like trailing non comments, are not allowed in the file.
