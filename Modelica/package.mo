@@ -2377,7 +2377,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-3.html\">103 tickets</a>
           have been fixed for this maintenance release.<br>&nbsp; </li>
 
-     <li> <b>Version 3.2.1 Build.4</b> (Sept. 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
+     <li> <b>Version 3.2.1 Build.4</b> (September 30, 2015) with respect to 3.2.1 Build.3 (July 30, 2015):
           <ul>
             <li> About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.1/ResolvedTracTickets-build-4.html\">10 tickets</a>
                  have been fixed for this maintenance release. Critical tickets:</li>
@@ -2419,7 +2419,7 @@ Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction, see details b
                 </li>
           </ul>
      </li>
-     <li> <b>Version 3.2.2</b> (Build.2) with respect to 3.2.1 Build.4:<br>
+     <li> <b>Version 3.2.2 Build.3</b> (April 3, 2016) with respect to 3.2.1 Build.4 (September 30, 2015):<br>
           About <a href=\"modelica://Modelica/Resources/Documentation/Version-3.2.2/ResolvedTracTickets.html\">130 tickets</a>
           have been fixed for this release.<br>
           The ModelicaStandardTables object library (.lib, .dll, .a, .so, depending on tool) has
