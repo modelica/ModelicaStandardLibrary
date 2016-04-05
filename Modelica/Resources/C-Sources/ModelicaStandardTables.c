@@ -258,7 +258,7 @@ static TableShareMap tableShare;
 #if !defined(WIN32_LEAN_AND_MEAN)
 #define WIN32_LEAN_AND_MEAN
 #endif
-#include <Windows.h>
+#include <windows.h>
 struct CriticalSection : CRITICAL_SECTION {
     CriticalSection() {
         InitializeCriticalSection(this);
