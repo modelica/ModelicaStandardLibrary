@@ -406,7 +406,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity in gap";
-        SI.ReynoldsNumber Re=max(1, IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
         //variables for mean Nusselt number
@@ -431,6 +431,8 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a>
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar_KC;
 
@@ -574,7 +576,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity in gap";
-        SI.ReynoldsNumber Re=max(1, IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
         kc_evenGapTurbulent_IN_con IN_con_turb(h=IN_con.h,s=IN_con.s,L=IN_con.L);
@@ -592,6 +594,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),       smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapOverall_KC;
 
@@ -728,7 +732,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity in gap";
-        SI.ReynoldsNumber Re=max(2.6, IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*d_hyd/max(MIN, IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
         //SOURCE: p.Ga 5, eq. 27
@@ -748,6 +752,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
+</html>",       revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapTurbulent_KC;
 
@@ -917,7 +923,7 @@ Note that additionally a failure status is observed in this function to check if
 
         SI.PrandtlNumber Pr=max(MIN, abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda)))
           "Prandtl number";
-        SI.ReynoldsNumber Re=max(1, 4*abs(IN_var.m_flow)/max(MIN, IN_con.perimeter*
+        SI.ReynoldsNumber Re=(4*abs(IN_var.m_flow)/max(MIN, IN_con.perimeter*
             IN_var.eta)) "Reynolds number";
 
       algorithm
@@ -934,6 +940,8 @@ Note that additionally a failure status is observed in this function to check if
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),       smoothOrder(normallyConstant=IN_con) = 2);
       end kc_approxForcedConvection_KC;
 
@@ -1031,10 +1039,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Pr := abs(IN_var.eta*IN_var.cp/IN_var.lambda);
 
         if IN_con.geometry == TYP.LouverFin then
-          Re := max(1e-3, abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*A_c));
+          Re := abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*A_c);
           Nu := max(1e-3, kc*IN_con.L_p/IN_var.lambda);
         elseif IN_con.geometry == TYP.RectangularFin then
-          Re := max(1e-3, abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*A_c));
+          Re := abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*A_c);
           Nu := max(1e-3, kc*IN_con.D_h/IN_var.lambda);
         end if;
 
@@ -1048,6 +1056,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
 
+</html>",       revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube;
 
@@ -1076,9 +1086,9 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         Real MIN=Modelica.Constants.eps;
         Real Phi=IN_con.Phi*180/PI "Louver angle";
 
-        SI.ReynoldsNumber Re_Dh=max(1e-3, abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
+        SI.ReynoldsNumber Re_Dh=(abs(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
             A_c)) "Reynolds number based on hydraulic diameter";
-        SI.ReynoldsNumber Re_Lp=max(1e-3, abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
+        SI.ReynoldsNumber Re_Lp=(abs(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
             A_c)) "Reynolds number based on louver pitch";
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
         Real j "Colburn j factor";
@@ -1118,6 +1128,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube_KC;
 
@@ -1242,7 +1254,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         if IN_con.geometry == TYP.PlainFin or IN_con.geometry == TYP.LouverFin or
             IN_con.geometry == TYP.SlitFin or IN_con.geometry == TYP.WavyFin then
-          Re := max(1e-3, abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*A_c));
+          Re := abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*A_c);
           Nu := max(1e-3, kc*IN_con.D_c/IN_var.lambda);
         end if;
 
@@ -1257,6 +1269,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_roundTube;
 
@@ -1287,8 +1301,11 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
         Real MIN=Modelica.Constants.eps;
 
-        SI.ReynoldsNumber Re_Dc=max(1e-3, abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
+        SI.ReynoldsNumber Re_Dc=(abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
             A_c)) "Reynolds number based on fin collar diameter";
+
+        SI.ReynoldsNumber Re_i "Reynolds number at transition to linerized calculation for wavy fins";
+
         SI.PrandtlNumber Pr=IN_var.eta*IN_var.cp/IN_var.lambda "Prandtl number";
         Real j "Colburn j factor";
 
@@ -1377,13 +1394,15 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
           kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
 
         elseif IN_con.geometry == TYP.WavyFin then
-          if Re_Dc < exp(2.921) then
-            j := 1.201/(log(exp(2.921)^(A_c/IN_con.A_fr)))^2.921;
-            kc := j*(exp(2.921)*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+          Re_i := 2*exp(2.921)^(1/(A_c/IN_con.A_fr)); // 2 * turning point of the not linearized kc calculation
+          if Re_Dc > Re_i then
+            // original calculation
+            j := 1.201/((Modelica.Math.log(Re_Dc^(A_c/IN_con.A_fr)))^2.921);
           else
-            j := 1.201/((log(Re_Dc^(A_c/IN_con.A_fr)))^2.921);
-            kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+            // linearized calculation to avoid increasing of kc for low Reynolds numbers and division by zero for Re = 1
+            j := (Re_Dc-Re_i)*(-1.201*2.921*(A_c/IN_con.A_fr)/((Modelica.Math.log(Re_i^(A_c/IN_con.A_fr)))^3.921*Re_i)) + 1.201/((Modelica.Math.log(Re_i^(A_c/IN_con.A_fr)))^2.921);
           end if;
+          kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
 
         else
 
@@ -1393,6 +1412,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Sven Rutkowski: Removed singularity for Re at zero mass flow rate thorugh linerized function in wavy fin correlation.</p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_roundTube_KC;
 
@@ -1527,7 +1548,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
-        Re := max(1, abs(IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta)));
+        Re := abs(IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
 
@@ -1545,6 +1566,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
@@ -1581,7 +1604,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity";
-        SI.ReynoldsNumber Re=max(1, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
         Real m=0.5 + 0.2903*(IN_con.d_hyd/d_coil)^0.194
@@ -1596,6 +1619,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
@@ -1663,7 +1688,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
-        Re := max(MIN, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
+        Re := (IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
 
@@ -1673,6 +1698,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
@@ -1715,7 +1742,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity";
-        SI.ReynoldsNumber Re=max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
             IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
@@ -1735,6 +1762,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
@@ -1812,7 +1841,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/IN_var.lambda);
-        Re := max(1e-3, abs(IN_var.rho*velocity*IN_con.d_hyd/IN_var.eta));
+        Re := abs(IN_var.rho*velocity*IN_con.d_hyd/IN_var.eta);
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
 
@@ -1830,6 +1859,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
@@ -1867,7 +1898,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity";
-        SI.ReynoldsNumber Re=max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
             IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
@@ -1883,6 +1914,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
@@ -1968,7 +2001,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //Documentation
       algorithm
         Pr := IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda);
-        Re := max(1e-3, abs(IN_var.rho*IN_var.velocity*IN_con.L/max(MIN, IN_var.eta)));
+        Re := abs(IN_var.rho*IN_var.velocity*IN_con.L/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC(IN_con, IN_var);
         Nu := kc*IN_con.L/max(MIN, IN_var.lambda);
 
@@ -1986,6 +2019,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
@@ -2018,7 +2053,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
         SI.Density rho=IN_var.rho;
 
         SI.Velocity velocity=abs(IN_var.velocity) "Mean velocity";
-        SI.ReynoldsNumber Re=max(1e-3, rho*velocity*L/eta);
+        SI.ReynoldsNumber Re=(rho*velocity*L/eta);
         SI.PrandtlNumber Pr=eta*cp/lambda;
 
         //Documentation
@@ -2030,6 +2065,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
@@ -2097,7 +2134,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //Documentation
       algorithm
         Pr := IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda);
-        Re := max(1e-3, abs(IN_var.rho*IN_var.velocity*IN_con.L/max(MIN, IN_var.eta)));
+        Re := abs(IN_var.rho*IN_var.velocity*IN_con.L/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_KC(IN_con, IN_var);
         Nu := kc*IN_con.L/max(MIN, IN_var.lambda);
 
@@ -2115,6 +2152,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
@@ -2151,6 +2190,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
@@ -2221,7 +2262,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
-        Re := max(1e-3, abs(IN_var.rho*IN_var.velocity*IN_con.L/max(MIN, IN_var.eta)));
+        Re := abs(IN_var.rho*IN_var.velocity*IN_con.L/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC(IN_con, IN_var);
         Nu := kc*IN_con.L/max(MIN, IN_var.lambda);
 
@@ -2239,6 +2280,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
@@ -2271,7 +2314,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
         SI.Density rho=IN_var.rho;
 
         SI.Velocity velocity=abs(IN_var.velocity) "Mean velocity";
-        SI.ReynoldsNumber Re=max(1e-3, abs(rho*velocity*L/eta));
+        SI.ReynoldsNumber Re=abs(rho*velocity*L/eta);
         SI.PrandtlNumber Pr=abs(eta*cp/lambda);
 
         //Documentation
@@ -2284,6 +2327,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
@@ -2368,7 +2413,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
         //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
-        Re := max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
+        Re := (IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
 
@@ -2386,6 +2431,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
@@ -2423,7 +2470,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity";
-        SI.ReynoldsNumber Re=max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
             IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
@@ -2446,6 +2493,8 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
@@ -2520,7 +2569,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
-        Re := max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
+        Re := (IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
 
@@ -2553,6 +2602,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
@@ -2585,7 +2636,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
           "Mean velocity";
-        SI.ReynoldsNumber Re=max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*IN_con.d_hyd/max(MIN,
             IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
@@ -2607,6 +2658,8 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
@@ -2683,7 +2736,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //Documentation
       algorithm
         Pr := abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
-        Re := max(1e-3, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
+        Re := (IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
 
@@ -2716,6 +2769,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
@@ -2745,7 +2800,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
         SI.Velocity velocity=abs(IN_var.m_flow)/(IN_var.rho*A_cross)
           "Mean velocity";
-        SI.ReynoldsNumber Re=max(2.6, IN_var.rho*velocity*IN_con.d_hyd/IN_var.eta);
+        SI.ReynoldsNumber Re=(IN_var.rho*velocity*IN_con.d_hyd/IN_var.eta);
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/IN_var.lambda);
 
         Real zeta=abs(1/max(MIN, 1.8*Modelica.Math.log10(abs(Re)) - 1.5)^2)
@@ -2762,6 +2817,8 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
@@ -2827,6 +2884,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             Documentation(info=
                       "<html>
 <p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall\">See more information</a> .</p>
+</html>", revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"));
       end kc_twoPhaseOverall_KC;
 
@@ -10482,7 +10541,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
             SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho_l*A_cross)
               "Mean velocity";
-            SI.ReynoldsNumber Re_l=max(1, IN_var.rho_l*velocity*d_hyd/max(MIN, IN_var.eta_l))
+            SI.ReynoldsNumber Re_l=(IN_var.rho_l*velocity*d_hyd/max(MIN, IN_var.eta_l))
               "Reynolds number assuming (total) mass flux flowing as liquid";
             SI.PrandtlNumber Pr_l=abs(IN_var.eta_l*IN_var.cp_l/max(MIN, IN_var.lambda_l))
               "Prandtl number assuming (total) mass flux flowing as liquid";
@@ -10494,7 +10553,10 @@ The heterogeneous approaches are analytically derived by minimising the momentum
           algorithm
             kc := kc_1ph*((1 - x_flow)^0.8 + 3.8*x_flow^0.76*(1 - x_flow)^0.04/p_red^
               0.38);
-            annotation (Inline=false, smoothOrder=5);
+            annotation (Inline=false, smoothOrder=5,
+              Documentation(revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+</html>"));
           end kc_twoPhase_condensationHorizontal_KC;
 
           function kc_twoPhase_boilingVertical_KC
@@ -10532,7 +10594,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Mass flow rate of liquid only";
             SI.Velocity velocity_l=mdot_l/max(MIN, IN_var.rho_l*A_cross)
               "Mean velocity assuming liquid mass flow rate flows alone";
-            SI.ReynoldsNumber Re_l=max(1, IN_var.rho_l*velocity_l*d_hyd/max(MIN, IN_var.eta_l))
+            SI.ReynoldsNumber Re_l=(IN_var.rho_l*velocity_l*d_hyd/max(MIN, IN_var.eta_l))
               "Reynolds number assuming liquid mass flow rate flows alone";
             SI.PrandtlNumber Pr_l=abs(IN_var.eta_l*IN_var.cp_l/max(MIN, IN_var.lambda_l))
               "Prandtl number assuming liquid mass flow rate flows alone";
@@ -10565,7 +10627,10 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             //SOURCE_2: p.354, sec. final equations: Calculation of two phase heat transfer coefficient for vertical pipes w.r.t. equation of Gungor-Winterton
           algorithm
             kc := E_fc*kc_fc + S_nb*kc_nb;
-            annotation (Inline = false, smoothOrder=5);
+            annotation (Inline = false, smoothOrder=5,
+              Documentation(revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+</html>"));
           end kc_twoPhase_boilingVertical_KC;
 
           function kc_twoPhase_boilingHorizontal_KC
@@ -10606,7 +10671,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Mass flow rate of liquid only";
             SI.Velocity velocity_l=mdot_l/max(MIN, IN_var.rho_l*A_cross)
               "Mean velocity assuming liquid mass flow rate flows alone";
-            SI.ReynoldsNumber Re_l=max(1, IN_var.rho_l*velocity_l*d_hyd/max(MIN, IN_var.eta_l))
+            SI.ReynoldsNumber Re_l=(IN_var.rho_l*velocity_l*d_hyd/max(MIN, IN_var.eta_l))
               "Reynolds number assuming liquid mass flow rate flows alone";
             SI.PrandtlNumber Pr_l=abs(IN_var.eta_l*IN_var.cp_l/max(MIN, IN_var.lambda_l))
               "Prandtl number assuming liquid mass flow rate flows alone";
@@ -10661,7 +10726,10 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             //SOURCE_2: p.354, sec. final equations: Calculation of two phase heat transfer coefficient for horizontal pipes w.r.t. equation of Gungor-Winterton
           algorithm
             kc := E_fc*E_fc_hor*kc_fc + S_nb*S_nb_hor*kc_nb;
-            annotation (Inline=false, smoothOrder=5);
+            annotation (Inline=false, smoothOrder=5,
+              Documentation(revisions="<html>
+<p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
+</html>"));
           end kc_twoPhase_boilingHorizontal_KC;
 
         end TwoPhase;
@@ -13115,13 +13183,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       type kc_evenGap = enumeration(
           DevOne
             "Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at ONE side",
-
           DevBoth
             "Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at BOTH sides",
-
           UndevOne
             "Hydrodynamic and thermal START of laminar flow regime AND heat transfer at ONE side",
-
           UndevBoth
             "Hydrodynamic and thermal START of laminar flow regime AND heat transfer at BOTH side");
 
@@ -13131,7 +13196,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Finest "Finest approximation w.r.t. Gnielinski (1976)");
       type HeatTransferBoundary = enumeration(
           UWTuDFF "Uniform wall temperature in developed fluid flow (UWT+DFF)",
-
           UHFuDFF "Uniform heat flux in developed fluid flow (UHF+DFF)",
           UWTuUFF
             "Uniform wall temperature in undeveloped fluid flow (UWT+UFF)",
