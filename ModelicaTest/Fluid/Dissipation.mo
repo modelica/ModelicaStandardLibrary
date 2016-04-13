@@ -1407,7 +1407,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             startTime=0,
             height=10000,
-            offset=100) annotation (Placement(
+            offset=0)   annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
 
         equation
@@ -1742,7 +1742,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             startTime=0,
             height=10000,
-            offset=100) annotation (Placement(
+            offset=0)   annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
 
         equation
@@ -2394,8 +2394,8 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.Blocks.Sources.Ramp input_mflow_0(
             duration=1,
-            offset=1e-5,
-            height=1e3) annotation (Placement(
+            height=1e3,
+            offset=0)   annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
           Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
             annotation (Placement(transformation(extent={{
@@ -2948,7 +2948,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             startTime=0,
             height=2e1,
-            offset=1e-5) annotation (Placement(
+            offset=0)    annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
           Modelica.Blocks.Sources.Sine input_v_1(
             offset=0,
@@ -3130,8 +3130,8 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Blocks.Sources.Ramp input_v_0(
             duration=1,
             startTime=0,
-            offset=1e-6,
-            height=5e3) annotation (Placement(
+            height=5e3,
+            offset=0)   annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
         equation
           //heat transfer calculation
@@ -3284,7 +3284,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             startTime=0,
             height=1e4,
-            offset=1e-6) annotation (Placement(
+            offset=0)    annotation (Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
           Modelica.Blocks.Sources.Sine input_v_1(
             offset=0,
