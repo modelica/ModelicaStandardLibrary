@@ -50,13 +50,13 @@ as one object that either have <b>6</b> degrees of freedom or
 <b>3</b> degrees of freedom (for usage in planar loops).</p>
 <p>As an example, a variant of the four bar mechanism is given in
 the figure below.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png" /></p>
 <p>Here, the mechanism is modeled with one revolute joint, two
 spherical joints and one prismatic joint. In the figure below, the
 two spherical joints and the prismatic joint are collected together
 in an assembly object called "jointSSP" from <a href="Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP.html">
 MultiBody.Joints.Assemblies.JointSSP</a>.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png" /></p>
 <p>The JointSSP joint aggregation has a frame at the left side of
 the left spherical joint (frame_a) and a frame at the right side of
 the prismatic joint (frame_b). JointSSP, as all other objects from
@@ -84,9 +84,9 @@ of the assembly object can be computed by a forward recursion</p>
 automatically select <span style="font-family:Symbol">j</span> and
 its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a
-Modelica translator, such as Dymola, can transform the equations of
-the four bar mechanism to a recursive sequence of statements that
-has no non-linear algebraic loops anymore(remember, the previous
+Modelica translator can transform the equations of the four bar
+mechanism to a recursive sequence of statements that has no
+non-linear algebraic loops anymore(remember, the previous
 "straightforward" solution with 6 revolute joints and 1 prismatic
 joint has a nonlinear system of equations of order 5).</p>
 <p>The aggregated joint objects consist of a combination of either
@@ -179,9 +179,9 @@ of the assembly object can be computed by a forward recursion</p>
 automatically select <span style="font-family:Symbol">j</span> and
 its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a
-Modelica translator, such as Dymola, can transform the equations of
-the four bar mechanism to a recursive sequence of statements that
-has no non-linear algebraic loops anymore(remember, the previous
+Modelica translator can transform the equations of the four bar
+mechanism to a recursive sequence of statements that has no
+non-linear algebraic loops anymore(remember, the previous
 "straightforward" solution with 6 revolute joints and 1 prismatic
 joint has a nonlinear system of equations of order 5).</p>
 <p>The aggregated joint objects consist of a combination of either
@@ -247,7 +247,7 @@ as the mass and inertia of the rod is not significant.</p>
 <p>Let us discuss item (a) in more detail: The MacPherson
 suspension in the next figure is from the Modelica VehicleDynamics
 library.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png" /></p>
 <p>It has three frame connectors. The lower left one (frame_C) is
 fixed in the vehicle chassis. The upper left one (frame_S) is
 driven by the steering mechanism, i.e., the movement of both frames
@@ -277,18 +277,18 @@ a tool is able to solve these coupled loops analytically.</p>
 <p>Another example is the model of the V6 engine, see next figure
 for an animation view and the original definition of one cylinder
 with elementary joints.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png" width="303" height="136" /> <img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png" />
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png" width="303" height="136" /> <img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png" />
 </p>
 <p>It is sufficient to rewrite the basic cylinder model by
 replacing the joints with a JointRRP object that has two revolute
 and one prismatic joint, see next figure.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png" /></p>
 <p>Since 6 cylinders are connected together, 6 coupled loops with 6
 JointRRP objects are present. This model is available as <a href="Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6_analytic.html">
 MultiBody.Examples.Loops.EngineV6_analytic</a>.</p>
 <p>The composition diagram of the connected 6 cylinders is shown in
 the next figure</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png" /></p>
 <p>It can be seen that the revolute joint of the crank shaft (joint
 "bearing" in left part of figure) might be selected as degree of
 freedom. Then the 4 connector frames of all cylinders can be
@@ -297,16 +297,14 @@ decoupled from each other. Within one cylinder the position of
 frame_a and frame_b of the jointRRP assembly can be computed and
 therefore the generalized coordinates of the two revolute and the
 prismatic joint in the jointRRP object can be determined. From this
-analysis it is not surprising that a Modelica translator, such as
-Dymola, is able to transform the DAE equations into a sequential
-evaluation without any non-linear loop. Compare this nice result
-with the model using only elementary joints that leads to a DAE
-with 6 algebraic loops and 5 non-linear equations per loop.
-Additionally, a linear system of equations of order 43 is present.
-The simulation time is about 5 times faster with the analytic loop
-handling.</p>
+analysis it is not surprising that a Modelica translator is able to
+transform the DAE equations into a sequential evaluation without
+any non-linear loop. Compare this nice result with the model using
+only elementary joints that leads to a DAE with 6 algebraic loops
+and 5 non-linear equations per loop. Additionally, a linear system
+of equations of order 43 is present. The simulation time is about 5
+times faster with the analytic loop handling.</p>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

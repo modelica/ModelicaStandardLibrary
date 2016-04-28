@@ -11,21 +11,27 @@
 <body>
 <h1><a href="Icons/8d28dce3169a7395e99b1e81e59adae59c74de1d.svg"><img class="svgiconhead" src="Icons/8d28dce3169a7395e99b1e81e59adae59c74de1d.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.html">ComplexBlocks</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a>.<span class="omc-h1">Feedback</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-<p>This blocks computes output <b>y</b> as <i>difference</i> of the
-commanded input <b>u1</b> and the feedback input <b>u2</b>:</p>
+<p>This blocks computes output <code>y</code> as <i>difference</i>
+of the commanded input <code>u1</code> and the feedback input
+<code>u2</code>. Optionally, either input <code>u1</code> or
+<code>u2</code> or both inputs can be processed conjugate complex,
+when parameters <code>useConjugateInput1</code> and
+<code>useConjugateInput2</code> are <code>true</code>,
+respectively.</p>
 <pre>
-    <b>y</b> = <b>u1</b> - <b>u2</b>;
+  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
 </pre>
-<p>Example:</p>
+<p><b>Example</b> parameters:</p>
+<ul>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+</ul>
+<p>result in the following equation:</p>
 <pre>
-     parameter:   n = 2
-
-  results in the following equations:
-
-     y = u1 - u2
+     y = Modelica.ComplexMath.conj(u1) - u2
 </pre>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

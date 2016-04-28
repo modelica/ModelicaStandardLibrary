@@ -12,24 +12,20 @@ Modelica.Electrical.Machines.SpacePhasors.Functions.ToSpacePhasor</title>
 <body>
 <h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.SpacePhasors.html">SpacePhasors</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.SpacePhasors.Functions.html">Functions</a>.<span class="omc-h1">ToSpacePhasor</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-Transformation of three phase values (voltages or currents) to
-space phasor and zero sequence value:<br />
-y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k -
-1)/m*2*pi)}*X[Re,Im]<br />
-were y designates three phase values, X[Re,Im] designates the space
-phasor and X0 designates the zero sequence system.
+Transformation of multi phase values (of voltages or currents) to
+space phasor and zero sequence value.
 <h4><a name="interface" id="interface">Interface</a></h4>
 <blockquote>
 <pre>
 function ToSpacePhasor
+  import Modelica.Constants.pi;
   extends Modelica.Icons.Function;
-  input Real x[3];
-  output Real y[2];
-  output Real y0;
+  input Real x[:] "Multi phase (voltage or current) input";
+  output Real y[2] "Space phasor";
+  output Real y0 "Zero sequence component (of voltage or current)";
 end ToSpacePhasor;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

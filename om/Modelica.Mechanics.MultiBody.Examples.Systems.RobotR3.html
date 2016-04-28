@@ -17,7 +17,7 @@ Manutec. These models are used to demonstrate in which way complex
 robot models might be built up by testing first the component
 models individually before composing them together. Furthermore, it
 is shown how CAD data can be used for animation.</p>
-<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png" alt="model Examples.Systems.RobotR3" />
+<img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.png" alt="model Examples.Systems.RobotR3" />
 <p>The following models are available:</p>
 <pre>
    <b>oneAxis</b>   Test one axis (controller, motor, gearbox).
@@ -46,17 +46,14 @@ user defines a path by start and end angle of every axis. A path is
 planned such that all axes are moving as fast as possible under the
 given restrictions of maximum joint speeds and maximum joint
 accelerations. The actual r3 robot from Manutec had a different
-path planning strategy. Todays path planning algorithms from robot
+path planning strategy. Today's path planning algorithms from robot
 companies are much more involved.</p>
 <p>In order to get a nice animation, CAD data from a KUKA robot is
 used, since CAD data of the original r3 robot was not available.
-The KUKA CAD data was derived from public data of KUKA available
-at: <a href="http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html">
-http://www.kuka-roboter.de/english/produkte/cad/low_payloads.html</a>.
-Since dimensions of the corresponding KUKA robot are similar but
-not identical to the r3 robot, the data of the r3 robot (such as
-arm lengths) have been modified, such that it matches the CAD
-data.</p>
+The KUKA CAD data was derived from public data of <a href="http://www.kuka-robotics.com/">KUKA</a>. Since dimensions of the
+corresponding KUKA robot are similar but not identical to the r3
+robot, the data of the r3 robot (such as arm lengths) have been
+modified, such that it matches the CAD data.</p>
 <p>In this model, a simplified P-PI cascade controller for every
 axes is used. The parameters have been manually adjusted by
 simulations. The original r3 controllers are more complicated. The
@@ -86,7 +83,6 @@ motors, brakes, gears and mechanics</td>
 </tr>
 </table>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

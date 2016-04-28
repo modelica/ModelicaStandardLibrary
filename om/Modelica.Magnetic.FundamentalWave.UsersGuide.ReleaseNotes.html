@@ -12,10 +12,36 @@ Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes</title>
 <body>
 <h1><a href="Icons/8bfe4619ca645a8548493ba231f3522f119849d2.svg"><img class="svgiconhead" src="Icons/8bfe4619ca645a8548493ba231f3522f119849d2.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.html">FundamentalWave</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FundamentalWave.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ReleaseNotes</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
+<h5>Version 3.2.2, 2014-09-13</h5>
+<ul>
+<li>Updated documentation of <a href="Modelica.Magnetic.FundamentalWave.Components.Short.html">Short</a>,
+<a href="Modelica.Magnetic.FundamentalWave.Components.Idle.html">Idle</a>
+and <a href="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet.html">
+PermanentMagnet</a></li>
+<li>Added new components:</li>
+<li style="list-style: none; display: inline">
+<ul>
+<li><a href="Modelica.Magnetic.FundamentalWave.Components.Crossing.html">Crossing</a></li>
+<li><a href="Modelica.Magnetic.FundamentalWave.Components.Permeance.html">
+Permeance</a></li>
+</ul>
+</li>
+<li>Removed parameter text from icon layer for reluctance and
+permeance model</li>
+<li>Restructured cage models with reluctance instead of inductance
+model according to ticket #1536; the re-structuring of the model
+required to change the initial conditions of the included examples,
+since the number of rotor states is reduced by new
+implementation</li>
+<li>Some more bug fixes according to #1226, since not all reference
+orientations have been correct</li>
+<li>Added variables for magnitude and argument of complex magnetic
+potential difference and flux, see #1405</li>
+</ul>
 <h5>Version 3.2.1, 2013-07-31</h5>
 <ul>
-<li>Bug fix of wrong orientaton of squirrel and damper cage
-modells, see ticket #1226; this also includes the removal of the
+<li>Bug fix of wrong orientation of squirrel and damper cage
+models, see ticket #1226; this also includes the removal of the
 rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket
 #1223</li>
@@ -183,7 +209,6 @@ resistances</li>
 the Magnetics library of Michael Beuschel [<a href="Modelica.Magnetic.FundamentalWave.UsersGuide.References.html">Beuschel00</a>]</li>
 </ul>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

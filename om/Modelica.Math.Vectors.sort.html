@@ -36,14 +36,13 @@ that sorted_v = v[indices].</p>
 <pre>
 function sort
   extends Modelica.Icons.Function;
-  input Real v[:] "Vector to be sorted";
+  input Real v[:] "Real vector to be sorted";
   input Boolean ascending = true "= true if ascending order, otherwise descending order";
   output Real sorted_v[size(v, 1)] = v "Sorted vector";
   output Integer indices[size(v, 1)] = 1:size(v, 1) "sorted_v = v[indices]";
 end sort;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

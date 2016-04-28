@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Translational.UsersGuide.FlangeConnectors</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.html">Translational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Translational.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">FlangeConnectors</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>A flange is described by the connector class
+Interfaces.<b>Flange_a</b> or Interfaces.<b>Flange_b</b>. As
+already noted, the two connector classes are completely identical.
+There is only a difference in the icons, in order to easier
+identify a flange variable in a diagram. Both connector classes
+contain the following variables:</p>
+<pre>
+   Modelica.SIunits.Position   s "Absolute position of flange";
+   <b>flow</b> Modelica.SIunits.Force f "Cut-force in the flange";
+</pre>
+<p>If needed, the velocity <code>v</code> and the acceleration
+<code>a</code> of a flange connector can be determined by
+differentiation of the flange position <code>s</code>:</p>
+<pre>
+     v = <b>der</b>(s);    a = <b>der</b>(v);
+</pre>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>

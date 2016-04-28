@@ -11,9 +11,17 @@
 <body>
 <h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<span class="omc-h1">resolveDyade1</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
 <pre>
-Transform second order tensor from frame 2 to frame 1
-</pre>
+D1 = Frames.<b>resolveDyade1</b>(R12, D2);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call <code>Frames.<b>Dyade1</b>(R12, D2)</code>
+returns the second order tensor D resolved in frame 1 (= D1) from
+its representation in frame 2 (= D2) using the orientation object
+R12 that describes the orientation to rotate frame 1 into frame
+2.</p>
 <h4><a name="interface" id="interface">Interface</a></h4>
 <blockquote>
 <pre>
@@ -25,7 +33,6 @@ function resolveDyade1
 end resolveDyade1;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

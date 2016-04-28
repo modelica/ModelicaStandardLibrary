@@ -11,21 +11,32 @@
 <body>
 <h1><a href="Icons/cfb7494518b1b0e862b1ef8470db77e3de3a5ffd.svg"><img class="svgiconhead" src="Icons/cfb7494518b1b0e862b1ef8470db77e3de3a5ffd.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.html">ComplexBlocks</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a>.<span class="omc-h1">Add3</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-<p>This blocks computes output <b>y</b> as <i>sum</i> of the three
-input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:</p>
+<p>This blocks computes output <code>y</code> as <i>sum</i> of the
+three input signals <code>u1</code>, <code>u2</code> and
+<code>u3</code>. Optionally, inputs <code>u1</code> and
+<code>u2</code> and <code>u3</code> can be processed conjugate
+complex, when parameters <code>useConjugateInput1</code> and
+<code>useConjugateInput2</code> and <code>useConjugateInput3</code>
+are <code>true</code>, respectively.</p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b> + k3*<b>u3</b>;
+  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);
 </pre>
-<p>Example:</p>
+<p><b>Example</b> parameters:</p>
+<ul>
+<li><code>k1 = +2</code>,</li>
+<li><code>k2 = -3</code>,</li>
+<li><code>k3 = +1</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+<li><code>useConjugateInput3 = false</code></li>
+</ul>
+<p>result in the following equation:</p>
 <pre>
-     parameter:   k1= +2, k2= -3, k3=1;
-
-  results in the following equations:
-
-     y = 2 * u1 - 3 * u2 + u3;
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
 </pre>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

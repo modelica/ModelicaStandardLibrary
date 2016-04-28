@@ -12,27 +12,31 @@ Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator</title>
 <body>
 <h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.html">Machines</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.SpacePhasors.html">SpacePhasors</a>.<a class="omc-h1-a" href="Modelica.Electrical.Machines.SpacePhasors.Functions.html">Functions</a>.<span class="omc-h1">Rotator</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-Rotates a space phasor (voltage or current) by the angle provided
-by input argument "angle" from one coordinate system into
-another:<br />
-y[Re,Im] :=
-{{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br />
-
-where y[Re,Im] designates the space phasor in the new coordinate
-system (twisted by angle against old coordinate system) and
-y[Re,Im] designates the space phasor in the old coordinate system.
+Rotates a space phasor (voltage or current) input <code>u</code> by
+the <code>angle</code> in negative mathematical direction. This
+block represents the transformation of one space phasor
+<code>u</code> from one rotating reference (coordinate) frame into
+another where the space phasor is <code>y</code>. The output
+reference frame leads the input reference frame by angle
+<code>angle</code>.
+<table border="0" cellspacing="0" cellpadding="2">
+<tr>
+<td><img src="../Modelica%203.2.2/Resources/Images/Electrical/Machines/Rotator.png" /></td>
+</tr>
+<caption align="bottom"><b>Fig. 1:</b> Original and rotated
+reference frame of a space phasor</caption>
+</table>
 <h4><a name="interface" id="interface">Interface</a></h4>
 <blockquote>
 <pre>
 function Rotator
   extends Modelica.Icons.Function;
-  input Real x[2];
-  input Modelica.SIunits.Angle angle;
-  output Real y[2];
+  input Real x[2] "Input space phasor";
+  input Modelica.SIunits.Angle angle "Input angle of rotation";
+  output Real y[2] "Output space phasor";
 end Rotator;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

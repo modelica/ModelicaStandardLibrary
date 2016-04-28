@@ -23,7 +23,7 @@ graphical components.</p>
 <p>The following shapes are supported via parameter
 <b>shapeType</b> (e.g., shapeType="box"):<br />
 &nbsp;</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Shape.png" alt="model Visualizers.FixedShape" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/Shape.png" alt="model Visualizers.FixedShape" /></p>
 <p>&nbsp;<br />
 The dark blue arrows in the figure above are directed along
 variable <b>lengthDirection</b>. The light blue arrows are directed
@@ -54,11 +54,14 @@ Example:<br />
 shapeType="file://C:/users/myname/shapes/piston.dxf".</li>
 </ul>
 <p>The supported file formats are tool dependent. Most tools
-support at least DXF-files (a tool might support 3-dim. Face of the
-DXF format only), but may support other format as well (such as
-stl, obj, 3ds). Since visualization files contain color and other
-data, the corresponding information in the model is usually
-ignored.</p>
+support at least DXF-files but may support other format as well
+(such as stl, obj, 3ds). Since visualization files contain color
+and other data, the corresponding information in the model is
+usually ignored. For information about DXF files, see <a href="https://en.wikipedia.org/wiki/AutoCAD_DXF">Wikipedia</a>. As a
+default it is assumed that the DXF coordinates are in the
+"frame_a"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for
+advanced coloring).</p>
 <p>The sizes of any of the above components are specified by the
 <b>length</b>, <b>width</b> and <b>height</b> variables. Via
 variable <b>extra</b> additional data can be defined:</p>
@@ -123,7 +126,6 @@ in the form</p>
     Visualizers.Advanced.Shape shape(length = sin(time));
 </pre>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

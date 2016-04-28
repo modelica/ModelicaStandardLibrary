@@ -11,9 +11,19 @@
 <body>
 <h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Frames.html">Frames</a>.<span class="omc-h1">axesRotations</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
 <pre>
-Return fixed rotation object to rotate in sequence around fixed angles along 3 axes
-</pre>
+R = Frames.<b>axesRotation</b>(asequence, angles, der_angles);
+</pre></blockquote>
+<h4>Description</h4>
+<p>The function call <code>Frames.<b>axesRotation</b>(sequence,
+angles, der_angles)</code> returns orientation object R that
+describes the orientation to rotate along unit axis <b>axis</b>
+from frame 1 into frame 2 with angle <b>angle</b> and derivative of
+angle <b>der_angle</b>. For example, Frames.axisRotation(2, phi,
+der_phi) returns the same orientation object as with the call
+Frames.planarRotation({0,1,0}, phi, der_phi)</p>
 <h4><a name="interface" id="interface">Interface</a></h4>
 <blockquote>
 <pre>
@@ -27,7 +37,6 @@ function axesRotations
 end axesRotations;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

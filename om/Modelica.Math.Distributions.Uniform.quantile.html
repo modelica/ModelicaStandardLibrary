@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>Modelica.Math.Distributions.Uniform.quantile</title>
+</head>
+<body>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Math.html">Math</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.html">Distributions</a>.<a class="omc-h1-a" href="Modelica.Math.Distributions.Uniform.html">Uniform</a>.<span class="omc-h1">quantile</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<h4>Syntax</h4>
+<blockquote>
+<pre>
+Uniform.<b>quantile</b>(u, y_min=0, y_max=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>This function computes the inverse cumulative distribution
+function (= quantile) according to a <b>uniform</b> distribution in
+a band. Input argument u must be in the range:</p>
+<blockquote>
+<p>0 ≤ u ≤ 1</p>
+</blockquote>
+<p>The returned number y is in the range:</p>
+<blockquote>
+<p>y_min ≤ y ≤ y_max</p>
+</blockquote>
+<p>Plot of the function:</p>
+<blockquote><img src="../Modelica%203.2.2/Resources/Images/Math/Distributions/Uniform.quantile.png" /></blockquote>
+<p>For more details, see <a href="http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)">Wikipedia</a>.</p>
+<h4>Example</h4>
+<blockquote>
+<pre>
+  quantile(0.5)      // = 0.5
+  quantile(0.5,-1,1) // = 0
+</pre></blockquote>
+<h4>See also</h4>
+<p><a href="Modelica.Math.Distributions.Uniform.density.html">Uniform.density</a>,
+<a href="Modelica.Math.Distributions.Uniform.cumulative.html">Uniform.cumulative</a>.</p>
+<h4><a name="interface" id="interface">Interface</a></h4>
+<blockquote>
+<pre>
+function quantile
+  extends Modelica.Math.Distributions.Interfaces.partialQuantile;
+  input Real y_min = 0 "Lower limit of y" annotation(Dialog);
+  input Real y_max = 1 "Upper limit of y" annotation(Dialog);
+end quantile;
+</pre></blockquote>
+<h2><a name="revisions" id="revisions">Revisions</a></h2>
+<table border="1" cellspacing="0" cellpadding="2">
+<tr>
+<th>Date</th>
+<th align="left">Description</th>
+</tr>
+<tr>
+<td valign="top">June 22, 2015</td>
+<td valign="top">
+<table border="0">
+<tr>
+<td valign="top"><img src="../Modelica%203.2.2/Resources/Images/Logos/dlr_logo.png" /></td>
+<td valign="bottom">Initial version implemented by A. Klöckner, F.
+v.d. Linden, D. Zimmer, M. Otter.<br />
+<a href="http://www.dlr.de/rmc/sr/en">DLR Institute of System
+Dynamics and Control</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>

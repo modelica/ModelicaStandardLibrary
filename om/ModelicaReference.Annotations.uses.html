@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>ModelicaReference.Annotations.uses</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="ModelicaReference.html">ModelicaReference</a>.<a class="omc-h1-a" href="ModelicaReference.Annotations.html">Annotations</a>.<span class="omc-h1">uses</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Defines that classes within this top-level class uses a specific
+version of another top-level class</p>
+<h4>Examples</h4>
+<pre>
+<b>model</b> A
+  <b>annotation</b>(version="1.0",
+     uses(Modelica(version="1.5")));
+  ...
+<b>end</b> A;
+
+<b>model</b> B
+  <b>annotation</b>(uses(Modelica(version="2.1 Beta 1")));
+  ...
+<b>end</b> B;
+</pre>
+<h4>Description</h4>
+<ul>
+<li><code>uses(IDENT (version = VERSION-NUMBER) )</code><br />
+Defines that classes within this top-level class uses version
+VERSION-NUMBER of classes within the top-level class IDENT. The
+annotations uses and conversion may contain several different
+sub-entries.</li>
+</ul>
+<h5>Related annotations:</h5>
+<ul>
+<li><a href="ModelicaReference.Annotations.dateModified.html">dateModified</a></li>
+<li><a href="ModelicaReference.Annotations.revisionId.html">revisionId</a></li>
+<li><a href="ModelicaReference.Annotations.version.html">version</a></li>
+<li><a href="ModelicaReference.Annotations.versionDate.html">versionDate</a></li>
+</ul>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>

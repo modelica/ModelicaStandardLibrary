@@ -19,8 +19,8 @@ mechanisms, vehicles. A basic feature is that all components have
 <b>animation</b> information with appropriate default sizes and
 colors. A typical screenshot of the animation of a double pendulum
 is shown in the figure below, together with its schematic.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png" />
-<img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png" alt="double pendulum (diagram layer)" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png" />
+<img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png" alt="double pendulum (diagram layer)" /></p>
 <p>Note, that all components - the coordinate system of the world
 frame, the gravity acceleration vector, the revolute joints and the
 bodies - are visualized in the animation.<br />
@@ -68,12 +68,12 @@ algebraic equations symbolically to a system where the number of
 equations and unknowns are the same (the user need <b>not</b> cut
 loops with special cut-joints to construct a tree-structure).</li>
 <li><b>Automatic state selection from joints and bodies</b>. Most
-joints and all bodies have potential states. A Modelica translator,
-such as Dymola, will use the generalized coordinates of joints as
-states if possible. If this is not possible, states are selected
-from body coordinates. As a consequence, strange joints with 6
-degrees of freedom are not necessary to define a body moving freely
-in space. An advanced user may select states manually from the
+joints and all bodies have potential states. A Modelica translator
+will use the generalized coordinates of joints as states if
+possible. If this is not possible, states are selected from body
+coordinates. As a consequence, strange joints with 6 degrees of
+freedom are not necessary to define a body moving freely in space.
+An advanced user may select states manually from the
 <b>Advanced</b> menu of the corresponding components or use a
 Modelica parameter modification to set the "stateSelect" attribute
 directly.</li>
@@ -118,7 +118,7 @@ assert statements have been introduced that provide in many cases
 warning or error messages that are related to the library
 components (and not to specific equations as it is usual in
 Modelica libraries). This requires appropriate tool support, as it
-is, e.g., available in Dymola.</li>
+is.</li>
 <li><b>Inverse models</b> of mechanical systems can be easily
 defined by using motion generators, e.g.,
 Modelica.Mechanics.Rotational.Position. Also, non-standard inverse
@@ -126,7 +126,6 @@ models can be generated, e.g., when elasticity is present it might
 be necessary to differentiate equations several times.</li>
 </ul>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

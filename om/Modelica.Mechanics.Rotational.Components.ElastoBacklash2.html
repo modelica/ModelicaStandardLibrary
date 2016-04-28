@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.Rotational.Components.ElastoBacklash2</title>
+</head>
+<body>
+<h1><a href="Icons/f9a0f97398871947bfec4cb0b68e86b937594849.svg"><img class="svgiconhead" src="Icons/f9a0f97398871947bfec4cb0b68e86b937594849.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.html">Rotational</a>.<a class="omc-h1-a" href="Modelica.Mechanics.Rotational.Components.html">Components</a>.<span class="omc-h1">ElastoBacklash2</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This element consists of a <b>backlash</b> element <b>connected
+in series</b> to a <b>spring</b> and <b>damper</b> element which
+are <b>connected in parallel</b>. The spring constant shall be
+non-zero, otherwise the component cannot be used.</p>
+<p>In combination with components IdealGear, the ElastoBacklash2
+model can be used to model a gear box with backlash, elasticity and
+damping.</p>
+<p>During initialization, the backlash characteristic is replaced
+by a continuous approximation in the backlash region, in order to
+reduce problems during initialization, especially for inverse
+models.</p>
+<p>If the backlash b is smaller as 1e-10 rad (especially, if b=0),
+then the backlash is ignored and the component reduces to a
+spring/damper element in parallel.</p>
+<p>In the backlash region (-b/2 ≤ flange_b.phi - flange_a.phi -
+phi_rel0 ≤ b/2) no torque is exerted (flange_b.tau = 0). Outside of
+this region, contact is present and the contact torque is basically
+computed with a linear spring/damper characteristic:</p>
+<pre>
+   desiredContactTorque = c*phi_contact + d*<b>der</b>(phi_contact)
+
+            phi_contact = phi_rel - phi_rel0 - b/2 <b>if</b> phi_rel - phi_rel0 &gt;  b/2
+                        = phi_rel - phi_rel0 + b/2 <b>if</b> phi_rel - phi_rel0 &lt; -b/2
+
+            phi_rel     = flange_b.phi - flange_a.phi;
+</pre>
+<p>This torque characteristic leads to the following
+difficulty:</p>
+<ul>
+<li>If the damper torque becomes larger as the spring torque and
+with opposite sign, the contact torque would be "pulling/sticking"
+which is unphysical, since during contact only pushing torques can
+occur.</li>
+</ul>
+<p>In the literature this issue seems to be not discussed. For this
+reason, the most simple approach is used in the ElastoBacklash2
+model, by slightly changing the linear spring/damper characteristic
+to:</p>
+<pre>
+    // Torque characteristic when phi_rel &gt; phi_rel0
+    <b>if</b> phi_rel - phi_rel0 &lt; b/2 <b>then</b>
+       tau_c = 0;          // spring torque
+       tau_d = 0;          // damper torque
+       flange_b.tau = 0;
+    <b>else</b>
+       tau_c = c*(phi_rel - phi_rel0);    // spring torque
+       tau_d = d*<b>der</b>(phi_rel);            // damper torque
+       flange_b.tau = <b>if</b> tau_c + tau_d ≤ 0 <b>then</b> 0 <b>else</b> tau_c + tau_d;
+    <b>end if</b>;
+</pre>
+<p>Note, when sticking would occur (tau_c + tau_d ≤ 0), then the
+contact torque is explicitly set to zero.</p>
+<p>This model of backlash is slightly different to the <a href="Modelica.Mechanics.Rotational.Components.ElastoBacklash.html">
+ElastoBacklash</a> component:</p>
+<ul>
+<li>An event occurs when contact occurs or when contact is released
+(contrary to the ElastoBacklash component).</li>
+<li>When contact occurs, the torque changes discontinuously, due to
+the damping. The damping is larger as for the ElastoBacklash
+component (for the same damping coefficient), because the
+ElastoBacklash component has a heuristic to avoid the discontinuity
+of the torque when contact occurs.</li>
+<li>For some models, the ElastoBacklash2 component leads to faster
+simulations (as compared when using the ElastBacklash
+component).</li>
+</ul>
+<p>See also the discussion <a href="Modelica.Mechanics.Rotational.UsersGuide.StateSelection.html">
+State Selection</a> in the User's Guide of the Rotational
+library.</p>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>

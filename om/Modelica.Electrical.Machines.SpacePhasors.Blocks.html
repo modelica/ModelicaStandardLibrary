@@ -14,10 +14,10 @@
 This package contains space phasor transformation blocks for use in
 controllers:
 <ul>
-<li>ToSpacePhasor: transforms a set of three-phase values to space
+<li>ToSpacePhasor: transforms a set of multi phase values to space
 phasor and zero sequence system</li>
 <li>FromSpacePhasor: transforms a space phasor and zero sequence
-system to a set of three-phase values</li>
+system to a set of multi phase values</li>
 <li>Rotator: rotates a space phasor (from one coordinate system
 into another)</li>
 <li>ToPolar: Converts a space phasor from rectangular coordinates
@@ -35,18 +35,20 @@ representing the imaginary part of the space phasor.</p>
 <th>Description</th>
 </tr>
 <tr>
+<td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html"><img class="svgiconsmall" src="Icons/156e308d9792161c1359fdcbd59eacdfcb26c2de.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html">Rotator</a></td>
+<td>Rotates space phasor</td>
+</tr>
+<tr>
 <td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">
-<img class="svgiconsmall" src="Icons/f6e42448c6a5a68a4bcb9d8c638fd5bc2c9d1e8b.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></td>
-<td>Conversion: three phase -&gt; space phasor</td>
+<img class="svgiconsmall" src="Icons/ef1a3eeaeae6f4883a93f8b11d3474562c5b6215.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor.html">ToSpacePhasor</a></td>
+<td>Conversion of multi phase instantaneous values to space
+phasors</td>
 </tr>
 <tr>
 <td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">
-<img class="svgiconsmall" src="Icons/f3a57c7fe849d521494127306f2f7599ea90bf70.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></td>
-<td>Conversion: space phasor -&gt; three phase</td>
-</tr>
-<tr>
-<td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html"><img class="svgiconsmall" src="Icons/156e308d9792161c1359fdcbd59eacdfcb26c2de.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator.html">Rotator</a></td>
-<td>Rotates space phasor</td>
+<img class="svgiconsmall" src="Icons/5a35575e9059aa2eefef7b05983765cb0136353f.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromSpacePhasor.html">FromSpacePhasor</a></td>
+<td>Conversion of space phasors to multi phase instantaneous
+values</td>
 </tr>
 <tr>
 <td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar.html"><img class="svgiconsmall" src="Icons/f75e5fe45e7cd8cd7e269727ad9990520b615d8d.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar.html">ToPolar</a></td>
@@ -55,6 +57,10 @@ representing the imaginary part of the space phasor.</p>
 <tr>
 <td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolar.html"><img class="svgiconsmall" src="Icons/9a4db9837805312c82616c9ee32e02234513149b.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.FromPolar.html">FromPolar</a></td>
 <td>Converts a space phasor from polar coordinates</td>
+</tr>
+<tr>
+<td><a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.QuasiRMS.html"><img class="svgiconsmall" src="Icons/5927ccc244e7bc83fa102aa389d364a9d234f278.svg" /></a>&nbsp;<a href="Modelica.Electrical.Machines.SpacePhasors.Blocks.QuasiRMS.html">QuasiRMS</a></td>
+<td></td>
 </tr>
 </table>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
@@ -66,7 +72,7 @@ A-3423 St.Andrae-Woerdern<br />
 Austria<br />
 email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a></dd>
 <dt><b>Copyright:</b></dt>
-<dd>Copyright © 1998-2015, Modelica Association and Anton
+<dd>Copyright © 1998-2016, Modelica Association and Anton
 Haumer.<br />
 <i>The Modelica package is <b>free</b> software; it can be
 redistributed and/or modified under the terms of the <b>Modelica
@@ -82,7 +88,6 @@ several improvements in SpacePhasors.Blocks</li>
 improved Transformation and Rotation</li>
 </ul>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

@@ -11,13 +11,19 @@
 <body>
 <h1><a href="Icons/1a2c622a9a9447faae76ae4c5f0ba2f62df9d295.svg"><img class="svgiconhead" src="Icons/1a2c622a9a9447faae76ae4c5f0ba2f62df9d295.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.html">ComplexBlocks</a>.<a class="omc-h1-a" href="Modelica.ComplexBlocks.ComplexMath.html">ComplexMath</a>.<span class="omc-h1">Gain</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-<p>This block computes output <i>y</i> as <i>product</i> of gain
-<i>k</i> with the input <i>u</i>:</p>
+<p>This block computes output <code>y</code> as <i>product</i> of
+gain <code>k</code> with the input <code>u</code>. Optionally, the
+input <code>u</code> can be processed conjugate complex, when
+parameter <code>useConjugateInput</code> is <code>true</code>.
+Depending on <code>useConjugateInput</code> either the original or
+the conjugate complex input signal are processed.</p>
 <pre>
-    y = k * u;
+    y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
 </pre>
+<p><b>Example:</b> If <code>useConjugateInput = true</code> and
+<code>k = 2</code> the output signal <code>y = 2 *
+Modelica.ComplexMath.conj(u)</code>.</p>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

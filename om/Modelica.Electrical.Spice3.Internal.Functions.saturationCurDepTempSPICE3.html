@@ -20,17 +20,16 @@ temperature.</p>
 <pre>
 function saturationCurDepTempSPICE3
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Current satcur0 "Saturation current";
-  input Modelica.SIunits.Temp_K temp "Device Temperature";
-  input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
+  input SI.Current satcur0 "Saturation current";
+  input SI.Temp_K temp "Device Temperature";
+  input SI.Temp_K tnom "Nominal Temperature";
   input Real emissioncoeff;
   input Real energygap;
   input Real satcurexp;
-  output Modelica.SIunits.Current ret "Output value";
+  output SI.Current ret "Output value";
 end saturationCurDepTempSPICE3;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

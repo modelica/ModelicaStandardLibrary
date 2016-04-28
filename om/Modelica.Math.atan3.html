@@ -18,7 +18,7 @@ u2 may be zero, provided u1 is not zero. The difference to
 Modelica.Math.atan2(..) is the optional third argument y0 that
 allows to specify which of the infinite many solutions shall be
 returned:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Math/atan3.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Math/atan3.png" /></p>
 <p>Note, for the default case (y0=0), exactly the same result as
 with atan2(..) is returned.</p>
 <h4><a name="interface" id="interface">Interface</a></h4>
@@ -26,6 +26,7 @@ with atan2(..) is returned.</p>
 <pre>
 function atan3
   import Modelica.Math;
+  import Modelica.Constants.pi;
   extends Modelica.Math.Icons.AxisCenter;
   input Real u1;
   input Real u2;
@@ -34,7 +35,6 @@ function atan3
 end atan3;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

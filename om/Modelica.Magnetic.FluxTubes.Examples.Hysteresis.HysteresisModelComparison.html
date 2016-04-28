@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Magnetic.FluxTubes.Examples.Hysteresis.HysteresisModelComparison</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Magnetic.html">Magnetic</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.html">FluxTubes</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Magnetic.FluxTubes.Examples.Hysteresis.html">Hysteresis</a>.<span class="omc-h1">HysteresisModelComparison</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>Use the following simulation settings:</p>
+<ul>
+<li>Stop time: 14 s</li>
+<li>Number of intervals: 5000</li>
+<li>Tolerance: 1e-5</li>
+</ul>
+<p>This example compares the behavior of three different hysteresis
+mdoels due to the exact same input magnetic field strength. The
+three different models are:</p>
+<ol>
+<li>Model=GenericHystTellinenSoft, Tellinen hysteresis model, the
+upper and lower branch of the limiting hysteresis loop is roughly
+approximated with simple hyperbolic tangent functions (Fig1.
+c)</li>
+<li>Model=GenericHystTellinenTable, Tellinen hysteresis model, the
+upper and lower branch of the limiting hysteresis loop can be
+defined with almost arbitrary table data (Fig1. d)</li>
+<li>Model=GenericHystPreisachEverett,Preisach hysteresis model, the
+hysteresis shape is defined by the Everett function (Fig1. e)</li>
+</ol>
+<p>Compared to the complex Preisach hysteresis model the Tellinen
+model is very simple and thus computationally more effective and
+stable. It is sufficient for many applications. But the Tellinen
+model has inherently a problem with small periodic input field
+variations at locations where the outer hysteresis loop has large
+slopes. In such a case, the simulated minor loops settle to the
+center of the hysteresis envelope curve, whereas the minor loops of
+the Preisach model stay constant ('property of equal vertical
+chords', <a href="Modelica.Magnetic.FluxTubes.UsersGuide.Literature.html">[Ma03]</a>).
+The input signal of the example (Fig.1 a) corresponds to that case
+and Fig. 1 b-e shows the behavior of the different models.</p>
+<table border="0" cellspacing="0" cellpadding="2">
+<caption align="bottom"><b>Fig. 1:</b> Simulated magnetic flux
+densities B of different hysteresis models (b) due to an applied
+mangetic field strength shown in (a). Corresponding B(H) loops of
+the hysteresis models GenericHystTellinenSoft (c),
+GenericHystTellinenTable (d) and GenericHystPreisachEverett
+(e).</caption>
+<tr>
+<td><img src="../Modelica%203.2.2/Resources/Images/Magnetic/FluxTubes/Examples/Hysteresis/HysteresisModelComparison/plot1.png" /></td>
+</tr>
+</table>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>

@@ -24,8 +24,8 @@ providing the tables as Modelica parameter arrays.</p>
 as C-code and compiling that C-code together with the rest of the
 simulation model into a binary that can be executed on the target
 platform. The "Resources/Data/Tables/" subdirectory of the MSL
-installation directory contains the files <a href="../Modelica%203.2.1/Resources/Data/Tables/usertab.c">"usertab.c"</a>
-and <a href="../Modelica%203.2.1/Resources/Data/Tables/usertab.h">"usertab.h"</a>
+installation directory contains the files <a href="../Modelica%203.2.2/Resources/Data/Tables/usertab.c">"usertab.c"</a>
+and <a href="../Modelica%203.2.2/Resources/Data/Tables/usertab.h">"usertab.h"</a>
 that can be used as a template for own developments. While
 "usertab.c" would be typically used unmodified, the "usertab.h"
 needs to adapted for the own needs.</p>
@@ -55,17 +55,16 @@ protected
     external "C" dummy_y=  mydummyfunc(dummy_u);
     annotation(IncludeDirectory="modelica://Modelica/Resources/Data/Tables",
            Include = "#include "usertab.c"
- double mydummyfunc(const double* dummy_in) {
-        return 0;
+double mydummyfunc(double* dummy_in) {
+   return 0;
 }
 ");
   end getUsertab;
 equation
   connect(clock.y,t_new. u[1]) annotation (Line(
       points={{-59,10},{-42,10}},
-      color={0,0,127},
-      smooth=Smooth.None));
-  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version="3.2.1")));
+      color={0,0,127}));
+  annotation (experiment(StartTime=0, StopTime=5), uses(Modelica(version="3.2.2")));
 end Test25_usertab;
 </pre>
 <h2>Contents</h2>
@@ -90,7 +89,6 @@ n outputs</td>
 </tr>
 </table>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

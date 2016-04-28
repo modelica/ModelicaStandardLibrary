@@ -22,7 +22,7 @@ at the connection point. This is advantageous since stiff systems
 can be avoided, say, due to a stiff spring and a small mass at the
 connection point. For an example, see model <a href="Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings.html">
 ThreeSprings</a>:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png" /></p>
 <p>Here, three springs are connected together at one point, without
 having a body at the connection point of the springs. There is one
 difficulty: In such a situation the orientation object at the
@@ -43,7 +43,7 @@ option is selected, the corresponding frame in the line force icon
 is marked with a red circle and with the text "R=0". This is shown
 in the next figure, where this option is selected for
 spring3.frame_b:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSpringsDiagramLayer.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSpringsDiagramLayer.png" /></p>
 <p>Note, if this flag is not set to <b>true</b>, a translation
 error will occur. Due to the usage of overdetermined connectors in
 the MultiBody library, the error message will be something like:
@@ -59,7 +59,7 @@ result is wrong. This is the case, whenever the movement of the
 resulting system depends on the orientation object that was
 arbitrarily set in parallel to the world frame. A typical example
 is shown in the next figure:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSprings2DiagramLayer.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSprings2DiagramLayer.png" /></p>
 <p>Here, spring3.frame_b.R is defined to be in parallel to the
 world frame. However, this is then also the orientation of
 fixedTranslation.frame_a, and this in turn means that the left part
@@ -73,7 +73,6 @@ fixedTranslation. Then, the flags are not needed, because the
 position vector and the orientation matrix of the body-fixed
 coordinate system are used as states.</p>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

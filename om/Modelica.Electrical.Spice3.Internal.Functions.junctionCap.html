@@ -20,20 +20,19 @@ of the junction capacity dependent from the given voltage.</p>
 function junctionCap
   extends Modelica.Icons.Function;
   extends Modelica.Icons.ObsoleteModel;
-  input Modelica.SIunits.Capacitance capin "Input capacitance";
-  input Modelica.SIunits.Voltage voltage "Input voltage";
-  input Modelica.SIunits.Voltage depcap;
+  input SI.Capacitance capin "Input capacitance";
+  input SI.Voltage voltage "Input voltage";
+  input SI.Voltage depcap;
   input Real mj;
   input Real phij;
-  input Modelica.SIunits.Voltage f1;
+  input SI.Voltage f1;
   input Real f2;
   input Real f3;
-  output Modelica.SIunits.Capacitance capout "Output capacitance";
-  output Modelica.SIunits.Charge charge "Output charge";
+  output SI.Capacitance capout "Output capacitance";
+  output SI.Charge charge "Output charge";
 end junctionCap;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

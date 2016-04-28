@@ -20,17 +20,16 @@ temperature.</p>
 <pre>
 function junctionParamDepTempSPICE3
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Voltage phi0;
+  input SI.Voltage phi0;
   input Real cap0;
   input Real mcoeff;
-  input Modelica.SIunits.Temp_K temp "Device temperature";
-  input Modelica.SIunits.Temp_K tnom "Nominal temperature";
-  output Modelica.SIunits.Voltage junctionpot "Junction potential";
+  input SI.Temp_K temp "Device temperature";
+  input SI.Temp_K tnom "Nominal temperature";
+  output SI.Voltage junctionpot "Junction potential";
   output Real jucntioncap "Junction capacitance";
 end junctionParamDepTempSPICE3;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

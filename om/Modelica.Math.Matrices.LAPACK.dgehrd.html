@@ -104,7 +104,7 @@ Lapack documentation
 <pre>
 function dgehrd
   extends Modelica.Icons.Function;
-  input Real A[:, size(A, 2)];
+  input Real A[:, size(A, 1)];
   input Integer ilo = 1 "lowest index where the original matrix had been Hessenbergform";
   input Integer ihi = size(A, 1) "highest index where the original matrix had been Hessenbergform";
   output Real Aout[size(A, 1), size(A, 2)] = A "contains the Hessenberg form in the upper triangle and the first subdiagonal and below the first subdiagonal it contains the elementary reflectors which represents (with array tau) as a product the orthogonal matrix Q";
@@ -113,7 +113,6 @@ function dgehrd
 end dgehrd;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

@@ -19,17 +19,16 @@ from the temperature.</p>
 <pre>
 function resDepTemp
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Resistance resist "Input resistance";
-  input Modelica.SIunits.Temp_K temp "Device temperature";
-  input Modelica.SIunits.Temp_K tnom "Nominal temperature";
+  input SI.Resistance resist "Input resistance";
+  input SI.Temp_K temp "Device temperature";
+  input SI.Temp_K tnom "Nominal temperature";
   input Real tc1;
   input Real tc2;
-  output Modelica.SIunits.Conductance conduct "Output conductance";
+  output SI.Conductance conduct "Output conductance";
   output Real dCond_dTemp "Output value";
 end resDepTemp;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

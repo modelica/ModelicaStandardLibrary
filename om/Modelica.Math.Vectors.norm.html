@@ -22,7 +22,7 @@ Vectors.<b>norm</b>(v,p=2);   // 1 ≤ p ≤ ∞
 the <b>Euclidean norm</b> "<code>sqrt(v*v)</code>" of vector v.
 With the optional second argument "p", any other p-norm can be
 computed:</p>
-<center><img src="../Modelica%203.2.1/Resources/Images/Math/Vectors/vectorNorm.png" alt="function Vectors.norm" /></center>
+<center><img src="../Modelica%203.2.2/Resources/Images/Math/Vectors/vectorNorm.png" alt="function Vectors.norm" /></center>
 <p>Besides the Euclidean norm (p=2), also the 1-norm and the
 infinity-norm are sometimes used:</p>
 <table border="1" cellspacing="0" cellpadding="2">
@@ -64,13 +64,12 @@ infinity-norm are sometimes used:</p>
 <pre>
 function norm
   extends Modelica.Icons.Function;
-  input Real v[:] "Vector";
+  input Real v[:] "Real vector";
   input Real p(min = 1) = 2 "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
   output Real result = 0.0 "p-norm of vector v";
 end norm;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

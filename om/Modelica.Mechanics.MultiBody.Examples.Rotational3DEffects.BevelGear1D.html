@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D</title>
+</head>
+<body>
+<h1><a href="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg"><img class="svgiconhead" src="Icons/105b7af245f0eafc436992b43f79cbc48de7daa1.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Mechanics.html">Mechanics</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.html">MultiBody</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.html">Examples</a>.<a class="omc-h1-a" href="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.html">Rotational3DEffects</a>.<span class="omc-h1">BevelGear1D</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>This model consists of a drive train with two inertias that are
+coupled by a bevel gear (with 90 degree angle between the two gear
+flanges). This drive train is mounted on a body that is rotated
+along three axes. The drive train is modeled with 1D rotational
+elements that take into account 3D effects.</p>
+<p>The bevelGear component consists of two rotational flanges (for
+the gear flanges) and one 3D frame (for the support/mounting).
+Since the bevelGear does not store energy, the power balance must
+hold (the total sum of inflowing and outflowing energy must be
+zero). One has to be careful, when computing the energy flow of
+hybrid 1D/3D component: The angular velocities of rotational
+flanges are with respect to the support frame (so the moving body
+on which the drive train is mounted). Therefore, when computing the
+energy flow, first the absolute angular velocities of the flanges
+have to be calculated. In this example model, this is performed in
+the following way (na and nb are the axes of rotations of the gear
+flanges, and ws is the angular velocity of the support frame):</p>
+<pre>
+    import Modelica.Mechanics.MultiBody.Frames;
+    import SI=Modelica.SIunits;
+    SI.Power           bevelGearPower;
+    SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
+  <b>equation</b>
+    bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
+                     (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
+                     ws*bevelGear.frame_a.t;
+</pre>
+<p>The total energy flow bevelGearPower must be zero. If a relative
+tolerance of 1e-4 is used for simulation, bevelGearPower is in the
+order of 1e-8 (and smaller for a smaller relative tolerance).</p>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>

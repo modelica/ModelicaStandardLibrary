@@ -16,7 +16,7 @@ interpolation</b> in a table. The time points and function values
 are stored in a matrix <b>table[i,j]</b>, where the first column
 table[:,1] contains the time points and the other columns contain
 the data to be interpolated.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/Blocks/Sources/CombiTimeTable.png" alt="CombiTimeTable.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/Blocks/Sources/CombiTimeTable.png" alt="CombiTimeTable.png" /></p>
 <p>Via parameter <b>columns</b> it can be defined which columns of
 the table are interpolated. If, e.g., columns={2,4}, it is assumed
 that 2 output signals are present and that the first output is
@@ -48,9 +48,15 @@ extrapolation according to the setting of parameter
 interpolated:
 <pre>
   smoothness = 1: linear interpolation
-             = 2: smooth interpolation with Akima-splines such
-                  that der(y) is continuous, also if extrapolated.
+             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
              = 3: constant segments
+             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                  Hermite splines such that y preserves the monotonicity and
+                  der(y) is continuous, also if extrapolated.
+             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                  splines such that y preserves the monotonicity and der(y)
+                  is continuous, also if extrapolated.
 </pre></li>
 <li>If the table has only <b>one row</b>, no interpolation is
 performed and the table values of this row are just returned.</li>
@@ -61,23 +67,71 @@ ordinate value. The time instants stored in the table are therefore
 interpolation is performed and the offset is used as ordinate value
 for all outputs.</li>
 <li>The table is implemented in a numerically sound way by
-generating <b>time events</b> at interval boundaries. This
-generates continuously differentiable values for the
-integrator.</li>
+generating <b>time events</b> at interval boundaries. An interval
+boundary is defined by two identical time values following each
+other. For example
+<pre>
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 3;
+            3, 5;
+            3, 2;
+            4, 4;
+            5, 5];
+</pre>
+defines three intervalls: 0..1, 1..3, 3..5. Within an interval the
+defined interpolation method is applied (so the table outputs
+within an interval are continuous,and if the interpolation method
+is smooth, also continuously differentiable). No time events are
+generated within an interval in order that also intervals with many
+points do not reduce the simulation efficiency (note in package
+Modelica version 3.2 and earlier, time events had been
+generated).<br />
+If the table points are largely changing, it is adviseable to force
+time events by duplicating every time point (especially, if the
+model in which the table is present allows the variable step
+integrator to make large integrator steps). For example, if a
+sawtooth signal is defined with the table, it is more reliable to
+define the table as:
+<pre>
+   table = [0, 0;
+            1, 2;
+            1, 2;
+            2, 0;
+            2, 0;
+            3, 2;
+            3, 2];
+</pre>
+instead of
+<pre>
+   table = [0, 0;
+            1, 2;
+            2, 0;
+            3, 2];
+</pre>
+because time events are then generated at every time point.</li>
+<li>Via parameter <b>timeScale</b> the first column of the table
+array can be scaled, e.g. if the table array is given in hours
+(instead of seconds) <b>timeScale</b> shall be set to 3600.</li>
 <li>For special applications it is sometimes needed to know the
 minimum and maximum time instant defined in the table as a
-parameter. For this reason parameters <b>t_min</b> and <b>t_max</b>
+parameter. For this reason parameters
+<b>t_min</b>/<b>t_minScaled</b> and <b>t_max</b>/<b>t_maxScaled</b>
 are provided and can be accessed from the outside of the table
-object.</li>
+object. Whereas <b>t_min</b> and <b>t_max</b> define the scaled
+abscissa values (using parameter <b>timeScale</b>) in SIunits.Time,
+<b>t_minScaled</b> and <b>t_maxScaled</b> define the unitless
+original abscissa values of the table.</li>
 </ul>
 <p>Example:</p>
 <pre>
-   table = [0  0
-            1  0
-            1  1
-            2  4
-            3  9
-            4 16]; extrapolation = 3 (default)
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 4;
+            3, 9;
+            4, 16]; extrapolation = 3 (default)
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
@@ -149,11 +203,11 @@ given. The elements have to be provided as a sequence of numbers in
 row-wise order (therefore a matrix row can span several lines in
 the file and need not start at the beginning of a line). Numbers
 have to be given according to C syntax (such as 2.3, -2, +2.e4).
-Number separators are spaces, tab ( ), comma (,), or semicolon (;).
-Several matrices may be defined one after another. Line comments
-start with the hash symbol (#) and can appear everywhere. Other
-characters, like trailing non comments, are not allowed in the
-file.</p>
+Number separators are spaces, tab (\t), comma (,), or semicolon
+(;). Several matrices may be defined one after another. Line
+comments start with the hash symbol (#) and can appear everywhere.
+Other characters, like trailing non comments, are not allowed in
+the file.</p>
 <p>MATLAB is a registered trademark of The MathWorks, Inc.</p>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
 <p><b>Release Notes:</b></p>
@@ -166,7 +220,6 @@ Used CombiTableTime as a basis and added the arguments
 function definitions.</li>
 </ul>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

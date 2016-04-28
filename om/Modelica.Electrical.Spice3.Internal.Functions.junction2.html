@@ -19,16 +19,15 @@ the junction conductance dependent from the given voltage.</p>
 <pre>
 function junction2
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Voltage voltage "Input Voltage";
-  input Modelica.SIunits.Temp_K temp "Device Temperature";
+  input SI.Voltage voltage "Input Voltage";
+  input SI.Temp_K temp "Device Temperature";
   input Real ncoeff;
-  input Modelica.SIunits.Current satcur "Saturation current";
-  output Modelica.SIunits.Current current "Output current";
-  output Modelica.SIunits.Conductance cond "Output conductance";
+  input SI.Current satcur "Saturation current";
+  output SI.Current current "Output current";
+  output SI.Conductance cond "Output conductance";
 end junction2;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

@@ -22,22 +22,21 @@ function mos1RenameParametersDev
   extends Modelica.Icons.Function;
   input ModelcardMOS ex;
   input Integer mtype;
-  input Modelica.SIunits.Length W "Channel Width";
-  input Modelica.SIunits.Length L "Channel Length";
-  input Modelica.SIunits.Area AD "Area of the drain diffusion";
-  input Modelica.SIunits.Area AS "Area of the source diffusion";
-  input Modelica.SIunits.Length PD "Perimeter of the drain junction";
-  input Modelica.SIunits.Length PS "Perimeter of the source junction";
+  input SI.Length W "Channel Width";
+  input SI.Length L "Channel Length";
+  input SI.Area AD "Area of the drain diffusion";
+  input SI.Area AS "Area of the source diffusion";
+  input SI.Length PD "Perimeter of the drain junction";
+  input SI.Length PS "Perimeter of the source junction";
   input Real NRD "Number of squares of the drain diffusions";
   input Real NRS "Number of squares of the source diffusions";
   input Integer OFF "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
   input Real IC "Initial condition values, not implemented yet";
-  input Modelica.SIunits.Temp_C TEMP "Temperature";
+  input SI.Temp_C TEMP "Temperature";
   output Mosfet.Mosfet dev "Output record Mosfet";
 end mos1RenameParametersDev;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

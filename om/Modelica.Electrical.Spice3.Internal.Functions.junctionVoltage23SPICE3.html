@@ -19,16 +19,15 @@ the actual temperature, voltage and saturation current.</p>
 <pre>
 function junctionVoltage23SPICE3
   extends Modelica.Icons.Function;
-  input Modelica.SIunits.Voltage vb;
-  input Modelica.SIunits.Current ivb;
-  input Modelica.SIunits.Current satcur "Saturation current";
-  input Modelica.SIunits.Temp_K temp "Device temperature";
+  input SI.Voltage vb;
+  input SI.Current ivb;
+  input SI.Current satcur "Saturation current";
+  input SI.Temp_K temp "Device temperature";
   input Real ncoeff;
-  output Modelica.SIunits.Voltage v23 "Output value";
+  output SI.Voltage v23 "Output value";
 end junctionVoltage23SPICE3;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

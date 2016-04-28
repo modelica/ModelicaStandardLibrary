@@ -10,7 +10,7 @@
 Modelica.Media.IdealGases.Common.Functions.thermalConductivityEstimate</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.Functions.html">Functions</a>.<span class="omc-h1">thermalConductivityEstimate</span></h1>
+<h1><a href="Icons/159917caad49396431b092420c5265edfa7de206.svg"><img class="svgiconhead" src="Icons/159917caad49396431b092420c5265edfa7de206.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Media.html">Media</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.html">IdealGases</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.html">Common</a>.<a class="omc-h1-a" href="Modelica.Media.IdealGases.Common.Functions.html">Functions</a>.<span class="omc-h1">thermalConductivityEstimate</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>This function provides two similar methods for estimating the
 thermal conductivity of polyatomic gases. The Eucken method (input
@@ -25,15 +25,14 @@ of the thermal conductivity (lambda) at low temperatures.</p>
 <pre>
 function thermalConductivityEstimate
   extends Modelica.Icons.Function;
-  input Interfaces.PartialMedium.SpecificHeatCapacity Cp "Constant pressure heat capacity";
-  input Interfaces.PartialMedium.DynamicViscosity eta "Dynamic viscosity";
+  input Modelica.Media.Interfaces.Types.SpecificHeatCapacity Cp "Constant pressure heat capacity";
+  input Modelica.Media.Interfaces.Types.DynamicViscosity eta "Dynamic viscosity";
   input Integer method(min = 1, max = 2) = 1 "1: Eucken Method, 2: Modified Eucken Method";
   input IdealGases.Common.DataRecord data "Ideal gas data";
-  output Interfaces.PartialMedium.ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
+  output Modelica.Media.Interfaces.Types.ThermalConductivity lambda "Thermal conductivity [W/(m.k)]";
 end thermalConductivityEstimate;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

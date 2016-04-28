@@ -20,18 +20,17 @@ the junction conductance dependent from the given voltage.</p>
 function junction2SPICE3MOSFET
   extends Modelica.Icons.Function;
   extends Modelica.Icons.ObsoleteModel;
-  input Modelica.SIunits.Current current "Input current";
-  input Modelica.SIunits.Conductance cond "Input conductance";
-  input Modelica.SIunits.Voltage voltage "Input voltage";
-  input Modelica.SIunits.Temp_K temp "Device Temperature";
+  input SI.Current current "Input current";
+  input SI.Conductance cond "Input conductance";
+  input SI.Voltage voltage "Input voltage";
+  input SI.Temp_K temp "Device Temperature";
   input Real ncoeff;
-  input Modelica.SIunits.Current satcur "Saturation current";
-  output Modelica.SIunits.Current out_current "Calculated current";
-  output Modelica.SIunits.Conductance out_cond "Calculated conductance";
+  input SI.Current satcur "Saturation current";
+  output SI.Current out_current "Calculated current";
+  output SI.Conductance out_cond "Calculated conductance";
 end junction2SPICE3MOSFET;
 </pre></blockquote>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

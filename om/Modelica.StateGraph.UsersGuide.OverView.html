@@ -9,7 +9,7 @@
 <title>Modelica.StateGraph.UsersGuide.OverView</title>
 </head>
 <body>
-<h1><a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.StateGraph.html">StateGraph</a>.<a class="omc-h1-a" href="Modelica.StateGraph.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">OverView</span></h1>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.StateGraph.html">StateGraph</a>.<a class="omc-h1-a" href="Modelica.StateGraph.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">OverView</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
 <p>In this section, an overview of the most important features of
 this library is given.</p>
@@ -23,7 +23,7 @@ StateGraph library has a similar modeling power as StateCharts but
 avoids some deficiencies of StateCharts.</p>
 <p>The basic elements of StateGraphs are <b>steps</b> and
 <b>transitions</b>:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/StepAndTransition1.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/StepAndTransition1.png" /></p>
 <p><b>Steps</b> represent the possible states a StateGraph can
 have. If a step is active the Boolean variable <b>active</b> of the
 step is <b>true</b>. If it is deactivated, <b>active</b> =
@@ -41,7 +41,7 @@ transition is activated.</p>
 <p>The transition <b>condition</b> is defined via the parameter
 menu of the transition object. Clicking on object "transition1" in
 the above figure, results in the following menu:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/StepAndTransition2.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/StepAndTransition2.png" /></p>
 <p>In the input field "<b>condition</b>", any type of time varying
 Boolean expression can be given (in Modelica notation, this is a
 modification of the time varying variable <b>condition</b>).
@@ -68,7 +68,7 @@ since then it is easy to read the labels on the icons.</p>
 <p>With the block <b>TransitionWithSignal</b>, the firing condition
 can be provided as Boolean input signal, instead as entry in the
 menu of the transition. An example is given in the next figure:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/StepAndTransition3.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/StepAndTransition3.png" /></p>
 <p>Component "step" is an instance of "StepWithSignal" that is a
 usual step where the active flag is available as Boolean output
 signal. To this output, component "Timer" from library
@@ -85,7 +85,7 @@ input of such a transition block as well.</p>
 of logical blocks from the Logical library as in the figure above,
 or via the "SetBoolean" component any type of logical expression
 can be defined in textual form, as shown in the next figure:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/StepAndTransition4.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/StepAndTransition4.png" /></p>
 <p>With the block "<b>SetBoolean</b>", a time varying expression
 can be provided as modification to the output signal <b>y</b> (see
 block with icon text "timer.y &gt; 1" in the figure above). The
@@ -190,7 +190,7 @@ library, this might be more directly supported.</p>
 and alternative activities can be defined by component
 <b>Alternative</b>. An example for both components is given in the
 next figure.</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/Parallel1.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/Parallel1.png" /></p>
 <p>Here, the branch from "step2" to "step5" is executed in parallel
 to "step1". A transition connected to the output of a parallel
 branch component can only fire if the final steps in all parallel
@@ -210,17 +210,17 @@ The entry with the lowest number has the highest priority.</p>
 <p>Parallel, Alternative and Step components have vectors of
 connectors. The dimensions of these vectors are set in the
 corresponding parameter menu. E.g. in a "Parallel" component:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/Parallel2.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/Parallel2.png" /></p>
 <p>Currently in Dymola the following menu pops up, when a branch is
 connected to a vector of components in order to define the vector
 index to which the component shall be connected:</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/Parallel3.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/Parallel3.png" /></p>
 <h4>CompositeSteps, Suspend and Resume Port</h4>
 <p>A StateGraph can be hierarchically structured by using a
 <b>CompositeStep</b>. This is a component that inherits from
 <b>PartialCompositeStep</b>. An example is given in the next figure
 (from Examples.ControlledTanks):</p>
-<p><img src="../Modelica%203.2.1/Resources/Images/StateGraph/UsersGuide/CompositeStep1.png" /></p>
+<p><img src="../Modelica%203.2.2/Resources/Images/StateGraph/UsersGuide/CompositeStep1.png" /></p>
 <p>The CompositeStep component contains a local StateGraph that is
 entered by one or more input transitions and that is left by one or
 more output transitions. Also, other needed signals may enter a
@@ -244,7 +244,6 @@ suspend ports (actually, there is a vector of suspend connectors,
 i.e., a CompositeStep might be aborted due to different
 transitions).</p>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

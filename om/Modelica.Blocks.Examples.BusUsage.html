@@ -24,7 +24,7 @@ data buses to exchange data between components. For the same
 reasons, it is often better to use a "signal bus" concept also in a
 Modelica model. This is demonstrated at hand of this model
 (Modelica.Blocks.Examples.BusUsage):</p>
-<img src="../Modelica%203.2.1/Resources/Images/Blocks/BusUsage.png" alt="BusUsage.png" />
+<img src="../Modelica%203.2.2/Resources/Images/Blocks/BusUsage.png" alt="BusUsage.png" />
 <ul>
 <li>Connector instance "controlBus" is a hierarchical connector
 that is used to exchange signals between different components. It
@@ -63,7 +63,7 @@ connecting line has the color of the "ControlBus" with double width
 of the connector is constructed by the variables connected to
 instances of this connector. For example, if "sine.y" is connected
 to the "controlBus", the following menu pops-up in Dymola:</p>
-<img src="../Modelica%203.2.1/Resources/Images/Blocks/BusUsage2.png" alt="BusUsage2.png" />
+<img src="../Modelica%203.2.2/Resources/Images/Blocks/BusUsage2.png" alt="BusUsage2.png" />
 <p>The "Add variable/New name" field allows the user to define the
 name of the signal on the "controlBus". When typing "realSignal1"
 as "New name", a connection of the form:</p>
@@ -93,12 +93,11 @@ the "ControlBus" and of the "SubControlBus" are given. For example
 </pre>
 <p>Consequently, when connecting now from "sine.y" to "controlBus",
 the menu looks differently:</p>
-<img src="../Modelica%203.2.1/Resources/Images/Blocks/BusUsage3.png" alt="BusUsage3.png" />
+<img src="../Modelica%203.2.2/Resources/Images/Blocks/BusUsage3.png" alt="BusUsage3.png" />
 <p>Note, even if the signals from "Internal.StandardControlBus" are
 listed, these are just potential signals. The user might still add
 different signal names.</p>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

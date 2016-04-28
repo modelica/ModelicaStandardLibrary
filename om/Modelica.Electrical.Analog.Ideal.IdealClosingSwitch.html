@@ -9,33 +9,21 @@
 <title>Modelica.Electrical.Analog.Ideal.IdealClosingSwitch</title>
 </head>
 <body>
-<h1><a href="Icons/e88c9b15ec62fd2d6c323899ab9e71b914c1ebec.svg"><img class="svgiconhead" src="Icons/e88c9b15ec62fd2d6c323899ab9e71b914c1ebec.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">IdealClosingSwitch</span></h1>
+<h1><a href="Icons/403a11e19f473ddb2b644504ea5721c0bc2d77ab.svg"><img class="svgiconhead" src="Icons/403a11e19f473ddb2b644504ea5721c0bc2d77ab.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.html">Analog</a>.<a class="omc-h1-a" href="Modelica.Electrical.Analog.Ideal.html">Ideal</a>.<span class="omc-h1">IdealClosingSwitch</span></h1>
 <h2><a name="info" id="info">Information</a></h2>
-<p>The ideal closing switch has a positive pin p and a negative pin
-n. The switching behaviour is controlled by input signal control.
-If control is true, pin p is connected with negative pin n.
-Otherwise, pin p is not connected with negative pin n.<br />
-<br />
-In order to prevent singularities during switching, the opened
-switch has a (very low) conductance Goff and the closed switch has
-a (very low) resistance Ron. The limiting case is also allowed,
-i.e., the resistance Ron of the closed switch could be exactly zero
-and the conductance Goff of the open switch could be also exactly
-zero. Note, there are circuits, where a description with zero Ron
-or zero Goff is not possible.<br />
-<br />
-<b>Please note:</b> In case of useHeatPort=true the temperature
-dependence of the electrical behavior is <b>not</b> modelled. The
-parameters are not temperature dependent.</p>
+<p>The switching behaviour of the ideal closing switch is
+controlled by the input signal control: off = not control.<br />
+For further details, see partial model <a href="Modelica.Electrical.Analog.Interfaces.IdealSwitch.html">IdealSwitch</a>.</p>
 <h2><a name="revisions" id="revisions">Revisions</a></h2>
 <ul>
+<li><i>February 7, 2016</i> by Anton Haumer<br />
+extending from partial IdealSwitch<br /></li>
 <li><i>March 11, 2009</i> by Christoph Clauss<br />
 conditional heat port added<br /></li>
 <li><i>1998</i> by Christoph Clauss<br />
 initially implemented<br /></li>
 </ul>
 <hr />
-Generated at 2015-10-02T09:06:25Z by <a href="http://openmodelica.org">OpenModelica</a>OpenModelica
-1.9.4~dev-128-g0bd0b1f
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
 </body>
 </html>

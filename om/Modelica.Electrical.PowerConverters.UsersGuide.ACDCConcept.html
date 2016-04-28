@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<title>
+Modelica.Electrical.PowerConverters.UsersGuide.ACDCConcept</title>
+</head>
+<body>
+<h1><a href="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg"><img class="svgiconhead" src="Icons/a875ea6d58a575feaab91b9aad769ee3520306be.svg" /></a>&nbsp;<a class="omc-h1-a" href="index.html">.</a><a class="omc-h1-a" href="Modelica.html">Modelica</a>.<a class="omc-h1-a" href="Modelica.Electrical.html">Electrical</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.html">PowerConverters</a>.<a class="omc-h1-a" href="Modelica.Electrical.PowerConverters.UsersGuide.html">UsersGuide</a>.<span class="omc-h1">ACDCConcept</span></h1>
+<h2><a name="info" id="info">Information</a></h2>
+<p>AC/DC converters are also called rectifiers</p>
+<h4>Component classification</h4>
+<p>Conventional AC/DC converters contain diodes and thyristors. If
+thyristors are used, the output voltage of the rectifier can be
+controlled. If only diodes are used, the output voltages is solely
+dependent on the input voltage and the characteristic of applied
+diodes.</p>
+<ul>
+<li>Diode rectifiers</li>
+<li>Thyristor rectifiers</li>
+<li>Half controlled rectifiers; half of the semiconductors are
+diodes and thyristors, respectively</li>
+</ul>
+<h4>Topology classification</h4>
+<p>The PowerConverters library provides bridge and center tap
+rectifiers for single and multi phase supply, see <a href="Modelica.Electrical.PowerConverters.ACDC.html">AC/DC
+converters</a>.</p>
+<h4>Control</h4>
+<p>For each of the provided rectifiers a <a href="Modelica.Electrical.PowerConverters.ACDC.Control.html">control
+model</a> is available. These control models have electrical
+connectors to be connected with the AC supply. The firing angle of
+thyristor rectifiers can either be set by a parameter or a signal
+input.</p>
+<h4>Examples</h4>
+<p>A variety of examples is provided at <a href="Modelica.Electrical.PowerConverters.Examples.ACDC.html">Examples.ACDC</a>.
+These examples include different kinds of DC loads. Even the
+control characteristics of the rectifiers can be obtained
+experimentally; the names of these models contain
+<code>_Characteristic</code>.</p>
+<hr />
+Generated at 2016-04-28T14:04:17Z by <a href="http://openmodelica.org">OpenModelica</a>1.9.3+dev (r25613)
+</body>
+</html>
