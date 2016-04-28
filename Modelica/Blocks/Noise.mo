@@ -548,7 +548,7 @@ As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Exam
 In the next diagram, a simulation result is shown for samplePeriod=0.02 s and uniform distribution with
 y_min=-1, y_max=3:
 </p>
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
 </blockquote>
 </p>
@@ -677,18 +677,18 @@ diagram of the probability density function of a normal distribution
 compared with its truncated version:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 The corresponding inverse cumulative distribution functions are shown in the next diagram:
 </p>
 
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 When providing an x-value between 0.0 .. 1.0 from a random number generator, then the truncated

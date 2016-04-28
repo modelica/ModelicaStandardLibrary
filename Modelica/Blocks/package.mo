@@ -1184,7 +1184,7 @@ At every 0.02 seconds a time event occurs and a uniform random number in the ban
 The result of a simulation is shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
 </blockquote>
 </p>
@@ -1279,9 +1279,9 @@ of the respective block. As a result, different noise is generated, see next
 diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed1.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the local seed
@@ -1289,9 +1289,9 @@ The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the loc
 Again, different noise is generated, see next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed2.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 Try to set fixedLocalSeed = 1 in block manualSeed2. As a result, the blocks manualSeed1 and
@@ -1359,9 +1359,9 @@ However, the random numbers are differently transformed according to the selecte
 Simulation results are shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Distributions.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 As can be seen, uniform noise is distributed evenly between -1 and 3, and
@@ -1475,9 +1475,9 @@ is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Statisti
 Simulation results are shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoiseProperties1.png\"/>
-</blockquote></p>
+</blockquote>
 
 <p>
 The mean value of a uniform noise in the range 0 .. 6 is 3 and its variance is
@@ -1592,9 +1592,9 @@ is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Statisti
 Simulation results are shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/NormalNoiseProperties1.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 The mean value of a normal noise with mu=3 is 3 and the variance of normal noise
@@ -1673,9 +1673,9 @@ are shown. The outputs of the blocks are the pdfs that are plotted over one of t
 inputs:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Densities.png\">
-</blockquote></p>
+</blockquote>
 </html>",     revisions="<html>
 <p>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -1718,7 +1718,7 @@ used when implementing an own, specialized block that needs a random number
 generator. Simulation results are shown in the next figure:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ImpureGenerator.png\">
 </blockquote>
 </p>

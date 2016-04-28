@@ -66,9 +66,9 @@ The example calculates random numbers in the range 0 .. 1 of the available rando
 with a sample period of 0.05 s. Simulations results are shown in the figure below:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Random/GenerateRandomNumbers.png\">
-</blockquote></p>
+</blockquote>
 </html>",     revisions="<html>
 <p>
 <table border=1 cellspacing=0 cellpadding=2>

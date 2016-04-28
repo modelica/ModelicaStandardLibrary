@@ -24,9 +24,9 @@ This function computes the probability density function according to a <b>unifor
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -89,17 +89,17 @@ according to a <b>uniform</b> distribution in a band.
 The returned value y is in the range:
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; y &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -178,9 +178,9 @@ y_min &le; y &le; y_max
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -235,17 +235,17 @@ This package provides
 of the <b>uniform</b> distribution. Examples:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.density.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Uniform.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details of this distribution see
@@ -297,9 +297,9 @@ with mean value <b>mu</b> and standard deviation <b>sigma</b> (variance = sigma<
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -362,17 +362,17 @@ with mean value <b>mu</b> and standard deviation <b>sigma</b> (variance = sigma<
 The returned value y is in the range:
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; y &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -456,9 +456,9 @@ mu-3*sigma &le; y &le; mu+3*sigma
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -523,17 +523,17 @@ This package provides
 of the <b>normal</b> distribution. Examples:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.density.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Normal.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details of this distribution see
@@ -601,9 +601,9 @@ standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -687,17 +687,17 @@ standard deviation of original distribution <b>sigma</b> (variance = sigma<sup>2
 The returned value y is in the range:
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; y &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -798,9 +798,9 @@ y_min &le; y &le; y_max
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -876,17 +876,17 @@ This package provides
 of the <b>truncated normal</b> distribution. Examples:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -950,9 +950,9 @@ y = if u >= 0 then (k/lambda)*(u/lambda)^(k - 1)*exp(-(u/lambda)^k) else 0.0;
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -1024,17 +1024,17 @@ y := if u >= 0 then 1 - exp(-(u/lambda)^k) else 0.0;
 The returned value y is in the range:
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; y &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -1114,9 +1114,9 @@ Input argument u must be in the range:
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see
@@ -1176,17 +1176,17 @@ This package provides
 of the <b>Weibull</b> distribution. Examples:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.density.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/Weibull.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details of this distribution see
@@ -1254,9 +1254,9 @@ shape parameter of original distribution <b>k</b>.
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -1339,17 +1339,17 @@ shape parameter of original distribution <b>k</b>.
 The returned value y is in the range:
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; y &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -1450,9 +1450,9 @@ y_min &le; y &le; y_max
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -1525,17 +1525,17 @@ This package provides
 of the <b>truncated Weibull</b> distribution. Examples:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.density.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.cumulative.png\">
-</blockquote></p>
+</blockquote>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedWeibull.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details<br>
@@ -1917,9 +1917,9 @@ plot of the probability density function of a normal distribution
 compared with its truncated distribution:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
-</blockquote></p>
+</blockquote>
 </html>", revisions="<html>
 <p>
 <table border=1 cellspacing=0 cellpadding=2>

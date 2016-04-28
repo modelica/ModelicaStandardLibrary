@@ -98,7 +98,7 @@ With the default values for f_max (= 4 Hz) and f_resolution (= 0.2 Hz), the foll
 A plot of the resulting FFT is shown in the next image:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
 </blockquote>
 </p>
@@ -805,9 +805,9 @@ the continuous-time signal y is sampled and the FFT is computed with a call to r
 resulting in:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
-</blockquote></p>
+</blockquote>
 
 
 <h4>References</h4>

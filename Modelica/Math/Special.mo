@@ -68,9 +68,9 @@ developed by John Maddock). Plot
 of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erf.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
@@ -151,9 +151,9 @@ developed by John Maddock). Plot
 of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erfc.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 If u is large and erf(u) is subtracted from 1.0, the result is not accurate.
@@ -227,9 +227,9 @@ This function computes the inverse of the error function erf(u) = 2/sqrt(pi)*Int
 (otherwise an assertion is raised):
 </p>
 
-<p><blockquote>
+<blockquote>
 -1 &le; u &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 If u = 1, the function returns Modelica.Constants.inf.<br>
@@ -239,9 +239,9 @@ developed by John Maddock).<br>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erfInv.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
@@ -320,9 +320,9 @@ Therefore, u = erfc(erfcInv(u)) and erfcInv(u) = erfInv(1 - u). Input argument u
 (otherwise an assertion is raised):
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; u &le; 2
-</blockquote></p>
+</blockquote>
 
 <p>
 If u = 2, the function returns -Modelica.Constants.inf.<br>
@@ -332,9 +332,9 @@ developed by John Maddock).<br>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erfcInv.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
@@ -416,9 +416,9 @@ a Taylor series approximation for small values of u. Plot
 of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/sinc.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wikipedia</a>.
