@@ -6950,7 +6950,7 @@ It is based on the
 </p>
 
 <p>
-<b>Copyright &copy; 2003-2016, Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
+<b>Copyright &copy; 2003-2016, Modelica Association, DLR, Dietmar Winkler, and Maplesoft.</b>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
