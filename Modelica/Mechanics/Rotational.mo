@@ -1721,6 +1721,42 @@ is present in variable convection.fluid.
 </html>"));
     end SimpleGearShift;
 
+    model TestEddyCurrentBrake "Test of rotational eddy current brake"
+      extends Modelica.Icons.Example;
+      Modelica.Mechanics.Rotational.Sources.EddyCurrentTorque eddyCurrentTorque(
+        tau_nominal=100,
+        w_nominal=10,
+        useSupport=false,
+        alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+
+        TRef=293.15,
+        useHeatPort=true)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+
+      Modelica.Mechanics.Rotational.Components.Inertia inertia(
+        phi(fixed=true, start=0),
+        J=1,
+        w(fixed=true, start=20))
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
+            fixed=true)) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-10,-30})));
+    equation
+      connect(eddyCurrentTorque.flange, inertia.flange_a)
+        annotation (Line(points={{10,0},{16,0},{20,0}},
+                                                     color={0,0,0}));
+      connect(eddyCurrentTorque.heatPort, heatCapacitor.port) annotation (Line(
+            points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
+      annotation (
+        experiment(Interval=0.001),
+        __Dymola_experimentSetupOutput,
+        Documentation(info="<html>
+A rotating inertia gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+</html>"));
+    end TestEddyCurrentBrake;
+
     model GenerationOfFMUs
       "Example to demonstrate variants to generate FMUs (Functional Mock-up Units)"
       extends Modelica.Icons.Example;
@@ -4639,134 +4675,134 @@ in the flanges, are along the axis vector displayed in the icon.
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           extent={{-20.0,-4.0},{20.0,4.0}}),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{10,-100},{50,100}})}),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{10,-100},{50,100}})}),
       Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-100,-10},{-50,10}}),
-      Rectangle(lineColor = {64,64,64},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{50,-10},{100,10}}),
-        Rectangle(lineColor = {160,160,164},
-          fillColor = {160,160,164},
-          fillPattern = FillPattern.Solid,
-          extent = {{-50,100},{50,105}}),
-        Rectangle(lineColor = {160,160,164},
-          fillColor = {160,160,164},
-          fillPattern = FillPattern.Solid,
-          extent = {{-50,-105},{50,-100}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-80,60},{-50,70}}),
-        Line(points = {{-90,40},{-70,40}}),
-        Line(points = {{-80,50},{-60,50}}),
-        Line(points = {{-70,50},{-70,40}}),
-        Line(points = {{-80,80},{-59,80}}),
-        Line(points = {{-70,90},{-70,80}}),
-        Line(points = {{-26,-42},{-32,-2}},
-          color = {0,0,255},
-          pattern = LinePattern.Dot),
-        Text(lineColor = {0,0,255},
-          extent = {{58,-78},{98,-66}},
-          textString = "ring gear"),
-        Text(lineColor = {0,0,255},
-          extent = {{-112,87},{-56,111}},
-          textString = "planet carrier "),
-        Text(lineColor = {0,0,255},
-          extent = {{-47,-56},{-3,-42}},
-          textString = "sun gear"),
-        Polygon(lineColor = {128,128,128},
-          fillColor = {128,128,128},
-          fillPattern = FillPattern.Solid,
-          points = {{58,130},{28,140},{28,120},{58,130}}),
-        Line(points = {{-52,130},{28,130}}),
-        Line(points = {{-92,93},{-70,80}},
-          color = {0,0,255},
-          pattern = LinePattern.Dot),
-        Polygon(lineColor = {128,128,128},
-          fillColor = {128,128,128},
-          fillPattern = FillPattern.Solid,
-          points = {{-7,-86},{-27,-81},{-27,-91},{-7,-86}}),
-        Line(points = {{-97,-86},{-26,-86}},
-          color = {128,128,128}),
-        Text(lineColor = {128,128,128},
-          extent = {{-96,-84},{-28,-71}},
-          textString = "rotation axis"),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,48},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,82},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,59},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-4},{20,4}}),
-        Rectangle(origin = {-30,73},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-3},{20,3}}),
-        Rectangle(origin = {-30,65},
-          fillColor = {192,192,192},
-          extent = {{-20,-19},{20,19}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(origin = {-30,32},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,23},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-3},{20,3}}),
-        Rectangle(origin = {-30,-10},
-          fillColor = {204,204,204},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-4},{20,4}}),
-        Rectangle(origin = {-30,-34},
-          fillColor = {102,102,102},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-2},{20,2}}),
-        Rectangle(origin = {-30,-25},
-          fillColor = {153,153,153},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-3},{20,3}}),
-        Rectangle(origin = {-30,8},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.Solid,
-          extent = {{-20,-4},{20,4}}),
-        Rectangle(origin = {-30,-1},
-          fillColor = {255,255,255},
-          extent = {{-20,-35},{20,35}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          fillPattern = FillPattern.HorizontalCylinder,
-          extent = {{10,-100},{50,100}}),
-        Rectangle(lineColor = {64,64,64},
-          fillColor = {255,255,255},
-          extent = {{10,-100},{50,100}}),
-        Line(points = {{36,-26},{64,-60}},
-          color = {0,0,255},
-          pattern = LinePattern.Dot)}));
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-100,-10},{-50,10}}),
+      Rectangle(lineColor=  {64,64,64},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{50,-10},{100,10}}),
+        Rectangle(lineColor=  {160,160,164},
+          fillColor=  {160,160,164},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-50,100},{50,105}}),
+        Rectangle(lineColor=  {160,160,164},
+          fillColor=  {160,160,164},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-50,-105},{50,-100}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-80,60},{-50,70}}),
+        Line(points=  {{-90,40},{-70,40}}),
+        Line(points=  {{-80,50},{-60,50}}),
+        Line(points=  {{-70,50},{-70,40}}),
+        Line(points=  {{-80,80},{-59,80}}),
+        Line(points=  {{-70,90},{-70,80}}),
+        Line(points=  {{-26,-42},{-32,-2}},
+          color=  {0,0,255},
+          pattern=  LinePattern.Dot),
+        Text(lineColor=  {0,0,255},
+          extent=  {{58,-78},{98,-66}},
+          textString=  "ring gear"),
+        Text(lineColor=  {0,0,255},
+          extent=  {{-112,87},{-56,111}},
+          textString=  "planet carrier "),
+        Text(lineColor=  {0,0,255},
+          extent=  {{-47,-56},{-3,-42}},
+          textString=  "sun gear"),
+        Polygon(lineColor=  {128,128,128},
+          fillColor=  {128,128,128},
+          fillPattern=  FillPattern.Solid,
+          points=  {{58,130},{28,140},{28,120},{58,130}}),
+        Line(points=  {{-52,130},{28,130}}),
+        Line(points=  {{-92,93},{-70,80}},
+          color=  {0,0,255},
+          pattern=  LinePattern.Dot),
+        Polygon(lineColor=  {128,128,128},
+          fillColor=  {128,128,128},
+          fillPattern=  FillPattern.Solid,
+          points=  {{-7,-86},{-27,-81},{-27,-91},{-7,-86}}),
+        Line(points=  {{-97,-86},{-26,-86}},
+          color=  {128,128,128}),
+        Text(lineColor=  {128,128,128},
+          extent=  {{-96,-84},{-28,-71}},
+          textString=  "rotation axis"),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,48},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,82},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,59},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-4},{20,4}}),
+        Rectangle(origin=  {-30,73},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-3},{20,3}}),
+        Rectangle(origin=  {-30,65},
+          fillColor=  {192,192,192},
+          extent=  {{-20,-19},{20,19}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(origin=  {-30,32},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,23},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-3},{20,3}}),
+        Rectangle(origin=  {-30,-10},
+          fillColor=  {204,204,204},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-4},{20,4}}),
+        Rectangle(origin=  {-30,-34},
+          fillColor=  {102,102,102},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-2},{20,2}}),
+        Rectangle(origin=  {-30,-25},
+          fillColor=  {153,153,153},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-3},{20,3}}),
+        Rectangle(origin=  {-30,8},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.Solid,
+          extent=  {{-20,-4},{20,4}}),
+        Rectangle(origin=  {-30,-1},
+          fillColor=  {255,255,255},
+          extent=  {{-20,-35},{20,35}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          fillPattern=  FillPattern.HorizontalCylinder,
+          extent=  {{10,-100},{50,100}}),
+        Rectangle(lineColor=  {64,64,64},
+          fillColor=  {255,255,255},
+          extent=  {{10,-100},{50,100}}),
+        Line(points=  {{36,-26},{64,-60}},
+          color=  {0,0,255},
+          pattern=  LinePattern.Dot)}));
     end IdealPlanetary;
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
@@ -6242,14 +6278,16 @@ blocks of the block library Modelica.Blocks.Sources.
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
 
-      Modelica.SIunits.Angle phi "Rotation angle of flange with respect to support";
+      Modelica.SIunits.Angle phi
+        "Rotation angle of flange with respect to support";
       Modelica.Blocks.Interfaces.RealInput u[3]
         "Angle, angular velocity and angular acceleration of flange with respect to support as input signals"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     protected
       function position
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3]
+          "Required values for position, speed, acceleration";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         output Real q;
@@ -6260,7 +6298,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
       function position_der
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3]
+          "Required values for position, speed, acceleration";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         input Real dummy_der;
@@ -6274,7 +6313,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
       function position_der2
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3]
+          "Required values for position, speed, acceleration";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         input Real dummy_der;
@@ -6681,6 +6721,50 @@ Positive torque acts accelerating.
 </html>"));
     end TorqueStep;
 
+    model EddyCurrentTorque "Simple model of a rotational eddy current brake"
+      import Modelica.Electrical.Machines.Thermal.convertResistance;
+      parameter Modelica.SIunits.Torque tau_nominal
+        "Maximum torque (always braking)";
+      parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
+        "Nominal speed (leads to maximum torque) at reference temperature";
+      parameter Modelica.SIunits.Temperature TRef(start=293.15)
+        "Reference temperature";
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20(start=0) "Temperature coefficient of material";
+      extends Modelica.Mechanics.Rotational.Interfaces.PartialTorque;
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
+      Modelica.SIunits.Torque tau
+        "Accelerating torque acting at flange (= flange.tau)";
+      Modelica.SIunits.AngularVelocity w
+        "Angular velocity of flange with respect to support (= der(phi))";
+      Real w_rel "Relative speed w/w_nominal";
+    equation
+      tau = flange.tau;
+      w = der(phi);
+      w_rel = w/(w_nominal*convertResistance(1, TRef, alpha20, TheatPort));
+      tau = 2*tau_nominal*w_rel/(1 + w_rel*w_rel);
+      lossPower = tau*w;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{0,10},{4,41},{8,65},{12,81},{16,88},{20,90},{24,89},{28,86},{
+                  32,82},{36,78},{40,74},{50,65},{60,58},{70,52},{80,48}},
+              color={95,95,95}),
+            Line(
+              points={{-40,-40},{-36,-9},{-32,15},{-28,31},{-24,38},{-20,40},{-16,39},
+                  {-12,36},{-8,32},{-4,28},{0,24},{10,15},{20,8},{30,2},{40,-2}},
+              color={95,95,95},
+              origin={-40,-30},
+              rotation=180)}),    Documentation(info="<HTML>
+<p>This is a simple model of a rotational <b>eddy current brake</b>. The torque versus speed characteristic is defined by Kloss' equation.</p>
+<p><b>Thermal behaviour:</b><br>
+The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>
+If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
+However, the the speed w_nominal at which the maximum torque occurs is adapted form reference temperature TRef to the operational temperature.</p>
+</HTML>"));
+    end EddyCurrentTorque;
     annotation (Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical rotational drive trains.
@@ -7897,13 +7981,13 @@ only be used as basic building elements for models.
             fillPattern=FillPattern.Solid,
             extent={{-15.0,-4.0},{15.0,4.0}}),
           Rectangle(
-            origin = {-35,40},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}}),
+            origin=  {-35,40},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}}),
           Rectangle(
-            origin = {35,21},
-            fillColor = {255,255,255},
-            extent = {{-15,-61},{15,60}})}), Documentation(
+            origin=  {35,21},
+            fillColor=  {255,255,255},
+            extent=  {{-15,-61},{15,60}})}), Documentation(
             info="<html>
 <p>
 This is the icon of a gear from the rotational package.

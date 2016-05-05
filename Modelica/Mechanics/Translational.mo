@@ -1662,6 +1662,39 @@ is present in variable convection.fluid.
               preserveAspectRatio=false)));
     end HeatLosses;
 
+    model TestEddyCurrentBrake "Test of translational eddy current brake"
+      extends Modelica.Icons.Example;
+      Modelica.Mechanics.Translational.Sources.EddyCurrentForce
+        eddyCurrentForce(
+        f_nominal=100,
+        v_nominal=10,
+        useHeatPort=true,
+        TRef=293.15,
+        alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      Modelica.Mechanics.Translational.Components.Mass mass(
+        m=1,
+        s(fixed=true, start=0),
+        v(fixed=true, start=20))
+        annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1, T(
+            fixed=true)) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={-10,-30})));
+    equation
+      connect(eddyCurrentForce.flange, mass.flange_a)
+        annotation (Line(points={{10,0},{20,0}},   color={0,127,0}));
+      connect(eddyCurrentForce.heatPort, heatCapacitor.port) annotation (Line(
+            points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
+      annotation (
+        experiment(Interval=0.001),
+        __Dymola_experimentSetupOutput,
+        Documentation(info="<html>
+A moving mass gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
+</html>"));
+    end TestEddyCurrentBrake;
+
     package Utilities "Utility classes used by the Example models"
       extends Modelica.Icons.UtilitiesPackage;
       function GenerateStribeckFrictionTable
@@ -3644,8 +3677,8 @@ Modelica.Blocks library.
     model Position
       "Forced movement of a flange according to a reference position"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
-         s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        (s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
@@ -3738,8 +3771,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Speed "Forced movement of a flange according to a reference speed"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
-         s(
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        (s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
@@ -3842,8 +3875,8 @@ blocks of the block library Modelica.Blocks.Sources.
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
-         s(
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
+        (s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
@@ -3911,7 +3944,8 @@ blocks of the block library Modelica.Blocks.Source.
     protected
       function position
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3]
+          "Required values for position, speed, acceleration";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         output Real q;
@@ -3922,7 +3956,8 @@ blocks of the block library Modelica.Blocks.Source.
 
       function position_der
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3]
+          "Required values for position, speed, acceleration";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         input Real dummy_der;
@@ -3936,7 +3971,8 @@ blocks of the block library Modelica.Blocks.Source.
 
       function position_der2
         extends Modelica.Icons.Function;
-        input Real q_qd_qdd[3] "Required values for position, speed, acceleration";
+        input Real q_qd_qdd[3]
+          "Required values for position, speed, acceleration";
         input Real dummy
           "Just to have one input signal that should be differentiated to avoid possible problems in the Modelica tool (is not used)";
         input Real dummy_der;
@@ -4241,6 +4277,47 @@ Positive force acts accelerating.
 </html>"));
     end ForceStep;
 
+    model EddyCurrentForce "Simple model of a translational eddy current brake"
+      import Modelica.Electrical.Machines.Thermal.convertResistance;
+      parameter Modelica.SIunits.Force f_nominal
+        "Maximum force (always braking)";
+      parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
+        "Nominal speed (leads to maximum force) at reference temperature";
+      parameter Modelica.SIunits.Temperature TRef(start=293.15)
+        "Reference temperature";
+      parameter
+        Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+        alpha20(start=0) "Temperature coefficient of material";
+      extends Modelica.Mechanics.Translational.Interfaces.PartialForce;
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
+      Modelica.SIunits.Velocity v
+        "Velocity of flange with respect to support (= der(s))";
+      Real v_rel "Relative speed v/v_nominal";
+    equation
+      v = der(s);
+      v_rel = v/(v_nominal*convertResistance(1, TRef, alpha20, TheatPort));
+      f = 2*f_nominal*v_rel/(1 + v_rel*v_rel);
+      lossPower = f*v;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{0,10},{4,41},{8,65},{12,81},{16,88},{20,90},{24,89},{28,86},{
+                  32,82},{36,78},{40,74},{50,65},{60,58},{70,52},{80,48}},
+              color={95,95,95}),
+            Line(
+              points={{-40,-40},{-36,-9},{-32,15},{-28,31},{-24,38},{-20,40},{-16,39},
+                  {-12,36},{-8,32},{-4,28},{0,24},{10,15},{20,8},{30,2},{40,-2}},
+              color={95,95,95},
+              origin={-40,-30},
+              rotation=180)}),    Documentation(info="<HTML>
+<p>This is a simple model of a translational <b>eddy current brake</b>. The force versus speed characteristic is defined by Kloss' equation.</p>
+<p><b>Thermal behaviour:</b><br>
+The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
+If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
+However, the the speed v_nominal at which the maximum torque occurs is adapted form reference temperature TRef to the operational temperature.</p>
+</HTML>"));
+    end EddyCurrentForce;
     annotation (Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
