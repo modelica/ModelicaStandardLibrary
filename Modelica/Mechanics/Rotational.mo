@@ -1728,7 +1728,6 @@ is present in variable convection.fluid.
         w_nominal=10,
         useSupport=false,
         alpha20(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-
         TRef=293.15,
         useHeatPort=true)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
@@ -1751,7 +1750,6 @@ is present in variable convection.fluid.
             points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
       annotation (
         experiment(Interval=0.001),
-        __Dymola_experimentSetupOutput,
         Documentation(info="<html>
 A rotating inertia gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
 </html>"));
@@ -6762,7 +6760,7 @@ Positive torque acts accelerating.
 <p><b>Thermal behaviour:</b><br>
 The resistance of the braking disc is influenced by the actual temperature Theatport, which in turn shifts the speed w_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
-However, the the speed w_nominal at which the maximum torque occurs is adapted form reference temperature TRef to the operational temperature.</p>
+However, the speed w_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
 </HTML>"));
     end EddyCurrentTorque;
     annotation (Documentation(info="<html>

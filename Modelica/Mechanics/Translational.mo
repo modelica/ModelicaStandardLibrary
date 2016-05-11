@@ -1689,7 +1689,6 @@ is present in variable convection.fluid.
             points={{-10,-10},{-10,-15},{-10,-20}}, color={191,0,0}));
       annotation (
         experiment(Interval=0.001),
-        __Dymola_experimentSetupOutput,
         Documentation(info="<html>
 A moving mass gets decelerated by an eddy current brake. The loss power is fed to a heat capacitor.
 </html>"));
@@ -4315,7 +4314,7 @@ Positive force acts accelerating.
 <p><b>Thermal behaviour:</b><br>
 The resistance of the braking fin is influenced by the actual temperature Theatport, which in turn shifts the speed v_nominal at which the (unchanged) maximum torque occurs.<br>
 If the heatPort is not used (useHeatPort = false), the operational temperature remains at the given temperature T.<br>
-However, the the speed v_nominal at which the maximum torque occurs is adapted form reference temperature TRef to the operational temperature.</p>
+However, the speed v_nominal at which the maximum torque occurs is adapted from reference temperature TRef to the operational temperature.</p>
 </HTML>"));
     end EddyCurrentForce;
     annotation (Documentation(info="<html>
