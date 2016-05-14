@@ -3249,12 +3249,15 @@ This block is demonstrated in the examples
     extends Modelica.Blocks.Icons.Block;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
+        parameter Boolean useConjugateComplex=false
+      "Gives conjugate complex result if true"
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Real x0Cos=0 "Start value of cos integrator state";
     parameter Real x0Sin=0 "Start value of sin integrator state";
-    Blocks.Sources.Sine sin1(
+    Sources.Cosine      sin1(
       final amplitude=sqrt(2),
-      final phase=Modelica.Constants.pi/2,
-      final freqHz=k*f) annotation (Placement(transformation(
+      final freqHz=k*f,
+      final phase=0)    annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
           origin={-80,70})));
@@ -3282,6 +3285,11 @@ This block is demonstrated in the examples
       annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
     Blocks.Math.RectangularToPolar rectangularToPolar
       annotation (Placement(transformation(extent={{40,-12},{60,8}})));
+    Gain                      gain(final k=if useConjugateComplex then -1
+           else 1) annotation (Placement(transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={80,-30})));
   equation
 
     connect(product2.y, mean2.u) annotation (Line(
@@ -3299,9 +3307,6 @@ This block is demonstrated in the examples
     connect(rectangularToPolar.y_abs, y_rms) annotation (Line(
         points={{61,4},{80,4},{80,60},{110,60}},
         color={0,0,127}));
-    connect(rectangularToPolar.y_arg, y_arg) annotation (Line(
-        points={{61,-8},{80,-8},{80,-60},{110,-60}},
-        color={0,0,127}));
     connect(sin1.y, product1.u[1]) annotation (Line(
         points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}},
         color={0,0,127}));
@@ -3314,6 +3319,10 @@ This block is demonstrated in the examples
     connect(sin2.y, product2.u[2]) annotation (Line(
         points={{-80,-59},{-80,-43.5},{-60,-43.5}},
         color={0,0,127}));
+    connect(rectangularToPolar.y_arg, gain.u)
+      annotation (Line(points={{61,-8},{80,-8},{80,-18}}, color={0,0,127}));
+    connect(gain.y, y_arg)
+      annotation (Line(points={{80,-41},{80,-60},{110,-60}}, color={0,0,127}));
     annotation (Documentation(info="<html>
 <p>
 This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the
@@ -3323,7 +3332,9 @@ This block calculates the root mean square and the phase angle of a single harmo
 Note: The output is updated after each period defined by 1/f.
 </p>
 <p>
-Note: The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code>
+Note: <br>
+The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</code> if useConjugateComplex=false (default)<br>
+The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if useConjugateComplex=true
 </p>
 </html>"), Icon(graphics={
           Text(
