@@ -1913,6 +1913,9 @@ which is only valid in the rotor-fixed coordinate system.
   operator record ComplexPower =
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
+  operator record ComplexPerUnit =
+    Complex(redeclare PerUnit re,
+             redeclare PerUnit im) "Complex per unit";
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics={
         Line(
