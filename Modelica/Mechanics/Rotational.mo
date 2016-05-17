@@ -6737,12 +6737,12 @@ Positive torque acts accelerating.
         "Accelerating torque acting at flange (= flange.tau)";
       Modelica.SIunits.AngularVelocity w
         "Angular velocity of flange with respect to support (= der(phi))";
-      Real w_rel "Relative speed w/w_nominal";
+      Real w_normalized "Relative speed w/w_nominal";
     equation
       tau = flange.tau;
       w = der(phi);
-      w_rel = w/(w_nominal*convertResistance(1, TRef, alpha20, TheatPort));
-      tau = 2*tau_nominal*w_rel/(1 + w_rel*w_rel);
+      w_normalized = w/(w_nominal*convertResistance(1, TRef, alpha20, TheatPort));
+      tau = 2*tau_nominal*w_normalized/(1 + w_normalized*w_normalized);
       lossPower = tau*w;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={

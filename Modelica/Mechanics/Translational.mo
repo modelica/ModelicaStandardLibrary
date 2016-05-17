@@ -4292,11 +4292,11 @@ Positive force acts accelerating.
         Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort;
       Modelica.SIunits.Velocity v
         "Velocity of flange with respect to support (= der(s))";
-      Real v_rel "Relative speed v/v_nominal";
+      Real v_normalized "Relative speed v/v_nominal";
     equation
       v = der(s);
-      v_rel = v/(v_nominal*convertResistance(1, TRef, alpha20, TheatPort));
-      f = 2*f_nominal*v_rel/(1 + v_rel*v_rel);
+      v_normalized = v/(v_nominal*convertResistance(1, TRef, alpha20, TheatPort));
+      f = 2*f_nominal*v_normalized/(1 + v_normalized*v_normalized);
       lossPower = f*v;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
