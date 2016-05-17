@@ -6,42 +6,79 @@ package MultiPhase "Library for electrical components of one or more phases"
 
   package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
-    class Concept "Concept"
+
+    class PhaseOrientation "Orientation of phases"
       extends Modelica.Icons.Information;
-      annotation (preferredView="info",Documentation(info="<html>
+      annotation (preferredView="info",
+        DocumentationClass=true,
+        Documentation(info="<html>
+<h4>Symmetrical three phase system</h4>
 <p>
-This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
+A symmetrical three phases system consists of three sinusoidal sine waves with with an angular displacement of 2 &pi; / 3.
 </p>
-<ul>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Basic\">Basic</a>
-    components (resistor, capacitor, inductor, ...)</li>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Ideal\">Ideal</a>
-    elements (switches, diode, transformer, ...)</li>
-<li><a href=\"modelica://Modelica.Electrical.MultiPhase.Sensors\">Sensors</a>
-    to measure potentials, voltages, and currents</li>
-<li>Time-dependent and controlled voltage and current
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Sources\">sources</a></li>
-</ul>
+<h4>Symmetrical multi phase system</h4>
 <p>
-This package is intended to be used the same way as Modelica.Electrical.Analog
-but to make design of multiphase models easier.
-The package is based on the
-<a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces.Plug\">plug</a>:
-a composite connector containing <code>m</code> pins.
-It is possible to connect plugs to plugs or single pins of a plug to single pins.
-Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
+In symmetrical multi phase systems odd and even phase numbers have to be distinguished.
+</p>
+<h5>Odd number of phases</h5>
+<p>
+For a symmetrical multi phase system with m phases the displacement of the sinewaves is 2 &pi; / m.
+</p>
+<h5>Even number of phases</h5>
+<p>
+In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two ore more different groups (the base systems). 
+</p>
+<p>
+The number of phases m can recursively divided by 2 until the ersult is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phase of the base system. 
+The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e. m = n<sub>Base</sub> * m<sub>Base</sub>.
+</p>
+<p>
+For a base system with m<sub>Base</sub> phases the displacement of the sinewaves belongig to that base system is 2 &pi; / m<sub>Base</sub>.
+</p>
+<p>
+The displacement of the base systems is defined recursively as &pi; / n<sub>Base</sub>.
+</p>
+<h4>Note</h4>
+<p>
+In array or matrices, the base systems are stored one after another. 
+</p>
+<h4>Symmetrical components</h4>
+<p>
+For each base system of time phasors, symmetrical components can be calculated according to the idea of Charles L. Fortescue. 
+</p>
+<p>
+The first symmetrical component is the direct component with positive sequence.<br>
+In case of  m<sub>Base</sub> = 2, the second component is the inverse component with negative sequence.<br>
+In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] are components with non-positive sequence,<br> 
+and the last component [m<sub>Base</sub>] is the zero sequence component.
+</p>
+<p>
+This set of symmterical components is repeated for each of the n<sub>Base</sub> base systems.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide</a> on multi phase winding.
 </p>
 </html>"));
-    end Concept;
+    end PhaseOrientation;
 
     class Contact "Contact"
       extends Modelica.Icons.Contact;
-      annotation (preferredView="info",Documentation(info="<html>
+      annotation (preferredView="info",
+        DocumentationClass=true, Documentation(info="<html>
 <h4>Contact</h4>
+
+<p>
+Christian Kral<br>
+Electric Machines, Drives and Systems<br>
+1060 Vienna, Austria<br>
+email: <a HREF=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a><br>
+</p>
 
 <p>
 Anton Haumer<br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
+93049 Regensburg, Germany<br>
 3423 St. Andrae-Woerdern, Austria<br>
 email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
@@ -51,7 +88,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
-      annotation (preferredView="info",Documentation(info="<html>
+      annotation (preferredView="info",
+        DocumentationClass=true, Documentation(info="<html>
 
 <h5>Version 3.2.2, 2014-04-21 (Anton Haumer, Christian Kral)</h5>
 <ul>
@@ -100,7 +138,8 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
     class References "References"
       extends Modelica.Icons.References;
-      annotation (preferredView="info",Documentation(info="<html>
+      annotation (preferredView="info",
+        DocumentationClass=true, Documentation(info="<html>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -113,13 +152,20 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </table>
 </html>"));
     end References;
-    annotation (
-      preferredView="info",
+    annotation (preferredView="info",
       DocumentationClass=true,
       Documentation(info="<html>
 <p>
-This is a library of multi phase electrical models.
-</p></html>"));
+This library contains components for modelling of multiphase electrical circuits. 
+The number of phases m is not restricted to three. 
+The connector (named plug) contains an array of m singlephase <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.Pin\">pins</a>. 
+Most of the components use an array of singlephase components from <a href=\"modelica://Modelica.Electrical.Analog\">Modelica.Electrical.Analog</a>. 
+</p>
+<h4>Note</h4>
+<p>
+For the orientation of an arbitrary number of phases m &gt; 3, see the <a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">phase orientation concept</a>.
+</p>
+</html>"));
   end UsersGuide;
 
   package Examples "Multiphase test examples"
@@ -178,6 +224,7 @@ This is a library of multi phase electrical models.
             transformation(extent={{-50,-100},{-30,-80}})));
     initial equation
       transformerL.i[1:m - 1] = zeros(m - 1) "Y-connection";
+
     equation
       connect(starS.pin_n, groundS.p)
         annotation (Line(points={{-90,-72},{-90,-80}}, color={0,0,255}));
@@ -266,6 +313,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
             transformation(extent={{80,-100},{100,-80}})));
     initial equation
       transformerL.i[1:m] = zeros(m) "D-connection";
+
     equation
       connect(groundS.p, starS.pin_n)
         annotation (Line(points={{-90,-80},{-90,-72}}, color={0,0,255}));
@@ -371,6 +419,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       cDC1.v = 0;
       cDC2.v = 0;
       supplyL.i[1:m - 1] = zeros(m - 1) "Y-connection";
+
     equation
       connect(cDC1.n, cDC2.p)
         annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
@@ -2463,13 +2512,10 @@ In quasistationary operation, instantaneous power equals active power;
     function symmetricOrientation
       "Orientations of the resulting fundamental wave field phasors"
       extends Modelica.Icons.Function;
-
       input Integer m "Number of phases";
       output Modelica.SIunits.Angle orientation[m]
         "Orientation of the resulting fundamental wave field phasors";
-
       import Modelica.Constants.pi;
-
     algorithm
       if mod(m, 2) == 0 then
         // Even number of phases
@@ -2479,8 +2525,8 @@ In quasistationary operation, instantaneous power equals active power;
           orientation[2] := +pi/2;
         else
           orientation[1:integer(m/2)] := symmetricOrientation(integer(m/2));
-          orientation[integer(m/2) + 1:m] := symmetricOrientation(integer(m/2))
-             - fill(pi/m, integer(m/2));
+          orientation[integer(m/2) + 1:m] := symmetricOrientation(integer(m/2)) -
+            fill(pi/m, integer(m/2));
         end if;
       else
         // Odd number of phases
@@ -2488,11 +2534,11 @@ In quasistationary operation, instantaneous power equals active power;
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+This function determines the orientation angles of the symmetrical winding with m phases. 
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide on multi phase winding</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricOrientation;
@@ -2518,9 +2564,9 @@ This function determines the orientation of the symmetrical winding with <img sr
             symmetricOrientationMatrix(integer(m/2));
           orientation[1 + integer(m/2):m, 1 + integer(m/2):m] :=
             symmetricOrientationMatrix(integer(m/2)) - fill(
-                pi/m,
-                integer(m/2),
-                integer(m/2));
+              pi/m,
+              integer(m/2),
+              integer(m/2));
         end if;
       else
         // Odd number of phases
@@ -2531,12 +2577,11 @@ This function determines the orientation of the symmetrical winding with <img sr
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
-</p>
+This function determines the orientation matrix of the symmetrical winding with m phases. 
+<p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide</a> on multi phase winding,
-[<a href=\"modelica://Modelica.Electrical.Machines.UsersGuide.References\">Vaske1963</a>.
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricOrientationMatrix;
@@ -2549,22 +2594,67 @@ This function determines the orientation of the symmetrical winding with <img sr
       output Complex transformation[m, m]
         "Transformation matrix for m phase symmetrical components";
     algorithm
-      // Init transformation matrix with zeros
-      transformation := Modelica.ComplexMath.fromPolar(fill(
-            numberOfSymmetricBaseSystems(m)/m,
-            m,
-            m), Electrical.MultiPhase.Functions.symmetricOrientationMatrix(m));
-
+      transformation :=Modelica.ComplexMath.fromPolar(fill(
+          numberOfSymmetricBaseSystems(m)/m,
+          m,
+          m), Modelica.Electrical.MultiPhase.Functions.symmetricOrientationMatrix(
+         m));
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_m.png\">.
+This function determines the transformation matrix of the symmetrical winding with m phases. 
+</p>
+<p>
+The transformation matrix can be used to determine the symmetrical components from time phasors.
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase\">User's guide on multi phase winding</a>,
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
     end symmetricTransformationMatrix;
+
+    function symmetricBackTransformationMatrix
+      "Back transformation matrix for symmetrical components"
+      extends Modelica.Icons.Function;
+      import Modelica.Constants.pi;
+      input Integer m "Number of phases";
+      output Complex backTransformation[m, m]
+        "Transformation matrix for m phase symmetrical components";
+    protected
+      Complex transformation[m, m]
+        "Transformation matrix for m phase symmetrical components";
+      Integer nBase=numberOfSymmetricBaseSystems(m);
+      Integer mBase=integer(m/nBase);
+    algorithm
+      // conjugate transformation matrix
+      transformation :=Modelica.ComplexMath.fromPolar(fill(
+        1,
+        m,
+        m), -Modelica.Electrical.MultiPhase.Functions.symmetricOrientationMatrix(m));
+      // transpose transformation matrix
+      for i in 1:nBase loop
+        for ii in 1:mBase loop
+          for j in 1:nBase loop
+            for jj in 1:mBase loop
+              backTransformation[(i - 1)*mBase + ii, (i - 1)*mBase + jj] :=
+                  transformation[(i - 1)*mBase + jj, (i - 1)*mBase + ii];
+            end for;
+          end for;
+        end for;
+      end for;
+      annotation (Documentation(info="<html>
+<p>
+This function determines the back transformation matrix of the symmetrical winding with m phases. 
+</p>
+<p>
+The back transformation matrix can be used to determine the time phasors from the symmetrical components.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+</p>
+</html>"));
+    end symmetricBackTransformationMatrix;
 
     function numberOfSymmetricBaseSystems
       "Determines the number of symmeric base systems of m phase symmetric system"
@@ -2586,6 +2676,15 @@ This function determines the orientation of the symmetrical winding with <img sr
         // Odd number of phases
         n := 1;
       end if;
+      annotation (Documentation(info="<html>
+<p>
+This function determines the number of base systems of the symmetrical winding with m phases. 
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+</p>
+</html>"));
     end numberOfSymmetricBaseSystems;
 
     function factorY2D "Calculates factor Y voltage to polygon (delta) voltage"
@@ -2618,29 +2717,38 @@ This function determines the orientation of the symmetrical winding with <img sr
       "Determines the indices of the all positive sequences"
       extends Modelica.Icons.Function;
       input Integer m=3 "Number of phases";
-      output Integer ind[
-        Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)]
+      output Integer ind[Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)]
         "Number of symmetric base systems";
     protected
-      Integer n=Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m);
+      Integer n=
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m);
     algorithm
       if n == 1 then
         ind[1] := 1;
       else
         ind := (0:n - 1)*integer(m/n) + ones(n);
       end if;
+      annotation (Documentation(info="<html>
+<p>
+This function determines the indices of positive sequence of the symmetrical winding with m phases. 
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+</p>
+</html>"));
     end indexPositiveSequence;
 
     function indexNonPositiveSequence
       "Determines the indices of all non positive sequences"
       extends Modelica.Icons.Function;
       input Integer m=3 "Number of phases";
-      output Integer ind[
-        Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)*(
-        integer(m/Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(
-        m)) - 1)] "Indices of non positive sequences";
+      output Integer ind[Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)*
+        (integer(m/Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) - 1)]
+        "Indices of non positive sequences";
     protected
-      Integer n=Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+      Integer n=
+          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
         "Number of base systems";
       Integer mbas=integer(m/n) "Number of phases of base system";
     algorithm
@@ -2652,10 +2760,18 @@ This function determines the orientation of the symmetrical winding with <img sr
         end for;
       else
         for k in 1:n loop
-          ind[(mbas - 1)*(k - 1) + 1:(mbas - 1)*k] := (2:mbas) + mbas*(k - 1)*
-            ones(mbas - 1);
+          ind[(mbas - 1)*(k - 1) + 1:(mbas - 1)*k] := (2:mbas) + mbas*(k - 1)*ones(mbas - 1);
         end for;
       end if;
+      annotation (Documentation(info="<html>
+<p>
+This function determines the indices of non-positive sequence of the symmetrical winding with m phases. 
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+</p>
+</html>"));
     end indexNonPositiveSequence;
   end Functions;
 
@@ -3656,7 +3772,6 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
 </dl>
 </html>"));
   end Interfaces;
-
   annotation (Documentation(info="<html>
 <p>
 Copyright &copy; 1998-2016, Modelica Association and Anton Haumer.
