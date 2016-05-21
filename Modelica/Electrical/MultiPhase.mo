@@ -12,6 +12,10 @@ package MultiPhase "Library for electrical components of one or more phases"
       annotation (preferredView="info",
         DocumentationClass=true,
         Documentation(info="<html>
+<p>
+<b>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e. they are based on the same 
+<a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">orientation function</a>.</b>
+</p>
 <h4>Symmetrical three phase system</h4>
 <p>
 A symmetrical three phases system consists of three sinusoidal sine waves with with an angular displacement of 2 &pi; / 3.
@@ -29,14 +33,14 @@ For a symmetrical multi phase system with m phases the displacement of the sinew
 In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two ore more different groups (the base systems). 
 </p>
 <p>
-The number of phases m can recursively divided by 2 until the ersult is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phase of the base system. 
+The number of phases m can be divided by 2 recursively until the result is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phases of the base system. 
 The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e. m = n<sub>Base</sub> * m<sub>Base</sub>.
 </p>
 <p>
 For a base system with m<sub>Base</sub> phases the displacement of the sinewaves belongig to that base system is 2 &pi; / m<sub>Base</sub>.
 </p>
 <p>
-The displacement of the base systems is defined recursively as &pi; / n<sub>Base</sub>.
+The displacement of the base systems is defined as &pi; / n<sub>Base</sub>.
 </p>
 <h4>Note</h4>
 <p>
@@ -2476,8 +2480,10 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
     end QuasiRMS;
   end Blocks;
 
+
   package Functions "Functions for multi phase systems"
     extends Modelica.Icons.Package;
+
     function quasiRMS "Calculate continuous quasi RMS value of input"
       extends Modelica.Icons.Function;
       input Real x[:];
@@ -2525,8 +2531,8 @@ In quasistationary operation, instantaneous power equals active power;
           orientation[2] := +pi/2;
         else
           orientation[1:integer(m/2)] := symmetricOrientation(integer(m/2));
-          orientation[integer(m/2) + 1:m] := symmetricOrientation(integer(m/2)) -
-            fill(pi/m, integer(m/2));
+          orientation[integer(m/2) + 1:m] := symmetricOrientation(integer(m/2))
+             - fill(pi/m, integer(m/2));
         end if;
       else
         // Odd number of phases
@@ -2548,33 +2554,30 @@ This function determines the orientation angles of the symmetrical winding with 
       extends Modelica.Icons.Function;
       import Modelica.Constants.pi;
       input Integer m "Number of phases";
-      output Modelica.SIunits.Angle orientation[m, m]
+      output Modelica.SIunits.Angle oM[m, m]
         "Angles of symmetric transformation matrix";
+    protected
+      Integer nBase=numberOfSymmetricBaseSystems(m);
+      Integer mBase=integer(m/nBase);
+      Modelica.SIunits.Angle o[m]=symmetricOrientation(m);
+      Modelica.SIunits.Angle oBase[nBase]=o[1:mBase:m];
     algorithm
       // Init transformation matrix with zeros
-      orientation := zeros(m, m);
-      // Insert non zero coefficients
-      if mod(m, 2) == 0 then
-        // Even number of phases
-        if m == 2 then
-          // Special case two phase machine
-          orientation := {{0,+pi/2},{0,-pi/2}};
-        else
-          orientation[1:integer(m/2), 1:integer(m/2)] :=
-            symmetricOrientationMatrix(integer(m/2));
-          orientation[1 + integer(m/2):m, 1 + integer(m/2):m] :=
-            symmetricOrientationMatrix(integer(m/2)) - fill(
-              pi/m,
-              integer(m/2),
-              integer(m/2));
-        end if;
-      else
-        // Odd number of phases
-        for k in 1:m loop
-          orientation[k, :] :=
-            Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m)*k;
+      oM := zeros(m, m);
+      // mBase is either 2
+      if mBase==2 then
+        oM[1:mBase,1:mBase] := {o[1:mBase],-o[1:mBase]};
+      else // or odd
+        for j in 1:mBase loop
+          oM[j,1:mBase] := j*o[1:mBase];
         end for;
       end if;
+      // shift base orientationMatrix nBase times along diagonal
+      for i in 2:nBase loop
+        for k in 1:mBase loop
+          oM[(i - 1)*mBase + k, (i - 1)*mBase + 1:i*mBase] := oM[k, 1:mBase] + fill(oBase[i], mBase);
+        end for;
+      end for;
       annotation (Documentation(info="<html>
 <p>
 This function determines the orientation matrix of the symmetrical winding with m phases. 
@@ -2589,16 +2592,26 @@ This function determines the orientation matrix of the symmetrical winding with 
     function symmetricTransformationMatrix
       "Transformation matrix for symmetrical components"
       extends Modelica.Icons.Function;
-      import Modelica.Constants.pi;
+      import Modelica.ComplexMath.fromPolar;
       input Integer m "Number of phases";
-      output Complex transformation[m, m]
+      output Complex tM[m, m]
         "Transformation matrix for m phase symmetrical components";
+    protected
+      Integer nBase=numberOfSymmetricBaseSystems(m);
+      Integer mBase=integer(m/nBase);
+      Real factor=nBase/m;
+      Modelica.SIunits.Angle oM[m,m]=symmetricOrientationMatrix(m);
     algorithm
-      transformation :=Modelica.ComplexMath.fromPolar(fill(
-          numberOfSymmetricBaseSystems(m)/m,
-          m,
-          m), Modelica.Electrical.MultiPhase.Functions.symmetricOrientationMatrix(
-         m));
+      //fill only elements within baseSystems
+      for i in 1:nBase loop
+        for j in 1:nBase loop
+          for ii in (i - 1)*mBase + 1:i*mBase loop
+            for jj in (j - 1)*mBase + 1:j*mBase loop
+              tM[ii,jj] :=fromPolar(if i==j then factor else 0, oM[ii,jj]);
+            end for;
+          end for;
+        end for;
+      end for;
       annotation (Documentation(info="<html>
 <p>
 This function determines the transformation matrix of the symmetrical winding with m phases. 
@@ -2613,31 +2626,25 @@ The transformation matrix can be used to determine the symmetrical components fr
 </html>"));
     end symmetricTransformationMatrix;
 
-    function symmetricBackTransformationMatrix
+    function symmetriBackTransformationMatrix
       "Back transformation matrix for symmetrical components"
       extends Modelica.Icons.Function;
-      import Modelica.Constants.pi;
+      import Modelica.ComplexMath.fromPolar;
       input Integer m "Number of phases";
-      output Complex backTransformation[m, m]
-        "Transformation matrix for m phase symmetrical components";
+      output Complex bTM[m, m]
+        "Back transformation matrix for m phase symmetrical components";
     protected
-      Complex transformation[m, m]
-        "Transformation matrix for m phase symmetrical components";
       Integer nBase=numberOfSymmetricBaseSystems(m);
       Integer mBase=integer(m/nBase);
+      Real factor=1;
+      Modelica.SIunits.Angle oM[m,m]=symmetricOrientationMatrix(m);
     algorithm
-      // conjugate transformation matrix
-      transformation :=Modelica.ComplexMath.fromPolar(fill(
-        1,
-        m,
-        m), -Modelica.Electrical.MultiPhase.Functions.symmetricOrientationMatrix(m));
-      // transpose transformation matrix
+      //inverse (within baseSystems): conjugate and transpose
       for i in 1:nBase loop
-        for ii in 1:mBase loop
-          for j in 1:nBase loop
-            for jj in 1:mBase loop
-              backTransformation[(i - 1)*mBase + ii, (i - 1)*mBase + jj] :=
-                  transformation[(i - 1)*mBase + jj, (i - 1)*mBase + ii];
+        for j in 1:nBase loop
+          for ii in (i - 1)*mBase + 1:i*mBase loop
+            for jj in (j - 1)*mBase + 1:j*mBase loop
+              bTM[ii,jj] :=fromPolar(if i==j then factor else 0, -oM[jj,ii]);
             end for;
           end for;
         end for;
@@ -2651,10 +2658,10 @@ The back transformation matrix can be used to determine the time phasors from th
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Rectifier.MSL322.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
-    end symmetricBackTransformationMatrix;
+    end symmetriBackTransformationMatrix;
 
     function numberOfSymmetricBaseSystems
       "Determines the number of symmeric base systems of m phase symmetric system"
@@ -2717,11 +2724,10 @@ This function determines the number of base systems of the symmetrical winding w
       "Determines the indices of the all positive sequences"
       extends Modelica.Icons.Function;
       input Integer m=3 "Number of phases";
-      output Integer ind[Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)]
+      output Integer ind[numberOfSymmetricBaseSystems(m)]
         "Number of symmetric base systems";
     protected
-      Integer n=
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m);
+      Integer n=numberOfSymmetricBaseSystems(m);
     algorithm
       if n == 1 then
         ind[1] := 1;
@@ -2743,24 +2749,22 @@ This function determines the indices of positive sequence of the symmetrical win
       "Determines the indices of all non positive sequences"
       extends Modelica.Icons.Function;
       input Integer m=3 "Number of phases";
-      output Integer ind[Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)*
-        (integer(m/Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)) - 1)]
+      output Integer ind[numberOfSymmetricBaseSystems(m)*(integer(m/
+        numberOfSymmetricBaseSystems(m)) - 1)]
         "Indices of non positive sequences";
     protected
-      Integer n=
-          Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
-        "Number of base systems";
-      Integer mbas=integer(m/n) "Number of phases of base system";
+      Integer nBase=numberOfSymmetricBaseSystems(m) "Number of base systems";
+      Integer mBase=integer(m/nBase) "Number of phases of base system";
     algorithm
-      if mbas == 1 then
+      if mBase == 1 then
         ind := fill(0, 0);
-      elseif mbas == 2 then
-        for k in 1:n loop
+      elseif mBase == 2 then
+        for k in 1:nBase loop
           ind[k] := 2 + 2*(k - 1);
         end for;
       else
-        for k in 1:n loop
-          ind[(mbas - 1)*(k - 1) + 1:(mbas - 1)*k] := (2:mbas) + mbas*(k - 1)*ones(mbas - 1);
+        for k in 1:nBase loop
+          ind[(mBase - 1)*(k - 1) + 1:(mBase - 1)*k] := (2:mBase) + mBase*(k - 1)*ones(mBase - 1);
         end for;
       end if;
       annotation (Documentation(info="<html>

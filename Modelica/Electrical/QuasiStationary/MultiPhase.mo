@@ -1995,10 +1995,50 @@ Quasi stationary theory can be found in the
 </html>"));
   end Ideal;
 
+
+  package Functions
+    extends Modelica.Icons.Package;
+    function quasiRMS
+      "Overall quasi-RMS value of complex input (current or voltage)"
+      extends Modelica.Icons.Function;
+      import Modelica.ComplexMath.'abs';
+      input Complex u[:];
+      output Real y;
+      import Modelica.Constants.pi;
+    protected
+      Integer m=size(u, 1) "Number of phases";
+    algorithm
+      y := sum({'abs'(u[k]) for k in 1:m})/m;
+      annotation (Inline=true, Documentation(info="<html>
+  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system,
+  represented by m quasi static time domain phasors.
+</html>"));
+    end quasiRMS;
+
+    function activePower
+      "Calculate active power of complex input voltage and current"
+      extends Modelica.Icons.Function;
+      input Modelica.SIunits.ComplexVoltage v[:]
+        "QuasiStationary voltage phasors";
+      input Modelica.SIunits.ComplexCurrent i[size(v, 1)]
+        "QuasiStationary current phasors";
+      output Modelica.SIunits.Power p "Active power";
+    algorithm
+      p := sum(Modelica.ComplexMath.real({v[k]*Modelica.ComplexMath.conj(i[k])
+        for k in 1:size(v, 1)}));
+      annotation (Inline=true, Documentation(info="<html>
+<p>
+Calculates instantaneous power from multiphase voltages and currents.
+In quasistationary operation, instantaneous power equals active power;
+</p>
+</html>"));
+    end activePower;
+  end Functions;
+
   package Blocks "Blocks for quasi stationary multi phase systems"
     extends Modelica.Icons.Package;
+
     block QuasiRMS
-      import Modelica;
       extends Modelica.Blocks.Interfaces.SO;
       parameter Integer m(min=2) = 3 "Number of phases";
       Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
@@ -2022,15 +2062,15 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
-      output Real u_abs[m] = 'abs'(u) "Absolute of input";
-      output Modelica.SIunits.Angle u_arg[m](displayUnit="deg") = arg(u)
+      output Real abs_u[m] = 'abs'(u) "Absolute of input";
+      output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
         "Argument of input";
-      output Real y_abs[m] = 'abs'(y) "Absolute of output";
-      output Modelica.SIunits.Angle y_arg[m](displayUnit="deg") = arg(y)
+      output Real abs_y[m] = 'abs'(y) "Absolute of output";
+      output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
         "Argument of output";
     protected
-      final parameter Complex sTM[m, m]=
-        Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
+      final parameter Complex sTM[m,m]=
+        Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
     equation
       // Symmetrical components (preferred): y = sTM*u;
       for j in 1:m loop
@@ -2098,15 +2138,15 @@ Calculates the symmetric components according to Charles L. Fortescue from the t
       import Modelica.ComplexMath.'abs';
       import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
-      output Real u_abs[m] = 'abs'(u) "Absolute of input";
-      output Modelica.SIunits.Angle u_arg[m](displayUnit="deg") = arg(u)
+      output Real abs_u[m] = 'abs'(u) "Absolute of input";
+      output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
         "Argument of input";
-      output Real y_abs[m] = 'abs'(y) "Absolute of output";
-      output Modelica.SIunits.Angle y_arg[m](displayUnit="deg") = arg(y)
+      output Real abs_y[m] = 'abs'(y) "Absolute of output";
+      output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
         "Argument of output";
     protected
       final parameter Complex sbTM[m,m]=
-        Modelica.Electrical.MultiPhase.Functions.symmetricBackTransformationMatrix(m);
+        Electrical.MultiPhase.Functions.symmetriBackTransformationMatrix(m);
     equation
       // Symmetrical components (preferred): y = sbTM*u;
       for j in 1:m loop
@@ -2174,7 +2214,7 @@ Calculates the time phasors from the symmetric components according to Charles L
       parameter Integer m=3 "Number of phases";
     equation
       y = u*Modelica.ComplexMath.fromPolar(fill(1, m), -
-        Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m));
+        Electrical.MultiPhase.Functions.symmetricOrientation(m));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Line(
                   points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
@@ -2220,7 +2260,7 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
       parameter Modelica.SIunits.Angle phi[m]=
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+          Electrical.MultiPhase.Functions.symmetricOrientation(m);
       Complex c;
     equation
       c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
@@ -2255,7 +2295,9 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
               lineColor={0,0,0},
               textString="zero")}),
         Documentation(info="<html>
-    Transformation of m phase values (voltages or currents) to space phasor.
+<p>
+Transformation of m phase values (voltages or currents) to space phasor.
+</p>
 </html>"));
     end ToSpacePhasor;
 
@@ -2270,7 +2312,7 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
       parameter Modelica.SIunits.Angle phi[m]=
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+          Electrical.MultiPhase.Functions.symmetricOrientation(m);
     equation
       y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2301,49 +2343,12 @@ This function propagates the input phasor to m output phasors with <a href=\"mod
               extent={{-62,-74},{14,-86}},
               lineColor={0,0,0},
               textString="zero")}), Documentation(info="<html>
-          Transformation of space phasor to m phase values (voltages or currents).
+<p>
+Transformation of space phasor to m phase values (voltages or currents).
+</p>
 </html>"));
     end FromSpacePhasor;
   end Blocks;
-
-  package Functions
-    extends Modelica.Icons.Package;
-    function quasiRMS
-      "Overall quasi-RMS value of complex input (current or voltage)"
-      extends Modelica.Icons.Function;
-      import Modelica.ComplexMath.'abs';
-      input Complex u[:];
-      output Real y;
-      import Modelica.Constants.pi;
-    protected
-      Integer m=size(u, 1) "Number of phases";
-    algorithm
-      y := sum({'abs'(u[k]) for k in 1:m})/m;
-      annotation (Inline=true, Documentation(info="<html>
-  This function determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.Math.RootMeanSquare\">RMS</a> value of a multi phase system,
-  represented by m quasi static time domain phasors.
-</html>"));
-    end quasiRMS;
-
-    function activePower
-      "Calculate active power of complex input voltage and current"
-      extends Modelica.Icons.Function;
-      input Modelica.SIunits.ComplexVoltage v[:]
-        "QuasiStationary voltage phasors";
-      input Modelica.SIunits.ComplexCurrent i[size(v, 1)]
-        "QuasiStationary current phasors";
-      output Modelica.SIunits.Power p "Active power";
-    algorithm
-      p := sum(Modelica.ComplexMath.real({v[k]*Modelica.ComplexMath.conj(i[k])
-        for k in 1:size(v, 1)}));
-      annotation (Inline=true, Documentation(info="<html>
-<p>
-Calculates instantaneous power from multiphase voltages and currents.
-In quasistationary operation, instantaneous power equals active power;
-</p>
-</html>"));
-    end activePower;
-  end Functions;
 
   package Sensors "AC multiphase sensors"
     extends Modelica.Icons.SensorsPackage;
@@ -2500,7 +2505,8 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
             rotation=270)));
       SinglePhase.Sensors.VoltageSensor voltageSensor[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
-      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-50})));
@@ -2598,7 +2604,8 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
       Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
         currentSensor[m] annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}})));
-      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-50})));
