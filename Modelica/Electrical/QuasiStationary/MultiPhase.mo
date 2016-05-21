@@ -1995,10 +1995,11 @@ Quasi stationary theory can be found in the
 </html>"));
   end Ideal;
 
+
   package Blocks "Blocks for quasi stationary multi phase systems"
     extends Modelica.Icons.Package;
+
     block QuasiRMS
-      import Modelica;
       extends Modelica.Blocks.Interfaces.SO;
       parameter Integer m(min=2) = 3 "Number of phases";
       Modelica.ComplexBlocks.Interfaces.ComplexInput u[m]
@@ -2018,11 +2019,19 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 
     block SymmetricalComponents
       "Creates symmetrical components from signals representing quasi static phasors"
-      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMO(final nin=m,final nout=m);
+      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m);
+      import Modelica.ComplexMath.'abs';
+      import Modelica.ComplexMath.arg;
       parameter Integer m=3 "Number of phases";
+      output Real abs_u[m] = 'abs'(u) "Absolute of input";
+      output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
+        "Argument of input";
+      output Real abs_y[m] = 'abs'(y) "Absolute of output";
+      output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
+        "Argument of output";
     protected
-      final parameter Complex sTM[m, m]=
-        Modelica.Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
+      final parameter Complex sTM[m,m]=
+        Electrical.MultiPhase.Functions.symmetricTransformationMatrix(m);
     equation
       // Symmetrical components (preferred): y = sTM*u;
       for j in 1:m loop
@@ -2073,8 +2082,92 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               color={85,170,255}),
             Line(
               points={{32,-88},{32,-48},{36,-62},{28,-62},{32,-48}},
-              color={85,170,255})}));
+              color={85,170,255})}), Documentation(info="<html>
+<p>
+Calculates the symmetric components according to Charles L. Fortescue from the time phasors.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+</p>
+</html>"));
     end SymmetricalComponents;
+
+    block FromSymmetricalComponents
+      "Creates quasi static phasors from symmetrical components"
+      extends Modelica.ComplexBlocks.Interfaces.ComplexMIMOs(final n=m);
+      import Modelica.ComplexMath.'abs';
+      import Modelica.ComplexMath.arg;
+      parameter Integer m=3 "Number of phases";
+      output Real abs_u[m] = 'abs'(u) "Absolute of input";
+      output Modelica.SIunits.Angle arg_u[m](displayUnit="deg") = arg(u)
+        "Argument of input";
+      output Real abs_y[m] = 'abs'(y) "Absolute of output";
+      output Modelica.SIunits.Angle arg_y[m](displayUnit="deg") = arg(y)
+        "Argument of output";
+    protected
+      final parameter Complex sbTM[m,m]=
+        Electrical.MultiPhase.Functions.symmetriBackTransformationMatrix(m);
+    equation
+      // Symmetrical components (preferred): y = sbTM*u;
+      for j in 1:m loop
+        y[j] = Complex(sum({sbTM[j,k].re*u[k].re - sbTM[j,k].im*u[k].im for k in 1:m}),
+                       sum({sbTM[j,k].re*u[k].im + sbTM[j,k].im*u[k].re for k in 1:m}));
+      end for;
+      annotation ( Icon(coordinateSystem(
+              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+            graphics={
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={85,170,255},
+              origin={-54,-40},
+              rotation=-90),
+            Line(
+              points={{-44,-22},{-44,-22},{-8,-42},{-22,-38},{-18,-32},{-8,-42}},
+              color={85,170,255}),
+            Line(
+              points={{-44,-22},{-44,18},{-40,4},{-48,4},{-44,18}},
+              color={85,170,255}),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={85,170,255},
+              origin={-54,30},
+              rotation=-90),
+            Line(
+              points={{-44,48},{-44,88},{-40,74},{-48,74},{-44,88}},
+              color={85,170,255}),
+            Line(
+              points={{-44,48},{-44,48},{-8,28},{-22,32},{-18,38},{-8,28}},
+              color={85,170,255}),
+            Line(
+              points={{-54,-88},{-54,-48},{-50,-62},{-58,-62},{-54,-48}},
+              color={85,170,255}),
+            Line(
+              points={{-44,-88},{-44,-48},{-40,-62},{-48,-62},{-44,-48}},
+              color={85,170,255}),
+            Line(
+              points={{-34,-88},{-34,-48},{-30,-62},{-38,-62},{-34,-48}},
+              color={85,170,255}),
+            Line(
+              points={{42,-10},{42,30},{46,16},{38,16},{42,30}},
+              color={85,170,255}),
+            Line(
+              points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
+              color={85,170,255},
+              origin={32,-28},
+              rotation=-90),
+            Line(
+              points={{42,-10},{42,-10},{78,-30},{64,-26},{68,-20},{78,-30}},
+              color={85,170,255})}), Documentation(info="<html>
+<p>
+Calculates the time phasors from the symmetric components according to Charles L. Fortescue.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+</p>
+</html>"));
+    end FromSymmetricalComponents;
 
     block SingleToMultiPhase
       "Extends complex phase signal to complex multi phase signals using symmetricOrientation"
@@ -2082,7 +2175,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
       parameter Integer m=3 "Number of phases";
     equation
       y = u*Modelica.ComplexMath.fromPolar(fill(1, m), -
-        Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m));
+        Electrical.MultiPhase.Functions.symmetricOrientation(m));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={Line(
                   points={{-60,-20},{-60,20},{-56,8},{-64,8},{-60,20}},
@@ -2108,7 +2201,12 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               points={{-18,10},{-18,10},{2,-24},{-8,-14},{-2,-10},{2,-24}},
               color={85,170,255},
               origin={30,-38},
-              rotation=-90)}));
+              rotation=-90)}),
+        Documentation(info="<html>
+<p>
+This function propagates the input phasor to m output phasors with <a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">symmetricOrientation</a>.
+</p>
+</html>"));
     end SingleToMultiPhase;
 
     block ToSpacePhasor "Conversion: m phase -> space phasor"
@@ -2123,7 +2221,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
       parameter Modelica.SIunits.Angle phi[m]=
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+          Electrical.MultiPhase.Functions.symmetricOrientation(m);
       Complex c;
     equation
       c = sqrt(2)/m*'sum'({u[k]*exp(j*phi[k]) for k in 1:m});
@@ -2158,7 +2256,9 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               lineColor={0,0,0},
               textString="zero")}),
         Documentation(info="<html>
-    Transformation of m phase values (voltages or currents) to space phasor.
+<p>
+Transformation of m phase values (voltages or currents) to space phasor.
+</p>
 </html>"));
     end ToSpacePhasor;
 
@@ -2173,7 +2273,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
         annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     protected
       parameter Modelica.SIunits.Angle phi[m]=
-          Modelica.Electrical.MultiPhase.Functions.symmetricOrientation(m);
+          Electrical.MultiPhase.Functions.symmetricOrientation(m);
     equation
       y = {Complex(u[1], u[2])*exp(-j*phi[k])/sqrt(2) for k in 1:m};
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2204,7 +2304,9 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
               extent={{-62,-74},{14,-86}},
               lineColor={0,0,0},
               textString="zero")}), Documentation(info="<html>
-          Transformation of space phasor to m phase values (voltages or currents).
+<p>
+Transformation of space phasor to m phase values (voltages or currents).
+</p>
 </html>"));
     end FromSpacePhasor;
   end Blocks;
@@ -2403,7 +2505,8 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
             rotation=270)));
       SinglePhase.Sensors.VoltageSensor voltageSensor[m] annotation (Placement(
             transformation(extent={{-10,-10},{10,10}})));
-      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-50})));
@@ -2501,7 +2604,8 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
       Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor
         currentSensor[m] annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}})));
-      Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(transformation(
+      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.QuasiRMS quasiRMS(final m=m) annotation (Placement(
+            transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-50})));
