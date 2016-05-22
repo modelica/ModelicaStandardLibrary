@@ -28,6 +28,15 @@ In symmetrical multi phase systems odd and even phase numbers have to be disting
 <p>
 For a symmetrical multi phase system with m phases the displacement of the sinewaves is 2 &pi; / m.
 </p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 1: </strong>Symmetrical (a) three phase and (b) five phase current system</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase35.png\"
+           alt=\"phase35.png\">
+    </td>
+  </tr>
+</table>
 <h5>Even number of phases</h5>
 <p>
 In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two ore more different groups (the base systems). 
@@ -39,6 +48,15 @@ The number of base systems n<sub>Base</sub> is defined by the number of division
 <p>
 For a base system with m<sub>Base</sub> phases the displacement of the sinewaves belongig to that base system is 2 &pi; / m<sub>Base</sub>.
 </p>
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\"><strong>Fig. 2: </strong>Symmetrical (a) six and (b) ten phase current system</caption>
+  <tr>
+    <td>
+      <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/phase610.png\"
+           alt=\"phase610.png\">
+    </td>
+  </tr>
+</table>
 <p>
 The displacement of the base systems is defined as &pi; / n<sub>Base</sub>.
 </p>
@@ -2479,7 +2497,6 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
 </html>"));
     end QuasiRMS;
   end Blocks;
-
 
   package Functions "Functions for multi phase systems"
     extends Modelica.Icons.Package;
