@@ -4523,7 +4523,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
           R_ref=fill(RRef, m),
           final alpha_ref=fill(alphaRef, m)) "Winding resistor" annotation (
             Placement(transformation(
-              origin={-18,70},
+              origin={-20,70},
               extent={{-10,-10},{10,10}},
               rotation=270)));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding[m] if
@@ -4549,7 +4549,7 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               origin={80,30})));
       equation
         connect(resistor.heatPort, heatPortWinding) annotation (Line(
-            points={{-28,70},{-40,70},{-40,-100}},
+            points={{-30,70},{-40,70},{-40,-100}},
             color={191,0,0}));
         connect(core.heatPort, heatPortCore) annotation (Line(
             points={{40,-50},{40,-100}},
@@ -4559,13 +4559,13 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
             color={255,128,0}));
         connect(electroMagneticConverter.plug_p, resistor.plug_n) annotation (
             Line(
-            points={{-10,-20},{-18,-20},{-18,60}},
+            points={{-10,-20},{-20,-20},{-20,60}},
             color={85,170,255}));
         connect(plug_n, electroMagneticConverter.plug_n) annotation (Line(
             points={{-100,-100},{-100,-40},{-10,-40}},
             color={85,170,255}));
         connect(plug_p, resistor.plug_p) annotation (Line(
-            points={{-100,100},{-18,100},{-18,80}},
+            points={{-100,100},{-20,100},{-20,80}},
             color={85,170,255}));
         connect(port_p, electroMagneticConverter.port_p) annotation (Line(
             points={{100,100},{10,100},{10,-20}},
@@ -4932,6 +4932,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Dialog(enable=not useHeatPort));
         parameter Modelica.SIunits.Inductance Lsigma "Cage stray inductance";
         parameter Real effectiveTurns=1 "Effective number of turns";
+        final parameter Integer nBase=Modelica.Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m)
+          "Number of base systems";
         Modelica.SIunits.ComplexCurrent i[m]=electroMagneticConverter.i
           "Cage currents";
         Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
@@ -4952,10 +4954,11 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               extent={{10,10},{-10,-10}},
               rotation=90)));
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star star(final m=
-              m) annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
+              nBase)
+                 annotation (Placement(transformation(extent={{50,-30},{70,-10}})));
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground
           annotation (Placement(transformation(
-              origin={70,-20},
+              origin={90,-20},
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
@@ -4965,9 +4968,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           thermalCollector(final m=m) if useHeatPort
           "Connector of thermal rotor resistance heat ports"
           annotation (Placement(transformation(extent={{-50,-90},{-30,-70}})));
-        Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star starAuxiliary(
-            final m=m) annotation (Placement(transformation(extent={{30,-90},{
-                  50,-70}})));
         Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.Reluctance
           strayReluctance(final R_m(d=m*effectiveTurns^2/2/Lsigma, q=m*
                 effectiveTurns^2/2/Lsigma))
@@ -4975,6 +4975,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={0,20})));
+        Electrical.QuasiStationary.MultiPhase.Basic.MultiStar mulitStar(final m=m)
+          annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
       equation
         connect(thermalCollector.port_a, resistor.heatPort) annotation (Line(
             points={{-40,-70},{-40,-50},{-30,-50}},
@@ -4988,17 +4990,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
             points={{10,0},{100,0}},
             color={255,170,85}));
-        connect(starAuxiliary.plug_p, resistor.plug_n) annotation (Line(
-            points={{30,-80},{-20,-80},{-20,-60}},
-            color={85,170,255}));
-        connect(electroMagneticConverter.plug_n, star.plug_p) annotation (Line(
-            points={{10,-20},{30,-20}},
-            color={85,170,255}));
         connect(star.pin_n, ground.pin) annotation (Line(
-            points={{50,-20},{60,-20}},
-            color={85,170,255}));
-        connect(starAuxiliary.pin_n, ground.pin) annotation (Line(
-            points={{50,-80},{60,-80},{60,-20}},
+            points={{70,-20},{76,-20},{80,-20}},
             color={85,170,255}));
         connect(strayReluctance.port_p, port_p) annotation (Line(
             points={{-10,20},{-30,20},{-30,0},{-100,0}},
@@ -5010,6 +5003,12 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
             Line(
             points={{-10,-20},{-20,-20},{-20,-40}},
             color={85,170,255}));
+        connect(electroMagneticConverter.plug_n, mulitStar.plug_p) annotation (
+            Line(points={{10,-20},{15,-20},{20,-20}}, color={85,170,255}));
+        connect(mulitStar.starpoints, star.plug_p) annotation (Line(points={{40,
+                -20},{45,-20},{50,-20}}, color={85,170,255}));
+        connect(mulitStar.plug_p, resistor.plug_n) annotation (Line(points={{20,
+                -20},{20,-60},{-20,-60}}, color={85,170,255}));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
@@ -5115,10 +5114,10 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
               extent={{10,10},{-10,-10}},
               rotation=90)));
         Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star star(final m=
-              2) annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
+              2) annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
         Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground ground
           annotation (Placement(transformation(
-              origin={70,-80},
+              origin={60,-20},
               extent={{-10,10},{10,-10}},
               rotation=270)));
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortWinding if
@@ -5148,19 +5147,8 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(electroMagneticConverter.port_n, port_n) annotation (Line(
             points={{10,0},{100,0}},
             color={255,170,85}));
-        connect(electroMagneticConverter.plug_n, resistor.plug_n) annotation (
-            Line(
-            points={{10,-20},{20,-20},{20,-80},{-20,-80},{-20,-60}},
-            color={85,170,255}));
-        connect(resistor.plug_n, star.plug_p) annotation (Line(
-            points={{-20,-60},{-20,-80},{30,-80}},
-            color={85,170,255}));
         connect(star.pin_n, ground.pin) annotation (Line(
-            points={{50,-80},{60,-80}},
-            color={85,170,255}));
-        connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
-            Line(
-            points={{-10,-20},{-20,-20},{-20,-40}},
+            points={{40,-20},{44,-20},{50,-20}},
             color={85,170,255}));
         connect(strayReluctance.port_p, port_p) annotation (Line(
             points={{-10,20},{-30,20},{-30,0},{-100,0}},
@@ -5168,6 +5156,12 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         connect(strayReluctance.port_n, port_n) annotation (Line(
             points={{10,20},{30,20},{30,0},{100,0}},
             color={255,170,85}));
+        connect(electroMagneticConverter.plug_p, resistor.plug_p) annotation (
+            Line(points={{-10,-20},{-20,-20},{-20,-40}}, color={85,170,255}));
+        connect(electroMagneticConverter.plug_n, star.plug_p) annotation (Line(
+              points={{10,-20},{15,-20},{20,-20}}, color={85,170,255}));
+        connect(star.plug_p, resistor.plug_n) annotation (Line(points={{20,-20},
+                {20,-60},{-20,-60}}, color={85,170,255}));
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={
@@ -5283,8 +5277,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
 
       partial model PartialBasicMachine
         "Partial model for quasi static multi phase machines"
-        import Modelica;
-        import Modelica.Constants.pi;
+        constant Modelica.SIunits.Angle pi = Modelica.Constants.pi;
         extends Electrical.Machines.Icons.QuasiStaticFundamentalWaveMachine;
         parameter Integer m(min=3) = 3 "Number of stator phases";
         // Mechanical parameters
@@ -5473,8 +5466,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={90,-30})));
-      protected
-        constant Real pi = Modelica.Constants.pi;
         replaceable
           Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
           internalThermalPort(final m=m)
