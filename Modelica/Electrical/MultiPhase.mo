@@ -13,7 +13,7 @@ package MultiPhase "Library for electrical components of one or more phases"
         DocumentationClass=true,
         Documentation(info="<html>
 <p>
-<b>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e. they are based on the same 
+<b>In multiphase systems, the angular displacement of voltages and currents of the phases as well as the spatial displacement of machine windings have to follow the same rules, i.e., they are based on the same
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">orientation function</a>.</b>
 </p>
 <h4>Symmetrical three phase system</h4>
@@ -39,11 +39,11 @@ For a symmetrical multi phase system with m phases the displacement of the sinew
 </table>
 <h5>Even number of phases</h5>
 <p>
-In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two ore more different groups (the base systems). 
+In case of an even number of phases the aligned orientation does not add any information. Instead the m phases are divided into two or more different groups (the base systems).
 </p>
 <p>
-The number of phases m can be divided by 2 recursively until the result is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phases of the base system. 
-The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e. m = n<sub>Base</sub> * m<sub>Base</sub>.
+The number of phases m can be divided by 2 recursively until the result is either an odd number or 2. The result of this division is called m<sub>Base</sub>, the number of phases of the base system.
+The number of base systems n<sub>Base</sub> is defined by the number of divisions, i.e., m = n<sub>Base</sub> * m<sub>Base</sub>.
 </p>
 <p>
 For a base system with m<sub>Base</sub> phases the displacement of the sinewaves belongig to that base system is 2 &pi; / m<sub>Base</sub>.
@@ -62,16 +62,16 @@ The displacement of the base systems is defined as &pi; / n<sub>Base</sub>.
 </p>
 <h4>Note</h4>
 <p>
-In array or matrices, the base systems are stored one after another. 
+In array or matrices, the base systems are stored one after another.
 </p>
 <h4>Symmetrical components</h4>
 <p>
-For each base system of time phasors, symmetrical components can be calculated according to the idea of Charles L. Fortescue. 
+For each base system of time phasors, symmetrical components can be calculated according to the idea of Charles L. Fortescue.
 </p>
 <p>
 The first symmetrical component is the direct component with positive sequence.<br>
 In case of  m<sub>Base</sub> = 2, the second component is the inverse component with negative sequence.<br>
-In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] are components with non-positive sequence,<br> 
+In case of  m<sub>Base</sub> &gt; 2, the components [2..m<sub>Base</sub> - 1] are components with non-positive sequence,<br>
 and the last component [m<sub>Base</sub>] is the zero sequence component.
 </p>
 <p>
@@ -178,10 +178,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       DocumentationClass=true,
       Documentation(info="<html>
 <p>
-This library contains components for modelling of multiphase electrical circuits. 
-The number of phases m is not restricted to three. 
-The connector (named plug) contains an array of m singlephase <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.Pin\">pins</a>. 
-Most of the components use an array of singlephase components from <a href=\"modelica://Modelica.Electrical.Analog\">Modelica.Electrical.Analog</a>. 
+This library contains components for modelling of multiphase electrical circuits.
+The number of phases m is not restricted to three.
+The connector (named plug) contains an array of m singlephase <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.Pin\">pins</a>.
+Most of the components use an array of singlephase components from <a href=\"modelica://Modelica.Electrical.Analog\">Modelica.Electrical.Analog</a>.
 </p>
 <h4>Note</h4>
 <p>
@@ -2557,7 +2557,7 @@ In quasistationary operation, instantaneous power equals active power;
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation angles of the symmetrical winding with m phases. 
+This function determines the orientation angles of the symmetrical winding with m phases.
 </p>
 <h4>See also</h4>
 <p>
@@ -2597,7 +2597,7 @@ This function determines the orientation angles of the symmetrical winding with 
       end for;
       annotation (Documentation(info="<html>
 <p>
-This function determines the orientation matrix of the symmetrical winding with m phases. 
+This function determines the orientation matrix of the symmetrical winding with m phases.
 <p>
 <h4>See also</h4>
 <p>
@@ -2631,7 +2631,7 @@ This function determines the orientation matrix of the symmetrical winding with 
       end for;
       annotation (Documentation(info="<html>
 <p>
-This function determines the transformation matrix of the symmetrical winding with m phases. 
+This function determines the transformation matrix of the symmetrical winding with m phases.
 </p>
 <p>
 The transformation matrix can be used to determine the symmetrical components from time phasors.
@@ -2668,7 +2668,7 @@ The transformation matrix can be used to determine the symmetrical components fr
       end for;
       annotation (Documentation(info="<html>
 <p>
-This function determines the back transformation matrix of the symmetrical winding with m phases. 
+This function determines the back transformation matrix of the symmetrical winding with m phases.
 </p>
 <p>
 The back transformation matrix can be used to determine the time phasors from the symmetrical components.
@@ -2702,7 +2702,7 @@ The back transformation matrix can be used to determine the time phasors from th
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the number of base systems of the symmetrical winding with m phases. 
+This function determines the number of base systems of the symmetrical winding with m phases.
 </p>
 <h4>See also</h4>
 <p>
@@ -2753,7 +2753,7 @@ This function determines the number of base systems of the symmetrical winding w
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the indices of positive sequence of the symmetrical winding with m phases. 
+This function determines the indices of positive sequence of the symmetrical winding with m phases.
 </p>
 <h4>See also</h4>
 <p>
@@ -2786,7 +2786,7 @@ This function determines the indices of positive sequence of the symmetrical win
       end if;
       annotation (Documentation(info="<html>
 <p>
-This function determines the indices of non-positive sequence of the symmetrical winding with m phases. 
+This function determines the indices of non-positive sequence of the symmetrical winding with m phases.
 </p>
 <h4>See also</h4>
 <p>
