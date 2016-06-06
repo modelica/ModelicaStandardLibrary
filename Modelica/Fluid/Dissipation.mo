@@ -951,13 +951,14 @@ Approximate calculation of the mean convective heat transfer coefficient <b> kc 
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General;
         parameter Real exp_Pr=0.4
-          "Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling"
-          annotation (Dialog(group="Generic variables",enable=if target == 1 then
-                true else false));
+      "Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling"
+      annotation (Dialog(group="Generic variables",enable=target == Modelica.Fluid.Dissipation.Utilities.Types.kc_general.Rough));
 
       annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
+</html>", revisions="<html>
+2016-06-06 Stefan Wischhusen: Corrected enable in dialog.
 </html>"));
       end kc_approxForcedConvection_IN_con;
 
@@ -1620,7 +1621,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
-<p>2016-04-12 Stefan Wischhusen: Limited Re to very small value (Modelica.Constant.eps). </p>
+<pre>2016-04-12 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </pre>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
@@ -2494,6 +2495,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
 </html>", revisions="<html>
+<p>2014-08-05 Stefan Wischhusen: Corrected term for Uniform heat flux in developed fluid flow (Nu3). </p>
 <p>2016-04-11 Stefan Wischhusen: Removed singularity for Re at zero mass flow rate. </p>
 </html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
