@@ -50,13 +50,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 6
+#define MATIO_RELEASE_LEVEL 7
 
 /* Matio version number */
-#define MATIO_VERSION 156
+#define MATIO_VERSION 157
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.6"
+#define MATIO_VERSION_STR "1.5.7"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -275,9 +275,9 @@ struct matvar_internal;
 typedef struct matvar_t {
     size_t nbytes;                    /**< Number of bytes for the MAT variable */
     int    rank;                      /**< Rank (Number of dimensions) of the data */
-    enum matio_types   data_type;     /**< Data type(MAT_T_*) */
+    enum matio_types   data_type;     /**< Data type (MAT_T_*) */
     int   data_size;                  /**< Bytes / element for the data */
-    enum matio_classes class_type;    /**< Class type in Matlab(MAT_C_DOUBLE, etc) */
+    enum matio_classes class_type;    /**< Class type in Matlab (MAT_C_DOUBLE, etc) */
     int   isComplex;                  /**< non-zero if the data is complex, 0 if real */
     int   isGlobal;                   /**< non-zero if the variable is global */
     int   isLogical;                  /**< non-zero if the variable is logical */
@@ -312,7 +312,7 @@ typedef struct mat_sparse_t {
 /* Library function */
 EXTERN void Mat_GetLibraryVersion(int *major,int *minor,int *release);
 
-/*     io.c         */
+/* io.c */
 EXTERN char  *strdup_vprintf(const char *format, va_list ap);
 EXTERN char  *strdup_printf(const char *format, ...);
 EXTERN void   Mat_Critical( const char *format, ... );
@@ -320,7 +320,7 @@ EXTERN void   Mat_Warning( const char *format, ... );
 EXTERN size_t Mat_SizeOf(enum matio_types data_type);
 EXTERN size_t Mat_SizeOfClass(int class_type);
 
-/*   MAT File functions   */
+/* MAT File functions */
 #define            Mat_Create(a,b) Mat_CreateVer(a,b,MAT_FT_DEFAULT)
 EXTERN mat_t      *Mat_CreateVer(const char *matname,const char *hdr_str,
                        enum mat_ft mat_file_ver);
@@ -381,9 +381,9 @@ EXTERN int        Mat_VarWriteData(mat_t *mat,matvar_t *matvar,void *data,
                       int *start,int *stride,int *edge);
 
 /* Other functions */
-EXTERN int       Mat_CalcSingleSubscript(int rank,int *dims,int *subs);
-EXTERN int       Mat_CalcSingleSubscript2(int rank,size_t *dims,size_t *subs,size_t *index);
-EXTERN int      *Mat_CalcSubscripts(int rank,int *dims,int index);
-EXTERN size_t   *Mat_CalcSubscripts2(int rank,size_t *dims,size_t index);
+EXTERN int     Mat_CalcSingleSubscript(int rank,int *dims,int *subs);
+EXTERN int     Mat_CalcSingleSubscript2(int rank,size_t *dims,size_t *subs,size_t *index);
+EXTERN int    *Mat_CalcSubscripts(int rank,int *dims,int index);
+EXTERN size_t *Mat_CalcSubscripts2(int rank,size_t *dims,size_t index);
 
 #endif /* MODELICAMATIO_H */
