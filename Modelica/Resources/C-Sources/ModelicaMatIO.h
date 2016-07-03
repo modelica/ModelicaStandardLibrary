@@ -50,13 +50,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 7
+#define MATIO_RELEASE_LEVEL 8
 
 /* Matio version number */
-#define MATIO_VERSION 157
+#define MATIO_VERSION 158
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.7"
+#define MATIO_VERSION_STR "1.5.8"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -166,7 +166,7 @@ enum mat_ft {
  * Matlab data types
  */
 enum matio_types {
-    MAT_T_UNKNOWN    =  0,    /**< @brief UNKNOWN data type                    */
+    MAT_T_UNKNOWN    =  0,    /**< @brief UNKNOWN data type                   */
     MAT_T_INT8       =  1,    /**< @brief 8-bit signed integer data type      */
     MAT_T_UINT8      =  2,    /**< @brief 8-bit unsigned integer data type    */
     MAT_T_INT16      =  3,    /**< @brief 16-bit signed integer data type     */
@@ -179,9 +179,9 @@ enum matio_types {
     MAT_T_UINT64     = 13,    /**< @brief 64-bit unsigned integer data type   */
     MAT_T_MATRIX     = 14,    /**< @brief matrix data type                    */
     MAT_T_COMPRESSED = 15,    /**< @brief compressed data type                */
-    MAT_T_UTF8       = 16,    /**< @brief 8-bit unicode text data type        */
-    MAT_T_UTF16      = 17,    /**< @brief 16-bit unicode text data type       */
-    MAT_T_UTF32      = 18,    /**< @brief 32-bit unicode text data type       */
+    MAT_T_UTF8       = 16,    /**< @brief 8-bit Unicode text data type        */
+    MAT_T_UTF16      = 17,    /**< @brief 16-bit Unicode text data type       */
+    MAT_T_UTF32      = 18,    /**< @brief 32-bit Unicode text data type       */
 
     MAT_T_STRING     = 20,    /**< @brief String data type                    */
     MAT_T_CELL       = 21,    /**< @brief Cell array data type                */
