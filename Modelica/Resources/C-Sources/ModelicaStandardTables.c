@@ -46,6 +46,12 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Aug. 10, 2016: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed event detection of CombiTimeTable for restarted
+                     simulation (ticket #2040)
+                     Fixed tracing time events (DEBUG_TIME_EVENTS) of CombiTimeTable
+                     for negative simulation time
+
       Dec. 16, 2015: by Thomas Beutlich, ITI GmbH
                      Added univariate Steffen-spline interpolation (ticket #1814)
 
@@ -488,6 +494,8 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
             }
         }
         tableID->startTime = startTime;
+        tableID->preNextTimeEvent = -DBL_MAX;
+        tableID->preNextTimeEventCalled = -DBL_MAX;
         tableID->source = getTableSource(tableName, fileName);
 
         switch (tableID->source) {
@@ -844,10 +852,14 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
 
                         t -= tableID->tOffset;
                         if (t < tMin) {
-                            t += T;
+                            do {
+                                t += T;
+                            } while (t < tMin);
                         }
                         else if (t > tMax) {
-                            t -= T;
+                            do {
+                                t -= T;
+                            } while (t > tMax);
                         }
                         tableID->last = findRowIndex(
                             table, nRow, nCol, tableID->last, t);
@@ -1099,10 +1111,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
 
                         t -= tableID->tOffset;
                         if (t < tMin) {
-                            t += T;
+                            do {
+                                t += T;
+                            } while (t < tMin);
                         }
                         else if (t > tMax) {
-                            t -= T;
+                            do {
+                                t -= T;
+                            } while (t > tMax);
                         }
                         tableID->last = findRowIndex(
                             table, nRow, nCol, tableID->last, t);
@@ -1311,7 +1327,15 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
         if (tableID->nEvent > 0) {
             if (t > tableID->preNextTimeEventCalled) {
-                tableID->preNextTimeEventCalled = t;
+                /* Intentionally empty */
+            }
+            else if (t < tableID->preNextTimeEventCalled) {
+                /* Force reinitialization of event interval */
+                tableID->eventInterval = 0;
+                /* Reset time event counter */
+                tableID->nEvent = 0;
+                /* Reset time event */
+                tableID->preNextTimeEvent = -DBL_MAX;
             }
             else {
                 return tableID->preNextTimeEvent;
@@ -1397,6 +1421,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             }
         }
 
+        tableID->preNextTimeEventCalled = t;
         if (t < tableID->startTime) {
             nextTimeEvent = tableID->startTime;
         }
