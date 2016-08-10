@@ -55,6 +55,12 @@
                      Replaced strtok by re-entrant string tokenize function
                      (ticket #1153)
 
+      Aug. 10, 2016: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed event detection of CombiTimeTable for restarted
+                     simulation (ticket #2040)
+                     Fixed tracing time events (DEBUG_TIME_EVENTS) of CombiTimeTable
+                     for negative simulation time
+
       Dec. 16, 2015: by Thomas Beutlich, ITI GmbH
                      Added univariate Steffen-spline interpolation (ticket #1814)
 
@@ -502,6 +508,8 @@ void* ModelicaStandardTables_CombiTimeTable_init(const char* tableName,
             }
         }
         tableID->startTime = startTime;
+        tableID->preNextTimeEvent = -DBL_MAX;
+        tableID->preNextTimeEventCalled = -DBL_MAX;
         tableID->source = getTableSource(tableName, fileName);
 
         switch (tableID->source) {
@@ -858,10 +866,14 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
 
                         t -= tableID->tOffset;
                         if (t < tMin) {
+                            do {
                                 t += T;
+                            } while (t < tMin);
                         }
                         else if (t > tMax) {
+                            do {
                                 t -= T;
+                            } while (t > tMax);
                         }
                         tableID->last = findRowIndex(
                             table, nRow, nCol, tableID->last, t);
@@ -1113,10 +1125,14 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
 
                         t -= tableID->tOffset;
                         if (t < tMin) {
+                            do {
                                 t += T;
+                            } while (t < tMin);
                         }
                         else if (t > tMax) {
+                            do {
                                 t -= T;
+                            } while (t > tMax);
                         }
                         tableID->last = findRowIndex(
                             table, nRow, nCol, tableID->last, t);
@@ -1325,7 +1341,15 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
         if (tableID->nEvent > 0) {
             if (t > tableID->preNextTimeEventCalled) {
-                tableID->preNextTimeEventCalled = t;
+                /* Intentionally empty */
+            }
+            else if (t < tableID->preNextTimeEventCalled) {
+                /* Force reinitialization of event interval */
+                tableID->eventInterval = 0;
+                /* Reset time event counter */
+                tableID->nEvent = 0;
+                /* Reset time event */
+                tableID->preNextTimeEvent = -DBL_MAX;
             }
             else {
                 return tableID->preNextTimeEvent;
@@ -1341,17 +1365,17 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             tableID->maxEvents = 1;
             if (tableID->smoothness == LINEAR_SEGMENTS ||
                 tableID->smoothness == CONSTANT_SEGMENTS) {
-                for (i = 0; i < nRow - 1; i++) {
-                    double t0 = TABLE_COL0(i);
-                    double t1 = TABLE_COL0(i + 1);
-                    if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+            for (i = 0; i < nRow - 1; i++) {
+                double t0 = TABLE_COL0(i);
+                double t1 = TABLE_COL0(i + 1);
+                if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
                         if (!isNearlyEqual(t0, t1)) {
                             tEvent = t1;
                             tableID->maxEvents++;
                         }
                     }
+                    }
                 }
-            }
             /* Once again with storage of indices of event intervals */
             tableID->intervals = (Interval*)calloc(tableID->maxEvents,
                 sizeof(Interval));
@@ -1384,8 +1408,9 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     }
                 }
             }
-        }
+                            }
 
+        tableID->preNextTimeEventCalled = t;
         if (t < tableID->startTime) {
             nextTimeEvent = tableID->startTime;
         }
@@ -1446,26 +1471,26 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
                 if (tableID->smoothness == LINEAR_SEGMENTS ||
                     tableID->smoothness == CONSTANT_SEGMENTS) {
-                    for (i = iStart + 1; i < nRow - 1; i++) {
-                        double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
-                        if (t0 > t) {
+                for (i = iStart + 1; i < nRow - 1; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t0 > t) {
                             nextTimeEvent = t0;
                             break;
                         }
-                    }
+                        }
 
-                    for (i = 0; i < iEnd; i++) {
-                        double t0 = TABLE_COL0(i);
-                        double t1 = TABLE_COL0(i + 1);
-                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
+                for (i = 0; i < iEnd; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
                             if (!isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
                                 tableID->eventInterval++;
                             }
                         }
+                        }
                     }
-                }
 
                 if (tableID->extrapolation == PERIODIC) {
                     nextTimeEvent += tableID->tOffset;
@@ -4252,8 +4277,8 @@ static double* readMatTable(const char* tableName, const char* fileName,
         if (matvarRoot == NULL) {
             free(tableNameCopy);
             (void)Mat_Close(mat);
-                ModelicaFormatError(
-                    "Table variable \"%s\" not found on file \"%s\".\n",
+            ModelicaFormatError(
+                "Table variable \"%s\" not found on file \"%s\".\n",
                 token == NULL ? tableName : token, fileName);
             return NULL;
         }
@@ -4263,10 +4288,10 @@ static double* readMatTable(const char* tableName, const char* fileName,
         /* Get field while matvar is of struct class and of 1x1 size */
         while (token != NULL && matvar != NULL &&
             matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
-                matvar->dims[0] == 1 && matvar->dims[1] == 1) {
-                matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
+            matvar->dims[0] == 1 && matvar->dims[1] == 1) {
+            matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
             token = strtok(NULL, ".");
-            }
+        }
         free(tableNameCopy);
 
         if (matvar == NULL) {
