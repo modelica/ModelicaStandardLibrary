@@ -2955,8 +2955,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
           annotation (
             Documentation(info="<html>
 <P>
-Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
-If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
+Provides the input as output delayed by <i>delayTime</i> if the input holds its value for a longer time than <i>delayTime</i>.
+If time is less than <i>delayTime</i> the initial value <i>y0</i> holds.
 </P>
 </html>",       revisions=
                  "<html>
@@ -3028,8 +3028,8 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
             Documentation(info="<html>
 <P>
 Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
-If the time is less than <i>Tdel</i> the initial value <i>initout</i> holds.<br>
-The delay <i>Tdel</i> depends on the values of the signal change. To calculate <i>Tdel</i>, the delaymap specified in
+If the time is less than <i>Tdel</i> the initial value <i>y0</i> holds.<br>
+The delay <i>Tdel</i> depends on the values of the signal change. To calculate <i>Tdel</i>, the DelayTable specified in
 Digital.Tables is used. If the corresponding value is 1, then <i>tLH</i> is used, if it is -1, then <i>tHL</i>
 is used, if it is zero, the input is not delayed.
 </P>
