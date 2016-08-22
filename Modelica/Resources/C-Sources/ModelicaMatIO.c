@@ -7632,9 +7632,9 @@ static char* mat_strdup(const char *s)
 #ifndef MAT5_H
 #define MAT5_H
 
+#if defined(HAVE_ZLIB)
 static size_t GetStructFieldBufSize(matvar_t *matvar);
 static size_t GetCellArrayFieldBufSize(matvar_t *matvar);
-#if defined(HAVE_ZLIB)
 static size_t GetMatrixMaxBufSize(matvar_t *matvar);
 static size_t GetEmptyMatrixMaxBufSize(const char *name,int rank);
 #endif
@@ -10774,6 +10774,7 @@ static mat_complex_split_t null_complex_data = {NULL,NULL};
  * -------------------------------------------------------------
  */
 
+#if defined(HAVE_ZLIB)
 /** @brief determines the number of bytes needed to store the given struct field
  *
  * @ingroup mat_internal
@@ -11014,7 +11015,6 @@ GetCellArrayFieldBufSize(matvar_t *matvar)
     return nBytes;
 }
 
-#if defined(HAVE_ZLIB)
 /** @brief determines the number of bytes needed to store the given variable
  *
  * @ingroup mat_internal
