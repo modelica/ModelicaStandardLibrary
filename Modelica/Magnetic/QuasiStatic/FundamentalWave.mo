@@ -4954,7 +4954,7 @@ This salient air gap model can be used for machines with uniform airgaps and for
 </p>
 
 <p>
-For the mechanical interaction of the air gap model with the stator and the rotor it is equipped with to
+For the mechanical interaction of the air gap model with the stator and the rotor is equipped with two
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The stator and the rotor reference angles,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_s.png\"> and
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma_r.png\"> are related by
