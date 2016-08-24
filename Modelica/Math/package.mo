@@ -13275,6 +13275,8 @@ Copyright &copy; 1998-2016, Modelica Association and DLR.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><i>August 24, 2016</i>
+       by Christian Kral: added wrapAngle</li>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
        and Christian Schweiger:<br>

@@ -110,6 +110,12 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
+<h5>Version 3.x.x, 2016-08-24</h5>
+<ul>
+<li>Added 
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a></li>
+</ul>
+
 <h5>Version 3.2.2, 2015-02-02</h5>
 <ul>
 <li>Restructuring of components in Interfaces and BasesClasses</li>
@@ -1513,14 +1519,14 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Placement(transformation(extent={{-10,30},{10,50}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaMQS(J=
-                J_Load) annotation (Placement(transformation(extent={{20,30},{
-                    40,50}})));
+                J_Load) annotation (Placement(transformation(extent={{40,30},{
+                    60,50}})));
           Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepMQS(
             startTime=tStep,
             stepTorque=-T_Load,
             useSupport=false,
-            offsetTorque=0) annotation (Placement(transformation(extent={{70,30},
-                    {50,50}})));
+            offsetTorque=0) annotation (Placement(transformation(extent={{90,30},
+                    {70,50}})));
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
             smpmData(useDamperCage=true) "Machine data"
@@ -1594,14 +1600,14 @@ Simulate for 1.5 seconds and plot (versus time):
             annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(J=
-                J_Load) annotation (Placement(transformation(extent={{20,-70},{
-                    40,-50}})));
+                J_Load) annotation (Placement(transformation(extent={{40,-70},{
+                    60,-50}})));
           Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM(
             startTime=tStep,
             stepTorque=-T_Load,
             useSupport=false,
-            offsetTorque=0) annotation (Placement(transformation(extent={{70,-70},
-                    {50,-50}})));
+            offsetTorque=0) annotation (Placement(transformation(extent={{90,-70},
+                    {70,-50}})));
           Modelica.Electrical.Analog.Basic.Ground groundMachine annotation (
               Placement(transformation(
                 extent={{-10,-10},{10,10}},
@@ -1609,6 +1615,17 @@ Simulate for 1.5 seconds and plot (versus time):
           Modelica.Electrical.Machines.Utilities.TerminalBox terminalBox(m=m,
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{-10,-54},{10,-34}})));
+          Electrical.Machines.Sensors.RotorDisplacementAngle
+            rotorDisplacementAngle(m=m, p=smpm.p) annotation (Placement(
+                transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={28,-60})));
+          Sensors.RotorDisplacementAngle rotorDisplacementAngleQS(p=smpm.p, m=m)
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={28,40})));
         initial equation
           smpm.is=zeros(m);
 
@@ -1626,9 +1643,7 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(powerSensorQS.voltageN, starQS.plug_p) annotation (Line(
                 points={{-50,70},{-50,30},{-60,30}}, color={85,170,255}));
           connect(loadInertiaMQS.flange_b, torqueStepMQS.flange)
-            annotation (Line(points={{40,40},{50,40}}));
-          connect(smpmQS.flange, loadInertiaMQS.flange_a) annotation (Line(
-              points={{10,40},{20,40}}));
+            annotation (Line(points={{60,40},{70,40}}));
           connect(terminalBoxQS.plug_sn, smpmQS.plug_sn) annotation (Line(
               points={{-6,50},{-6,50}},
               color={85,170,255}));
@@ -1645,9 +1660,7 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{-30,30},{-30,22}},
               color={85,170,255}));
           connect(loadInertiaM.flange_b, torqueStepM.flange)
-            annotation (Line(points={{40,-60},{50,-60}}));
-          connect(smpm.flange, loadInertiaM.flange_a) annotation (Line(
-              points={{10,-60},{20,-60}}));
+            annotation (Line(points={{60,-60},{70,-60}}));
           connect(terminalBox.plug_sn, smpm.plug_sn) annotation (Line(
               points={{-6,-50},{-6,-50}},
               color={0,0,255}));
@@ -1676,14 +1689,32 @@ Simulate for 1.5 seconds and plot (versus time):
           connect(powerSensor.nv, star.plug_p) annotation (Line(
               points={{-50,-30},{-50,-70},{-60,-70}},
               color={0,0,255}));
+          connect(smpm.flange, rotorDisplacementAngle.flange) annotation (Line(
+                points={{10,-60},{14,-60},{18,-60}}, color={0,0,0}));
+          connect(rotorDisplacementAngle.flange, loadInertiaM.flange_a)
+            annotation (Line(points={{18,-60},{40,-60}}, color={0,0,0}));
+          connect(terminalBox.plug_sp, rotorDisplacementAngle.plug_p)
+            annotation (Line(points={{6,-50},{14,-50},{22,-50}}, color={0,0,255}));
+          connect(terminalBox.plug_sn, rotorDisplacementAngle.plug_n)
+            annotation (Line(points={{-6,-50},{-6,-50},{-6,-42},{34,-42},{34,
+                  -50}}, color={0,0,255}));
+          connect(smpmQS.flange, rotorDisplacementAngleQS.flange)
+            annotation (Line(points={{10,40},{14,40},{18,40}}, color={0,0,0}));
+          connect(rotorDisplacementAngleQS.flange, loadInertiaMQS.flange_a)
+            annotation (Line(points={{18,40},{30,40},{40,40}}, color={0,0,0}));
+          connect(rotorDisplacementAngleQS.plug_p, terminalBoxQS.plug_sp)
+            annotation (Line(points={{22,50},{14,50},{6,50}}, color={85,170,255}));
+          connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
+            annotation (Line(points={{-6,50},{-6,58},{34,58},{34,50}}, color={
+                  85,170,255}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}}), graphics={Rectangle(
-                          extent={{-90,-2},{90,-100}},
+                          extent={{-90,-2},{100,-100}},
                           lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid),Rectangle(
-                          extent={{-90,100},{90,0}},
+                          extent={{-90,100},{100,0}},
                           lineColor={0,0,0},
                           pattern=LinePattern.Dash,
                           fillColor={255,255,170},
@@ -1958,7 +1989,8 @@ Simulate for 0.1 second and plot (versus time):
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{-10,-76},{10,-56}})));
           Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
-            rotorDisplacementAngle(p=smpm.p) annotation (Placement(
+            rotorDisplacementAngle(p=smpmData.p)
+                                             annotation (Placement(
                 transformation(
                 origin={30,-82},
                 extent={{-10,10},{10,-10}},
@@ -1977,7 +2009,7 @@ Simulate for 0.1 second and plot (versus time):
           parameter
             Modelica.Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
             smpmData(useDamperCage=false) "Machine data"
-            annotation (Placement(transformation(extent={{70,-18},{90,2}})));
+            annotation (Placement(transformation(extent={{70,-28},{90,-8}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentQuasiRMSSensor currentRMSsensor
             annotation (Placement(transformation(
                 origin={0,-48},
@@ -2010,30 +2042,30 @@ Simulate for 0.1 second and plot (versus time):
             alpha20s=smpmData.alpha20s,
             phiMechanical(fixed=true, start=0),
             alpha20r=smpmData.alpha20r,
-            TrOperational=293.15) annotation (Placement(transformation(extent={
-                    {-10,24},{10,44}})));
+            TrOperational=293.15) annotation (Placement(transformation(extent={{-10,14},
+                    {10,34}})));
 
           Modelica.Mechanics.Rotational.Components.Inertia inertiaLoadQS(J=0.29)
-            annotation (Placement(transformation(extent={{40,24},{60,44}})));
+            annotation (Placement(transformation(extent={{40,14},{60,34}})));
           Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
             quadraticSpeedDependentTorqueQS(tau_nominal=-181.4, w_nominal(
                 displayUnit="rpm") = 157.07963267949)
-            annotation (Placement(transformation(extent={{90,24},{70,44}})));
+            annotation (Placement(transformation(extent={{90,14},{70,34}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star
             starMachineQS(m=
                 Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m))
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=180,
-                origin={-30,44})));
+                origin={-30,34})));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
             groundMQS annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={-50,44})));
+                origin={-50,34})));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.MultiTerminalBox
             terminalBoxQS(terminalConnection="Y", m=m) annotation (Placement(
-                transformation(extent={{-10,40},{10,60}})));
+                transformation(extent={{-10,30},{10,50}})));
           Modelica.Magnetic.QuasiStatic.FundamentalWave.Utilities.CurrentController
             currentController1(m=m, p=smpmQS.p)
             annotation (Placement(transformation(extent={{-50,74},{-30,94}})));
@@ -2041,7 +2073,7 @@ Simulate for 0.1 second and plot (versus time):
             annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=90,
-                origin={20,54})));
+                origin={18,54})));
           Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource
             referenceCurrentSource annotation (Placement(transformation(
                 extent={{10,-10},{-10,10}},
@@ -2062,6 +2094,11 @@ Simulate for 0.1 second and plot (versus time):
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={20,84})));
+          Sensors.RotorDisplacementAngle rotorDisplacementAngleQS(p=smpmData.p)
+            annotation (Placement(transformation(
+                extent={{10,-10},{-10,10}},
+                rotation=90,
+                origin={30,24})));
         equation
           connect(star.pin_n, ground.p)
             annotation (Line(points={{40,-28},{40,-28}}, color={0,0,255}));
@@ -2120,27 +2157,25 @@ Simulate for 0.1 second and plot (versus time):
               points={{0,-58},{-10,-58}},
               color={0,0,255}));
           connect(smpm.flange, inertiaLoad.flange_a) annotation (Line(
-              points={{10,-82},{10,-88},{20,-88},{20,-82},{40,-82}}));
+              points={{10,-82},{10,-82},{20,-82},{40,-82}}));
           connect(quadraticSpeedDependentTorqueQS.flange, inertiaLoadQS.flange_b)
             annotation (Line(
-              points={{70,34},{60,34}}));
-          connect(smpmQS.flange, inertiaLoadQS.flange_a) annotation (Line(
-              points={{10,34},{40,34}}));
+              points={{70,24},{60,24}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,44},{-20,46},{-9,46}},
+              points={{-20,34},{-20,36},{-9,36}},
               color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
-              points={{-40,44},{-40,44}},
+              points={{-40,34},{-40,34}},
               color={85,170,255}));
           connect(terminalBoxQS.plug_sn, smpmQS.plug_sn) annotation (Line(
-              points={{-6,44},{-6,44}},
+              points={{-6,34},{-6,34}},
               color={85,170,255}));
           connect(terminalBoxQS.plug_sp, smpmQS.plug_sp) annotation (Line(
-              points={{6,44},{6,44}},
+              points={{6,34},{6,34}},
               color={85,170,255}));
           connect(angleSensorQS.phi, currentController1.phi) annotation (Line(
-              points={{20,65},{20,68},{-40,68},{-40,72}},
+              points={{18,65},{18,68},{-40,68},{-40,72}},
               color={0,0,127}));
           connect(currentController1.I, referenceCurrentSource.I) annotation (
               Line(
@@ -2148,7 +2183,7 @@ Simulate for 0.1 second and plot (versus time):
               color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
-              points={{0,94},{40,94}},
+              points={{0,94},{10,94},{40,94}},
               color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
               points={{40,74},{40,74}},
@@ -2160,23 +2195,35 @@ Simulate for 0.1 second and plot (versus time):
               points={{-79,-20},{-70,-20},{-70,78},{-52,78}},
               color={0,0,127}));
           connect(angleSensorQS.flange, smpmQS.flange) annotation (Line(
-              points={{20,44},{20,34},{10,34}}));
+              points={{18,44},{18,24},{10,24}}));
           connect(currentController1.gamma, referenceCurrentSource.gamma)
             annotation (Line(
               points={{-29,80},{-10,80}},
               color={0,0,127}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
-              points={{0,74},{0,46}},
+              points={{0,74},{0,36}},
               color={85,170,255}));
           connect(referenceCurrentSource.plug_p, resistor.plug_p) annotation (
               Line(
-              points={{0,94},{20,94}},
+              points={{0,94},{6,94},{20,94}},
               color={85,170,255}));
           connect(resistor.plug_n, referenceCurrentSource.plug_n) annotation (
               Line(
               points={{20,74},{0,74}},
               color={85,170,255}));
+          connect(rotorDisplacementAngleQS.flange, smpmQS.flange)
+            annotation (Line(points={{20,24},{20,24},{10,24}}, color={0,0,0}));
+          connect(angleSensorQS.flange, rotorDisplacementAngleQS.flange)
+            annotation (Line(points={{18,44},{18,44},{18,24},{20,24}}, color={0,
+                  0,0}));
+          connect(terminalBoxQS.plug_sp, rotorDisplacementAngleQS.plug_p)
+            annotation (Line(points={{6,34},{15,34},{24,34}}, color={85,170,255}));
+          connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
+            annotation (Line(points={{-6,34},{-6,40},{36,40},{36,34}}, color={
+                  85,170,255}));
+          connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
+            annotation (Line(points={{20,24},{40,24}}, color={0,0,0}));
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
             Documentation(info="<html>
@@ -2199,12 +2246,12 @@ Simulate for 2 seconds and plot (versus time):
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}),
                                  graphics={Rectangle(
-                          extent={{-64,100},{100,14}},
+                          extent={{-64,100},{100,2}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Rectangle(
-                          extent={{-64,12},{100,-100}},
+                          extent={{-64,0},{100,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -2345,17 +2392,17 @@ Simulate for 2 seconds and plot (versus time):
                 extent={{-10,-10},{10,10}},
                 rotation=90)));
           Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor
-            mechanicalPowerSensor annotation (Placement(transformation(extent={
-                    {20,-80},{40,-60}})));
+            mechanicalPowerSensor annotation (Placement(transformation(extent={{40,-80},
+                    {60,-60}})));
           Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor
-            mechanicalPowerSensorQS annotation (Placement(transformation(extent=
-                   {{20,20},{40,40}})));
+            mechanicalPowerSensorQS annotation (Placement(transformation(extent={{40,20},
+                    {60,40}})));
           Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(
               final w_fixed=w, useSupport=false) annotation (Placement(
-                transformation(extent={{70,-80},{50,-60}})));
+                transformation(extent={{90,-80},{70,-60}})));
           Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeedQS(
               final w_fixed=w, useSupport=false) annotation (Placement(
-                transformation(extent={{70,20},{50,40}})));
+                transformation(extent={{90,20},{70,40}})));
           parameter
             Modelica.Electrical.Machines.Utilities.SynchronousMachineData
             smeeData(
@@ -2423,6 +2470,17 @@ Simulate for 2 seconds and plot (versus time):
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-50,50})));
+          Electrical.Machines.Sensors.RotorDisplacementAngle
+            rotorDisplacementAngle(m=m, p=2) annotation (Placement(
+                transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={28,-70})));
+          Sensors.RotorDisplacementAngle rotorDisplacementAngleQS(m=m, p=2)
+            annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={28,30})));
         initial equation
           smee.is[1:2] = zeros(2);
 
@@ -2431,20 +2489,16 @@ Simulate for 2 seconds and plot (versus time):
             annotation (Line(points={{-70,-20},{-80,-20}}, color={0,0,255}));
           connect(star.plug_p, sineVoltage.plug_n)
             annotation (Line(points={{-50,-20},{-40,-20}}, color={0,0,255}));
-          connect(smeeQS.flange, mechanicalPowerSensorQS.flange_a)
-            annotation (Line(points={{10,30},{20,30}}));
           connect(mechanicalPowerSensorQS.flange_b, constantSpeedQS.flange)
-            annotation (Line(points={{40,30},{50,30}}));
+            annotation (Line(points={{60,30},{70,30}}));
           connect(rampCurrentQS.p, groundrQS.p) annotation (Line(points={{-28,
                   20},{-34,20},{-34,12},{-40,12}}, color={0,0,255}));
           connect(rampCurrentQS.p, smeeQS.pin_en) annotation (Line(points={{-28,
                   20},{-20,20},{-20,24},{-10,24}}, color={0,0,255}));
           connect(rampCurrentQS.n, smeeQS.pin_ep) annotation (Line(points={{-28,
                   40},{-20,40},{-20,36},{-10,36}}, color={0,0,255}));
-          connect(smee.flange, mechanicalPowerSensor.flange_a)
-            annotation (Line(points={{10,-70},{20,-70}}));
           connect(mechanicalPowerSensor.flange_b, constantSpeed.flange)
-            annotation (Line(points={{40,-70},{50,-70}}));
+            annotation (Line(points={{60,-70},{70,-70}}));
           connect(rampCurrent.p, groundr.p) annotation (Line(points={{-30,-80},
                   {-36,-80},{-36,-88},{-38,-88},{-38,-88},{-40,-88},{-40,-88}},
                 color={0,0,255}));
@@ -2493,6 +2547,23 @@ Simulate for 2 seconds and plot (versus time):
               Line(
               points={{-10,50},{-10,42},{-9,42}},
               color={85,170,255}));
+          connect(rotorDisplacementAngleQS.plug_p, terminalBoxQS.plug_sp)
+            annotation (Line(points={{22,40},{6,40}}, color={85,170,255}));
+          connect(terminalBoxQS.plug_sn, rotorDisplacementAngleQS.plug_n)
+            annotation (Line(points={{-6,40},{-6,48},{34,48},{34,40}}, color={
+                  85,170,255}));
+          connect(smeeQS.flange, rotorDisplacementAngleQS.flange)
+            annotation (Line(points={{10,30},{14,30},{18,30}}, color={0,0,0}));
+          connect(rotorDisplacementAngleQS.flange, mechanicalPowerSensorQS.flange_a)
+            annotation (Line(points={{18,30},{30,30},{40,30}}, color={0,0,0}));
+          connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
+                points={{10,-70},{14,-70},{18,-70}}, color={0,0,0}));
+          connect(rotorDisplacementAngle.flange, mechanicalPowerSensor.flange_a)
+            annotation (Line(points={{18,-70},{30,-70},{40,-70}}, color={0,0,0}));
+          connect(smee.plug_sp, rotorDisplacementAngle.plug_p) annotation (Line(
+                points={{6,-60},{14,-60},{22,-60}}, color={0,0,255}));
+          connect(rotorDisplacementAngle.plug_n, smee.plug_sn) annotation (Line(
+                points={{34,-60},{34,-52},{-6,-52},{-6,-60}}, color={0,0,255}));
           annotation (
             experiment(
               StopTime=30,
@@ -2597,7 +2668,8 @@ Simulate for 30 seconds:
               terminalConnection="Y") annotation (Placement(transformation(
                   extent={{-10,-76},{10,-56}})));
           Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle
-            rotorDisplacementAngle(p=smr.p) annotation (Placement(
+            rotorDisplacementAngle(p=smrData.p, m=m)
+                                            annotation (Placement(
                 transformation(
                 origin={30,-82},
                 extent={{-10,10},{10,-10}},
@@ -2621,27 +2693,27 @@ Simulate for 30 seconds:
                 extent={{-10,-10},{10,10}},
                 rotation=270)));
           Modelica.Mechanics.Rotational.Components.Inertia inertiaLoadQS(J=0.29)
-            annotation (Placement(transformation(extent={{40,24},{60,44}})));
+            annotation (Placement(transformation(extent={{40,14},{60,34}})));
           Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
             quadraticSpeedDependentTorqueQS(
             tau_nominal=-181.4,
             w_nominal(displayUnit="rpm") = 157.07963267949,
             TorqueDirection=false)
-            annotation (Placement(transformation(extent={{90,24},{70,44}})));
+            annotation (Placement(transformation(extent={{90,14},{70,34}})));
           Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star
             starMachineQS(m=
                 Electrical.MultiPhase.Functions.numberOfSymmetricBaseSystems(m))
             annotation (Placement(transformation(
                 extent={{-10,10},{10,-10}},
                 rotation=180,
-                origin={-30,44})));
+                origin={-30,34})));
           Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground
             groundMQS annotation (Placement(transformation(
                 extent={{-10,-10},{10,10}},
                 rotation=270,
-                origin={-50,44})));
+                origin={-50,34})));
           Utilities.MultiTerminalBox terminalBoxQS(terminalConnection="Y", m=m)
-            annotation (Placement(transformation(extent={{-10,40},{10,60}})));
+            annotation (Placement(transformation(extent={{-10,30},{10,50}})));
           FundamentalWave.Utilities.CurrentController currentController1(m=m, p=
                smrQS.p)
             annotation (Placement(transformation(extent={{-50,74},{-30,94}})));
@@ -2702,8 +2774,8 @@ Simulate for 30 seconds:
             wMechanical(start=0, fixed=true),
             TsOperational=293.15,
             phiMechanical(start=0, fixed=true),
-            TrOperational=293.15) annotation (Placement(transformation(extent={
-                    {-10,24},{10,44}})));
+            TrOperational=293.15) annotation (Placement(transformation(extent={{-10,14},
+                    {10,34}})));
           Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
             smr(
             Jr=smrData.Jr,
@@ -2734,6 +2806,11 @@ Simulate for 30 seconds:
             TrOperational=293.15,
             useDamperCage=smrData.useDamperCage) annotation (Placement(
                 transformation(extent={{-10,-92},{10,-72}})));
+          Sensors.RotorDisplacementAngle rotorDisplacementAngleQS(m=m, p=
+                smrData.p) annotation (Placement(transformation(
+                extent={{-10,10},{10,-10}},
+                rotation=270,
+                origin={30,24})));
         equation
           connect(star.pin_n, ground.p)
             annotation (Line(points={{40,-28},{40,-28}}, color={0,0,255}));
@@ -2781,13 +2858,13 @@ Simulate for 30 seconds:
               color={0,0,255}));
           connect(quadraticSpeedDependentTorqueQS.flange, inertiaLoadQS.flange_b)
             annotation (Line(
-              points={{70,34},{60,34}}));
+              points={{70,24},{60,24}}));
           connect(starMachineQS.plug_p, terminalBoxQS.starpoint) annotation (
               Line(
-              points={{-20,44},{-20,46},{-9,46}},
+              points={{-20,34},{-20,36},{-9,36}},
               color={85,170,255}));
           connect(groundMQS.pin, starMachineQS.pin_n) annotation (Line(
-              points={{-40,44},{-40,44}},
+              points={{-40,34},{-40,34}},
               color={85,170,255}));
           connect(angleSensorQS.phi, currentController1.phi) annotation (Line(
               points={{20,65},{20,68},{-40,68},{-40,72}},
@@ -2798,7 +2875,7 @@ Simulate for 30 seconds:
               color={85,170,255}));
           connect(referenceCurrentSource.plug_p, starQS.plug_p) annotation (
               Line(
-              points={{0,94},{40,94}},
+              points={{0,94},{10,94},{40,94}},
               color={85,170,255}));
           connect(starQS.pin_n, groundeQS.pin) annotation (Line(
               points={{40,74},{40,74}},
@@ -2815,26 +2892,24 @@ Simulate for 30 seconds:
               color={0,0,127}));
           connect(referenceCurrentSource.plug_n, terminalBoxQS.plugSupply)
             annotation (Line(
-              points={{0,74},{0,46}},
+              points={{0,74},{0,36}},
               color={85,170,255}));
           connect(referenceCurrentSource.plug_p, resistor.plug_p) annotation (
               Line(
-              points={{0,94},{20,94}},
+              points={{0,94},{6,94},{20,94}},
               color={85,170,255}));
           connect(resistor.plug_n, referenceCurrentSource.plug_n) annotation (
               Line(
               points={{20,74},{0,74}},
               color={85,170,255}));
           connect(terminalBoxQS.plug_sn, smrQS.plug_sn) annotation (Line(
-              points={{-6,44},{-6,44}},
+              points={{-6,34},{-6,34}},
               color={85,170,255}));
           connect(terminalBoxQS.plug_sp, smrQS.plug_sp) annotation (Line(
-              points={{6,44},{6,44}},
+              points={{6,34},{6,34}},
               color={85,170,255}));
-          connect(smrQS.flange, inertiaLoadQS.flange_a) annotation (Line(
-              points={{10,34},{40,34}}));
           connect(angleSensorQS.flange, smrQS.flange) annotation (Line(
-              points={{20,44},{20,34},{10,34}}));
+              points={{20,44},{20,24},{10,24}}));
           connect(terminalBox.plug_sn, smr.plug_sn) annotation (Line(
               points={{-6,-72},{-6,-72}},
               color={0,0,255}));
@@ -2854,6 +2929,14 @@ Simulate for 30 seconds:
           connect(rotorDisplacementAngle.flange, inertiaLoad.flange_a)
             annotation (Line(
               points={{20,-82},{44,-82}}));
+          connect(smrQS.flange, rotorDisplacementAngleQS.flange)
+            annotation (Line(points={{10,24},{16,24},{20,24}}, color={0,0,0}));
+          connect(rotorDisplacementAngleQS.flange, inertiaLoadQS.flange_a)
+            annotation (Line(points={{20,24},{30,24},{40,24}}, color={0,0,0}));
+          connect(rotorDisplacementAngleQS.plug_p, smrQS.plug_sp) annotation (
+              Line(points={{24,34},{15,34},{6,34}}, color={85,170,255}));
+          connect(rotorDisplacementAngleQS.plug_n, smrQS.plug_sn) annotation (
+              Line(points={{36,34},{36,40},{-6,40},{-6,34}}, color={85,170,255}));
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
             Documentation(info="<html>
@@ -2873,12 +2956,12 @@ Simulate for 2 seconds and plot (versus time):
 </ul>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Rectangle(
-                          extent={{-64,100},{100,14}},
+                          extent={{-64,100},{100,2}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
                           pattern=LinePattern.Dash),Rectangle(
-                          extent={{-64,12},{100,-100}},
+                          extent={{-64,0},{100,-100}},
                           lineColor={0,0,0},
                           fillColor={255,255,170},
                           fillPattern=FillPattern.Solid,
@@ -6076,6 +6159,146 @@ ConstantFlux</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sensors.MagneticFluxSensor\">MagneticFluxSensor</a>
 </p></html>"));
     end MagneticPotentialSensor;
+
+    model RotorDisplacementAngle "Rotor lagging angle"
+      parameter Integer m=3 "Number of phases";
+      parameter Integer p(min=1) "Number of pole pairs";
+      parameter Boolean useSupport=false "Use support or fixed housing"
+        annotation (Evaluate=true);
+      Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final
+          quantity="Angle", final unit="rad") annotation (Placement(
+            transformation(extent={{100,-10},{120,10}})));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug
+                                                             plug_p(final m=m)
+        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug
+                                                             plug_n(final m=m)
+        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a flange annotation (
+          Placement(transformation(extent={{-10,90},{10,110}})));
+      Modelica.Mechanics.Rotational.Sensors.RelAngleSensor relativeAngleSensor
+        annotation (Placement(transformation(extent={{40,70},{20,90}})));
+      Modelica.Blocks.Sources.Constant constant_(final k=Modelica.Constants.pi/
+            2) annotation (Placement(transformation(extent={{-50,40},{-30,60}})));
+      Modelica.Blocks.Math.Add add(final k2=1, final k1=p) annotation (
+          Placement(transformation(
+            origin={-10,30},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.Rotational.Interfaces.Flange_a support if useSupport
+        "support at which the reaction torque is acting" annotation (Placement(
+            transformation(extent={{90,90},{110,110}})));
+      Modelica.Mechanics.Rotational.Components.Fixed fixed if (not useSupport)
+        annotation (Placement(transformation(extent={{90,70},{110,90}})));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor
+        referenceSensor(final m=m)
+        annotation (Placement(transformation(extent={{-80,10},{-60,30}})));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageSensor
+        voltageSensor(final m=m) annotation (Placement(transformation(
+            extent={{-10,10},{10,-10}},
+            rotation=270,
+            origin={-90,-20})));
+      Modelica.Blocks.Math.Add3 add3_1(k1=-1)
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
+      Modelica.Electrical.QuasiStationary.MultiPhase.Blocks.ToSpacePhasor
+        toSpacePhasor(m=m)
+        annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
+      Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar toPolar
+        annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+      Blocks.Math.WrapAngle wrapAngle
+        annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    equation
+      connect(relativeAngleSensor.flange_b, flange)
+        annotation (Line(points={{20,80},{0,80},{0,100}}));
+      connect(relativeAngleSensor.flange_a, support) annotation (Line(
+          points={{40,80},{60,80},{60,100},{100,100}}));
+      connect(relativeAngleSensor.flange_a, fixed.flange) annotation (Line(
+          points={{40,80},{100,80}}));
+      connect(relativeAngleSensor.phi_rel, add.u1) annotation (Line(
+          points={{30,69},{30,50},{-4,50},{-4,42}},
+          color={0,0,127}));
+      connect(constant_.y, add.u2) annotation (Line(
+          points={{-29,50},{-16,50},{-16,42}},
+          color={0,0,127}));
+      connect(plug_p, referenceSensor.plug_p) annotation (Line(points={{-100,60},
+              {-100,60},{-90,60},{-90,20},{-80,20}}, color={85,170,255}));
+      connect(voltageSensor.plug_p, plug_p) annotation (Line(points={{-90,-10},{
+              -90,-10},{-90,60},{-100,60}}, color={85,170,255}));
+      connect(voltageSensor.plug_n, plug_n) annotation (Line(points={{-90,-30},{
+              -90,-60},{-100,-60}}, color={85,170,255}));
+      connect(referenceSensor.y, add3_1.u2) annotation (Line(points={{-59,20},{
+              -30,20},{-30,0},{-2,0}}, color={0,0,127}));
+      connect(add.y, add3_1.u1)
+        annotation (Line(points={{-10,19},{-10,8},{-2,8}}, color={0,0,127}));
+      connect(toSpacePhasor.u, voltageSensor.y) annotation (Line(points={{-72,-20},
+              {-70,-20},{-79,-20}}, color={85,170,255}));
+      connect(toSpacePhasor.y, toPolar.u)
+        annotation (Line(points={{-49,-20},{-42,-20}}, color={0,0,127}));
+      connect(toPolar.y[2], add3_1.u3) annotation (Line(points={{-19,-20},{-14,
+              -20},{-10,-20},{-10,-8},{-2,-8}}, color={0,0,127}));
+      connect(add3_1.y, wrapAngle.u)
+        annotation (Line(points={{21,0},{29.5,0},{38,0}}, color={0,0,127}));
+      connect(wrapAngle.y, rotorDisplacementAngle) annotation (Line(points={{61,
+              0},{80,0},{80,0},{110,0}}, color={0,0,127}));
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={Ellipse(
+                  extent={{-60,80},{60,40}},
+                  lineColor={0,255,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Ellipse(
+                  extent={{-60,-40},{60,-80}},
+                  lineColor={0,255,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-60,60},{60,40}},
+                  lineColor={0,255,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-60,-40},{60,-60}},
+                  lineColor={0,255,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{-40,40},{40,-40}},
+                  lineColor={0,255,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{0,0},{-80,80}},
+              color={0,0,255}),Polygon(
+                  points={{-80,80},{-68,76},{-76,68},{-80,80}},
+                  lineColor={0,0,255},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Line(points={{0,0},{0,80}},
+              color={0,255,0}),Polygon(
+                  points={{0,84},{4,72},{-4,72},{0,84}},
+                  lineColor={0,255,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid),Rectangle(
+                  extent={{80,120},{120,80}},
+                  lineColor={192,192,192},
+                  fillColor={192,192,192},
+                  fillPattern=FillPattern.Solid),Line(
+                  visible=not useSupport,
+                  points={{80,100},{120,100}}),Line(
+                  visible=not useSupport,
+                  points={{90,120},{80,100}}),Line(
+                  visible=not useSupport,
+                  points={{100,120},{90,100}}),Line(
+                  visible=not useSupport,
+                  points={{110,120},{100,100}}),Line(
+                  visible=not useSupport,
+                  points={{120,120},{110,100}})}),
+        Documentation(info="<html>
+<p>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, 
+rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.</p>
+<p>
+The sensor's housing can be implicitly fixed (<code>useSupport=false</code>).
+If the machine's stator also implicitly fixed (<code>useSupport=false</code>), the angle at the flange
+is equal to the angle of the machine's rotor against the stator.
+Otherwise, the sensor's support has to be connected to the machine's support.
+</p>
+</html>"));
+    end RotorDisplacementAngle;
     annotation (Documentation(info="<html>
 <p>
 This package provides sensors for the magnetic potential difference and the magnetic flux in magnetic circuit.
