@@ -5584,13 +5584,13 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
         //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
         // Complex phasors of magnetic fluxes
         Modelica.SIunits.ComplexMagneticFlux Phi_ss
-          "Complex magnetic potential difference of stator w.r.t. stator reference frame";
+          "Complex magnetic flux of stator w.r.t. stator reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_sr
-          "Complex magnetic potential difference of stator w.r.t. rotor reference frame";
+          "Complex magnetic flux of stator w.r.t. rotor reference frame";
         Modelica.SIunits.ComplexMagneticFlux Phi_rr
-          "Complex magnetic potential difference of rotor w.r.t. rotor reference frame";
+          "Complex magnetic flux of rotor w.r.t. rotor reference frame";
         // Modelica.SIunits.ComplexMagneticFlux Phi_rs
-        //   "Complex magnetic potential difference of rotor w.r.t. stator reference frame";
+        //   "Complex magnetic flux of rotor w.r.t. stator reference frame";
         // Electrical torque and mechanical angle
         Modelica.SIunits.Torque tauElectrical "Electrical torque";
         // Modelica.SIunits.Torque tauTemp "Electrical torque";
@@ -5661,14 +5661,13 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
                 lineColor={0,0,0},
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid),
-              Line(points={{0,80},{0,90}})}), Documentation(info=
-               "<html>
+              Line(points={{0,80},{0,90}})}), Documentation(info="<html>
 <p>
 This salient air gap model can be used for machines with uniform airgaps and for machines with rotor saliencies. The air gap model is not symmetrical towards stator and rotor since it is assumed the saliency always refers to the rotor. The saliency of the air gap is represented by a main field inductance in the d- and q-axis.
 </p>
 
 <p>
-For the mechanical interaction of the air gap model with the stator and the rotor it is equipped with to
+For the mechanical interaction of the air gap model with the stator and the rotor is equipped with two
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.Flange_a\">rotational connectors</a>. The torques acting on both connectors have the same absolute values but different signs. The difference between the stator and the rotor angle,
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/gamma.png\">, is required for the transformation of the magnetic stator quantities to the rotor side.</p>
 
