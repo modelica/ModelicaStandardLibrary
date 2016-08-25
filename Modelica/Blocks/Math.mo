@@ -2513,7 +2513,7 @@ zero or negative.
 </html>"));
   end Log10;
 
-  block WrapAngle "Wrap angle to interval [-pi,pi]"
+  block WrapAngle "Wrap angle to interval ]-pi,pi]"
 
     extends Interfaces.SISO;
   equation
@@ -2572,20 +2572,7 @@ zero or negative.
               textString="u")}),
       Documentation(info="<html>
 <p>
-This blocks computes the output <b>y</b> as the
-<i>base 10 logarithm</i> of the input <b>u</b>:
-</p>
-<pre>
-    y = <b>log10</b>( u );
-</pre>
-<p>
-An error occurs if the elements of the input <b>u</b> are
-zero or negative.
-</p>
-
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Math/log10.png\"
-     alt=\"log10.png\">
+This blocks wraps the input angle into the interval ]-pi,pi].
 </p>
 
 </html>"));
