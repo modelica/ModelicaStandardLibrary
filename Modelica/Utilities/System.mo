@@ -54,6 +54,7 @@ Documentation(info="<html>
 end setEnvironmentVariable;
 
   function getTime "Retrieve the local time (in the local time zone)"
+    extends Modelica.Icons.Function;
     output Integer ms "Millisecond";
     output Integer sec "Second";
     output Integer min "Minute";
@@ -135,6 +136,7 @@ All returned values are of type Integer and have the following meaning:
   end getTime;
 
   function getPid "Retrieve the current process id"
+    extends Modelica.Icons.Function;
     output Integer pid "Process ID";
     external "C" pid=  ModelicaInternal_getpid() annotation(Library="ModelicaExternalC");
     annotation (__ModelicaAssociation_Impure=true,
