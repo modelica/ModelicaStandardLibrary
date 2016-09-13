@@ -452,6 +452,7 @@ and upper case letters are not distinguished.
   end sort;
 
   function hashString "Creates a hash value of a String"
+    extends Modelica.Icons.Function;
     input String string "The string to create a hash from";
     output Integer hash "The hash value of string";
     external "C" hash=  ModelicaStrings_hashString(string)
