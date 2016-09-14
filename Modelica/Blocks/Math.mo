@@ -3420,6 +3420,57 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
             textString="arg")}));
   end Harmonic;
 
+  block RealFFT "Sampling and FFT of input u"
+    extends Modelica.Blocks.Interfaces.DiscreteBlock(final samplePeriod=1/(2*f_res*div(ns, 2)));
+    parameter Modelica.SIunits.Frequency f_max "Maximum frequency of interest";
+    parameter Modelica.SIunits.Frequency f_res "Frequency resolution";
+    final parameter Integer ns=Modelica.Math.FastFourierTransform.realFFTsamplePoints(f_max, f_res, f_max_factor=5) "Number of samples";
+    final parameter Integer nf=max(1,min(integer(ceil(f_max/f_res))+1, div(ns, 2))) "Number of frequency points";
+    parameter String resultFileName="realFFT.mat" "Result file: f, abs, arg";
+    output Integer info(start=0, fixed=true) "Information flag from FFT computation";
+    Modelica.Blocks.Interfaces.RealInput u
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}}),iconTransformation(extent={{-140,
+              -20},{-100,20}})));
+  protected
+    Real buf[ns](start=zeros(ns), fixed=true) "Input buffer";
+    Real abs[nf](start=zeros(nf), fixed=true) "FFT amplitudes";
+    Real arg[nf](start=zeros(nf), fixed=true) "FFT phases";
+    Integer iTick(start=0, fixed=true) "Sample ticks";
+  algorithm
+    when {sampleTrigger} then
+      iTick :=pre(iTick) + 1;
+      if iTick <= ns then
+        buf[iTick] :=u;
+      end if;
+    end when;
+    when terminal() then
+      if iTick < ns then
+        assert(false, "Sampling time not sufficient! stopTime>= "+String(startTime + (ns -1)*samplePeriod));
+      else
+        (info, abs, arg) :=Modelica.Math.FastFourierTransform.realFFT(buf, nf);
+        assert(info==0, "Error in FFT");
+        Modelica.Math.FastFourierTransform.realFFTwriteToFile(startTime + (ns - 1)*samplePeriod, resultFileName, f_max, abs, arg);
+      end if;
+    end when;
+    annotation (                                 Documentation(info="<html>
+<p>
+This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>, 
+and (a´when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
+</p>
+<p>
+The number of sampling points as well as the samplePeriod is calculated from desired maximum frequency f_max and frequency resolution f_res.
+</p>
+<h4>Note</h4>
+<p>
+The user has to take care that enough points can be sampled before the simulation ends: startTime + (ns - 1)*samplePeriod <= stopTime.
+</p>
+<p>
+The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. the frequency points are separated by rows with amplitude and phase = 0, 
+so one can plot the result directly as frequency lines.
+</p>
+</html>"));
+  end RealFFT;
+
   block Max "Pass through the largest signal"
     extends Interfaces.SI2SO;
   equation

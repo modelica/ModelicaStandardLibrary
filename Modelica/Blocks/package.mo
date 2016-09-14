@@ -2795,6 +2795,62 @@ This package contains utility models and bus definitions needed for the
 </p>
 </html>"));
   end BusUsage_Utilities;
+
+  model Rectifier6pulseFFT "Example of FFT block"
+    extends Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse;
+    Modelica.Blocks.Math.RealFFT realFFT(
+      startTime=0.04,
+      f_max=2000,
+      f_res=5,
+      resultFileName="rectifier6pulseFFT.mat") annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-70,-30})));
+  equation
+    connect(currentSensor.i[1], realFFT.u)
+      annotation (Line(points={{-70,-11},{-70,-18}}, color={0,0,127}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+          coordinateSystem(preserveAspectRatio=false)),
+      experiment(StopTime=2.5, Interval=0.0001),
+      Documentation(info="<html>
+<p>
+This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse reectifier example</a>, 
+calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
+</p>
+<p>
+As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13<sup>th</sup>, 17<sup>th</sup>, 19<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
+</p>
+</html>"));
+  end Rectifier6pulseFFT;
+
+  model Rectifier12pulseFFT "Example of FFT block"
+    extends Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse;
+    Modelica.Blocks.Math.RealFFT realFFT(
+      startTime=0.04,
+      f_max=2000,
+      f_res=5,
+      resultFileName="rectifier12pulseFFT.mat") annotation (Placement(
+          transformation(
+          extent={{-10,-10},{10,10}},
+          rotation=270,
+          origin={-70,-30})));
+  equation
+    connect(currentSensor.i[1], realFFT.u) annotation (Line(points={{-70,-11},{
+            -70,-14.5},{-70,-18}}, color={0,0,127}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+          coordinateSystem(preserveAspectRatio=false)),
+      experiment(StopTime=2.5, Interval=0.0001),
+      Documentation(info="<html>
+<p>
+This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse reectifier example</a>, 
+calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
+</p>
+<p>
+As expected, one can see the 11<sup>th</sup>, 13<sup>th</sup>, 23<sup>th</sup>, 25<sup>th</sup>, ... harmonic in the result.
+</p>
+</html>"));
+  end Rectifier12pulseFFT;
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
