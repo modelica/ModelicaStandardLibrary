@@ -3465,7 +3465,7 @@ The number of sampling points as well as the samplePeriod is calculated from des
 The user has to take care that enough points can be sampled before the simulation ends: startTime + (ns - 1)*samplePeriod <= stopTime.
 </p>
 <p>
-The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. the frequency points are separated by rows with amplitude and phase = 0, 
+The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. The frequency points are separated by rows with amplitude and phase = 0, 
 so one can plot the result directly as frequency lines.
 </p>
 </html>"));
