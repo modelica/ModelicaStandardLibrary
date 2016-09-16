@@ -2802,7 +2802,8 @@ This package contains utility models and bus definitions needed for the
       startTime=0.04,
       f_max=2000,
       f_res=5,
-      resultFileName="rectifier6pulseFFT.mat") annotation (Placement(
+      resultFileName="rectifier6pulseFFTresult.mat")
+                                               annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
@@ -2830,7 +2831,8 @@ As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13
       startTime=0.04,
       f_max=2000,
       f_res=5,
-      resultFileName="rectifier12pulseFFT.mat") annotation (Placement(
+      resultFileName="rectifier12pulseFFTresult.mat")
+                                                annotation (Placement(
           transformation(
           extent={{-10,-10},{10,10}},
           rotation=270,
