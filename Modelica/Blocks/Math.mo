@@ -3455,7 +3455,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
     annotation (                                 Documentation(info="<html>
 <p>
 This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>, 
-and (a´when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
+and (when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
 </p>
 <p>
 The number of sampling points as well as the samplePeriod is calculated from desired maximum frequency f_max and frequency resolution f_res.
