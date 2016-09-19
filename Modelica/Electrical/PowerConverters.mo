@@ -118,9 +118,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2015-02-02</h5>
+<h5>Version 3.2.2, 2016-09-18</h5>
 <ul>
 <li>Fixed broken hyper links</li>
+<li>Replaced pin declaration by <code>extends</code> accoring to #2065</li>
 </ul>
 
 <h5>Version 1.2.0, 2014-04-06</h5>
@@ -6755,6 +6756,8 @@ This is a conventional step down chopper model. It consists of a transistor and 
 
     model HBridge "H bridge (four quadrant converter)"
       extends Icons.Converter;
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin1;
+      extends Modelica.Electrical.PowerConverters.Interfaces.DCDC.DCtwoPin2;
       extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=
            293.15);
       parameter Modelica.SIunits.Resistance RonTransistor=1e-05
@@ -6769,18 +6772,6 @@ This is a conventional step down chopper model. It consists of a transistor and 
         "Diode opened conductance";
       parameter Modelica.SIunits.Voltage VkneeDiode=0 "Diode threshold voltage";
       extends Interfaces.Enable.Enable2;
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p1
-        "Positive DC input"
-        annotation (Placement(transformation(extent={{-110,50},{-90,70}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n1
-        "Negative DC input"
-        annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-      Modelica.Electrical.Analog.Interfaces.NegativePin dc_n2
-        "Negative DC output"
-        annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
-      Modelica.Electrical.Analog.Interfaces.PositivePin dc_p2
-        "Positive DC output"
-        annotation (Placement(transformation(extent={{90,50},{110,70}})));
       DCAC.SinglePhase2Level inverter_p(
         final RonTransistor=RonTransistor,
         final GoffTransistor=GoffTransistor,
