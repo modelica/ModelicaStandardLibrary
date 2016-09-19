@@ -121,7 +121,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <h5>Version 3.2.2, 2016-09-18</h5>
 <ul>
 <li>Fixed broken hyper links</li>
-<li>Replaced pin declaration by <code>extends</code> accoring to #2065</li>
+<li>Replaced pin declaration by <code>extends</code> according to #2065</li>
 </ul>
 
 <h5>Version 1.2.0, 2014-04-06</h5>
