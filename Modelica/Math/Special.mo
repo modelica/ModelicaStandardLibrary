@@ -1,8 +1,9 @@
 within Modelica.Math;
 package Special "Library of special mathematical functions"
-   extends Modelica.Icons.Package;
+  extends Modelica.Icons.Package;
 
   function erf "Error function erf(u) = 2/sqrt(pi)*Integral_0_u exp(-t^2)*d"
+    extends Modelica.Icons.Function;
     input Real u "Input argument";
     output Real y "= 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt";
   protected
@@ -113,6 +114,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
   end erf;
 
   function erfc "Complementary error function erfc(u) = 1 - erf(u)"
+    extends Modelica.Icons.Function;
     input Real u "Input argument";
     output Real y "= 1 - erf(u)";
 
@@ -198,6 +200,7 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
   end erfc;
 
   function erfInv "Inverse error function: u = erf(erfInv(u))"
+    extends Modelica.Icons.Function;
     input Real u "Input argument in the range -1 <= u <= 1";
     output Real y "= inverse of error function";
   protected
@@ -285,6 +288,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
   end erfInv;
 
   function erfcInv "Inverse complementary error function: u = erfc(erfcInv(u))"
+    extends Modelica.Icons.Function;
     input Real u "Input argument";
     output Real y "erfcInv(u)";
   algorithm
@@ -377,6 +381,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
   end erfcInv;
 
   function sinc "Unnormalized sinc function: sinc(u) = sin(u)/u"
+    extends Modelica.Icons.Function;
     input Real u "Input argument";
     output Real y "= sinc(u) = sin(u)/u";
   algorithm
@@ -437,6 +442,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wik
      extends Modelica.Icons.InternalPackage;
 
     function polyEval "Evaluate a polynomial c[1] + c[2]*u + c[3]*u^2 + ...."
+      extends Modelica.Icons.Function;
       input Real  c[:] "Polynomial coefficients";
       input Real  u "Abscissa value";
       output Real y "= c[1] + u*(c[2] + u*(c[3] + u*(c[4]*u^3 + ...)))";
@@ -473,8 +479,9 @@ Evaluate a polynomial using Horner's scheme.
     end polyEval;
 
     function erfcUtil "Evaluate erfc(z) for 0.5 <= z "
-       input Real z "Input argument 0.5 <= z required (but not checked)";
-       output Real y "Result erfc(z) for 0.5 <= z";
+      extends Modelica.Icons.Function;
+      input Real z "Input argument 0.5 <= z required (but not checked)";
+      output Real y "Result erfc(z) for 0.5 <= z";
     protected
        constant Real y1 = 0.405935764312744140625;
        constant Real P1[6] = {-0.098090592216281240205,
@@ -594,6 +601,7 @@ Utility function in order to compute part of erf(..) and erfc(..).
     end erfcUtil;
 
     function erfInvUtil "Utility function for erfInv(u) and erfcInv(u)"
+      extends Modelica.Icons.Function;
       input Real p "First input argument";
       input Real q "Second input argument";
       output Real y "Result value";
