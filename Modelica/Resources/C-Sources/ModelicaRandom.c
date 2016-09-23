@@ -38,6 +38,9 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Sep. 23, 2016: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed resource leak (ticket #2069)
+
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
                      Added nonnull attribute/annotations (ticket #1436)
 
@@ -463,18 +466,20 @@ MODELICA_EXPORT double ModelicaRandom_impureRandom_xorshift1024star(int id) {
        a 64-bit seed,  we suggest to seed a xorshift64* generator and use its
        output to fill s. */
 
-    double y;
-
     MUTEX_LOCK();
     /* Check that ModelicaRandom_initializeImpureRandome_xorshift1024star was called before */
     if ( id != ModelicaRandom_id ) {
+        MUTEX_UNLOCK();
         ModelicaError("Function impureRandom not initialized with function initializeImpureRandom\n");
+        return 0;
     }
-
-    /* Compute random number */
-    ModelicaRandom_xorshift1024star_internal(ModelicaRandom_s, &ModelicaRandom_p, &y);
-    MUTEX_UNLOCK();
-    return y;
+    else {
+        /* Compute random number */
+        double y;
+        ModelicaRandom_xorshift1024star_internal(ModelicaRandom_s, &ModelicaRandom_p, &y);
+        MUTEX_UNLOCK();
+        return y;
+    }
 }
 
 MODELICA_EXPORT int ModelicaRandom_automaticGlobalSeed(double dummy) {
