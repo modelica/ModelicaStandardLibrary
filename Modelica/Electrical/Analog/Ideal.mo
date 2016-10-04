@@ -981,28 +981,18 @@ For the backward conversion, one has to decide about the partitioning of the lea
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-45,-50},{-20,-25}}),
-          Ellipse(extent={{-45,-25},{-20,0}}),
-          Ellipse(extent={{-45,0},{-20,25}}),
-          Ellipse(extent={{-45,25},{-20,50}}),
-          Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-90,50},{-32,50}}),
-          Line(points={{-90,-50},{-32,-50}}),
-          Ellipse(extent={{20,-50},{45,-25}}),
-          Ellipse(extent={{20,-25},{45,0}}),
-          Ellipse(extent={{20,0},{45,25}}),
-          Ellipse(extent={{20,25},{45,50}}),
-          Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{32,50},{90,50}}),
-          Line(points={{32,-50},{90,-50}}),
+   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
+          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
+   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{32,50},{90,50}}, color={0,0,255}),
+          Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(extent={{-100,-80},{100,-100}}, textString="n=%n"),
           Text(
             extent={{-100,10},{-80,-10}},
@@ -1016,7 +1006,19 @@ For the backward conversion, one has to decide about the partitioning of the lea
             extent={{-146,115},{154,75}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(graphics={Text(
+      Diagram(graphics={
+   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-90,50},{-32,50}}, color={0,0,255}),
+          Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
+   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{32,50},{90,50}}, color={0,0,255}),
+          Line(points={{32,-50},{90,-50}}, color={0,0,255}),Text(
               extent={{-100,10},{0,-10}},
               lineColor={0,0,255},
               textString="1=primary"),Text(
@@ -1053,12 +1055,7 @@ where the constant <i>G</i> is called the gyration conductance.
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-70,-30},{-10,30}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-80,-40},{-41,40}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-40,-30},{-28,-30},{-10,-12},{-10,0},{-10,12},{-28,30},{-40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{-90,50},{-40,50},{-40,-50},{-90,-50}}, color={0,0,255}),
           Line(points={{-30,60},{20,60}}, color={0,0,255}),
           Polygon(
@@ -1066,36 +1063,23 @@ where the constant <i>G</i> is called the gyration conductance.
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid,
             lineColor={0,0,255}),
-          Ellipse(extent={{10,-30},{70,30}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{80,-40},{40,40}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{40,-30},{28,-30},{10,-12},{10,0},{10,12},{28,30},{40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{90,50},{40,50},{40,-50},{90,-50}}, color={0,0,255}),
           Text(
             extent={{-152,116},{148,76}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-70,-30},{-10,30}},
-            lineColor={0,0,255}),Rectangle(
-              extent={{-80,-40},{-41,40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,50},{-40,50},{-40,
-            -50},{-96,-50}}, color={0,0,255}),Line(points={{-30,60},{20,60}},
-            color={0,0,255}),Polygon(
-              points={{20,63},{30,60},{20,57},{20,63}},
+              100,100}}), graphics={
+     Line(points={{-40,-30},{-28,-30},{-10,-12},{-10,0},{-10,12},{-28,30},{-40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-96,50},{-40,50},{-40,-50},{-96,-50}}, color={0,0,255}),
+     Line(points={{-30,60},{20,60}}, color={0,0,255}),
+     Polygon( points={{20,63},{30,60},{20,57},{20,63}},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}),Ellipse(extent={{10,-30},{70,30}}, lineColor=
-             {0,0,255}),Rectangle(
-              extent={{80,-40},{40,40}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{96,50},{40,50},{40,-50},
-            {96,-50}}, color={0,0,255})}));
+              lineColor={0,0,255}),
+     Line(points={{40,-30},{28,-30},{10,-12},{10,0},{10,12},{28,30},{40,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{96,50},{40,50},{40,-50},{96,-50}}, color={0,0,255})}));
   end IdealGyrator;
 
   model Idle "Idle branch"
@@ -1403,7 +1387,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
+    parameter SI.Voltage level=0.5 "Switch level";
     extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected"
@@ -1441,7 +1425,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
   model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
+    parameter SI.Voltage level=0.5 "Switch level";
     extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open"

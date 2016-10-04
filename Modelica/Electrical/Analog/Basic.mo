@@ -318,15 +318,10 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-60,-30},{60,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Text(
@@ -338,15 +333,13 @@ package Basic "Basic electrical components"
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
-            lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}}, lineColor={
-            0,0,255}),Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
-             {0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+              100,100}}), graphics={
+     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{60,0},{96,0}}, color={0,0,255}),
+     Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
   end Inductor;
 
   model SaturatingInductor "Simple model of an inductor with saturation"
@@ -376,15 +369,10 @@ package Basic "Basic electrical components"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-60,-20},{62,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Rectangle(
@@ -422,15 +410,13 @@ package Basic "Basic electrical components"
  </dl>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
-            lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}}, lineColor={
-            0,0,255}),Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),Rectangle(
-              extent={{-60,-20},{62,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
-             {0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255}),
+              100,100}}), graphics={
+     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{60,0},{96,0}}, color={0,0,255}),
+     Line(points={{-96,0},{-60,0}}, color={0,0,255}),
             Rectangle(
               extent={{-60,-10},{60,-20}},
               lineColor={0,0,0},
@@ -472,26 +458,16 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{-90,50},{-32,50}}, color={0,0,255}),
           Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{32,50},{90,50}}, color={0,0,255}),
           Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(
@@ -512,25 +488,20 @@ package Basic "Basic electrical components"
             extent={{-153,113},{147,73}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-45,-50},{-20,-25}},
-            lineColor={0,0,255}),Ellipse(extent={{-45,-25},{-20,0}}, lineColor=
-            {0,0,255}),Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),Rectangle(
-              extent={{-72,-60},{-33,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,50},{-32,50}},
-            color={0,0,255}),Line(points={{-96,-50},{-32,-50}}, color={0,0,255}),
-            Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),Ellipse(
-            extent={{20,-25},{45,0}}, lineColor={0,0,255}),Ellipse(extent={{20,
-            0},{45,25}}, lineColor={0,0,255}),Ellipse(extent={{20,25},{45,50}},
-            lineColor={0,0,255}),Rectangle(
-              extent={{33,-60},{72,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{32,50},{96,50}},
-            color={0,0,255}),Line(points={{32,-50},{96,-50}}, color={0,0,255})}));
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+     Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-90,50},{-32,50}}, color={0,0,255}),
+     Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
+     Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,50},{90,50}}, color={0,0,255}),
+     Line(points={{32,-50},{90,-50}}, color={0,0,255})}));
   end Transformer;
 
   model M_Transformer "Generic transformer with free number of inductors"
@@ -572,44 +543,26 @@ package Basic "Basic electrical components"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Ellipse(extent={{-36,24},{-18,42}}, lineColor={0,0,255}),
-          Ellipse(extent={{18,24},{36,42}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,24},{18,42}}, lineColor={0,0,255}),
-          Ellipse(extent={{-18,24},{0,42}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{42,23},{-44,34}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-36,34},{-62,34}}, color={0,0,255}),
-          Line(points={{62,34},{36,34}}, color={0,0,255}),
-          Ellipse(extent={{-36,8},{-18,26}}, lineColor={0,0,255}),
-          Ellipse(extent={{18,8},{36,26}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,8},{18,26}}, lineColor={0,0,255}),
-          Ellipse(extent={{-18,8},{0,26}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{42,6},{-44,18}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-36,18},{-62,18}}, color={0,0,255}),
-          Line(points={{62,18},{36,18}}, color={0,0,255}),
-          Line(points={{-36,-29},{-62,-29}}, color={0,0,255}),
-          Ellipse(extent={{-36,-40},{-18,-22}}, lineColor={0,0,255}),
-          Ellipse(extent={{-18,-40},{0,-22}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-40},{18,-22}}, lineColor={0,0,255}),
-          Ellipse(extent={{18,-40},{36,-22}}, lineColor={0,0,255}),
-          Line(points={{62,-29},{36,-29}}, color={0,0,255}),
-          Rectangle(
-            extent={{42,-42},{-44,-30}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-36,30},{-36,34},{-31,39},{-27,39},{-23,39},{-18,34},{-18,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-18,30},{-18,34},{-13,39},{-9,39},{-5,39},{0,34},{0,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,30},{0,34},{5,39},{9,39},{13,39},{18,34},{18,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{18,30},{18,34},{23,39},{27,39},{31,39},{36,34},{36,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-36,30},{-62,30}}, color={0,0,255}),
+          Line(points={{62,30},{36,30}}, color={0,0,255}),
+   Line(points={{-36,10},{-36,14},{-31,19},{-27,19},{-23,19},{-18,14},{-18,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-18,10},{-18,14},{-13,19},{-9,19},{-5,19},{0,14},{0,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,10},{0,14},{5,19},{9,19},{13,19},{18,14},{18,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{18,10},{18,14},{23,19},{27,19},{31,19},{36,14},{36,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-36,10},{-62,10}}, color={0,0,255}),
+          Line(points={{62,10},{36,10}}, color={0,0,255}),
+   Line(points={{-36,-30},{-36,-26},{-31,-21},{-27,-21},{-23,-21},{-18,-26},{-18,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-18,-30},{-18,-26},{-13,-21},{-9,-21},{-5,-21},{0,-26},{0,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,-30},{0,-26},{5,-21},{9,-21},{13,-21},{18,-26},{18,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{18,-30},{18,-26},{23,-21},{27,-21},{31,-21},{36,-26},{36,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-36,-30},{-62,-30}}, color={0,0,255}),
+          Line(points={{62,-30},{36,-30}}, color={0,0,255}),
           Line(
-            points={{0,8},{0,-18}},
+            points={{0,2},{0,-18}},
             color={0,0,255},
             pattern=LinePattern.Dot),
           Text(
@@ -1852,31 +1805,23 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,8}}, color={0,0,255}),
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-60,-30},{60,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Text(
             extent={{-146,-47},{154,-87}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-60,0}}, color={0,0,
-            255}),Line(points={{0,90},{0,8}}, color={0,0,255}),Ellipse(extent={
-            {-60,-15},{-30,15}}, lineColor={0,0,255}),Ellipse(extent={{-30,-15},
-            {0,15}}, lineColor={0,0,255}),Ellipse(extent={{0,-15},{30,15}},
-            lineColor={0,0,255}),Ellipse(extent={{30,-15},{60,15}}, lineColor={
-            0,0,255}),Rectangle(
-              extent={{-60,-30},{62,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
-             {0,0,255})}));
+              100,100}}), graphics={
+     Line(points={{-96,0},{-60,0}}, color={0,0,255}),
+     Line(points={{60,0},{96,0}}, color={0,0,255}),
+     Line(points={{0,90},{0,8}}, color={0,0,255}),
+     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier)}));
   end VariableInductor;
 
   model Potentiometer "Adjustable resistor"
