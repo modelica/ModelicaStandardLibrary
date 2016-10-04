@@ -51,10 +51,10 @@ package Basic "Basic electrical components"
   end Ground;
 
   model Resistor "Ideal linear electrical resistor"
-    parameter SI.Resistance R(start=1)
+    parameter Modelica.SIunits.Resistance R(start=1)
       "Resistance at temperature T_ref";
-    parameter SI.Temperature T_ref=300.15 "Reference temperature";
-    parameter SI.LinearTemperatureCoefficient alpha=0
+    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
@@ -113,15 +113,15 @@ package Basic "Basic electrical components"
   end Resistor;
 
   model HeatingResistor "Temperature dependent electrical resistor"
-    parameter SI.Resistance R_ref(start=1)
+    parameter Modelica.SIunits.Resistance R_ref(start=1)
       "Resistance at temperature T_ref";
-    parameter SI.Temperature T_ref=300.15 "Reference temperature";
-    parameter SI.LinearTemperatureCoefficient alpha=0
+    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref,
         useHeatPort=true);
-    SI.Resistance R
+    Modelica.SIunits.Resistance R
       "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
   equation
     assert((1 + alpha*(T_heatPort - T_ref)) >= Modelica.Constants.eps,
@@ -196,14 +196,14 @@ package Basic "Basic electrical components"
   end HeatingResistor;
 
   model Conductor "Ideal linear electrical conductor"
-    parameter SI.Conductance G(start=1)
+    parameter Modelica.SIunits.Conductance G(start=1)
       "Conductance at temperature T_ref";
-    parameter SI.Temperature T_ref=300.15 "Reference temperature";
-    parameter SI.LinearTemperatureCoefficient alpha=0
+    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    SI.Conductance G_actual
+    Modelica.SIunits.Conductance G_actual
       "Actual conductance = G_ref/(1 + alpha*(T_heatPort - T_ref))";
 
   equation
@@ -318,15 +318,10 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-60,-30},{60,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Text(
@@ -338,30 +333,28 @@ package Basic "Basic electrical components"
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
-            lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}}, lineColor={
-            0,0,255}),Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),Rectangle(
-              extent={{-60,-30},{60,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
-             {0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
+              100,100}}), graphics={
+     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{60,0},{96,0}}, color={0,0,255}),
+     Line(points={{-96,0},{-60,0}}, color={0,0,255})}));
   end Inductor;
 
   model SaturatingInductor "Simple model of an inductor with saturation"
     extends Modelica.Electrical.Analog.Interfaces.OnePort(i(start=0));
-    parameter SI.Current Inom(start=1) "Nominal current";
-    parameter SI.Inductance Lnom(start=1)
+    parameter Modelica.SIunits.Current Inom(start=1) "Nominal current";
+    parameter Modelica.SIunits.Inductance Lnom(start=1)
       "Nominal inductance at Nominal current";
-    parameter SI.Inductance Lzer(start=2*Lnom)
+    parameter Modelica.SIunits.Inductance Lzer(start=2*Lnom)
       "Inductance near current=0";
-    parameter SI.Inductance Linf(start=Lnom/2)
+    parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
-    SI.Inductance Lact(start=Lzer) "Present inductance";
-    SI.MagneticFlux Psi "Present flux";
+    Modelica.SIunits.Inductance Lact(start=Lzer) "Present inductance";
+    Modelica.SIunits.MagneticFlux Psi "Present flux";
   protected
-    parameter SI.Current Ipar(start=Inom/10, fixed=false);
+    parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
   initial equation
     (Lnom - Linf) = (Lzer - Linf)*Ipar/Inom*(Modelica.Constants.pi/2 -
       Modelica.Math.atan(Ipar/Inom));
@@ -376,15 +369,10 @@ package Basic "Basic electrical components"
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-60,-20},{62,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Rectangle(
@@ -422,15 +410,13 @@ package Basic "Basic electrical components"
  </dl>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-60,-15},{-30,15}},
-            lineColor={0,0,255}),Ellipse(extent={{-30,-15},{0,15}}, lineColor={
-            0,0,255}),Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-            Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),Rectangle(
-              extent={{-60,-20},{62,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
-             {0,0,255}),Line(points={{-96,0},{-60,0}}, color={0,0,255}),
+              100,100}}), graphics={
+     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{60,0},{96,0}}, color={0,0,255}),
+     Line(points={{-96,0},{-60,0}}, color={0,0,255}),
             Rectangle(
               extent={{-60,-10},{60,-20}},
               lineColor={0,0,0},
@@ -472,26 +458,16 @@ package Basic "Basic electrical components"
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Ellipse(extent={{-45,-50},{-20,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,-25},{-20,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-72,-60},{-33,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{-90,50},{-32,50}}, color={0,0,255}),
           Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
-          Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,-25},{45,0}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,0},{45,25}}, lineColor={0,0,255}),
-          Ellipse(extent={{20,25},{45,50}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{33,-60},{72,60}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
           Line(points={{32,50},{90,50}}, color={0,0,255}),
           Line(points={{32,-50},{90,-50}}, color={0,0,255}),
           Text(
@@ -512,25 +488,20 @@ package Basic "Basic electrical components"
             extent={{-153,113},{147,73}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Ellipse(extent={{-45,-50},{-20,-25}},
-            lineColor={0,0,255}),Ellipse(extent={{-45,-25},{-20,0}}, lineColor=
-            {0,0,255}),Ellipse(extent={{-45,0},{-20,25}}, lineColor={0,0,255}),
-            Ellipse(extent={{-45,25},{-20,50}}, lineColor={0,0,255}),Rectangle(
-              extent={{-72,-60},{-33,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{-96,50},{-32,50}},
-            color={0,0,255}),Line(points={{-96,-50},{-32,-50}}, color={0,0,255}),
-            Ellipse(extent={{20,-50},{45,-25}}, lineColor={0,0,255}),Ellipse(
-            extent={{20,-25},{45,0}}, lineColor={0,0,255}),Ellipse(extent={{20,
-            0},{45,25}}, lineColor={0,0,255}),Ellipse(extent={{20,25},{45,50}},
-            lineColor={0,0,255}),Rectangle(
-              extent={{33,-60},{72,60}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{32,50},{96,50}},
-            color={0,0,255}),Line(points={{32,-50},{96,-50}}, color={0,0,255})}));
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+              100}}), graphics={
+     Line(points={{-32,-50},{-27,-50},{-20,-43},{-20,-38},{-20,-33},{-27,-25},{-32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-32,-25},{-27,-25},{-20,-18},{-20,-13},{-20,-8},{-27,0},{-32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-32,0},{-27,0},{-20,8},{-20,13},{-20,18},{-27,25},{-32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-32,25},{-27,25},{-20,33},{-20,38},{-20,43},{-27,50},{-32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-90,50},{-32,50}}, color={0,0,255}),
+     Line(points={{-90,-50},{-32,-50}}, color={0,0,255}),
+     Line(points={{32,-50},{27,-50},{20,-43},{20,-38},{20,-33},{27,-25},{32,-25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,-25},{27,-25},{20,-18},{20,-13},{20,-8},{27,0},{32,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,0},{27,0},{20,8},{20,13},{20,18},{27,25},{32,25}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,25},{27,25},{20,33},{20,38},{20,43},{27,50},{32,50}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{32,50},{90,50}}, color={0,0,255}),
+     Line(points={{32,-50},{90,-50}}, color={0,0,255})}));
   end Transformer;
 
   model M_Transformer "Generic transformer with free number of inductors"
@@ -539,17 +510,17 @@ package Basic "Basic electrical components"
   protected
     parameter Integer dimL=div(N*(N + 1), 2);
   public
-    parameter SI.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
+    parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "Inductances and coupling inductances";
     Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
       annotation (Placement(transformation(extent={{-80,-40},{-62,40}})));
     Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
       annotation (Placement(transformation(extent={{62,-40},{80,40}})));
 
-    SI.Voltage v[N] "Voltage drop over inductors";
-    SI.Current i[N](each start=0, fixed=true)
+    Modelica.SIunits.Voltage v[N] "Voltage drop over inductors";
+    Modelica.SIunits.Current i[N](each start=0, fixed=true)
       "Current through inductors";
-    parameter SI.Inductance Lm[N, N](each final fixed=false)
+    parameter Modelica.SIunits.Inductance Lm[N, N](each final fixed=false)
       "Complete symmetric inductance matrix, calculated internally";
 
   initial equation
@@ -572,44 +543,26 @@ package Basic "Basic electrical components"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
-          Ellipse(extent={{-36,24},{-18,42}}, lineColor={0,0,255}),
-          Ellipse(extent={{18,24},{36,42}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,24},{18,42}}, lineColor={0,0,255}),
-          Ellipse(extent={{-18,24},{0,42}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{42,23},{-44,34}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-36,34},{-62,34}}, color={0,0,255}),
-          Line(points={{62,34},{36,34}}, color={0,0,255}),
-          Ellipse(extent={{-36,8},{-18,26}}, lineColor={0,0,255}),
-          Ellipse(extent={{18,8},{36,26}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,8},{18,26}}, lineColor={0,0,255}),
-          Ellipse(extent={{-18,8},{0,26}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{42,6},{-44,18}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Line(points={{-36,18},{-62,18}}, color={0,0,255}),
-          Line(points={{62,18},{36,18}}, color={0,0,255}),
-          Line(points={{-36,-29},{-62,-29}}, color={0,0,255}),
-          Ellipse(extent={{-36,-40},{-18,-22}}, lineColor={0,0,255}),
-          Ellipse(extent={{-18,-40},{0,-22}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-40},{18,-22}}, lineColor={0,0,255}),
-          Ellipse(extent={{18,-40},{36,-22}}, lineColor={0,0,255}),
-          Line(points={{62,-29},{36,-29}}, color={0,0,255}),
-          Rectangle(
-            extent={{42,-42},{-44,-30}},
-            lineColor={0,0,255},
-            pattern=LinePattern.None,
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-36,30},{-36,34},{-31,39},{-27,39},{-23,39},{-18,34},{-18,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-18,30},{-18,34},{-13,39},{-9,39},{-5,39},{0,34},{0,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,30},{0,34},{5,39},{9,39},{13,39},{18,34},{18,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{18,30},{18,34},{23,39},{27,39},{31,39},{36,34},{36,30}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-36,30},{-62,30}}, color={0,0,255}),
+          Line(points={{62,30},{36,30}}, color={0,0,255}),
+   Line(points={{-36,10},{-36,14},{-31,19},{-27,19},{-23,19},{-18,14},{-18,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-18,10},{-18,14},{-13,19},{-9,19},{-5,19},{0,14},{0,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,10},{0,14},{5,19},{9,19},{13,19},{18,14},{18,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{18,10},{18,14},{23,19},{27,19},{31,19},{36,14},{36,10}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-36,10},{-62,10}}, color={0,0,255}),
+          Line(points={{62,10},{36,10}}, color={0,0,255}),
+   Line(points={{-36,-30},{-36,-26},{-31,-21},{-27,-21},{-23,-21},{-18,-26},{-18,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-18,-30},{-18,-26},{-13,-21},{-9,-21},{-5,-21},{0,-26},{0,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,-30},{0,-26},{5,-21},{9,-21},{13,-21},{18,-26},{18,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{18,-30},{18,-26},{23,-21},{27,-21},{31,-21},{36,-26},{36,-30}}, color={0,0,255}, smooth=Smooth.Bezier),
+          Line(points={{-36,-30},{-62,-30}}, color={0,0,255}),
+          Line(points={{62,-30},{36,-30}}, color={0,0,255}),
           Line(
-            points={{0,8},{0,-18}},
+            points={{0,2},{0,-18}},
             color={0,0,255},
             pattern=LinePattern.Dot),
           Text(
@@ -883,13 +836,13 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
       Evaluate=true,
       HideResult=true,
       choices(checkBox=true));
-    parameter SI.ElectricalForceConstant k(start=1)
+    parameter Modelica.SIunits.ElectricalForceConstant k(start=1)
       "Transformation coefficient";
 
-    SI.Voltage v "Voltage drop between the two pins";
-    SI.Current i "Current flowing from positive to negative pin";
-    SI.Position s "Position of flange relative to support";
-    SI.Velocity vel "Velocity of flange relative to support";
+    Modelica.SIunits.Voltage v "Voltage drop between the two pins";
+    Modelica.SIunits.Current i "Current flowing from positive to negative pin";
+    Modelica.SIunits.Position s "Position of flange relative to support";
+    Modelica.SIunits.Velocity vel "Velocity of flange relative to support";
 
     Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(
@@ -1414,16 +1367,16 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Voltage v_neg;
 
     // input stage
-    SI.Voltage v_vos;
-    SI.Voltage v_3;
-    SI.Voltage v_in;
-    SI.Voltage v_4;
+    Modelica.SIunits.Voltage v_vos;
+    Modelica.SIunits.Voltage v_3;
+    Modelica.SIunits.Voltage v_in;
+    Modelica.SIunits.Voltage v_4;
 
-    SI.Current i_vos;
-    SI.Current i_3;
-    SI.Current i_r2;
-    SI.Current i_c3;
-    SI.Current i_4;
+    Modelica.SIunits.Current i_vos;
+    Modelica.SIunits.Current i_3;
+    Modelica.SIunits.Current i_r2;
+    Modelica.SIunits.Current i_c3;
+    Modelica.SIunits.Current i_4;
 
     // frequency response
     Real q_fr1;
@@ -1441,9 +1394,9 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
     SI.Voltage x "auxiliary variable for slew rate";
 
     // output stage
-    SI.Voltage v_out;
+    Modelica.SIunits.Voltage v_out;
 
-    SI.Current i_out;
+    Modelica.SIunits.Current i_out;
 
     // functions
     function FCNiout_limit "Internal limitation function"
@@ -1613,12 +1566,12 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 
   model VariableResistor
     "Ideal linear electrical resistor with variable resistance"
-    parameter SI.Temperature T_ref=300.15 "Reference temperature";
-    parameter SI.LinearTemperatureCoefficient alpha=0
+    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    SI.Resistance R_actual
+    Modelica.SIunits.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput R(unit="Ohm") annotation (Placement(
           transformation(
@@ -1679,12 +1632,12 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 
   model VariableConductor
     "Ideal linear electrical conductor with variable conductance"
-    parameter SI.Temperature T_ref=300.15 "Reference temperature";
-    parameter SI.LinearTemperatureCoefficient alpha=0
+    parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
-    SI.Conductance G_actual
+    Modelica.SIunits.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
     Modelica.Blocks.Interfaces.RealInput G(unit="S") annotation (Placement(
           transformation(
@@ -1749,10 +1702,10 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
           origin={0,110},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    parameter SI.Capacitance Cmin=Modelica.Constants.eps
+    parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps
       "lower bound for variable capacitance";
-    SI.ElectricCharge Q;
-    parameter SI.Voltage IC=0 "Initial Value";
+    Modelica.SIunits.ElectricCharge Q;
+    parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
     parameter Boolean UIC=false;
   initial equation
     if UIC then
@@ -1814,10 +1767,10 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
           origin={0,108},
           extent={{-20,-20},{20,20}},
           rotation=270)));
-    SI.MagneticFlux Psi;
-    parameter SI.Inductance Lmin=Modelica.Constants.eps
+    Modelica.SIunits.MagneticFlux Psi;
+    parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps
       "lower bound for variable inductance";
-    parameter SI.Current IC=0 "Initial Value";
+    parameter Modelica.SIunits.Current IC=0 "Initial Value";
     parameter Boolean UIC=false;
   initial equation
     if UIC then
@@ -1852,38 +1805,30 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
           Line(points={{-90,0},{-60,0}}, color={0,0,255}),
           Line(points={{60,0},{90,0}}, color={0,0,255}),
           Line(points={{0,90},{0,8}}, color={0,0,255}),
-          Ellipse(extent={{-60,-15},{-30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{-30,-15},{0,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{0,-15},{30,15}}, lineColor={0,0,255}),
-          Ellipse(extent={{30,-15},{60,15}}, lineColor={0,0,255}),
-          Rectangle(
-            extent={{-60,-30},{60,0}},
-            lineColor={255,255,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
+   Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+   Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier),
           Text(
             extent={{-146,-47},{154,-87}},
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Line(points={{-96,0},{-60,0}}, color={0,0,
-            255}),Line(points={{0,90},{0,8}}, color={0,0,255}),Ellipse(extent={
-            {-60,-15},{-30,15}}, lineColor={0,0,255}),Ellipse(extent={{-30,-15},
-            {0,15}}, lineColor={0,0,255}),Ellipse(extent={{0,-15},{30,15}},
-            lineColor={0,0,255}),Ellipse(extent={{30,-15},{60,15}}, lineColor={
-            0,0,255}),Rectangle(
-              extent={{-60,-30},{62,0}},
-              lineColor={255,255,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),Line(points={{60,0},{96,0}}, color=
-             {0,0,255})}));
+              100,100}}), graphics={
+     Line(points={{-96,0},{-60,0}}, color={0,0,255}),
+     Line(points={{60,0},{96,0}}, color={0,0,255}),
+     Line(points={{0,90},{0,8}}, color={0,0,255}),
+     Line(points={{-60,0},{-60,6},{-51,15},{-45,15},{-39,15},{-30,6},{-30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{-30,0},{-30,6},{-21,15},{-15,15},{-9,15},{0,6},{0,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{0,0},{0,6},{9,15},{15,15},{21,15},{30,6},{30,0}}, color={0,0,255}, smooth=Smooth.Bezier),
+     Line(points={{30,0},{30,6},{39,15},{45,15},{51,15},{60,6},{60,0}}, color={0,0,255}, smooth=Smooth.Bezier)}));
   end VariableInductor;
 
   model Potentiometer "Adjustable resistor"
-    parameter SI.Resistance R(start=1)
+    parameter Modelica.SIunits.Resistance R(start=1)
       "Resistance at temperature T_ref";
-    parameter SI.Temperature T_ref=293.15 "Reference temperature";
-    parameter SI.LinearTemperatureCoefficient alpha=0
+    parameter Modelica.SIunits.Temperature T_ref=293.15 "Reference temperature";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=T_ref);
     parameter Boolean useRinput=false "use input for 0<r<1 (else constant)"
@@ -1895,9 +1840,9 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
       final min=0,
       final max=1) = 0.5 "Contact between n (r=0) and p (r=1)"
       annotation (Dialog(group="potentiometer", enable=not useRinput));
-    SI.Resistance Rp
+    Modelica.SIunits.Resistance Rp
       "Actual resistance between pin_p and contact";
-    SI.Resistance Rn
+    Modelica.SIunits.Resistance Rn
       "Actual resistance between contact and pin_n";
     Modelica.Electrical.Analog.Interfaces.PositivePin pin_p
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
