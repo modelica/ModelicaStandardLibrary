@@ -51,14 +51,17 @@ package Lines
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
   protected
+    parameter Modelica.SIunits.Resistance rm[N + 1]=
+    {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};	
     Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
-      R=fill(r*length/(N + 1), N + 1),
+      R=rm,
       T_ref=fill(T_ref, N + 1),
       alpha=fill(alpha_R, N + 1),
       useHeatPort=fill(useHeatPort, N + 1),
       T=fill(T, N + 1));
-    Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=fill(l*length/(N + 1),
-          N + 1));
+    parameter Modelica.SIunits.Inductance lm[N + 1]=
+    {if i==1 or i==N + 1 then l*length/(N*2) else l*length/N for i in 1:N+1};	
+	Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=lm);
     Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
     Modelica.Electrical.Analog.Basic.Conductor G[N](
       G=fill(g*length/(N), N),
@@ -112,6 +115,9 @@ package Lines
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
 </dl></html>", revisions="<html>
 <ul>
+<li><i> 2016   </i>
+       by Christoph Clauss<br> resistance and inductace calculation revised <br>
+       </li>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
        </li>
@@ -547,8 +553,10 @@ package Lines
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
   protected
+     parameter Modelica.SIunits.Resistance rm[N + 1]=
+    {if i==1 or i==N + 1 then r*length/(N*2) else r*length/N for i in 1:N+1};	
     Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
-      R=fill(r*length/(N + 1), N + 1),
+      R=rm,
       T_ref=fill(T_ref, N + 1),
       alpha=fill(alpha, N + 1),
       useHeatPort=fill(useHeatPort, N + 1),
@@ -595,6 +603,8 @@ The capacitances are calculated with: C=c*length/N.
 <dd>SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
 </dl></html>", revisions="<html>
 <dl>
+<dt><i>2016</i></dt>
+<dd>by Christoph Clauss initially resistance calculation revised</dd>
 <dt><i>1998</i></dt>
 <dd>by Christoph Clauss initially implemented</dd>
 </dl>
