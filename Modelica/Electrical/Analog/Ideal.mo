@@ -1387,7 +1387,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
   model ControlledOpenerWithArc
     "Controlled ideal electrical opener with simple arc model"
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
+    parameter SI.Voltage level=0.5 "Switch level";
     extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch open, otherwise p--n connected"
@@ -1425,7 +1425,7 @@ For details of the arc effect, see partial model <a href=\"modelica://Modelica.E
 
   model ControlledCloserWithArc
     "Controlled ideal electrical closer with simple arc model"
-    parameter Modelica.SIunits.Voltage level=0.5 "Switch level";
+    parameter SI.Voltage level=0.5 "Switch level";
     extends Modelica.Electrical.Analog.Interfaces.IdealSwitchWithArc;
     Modelica.Electrical.Analog.Interfaces.Pin control
       "Control pin: control.v > level switch closed, otherwise switch open"
