@@ -909,6 +909,7 @@ extends Modelica.Icons.ExamplesPackage;
     end randomNumbers;
 
     function special "Test Math.Special"
+       extends Modelica.Icons.Function;
        import Modelica.Utilities.Streams.print;
        import Modelica.Math.Special;
        input Integer nPoints = 1000;
@@ -995,6 +996,7 @@ extends Modelica.Icons.ExamplesPackage;
     end special;
 
     function distributions "Test Math.Distributions"
+       extends Modelica.Icons.Function;
        import Modelica.Utilities.Streams.print;
        import Modelica.Math.Distributions;
        input Integer nPoints = 1000;
@@ -1081,6 +1083,7 @@ extends Modelica.Icons.ExamplesPackage;
 
     function truncatedDistributions
       "Test truncated distributions in Math.Distributions"
+       extends Modelica.Icons.Function;
        import Modelica.Utilities.Streams.print;
        import Modelica.Math.Distributions;
        import Modelica;
@@ -1180,6 +1183,7 @@ extends Modelica.Icons.ExamplesPackage;
     end truncatedDistributions;
 
     function automaticGlobalSeed "Test automatic global seed"
+      extends Modelica.Icons.Function;
       output Integer seed "Automatically generated seed";
       external "C" seed = ModelicaRandom_automaticGlobalSeed()
        annotation (Library="ModelicaExternalC");
@@ -1262,6 +1266,7 @@ extends Modelica.Icons.ExamplesPackage;
       "Internal utility functions that should not be directly utilized by the user"
       function erfSimple
         "Error function (simple implementation, precision around 1e-7)"
+        extends Modelica.Icons.Function;
         input Real u;
         output Real y "y = 2/sqrt(pi)*Integral_0_u exp(-t^2)*dt";
       protected
@@ -1386,6 +1391,7 @@ The relative error is less than 1e-9.
 
       function erfInvSimple
         "Inverse error function with a precision of about 1e-7"
+        extends Modelica.Icons.Function;
         input Real u;
         output Real y;
       algorithm
@@ -1469,6 +1475,7 @@ For more details of this distribution see
 
       function derOneSided
         "Return approximation of derivative by a one-sided difference quotient (if size(u,1)=1, zero is returned)"
+        extends Modelica.Icons.Function;
         input Real u[:];
         input Real y[size(u,1)];
         output Real der_y[size(u,1)] "dy/du";
@@ -1509,6 +1516,7 @@ For more details of this distribution see
 
       function derTwoSided
         "Return approximation of derivative by a two-sided difference quotient (if size(u,1)=1, zero is returned)"
+        extends Modelica.Icons.Function;
         input Real u[:];
         input Real y[size(u,1)];
         output Real der_y[size(u,1)] "dy/du";
