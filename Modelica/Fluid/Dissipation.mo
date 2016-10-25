@@ -2765,7 +2765,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
           annotation (Dialog(group="Choices"));
 
         SI.Length K=0 "Roughness (average height of surface asperities)" annotation (
-            Dialog(group="Straight pipe", enable=roughness == Modelica.Fluid.Dissipation.Utilities.Types.Roughness.considered));
+            Dialog(group="Straight pipe", enable=roughness == Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered));
 
       annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent\">kc_turbulent</a> and
