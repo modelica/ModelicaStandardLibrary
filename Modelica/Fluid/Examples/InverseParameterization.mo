@@ -37,8 +37,8 @@ model InverseParameterization
   Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,redeclare package Medium = Medium, p=
         100000)
              annotation (Placement(transformation(extent={{76,14},{64,26}})));
-
-  inner Modelica.Fluid.System system
+           
+  inner Modelica.Fluid.System system(m_flow_start = 0.4)
                         annotation (Placement(transformation(extent={{-90,50},{
             -70,70}})));
   Modelica.Fluid.Pipes.StaticPipe pipe1(
