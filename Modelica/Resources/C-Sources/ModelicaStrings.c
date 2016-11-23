@@ -326,7 +326,8 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
                 (string[next] != '\0' && string[next] != '.'
                                       && string[next] != 'e'
                                       && string[next] != 'E') ) {
-#if defined(_MSC_VER) && _MSC_VER >= 1400
+#if defined(NO_LOCALE)
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
                 _locale_t loc = _create_locale(LC_NUMERIC, "C");
 #elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
                 locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
@@ -340,10 +341,10 @@ MODELICA_EXPORT void ModelicaStrings_scanInteger(const char* string, int startIn
 
                 strncpy(buf, string+token_start-1, sign + number_length);
                 buf[sign + number_length] = '\0';
-#if defined(_MSC_VER) && _MSC_VER >= 1400
+#if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
                 x = (int)_strtol_l(buf, &endptr, 10, loc);
                 _free_locale(loc);
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
+#elif !defined(NO_LOCALE) && (defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3))
                 x = (int)strtol_l(buf, &endptr, 10, loc);
                 freelocale(loc);
 #else
@@ -436,12 +437,12 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
     /* Convert accumulated characters into a number. */
 
     if (total_length > 0 && total_length < MAX_TOKEN_SIZE) {
-#if defined(_MSC_VER) && _MSC_VER >= 1400
+#if defined(NO_LOCALE)
+        const char* const dec = ".";
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
         _locale_t loc = _create_locale(LC_NUMERIC, "C");
 #elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
-#elif defined(NO_LOCALE)
-        const char* const dec = ".";
 #else
         char* dec = localeconv()->decimal_point;
 #endif
@@ -454,7 +455,8 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
 
         strncpy(buf, string+token_start-1, total_length);
         buf[total_length] = '\0';
-#if defined(_MSC_VER) && _MSC_VER >= 1400
+#if defined(NO_LOCALE)
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
         x = _strtod_l(buf, &endptr, loc);
         _free_locale(loc);
 #elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)

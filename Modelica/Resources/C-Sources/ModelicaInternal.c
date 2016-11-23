@@ -39,6 +39,7 @@
    NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
    NO_PID         : Function getpid is not present (e.g. on dSPACE)
    NO_TIME        : Function gettimeofday is not present (e.g. on dSPACE)
+   NO_LOCALE      : locale.h is not present (e.g. on AVR).
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definitions:
                     - "static" that is all functions become static
@@ -48,6 +49,12 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+                     Added NO_LOCALE define flag, in case the OS does
+                     not have this (for example when using GCC compiler,
+                     but not libc). Also added autoconf detection for
+                     this flag, NO_PID, NO_TIME, and NO_FILE_SYSTEM
+
       Mar. 02, 2016: by Thomas Beutlich, ITI GmbH
                      Fixed repeated opening of cached file in case of line miss in
                      ModelicaStreams_openFileForReading (ticket #1939)
