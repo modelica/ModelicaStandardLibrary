@@ -84,7 +84,9 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#if !defined(NO_LOCALE)
 #include <locale.h>
+#endif
 
 /*
  * Non-null pointers and esp. null-terminated strings need to be passed to
@@ -438,6 +440,8 @@ MODELICA_EXPORT void ModelicaStrings_scanReal(const char* string, int startIndex
         _locale_t loc = _create_locale(LC_NUMERIC, "C");
 #elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
         locale_t loc = newlocale(LC_NUMERIC, "C", NULL);
+#elif defined(NO_LOCALE)
+        const char* const dec = ".";
 #else
         char* dec = localeconv()->decimal_point;
 #endif
