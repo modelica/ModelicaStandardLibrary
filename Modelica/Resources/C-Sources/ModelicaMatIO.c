@@ -49,6 +49,7 @@
    The following #define's are available.
 
    NO_FILE_SYSTEM: A file system is not present (e.g. on dSPACE or xPC).
+   NO_LOCALE     : locale.h is not present (e.g. on AVR).
    HAVE_ZLIB=1   : Enables the support of v7 MAT-files
                    The zlib (>= v1.2.3) library is required.
    HAVE_HDF5=1   : Enables the support of v7.3 MAT-files
@@ -115,11 +116,13 @@
 #undef HAVE_INTTYPES_H
 #endif
 
+#if !defined(NO_LOCALE)
 /* Define to 1 if you have the `localeconv' function. */
 #define HAVE_LOCALECONV 1
 
 /* Define to 1 if you have the <locale.h> header file. */
 #define HAVE_LOCALE_H 1
+#endif
 
 /* Define to 1 if the system has the type `long double'. */
 #if defined (_WIN32)

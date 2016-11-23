@@ -30,6 +30,7 @@
 
    _MSC_VER       : Microsoft Visual C++
    __GNUC__       : GNU C compiler
+   NO_LOCALE      : locale.h is not present (e.g. on AVR).
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definitions:
                     - "static" that is all functions become static
@@ -39,6 +40,12 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+                     Added NO_LOCALE define flag, in case the OS does
+                     not have this (for example when using GCC compiler,
+                     but not libc). Also added autoconf detection for
+                     this flag, NO_PID, NO_TIME, and NO_FILE_SYSTEM
+
       Feb. 26, 2016: by Hans Olsson, DS AB
                      Build hash code on the unsigned characters in
                      ModelicaStrings_hashString (ticket #1926)

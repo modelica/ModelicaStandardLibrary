@@ -36,6 +36,7 @@
    The following #define's are available.
 
    NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
+   NO_LOCALE             : locale.h is not present (e.g. on AVR).
    DEBUG_TIME_EVENTS     : Trace time events of CombiTimeTable
    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
    NO_TABLE_COPY         : Do not copy table data passed to _init functions
@@ -46,6 +47,12 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
+                     Added NO_LOCALE define flag, in case the OS does
+                     not have this (for example when using GCC compiler,
+                     but not libc). Also added autoconf detection for
+                     this flag, NO_PID, NO_TIME, and NO_FILE_SYSTEM
+
       Aug. 10, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed event detection of CombiTimeTable for restarted
                      simulation (ticket #2040)
