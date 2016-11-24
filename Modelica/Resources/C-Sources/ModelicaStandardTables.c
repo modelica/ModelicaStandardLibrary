@@ -53,6 +53,10 @@
                      but not libc). Also added autoconf detection for
                      this flag, NO_PID, NO_TIME, and NO_FILE_SYSTEM
 
+      Nov. 21, 2016: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed error handling if a table variable cannot be found in a
+                     MATLAB MAT-file (ticket #2119)
+
       Aug. 10, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed event detection of CombiTimeTable for restarted
                      simulation (ticket #2040)
@@ -261,6 +265,9 @@ typedef struct CombiTable2D {
 #define _EPSILON (1e-10)
 #define MAX_TABLE_DIMENSIONS (3)
 #define LINE_BUFFER_LENGTH (64)
+#if !defined(NO_FILE_SYSTEM)
+#define MATLAB_NAME_LENGTH_MAX (64)
+#endif
 
 /* ----- Internal shortcuts ----- */
 
@@ -4302,22 +4309,47 @@ static double* readMatTable(const char* tableName, const char* fileName,
         token = strtok(tableNameCopy, ".");
         matvarRoot = Mat_VarReadInfo(mat, token == NULL ? tableName : token);
         if (matvarRoot == NULL) {
-            free(tableNameCopy);
             (void)Mat_Close(mat);
-            ModelicaFormatError(
-                "Table variable \"%s\" not found on file \"%s\".\n",
-                token == NULL ? tableName : token, fileName);
+            if (token == NULL) {
+                free(tableNameCopy);
+                ModelicaFormatError(
+                    "Table variable \"%s\" not found on file \"%s\".\n",
+                    tableName, fileName);
+            }
+            else {
+                char varNameBuf[MATLAB_NAME_LENGTH_MAX];
+                if (strlen(token) > MATLAB_NAME_LENGTH_MAX - 1) {
+                    strncpy(varNameBuf, token, MATLAB_NAME_LENGTH_MAX - 1);
+                    varNameBuf[MATLAB_NAME_LENGTH_MAX - 1] = '\0';
+                    free(tableNameCopy);
+                    ModelicaFormatError(
+                        "Table variable \"%s...\" not found on file \"%s\".\n",
+                        varNameBuf, fileName);
+                }
+                else {
+                    strcpy(varNameBuf, token);
+                    free(tableNameCopy);
+                    ModelicaFormatError(
+                        "Table variable \"%s\" not found on file \"%s\".\n",
+                        varNameBuf, fileName);
+                }
+            }
             return NULL;
         }
 
         matvar = matvarRoot;
         token = strtok(NULL, ".");
         /* Get field while matvar is of struct class and of 1x1 size */
-        while (token != NULL && matvar != NULL &&
-            matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
-            matvar->dims[0] == 1 && matvar->dims[1] == 1) {
-            matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
-            token = strtok(NULL, ".");
+        while (token != NULL && matvar != NULL) {
+            if (matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
+                matvar->dims[0] == 1 && matvar->dims[1] == 1) {
+                matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
+                token = strtok(NULL, ".");
+            }
+            else {
+                matvar = NULL;
+                break;
+            }
         }
         free(tableNameCopy);
 
