@@ -39,7 +39,6 @@
    NO_FILE_SYSTEM : A file system is not present (e.g. on dSPACE or xPC).
    NO_PID         : Function getpid is not present (e.g. on dSPACE)
    NO_TIME        : Function gettimeofday is not present (e.g. on dSPACE)
-   NO_LOCALE      : locale.h is not present (e.g. on AVR).
    MODELICA_EXPORT: Prefix used for function calls. If not defined, blank is used
                     Useful definitions:
                     - "static" that is all functions become static
