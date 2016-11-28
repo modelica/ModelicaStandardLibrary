@@ -53,7 +53,7 @@
    HAVE_ZLIB=1   : Enables the support of v7 MAT-files
                    The zlib (>= v1.2.3) library is required.
    HAVE_HDF5=1   : Enables the support of v7.3 MAT-files
-                   The hdf5 (>= v1.8) and szip libraries are required.
+                   The hdf5 (>= v1.8) library is required.
 */
 
 #include "ModelicaUtilities.h"
