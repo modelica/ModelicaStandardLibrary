@@ -15,8 +15,21 @@
   }
 
 */
+#if defined(__cplusplus)
 
-#if  __GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7)
+#define G_HAS_CONSTRUCTORS 1
+
+#define G_DEFINE_CONSTRUCTOR(_func) \
+  static void _func(void); \
+  struct _func ## _wrapper_struct { _func ## _wrapper_struct() { _func(); } }; \
+  static _func ## _wrapper_struct _func ## _wrapper;
+
+#define G_DEFINE_DESTRUCTOR(_func) \
+  static void _func(void); \
+  struct _func ## _wrapper_struct2 { ~_func ## _wrapper_struct2() { _func(); } }; \
+  static _func ## _wrapper_struct2 _func ## _wrapper2;
+
+#elif defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7))
 
 #define G_HAS_CONSTRUCTORS 1
 
