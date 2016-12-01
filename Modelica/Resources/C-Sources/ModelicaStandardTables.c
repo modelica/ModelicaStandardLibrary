@@ -1392,7 +1392,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
             tEvent = TABLE_ROW0(0);
             eventInterval = 0;
             if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                for (i = 0; i < nRow - 1; i++) {
+                for (i = 0; i < nRow - 1 &&
+                    eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent) {
@@ -1412,7 +1413,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                 }
             }
             else {
-                for (i = 0; i < nRow - 1; i++) {
+                for (i = 0; i < nRow - 1 &&
+                    eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
                     double t1 = TABLE_COL0(i + 1);
                     if (t1 > tEvent) {
