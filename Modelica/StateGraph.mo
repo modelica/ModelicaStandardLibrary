@@ -479,7 +479,7 @@ step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 <p>
 There is a much improved library available called \"Modelica_StateGraph2\".
 If this library is not yet distributed with your Modelica tool, you can download
-it from <a href=\"https://www.modelica.org/libraries/Modelica_StateGraph2\">https://www.modelica.org/libraries/Modelica_StateGraph2</a>.
+it from <a href=\"https://github.com/modelica/Modelica_StateGraph2\">https://github.com/modelica/Modelica_StateGraph2</a>.
 Find below a comparison with respect to Modelica.StateGraph.
 It is not yet clear whether Modelica_StateGraph2 will be included in a
 future version of the Modelica package. Another option is to provide
