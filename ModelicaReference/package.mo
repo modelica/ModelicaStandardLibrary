@@ -1717,8 +1717,8 @@ A user-defined table may be defined in the following way as an ExternalObject
 <b>class</b> MyTable
   <b>extends</b> ExternalObject;
   <b>function</b> constructor
-    <b>input</b>  String  fileName := \"\";
-    <b>input</b>  String  tableName := \"\";
+    <b>input</b>  String  fileName = \"\";
+    <b>input</b>  String  tableName = \"\";
     <b>output</b> MyTable table;
     <b>external</b> \"C\" table = initMyTable(fileName, tableName);
   <b>end</b> constructor;
@@ -1770,12 +1770,12 @@ The external C-functions may be defined in the following way:
   <b>int</b>     lastIndex;  /* last row index for search */
 } MyTable;
 
-<b>void</b>* initMyTable(char* fileName, char* tableName) {
+<b>void</b>* initMyTable(const char* fileName, const char* tableName) {
   MyTable* table = malloc(sizeof(MyTable));
   <b>if</b> ( table == NULL ) ModelicaError(\"Not enough memory\");
         // read table from file and store all data in *table
   <b>return</b> (void*) table;
-};
+}
 
 <b>void </b>closeMyTable(void* object) { /* Release table storage */
   MyTable* table = (MyTable*) object;
@@ -1789,7 +1789,7 @@ The external C-functions may be defined in the following way:
   <b>double</b> y;
   // Interpolate using \"table\" data (compute y)
   <b>return</b> y;
-};
+}
 </pre>
 </html>"));
   end ExternalObject;
