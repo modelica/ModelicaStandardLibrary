@@ -572,7 +572,7 @@ based on the following references:
      Semantics of S.S.M (Safe State Machine).</a>.
      I3S Laboratory, UMR 6070 University of Nice-Sophia Antipolis / CNRS.<br>&nbsp;</dd>
 
-<dt>Arzen K.-E. (2004):</dt>
+<dt>&Aring;rz&eacute;n K.-E. (2004):</dt>
 <dd> <b>JGrafchart User Manual. Version 1.5</b>.
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, Feb. 13, 2004.<br>&nbsp;</dd>
@@ -580,7 +580,7 @@ based on the following references:
 <dt>Dressler I. (2004):</dt>
 <dd> <a href=\"http://www.control.lth.se/documents/2004/5726.pdf\">
      Code Generation From JGrafchart to Modelica.</a>.
-     Master thesis, supervisor: Karl-Erik Arzen,
+     Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30, 2004.<br>&nbsp;</dd>
 
@@ -698,13 +698,13 @@ Implemented a first version that is provided to other people.
 The StateGraph library is based on the following references:
 </p>
 <dl>
-<dt>Arzen K.-E. (2004):</dt>
+<dt>&Aring;rz&eacute;n K.-E. (2004):</dt>
 <dd> <b>JGrafchart User Manual. Version 1.5</b>.
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, Feb. 13<br>&nbsp;</dd>
 <dt>Dressler I. (2004):</dt>
 <dd> <b>Code Generation From JGrafchart to Modelica</b>.
-     Master thesis, supervisor: Karl-Erik Arzen,
+     Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30<br>&nbsp;</dd>
 <dt>Elmqvist H., Mattsson S.E., Otter M. (2001):</dt>
@@ -744,7 +744,7 @@ The StateGraph library is based on the following references:
      (<a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">see literature</a>),
      in which
      a compiler from JGrafchart to Modelica was designed and
-     implemented. This project was supervised by Karl-Erik Arzen
+     implemented. This project was supervised by Karl-Erik &Aring;rz&eacute;n
      from Department of Automatic Control, Lund Institut of
      Technology, Lund, Sweden.</li>
 <li> This library profits also from the experience gained

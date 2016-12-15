@@ -198,7 +198,7 @@ This example is based on
 <dl>
 <dt>Dressler I. (2004):</dt>
 <dd> <b>Code Generation From JGrafchart to Modelica</b>.
-     Master thesis, supervisor: Karl-Erik Arzen,
+     Master thesis, supervisor: Karl-Erik &Aring;rz&eacute;n,
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, March 30, 2004<br>&nbsp;</dd>
 </dl>
