@@ -262,10 +262,16 @@ typedef struct CombiTable2D {
 
 /* ----- Internal constants ----- */
 
+#if !defined(_EPSILON)
 #define _EPSILON (1e-10)
+#endif
+#if !defined(MAX_TABLE_DIMENSIONS)
 #define MAX_TABLE_DIMENSIONS (3)
+#endif
+#if !defined(LINE_BUFFER_LENGTH)
 #define LINE_BUFFER_LENGTH (64)
-#if !defined(NO_FILE_SYSTEM)
+#endif
+#if !defined(NO_FILE_SYSTEM) && !defined(MATLAB_NAME_LENGTH_MAX)
 #define MATLAB_NAME_LENGTH_MAX (64)
 #endif
 
