@@ -1,6 +1,6 @@
 /* ModelicaStandardTables.c - External table functions
 
-   Copyright (C) 2013-2016, Modelica Association, DLR, and ITI GmbH
+   Copyright (C) 2013-2017, Modelica Association, DLR, and ESI ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -47,6 +47,10 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Replaced strtok by re-entrant string tokenize function
+                     (ticket #1153)
+
       Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
                      Added NO_LOCALE define flag, in case the OS does
                      not have this (for example when using GCC compiler,
@@ -145,7 +149,7 @@
 #include <math.h>
 #include <string.h>
 
-#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
+#if !defined(NO_FILE_SYSTEM)
 /* The standard way to detect posix is to check _POSIX_VERSION,
  * which is defined in <unistd.h>
  */
@@ -302,6 +306,16 @@ BILINEAR(u10, u21, ...) -> y01
 BILINEAR(u11, u20, ...) -> y10
 BILINEAR(u11, u21, ...) -> y11
 */
+
+#if !defined(NO_FILE_SYSTEM)
+/* Use re-entrant string tokenize function if available */
+#if defined(_POSIX_)
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
+#define strtok_r(str, delim, saveptr) strtok_s((str), (delim), (saveptr))
+#else
+#define strtok_r(str, delim, saveptr) strtok((str), (delim))
+#endif
+#endif
 
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 typedef struct TableShare {
@@ -4294,6 +4308,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
         int tableReadError = 0;
         char* tableNameCopy;
         char* token;
+        char* nextToken = NULL;
 
         tableNameCopy = (char*)malloc((strlen(tableName) + 1)*sizeof(char));
         if (tableNameCopy != NULL) {
@@ -4312,7 +4327,7 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        token = strtok(tableNameCopy, ".");
+        token = strtok_r(tableNameCopy, ".", &nextToken);
         matvarRoot = Mat_VarReadInfo(mat, token == NULL ? tableName : token);
         if (matvarRoot == NULL) {
             (void)Mat_Close(mat);
@@ -4344,13 +4359,13 @@ static double* readMatTable(const char* tableName, const char* fileName,
         }
 
         matvar = matvarRoot;
-        token = strtok(NULL, ".");
+        token = strtok_r(NULL, ".", &nextToken);
         /* Get field while matvar is of struct class and of 1x1 size */
         while (token != NULL && matvar != NULL) {
             if (matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
                 matvar->dims[0] == 1 && matvar->dims[1] == 1) {
                 matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
-                token = strtok(NULL, ".");
+                token = strtok_r(NULL, ".", &nextToken);
             }
             else {
                 matvar = NULL;
@@ -4531,17 +4546,18 @@ static double* readTxtTable(const char* tableName, const char* fileName,
         while (readLine(&buf, &bufLen, fp) == 0) {
             char* token;
             char* endptr;
+            char* nextToken = NULL;
 
             lineNo++;
             /* Expected table header format: "dataType tableName(nRow,nCol)" */
-            token = strtok(buf, DELIM_TABLE_HEADER);
+            token = strtok_r(buf, DELIM_TABLE_HEADER, &nextToken);
             if (token == NULL) {
                 continue;
             }
             if ((0 != strcmp(token, "double")) && (0 != strcmp(token, "float"))) {
                 continue;
             }
-            token = strtok(NULL, DELIM_TABLE_HEADER);
+            token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
             if (token == NULL) {
                 continue;
             }
@@ -4551,7 +4567,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             else {
                 continue;
             }
-            token = strtok(NULL, DELIM_TABLE_HEADER);
+            token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
             if (token == NULL) {
                 continue;
             }
@@ -4565,7 +4581,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
             if (*endptr != 0) {
                 continue;
             }
-            token = strtok(NULL, DELIM_TABLE_HEADER);
+            token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
             if (token == NULL) {
                 continue;
             }
@@ -4619,7 +4635,8 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         /* Skip empty or comment line */
                         continue;
                     }
-                    token = strtok(&buf[k], DELIM_TABLE_NUMBER);
+                    nextToken = NULL;
+                    token = strtok_r(&buf[k], DELIM_TABLE_NUMBER, &nextToken);
                     while (token != NULL && i < nRow && j < nCol) {
                         if (token[0] == '#') {
                             /* Skip trailing comment line */
@@ -4672,7 +4689,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                             j = 0; /* Reset column index */
                         }
                         if (tableReadError == 0) {
-                            token = strtok(NULL, DELIM_TABLE_NUMBER);
+                            token = strtok_r(NULL, DELIM_TABLE_NUMBER, &nextToken);
                             continue;
                         }
                         else {

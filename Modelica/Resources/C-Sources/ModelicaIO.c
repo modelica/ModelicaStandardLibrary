@@ -1,6 +1,6 @@
 /* ModelicaIO.c - Array I/O functions
 
-   Copyright (C) 2016, Modelica Association
+   Copyright (C) 2016-2017, Modelica Association
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -39,6 +39,10 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Replaced strtok by re-entrant string tokenize function
+                     (ticket #1153)
+
       Nov. 21, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed error handling if a variable cannot be found in a
                      MATLAB MAT-file (ticket #2119)
@@ -79,7 +83,27 @@ MODELICA_EXPORT int ModelicaIO_writeRealMatrix(const char* fileName,
 #include "ModelicaIO.h"
 #include "ModelicaMatIO.h"
 
+#if !defined(MATLAB_NAME_LENGTH_MAX)
 #define MATLAB_NAME_LENGTH_MAX (64)
+#endif
+
+/* The standard way to detect posix is to check _POSIX_VERSION,
+ * which is defined in <unistd.h>
+ */
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE_CC__)
+#include <unistd.h>
+#endif
+#if !defined(_POSIX_) && defined(_POSIX_VERSION)
+#define _POSIX_ 1
+#endif
+
+/* Use re-entrant string tokenize function if available */
+#if defined(_POSIX_)
+#elif defined(_MSC_VER) && _MSC_VER >= 1400
+#define strtok_r(str, delim, saveptr) strtok_s((str), (delim), (saveptr))
+#else
+#define strtok_r(str, delim, saveptr) strtok((str), (delim))
+#endif
 
 static void transpose(double* table, size_t nRow, size_t nCol) {
   /* Reference:
@@ -123,6 +147,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
     matvar_t* matvarRoot;
     char* varNameCopy;
     char* token;
+    char* nextToken = NULL;
 
     varNameCopy = (char*)malloc((strlen(varName) + 1)*sizeof(char));
     if (varNameCopy != NULL) {
@@ -145,7 +170,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
         return;
     }
 
-    token = strtok(varNameCopy, ".");
+    token = strtok_r(varNameCopy, ".", &nextToken);
     matvarRoot = Mat_VarReadInfo(mat, token == NULL ? varName : token);
     if (matvarRoot == NULL) {
         dim[0] = 0;
@@ -179,13 +204,13 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
     }
 
     matvar = matvarRoot;
-    token = strtok(NULL, ".");
+    token = strtok_r(NULL, ".", &nextToken);
     /* Get field while matvar is of struct class and of 1x1 size */
     while (token != NULL && matvar != NULL) {
         if (matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
             matvar->dims[0] == 1 && matvar->dims[1] == 1) {
             matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
-            token = strtok(NULL, ".");
+            token = strtok_r(NULL, ".", &nextToken);
         }
         else {
             matvar = NULL;
@@ -229,6 +254,7 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
     int tableReadError = 0;
     char* varNameCopy;
     char* token;
+    char* nextToken = NULL;
 
     if (verbose == 1) {
         /* Print info message, that matrix / file is loading */
@@ -253,7 +279,7 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
         return;
     }
 
-    token = strtok(varNameCopy, ".");
+    token = strtok_r(varNameCopy, ".", &nextToken);
     matvarRoot = Mat_VarReadInfo(mat, token == NULL ? varName : token);
     if (matvarRoot == NULL) {
         (void)Mat_Close(mat);
@@ -285,13 +311,13 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
     }
 
     matvar = matvarRoot;
-    token = strtok(NULL, ".");
+    token = strtok_r(NULL, ".", &nextToken);
     /* Get field while matvar is of struct class and of 1x1 size */
     while (token != NULL && matvar != NULL) {
         if (matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
             matvar->dims[0] == 1 && matvar->dims[1] == 1) {
             matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
-            token = strtok(NULL, ".");
+            token = strtok_r(NULL, ".", &nextToken);
         }
         else {
             matvar = NULL;
