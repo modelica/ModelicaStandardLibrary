@@ -17,7 +17,7 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Older Releases
 
-Browse the [Releases](releases) page in order to get access to older releases of the Modelica Standard Library.
+Browse the [Releases](../../releases) page in order to get access to older releases of the Modelica Standard Library.
 
 ## License
 
