@@ -1,0 +1,14 @@
+# Do not change the line endings by default
+* -text
+
+# Explicitly declare text files we want to always be normalized and converted
+# to native line endings on checkout.
+*.c text
+*.h text
+*.mo text
+*.mos text
+*.order text
+.gitattributes text
+.gitignore text
+*.md text
+*.htm* text
