@@ -555,7 +555,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-The function call \"<code>Vectors.interpolate(x,y,xi)</code>\" interpolates in vectors
+The function call \"<code>Vectors.interpolate(x,y,xi)</code>\" interpolates linearly in vectors
 (x,y) and returns the value yi that corresponds to xi. Vector x[:] must consist
 of monotonically increasing values. If xi &lt; x[1] or &gt; x[end], then
 extrapolation takes places through the first or last two x[:] values, respectively.
