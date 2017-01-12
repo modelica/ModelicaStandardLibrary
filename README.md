@@ -13,7 +13,7 @@ Note, the usage of a Modelica library requires a Modelica simulation environment
 
 ## Current release
 
-[Modelica Standard Library v3.2.2 (2016-04-03)](releases/tag/v3.2.2)
+[Modelica Standard Library v3.2.2 (2016-04-03)](../../releases/tag/v3.2.2)
 
 ## Older Releases
 
@@ -27,4 +27,4 @@ it can be redistributed and/or modified under the terms of the [Modelica License
 ## Development and contribution
 The devolopment is organised by the [Modelica Association](https://www.modelica.org/association).
 
-You may report any issues by using the [Issue Tracker](issues).
+You may report any issues by using the [Issue Tracker](../../issues).
