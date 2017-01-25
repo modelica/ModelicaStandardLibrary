@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -70,6 +72,12 @@ located at <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.h
 <td>Salient reluctance</td>
 </tr>
 <tr>
+<td><img src="Modelica.Magnetic.Fundame31f6b9e6b7996a02tanceS.png" alt="Modelica.Magnetic.FundamentalWave.Components.Permeance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Permeance"
+>Permeance</a>
+</td>
+<td>Salient Permeance</td>
+</tr>
+<tr>
 <td><img src="Modelica.Magnetic.Fundame29cf661fff4f712arrentS.png" alt="Modelica.Magnetic.FundamentalWave.Components.EddyCurrent" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
 >EddyCurrent</a>
 </td>
@@ -91,13 +99,19 @@ located at <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.h
 <td><img src="Modelica.Magnetic.Fundame72e810d6db6cfc0d.IdleS.png" alt="Modelica.Magnetic.FundamentalWave.Components.Idle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Idle"
 >Idle</a>
 </td>
-<td>Salient reluctance</td>
+<td>Idle running branch</td>
 </tr>
 <tr>
 <td><img src="Modelica.Magnetic.Fundame7cd3c34e60398f2fShortS.png" alt="Modelica.Magnetic.FundamentalWave.Components.Short" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Short"
 >Short</a>
 </td>
-<td>Salient reluctance</td>
+<td>Short cut branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundamee076ec1c4785973dssingS.png" alt="Modelica.Magnetic.FundamentalWave.Components.Crossing" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Crossing"
+>Crossing</a>
+</td>
+<td>Crossing of two branches</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -157,6 +171,43 @@ The salient reluctance models the relationship between the complex magnetic pote
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>R_m</td><td>Magnetic reluctance in d=re and q=im axis</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive complex magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative complex magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Permeance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame31f6b9e6b7996a02tanceI.png" alt="Modelica.Magnetic.FundamentalWave.Components.Permeance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.Components.Permeance"></a><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components"
+>Modelica.Magnetic.FundamentalWave.Components</a>.Permeance</h2>
+<p>
+<span class="ModelicaDescription">Salient Permeance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The salient permeance models the relationship between the complex magnetic potential difference
+<img src="../Resources/Images/Magnetic/FundamentalWave/V_m.png" alt="V_m.png"> and the complex magnetic flux <img src="../Resources/Images/Magnetic/FundamentalWave/Phi.png">:
+</p>
+
+<blockquote>
+<img src="../Resources/Images/Magnetic/FundamentalWave/Components/permeance.png"
+      alt="reluctance.png">
+</blockquote>
+<p></p>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary</a> (Two magnetic ports for textual modeling).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G_m</td><td>Magnetic permeance in d=re and q=im axis</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -394,7 +445,7 @@ The voltages <img src="../Resources/Images/Magnetic/FundamentalWave/v_k.png"> in
 <a name="Modelica.Magnetic.FundamentalWave.Components.Idle"></a><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components"
 >Modelica.Magnetic.FundamentalWave.Components</a>.Idle</h2>
 <p>
-<span class="ModelicaDescription">Salient reluctance</span>
+<span class="ModelicaDescription">Idle running branch</span>
 </p>
 <h3>Information</h3>
 
@@ -405,7 +456,9 @@ This is a simple idle running branch.
 <h4>See also</h4>
 <p>
 <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Short"
->Short</a>
+>Short</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Crossing"
+>Crossing</a>
 </p>
 
 
@@ -424,7 +477,7 @@ This is a simple idle running branch.
 <a name="Modelica.Magnetic.FundamentalWave.Components.Short"></a><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components"
 >Modelica.Magnetic.FundamentalWave.Components</a>.Short</h2>
 <p>
-<span class="ModelicaDescription">Salient reluctance</span>
+<span class="ModelicaDescription">Short cut branch</span>
 </p>
 <h3>Information</h3>
 
@@ -435,7 +488,9 @@ This is a simple short cut branch.
 <h4>See also</h4>
 <p>
 <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Idle"
->Idle</a>
+>Idle</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Crossing"
+>Crossing</a>
 </p>
 
 
@@ -447,8 +502,40 @@ This is a simple short cut branch.
 <tr><td>port_p</td><td>Positive complex magnetic port</td></tr>
 <tr><td>port_n</td><td>Negative complex magnetic port</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Crossing<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundamee076ec1c4785973dssingI.png" alt="Modelica.Magnetic.FundamentalWave.Components.Crossing" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.Components.Crossing"></a><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components"
+>Modelica.Magnetic.FundamentalWave.Components</a>.Crossing</h2>
+<p>
+<span class="ModelicaDescription">Crossing of two branches</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Idle"
+>Idle</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Short"
+>Short</a>
+</p>
+
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p1</td><td>Positive port_p1 connected with port_p2</td></tr>
+<tr><td>port_p2</td><td>Positive port_p2 connected with port_p1</td></tr>
+<tr><td>port_n1</td><td>Negative port_n1 connected with port_n2</td></tr>
+<tr><td>port_n2</td><td>Negative port_n2 connected with port_n1</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:35 2016.
 </address>
 </body>
 </html>

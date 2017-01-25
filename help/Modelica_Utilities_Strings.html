@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -141,13 +143,13 @@ into account whether a character is upper or lower case.
 <td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.length" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.length"
 >length</a>
 </td>
-<td>Returns length of string</td>
+<td>Return length of string</td>
 </tr>
 <tr>
 <td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.substring" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.substring"
 >substring</a>
 </td>
-<td>Returns a substring defined by start and end index</td>
+<td>Return a substring defined by start and end index</td>
 </tr>
 <tr>
 <td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.repeat" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.repeat"
@@ -204,55 +206,61 @@ into account whether a character is upper or lower case.
 <td>Sort vector of strings in alphabetic order</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanToken" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanToken"
+<td><img src="Modelica.Utilities.Strings.hashStringS.png" alt="Modelica.Utilities.Strings.hashString" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.hashString"
+>hashString</a>
+</td>
+<td>Creates a hash value of a String</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanToken" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanToken"
 >scanToken</a>
 </td>
 <td>Scan for the next token and return it</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanReal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanReal"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanReal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanReal"
 >scanReal</a>
 </td>
 <td>Scan for the next Real number and trigger an assert if not present</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanInteger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanInteger"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanInteger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanInteger"
 >scanInteger</a>
 </td>
 <td>Scan for the next Integer number and trigger an assert if not present</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanBoolean" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanBoolean"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanBoolean" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanBoolean"
 >scanBoolean</a>
 </td>
 <td>Scan for the next Boolean number and trigger an assert if not present</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanString" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanString"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanString" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanString"
 >scanString</a>
 </td>
 <td>Scan for the next Modelica string and trigger an assert if not present</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanIdentifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanIdentifier"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanIdentifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanIdentifier"
 >scanIdentifier</a>
 </td>
 <td>Scan for the next Identifier and trigger an assert if not present</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanDelimiter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanDelimiter"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanDelimiter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanDelimiter"
 >scanDelimiter</a>
 </td>
 <td>Scan for the next delimiter and trigger an assert if not present</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.scanNoToken" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanNoToken"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.scanNoToken" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.scanNoToken"
 >scanNoToken</a>
 </td>
 <td>Scan string and check that it contains no more token</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.Files.listS.png" alt="Modelica.Utilities.Strings.syntaxError" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.syntaxError"
+<td><img src="Modelica.Utilities.Strings.scanTokenS.png" alt="Modelica.Utilities.Strings.syntaxError" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.syntaxError"
 >syntaxError</a>
 </td>
 <td>Print an error message, a string and the index at which scanning detected an error</td>
@@ -271,7 +279,7 @@ into account whether a character is upper or lower case.
 <a name="Modelica.Utilities.Strings.length"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.length</h2>
 <p>
-<span class="ModelicaDescription">Returns length of string</span>
+<span class="ModelicaDescription">Return length of string</span>
 </p>
 <h3>Information</h3>
 
@@ -303,7 +311,7 @@ Returns the number of characters of "string".
 <a name="Modelica.Utilities.Strings.substring"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.substring</h2>
 <p>
-<span class="ModelicaDescription">Returns a substring defined by start and end index</span>
+<span class="ModelicaDescription">Return a substring defined by start and end index</span>
 </p>
 <h3>Information</h3>
 
@@ -526,7 +534,7 @@ in "string". The search is started at index "startIndex" (default = 1).
 If the optional argument "caseSensitive" is false,
 for the counting it does not matter whether a letter is upper
 or lower case.
-/p>
+</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
@@ -731,9 +739,45 @@ and upper case letters are not distinguished.
 <tr><td>stringVector2[size(stringVector1, 1)]</td><td>string1 sorted in alphabetical order</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hashString<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.Strings.hashString"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
+>Modelica.Utilities.Strings</a>.hashString</h2>
+<p>
+<span class="ModelicaDescription">Creates a hash value of a String</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+hash = Strings.<b>hashString</b>(string);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns an Integer hash value of the provided string
+(the hash can be any Integer, including zero or a negative number).
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  hashString("this is a test")     // =  1827717433
+  hashString("Controller.noise1")  // = -1025762750
+</pre></blockquote>
+
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>string</td><td>The string to create a hash from</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>hash</td><td>The hash value of string</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanToken<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanToken" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanToken" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanToken"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanToken</h2>
 <p>
@@ -804,7 +848,7 @@ is not allowed to start with a "+" or "-" sign.
      realValue := token.real;
   <b>elseif</b> token.tokenType == T.IntegerToken <b>then</b>
      integerValue := token.integer;
-  <b>elseif</b> token.tokenType == T.BooleanToken<b> then</b>
+  <b>elseif</b> token.tokenType == T.BooleanToken <b>then</b>
      booleanValue := token.boolean;
   <b>elseif</b> token.tokenType == T.Identifier <b>then</b>
      name := token.string;
@@ -831,7 +875,7 @@ is not allowed to start with a "+" or "-" sign.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanReal<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanReal" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanReal" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanReal"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanReal</h2>
 <p>
@@ -883,7 +927,7 @@ is not present in "string", an assert is triggered.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanInteger<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanInteger" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanInteger" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanInteger"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanInteger</h2>
 <p>
@@ -926,7 +970,7 @@ leading white space.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanBoolean<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanBoolean" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanBoolean" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanBoolean"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanBoolean</h2>
 <p>
@@ -968,7 +1012,7 @@ leading white space.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanString<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanString" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanString" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanString"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanString</h2>
 <p>
@@ -1009,7 +1053,7 @@ leading white space.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanIdentifier<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanIdentifier" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanIdentifier" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanIdentifier"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanIdentifier</h2>
 <p>
@@ -1050,7 +1094,7 @@ leading white space.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanDelimiter<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanDelimiter" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanDelimiter" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanDelimiter"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanDelimiter</h2>
 <p>
@@ -1097,7 +1141,7 @@ is the index of the first non white space character.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE scanNoToken<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.scanNoToken" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.scanNoToken" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.scanNoToken"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.scanNoToken</h2>
 <p>
@@ -1130,7 +1174,7 @@ the error text.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE syntaxError<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Strings.lengthI.png" alt="Modelica.Utilities.Strings.syntaxError" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.Strings.scanTokenI.png" alt="Modelica.Utilities.Strings.syntaxError" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.Strings.syntaxError"></a><a href="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings"
 >Modelica.Utilities.Strings</a>.syntaxError</h2>
 <p>
@@ -1154,7 +1198,7 @@ following form:
    &lt;message&gt;
 </pre>
 <p>
-where the strings withing &lt;..&gt; are the actual values of the
+where the strings within &lt;..&gt; are the actual values of the
 input arguments of the function.
 </p>
 <p>
@@ -1172,7 +1216,7 @@ part of the string is printed.
 <tr><td>message</td><td>String printed at end of error message</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:06 2016.
 </address>
 </body>
 </html>

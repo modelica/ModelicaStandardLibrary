@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -140,10 +142,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>statorCoreParameters</td><td>Stator core losses; all parameters refer tpo stator side</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -173,15 +175,15 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
-<tr><td>Lm</td><td>Stator main field inductance [H]</td></tr>
-<tr><td>Lrsigma</td><td>Rotor stray inductance (equivalent three phase winding) [H]</td></tr>
-<tr><td>Rr</td><td>Rotor resistance (equivalent three phase winding) at TRef [Ohm]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
+<tr><td>Lm</td><td>Stator main field inductance per phase [H]</td></tr>
+<tr><td>Lrsigma</td><td>Rotor stray inductance per phase (equivalent three phase winding) [H]</td></tr>
+<tr><td>Rr</td><td>Rotor resistance per phase (equivalent three phase winding) at TRef [Ohm]</td></tr>
 <tr><td>TrRef</td><td>Reference temperature of rotor resistance [K]</td></tr>
 <tr><td>alpha20r</td><td>Temperature coefficient of rotor resistance at 20 degC [1/K]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>statorCoreParameters</td><td>Stator core losses; all parameters refer tpo stator side</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -215,18 +217,18 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
-<tr><td>Lm</td><td>Stator main field inductance [H]</td></tr>
-<tr><td>Lrsigma</td><td>Rotor stray inductance w.r.t. rotor side [H]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
+<tr><td>Lm</td><td>Stator main field inductance per phase [H]</td></tr>
+<tr><td>Lrsigma</td><td>Rotor stray inductance per phase w.r.t. rotor side [H]</td></tr>
 <tr><td>Lrzero</td><td>Rotor zero sequence inductance w.r.t. rotor side [H]</td></tr>
 <tr><td>Rr</td><td>Rotor resistance per phase at TRef w.r.t. rotor side [Ohm]</td></tr>
 <tr><td>TrRef</td><td>Reference temperature of rotor resistance [K]</td></tr>
 <tr><td>alpha20r</td><td>Temperature coefficient of rotor resistance at 20 degC [1/K]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>statorCoreParameters</td><td>Stator core losses; all parameters refer tpo stator side</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
-<tr><td>rotorCoreParameters</td><td>Rotor core losses; all parameters refer to rotor side</td></tr>
+<tr><td>rotorCoreParameters</td><td>Rotor core loss parameter record; all parameters refer to rotor side</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE SM_PermanentMagnetData<![endif]-->
@@ -256,9 +258,9 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
-<tr><td>Lmd</td><td>Stator main field inductance in d-axis [H]</td></tr>
-<tr><td>Lmq</td><td>Stator main field inductance in q-axis [H]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
+<tr><td>Lmd</td><td>Stator main field inductance per phase in d-axis [H]</td></tr>
+<tr><td>Lmq</td><td>Stator main field inductance per phase in q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable / disable damper cage</td></tr>
 <tr><td>Lrsigmad</td><td>Damper stray inductance in d-axis [H]</td></tr>
@@ -268,10 +270,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TrRef</td><td>Reference temperature of damper resistances in d- and q-axis [K]</td></tr>
 <tr><td>alpha20r</td><td>Temperature coefficient of damper resistances in d- and q-axis [1/K]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>statorCoreParameters</td><td>Stator core losses; all parameters refer tpo stator side</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
-<tr><td>permanentMagnetLossParameters</td><td>Permanent magnet loss losses</td></tr>
+<tr><td>permanentMagnetLossParameters</td><td>Permanent magnet loss parameter record</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE SM_ElectricalExcitedData<![endif]-->
@@ -300,9 +302,9 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
-<tr><td>Lmd</td><td>Stator main field inductance in d-axis [H]</td></tr>
-<tr><td>Lmq</td><td>Stator main field inductance in q-axis [H]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
+<tr><td>Lmd</td><td>Stator main field inductance per phase in d-axis [H]</td></tr>
+<tr><td>Lmq</td><td>Stator main field inductance per phase in q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable / disable damper cage</td></tr>
 <tr><td>Lrsigmad</td><td>Damper stray inductance in d-axis [H]</td></tr>
@@ -312,10 +314,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TrRef</td><td>Reference temperature of damper resistances in d- and q-axis [K]</td></tr>
 <tr><td>alpha20r</td><td>Temperature coefficient of damper resistances in d- and q-axis [1/K]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>statorCoreParameters</td><td>Stator core losses; all parameters refer tpo stator side</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
-<tr><td>brushParameters</td><td>Brush losses</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Excitation</td></tr>
 <tr><td>VsNominal</td><td>Nominal stator RMS voltage per phase [V]</td></tr>
 <tr><td>IeOpenCircuit</td><td>Open circuit excitation current @ nominal voltage and frequency [A]</td></tr>
@@ -351,9 +353,9 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
-<tr><td>Lmd</td><td>Stator main field inductance in d-axis [H]</td></tr>
-<tr><td>Lmq</td><td>Stator main field inductance in q-axis [H]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
+<tr><td>Lmd</td><td>Stator main field inductance per phase in d-axis [H]</td></tr>
+<tr><td>Lmq</td><td>Stator main field inductance per phase in q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable / disable damper cage</td></tr>
 <tr><td>Lrsigmad</td><td>Damper stray inductance in d-axis [H]</td></tr>
@@ -363,8 +365,8 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>TrRef</td><td>Reference temperature of damper resistances in d- and q-axis [K]</td></tr>
 <tr><td>alpha20r</td><td>Temperature coefficient of damper resistances in d- and q-axis [1/K]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>statorCoreParameters</td><td>Stator core losses; all parameters refer tpo stator side</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>statorCoreParameters</td><td>Stator core loss parameter record; all parameters refer to stator side</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -399,10 +401,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>alpha20a</td><td>Temperature coefficient of armature resistance [1/K]</td></tr>
 <tr><td>La</td><td>Armature inductance [H]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>coreParameters</td><td>Armature core losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>coreParameters</td><td>Armature core loss parameter record</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
-<tr><td>brushParameters</td><td>Brush losses</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE DcElectricalExcitedData<![endif]-->
@@ -436,10 +438,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>alpha20a</td><td>Temperature coefficient of armature resistance [1/K]</td></tr>
 <tr><td>La</td><td>Armature inductance [H]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>coreParameters</td><td>Armature core losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>coreParameters</td><td>Armature core loss parameter record</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
-<tr><td>brushParameters</td><td>Brush losses</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Excitation</td></tr>
 <tr><td>IeNominal</td><td>Nominal excitation current [A]</td></tr>
 <tr><td>Re</td><td>Field excitation resistance at TRef [Ohm]</td></tr>
@@ -481,10 +483,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>alpha20a</td><td>Temperature coefficient of armature resistance [1/K]</td></tr>
 <tr><td>La</td><td>Armature inductance [H]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
-<tr><td>frictionParameters</td><td>Friction losses</td></tr>
-<tr><td>coreParameters</td><td>Armature core losses</td></tr>
+<tr><td>frictionParameters</td><td>Friction loss parameter record</td></tr>
+<tr><td>coreParameters</td><td>Armature core loss parameter record</td></tr>
 <tr><td>strayLoadParameters</td><td>Stray load losses</td></tr>
-<tr><td>brushParameters</td><td>Brush losses</td></tr>
+<tr><td>brushParameters</td><td>Brush loss parameter record</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Excitation</td></tr>
 <tr><td>Re</td><td>Series excitation resistance at TRef [Ohm]</td></tr>
 <tr><td>TeRef</td><td>Reference temperature of excitation resistance [K]</td></tr>
@@ -527,7 +529,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>L2sigma</td><td>Secondary stray inductance per phase [H]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:12 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:23 2016.
 </address>
 </body>
 </html>

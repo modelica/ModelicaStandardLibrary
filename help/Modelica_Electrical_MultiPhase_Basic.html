@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -69,6 +71,24 @@ This package contains basic analog electrical multiphase components.
 >Delta</a>
 </td>
 <td>Delta (polygon) connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Multi5919a49de6b63a2biStarS.png" alt="Modelica.Electrical.MultiPhase.Basic.MultiStar" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiStar"
+>MultiStar</a>
+</td>
+<td>Star connection of multi phase systems consisting of multiple base systems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Multi8ed1e44dd7bff9ddDeltaS.png" alt="Modelica.Electrical.MultiPhase.Basic.MultiDelta" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiDelta"
+>MultiDelta</a>
+</td>
+<td>Delta (polygon) connection of multi phase systems consisting of multiple base systems</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Multi1b0951d65fd4885ftanceS.png" alt="Modelica.Electrical.MultiPhase.Basic.MultiStarResistance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiStarResistance"
+>MultiStarResistance</a>
+</td>
+<td>Resistance connection of star points</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Multia4540d43e2c5ed9dPin_pS.png" alt="Modelica.Electrical.MultiPhase.Basic.PlugToPin_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_p"
@@ -182,6 +202,17 @@ This package contains basic analog electrical multiphase components.
 Connects all pins of plug_p to pin_n, thus establishing a so-called star-connection.
 </p>
 
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiStar"
+>MultiStar</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+
+
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -210,6 +241,16 @@ thus establishing a so-called delta (or polygon) connection
 when used in parallel to another component.
 </p>
 
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiStar"
+>MultiStar</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -220,6 +261,108 @@ when used in parallel to another component.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiStar<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Multi5919a49de6b63a2biStarI.png" alt="Modelica.Electrical.MultiPhase.Basic.MultiStar" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.MultiPhase.Basic.MultiStar"></a><a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</a>.MultiStar</h2>
+<p>
+<span class="ModelicaDescription">Star connection of multi phase systems consisting of multiple base systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Star (wye) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"
+>multi phase guidelines</a>). The potentials at the star points are all equal.
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiDelta"
+>MultiDelta</a>
+</p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>starpoints</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiDelta<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Multi8ed1e44dd7bff9ddDeltaI.png" alt="Modelica.Electrical.MultiPhase.Basic.MultiDelta" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.MultiPhase.Basic.MultiDelta"></a><a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</a>.MultiDelta</h2>
+<p>
+<span class="ModelicaDescription">Delta (polygon) connection of multi phase systems consisting of multiple base systems</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Delta (polygon) connection of a multi phase circuit consisting of multiple base systems (see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"
+>multi phase guidelines</a>).
+</p>
+<h4>See also</h4>
+<p>
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Star</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Delta</a>,
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MultiStar"
+>MultiStar</a>
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>&nbsp;</td></tr>
+<tr><td>plug_n</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiStarResistance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Multi1b0951d65fd4885ftanceI.png" alt="Modelica.Electrical.MultiPhase.Basic.MultiStarResistance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.MultiPhase.Basic.MultiStarResistance"></a><a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Modelica.Electrical.MultiPhase.Basic</a>.MultiStarResistance</h2>
+<p>
+<span class="ModelicaDescription">Resistance connection of star points</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Multi star points are connected by resistors. This model is required to operate multi phase systems with even phase numbers to avoid ideal connections of start points of base systems; see
+<a href="Modelica_Magnetic_FundamentalWave_UsersGuide.html#Modelica.Magnetic.FundamentalWave.UsersGuide.MultiPhase"
+>multi phase guidelines</a>.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>R</td><td>Insulation resistance between base systems [Ohm]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug</td><td>&nbsp;</td></tr>
+<tr><td>pin</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE PlugToPin_p<![endif]-->
@@ -353,7 +496,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 <tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
 <tr><td>alpha[m]</td><td>Temperature coefficients of resistances at reference temperatures [1/K]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -361,7 +504,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Conductor<![endif]-->
@@ -389,7 +532,7 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 <tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
 <tr><td>alpha[m]</td><td>Temperature coefficients of conductances at reference temperatures [1/K]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -397,7 +540,7 @@ Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Capacitor<![endif]-->
@@ -627,7 +770,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 <tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
 <tr><td>alpha[m]</td><td>Temperature coefficients of resistances at reference temperatures [1/K]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -635,7 +778,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>R[m]</td><td>[Ohm]</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -668,7 +811,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 <tr><td>T_ref[m]</td><td>Reference temperatures [K]</td></tr>
 <tr><td>alpha[m]</td><td>Temperature coefficients of conductances at reference temperatures [1/K]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -676,7 +819,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>G[m]</td><td>[S]</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -752,7 +895,7 @@ Lmin is a parameter with default value Modelica.Constants.eps.
 <tr><td>L[m]</td><td>[H]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:12 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:23 2016.
 </address>
 </body>
 </html>

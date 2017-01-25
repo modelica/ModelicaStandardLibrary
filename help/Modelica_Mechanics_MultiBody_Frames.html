@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -107,6 +109,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign="top">R = <b>nullRotation</b>()</td>
       <td valign="top">Return orientation object R that does not rotate a frame.
+     </td>
   </tr>
   <tr><td valign="top">R_inv = <b>inverseRotation</b>(R);</td>
       <td valign="top">Return inverse orientation object.
@@ -179,6 +182,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign="top">T = <b>to_T</b>(R);</td>
       <td valign="top">Return transformation matrix T from orientation object R.
+      </td>
   </tr>
   <tr><td valign="top">T_inv = <b>to_T_inv</b>(R);</td>
       <td valign="top">Return inverse transformation matrix T_inv from orientation object R.
@@ -191,6 +195,7 @@ The used variables have the following declaration:
   <tr><td valign="top">exy = <b>to_exy</b>(R);</td>
       <td valign="top">Return [e_x, e_y] matrix of an orientation object R, <br>
           with e_x and e_y vectors of frame 2, resolved in frame 1.
+      </td>
   </tr>
   <tr><td valign="top">L = <b>length</b>(n_x);</td>
       <td valign="top">Return length L of a vector n_x.
@@ -499,6 +504,18 @@ with
 <span class="ModelicaDescription">Return residues of orientation constraints (shall be zero)</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+residue = Frames.<b>orientationConstraint</b>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>orientationConstraint</b>(R)</code> returns the Real residue vector
+with 6 elements that describes the constraints between the 9 elements of the orientation matrix.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -521,6 +538,19 @@ with
 <span class="ModelicaDescription">Return angular velocity resolved in frame 1 from orientation object</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+w12_1 = Frames.<b>angularVelocity1</b>(R12);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>angularVelocity1</b>(R12)</code> returns the
+the angular velocity w12_1 of frame 2 with respect to frame 1 resolved in frame 1,
+from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -543,6 +573,19 @@ with
 <span class="ModelicaDescription">Return angular velocity resolved in frame 2 from orientation object</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+w12_2 = Frames.<b>angularVelocity2</b>(R12);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>angularVelocity2</b>(R12)</code> returns the
+the angular velocity w12_2 of frame 2 with respect to frame 1 resolved in frame 2,
+from the orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -565,6 +608,19 @@ with
 <span class="ModelicaDescription">Transform vector from frame 2 to frame 1</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v1 = Frames.<b>resolve1</b>(R12, v2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>resolve1</b>(R12, v2)</code> returns vector v
+resolved in frame 1 (= v1) from vector v resolved in frame 2 (= v2) using the
+orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -588,6 +644,19 @@ with
 <span class="ModelicaDescription">Transform vector from frame 1 to frame 2</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Frames.<b>resolve2</b>(R12, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>resolve2</b>(R12, v1)</code> returns vector v
+resolved in frame 2 (= v2) from vector v resolved in frame 1 (= v1) using the
+orientation object R12 that describes the orientation  to rotate frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -611,6 +680,20 @@ with
 <span class="ModelicaDescription">Transform vector from frame 1 to frame 2 using absolute orientation objects of frame 1 and of frame 2</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+v2 = Frames.<b>resolveRelative</b>(R1, R2, v1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>resolveRelative</b>(R1,R2,v1)</code> returns vector v
+resolved in frame 2 (= v1) from vector v resolved in frame 1 (= v1) given the
+orientation object R1 that describes the orientation to rotate frame 0 into frame 1 and
+orientation object R2 that describes the orientation to rotate frame 0 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -635,6 +718,19 @@ with
 <span class="ModelicaDescription">Transform second order tensor from frame 2 to frame 1</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+D1 = Frames.<b>resolveDyade1</b>(R12, D2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>Dyade1</b>(R12, D2)</code> returns the second order tensor D
+resolved in frame 1 (= D1) from its representation in frame 2 (= D2) using the
+orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -658,6 +754,19 @@ with
 <span class="ModelicaDescription">Transform second order tensor from frame 1 to frame 2</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+D2 = Frames.<b>resolveDyade2</b>(R12, D1);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>Dyade2</b>(R12, D1)</code> returns the second order tensor D
+resolved in frame 2 (= D2) from its representation in frame 1 (= D1) using the
+orientation object R12 that describes the orientation to rotate frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -681,6 +790,19 @@ with
 <span class="ModelicaDescription">Return orientation object that does not rotate a frame</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>nullRotation</b>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>rnullRotation</b>()</code> returns an orientation matrix
+R describing the orientation object to rotate frame 1 into frame 2, if frame 1 and frame 2 are identical.
+(= transformation matrix is identity matrix and angular velocity is zero).
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Outputs</h3>
@@ -698,6 +820,19 @@ with
 <span class="ModelicaDescription">Return inverse orientation object</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R_inv = Frames.<b>inverseRotation</b>(R);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>inverseRotation</b>(R)</code> returns
+orientation object R_inv that describes the orientation to rotate from frame 2 to frame 1
+from the orientation object R that describes the orientation to rotate from frame 1 into frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -720,6 +855,20 @@ with
 <span class="ModelicaDescription">Return relative orientation object</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R_rel = Frames.<b>relativeRotation</b>(R1,R2);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>relativeRotation</b>(R1,R2)</code> returns
+orientation object R_rel that describes the orientation to rotate frame 1 to frame 2
+from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
+from the orientation object R2 that describes the orientation to rotate from frame 0 to frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -743,6 +892,20 @@ with
 <span class="ModelicaDescription">Return absolute orientation object from another absolute and a relative orientation object</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R2 = Frames.<b>relativeRotation</b>(R1,R_rel);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>absoluteRotation</b>(R1,R_rel)</code> returns
+orientation object R2 hat describes the orientation frame 0 to frame 2
+from the orientation object R1 that describes the orientation to rotate from frame 0 to frame 1 and
+from the relative orientation object R_rel that describes the orientation to rotate from frame 1 to frame 2.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -766,6 +929,21 @@ with
 <span class="ModelicaDescription">Return orientation object of a planar rotation</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>planarRotation</b>(e, angle, der_angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>planarRotation</b>(e, angle, der_angle)</code> returns
+orientation object R that describes the orientation to rotate in the plane along unit
+axis <b>e</b> from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
+Note, "e" must be a unit vector. However, this is not checked in this function and the function will
+return a wrong result, if length(e) is not one.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -854,6 +1032,21 @@ and/or a division by zero will occur.
 <span class="ModelicaDescription">Return rotation object to rotate around an angle along one frame axis</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>axisRotation</b>(axis, angle, der_angle);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>axisRotation</b>(axis, angle, der_angle)</code> returns
+orientation object R that describes the orientation to rotate along unit axis <b>axis</b>
+from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
+For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
+Frames.planarRotation({0,1,0}, phi, der_phi)
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -878,6 +1071,22 @@ and/or a division by zero will occur.
 <span class="ModelicaDescription">Return fixed rotation object to rotate in sequence around fixed angles along 3 axes</span>
 </p>
 <h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+R = Frames.<b>axesRotation</b>(asequence, angles, der_angles);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+The function call <code>Frames.<b>axesRotation</b>(sequence, angles, der_angles)</code> returns
+orientation object R that describes the orientation to rotate
+along unit axis <b>axis</b>
+from frame 1 into frame 2 with angle <b>angle</b> and derivative of angle <b>der_angle</b>.
+For example, Frames.axisRotation(2, phi, der_phi) returns the same orientation object as with the call
+Frames.planarRotation({0,1,0}, phi, der_phi)
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
@@ -1308,7 +1517,7 @@ is not possible or too difficult to compute, use function from_T2(..).
 <tr><td>e[3]</td><td>Unit axis vector [1]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:40 2016.
 </address>
 </body>
 </html>

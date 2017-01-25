@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -71,19 +73,25 @@ a multi-body system.
 <td><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsS.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive"
 >ActuatedDrive</a>
 </td>
-<td>&nbsp;</td>
+<td>Demonstrates usage of models Rotor1D and Mounting1D</td>
 </tr>
 <tr>
 <td><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsS.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive"
 >MovingActuatedDrive</a>
 </td>
-<td>&nbsp;</td>
+<td>Demonstrates usage of model Rotor1D mounted on a moving body</td>
 </tr>
 <tr>
 <td><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsS.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint"
 >GearConstraint</a>
 </td>
-<td>&nbsp;</td>
+<td>Demonstrate usage of GearConstraint model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsS.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D"
+>BevelGear1D</a>
+</td>
+<td>Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -143,7 +151,21 @@ is much faster.
 <h2><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsI.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.ActuatedDrive"></a><a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
 >Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</a>.ActuatedDrive</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates usage of models Rotor1D and Mounting1D</span>
+</p>
 <h3>Information</h3>
+
+<p>
+This example demonstrates how to utilize the
+<a href="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Rotor1D"
+>Rotor1D</a>
+and <a href="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Mounting1D</a> models and
+compares the implementation with a standard multi-body implementation.
+Note, the solution with Rotor1D is much more efficient.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
 >Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -152,11 +174,15 @@ is much faster.
 <h2><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsI.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.MovingActuatedDrive"></a><a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
 >Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</a>.MovingActuatedDrive</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates usage of model Rotor1D mounted on a moving body</span>
+</p>
 <h3>Information</h3>
 
 <p>
 This model demonstrates how a moving drive train modelled with 3-dim. multi-body elements
-(revolute, bodyCylinder) can alternatively be modeled with component rotor1D to speed up
+(revolute, bodyCylinder) can alternatively be modeled with component <a href="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Rotor1D"
+>rotor1D</a> to speed up
 simulation. The movement of the two systems is identical and also the cut-torques in the
 various frames (such as: r1.frame_b.t and r2.frame_b.t).
 </p>
@@ -175,11 +201,80 @@ axes of the revolute joints.
 <h2><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsI.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.GearConstraint"></a><a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
 >Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</a>.GearConstraint</h2>
+<p>
+<span class="ModelicaDescription">Demonstrate usage of GearConstraint model</span>
+</p>
 <h3>Information</h3>
+
+<p>
+This model demonstrates the usage of the
+<a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.GearConstraint"
+>GearConstraint</a>
+model to model a gearbox with multi-body elements. The formulation is compared with
+a one-dimensional model that is mounted with an
+<a href="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Mounting1D"
+>Mounting1D</a> element.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
 >Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE BevelGear1D<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.MultiB8750a9dbc575da80fectsI.png" alt="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D"></a><a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects"
+>Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects</a>.BevelGear1D</h2>
+<p>
+<span class="ModelicaDescription">Demonstrates the usage of a BevelGear1D model and how to calculate the power of such an element</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This model consists of a drive train with two inertias that are coupled by a bevel gear
+(with 90 degree angle between the two gear flanges).
+This drive train is mounted on a body that is rotated along three axes.
+The drive train is modeled with 1D rotational elements that take into account 3D effects.
+</p>
+
+<p>
+The bevelGear component consists of two rotational flanges (for the gear flanges) and one 3D frame
+(for the support/mounting).
+Since the bevelGear does not store energy, the power balance must hold (the total sum
+of inflowing and outflowing energy must be zero). One has to be careful, when
+computing the energy flow of hybrid 1D/3D component: The angular velocities of rotational flanges
+are with respect to the support frame (so the moving body on which the drive train
+is mounted). Therefore, when computing the energy flow, first the absolute angular velocities
+of the flanges have to be calculated. In this example model, this is performed in the following way
+(na and nb are the axes of rotations of the gear flanges, and ws is the
+angular velocity of the support frame):
+</p>
+
+<pre>
+    import Modelica.Mechanics.MultiBody.Frames;
+    import SI=Modelica.SIunits;
+    SI.Power           bevelGearPower;
+    SI.AngularVelocity ws[3] = Frames.angularVelocity2(bevelGear.frame_a.R);
+  <b>equation</b>
+    bevelGearPower = (ws + der(bevelGear.flange_a.phi)*na)*bevelGear.flange_a.tau*na +
+                     (ws + der(bevelGear.flange_b.phi)*nb)*bevelGear.flange_b.tau*nb +
+                     ws*bevelGear.frame_a.t;
+</pre>
+<p>
+The total energy flow bevelGearPower must be zero. If a relative tolerance of 1e-4 is used
+for simulation, bevelGearPower is in the order of 1e-8 (and smaller for a smaller relative
+tolerance).
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>na</td><td>Axis of rotation of left gear axis [1]</td></tr>
+<tr><td>nb</td><td>Axis of rotation of right gear axis [1]</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:39 2016.
 </address>
 </body>
 </html>

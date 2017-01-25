@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -110,6 +112,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign="top">Q = <b>nullRotation</b>()</td>
       <td valign="top">Return quaternion object R that does not rotate a frame.
+      </td>
   </tr>
   <tr><td valign="top">Q_inv = <b>inverseRotation</b>(Q);</td>
       <td valign="top">Return inverse quaternion object.
@@ -143,6 +146,7 @@ The used variables have the following declaration:
   </tr>
   <tr><td valign="top">T = <b>to_T</b>(Q);</td>
       <td valign="top">Return transformation matrix T from quaternion object Q.
+      </td>
   </tr>
   <tr><td valign="top">T_inv = <b>to_T_inv</b>(Q);</td>
       <td valign="top">Return inverse transformation matrix T_inv from quaternion object Q.
@@ -703,7 +707,7 @@ confused with Modelica "parameters".
 <tr><td>T_inv[3, 3]</td><td>Transformation matrix to transform vector from frame 2 to frame 1 (v1=T*v2)</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:40 2016.
 </address>
 </body>
 </html>

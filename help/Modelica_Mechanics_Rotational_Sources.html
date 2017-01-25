@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -112,6 +114,12 @@ This package contains ideal sources to drive 1D mechanical rotational drive trai
 <td>Constant torque, not dependent on speed</td>
 </tr>
 <tr>
+<td><img src="Modelica.Mechanics.Rotati7ddd42c34da3821borqueS.png" alt="Modelica.Mechanics.Rotational.Sources.SignTorque" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.SignTorque"
+>SignTorque</a>
+</td>
+<td>Constant torque changing sign with speed</td>
+</tr>
+<tr>
 <td><img src="Modelica.Mechanics.Rotatia87b5f734a413e62SpeedS.png" alt="Modelica.Mechanics.Rotational.Sources.ConstantSpeed" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.ConstantSpeed"
 >ConstantSpeed</a>
 </td>
@@ -140,6 +148,7 @@ The input signal <b>phi_ref</b> defines the <b>reference
 angle</b> in [rad]. Flange <b>flange</b> is <b>forced</b>
 to move according to this reference motion relative to flange support. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
+</p>
 <ol>
 <li><b>exact=true</b><br>
     The reference angle is treated <b>exactly</b>. This is only possible, if
@@ -195,6 +204,7 @@ The input signal <b>w_ref</b> defines the <b>reference
 speed</b> in [rad/s]. Flange <b>flange</b> is <b>forced</b>
 to move relative to flange support according to this reference motion. According to parameter
 <b>exact</b> (default = <b>false</b>), this is done in the following way:
+</p>
 <ol>
 <li><b>exact=true</b><br>
     The reference speed is treated <b>exactly</b>. This is only possible, if
@@ -457,10 +467,10 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 </p>
 <h3>Information</h3>
 
-<p>
-Model of constant torque, not dependent on angular velocity of flange.<br>
-Positive torque acts accelerating.
-</p>
+<p>Model of constant torque, not dependent on angular velocity of flange.</p>
+<p>Please note:<br>
+Positive torque accelerates in positive direction of rotation, but brakes in reverse direction of rotation.<br>
+Negative torque brakes in positive direction of rotation, but accelerates in reverse direction of rotation.</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
 >Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
@@ -468,7 +478,40 @@ Positive torque acts accelerating.
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
-<tr><td>tau_constant</td><td>Constant torque (if negative, torque is acting as load) [N.m]</td></tr>
+<tr><td>tau_constant</td><td>Constant torque (if negative, torque is acting as load in positive direction of rotation) [N.m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange</td><td>Flange of shaft</td></tr>
+<tr><td>support</td><td>Support/housing of component</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SignTorque<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotati7ddd42c34da3821borqueI.png" alt="Modelica.Mechanics.Rotational.Sources.SignTorque" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Sources.SignTorque"></a><a href="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources"
+>Modelica.Mechanics.Rotational.Sources</a>.SignTorque</h2>
+<p>
+<span class="ModelicaDescription">Constant torque changing sign with speed</span>
+</p>
+<h3>Information</h3>
+
+<p>Model of constant torque which changes sign with direction of rotation.</p>
+<p>Please note:<br>
+Positive torque accelerates in both directions of rotation.<br>
+Negative torque brakes in both directions of rotation.</p>
+<p>Around zero speed regularization avoids numerical problems.</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTorque"
+>Rotational.Interfaces.PartialTorque</a> (Partial model of a torque acting at the flange (accelerates the flange)).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useSupport</td><td>= true, if support flange enabled, otherwise implicitly grounded</td></tr>
+<tr><td>tau_constant</td><td>Constant torque (if negative, torque is acting as load in positive direction of rotation) [N.m]</td></tr>
+<tr><td>reg</td><td>Type of regularization</td></tr>
+<tr><td>w0</td><td>Regularization below w0 [rad/s]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -538,7 +581,7 @@ Positive torque acts accelerating.
 <tr><td>support</td><td>Support/housing of component</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:44 2016.
 </address>
 </body>
 </html>

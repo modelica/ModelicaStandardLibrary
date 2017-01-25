@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -597,7 +599,11 @@ the animation may be switched off via parameter animation = <b>false</b>.
 The following shapes can be defined via parameter <b>shapeType</b>,
 e.g., shapeType="cone":
 </p>
+
+<p>
 <IMG src="../Resources/Images/Mechanics/MultiBody/FixedShape.png" ALT="Visualizers.FixedShape">
+</p>
+
 <p>
 A BodyShape component has potential states. For details of these
 states and of the "Advanced" menu parameters, see model
@@ -760,7 +766,7 @@ the animation may be switched off via parameter animation = <b>false</b>):
 A BodyCylinder component has potential states. For details of these
 states and of the "Advanced" menu parameters, see model
 <a href="Modelica_Mechanics_MultiBody_Parts.html#Modelica.Mechanics.MultiBody.Parts.Body"
->MultiBody.Parts.Body</a>.
+>MultiBody.Parts.Body</a>.</p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -987,14 +993,18 @@ correct support torque, as the axes of rotation of <code>flange_a</code> and
 <code>flange_b</code> and the direction of the support torque vector
 are different in general.</p>
 <p>Note: The name BevelGear1D is kept only for simplicity. Regardless,
-this component could be used to model any kind of gearbox with non-parallel axes.</p>
+this component could be used to model any kind of gearbox with non-parallel axes.
+For a usage example, see <a href="Modelica_Mechanics_MultiBody_Examples_Rotational3DEffects.html#Modelica.Mechanics.MultiBody.Examples.Rotational3DEffects.BevelGear1D"
+>Examples.Rotational3DEffects.BevelGear1D</a>.</p>
+
 <p><b>Reference</b><br>
 <span style="font-variant:small-caps">Schweiger</span>, Christian ;
 <span style="font-variant:small-caps">Otter</span>, Martin:
 <a href="https://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">Modelling
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
-November 3-4, 2003, pp. 149-158</p>
+November 3-4, 2003, pp. 149-158
+</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
 >Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges</a> (Partial model for a component with two rotational 1-dim. shaft flanges).</span></p>
@@ -1090,7 +1100,7 @@ frameMiddle is parallel to the world frame.
 <tr><td>support</td><td>Support of 1D axes</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:41 2016.
 </address>
 </body>
 </html>

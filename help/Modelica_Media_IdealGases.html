@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -83,10 +85,10 @@ the data from a commercial or public data base. A public source of the needed da
 <li><ul>
 <li>For single components, a new package following the pattern in
 <a href="Modelica_Media_IdealGases_SingleGases.html#Modelica.Media.IdealGases.SingleGases"
->IdealGases.SingleGases</a> has to be created, pointing both to a data record for cp and to a user-defined fluidContants record.</li>
+>IdealGases.SingleGases</a> has to be created, pointing both to a data record for cp and to a user-defined fluidConstants record.</li>
 <li>For mixtures of several components, a new package following the pattern in
 <a href="Modelica_Media_IdealGases_MixtureGases.html#Modelica.Media.IdealGases.MixtureGases"
->IdealGases.MixtureGases</a> has to be created, building an array of data records for cp and an array of (partly) user-defined fluidContants records.</li>
+>IdealGases.MixtureGases</a> has to be created, building an array of data records for cp and an array of (partly) user-defined fluidConstants records.</li>
 </ul></li>
 </ol>
 <p>Note that many properties can computed for the full set of 1241 gases listed below, but due to the missing viscosity and thermal conductivity functions, no fully Modelica.Media-compliant media can be defined.</p>
@@ -301,7 +303,7 @@ Data records for heat capacity, specific enthalpy and specific entropy exist for
 </tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:21 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:58 2016.
 </address>
 </body>
 </html>

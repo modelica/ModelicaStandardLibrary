@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -236,7 +238,7 @@ slightly different to other revolute joints to visualize this case.
 <p>
 If a modeler is not aware of the problems with planar
 loops and models them without special consideration, a Modelica
-translator, such as Dymola, displays an error
+translator displays an error
 message and points out that a planar loop may be the reason and suggests to
 use the RevolutePlanarLoopConstraint joint.
 This error message is due to an annotation in
@@ -352,11 +354,11 @@ the form
 </p>
 <p align="left">
   <b>q</b> = <b>
-  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
+  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>,
   <b>R</b><sup>b</sup>)
 </p>
 <p>
-where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
+where <b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
 r</b><sup>b</sup>, <b>R</b><sup>b</sup> are the variables defining the
 position and orientation of the frame_a and frame_b connector,
 <b>q</b> are the generalized positional coordinates inside the
@@ -367,14 +369,14 @@ forward recursion
 </p>
 <p align="left">
 (<b>r</b><sup>a</sup>,
-<b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style="font-family:Symbol">j)</span>
+<b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style="font-family:Symbol">j)</span>
 </p>
 <p>
 Since this is a structural property, the
 symbolic algorithms can automatically select <span style="font-family:Symbol">
 j</span> and its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a Modelica
-translator, such as Dymola, can
+translator can
 transform the equations of the four bar mechanism to a recursive sequence of
 statements that has no non-linear algebraic loops anymore(remember,
 the previous "straightforward" solution with 6 revolute joints and 1
@@ -447,7 +449,7 @@ and inertia of the rod is not significant.
 Let us discuss item (a) in more detail: The
 MacPherson suspension in the next figure
 is from the Modelica VehicleDynamics library.
-
+</p>
 <p>
 The JointSSP joint aggregation has a frame at the
 left side of the left spherical joint (frame_a) and a frame at the right side
@@ -462,11 +464,11 @@ the form
 </p>
 <p align="left">
   <b>q</b> = <b>
-  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
+  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>,
   <b>R</b><sup>b</sup>)
 </p>
 <p>
-where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
+where <b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
 r</b><sup>b</sup>, <b>R</b><sup>b</sup> are the variables defining the
 position and orientation of the frame_a and frame_b connector,
 <b>q</b> are the generalized positional coordinates inside the
@@ -477,14 +479,14 @@ forward recursion
 </p>
 <p align="left">
 (<b>r</b><sup>a</sup>,
-<b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style="font-family:Symbol">j)</span>
+<b>R</b><sup>a</sup>, <b>r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style="font-family:Symbol">j)</span>
 </p>
 <p>
 Since this is a structural property, the
 symbolic algorithms can automatically select <span style="font-family:Symbol">
 j</span> and its derivative as states and then all positional variables can be
 computed in a forwards sequence. It is now understandable that a Modelica
-translator, such as Dymola, can
+translator can
 transform the equations of the four bar mechanism to a recursive sequence of
 statements that has no non-linear algebraic loops anymore(remember,
 the previous "straightforward" solution with 6 revolute joints and 1
@@ -640,7 +642,7 @@ from each other. Within one cylinder
 the position of frame_a and frame_b of the jointRRP assembly
 can be computed and therefore the generalized coordinates of the two revolute
 and the prismatic joint in the jointRRP object can be determined. From this
-analysis it is not surprising that a Modelica translator, such as Dymola,
+analysis it is not surprising that a Modelica translator
 is able to transform the DAE
 equations into a sequential evaluation without any non-linear loop.
 Compare this nice result with the model using only elementary joints
@@ -652,7 +654,7 @@ The simulation time is about 5 times faster with the analytic loop handling.
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
 >Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:38 2016.
 </address>
 </body>
 </html>

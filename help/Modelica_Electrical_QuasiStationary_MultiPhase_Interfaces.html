@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -99,6 +101,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 >Source</a>
 </td>
 <td>Partial voltage / current source</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasifd602f940ad33eebourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource"
+>ReferenceSource</a>
+</td>
+<td>Partial of voltage or current source with reference input</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -420,8 +428,53 @@ The source partial model relies on the
 >SinglePhase.Interfaces.Source</a>.
 </p>
 
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
->TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort"
+>OnePort</a>.</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasifd602f940ad33eebourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces</a>.ReferenceSource</h2>
+<p>
+<span class="ModelicaDescription">Partial of voltage or current source with reference input</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The source partial model relies on the
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>TwoPlug</a> and contains a proper icon.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+>CurrentSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableCurrentSource"
+>VariableCurrentSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Interfaces.html#Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Source"
+>SinglePhase.Interfaces.Source</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort</a>.</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -434,7 +487,7 @@ The source partial model relies on the
 <tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:30 2016.
 </address>
 </body>
 </html>

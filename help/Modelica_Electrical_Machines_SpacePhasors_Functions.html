@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -70,13 +72,13 @@ the first element representing the real part and the second element representing
 <td><img src="Modelica.Electrical.Machif3d17b472efe0ffchasorS.png" alt="Modelica.Electrical.Machines.SpacePhasors.Functions.ToSpacePhasor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_SpacePhasors_Functions.html#Modelica.Electrical.Machines.SpacePhasors.Functions.ToSpacePhasor"
 >ToSpacePhasor</a>
 </td>
-<td>Conversion: three phase -&gt; space phasor</td>
+<td>Conversion from multi phase input to space phasor and zero sequence component</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Machif3d17b472efe0ffchasorS.png" alt="Modelica.Electrical.Machines.SpacePhasors.Functions.FromSpacePhasor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_SpacePhasors_Functions.html#Modelica.Electrical.Machines.SpacePhasors.Functions.FromSpacePhasor"
 >FromSpacePhasor</a>
 </td>
-<td>Conversion: space phasor -&gt; three phase</td>
+<td>Conversion from space phasor and zero sequence component to multi phase</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Machif3d17b472efe0ffchasorS.png" alt="Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_SpacePhasors_Functions.html#Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator"
@@ -116,26 +118,24 @@ the first element representing the real part and the second element representing
 <a name="Modelica.Electrical.Machines.SpacePhasors.Functions.ToSpacePhasor"></a><a href="Modelica_Electrical_Machines_SpacePhasors_Functions.html#Modelica.Electrical.Machines.SpacePhasors.Functions"
 >Modelica.Electrical.Machines.SpacePhasors.Functions</a>.ToSpacePhasor</h2>
 <p>
-<span class="ModelicaDescription">Conversion: three phase -&gt; space phasor</span>
+<span class="ModelicaDescription">Conversion from multi phase input to space phasor and zero sequence component</span>
 </p>
 <h3>Information</h3>
 
-Transformation of three phase values (voltages or currents) to space phasor and zero sequence value:<br>
-y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*X[Re,Im]<br>
-were y designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.
+Transformation of multi phase values (of voltages or currents) to space phasor and zero sequence value.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>x[3]</td><td>&nbsp;</td></tr>
+<tr><td>x[:]</td><td>Multi phase (voltage or current) input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>y[2]</td><td>&nbsp;</td></tr>
-<tr><td>y0</td><td>&nbsp;</td></tr>
+<tr><td>y[2]</td><td>Space phasor</td></tr>
+<tr><td>y0</td><td>Zero sequence component (of voltage or current)</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE FromSpacePhasor<![endif]-->
@@ -144,27 +144,25 @@ were y designates three phase values, X[Re,Im] designates the space phasor and X
 <a name="Modelica.Electrical.Machines.SpacePhasors.Functions.FromSpacePhasor"></a><a href="Modelica_Electrical_Machines_SpacePhasors_Functions.html#Modelica.Electrical.Machines.SpacePhasors.Functions"
 >Modelica.Electrical.Machines.SpacePhasors.Functions</a>.FromSpacePhasor</h2>
 <p>
-<span class="ModelicaDescription">Conversion: space phasor -&gt; three phase</span>
+<span class="ModelicaDescription">Conversion from space phasor and zero sequence component to multi phase</span>
 </p>
 <h3>Information</h3>
 
-Transformation of space phasor and zero sequence value to three phase values (voltages or currents):<br>
-Y0 = sum(x[k])/m<br>
-Y[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
-were x designates three phase values, Y[Re,Im] designates the space phasor and Y0 designates the zero sequence system.
+Transformation of space phasor and zero sequence value to multi phase values (of voltages or currents).
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>x[2]</td><td>&nbsp;</td></tr>
-<tr><td>x0</td><td>&nbsp;</td></tr>
+<tr><td>x[2]</td><td>Space phasor</td></tr>
+<tr><td>x0</td><td>Zero sequence component</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>y[3]</td><td>&nbsp;</td></tr>
+<tr><td>y[m]</td><td>Multi phase output</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Rotator<![endif]-->
@@ -177,22 +175,29 @@ were x designates three phase values, Y[Re,Im] designates the space phasor and Y
 </p>
 <h3>Information</h3>
 
-Rotates a space phasor (voltage or current) by the angle provided by input argument "angle" from one coordinate system into another:<br>
-y[Re,Im] := {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br>
-where y[Re,Im] designates the space phasor in the new coordinate system (twisted by angle against old coordinate system) and y[Re,Im] designates the space phasor in the old coordinate system.
+Rotates a space phasor (voltage or current) input <code>u</code> by the <code>angle</code> in negative mathematical direction. This block represents the transformation of one space phasor <code>u</code> from one rotating reference (coordinate) frame into another where the space phasor is <code>y</code>. The output reference frame leads the input reference frame by angle <code>angle</code>.
+
+<table border="0" cellspacing="0" cellpadding="2">
+  <tr>
+    <td>
+      <img src="../Resources/Images/Electrical/Machines/Rotator.png">
+    </td>
+  </tr>
+  <caption align="bottom"><b>Fig. 1:</b> Original and rotated reference frame of a space phasor </caption>
+</table>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
 <h3>Inputs</h3>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>x[2]</td><td>&nbsp;</td></tr>
-<tr><td>angle</td><td>[rad]</td></tr>
+<tr><td>x[2]</td><td>Input space phasor</td></tr>
+<tr><td>angle</td><td>Input angle of rotation [rad]</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>y[2]</td><td>&nbsp;</td></tr>
+<tr><td>y[2]</td><td>Output space phasor</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE ToPolar<![endif]-->
@@ -212,13 +217,13 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
 <h3>Inputs</h3>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>x[2]</td><td>&nbsp;</td></tr>
+<tr><td>x[2]</td><td>Real and imaginary part of space phasor</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>absolute</td><td>&nbsp;</td></tr>
-<tr><td>angle</td><td>[rad]</td></tr>
+<tr><td>absolute</td><td>Magnitude of space phasor</td></tr>
+<tr><td>angle</td><td>Angle of space phasor [rad]</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE FromPolar<![endif]-->
@@ -238,13 +243,13 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
 <h3>Inputs</h3>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>absolute</td><td>&nbsp;</td></tr>
-<tr><td>angle</td><td>[rad]</td></tr>
+<tr><td>absolute</td><td>Magnitude of space phasor</td></tr>
+<tr><td>angle</td><td>Angle of space phasor [rad]</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>x[2]</td><td>&nbsp;</td></tr>
+<tr><td>x[2]</td><td>Real and imaginary part of space phasor</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE quasiRMS<![endif]-->
@@ -257,7 +262,7 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
 </p>
 <h3>Information</h3>
 
-Transformation of three phase values (voltages or currents) to space phasor and calculate length of space phasor.
+  Transformation of m phase values (voltages or currents) to space phasor and calculate length of space phasor / sqrt(2).
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
@@ -298,7 +303,7 @@ Transformation of three phase voltages and currents to space phasors and calcula
 <tr><td>p</td><td>Active power [W]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:12 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:21 2016.
 </address>
 </body>
 </html>

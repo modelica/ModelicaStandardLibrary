@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -106,6 +108,30 @@ This package contains connectors for the magnetic domain and partial models for 
 </td>
 <td>Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1</td>
 </tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub4e884b793c9fa1aeakageS.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric"
+>PartialGeneric</a>
+</td>
+<td>Partial Tellinen hysteresis model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub7e228399df600b29tPortS.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.ConditionalHeatPort" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.ConditionalHeatPort"
+>ConditionalHeatPort</a>
+</td>
+<td>Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub8d159e7b2cb1ca75resisS.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis"
+>PartialGenericHysteresis</a>
+</td>
+<td>Partial hysteresis model</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub8d159e7b2cb1ca75resisS.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen"
+>PartialGenericHysteresisTellinen</a>
+</td>
+<td>Partial Tellinen hysteresis model</td>
+</tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE MagneticPort<![endif]-->
@@ -132,7 +158,7 @@ This package contains connectors for the magnetic domain and partial models for 
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort"
->Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort</a> (Generic magnetic port).</span></p>
+>FluxTubes.Interfaces.MagneticPort</a> (Generic magnetic port).</span></p>
 <h3>Contents</h3>
 <table summary="Contents" class="ModelicaTableContents">
 <tr><th>Name</th><th>Description</th></tr>
@@ -150,7 +176,7 @@ This package contains connectors for the magnetic domain and partial models for 
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort"
->Modelica.Magnetic.FluxTubes.Interfaces.MagneticPort</a> (Generic magnetic port).</span></p>
+>FluxTubes.Interfaces.MagneticPort</a> (Generic magnetic port).</span></p>
 <h3>Contents</h3>
 <table summary="Contents" class="ModelicaTableContents">
 <tr><th>Name</th><th>Description</th></tr>
@@ -197,7 +223,7 @@ This magnetic flux is provided explicitly as flux Phi.
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary</a> (Partial component with two magnetic ports p and n for textual programming).</span></p>
+>FluxTubes.Interfaces.PartialTwoPortsElementary</a> (Partial component with two magnetic ports p and n for textual programming).</span></p>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -221,7 +247,7 @@ Please refer to the description of  the sub-package <a href="Modelica_Magnetic_F
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -255,7 +281,7 @@ Please refer to the description of  the sub-package <a href="Modelica_Magnetic_F
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -290,7 +316,7 @@ Please refer to the description of  the sub-package <a href="Modelica_Magnetic_F
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -303,8 +329,171 @@ Please refer to the description of  the sub-package <a href="Modelica_Magnetic_F
 <tr><td>port_p</td><td>Positive magnetic port</td></tr>
 <tr><td>port_n</td><td>Negative magnetic port</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialGeneric<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub4e884b793c9fa1aeakageI.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric"></a><a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces"
+>Modelica.Magnetic.FluxTubes.Interfaces</a>.PartialGeneric</h2>
+<p>
+<span class="ModelicaDescription">Partial Tellinen hysteresis model</span>
+</p>
+<h3>Information</h3>
+
+
+</dl>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
+>Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Resources/Images/Magnetic/FluxTubes/Interfaces/GenericParallelFlux.png"></td></tr>
+<tr><td>A</td><td>Area of cross section [m2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConditionalHeatPort<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub7e228399df600b29tPortI.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.ConditionalHeatPort" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Interfaces.ConditionalHeatPort"></a><a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces"
+>Modelica.Magnetic.FluxTubes.Interfaces</a>.ConditionalHeatPort</h2>
+<p>
+<span class="ModelicaDescription">Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
+<b>T_heatPort</b> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Losses and Heat</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">HeatPort</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialGenericHysteresis<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub8d159e7b2cb1ca75resisI.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis"></a><a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces"
+>Modelica.Magnetic.FluxTubes.Interfaces</a>.PartialGenericHysteresis</h2>
+<p>
+<span class="ModelicaDescription">Partial hysteresis model</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialGeneric"
+>Interfaces.PartialGeneric</a> (Partial Tellinen hysteresis model), <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.ConditionalHeatPort"
+>Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Resources/Images/Magnetic/FluxTubes/Interfaces/GenericParallelFlux.png"></td></tr>
+<tr><td>A</td><td>Area of cross section [m2]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Losses and Heat</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">HeatPort</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Eddy Currents</td></tr>
+<tr><td>includeEddyCurrents</td><td>=true, if eddy current losses are enabled</td></tr>
+<tr><td>sigma</td><td>Conductivity of core material [S/m]</td></tr>
+<tr><td>d</td><td>Tickness of lamination [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialGenericHysteresisTellinen<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub8d159e7b2cb1ca75resisI.png" alt="Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresisTellinen"></a><a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces"
+>Modelica.Magnetic.FluxTubes.Interfaces</a>.PartialGenericHysteresisTellinen</h2>
+<p>
+<span class="ModelicaDescription">Partial Tellinen hysteresis model</span>
+</p>
+<h3>Information</h3>
+
+<dl><dt>A reluctance with the Tellinen hysteresis model. The major hysteresis loop ist defined by the hyperbolic tangent function.</dt>
+</dl><p><h4>The Tellinen Hysteresis Model</h4></p>
+<dl><dt>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</dt>
+<dl><dt>diffHyst = hystF - hystR;</dt>
+<dl><dt>dhR = hystF - b;</dt>
+<dl><dt>dhF = b - hystR;</dt>
+<dl><dt>if the magnetic field intensity increases (der(h)&gt;0)</dt>
+<dl><dt>der(b) = dhR/diffHyst * der(hystR);</dt>
+<dl><dt>if the magnetic field intensity decreases (der(h)&lt;0)</dt>
+<dl><dt>der(b) = dhF/diffHyst * der(hystF);</dt>
+<dl><dt><img src=""/></dt>
+<dd>Fig.1 - Description of the Tellinen hysteresis model. </dd>
+</dl>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialGenericHysteresis"
+>Interfaces.PartialGenericHysteresis</a> (Partial hysteresis model).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+<tr><td>H</td><td>Magnetic field strength [A/m]</td></tr>
+<tr><td>MagRel</td><td>Relative magnetization at initialization (-1..1) [1]</td></tr>
+<tr><td>derHstat</td><td>[A/(m.s)]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Resources/Images/Magnetic/FluxTubes/Interfaces/GenericParallelFlux.png"></td></tr>
+<tr><td>A</td><td>Area of cross section [m2]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Losses and Heat</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">HeatPort</td></tr>
+<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Eddy Currents</td></tr>
+<tr><td>includeEddyCurrents</td><td>=true, if eddy current losses are enabled</td></tr>
+<tr><td>sigma</td><td>Conductivity of core material [S/m]</td></tr>
+<tr><td>d</td><td>Tickness of lamination [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+<tr><td>heatPort</td><td>&nbsp;</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:35 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -62,7 +64,7 @@ solved, i.e., robustly and efficiently).
       <td valign="top">Prismatic joint and actuated prismatic joint
           (1 translational degree-of-freedom, 2 potential states)<br>
       <IMG src="../Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png">
-      </td>
+      </td></td>
   </tr>
   <tr><td valign="top"><a href="Modelica_Mechanics_MultiBody_Joints.html#Modelica.Mechanics.MultiBody.Joints.Revolute"
 >Revolute</a>
@@ -472,6 +474,7 @@ Joint where frame_b rotates around and translates along axis n
 which is fixed in frame_a. The two frames coincide when
 "phi=revolute.phi=0" and "s=prismatic.s=0". This joint
 has the following potential states;
+</p>
 <ul>
 <li> The relative angle phi [rad] around axis n, </li>
 <li> the relative distance s [m] along axis n, </li>
@@ -537,6 +540,7 @@ and frame_b rotates around axis n_b which is fixed in frame_b.
 The two frames coincide when
 "revolute_a.phi=0" and "revolute_b.phi=0". This joint
 has the following potential states;
+</p>
 <ul>
 <li> The relative angle phi_a = revolute_a.phi [rad] around axis n_a, </li>
 <li> the relative angle phi_b = revolute_b.phi [rad] around axis n_b, </li>
@@ -606,6 +610,7 @@ which points in the direction of the x-axis of the plane.
 frame_a and frame_b coincide when s_x=prismatic_x.s=0,
 s_y=prismatic_y.s=0 and phi=revolute.phi=0. This joint has the following
 potential states:
+</p>
 <ul>
 <li> the relative distance s_x = prismatic_x.s [m] along axis n_x, </li>
 <li> the relative distance s_y = prismatic_y.s [m] along axis n_y = cross(n,n_x), </li>
@@ -1285,6 +1290,7 @@ November 3-4, 2003, pp. 149-158</p>
 <tr><td>r_b[3]</td><td>Vector from frame bearing to frame_b resolved in bearing [m]</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
 <tr><td>stateSelect</td><td>Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states</td></tr>
+<tr><td>checkTotalPower</td><td>= true, if total power flowing into this component shall be determined (must be zero)</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -1344,7 +1350,7 @@ November 3-4, 2003, pp. 149-158</p>
 <tr><td>support</td><td>Support of 1D axes</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:40 2016.
 </address>
 </body>
 </html>

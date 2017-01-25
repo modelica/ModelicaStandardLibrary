@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -75,6 +77,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 >ComplexRotatingPhasor</a>
 </td>
 <td>Generate a phasor with constant magnitude and constant angular velocity of type Complex</td>
+</tr>
+<tr>
+<td><img src="Modelica.ComplexBlocks.So0b0127a68901d60dSweepS.png" alt="Modelica.ComplexBlocks.Sources.LogFrequencySweep" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources.LogFrequencySweep"
+>LogFrequencySweep</a>
+</td>
+<td>Logarithmic frequency sweep</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -206,8 +214,38 @@ The output y is a complex phasor with constant magnitude, spinning with constant
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>y</td><td>Connector of Complex output signal</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE LogFrequencySweep<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.So0b0127a68901d60dSweepI.png" alt="Modelica.ComplexBlocks.Sources.LogFrequencySweep" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.Sources.LogFrequencySweep"></a><a href="Modelica_ComplexBlocks_Sources.html#Modelica.ComplexBlocks.Sources"
+>Modelica.ComplexBlocks.Sources</a>.LogFrequencySweep</h2>
+<p>
+<span class="ModelicaDescription">Logarithmic frequency sweep</span>
+</p>
+<h3>Information</h3>
+
+<p>The output performs a logarithmic freqency sweep:<br>
+The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
+The output is the decimal power of this logarithmic ramp.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Modelica.Blocks.Interfaces.SO</a> (Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>wMin</td><td>Lower frequency border</td></tr>
+<tr><td>wMax</td><td>Upper frequency border</td></tr>
+<tr><td>duration</td><td>Duration of ramp (= 0.0 gives a Step) [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:14 2016.
 </address>
 </body>
 </html>

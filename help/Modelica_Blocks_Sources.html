@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -908,6 +910,9 @@ The table interpolation has the following properties:
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
+<li>Via parameter <b>timeScale</b> the first column of the table array can
+    be scaled, e.g. if the table array is given in hours (instead of seconds)
+    <b>timeScale</b> shall be set to 3600.</li>
 </ul>
 <p>
 Example:
@@ -939,6 +944,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 <tr><td>table[:, 2]</td><td>Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])</td></tr>
 <tr><td>offset</td><td>Offset of output signal</td></tr>
 <tr><td>startTime</td><td>Output = offset for time &lt; startTime [s]</td></tr>
+<tr><td>timeScale</td><td>Time scale of first table column [s]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -999,9 +1005,15 @@ The table interpolation has the following properties:
 <li>Via parameter <b>smoothness</b> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: linear interpolation
-             = 2: smooth interpolation with Akima-splines such
-                  that der(y) is continuous, also if extrapolated.
+             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
              = 3: constant segments
+             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                  Hermite splines such that y preserves the monotonicity and
+                  der(y) is continuous, also if extrapolated.
+             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                  splines such that y preserves the monotonicity and der(y)
+                  is continuous, also if extrapolated.
 </pre></li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and
     the table values of this row are just returned.</li>
@@ -1013,22 +1025,70 @@ The table interpolation has the following properties:
     is used as ordinate value for all outputs.</li>
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries.
-    This generates continuously differentiable values for the integrator.</li>
+    An interval boundary is defined by two identical time values
+    following each other. For example
+<pre>
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 3;
+            3, 5;
+            3, 2;
+            4, 4;
+            5, 5];
+</pre>
+    defines three intervalls: 0..1, 1..3, 3..5. Within an interval the defined
+    interpolation method is applied (so the table outputs within an interval are
+    continuous,and if the interpolation method is smooth, also continuously differentiable).
+    No time events are generated within an interval
+    in order that also intervals with many points do not reduce the simulation efficiency
+    (note in package Modelica version 3.2 and earlier, time events had been generated).<br>
+    If the table points are largely changing, it is adviseable to force
+    time events by duplicating every time point (especially, if the model in which
+    the table is present allows the variable step integrator to make large
+    integrator steps). For example, if a sawtooth signal is defined with the table,
+    it is more reliable to define the table as:
+<pre>
+   table = [0, 0;
+            1, 2;
+            1, 2;
+            2, 0;
+            2, 0;
+            3, 2;
+            3, 2];
+</pre> 
+    instead of
+<pre>
+   table = [0, 0;
+            1, 2;
+            2, 0;
+            3, 2];
+</pre> 
+    because time events are then generated at every time point.
+</li>
+<li>Via parameter <b>timeScale</b> the first column of the table array can
+    be scaled, e.g. if the table array is given in hours (instead of seconds)
+    <b>timeScale</b> shall be set to 3600.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
-    reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be
-    accessed from the outside of the table object.</li>
+    reason parameters <b>t_min</b>/<b>t_minScaled</b> and
+    <b>t_max</b>/<b>t_maxScaled</b> are provided and can be
+    accessed from the outside of the table object. Whereas <b>t_min</b> and
+    <b>t_max</b> define the scaled abscissa values (using parameter
+    <b>timeScale</b>) in SIunits.Time, <b>t_minScaled</b> and
+    <b>t_maxScaled</b> define the unitless original abscissa values of
+    the table.</li>
 </ul>
 <p>
 Example:
 </p>
 <pre>
-   table = [0  0
-            1  0
-            1  1
-            2  4
-            3  9
-            4 16]; extrapolation = 3 (default)
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 4;
+            3, 9;
+            4, 16]; extrapolation = 3 (default)
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
@@ -1131,6 +1191,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 <tr><td>extrapolation</td><td>Extrapolation of data outside the definition range</td></tr>
 <tr><td>offset[:]</td><td>Offsets of output signals</td></tr>
 <tr><td>startTime</td><td>Output = offset for time &lt; startTime [s]</td></tr>
+<tr><td>timeScale</td><td>Time scale of first table column [s]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -1512,7 +1573,7 @@ results in the following output:
 <tr><td>y</td><td>Connector of Integer output signal</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:13 2016.
 </address>
 </body>
 </html>

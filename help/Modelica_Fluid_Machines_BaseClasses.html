@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -133,7 +135,7 @@ provided a two-phase medium model is used (see Advanced tab).
 <tr class="ModelicaParameterGroup"><td colspan="2">Characteristics</td></tr>
 <tr><td>nParallel</td><td>Number of pumps in parallel</td></tr>
 <tr><td>replaceable function flowCharacteristic</td><td>Head vs. V_flow characteristic at nominal speed and density</td></tr>
-<tr><td>N_nominal</td><td>Nominal rotational speed for flow characteristic [1/min]</td></tr>
+<tr><td>N_nominal</td><td>Nominal rotational speed for flow characteristic [rev/min]</td></tr>
 <tr><td>rho_nominal</td><td>Nominal fluid density for characteristic [kg/m3]</td></tr>
 <tr><td>use_powerCharacteristic</td><td>Use powerCharacteristic (vs. efficiencyCharacteristic)</td></tr>
 <tr><td>replaceable function powerCharacteristic</td><td>Power consumption vs. V_flow at nominal speed and density</td></tr>
@@ -178,7 +180,7 @@ provided a two-phase medium model is used (see Advanced tab).
 <tr><td>replaceable model Monitoring</td><td>Optional pump monitoring</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:48 2016.
 </address>
 </body>
 </html>

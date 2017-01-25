@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -45,7 +47,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 </p>
 <h3>Information</h3>
 
-This package contains sensors:
+<p>This package contains sensors:</p>
 <ul>
 <li>pSensor: absolute pressure</li>
 <li>TSensor: absolute temperature (Kelvin)</li>
@@ -55,34 +57,12 @@ This package contains sensors:
 <li>V_flowSensor: measures volume flow rate</li>
 <li>H_flowSensor: measures enthalpy flow rate</li>
 </ul>
-Some of the sensors do not need access to medium properties for measuring,
-but it is necessary to define the medium in the connector (check of connections).<br>
-Thermodynamic equations are defined in partial models (package Interfaces.Partials).<br>
-All sensors are considered massless, they do not change mass flow or enthalpy flow.<br>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href="http://www.haumer.at/">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href="http://christiankral.net/">Electric Machines, Drives and Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
->Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
+
+<p>Some of the sensors do not need access to medium properties for measuring,
+but it is necessary to define the medium in the connector (check of connections).
+Thermodynamic equations are defined in partial models (package Interfaces.Partials).
+All sensors are considered massless, they do not change mass flow or enthalpy flow.</p>
+
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
 >Modelica.Icons.SensorsPackage</a> (Icon for packages containing sensors).</span></p>
@@ -329,7 +309,7 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 <tr><td>flowPort_b</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:24 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:03 2016.
 </address>
 </body>
 </html>

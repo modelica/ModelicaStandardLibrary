@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -260,12 +262,13 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support
-at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+The supported file formats are tool dependent. Most tools support at least DXF-files
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
-</p>
+For information about DXF files, see <a href="https://en.wikipedia.org/wiki/AutoCAD_DXF">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the "frame_a"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).</p>
 
 <p>
 The sizes of any of the above components are specified by the
@@ -404,11 +407,13 @@ Additionally, <b>external shapes</b> can be specified as (not all options might 
 </ul>
 
 <p>
-The supported file formats are tool dependent. Most tools support
-at least DXF-files (a tool might support 3-dim. Face of the DXF format only),
+The supported file formats are tool dependent. Most tools support at least DXF-files
 but may support other format as well (such as stl, obj, 3ds).
 Since visualization files contain color and other data, the corresponding
 information in the model is usually ignored.
+For information about DXF files, see <a href="https://en.wikipedia.org/wiki/AutoCAD_DXF">Wikipedia</a>.
+As a default it is assumed that the DXF coordinates are in the "frame_a"-system and in meters, and that the 3dfaces are two-sided.
+Some tools support only 3dface (for geometry) and layer (for advanced coloring).
 </p>
 
 <p>
@@ -856,7 +861,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
 <tr><td>replaceable function colorMap</td><td>Function defining the color map</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:42 2016.
 </address>
 </body>
 </html>

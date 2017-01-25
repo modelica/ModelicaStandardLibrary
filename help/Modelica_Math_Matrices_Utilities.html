@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -148,6 +150,7 @@ with
 
 The inputs "maxSteps" and "eps" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
+</p>
 <p>
 
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
@@ -157,7 +160,7 @@ than a direct method like <a href="Modelica_Math_Matrices.html#Modelica.Math.Mat
 system equation.<br>
 
 The algorithm is taken from [1] and [2].
-
+</p>
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -268,9 +271,11 @@ with
 <p>
 
 Output <code>r</code> is the norm of the residual of the last iteration.<br>
+</p>
 <p>
 The inputs "maxSteps" and "eps" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
+</p>
 <p>
 
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
@@ -280,7 +285,7 @@ than a direct method like <a href="Modelica_Math_Matrices.html#Modelica.Math.Mat
 system equation.
 
 The algorithm is taken from [1] and [2].
-
+</p>
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -374,6 +379,7 @@ with
 </blockquote>
 <p>
 where <b>u</b> is Householder vector, i.e., the normal vector of the reflection plane.
+</p>
 <p>
 Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
 </p>
@@ -672,6 +678,7 @@ reordered eigenvalues respectively.
 <p>
 See also <a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.realSchur"
 >Matrices.realSchur</a>
+</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
 >Modelica.Icons.Function</a> (Icon for functions).</span></p>
@@ -723,7 +730,7 @@ The function computes the local minimum of the function f_k(t_k)
 by calculating the zeros of the derivation d f_k/d t_k. It is known that the function f_k(t_k) has a local minimum at some value t_k_min in [0, 2].<br>
 With t_k_min the norm of the next residual of the algorithm will be minimized.<br>
 See [1] for more information
-
+</p>
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -742,7 +749,7 @@ See [1] for more information
 <h3>Inputs</h3>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>Rk[:, size(Rk, 2)]</td><td>&nbsp;</td></tr>
+<tr><td>Rk[:, size(Rk, 1)]</td><td>&nbsp;</td></tr>
 <tr><td>Vk[size(Rk, 1), size(Rk, 2)]</td><td>&nbsp;</td></tr>
 </table>
 <h3>Outputs</h3>
@@ -751,7 +758,7 @@ See [1] for more information
 <tr><td>tk</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:04 2016.
 </address>
 </body>
 </html>

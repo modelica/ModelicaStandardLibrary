@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -95,7 +97,7 @@ Note: A' is a short hand notation of transpose(A):
 <li> <a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.equalityLeastSquares"
 >equalityLeastSquares</a>(A,a,B,b)
      - returns solution x of a linear equality constrained least squares problem:
-       min|A*x-a|^2 subject to B*x=b</<li>
+       min|A*x-a|^2 subject to B*x=b</li>
 
 <li> (LU,p,info) = <a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.LU"
 >LU</a>(A)
@@ -382,6 +384,12 @@ Note: A' is a short hand notation of transpose(A):
 <td>Return a balanced form of matrix A to improve the condition of A</td>
 </tr>
 <tr>
+<td><img src="Modelica.Math.Matrices.toStringS.png" alt="Modelica.Math.Matrices.balanceABC" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.balanceABC"
+>balanceABC</a>
+</td>
+<td>Return a balanced form of a system [A,B;C,0] to improve its condition by a state transformation</td>
+</tr>
+<tr>
 <td><img src="Modelica.Math.Matrices.toStringS.png" alt="Modelica.Math.Matrices.trace" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.trace"
 >trace</a>
 </td>
@@ -542,8 +550,8 @@ The function call "<code>Matrices.<b>toString</b>(A)</code>" returns the
 string representation of matrix <b>A</b>.
 With the optional arguments "name" and "significantDigits", a name and the number of the digits are defined.
 The default values of name and significantDigits are "" and 6 respectively. If name=="" then the
-prefix "&lt;name&gt; =" is leaved out.
-
+prefix "&lt;name&gt; =" is left out.
+</p>
 <h4>Example</h4>
 <blockquote><pre>
   A = [2.12, -4.34; -2.56, -1.67];
@@ -831,7 +839,7 @@ output argument of this function):
            vectors that fulfill the equation.</li>
      <li>  If no solution exists, x is selected such that |A*x - b| is as small as
            possible (but A*x - b is not zero).</li>
-     </ul>
+     </ul></li>
 </ul>
 
 <p>
@@ -864,7 +872,7 @@ minimum norm |x| is selected. This gives a unique solution that minimizes both
 </ul>
 
 <p>
-Note, the solution is computed with the LAPACK function "dgelsx",
+Note, the solution is computed with the LAPACK function "dgelsy",
 i.e., QR or LQ factorization of A with column pivoting.
 </p>
 
@@ -985,7 +993,7 @@ output argument of this function):
            vectors that fulfill the equation.</li>
      <li>  If no solution exists, X is selected such that |A*X - B| is as small as
            possible (but A*X - B is not zero).</li>
-     </ul>
+     </ul></li>
 </ul>
 
 <p>
@@ -1018,7 +1026,7 @@ minimum norm |X| is selected. This gives a unique solution that minimizes both
 </ul>
 
 <p>
-Note, the solution is computed with the LAPACK function "dgelsx",
+Note, the solution is computed with the LAPACK function "dgelsy",
 i.e., QR or LQ factorization of A with column pivoting.
 </p>
 
@@ -2013,9 +2021,9 @@ or computation of eigenvalues.
 The Algorithm is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Grbel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 <p>
 which based on the <code>balance</code> function from EISPACK.
@@ -2035,6 +2043,114 @@ which based on the <code>balance</code> function from EISPACK.
 <tr><td>D[size(A, 1)]</td><td>diagonal(D)=T is transformation matrix, such that
           B = inv(T)*A*T has smaller condition as A</td></tr>
 <tr><td>B[size(A, 1), size(A, 1)]</td><td>Balanced matrix (= inv(diagonal(D))*A*diagonal(D) )</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE balanceABC<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Math.Matrices.toStringI.png" alt="Modelica.Math.Matrices.balanceABC" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Math.Matrices.balanceABC"></a><a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</a>.balanceABC</h2>
+<p>
+<span class="ModelicaDescription">Return a balanced form of a system [A,B;C,0] to improve its condition by a state transformation</span>
+</p>
+<h3>Information</h3>
+<
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(scale,As,Bs,Cs) = Matrices.<b>balanceABC</b>(A,B,C);
+(scale,As,Bs)    = Matrices.<b>balanceABC</b>(A,B);
+(scale,As,,Cs)   = Matrices.<b>balanceABC</b>(A,C=C);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function returns a vector scale, such that with T=diagonal(scale) system matrix S_scale
+</p>
+
+<pre>             |inv(T)*A*T, inv(T)*B|
+   S_scale = |                    |
+             |       C*T,     0   |
+</pre>
+
+<p>
+has a better condition as system matrix S
+</p>
+
+<pre>       |A, B|
+   S = |    |
+       |C, 0|
+</pre>
+<p>
+that is, conditionNumber(S_scale) &le; conditionNumber(S). The elements of vector scale
+are multiples of 2 which means that this function does not introduce round-off errors.
+</p>
+
+<p>
+Balancing a linear dynamic system in state space form
+</p>
+
+<pre>  der(x) = A*x + B*u
+      y  = C*x + D*u
+</pre>
+
+<p>
+means to find a state transformation x_new = T*x = diagonal(scale)*x
+so that the transformed system is better suited for numerical algorithms.
+</p>
+
+<h4>Example</h4>
+
+<blockquote>
+<pre>import Modelica.Math.Matrices;
+
+A = [1, -10,  1000; 0.01,  0,  10; 0.005,  -0.01,  10];
+B = [100, 10; 1,0; -0.003, 1];
+C = [-0.5, 1, 100];
+
+(scale, As, Bs, Cs) := Matrices.balanceABC(A,B,C);
+T    = diagonal(scale);
+Diff = [Matrices.inv(T)*A*T, Matrices.inv(T)*B;
+        C*T, zeros(1,2)] - [As, Bs; Cs, zeros(1,2)];
+err  = Matrices.norm(Diff);
+
+-> Results in:
+scale = {16, 1, 0.0625}
+norm(A)  = 1000.15, norm(B)  = 100.504, norm(C)  = 100.006
+norm(As) = 10.8738, norm(Bs) = 16.0136, norm(Cs) = 10.2011
+err = 0
+</pre>
+</blockquote>
+
+<p>
+The algorithm is taken from
+</p>
+<dl>
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
+<dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
+    DLR - Control Systems Group 1991</dd>
+</dl>
+<p>
+which is based on the <code>balance</code> function from EISPACK.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[:, size(A, 1)]</td><td>System matrix A</td></tr>
+<tr><td>B[size(A, 1), :]</td><td>System matrix B (need not be present)</td></tr>
+<tr><td>C[:, size(A, 1)]</td><td>System matrix C (need not be present)</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>scale[size(A, 1)]</td><td>diagonal(scale)=T is such that [inv(T)*A*T, inv(T)*B; C*T, 0] has smaller condition as [A,B;C,0]</td></tr>
+<tr><td>As[size(A, 1), size(A, 1)]</td><td>Balanced matrix A (= inv(T)*A*T )</td></tr>
+<tr><td>Bs[size(A, 1), size(B, 2)]</td><td>Balanced matrix B (= inv(T)*B )</td></tr>
+<tr><td>Cs[size(C, 1), size(A, 1)]</td><td>Balanced matrix C (= C*T )</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE trace<![endif]-->
@@ -2603,9 +2719,9 @@ to compute the solution of a linear system of differential equations</p>
 
 <p>The algorithm is taken from</p>
 <dl>
-<dt>H. D. Joos, G. Gruebel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 <p>The following steps are performed to calculate the exponential of A:</p>
 <ol>
@@ -2625,11 +2741,11 @@ to compute the solution of a linear system of differential equations</p>
 <p>In several sources it is not recommended to use Taylor series expansion to
 calculate the exponential of a matrix, such as in 'C.B. Moler and C.F. Van Loan:
 Nineteen dubious ways to compute the exponential of a matrix. SIAM Review 20,
-pp. 801-836, 1979' or in the documentation of m-file expm2 in Matlab version 6
-(http://www.MathWorks.com) where it is stated that 'As a practical numerical
-method, this is often slow and inaccurate'. These statements are valid for a
-direct implementation of the Taylor series expansion, but <i>not</i> for the
-implementation variant used in this function.
+pp. 801-836, 1979' or in the documentation of m-file expm2 in MATLAB version 6
+(<a href="http://www.mathworks.com">http://www.mathworks.com</a>) where it is
+stated that 'As a practical numerical method, this is often slow and inaccurate'.
+These statements are valid for a direct implementation of the Taylor series
+expansion, but <i>not</i> for the implementation variant used in this function.
 </p>
 
 
@@ -2721,9 +2837,9 @@ signal u is constant between the sampling instants. Zero-order-hold sampling
 is described in
 </p>
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:
+<dt>K. J. Astroem, B. Wittenmark:</dt>
 <dd><b>Computer Controlled Systems - Theory and Design</b><br>
-    Third Edition, p. 32
+    Third Edition, p. 32</dd>
 </dl>
 <pre><b>Syntax:</b>
       (phi,gamma) = Matrices.expIntegral(A,B,T)
@@ -2735,9 +2851,9 @@ is described in
 The Algorithm to calculate psi is taken from
 </p>
 <dl>
-<dt>H. D. Joos, G. Gruebel:
+<dt>H. D. Joos, G. Gr&uuml;bel:</dt>
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
-    DLR - Control Systems Group 1991
+    DLR - Control Systems Group 1991</dd>
 </dl>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
@@ -2790,6 +2906,7 @@ The function calculates the matrices phi,gamma,gamma1 through the equation:
 <p>
 The matrices define the discretized first-order-hold equivalent of
 a state-space system:
+</p>
 <pre>      x(k+1) = phi*x(k) + gamma*u(k) + gamma1/T*(u(k+1) - u(k))
 </pre>
 <p>
@@ -2799,9 +2916,9 @@ is, e.g., described in
 </p>
 
 <dl>
-<dt>K. J. Astroem, B. Wittenmark:
+<dt>K. J. Astroem, B. Wittenmark:</dt>
 <dd><b>Computer Controlled Systems - Theory and Design</b><br>
-    Third Edition, p. 256
+    Third Edition, p. 256</dd>
 </dl>
 
 
@@ -3703,7 +3820,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
 <tr><td>Aflip[size(A, 1), size(A, 2)]</td><td>Flipped matrix</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:04 2016.
 </address>
 </body>
 </html>

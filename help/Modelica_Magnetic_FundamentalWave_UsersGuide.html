@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -321,7 +323,7 @@ as depicted in Fig. 1 and 2.
 </p>
 
 <p>
-Mathematically, this symmetry is expressd in terms of phase currents by:
+Mathematically, this symmetry is expressed in terms of phase currents by:
 </p>
 
 <p><img src="../Resources/Images/Magnetic/FundamentalWave/UsersGuide/MultiPhase/ik_odd.png"/> </p>
@@ -371,7 +373,7 @@ A function for calculating the <a href="Modelica_Electrical_MultiPhase_Functions
 <p>
 In a fully symmetrical machine, the orientation of the winding axes and the symmetrical currents (or voltages)
 <a href="http://en.wikipedia.org/wiki/Phasor">phasors</a> have different signs; see Fig. 1 and 2 for odd phase numbers
-and Fig. 3 and 4 for even phase numbes.
+and Fig. 3 and 4 for even phase numbers.
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
@@ -419,7 +421,7 @@ of an
 phase induction machine. It is also assumed that</p>
 <ul>
 <li>the nominal phase voltages</li>
-<li>the nominal stator frequences</li>
+<li>the nominal stator frequencies</li>
 </ul>
 <p>of the three and
 <img src="../Resources/Images/Magnetic/FundamentalWave/UsersGuide/Parameters/m.png">
@@ -480,10 +482,10 @@ phase winding parameters -- at the same nominal rotor voltage and frequency.
 <h4>Contact</h4>
 
 <p>
-Christian Kral<br>
-Electric Machines, Drives and Systems<br>
-1060 Vienna, Austria<br>
-email: <a HREF="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a><br>
+  Dr. Christian Kral<br>
+  <a href="http://christiankral.net/">Electric Machines, Drives and Systems</a><br>
+  A-1060 Vienna, Austria<br>
+  email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
 </p>
 
 <p>
@@ -524,10 +526,35 @@ no. 829420.
 <h3>Information</h3>
 
 
+<h5>Version 3.2.2, 2014-09-13</h5>
+
+<ul>
+<li>Updated documentation of
+    <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Short"
+>Short</a>,
+    <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Idle"
+>Idle</a> and
+    <a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet"
+>PermanentMagnet</a>
+    </li>
+<li>Added new components:</li>
+<ul>
+    <li><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Crossing"
+>Crossing</a></li>
+    <li><a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Permeance"
+>Permeance</a></li>
+</ul>
+<li>Removed parameter text from icon layer for reluctance and permeance model</li>
+<li>Restructured cage models with reluctance instead of inductance model according to ticket #1536;
+the re-structuring of the model required to change the initial conditions of the included examples, since the number of rotor states is reduced by new implementation</li>
+<li>Some more bug fixes according to #1226, since not all reference orientations have been correct</li>
+<li>Added variables for magnitude and argument of complex magnetic potential difference and flux, see #1405</li>
+</ul>
+
 <h5>Version 3.2.1, 2013-07-31</h5>
 
 <ul>
-<li>Bug fix of wrong orientaton of squirrel and damper cage modells, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
+<li>Bug fix of wrong orientation of squirrel and damper cage models, see ticket #1226; this also includes the removal of the rotor cage heat sensor which previously has been used</li>
 <li>Bug fix of conditional initialization of examples, see ticket #1223</li>
 <li>Fixed missing default parameter TpmOperational in ambient of PM synchronous machine, see ticket #1216</li>
 <li>Added voltages, currents, complex flux and magnetic potential difference as global variables in
@@ -814,7 +841,7 @@ model from R to G</li>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.References"
 >Modelica.Icons.References</a> (Icon for external references).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:35 2016.
 </address>
 </body>
 </html>

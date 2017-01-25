@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -62,6 +64,12 @@ connected with continuous blocks or with sampled-data blocks.
 <th>Description</th>
 </tr>
 <tr>
+<td><img src="Modelica.ComplexBlocks.ComplexMath.ConjS.png" alt="Modelica.ComplexBlocks.ComplexMath.Conj" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.Conj"
+>Conj</a>
+</td>
+<td>Output is equal to the conjugate complex input signal</td>
+</tr>
+<tr>
 <td><img src="Modelica.ComplexBlocks.ComplexMath.GainS.png" alt="Modelica.ComplexBlocks.ComplexMath.Gain" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.Gain"
 >Gain</a>
 </td>
@@ -77,7 +85,7 @@ connected with continuous blocks or with sampled-data blocks.
 <td><img src="Modelica.ComplexBlocks.Co253f86a7049b236cdbackS.png" alt="Modelica.ComplexBlocks.ComplexMath.Feedback" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.Feedback"
 >Feedback</a>
 </td>
-<td>Output difference between commanded and feedback input</td>
+<td>Output difference between commanded input 1 and feedback input 2</td>
 </tr>
 <tr>
 <td><img src="Modelica.ComplexBlocks.ComplexMath.AddS.png" alt="Modelica.ComplexBlocks.ComplexMath.Add" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.Add"
@@ -107,7 +115,7 @@ connected with continuous blocks or with sampled-data blocks.
 <td><img src="Modelica.ComplexBlocks.ComplexMath.SqrtS.png" alt="Modelica.ComplexBlocks.ComplexMath.Sqrt" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.Sqrt"
 >Sqrt</a>
 </td>
-<td>Output the square root of the input (input &gt;= 0 required)</td>
+<td>Output the square root of the input (= principal square root of complex number)</td>
 </tr>
 <tr>
 <td><img src="Modelica.ComplexBlocks.ComplexMath.SinS.png" alt="Modelica.ComplexBlocks.ComplexMath.Sin" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.Sin"
@@ -199,6 +207,44 @@ connected with continuous blocks or with sampled-data blocks.
 </td>
 <td>Converts complex to polar representation</td>
 </tr>
+<tr>
+<td><img src="Modelica.ComplexBlocks.Co0ae14cdda9b48b63ctionS.png" alt="Modelica.ComplexBlocks.ComplexMath.TransferFunction" width="20" height="20" align="top">&nbsp;<a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.TransferFunction"
+>TransferFunction</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Conj<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.ComplexMath.ConjI.png" alt="Modelica.ComplexBlocks.ComplexMath.Conj" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.ComplexMath.Conj"></a><a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath"
+>Modelica.ComplexBlocks.ComplexMath</a>.Conj</h2>
+<p>
+<span class="ModelicaDescription">Output is equal to the conjugate complex input signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block computes output <code>y</code> as
+<i>conjugate complex</i> input <code>u</code>.
+</p>
+<pre>
+    y = Modelica.ComplexMath.conj(u)
+</pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
+>Modelica.ComplexBlocks.Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Complex input signal</td></tr>
+<tr><td>y</td><td>Connector of Complex output signal</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Gain<![endif]-->
@@ -212,19 +258,20 @@ connected with continuous blocks or with sampled-data blocks.
 <h3>Information</h3>
 
 <p>
-This block computes output <i>y</i> as
-<i>product</i> of gain <i>k</i> with the
-input <i>u</i>:
+This block computes output <code>y</code> as
+<i>product</i> of gain <code>k</code> with the
+input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> either the original or the conjugate complex input signal are processed.
 </p>
 <pre>
-    y = k * u;
+    y = k * (if useConjugateInput then Modelica.ComplexMath.conj(u) else u);
 </pre>
-
+<p><b>Example:</b> If <code>useConjugateInput = true</code> and <code>k = 2</code> the output signal <code>y = 2 * Modelica.ComplexMath.conj(u)</code>.</p>
 
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>k</td><td>Gain value multiplied with input signal</td></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -244,12 +291,12 @@ input <i>u</i>:
 <h3>Information</h3>
 
 <p>
-This blocks computes output <b>y</b> as
+This blocks computes output <code>y</code> as
 <i>sum</i> of the elements of the input signal vector
-<b>u</b>:
+<code>u</code>:
 </p>
 <pre>
-    <b>y</b> = <b>u</b>[1] + <b>u</b>[2] + ...;
+    <code>y</code> = <code>u</code>[1] + <code>u</code>[2] + ...;
 </pre>
 <p>
 Example:
@@ -269,6 +316,7 @@ Example:
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>useConjugateInput[nin]</td><td>If true, inputs are processed conjugate complex</td></tr>
 <tr><td>k[nin]</td><td>Optional: sum coefficients</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -284,30 +332,40 @@ Example:
 <a name="Modelica.ComplexBlocks.ComplexMath.Feedback"></a><a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath"
 >Modelica.ComplexBlocks.ComplexMath</a>.Feedback</h2>
 <p>
-<span class="ModelicaDescription">Output difference between commanded and feedback input</span>
+<span class="ModelicaDescription">Output difference between commanded input 1 and feedback input 2</span>
 </p>
 <h3>Information</h3>
 
 <p>
-This blocks computes output <b>y</b> as <i>difference</i> of the
-commanded input <b>u1</b> and the feedback
-input <b>u2</b>:
+This blocks computes output <code>y</code> as <i>difference</i> of the
+commanded input <code>u1</code> and the feedback
+input <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
 <pre>
-    <b>y</b> = <b>u1</b> - <b>u2</b>;
+  y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    - (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
 </pre>
 <p>
-Example:
+<b>Example</b> parameters:
+</p>
+<ul>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+</ul>
+<p>
+result in the following equation:
 </p>
 <pre>
-     parameter:   n = 2
-
-  results in the following equations:
-
-     y = u1 - u2
+     y = Modelica.ComplexMath.conj(u1) - u2
 </pre>
 
 
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput1</td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td>useConjugateInput2</td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -327,21 +385,26 @@ Example:
 <h3>Information</h3>
 
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-two input signals <b>u1</b> and <b>u2</b>:
+This blocks computes output <code>y</code> as <i>sum</i> of the
+two input signals <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively.
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b>;
+  y = k1*u1Internal + k2*u2Internal;
 </pre>
 <p>
-Example:
+<b>Example</b> parameters:
+</p>
+<ul>
+<li><code>k1 = +2</code>,</li>
+<li><code>k2 = -3</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+</ul>
+<p>
+result in the following equation:
 </p>
 <pre>
-     parameter:   k1= +2, k2= -3
-
-  results in the following equations:
-
-     y = 2 * u1 - 3 * u2
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2
 </pre>
 
 
@@ -350,8 +413,10 @@ Example:
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>k1</td><td>Gain of upper input</td></tr>
-<tr><td>k2</td><td>Gain of lower input</td></tr>
+<tr><td>useConjugateInput1</td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td>useConjugateInput2</td><td>If true, input 2 is processed conjugate complex</td></tr>
+<tr><td>k1</td><td>Gain of input 1</td></tr>
+<tr><td>k2</td><td>Gain of input 2</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -372,21 +437,30 @@ Example:
 <h3>Information</h3>
 
 <p>
-This blocks computes output <b>y</b> as <i>sum</i> of the
-three input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:
+This blocks computes output <code>y</code> as <i>sum</i> of the
+three input signals <code>u1</code>, <code>u2</code> and <code>u3</code>. Optionally, inputs <code>u1</code> and <code>u2</code> and <code>u3</code> can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> and <code>useConjugateInput3</code> are <code>true</code>, respectively.
 </p>
 <pre>
-    <b>y</b> = k1*<b>u1</b> + k2*<b>u2</b> + k3*<b>u3</b>;
-</pre>
+  y = k1*(if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1)
+    + k2*(if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2)
+    + k3*(if useConjugateInput3 then Modelica.ComplexMath.conj(u3) else u3);</pre>
 <p>
-Example:
+<b>Example</b> parameters:
+</p>
+<ul>
+<li><code>k1 = +2</code>,</li>
+<li><code>k2 = -3</code>,</li>
+<li><code>k3 = +1</code>,</li>
+<li><code>useConjugateInput1 = true</code>,</li>
+<li><code>useConjugateInput2 = false</code></li>
+<li><code>useConjugateInput3 = false</code></li>
+</ul>
+
+<p>
+  result in the following equation:
 </p>
 <pre>
-     parameter:   k1= +2, k2= -3, k3=1;
-
-  results in the following equations:
-
-     y = 2 * u1 - 3 * u2 + u3;
+     y = 2 * Modelica.ComplexMath.conj(u1) - 3 * u2 + u3;
 </pre>
 
 
@@ -396,8 +470,11 @@ Example:
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>k1</td><td>Gain of upper input</td></tr>
+<tr><td>useConjugateInput1</td><td>If true, input 1 is processed conjugate complex</td></tr>
 <tr><td>k2</td><td>Gain of middle input</td></tr>
+<tr><td>useConjugateInput2</td><td>If true, input 2 is processed conjugate complex</td></tr>
 <tr><td>k3</td><td>Gain of lower input</td></tr>
+<tr><td>useConjugateInput3</td><td>If true, input 3 is processed conjugate complex</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -419,17 +496,25 @@ Example:
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> (element-wise)
+This blocks computes the output <code>y</code> (element-wise)
 as <i>product</i> of the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = u1 * u2;
+  y = u1Inernal * u2Internal;
 </pre>
+
+<p><b>Example:</b> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) * u2</code>.</p>
 
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSI2SO"
 >Interfaces.ComplexSI2SO</a> (2 Single Input / 1 Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput1</td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td>useConjugateInput2</td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -449,17 +534,26 @@ the two inputs <b>u1</b> and <b>u2</b>:
 <h3>Information</h3>
 
 <p>
-This block computes the output <b>y</b> (element-wise)
+This block computes the output <code>y</code> (element-wise)
 by <i>dividing</i> the corresponding elements of
-the two inputs <b>u1</b> and <b>u2</b>:
+the two inputs <code>u1</code> and <code>u2</code>. Optionally, either input <code>u1</code> or <code>u2</code> or both inputs can be processed conjugate complex, when parameters <code>useConjugateInput1</code> and <code>useConjugateInput2</code> are <code>true</code>, respectively. Depending on <code>useConjugateInput1</code> and <code>useConjugateInput2</code> the internal signals represent either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = u1 / u2;
+    y = u1Internal / u2Internal;
 </pre>
+
+<p><b>Example:</b> If <code>useConjugateInput1 = true</code> and <code>useConjugateInput2 = false</code> the output signal <code>y = Modelica.ComplexMath.conj(u1) / u2</code>.</p>
+
 
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSI2SO"
 >Interfaces.ComplexSI2SO</a> (2 Single Input / 1 Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput1</td><td>If true, input 1 is processed conjugate complex</td></tr>
+<tr><td>useConjugateInput2</td><td>If true, input 2 is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -474,25 +568,25 @@ the two inputs <b>u1</b> and <b>u2</b>:
 <a name="Modelica.ComplexBlocks.ComplexMath.Sqrt"></a><a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath"
 >Modelica.ComplexBlocks.ComplexMath</a>.Sqrt</h2>
 <p>
-<span class="ModelicaDescription">Output the square root of the input (input &gt;= 0 required)</span>
+<span class="ModelicaDescription">Output the square root of the input (= principal square root of complex number)</span>
 </p>
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b>
-as <i>square root</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code>
+as <i>square root</i> of the input <code>u</code> (= principal square root of the complex input). Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>sqrt</b>( u );
+    y = <b>sqrt</b>(uInternal);
 </pre>
-<p>
-All elements of the input vector shall be zero or positive.
-Otherwise an error occurs.
-</p>
-
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -511,11 +605,11 @@ Otherwise an error occurs.
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b>
-as <b>sine</b> of the input <b>u</b>:
+This blocks computes the output <code>y</code>
+as <b>sine</b> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>sin</b>( u );
+    y = <b>sin</b>(uInternal);
 </pre>
 
 <p>
@@ -526,6 +620,11 @@ as <b>sine</b> of the input <b>u</b>:
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -544,11 +643,11 @@ as <b>sine</b> of the input <b>u</b>:
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b>
-as <b>cos</b> of the input <b>u</b>:
+This blocks computes the output <code>y</code>
+as <b>cos</b> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>cos</b>( u );
+    y = <b>cos</b>(uInternal);
 </pre>
 
 <p>
@@ -559,6 +658,11 @@ as <b>cos</b> of the input <b>u</b>:
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -577,11 +681,11 @@ as <b>cos</b> of the input <b>u</b>:
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b>
-as <b>tan</b> of the input <b>u</b>:
+This blocks computes the output <code>y</code>
+as <b>tan</b> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>tan</b>( u );
+    y = <b>tan</b>(uInternal);
 </pre>
 
 <p>
@@ -592,6 +696,11 @@ as <b>tan</b> of the input <b>u</b>:
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -610,14 +719,14 @@ as <b>tan</b> of the input <b>u</b>:
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>sine-inverse</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>sine-inverse</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>asin</b>( u );
+    y = <b>asin</b>(uInternal);
 </pre>
 <p>
-The absolute values of the elements of the input <b>u</b> need to
+The absolute values of the elements of the input <code>u</code> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
 </p>
@@ -630,6 +739,11 @@ Otherwise an error occurs.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -648,14 +762,14 @@ Otherwise an error occurs.
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>cosine-inverse</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>cosine-inverse</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>acos</b>( u );
+    y = <b>acos</b>(uInternal);
 </pre>
 <p>
-The absolute values of the elements of the input <b>u</b> need to
+The absolute values of the elements of the input <code>u</code> need to
 be less or equal to one (<b>abs</b>( u ) <= 1).
 Otherwise an error occurs.
 </p>
@@ -668,6 +782,11 @@ Otherwise an error occurs.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -686,11 +805,11 @@ Otherwise an error occurs.
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>tangent-inverse</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>tangent-inverse</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y= <b>atan</b>( u );
+    y= <b>atan</b>(uInternal);
 </pre>
 
 <p>
@@ -701,6 +820,11 @@ This blocks computes the output <b>y</b> as the
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -719,11 +843,11 @@ This blocks computes the output <b>y</b> as the
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic sine</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>hyperbolic sine</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>sinh</b>( u );
+    y = <b>sinh</b>(uInternal);
 </pre>
 
 <p>
@@ -734,6 +858,11 @@ This blocks computes the output <b>y</b> as the
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -752,11 +881,11 @@ This blocks computes the output <b>y</b> as the
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic cosine</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>hyperbolic cosine</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>cosh</b>( u );
+    y = <b>cosh</b>(uInternal);
 </pre>
 
 <p>
@@ -767,6 +896,11 @@ This blocks computes the output <b>y</b> as the
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -785,11 +919,11 @@ This blocks computes the output <b>y</b> as the
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>hyperbolic tangent</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>hyperbolic tangent</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>tanh</b>( u );
+    y = <b>tanh</b>(uInternal);
 </pre>
 
 <p>
@@ -800,6 +934,11 @@ This blocks computes the output <b>y</b> as the
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -818,11 +957,11 @@ This blocks computes the output <b>y</b> as the
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>exponential</i> (of base e) of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>exponential</i> (of base e) of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>exp</b>( u );
+    y = <b>exp</b>(uInternal);
 </pre>
 
 <p>
@@ -833,6 +972,11 @@ This blocks computes the output <b>y</b> as the
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -851,14 +995,14 @@ This blocks computes the output <b>y</b> as the
 <h3>Information</h3>
 
 <p>
-This blocks computes the output <b>y</b> as the
-<i>natural (base e) logarithm</i> of the input <b>u</b>:
+This blocks computes the output <code>y</code> as the
+<i>natural (base e) logarithm</i> of the input <code>u</code>. Optionally, the input <code>u</code> can be processed conjugate complex, when parameter <code>useConjugateInput</code> is <code>true</code>. Depending on <code>useConjugateInput</code> the internal signal <code>uInternal</code> represents either the original or the conjugate complex input signal.
 </p>
 <pre>
-    y = <b>log</b>( u );
+    y = <b>log</b>(uInternal);
 </pre>
 <p>
-An error occurs if the elements of the input <b>u</b> are
+An error occurs if the elements of the input <code>u</code> are
 zero or negative.
 </p>
 
@@ -870,6 +1014,11 @@ zero or negative.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
 >Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -935,6 +1084,11 @@ zero or negative.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
 >Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -957,6 +1111,11 @@ zero or negative.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
 >Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+</table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -964,8 +1123,41 @@ zero or negative.
 <tr><td>phi</td><td>&nbsp;</td></tr>
 <tr><td>u</td><td>&nbsp;</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE TransferFunction<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.ComplexBlocks.Co0ae14cdda9b48b63ctionI.png" alt="Modelica.ComplexBlocks.ComplexMath.TransferFunction" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.ComplexBlocks.ComplexMath.TransferFunction"></a><a href="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath"
+>Modelica.ComplexBlocks.ComplexMath</a>.TransferFunction</h2>
+<h3>Information</h3>
+
+<p>
+The complex input u is multiplied by the complex transfer function (depending on frequency input w) to obtain the complex output y (nb = dimension of b, na = dimension of a):
+</p>
+<pre>
+           b[1]*(jw)^[nb-1] + b[2]*(jw)^[nb-2] + ... + b[nb]
+   y(jw) = ------------------------------------------------- * u(jw)
+           a[1]*(jw)^[na-1] + a[2]*(jw)^[na-2] + ... + a[na]
+</pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_ComplexBlocks_Interfaces.html#Modelica.ComplexBlocks.Interfaces.ComplexSISO"
+>Modelica.ComplexBlocks.Interfaces.ComplexSISO</a> (Single Input Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useConjugateInput</td><td>If true, input is processed conjugate complex</td></tr>
+<tr><td>b[:]</td><td>Numerator coefficients of transfer function (e.g., 2*s+3 is specified as {2,3})</td></tr>
+<tr><td>a[:]</td><td>Denominator coefficients of transfer function (e.g., 5*s+6 is specified as {5,6})</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Connector of Complex input signal</td></tr>
+<tr><td>y</td><td>Connector of Complex output signal</td></tr>
+<tr><td>w</td><td>Frequency input</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:14 2016.
 </address>
 </body>
 </html>

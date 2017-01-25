@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -77,6 +79,12 @@ Quasi stationary theory can be found in the
 <td>Variable multiphase AC voltage</td>
 </tr>
 <tr>
+<td><img src="Modelica.Electrical.Quasi96cbca535b540477ourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceVoltageSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceVoltageSource"
+>ReferenceVoltageSource</a>
+</td>
+<td>Variable multiphase AC voltage with reference angle input</td>
+</tr>
+<tr>
 <td><img src="Modelica.Electrical.Quasi596bd7f3eaeede57ourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
 >CurrentSource</a>
 </td>
@@ -87,6 +95,12 @@ Quasi stationary theory can be found in the
 >VariableCurrentSource</a>
 </td>
 <td>Variable multiphase AC current</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi3c4de5e30d7357b6ourceS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource"
+>ReferenceCurrentSource</a>
+</td>
+<td>Variable multiphase AC current with reference angle input</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -132,6 +146,8 @@ This model describes <i>m</i> constant voltage sources, specifying the complex v
 <tr><td>f</td><td>Frequency of the source [Hz]</td></tr>
 <tr><td>V[m]</td><td>RMS voltage of the source [V]</td></tr>
 <tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -178,6 +194,8 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>m</td><td>Number of phases</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -185,6 +203,54 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 <tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
 <tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
 <tr><td>f</td><td>&nbsp;</td></tr>
+<tr><td>V[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceVoltageSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi96cbca535b540477ourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceVoltageSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceVoltageSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</a>.ReferenceVoltageSource</h2>
+<p>
+<span class="ModelicaDescription">Variable multiphase AC voltage with reference angle input</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource"
+>single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+>CurrentSource</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource"
+>Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource</a> (Partial of voltage or current source with reference input).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>gamma</td><td>Reference angle of voltage source</td></tr>
 <tr><td>V[m]</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -230,6 +296,8 @@ This model describes <i>m</i> constant current sources, specifying the complex c
 <tr><td>f</td><td>Frequency of the source [Hz]</td></tr>
 <tr><td>I[m]</td><td>RMS current of the source [A]</td></tr>
 <tr><td>phi[m]</td><td>Phase shift of the source [rad]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -276,6 +344,8 @@ Additionally, the frequency of the current source is defined by a real signal in
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>m</td><td>Number of phases</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>gamma</td><td>[rad]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -285,8 +355,56 @@ Additionally, the frequency of the current source is defined by a real signal in
 <tr><td>f</td><td>&nbsp;</td></tr>
 <tr><td>I[m]</td><td>&nbsp;</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceCurrentSource<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi3c4de5e30d7357b6ourceI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sources.ReferenceCurrentSource"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sources</a>.ReferenceCurrentSource</h2>
+<p>
+<span class="ModelicaDescription">Variable multiphase AC current with reference angle input</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+This model describes <i>m</i> variable current sources, with <i>m</i> complex signal inputs,
+specifying the complex current by the complex RMS voltage components.
+Additionally, the frequency of the current source is defined by a real signal input.
+<i>m</i> <a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource"
+>single phase VariableCurrentSources</a> are used.
+</p>
+
+<h4>See also</h4>
+
+<p>
+<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+>SinglePhase.VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VoltageSource"
+>VoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.VariableVoltageSource"
+>VariableVoltageSource</a>,
+<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sources.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sources.CurrentSource"
+>CurrentSource</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource"
+>Electrical.QuasiStationary.MultiPhase.Interfaces.ReferenceSource</a> (Partial of voltage or current source with reference input).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>gamma</td><td>Reference angle of current source</td></tr>
+<tr><td>I[m]</td><td>&nbsp;</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:30 2016.
 </address>
 </body>
 </html>

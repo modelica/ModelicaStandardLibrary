@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -45,38 +47,16 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 </p>
 <h3>Information</h3>
 
-This package contains components:
+<p>This package contains components:</p>
 <ul>
 <li>pipe without heat exchange</li>
 <li>pipe with heat exchange</li>
 <li>valve (simple controlled valve)</li>
 </ul>
-Pressure drop is taken from partial model SimpleFriction.<br>
-Thermodynamic equations are defined in partial models (package Partials).<br>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href="http://www.haumer.at/">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
-</p>
 <p>
-  Dr. Christian Kral<br>
-  <a href="http://christiankral.net/">Electric Machines, Drives and Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
-</p>
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
->Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
+Pressure drop is taken from partial model SimpleFriction.
+Thermodynamic equations are defined in partial models (package Partials).</p>
+
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_Package.html#Modelica.Icons.Package"
 >Modelica.Icons.Package</a> (Icon for standard packages).</span></p>
@@ -162,7 +142,7 @@ Thermodynamic equations are defined by Partials.TwoPort.<br>
 Q_flow is defined by heatPort.Q_flow.<br>
 <b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
 leads to neglection of temperature transient cv*m*der(T).<br>
-<b>Note:</b> Injecting heat into a pipe with zero massflow causes
+<b>Note:</b> Injecting heat into a pipe with zero mass flow causes
 temperature rise defined by storing heat in medium's mass.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
@@ -176,7 +156,7 @@ temperature rise defined by storing heat in medium's mass.
 <tr><td>T0</td><td>Initial temperature of medium [K]</td></tr>
 <tr><td>T0fixed</td><td>Initial temperature guess value or fixed</td></tr>
 <tr><td>tapT</td><td>Defines temperature of heatPort between inlet and outlet temperature</td></tr>
-<tr><td>h_g</td><td>Geodetic height (heigth difference from flowPort_a to flowPort_b) [m]</td></tr>
+<tr><td>h_g</td><td>Geodetic height (height difference from flowPort_a to flowPort_b) [m]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">Simple Friction</td></tr>
 <tr><td>V_flowLaminar</td><td>Laminar volume flow [m3/s]</td></tr>
 <tr><td>dpLaminar</td><td>Laminar pressure drop [Pa]</td></tr>
@@ -251,7 +231,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
 <tr><td>y</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:24 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:03 2016.
 </address>
 </body>
 </html>

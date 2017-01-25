@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -84,6 +86,12 @@ This package contains test examples of asynchronous induction machines.
 >AIMC_Inverter</a>
 </td>
 <td>Test example: AsynchronousInductionMachineSquirrelCage with inverter</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" alt="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_AsynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor"
+>AIMC_Conveyor</a>
+</td>
+<td>Test example: AsynchronousInductionMachineSquirrelCage with inverter driving a conveyor</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" alt="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Steinmetz" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_AsynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Steinmetz"
@@ -288,6 +296,42 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <tr><td>aimcData</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE AIMC_Conveyor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machic7a3e356571be39aC_DOLI.png" alt="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Conveyor"></a><a href="Modelica_Electrical_Machines_Examples_AsynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines"
+>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines</a>.AIMC_Conveyor</h2>
+<p>
+<span class="ModelicaDescription">Test example: AsynchronousInductionMachineSquirrelCage with inverter driving a conveyor</span>
+</p>
+<h3>Information</h3>
+
+<b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
+An ideal frequency inverter is modeled by using a VfController and a three-phase SignalVoltage.<br>
+Frequency is driven by a load cycle of acceleration, constant speed, deceleration and standstill.<br>
+The mechanical load is a constant torque like a conveyor (with regularization around zero speed).<br>
+Simulate for 20 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
+<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
+<tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>r</td><td>Transmission radius [m]</td></tr>
+<tr><td>aimcData</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE AIMC_Steinmetz<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
 <h2><img src="Modelica.Electrical.Machic7a3e356571be39aC_DOLI.png" alt="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Steinmetz" align="right" style="border: 1px solid" width="80" height="80">
@@ -421,7 +465,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <tr><td>aimcData</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:18 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -55,7 +57,7 @@ the following examples are present.
 >calculator</a>
      is an interpreter to evaluate
      expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi.
-     For example: calculator("1.5*sin(pi/6)"); <br>&nbsp;</li>
+     For example: calculator("1.5*sin(pi/6)");<br>&nbsp;</li>
 <li> Function <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.expression"
 >expression</a>
      is the basic function used in "calculator" to evaluate an expression.
@@ -70,7 +72,16 @@ the following examples are present.
 <li> Model <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.readRealParameterModel"
 >readRealParameterModel</a>
      is a test model to demonstrate the usage of "readRealParameter". The model
-     contains 3 parameters that are read from file "Modelica.Utilities/data/Examples_readRealParameters.txt".
+     contains 3 parameters that are read from file "Modelica.Utilities/data/Examples_readRealParameters.txt".<br>&nbsp;
+     </li>
+<li> Model <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.WriteRealMatrixToFile"
+>WriteRealMatrixToFile</a>
+     demonstrates the usage of function "Streams.writeReaMatrix" to store a matrix in various MATLAB MAT formats on file.<br>&nbsp;
+     </li>
+<li> Model <a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.ReadRealMatrixFromFile"
+>ReadRealMatrixFromFile</a>
+     demonstrates the usage of functions "Streams.readMatrixSize" and "Streams.readRealMatrix"
+     to read a matrix in various MATLAB MAT formats from file.
      </li>
 </ul>
 
@@ -105,6 +116,18 @@ the following examples are present.
 >readRealParameterModel</a>
 </td>
 <td>Demonstrate usage of Examples.readRealParameter/.expression</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelS.png" alt="Modelica.Utilities.Examples.WriteRealMatrixToFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.WriteRealMatrixToFile"
+>WriteRealMatrixToFile</a>
+</td>
+<td>Demonstrate usage of function Streams.writeRealMatrix</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelS.png" alt="Modelica.Utilities.Examples.ReadRealMatrixFromFile" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples.ReadRealMatrixFromFile"
+>ReadRealMatrixFromFile</a>
+</td>
+<td>Demonstrate usage of function Streams.readRealMatrix</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -347,8 +370,65 @@ from a file.
 <tr><td>phi_rel0</td><td>Relative angle [rad]</td></tr>
 <tr><td>w_rel0</td><td>Relative angular velocity [rad/s]</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE WriteRealMatrixToFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelI.png" alt="Modelica.Utilities.Examples.WriteRealMatrixToFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Examples.WriteRealMatrixToFile"></a><a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>.WriteRealMatrixToFile</h2>
+<p>
+<span class="ModelicaDescription">Demonstrate usage of function Streams.writeRealMatrix</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Example model that shows how to write a Real matrix in MATLAB MAT format on file
+using function <a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.writeRealMatrix"
+>writeRealMatrix</a>.
+<p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>A[3, 2]</td><td>Matrix stored in different formats on files</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReadRealMatrixFromFile<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Utilities.Exampl422a9b8dea0a8b09ModelI.png" alt="Modelica.Utilities.Examples.ReadRealMatrixFromFile" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Utilities.Examples.ReadRealMatrixFromFile"></a><a href="Modelica_Utilities_Examples.html#Modelica.Utilities.Examples"
+>Modelica.Utilities.Examples</a>.ReadRealMatrixFromFile</h2>
+<p>
+<span class="ModelicaDescription">Demonstrate usage of function Streams.readRealMatrix</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Example model that shows how to read a Real matrix in MATLAB MAT format from file
+using functions
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readMatrixSize"
+>readMatrixSize</a> and
+<a href="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.readRealMatrix"
+>readRealMatrix</a>.
+<p>
+
+<p>
+Additionally, specific matrices from the supported file formats are loaded and it is checked
+whether the loaded matrices have the expected values.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>file</td><td>File name of matrix</td></tr>
+<tr><td>matrixName</td><td>Matrix name in file</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:06 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -62,13 +64,25 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td><img src="Modelica.Magnetic.FluxTub3228dd0650eb12deerterS.png" alt="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter"
 >ElectroMagneticConverter</a>
 </td>
-<td>Electro-magnetic energy conversion</td>
+<td>Ideal electro-magnetic energy conversion</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub1b9f4ed62805584ctanceS.png" alt="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance"
+>ElectroMagneticConverterWithLeakageInductance</a>
+</td>
+<td>Electro-magnetic energy conversion with a leakage inductance</td>
 </tr>
 <tr>
 <td><img src="Modelica.Magnetic.FluxTub6e5b7caaf57fb34ctanceS.png" alt="Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance"
 >ConstantReluctance</a>
 </td>
 <td>Constant reluctance</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub6e5b7caaf57fb34ctanceS.png" alt="Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance"
+>ConstantPermeance</a>
+</td>
+<td>Constant permeance</td>
 </tr>
 <tr>
 <td><img src="Modelica.Magnetic.FluxTub6e5b7caaf57fb34ctanceS.png" alt="Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.LeakageWithCoefficient"
@@ -81,6 +95,24 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 >EddyCurrent</a>
 </td>
 <td>For modelling of eddy current in a conductive magnetic flux tube</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTubes.Basic.IdleS.png" alt="Modelica.Magnetic.FluxTubes.Basic.Idle" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.Idle"
+>Idle</a>
+</td>
+<td>Idle running branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTubes.Basic.ShortS.png" alt="Modelica.Magnetic.FluxTubes.Basic.Short" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.Short"
+>Short</a>
+</td>
+<td>Short cut branch</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub1d356e586a36bd15ssingS.png" alt="Modelica.Magnetic.FluxTubes.Basic.Crossing" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.Crossing"
+>Crossing</a>
+</td>
+<td>Crossing of two branches</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -110,7 +142,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
 <a name="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter"></a><a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic"
 >Modelica.Magnetic.FluxTubes.Basic</a>.ElectroMagneticConverter</h2>
 <p>
-<span class="ModelicaDescription">Electro-magnetic energy conversion</span>
+<span class="ModelicaDescription">Ideal electro-magnetic energy conversion</span>
 </p>
 <h3>Information</h3>
 
@@ -146,6 +178,39 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
 <tr><td>n</td><td>Negative electric pin</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ElectroMagneticConverterWithLeakageInductance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub1b9f4ed62805584ctanceI.png" alt="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverterWithLeakageInductance"></a><a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic"
+>Modelica.Magnetic.FluxTubes.Basic</a>.ElectroMagneticConverterWithLeakageInductance</h2>
+<p>
+<span class="ModelicaDescription">Electro-magnetic energy conversion with a leakage inductance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Same as <a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter"
+>ElectroMagneticConverter</a> with an additional leakage path on the magnetic side (leakage inductance, leakage flux). This model may improve stability especially when the magnetic circuit contains more than one electro-magnetic converter.
+</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>N</td><td>Number of turns</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">LeakageInductance</td></tr>
+<tr><td>L</td><td>Length in direction of flux [m]</td></tr>
+<tr><td>A</td><td>Area of cross-section [m2]</td></tr>
+<tr><td>mu_rel</td><td>Constant relative permeability of leakage inductance (&gt; 0 required) [1]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+<tr><td>p</td><td>Positive electric pin</td></tr>
+<tr><td>n</td><td>Negative electric pin</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE ConstantReluctance<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
 <h2><img src="Modelica.Magnetic.FluxTub6e5b7caaf57fb34ctanceI.png" alt="Modelica.Magnetic.FluxTubes.Basic.ConstantReluctance" align="right" style="border: 1px solid" width="80" height="80">
@@ -157,15 +222,45 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
 <h3>Information</h3>
 
 <p>
-This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as a parameter.
+This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>R_m</td><td>Magnetic reluctance [H-1]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ConstantPermeance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub6e5b7caaf57fb34ctanceI.png" alt="Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Basic.ConstantPermeance"></a><a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic"
+>Modelica.Magnetic.FluxTubes.Basic</a>.ConstantPermeance</h2>
+<p>
+<span class="ModelicaDescription">Constant permeance</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This constant permeance is provided for test purposes and simple magnetic network models. The permeance is not calculated from geometry and permeability of a flux tube, but is provided as parameter.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>G_m</td><td>Magnetic permeance [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
 <tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
 </table>
@@ -200,7 +295,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
+>FluxTubes.Interfaces.PartialLeakage</a> (Base class for leakage flux tubes with position-independent permeance and hence no force generation; mu_r=1).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -238,13 +333,15 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
 >Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>useConductance</td><td>Use conductance instead of geometry data and rho</td></tr>
+<tr><td>G</td><td>Equivalent loss conductance G=A/rho/l [S]</td></tr>
 <tr><td>rho</td><td>Resistivity of flux tube material (default: Iron at 20degC) [Ohm.m]</td></tr>
 <tr><td>l</td><td>Average length of eddy current path [m]</td></tr>
 <tr><td>A</td><td>Cross sectional area of eddy current path [m2]</td></tr>
@@ -256,10 +353,97 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>port_p</td><td>Positive magnetic port</td></tr>
 <tr><td>port_n</td><td>Negative magnetic port</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Idle<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTubes.Basic.IdleI.png" alt="Modelica.Magnetic.FluxTubes.Basic.Idle" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Basic.Idle"></a><a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic"
+>Modelica.Magnetic.FluxTubes.Basic</a>.Idle</h2>
+<p>
+<span class="ModelicaDescription">Idle running branch</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a simple idle running branch.
+</p>
+
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPorts"
+>FluxTubes.Interfaces.PartialTwoPorts</a> (Partial component with magnetic potential difference between two magnetic ports p and n and magnetic flux Phi from p to n).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Short<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTubes.Basic.ShortI.png" alt="Modelica.Magnetic.FluxTubes.Basic.Short" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Basic.Short"></a><a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic"
+>Modelica.Magnetic.FluxTubes.Basic</a>.Short</h2>
+<p>
+<span class="ModelicaDescription">Short cut branch</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a simple short cut branch.
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary"
+>FluxTubes.Interfaces.PartialTwoPortsElementary</a> (Partial component with two magnetic ports p and n for textual programming).</span></p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Crossing<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub1d356e586a36bd15ssingI.png" alt="Modelica.Magnetic.FluxTubes.Basic.Crossing" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Basic.Crossing"></a><a href="Modelica_Magnetic_FluxTubes_Basic.html#Modelica.Magnetic.FluxTubes.Basic"
+>Modelica.Magnetic.FluxTubes.Basic</a>.Crossing</h2>
+<p>
+<span class="ModelicaDescription">Crossing of two branches</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This is a simple crossing of two branches. The ports <code>port_p1</code> and <code>port_p2</code> are connected, as well as <code>port_n1</code> and <code>port_n2</code>.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Idle"
+>Idle</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Short"
+>Short</a>
+</p>
+
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p1</td><td>Positive port_p1 connected with port_p2</td></tr>
+<tr><td>port_p2</td><td>Positive port_p2 connected with port_p1</td></tr>
+<tr><td>port_n1</td><td>Negative port_n1 connected with port_n2</td></tr>
+<tr><td>port_n2</td><td>Negative port_n2 connected with port_n1</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:33 2016.
 </address>
 </body>
 </html>

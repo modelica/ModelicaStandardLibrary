@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -98,6 +100,12 @@ This package contains basic components 1D mechanical rotational drive trains.
 >ElastoBacklash</a>
 </td>
 <td>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Mechanics.Rotatiaf8e93635fdce467lash2S.png" alt="Modelica.Mechanics.Rotational.Components.ElastoBacklash2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.ElastoBacklash2"
+>ElastoBacklash2</a>
+</td>
+<td>Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</td>
 </tr>
 <tr>
 <td><img src="Modelica.Mechanics.Rotati581a659e1bd20935ctionS.png" alt="Modelica.Mechanics.Rotational.Components.BearingFriction" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.BearingFriction"
@@ -201,9 +209,9 @@ at an angle phi0 in the <b>housing</b>. May be used:
 </p>
 <ul>
 <li> to connect a compliant element, such as a spring or a damper,
-     between an inertia or gearbox component and the housing.
+     between an inertia or gearbox component and the housing.</li>
 <li> to fix a rigid element, such as an inertia, with a specific
-     angle to the housing.
+     angle to the housing.</li>
 </ul>
 
 
@@ -565,6 +573,141 @@ in the User's Guide of the Rotational library.
 <tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ElastoBacklash2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Mechanics.Rotatiaf8e93635fdce467lash2I.png" alt="Modelica.Mechanics.Rotational.Components.ElastoBacklash2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Mechanics.Rotational.Components.ElastoBacklash2"></a><a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components"
+>Modelica.Mechanics.Rotational.Components</a>.ElastoBacklash2</h2>
+<p>
+<span class="ModelicaDescription">Backlash connected in series to linear spring and damper (backlash is modeled with elasticity; at start of contact the flange torque can jump, contrary to the ElastoBacklash model)</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This element consists of a <b>backlash</b> element <b>connected in series</b>
+to a <b>spring</b> and <b>damper</b> element which are <b>connected in parallel</b>.
+The spring constant shall be non-zero, otherwise the component cannot be used.
+</p>
+
+<p>
+In combination with components IdealGear, the ElastoBacklash2 model
+can be used to model a gear box with backlash, elasticity and damping.
+</p>
+
+<p>
+During initialization, the backlash characteristic is replaced by a continuous
+approximation in the backlash region, in order to reduce problems during
+initialization, especially for inverse models.
+</p>
+
+<p>
+If the backlash b is smaller as 1e-10 rad (especially, if b=0),
+then the backlash is ignored and the component reduces to a spring/damper
+element in parallel.
+</p>
+
+<p>
+In the backlash region (-b/2 &le; flange_b.phi - flange_a.phi - phi_rel0 &le; b/2) no torque
+is exerted (flange_b.tau = 0). Outside of this region, contact is present and
+the contact torque is basically computed with a linear
+spring/damper characteristic:
+</p>
+
+<pre>
+   desiredContactTorque = c*phi_contact + d*<b>der</b>(phi_contact)
+
+            phi_contact = phi_rel - phi_rel0 - b/2 <b>if</b> phi_rel - phi_rel0 &gt;  b/2
+                        = phi_rel - phi_rel0 + b/2 <b>if</b> phi_rel - phi_rel0 &lt; -b/2
+
+            phi_rel     = flange_b.phi - flange_a.phi;
+</pre>
+
+<p>
+This torque characteristic leads to the following difficulty:
+</p>
+
+<ul>
+<li> If the damper torque becomes larger as the spring torque and with opposite sign,
+     the contact torque would be "pulling/sticking" which is unphysical, since during
+     contact only pushing torques can occur.</li>
+</ul>
+
+<p>
+In the literature this issue seems to be not discussed. For this reason, the most simple
+approach is used in the ElastoBacklash2 model, by slightly changing
+the linear spring/damper characteristic to:
+</p>
+
+<pre>
+    // Torque characteristic when phi_rel > phi_rel0
+    <b>if</b> phi_rel - phi_rel0 &lt; b/2 <b>then</b>
+       tau_c = 0;          // spring torque
+       tau_d = 0;          // damper torque
+       flange_b.tau = 0;
+    <b>else</b>
+       tau_c = c*(phi_rel - phi_rel0);    // spring torque
+       tau_d = d*<b>der</b>(phi_rel);            // damper torque
+       flange_b.tau = <b>if</b> tau_c + tau_d &le; 0 <b>then</b> 0 <b>else</b> tau_c + tau_d;
+    <b>end if</b>;
+</pre>
+
+<p>
+Note, when sticking would occur (tau_c + tau_d &le; 0), then the contact torque
+is explicitly set to zero.
+</p>
+
+
+<p>
+This model of backlash is slightly different to the
+<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.ElastoBacklash"
+>ElastoBacklash</a>
+component:
+</p>
+
+<ul>
+<li> An event occurs when contact occurs or when contact is released (contrary to the ElastoBacklash component).</li>
+<li> When contact occurs, the torque changes discontinuously, due to the damping.
+     The damping is larger as for the ElastoBacklash component (for the same damping coefficient),
+    because the ElastoBacklash component has a heuristic to avoid the discontinuity of the torque when contact occurs.</li>
+<li> For some models, the ElastoBacklash2 component leads to faster simulations
+      (as compared when using the ElastBacklash component).</li>
+</ul>
+
+
+<p>
+See also the discussion
+<a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.StateSelection"
+>State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates"
+>Modelica.Mechanics.Rotational.Interfaces.PartialCompliantWithRelativeStates</a> (Partial model for the compliant connection of two rotational 1-dim. shaft flanges where the relative angle and speed are used as preferred states), <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT"
+>Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT</a> (Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>c</td><td>Spring constant (c &gt; 0 required) [N.m/rad]</td></tr>
+<tr><td>d</td><td>Damping constant [N.m.s/rad]</td></tr>
+<tr><td>b</td><td>Total backlash [rad]</td></tr>
+<tr><td>phi_rel0</td><td>Unstretched spring angle [rad]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>phi_rel</td><td>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</td></tr>
+<tr><td>w_rel</td><td>Relative angular velocity (= der(phi_rel)) [rad/s]</td></tr>
+<tr><td>a_rel</td><td>Relative angular acceleration (= der(w_rel)) [rad/s2]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr><td>phi_nominal</td><td>Nominal value of phi_rel (used for scaling) [rad]</td></tr>
+<tr><td>stateSelect</td><td>Priority to use phi_rel and w_rel as states</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>flange_a</td><td>Left flange of compliant 1-dim. rotational component</td></tr>
+<tr><td>flange_b</td><td>Right flange of compliant 1-dim. rotational component</td></tr>
+<tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE BearingFriction<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
 <h2><img src="Modelica.Mechanics.Rotati581a659e1bd20935ctionI.png" alt="Modelica.Mechanics.Rotational.Components.BearingFriction" align="right" style="border: 1px solid" width="80" height="80">
@@ -626,12 +769,14 @@ called the maximum static friction torque, computed via:
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled which have to be solved by appropriate
-numerical methods. The method is described in:
+numerical methods. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -668,8 +813,8 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <tr><td>peak</td><td>peak*tau_pos[1,2] = Maximum friction torque for w==0</td></tr>
 <tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
-<tr><td>startForward</td><td>true, if w_rel=0 and start of forward sliding</td></tr>
-<tr><td>startBackward</td><td>true, if w_rel=0 and start of backward sliding</td></tr>
+<tr><td>startForward</td><td>= true, if w_relfric=0 and start of forward sliding</td></tr>
+<tr><td>startBackward</td><td>= true, if w_relfric=0 and start of backward sliding</td></tr>
 <tr><td>locked</td><td>true, if w_rel=0 and not sliding</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
 <tr><td>w_small</td><td>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur) [rad/s]</td></tr>
@@ -749,12 +894,14 @@ distributions:
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -800,8 +947,8 @@ in the User's Guide of the Rotational library.
 <tr><td>fn_max</td><td>Maximum normal force [N]</td></tr>
 <tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
-<tr><td>startForward</td><td>true, if w_rel=0 and start of forward sliding</td></tr>
-<tr><td>startBackward</td><td>true, if w_rel=0 and start of backward sliding</td></tr>
+<tr><td>startForward</td><td>= true, if w_relfric=0 and start of forward sliding</td></tr>
+<tr><td>startBackward</td><td>= true, if w_relfric=0 and start of backward sliding</td></tr>
 <tr><td>locked</td><td>true, if w_rel=0 and not sliding</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
 <tr><td>w_small</td><td>Relative angular velocity near to zero if jumps due to a reinit(..) of the velocity can occur (set to low value only if such impulses can occur) [rad/s]</td></tr>
@@ -882,12 +1029,14 @@ distributions:
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 <p>
 More precise friction models take into account the elasticity of the
@@ -936,8 +1085,8 @@ in the User's Guide of the Rotational library.
 <tr><td>phi_rel</td><td>Relative rotation angle (= flange_b.phi - flange_a.phi) [rad]</td></tr>
 <tr><td>w_rel</td><td>Relative angular velocity (= der(phi_rel)) [rad/s]</td></tr>
 <tr><td>a_rel</td><td>Relative angular acceleration (= der(w_rel)) [rad/s2]</td></tr>
-<tr><td>startForward</td><td>true, if w_rel=0 and start of forward sliding</td></tr>
-<tr><td>startBackward</td><td>true, if w_rel=0 and start of backward sliding</td></tr>
+<tr><td>startForward</td><td>= true, if w_relfric=0 and start of forward sliding</td></tr>
+<tr><td>startBackward</td><td>= true, if w_relfric=0 and start of backward sliding</td></tr>
 <tr><td>locked</td><td>true, if w_rel=0 and not sliding</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
 <tr><td>phi_nominal</td><td>Nominal value of phi_rel (used for scaling) [rad]</td></tr>
@@ -971,6 +1120,7 @@ flanges maybe sliding with respect to each other
 Parallel connection of ClutchCombi and of FreeWheel.
                      The element is introduced to resolve the ambiguity
                      of the constraint torques of the elements.
+</p>
 <p>
 A one-way-clutch is an element where a clutch is connected in parallel
 to a free wheel. This special element is provided, because such
@@ -1037,7 +1187,9 @@ distributions:
 <p>
 This procedure is implemented in a "clean" way by state events and
 leads to continuous/discrete systems of equations if friction elements
-are dynamically coupled. The method is described in:
+are dynamically coupled. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
 </p>
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
@@ -1274,10 +1426,10 @@ Modelica.Mechanics.Rotational.GearEfficiency model.
 
 <ul>
 <li>Pelchen C.,
-<a href="http://www.robotic.dlr.de/Christian.Schweiger/">Schweiger C.</a>,
+Schweiger C.,
 and <a href="http://www.robotic.dlr.de/Martin.Otter/">Otter M.</a>:
 &quot;<a href="https://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf">Modeling
-and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot; in
+and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</a>,&quot; in
 <I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
@@ -1285,7 +1437,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
 <li>Bertsch C. (2009):
 &quot;<a  >Problem
 with model LossyGear and a proposed solution</a>&quot;,
-Ticket <a href="http://trac.modelica.org/Modelica/ticket/108">#108</a>,
+Ticket <a href="https://trac.modelica.org/Modelica/ticket/108">#108</a>,
 Sept. 11, 2009.</li>
 </ul>
 
@@ -1586,7 +1738,7 @@ in the following way:
 <ul>
 <li> Connect an instance of this model between two flange connectors.</li>
 <li> The <b>relative rotation angle</b> and the <b>relative angular velocity</b>
-     between the two connectors are used as <b>state variables</b>.
+     between the two connectors are used as <b>state variables</b>.</li>
 </ul>
 <p>
 An example is given in the next figure
@@ -1639,7 +1791,7 @@ in the User's Guide of the Rotational library.
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
 and export this model in form of an input/output block,
-especially as FMU (<a href="https://www.fmi-standard.org">Functional Mockup Unit</a>).
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs"
 >Rotational.Examples.GenerationOfFMUs</a>.
@@ -1676,7 +1828,7 @@ This adaptor has torque as input and angle, angular velocity and angular acceler
 Adaptor between a flange connector and a signal representation of the flange.
 This component is used to provide a pure signal interface around a Rotational model
 and export this model in form of an input/output block,
-especially as FMU (<a href="https://www.fmi-standard.org">Functional Mockup Unit</a>).
+especially as FMU (<a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>).
 Examples of the usage of this adaptor are provided in
 <a href="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs"
 >Rotational.Examples.GenerationOfFMUs</a>.
@@ -1701,7 +1853,7 @@ torque as output signal. Note, the input signals must be consistent to each othe
 <tr><td>tau</td><td>Torque needed to drive the flange according to phi, w, a [N.m]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:43 2016.
 </address>
 </body>
 </html>

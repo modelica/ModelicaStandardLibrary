@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -59,7 +61,7 @@ as well as functions operating on
 </p>
 
 <dl>
-<dt><b>Main Authors:</b>
+<dt><b>Main Authors:</b></dt>
 <dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
     Marcus Baur<br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
@@ -67,11 +69,11 @@ as well as functions operating on
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br></dd>
 </dl>
 
 <p>
-Copyright &copy; 1998-2015, Modelica Association and DLR.
+Copyright &copy; 1998-2016, Modelica Association and DLR.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
@@ -87,34 +89,58 @@ Copyright &copy; 1998-2015, Modelica Association and DLR.
 <th>Description</th>
 </tr>
 <tr>
-<td><img src="Modelica.Math.IconsS.png" alt="Modelica.Math.Icons" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Icons.html#Modelica.Math.Icons"
->Icons</a>
-</td>
-<td>Icons for Math</td>
-</tr>
-<tr>
 <td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.Vectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
 >Vectors</a>
 </td>
 <td>Library of functions operating on vectors</td>
 </tr>
 <tr>
-<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.Matrices" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+<td><img src="Modelica.Math.BooleanVectorsS.png" alt="Modelica.Math.BooleanVectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>BooleanVectors</a>
+</td>
+<td>Library of functions operating on Boolean vectors</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.MatricesS.png" alt="Modelica.Math.Matrices" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
 >Matrices</a>
 </td>
 <td>Library of functions operating on matrices</td>
 </tr>
 <tr>
-<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.Nonlinear" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+<td><img src="Modelica.Math.NonlinearS.png" alt="Modelica.Math.Nonlinear" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
 >Nonlinear</a>
 </td>
 <td>Library of functions operating on nonlinear equations</td>
 </tr>
 <tr>
-<td><img src="Modelica.Math.VectorsS.png" alt="Modelica.Math.BooleanVectors" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
->BooleanVectors</a>
+<td><img src="Modelica.Math.RandomS.png" alt="Modelica.Math.Random" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Random.html#Modelica.Math.Random"
+>Random</a>
 </td>
-<td>Library of functions operating on Boolean vectors</td>
+<td>Library of functions for generating random numbers</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.DistributionsS.png" alt="Modelica.Math.Distributions" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Distributions.html#Modelica.Math.Distributions"
+>Distributions</a>
+</td>
+<td>Library of distribution functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.SpecialS.png" alt="Modelica.Math.Special" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Special.html#Modelica.Math.Special"
+>Special</a>
+</td>
+<td>Library of special mathematical functions</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.FastFourierTransformS.png" alt="Modelica.Math.FastFourierTransform" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_FastFourierTransform.html#Modelica.Math.FastFourierTransform"
+>FastFourierTransform</a>
+</td>
+<td>Library of functions for the Fast Fourier Transform (FFT)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Math.IconsS.png" alt="Modelica.Math.Icons" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math_Icons.html#Modelica.Math.Icons"
+>Icons</a>
+</td>
+<td>Icons for Math</td>
 </tr>
 <tr>
 <td><img src="Modelica.Math.isEqualS.png" alt="Modelica.Math.isEqual" width="20" height="20" align="top">&nbsp;<a href="Modelica_Math.html#Modelica.Math.isEqual"
@@ -974,7 +1000,7 @@ Instead the icon <a href="Modelica_Math_Icons.html#Modelica.Math.Icons.AxisCente
 <tr><td>y[1, size(icol, 1)]</td><td>interpolated input value(s) (column(s) icol of table)</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:04 2016.
 </address>
 </body>
 </html>

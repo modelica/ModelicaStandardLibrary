@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -74,6 +76,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td>Salient voltage</td>
 </tr>
 <tr>
+<td><img src="Modelica.Magnetic.Fundame5f01c8919eccbdc0lientS.png" alt="Modelica.Magnetic.FundamentalWave.Types.SalientResistance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
+>SalientResistance</a>
+</td>
+<td>Salient resistance</td>
+</tr>
+<tr>
 <td><img src="Modelica.Magnetic.Fundame5f01c8919eccbdc0lientS.png" alt="Modelica.Magnetic.FundamentalWave.Types.SalientInductance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
 >SalientInductance</a>
 </td>
@@ -86,10 +94,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td>Salient reluctance</td>
 </tr>
 <tr>
-<td><img src="Modelica.Magnetic.Fundame5f01c8919eccbdc0lientS.png" alt="Modelica.Magnetic.FundamentalWave.Types.SalientResistance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
->SalientResistance</a>
+<td><img src="Modelica.Magnetic.Fundame5f01c8919eccbdc0lientS.png" alt="Modelica.Magnetic.FundamentalWave.Types.SalientPermeance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"
+>SalientPermeance</a>
 </td>
-<td>Salient resistance</td>
+<td>Salient permeance</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -145,12 +153,14 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 >Salient</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientVoltage"
 >SalientVoltage</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
+>SalientResistance</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
 >SalientInductance</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"
 >SalientReluctance</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
->SalientResistance</a>
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"
+>SalientPermeance</a>
 </p>
 
 
@@ -174,70 +184,14 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 >Salient</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientCurrent"
 >SalientCurrent</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
+>SalientResistance</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
 >SalientInductance</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"
 >SalientReluctance</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
->SalientResistance</a>
-</p>
-
-
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
->Salient</a> (Base record of saliency with d and q component).</span></p>
-<!--[if supportFields]><span style="mso-element:field-begin"></span>
-<span style="mso-spacerun:yes"></span>XE SalientInductance<![endif]-->
-<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><a name="Modelica.Magnetic.FundamentalWave.Types.SalientInductance"></a><a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types"
->Modelica.Magnetic.FundamentalWave.Types</a>.SalientInductance</h2>
-<p>
-<span class="ModelicaDescription">Salient inductance</span>
-</p>
-<h3>Information</h3>
-
-<p>Type representing the d- and q-axis of an inductance with respect to the fundamental wave.</p>
-
-<h4>See also</h4>
-<p>
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
->Salient</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientCurrent"
->SalientCurrent</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientVoltage"
->SalientVoltage</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"
->SalientReluctance</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
->SalientResistance</a>
-</p>
-
-
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
->Salient</a> (Base record of saliency with d and q component).</span></p>
-<!--[if supportFields]><span style="mso-element:field-begin"></span>
-<span style="mso-spacerun:yes"></span>XE SalientReluctance<![endif]-->
-<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><a name="Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"></a><a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types"
->Modelica.Magnetic.FundamentalWave.Types</a>.SalientReluctance</h2>
-<p>
-<span class="ModelicaDescription">Salient reluctance</span>
-</p>
-<h3>Information</h3>
-
-<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
-
-<h4>See also</h4>
-<p>
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
->Salient</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientCurrent"
->SalientCurrent</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientVoltage"
->SalientVoltage</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
->SalientInductance</a>,
-<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
->SalientResistance</a>
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"
+>SalientPermeance</a>
 </p>
 
 
@@ -266,6 +220,101 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
 >SalientInductance</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"
+>SalientReluctance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"
+>SalientPermeance</a>
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
+>Salient</a> (Base record of saliency with d and q component).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SalientInductance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FundamentalWave.Types.SalientInductance"></a><a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types"
+>Modelica.Magnetic.FundamentalWave.Types</a>.SalientInductance</h2>
+<p>
+<span class="ModelicaDescription">Salient inductance</span>
+</p>
+<h3>Information</h3>
+
+<p>Type representing the d- and q-axis of an inductance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
+>Salient</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientCurrent"
+>SalientCurrent</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientVoltage"
+>SalientVoltage</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
+>SalientResistance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"
+>SalientReluctance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"
+>SalientPermeance</a>
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
+>Salient</a> (Base record of saliency with d and q component).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SalientReluctance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"></a><a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types"
+>Modelica.Magnetic.FundamentalWave.Types</a>.SalientReluctance</h2>
+<p>
+<span class="ModelicaDescription">Salient reluctance</span>
+</p>
+<h3>Information</h3>
+
+<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
+>Salient</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientCurrent"
+>SalientCurrent</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientVoltage"
+>SalientVoltage</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
+>SalientResistance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
+>SalientInductance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"
+>SalientPermeance</a>
+</p>
+
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
+>Salient</a> (Base record of saliency with d and q component).</span></p>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SalientPermeance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Magnetic.FundamentalWave.Types.SalientPermeance"></a><a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types"
+>Modelica.Magnetic.FundamentalWave.Types</a>.SalientPermeance</h2>
+<p>
+<span class="ModelicaDescription">Salient permeance</span>
+</p>
+<h3>Information</h3>
+
+<p>Type representing the d- and q-axis of an reluctance with respect to the fundamental wave.</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
+>Salient</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientCurrent"
+>SalientCurrent</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientVoltage"
+>SalientVoltage</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientResistance"
+>SalientResistance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
+>SalientInductance</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientReluctance"
 >SalientReluctance</a>
 </p>
 
@@ -273,7 +322,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.Salient"
 >Salient</a> (Base record of saliency with d and q component).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:36 2016.
 </address>
 </body>
 </html>

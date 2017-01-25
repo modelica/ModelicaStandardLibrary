@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -233,6 +235,7 @@ flanges are identical.
 </p>
 <p>
 The following variables are transported through this connector:
+</p>
 <pre>
   s: Absolute position of the flange in [m]. A positive translation
      means that the flange is translated along the flange axis.
@@ -473,7 +476,7 @@ It is used e.g., to built up sliding masses.
 <h3>Information</h3>
 
 <p>
-This is a 1D translational component with a <i>compliant </i>connection of two
+This is a 1D translational component with a <i>compliant</i> connection of two
 translational 1D flanges where inertial effects between the two
 flanges are not included. The absolute value of the force at the left and the right
 flange is the same. It is used to built up springs, dampers etc.
@@ -827,6 +830,20 @@ with the Modelica.Blocks blocks.
 Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
 
+<p>
+This procedure is implemented in a "clean" way by state events and
+leads to a mixed continuous/discrete systems of equations if friction elements
+are dynamically coupled which have to be solved by appropriate
+numerical methods. The method is described in
+(see also a short sketch in <a href="Modelica_Mechanics_Rotational_UsersGuide.html#Modelica.Mechanics.Rotational.UsersGuide.ModelingOfFriction"
+>UsersGuide.ModelingOfFriction</a>):
+</p>
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
+<dd><b>Hybrid Modeling in Modelica based on the Synchronous
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
+</dl>
+
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -834,7 +851,7 @@ Basic model for Coulomb friction that models the stuck phase in a reliable way.
 <tr><td>v_small</td><td>Relative velocity near to zero (see model info text) [m/s]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:17 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:45 2016.
 </address>
 </body>
 </html>

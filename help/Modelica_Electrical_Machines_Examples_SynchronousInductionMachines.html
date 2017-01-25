@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -78,6 +80,12 @@ This package contains test examples of synchronous induction machines.
 >SMPM_VoltageSource</a>
 </td>
 <td>Test example: PermanentMagnetSynchronousInductionMachine fed by FOC</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_Braking" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_Braking"
+>SMPM_Braking</a>
+</td>
+<td>Test example: PermanentMagnetSynchronousInductionMachine acting as brake</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Machic7a3e356571be39aC_DOLS.png" alt="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_Generator" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMEE_Generator"
@@ -202,12 +210,9 @@ Default machine parameters of model <a href="Modelica_Electrical_Machines_BasicM
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
-<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
-<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
-<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>Idq[2]</td><td>Desired d- and q-current [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
 <tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
-<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
 <tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
 <tr><td>smpmData</td><td>&nbsp;</td></tr>
 </table>
@@ -237,12 +242,38 @@ Default machine parameters of model <a href="Modelica_Electrical_Machines_BasicM
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>VNominal</td><td>Nominal RMS voltage per phase [V]</td></tr>
-<tr><td>fNominal</td><td>Nominal frequency [Hz]</td></tr>
-<tr><td>f</td><td>Actual frequency [Hz]</td></tr>
-<tr><td>tRamp</td><td>Frequency ramp [s]</td></tr>
+<tr><td>Idq[2]</td><td>Desired d- and q-current [A]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
 <tr><td>TLoad</td><td>Nominal load torque [N.m]</td></tr>
-<tr><td>tStep</td><td>Time of load torque step [s]</td></tr>
+<tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
+<tr><td>smpmData</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SMPM_Braking<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machiaa1125d3ec0334feerterI.png" alt="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_Braking" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.SMPM_Braking"></a><a href="Modelica_Electrical_Machines_Examples_SynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.SynchronousInductionMachines"
+>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines</a>.SMPM_Braking</h2>
+<p>
+<span class="ModelicaDescription">Test example: PermanentMagnetSynchronousInductionMachine acting as brake</span>
+</p>
+<h3>Information</h3>
+
+<p>
+A synchronous induction machine with permanent magnets starts braking from nominal speed by feeding a diode bridge, which in turn feeds a braking resistor.<br>
+Since induced voltage is reduced proportional to falling speed, the braking resistance is set proportional to speed to achieve constant current and torque.</p>
+<p>
+Default machine parameters of model <a href="Modelica_Electrical_Machines_BasicMachines_SynchronousInductionMachines.html#Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet"
+>SM_PermanentMagnet</a> are used.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R</td><td>Nominal braking resistance [Ohm]</td></tr>
+<tr><td>wNominal</td><td>Nominal speed [rad/s]</td></tr>
 <tr><td>JLoad</td><td>Load&#39;s moment of inertia [kg.m2]</td></tr>
 <tr><td>smpmData</td><td>&nbsp;</td></tr>
 </table>
@@ -350,7 +381,7 @@ One could try to optimize the controller parameters.
 <tr><td>smeeData</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:19 2016.
 </address>
 </body>
 </html>

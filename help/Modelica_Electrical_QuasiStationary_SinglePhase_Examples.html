@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -72,6 +74,12 @@ Examples to demonstrate the usage of quasistationary electric components.
 >Rectifier</a>
 </td>
 <td>Rectifier example</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasi11faf7be0201f4efnanceS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Transformer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Transformer"
+>Transformer</a>
+</td>
+<td>Example of transformer with short circuit impedance, transmission resistances and load</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -158,8 +166,35 @@ whereas the transient model may have only one ground since AC side and DC side a
 <tr><td>VAC</td><td>AC rms voltage [V]</td></tr>
 <tr><td>conversionFactor</td><td>Ratio of DC voltage / AC rms voltage</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Transformer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi11faf7be0201f4efnanceI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Transformer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Transformer"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Examples</a>.Transformer</h2>
+<p>
+<span class="ModelicaDescription">Example of transformer with short circuit impedance, transmission resistances and load</span>
+</p>
+<h3>Information</h3>
+
+<p>This examples shows the operational behavior of transformer with short circuit impedance. The transformer is loaded with constant current magnitude of 250A but variable phase angle. The angle varies from 0 to 360 degrees within one second of simulation time.
+</p>
+
+<p>Transformer data</p>
+<ul>
+<li>Nominal primary voltage <code>V1N = 1000 V</code></li>
+<li>Nominal secondary voltage <code>V2N = 200 V</code></li>
+<li>Nominal apparent power  <code>SN = 50 kVA</code></li>
+<li>Short circuit impedance <code><u>Z</u><sub>k</sub> = 0.72 Ohm + j*0.96 Ohm</code></li>
+<li>Magnetizing current and core loss are not taken into account</li>
+</ul>
+
+<p>Plot the real part of the secondary voltage <code>idealTransformer.v2.re</code> on the x axis and <code>idealTransformer.v2.im</code> on the y axis. The locus of this complex voltage <code><u>v</u><sub>2</sub></code> is a circle. The center of the circle is the the primary supply voltage divided by the transformation ratio of <code>n=5</code>. Since in this experiment the load current magnitude is constant, the voltage drop across the short circuit impedance of the transformer is constant, as well. The radius of the circle is equal to the constant magnitude of the voltage drop across the short circuit impedance. </p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:27 2016.
 </address>
 </body>
 </html>

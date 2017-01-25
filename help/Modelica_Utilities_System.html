@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -82,13 +84,25 @@ This package contains functions to interact with the environment.
 <td>Set content of local environment variable</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.System.command" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System.command"
+<td><img src="Modelica.Utilities.System.getTimeS.png" alt="Modelica.Utilities.System.getTime" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System.getTime"
+>getTime</a>
+</td>
+<td>Retrieve the local time (in the local time zone)</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.System.getTimeS.png" alt="Modelica.Utilities.System.getPid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System.getPid"
+>getPid</a>
+</td>
+<td>Retrieve the current process id</td>
+</tr>
+<tr>
+<td><img src="Modelica.Utilities.System.commandS.png" alt="Modelica.Utilities.System.command" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System.command"
 >command</a>
 </td>
 <td>Execute command in default shell</td>
 </tr>
 <tr>
-<td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.System.exit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System.exit"
+<td><img src="Modelica.Utilities.System.commandS.png" alt="Modelica.Utilities.System.exit" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_System.html#Modelica.Utilities.System.exit"
 >exit</a>
 </td>
 <td>Terminate execution of Modelica environment</td>
@@ -184,9 +198,110 @@ This package contains functions to interact with the environment.
 <tr><td>convertFromSlash</td><td>True, if &#39;/&#39; in content shall be changed to the native directory separator</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getTime<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.System.getTime"></a><a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
+>Modelica.Utilities.System</a>.getTime</h2>
+<p>
+<span class="ModelicaDescription">Retrieve the local time (in the local time zone)</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+(ms, sec, min, hour, day, mon, year) = System.<b>getTime</b>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the local time at the time instant this function was called.
+All returned values are of type Integer and have the following meaning:
+</p>
+
+<blockquote>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th>Argument</th>
+    <th>Range</th>
+    <th>Description</th></tr>
+
+<tr><td>ms</td> <td>0 .. 999</td>
+    <td>Milli-seconds after seconds</td></tr>
+
+<tr><td>sec</td> <td>0 .. 59</td>
+    <td>Seconds after minute</td></tr>
+
+<tr><td>min</td> <td>0 .. 59</td>
+    <td>Minutes after hour</td></tr>
+
+<tr><td>hour</td> <td>0 .. 23</td>
+    <td>Hours after midnight</td></tr>
+
+<tr><td>day</td> <td>1 .. 31</td>
+    <td>Day of month</td></tr>
+
+<tr><td>mon</td> <td>1 .. 12</td>
+    <td>Current month</td></tr>
+
+<tr><td>year</td> <td>&ge; 2015</td>
+    <td>Current year</td></tr>
+</table>
+</blockquote>
+
+<h4>Example</h4>
+<blockquote><pre>
+(ms, sec, min, hour, mon, year) = getTime()   // = (281, 30, 13, 10, 15, 2, 2015)
+                                              // Feb. 15, 2015 at 10:13 after 30.281 s
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ms</td><td>Millisecond</td></tr>
+<tr><td>sec</td><td>Second</td></tr>
+<tr><td>min</td><td>Minute</td></tr>
+<tr><td>hour</td><td>Hour</td></tr>
+<tr><td>day</td><td>Day</td></tr>
+<tr><td>mon</td><td>Month</td></tr>
+<tr><td>year</td><td>Year</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE getPid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><a name="Modelica.Utilities.System.getPid"></a><a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
+>Modelica.Utilities.System</a>.getPid</h2>
+<p>
+<span class="ModelicaDescription">Retrieve the current process id</span>
+</p>
+<h3>Information</h3>
+
+<h4>Syntax</h4>
+<blockquote><pre>
+pid = System.<b>getPid</b>();
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+Returns the pid (process identification) of the process in which this function
+is called. This is an impure function and the returned value depends on the
+operating system.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+getPid()   // = 3044
+</pre></blockquote>
+<h4>Note</h4>
+<p>This function is impure!</p>
+
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pid</td><td>Process ID</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE command<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Systemfa6a34016538e7ccctoryI.png" alt="Modelica.Utilities.System.command" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.System.commandI.png" alt="Modelica.Utilities.System.command" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.System.command"></a><a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
 >Modelica.Utilities.System</a>.command</h2>
 <p>
@@ -211,7 +326,7 @@ This package contains functions to interact with the environment.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE exit<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Utilities.Systemfa6a34016538e7ccctoryI.png" alt="Modelica.Utilities.System.exit" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Utilities.System.commandI.png" alt="Modelica.Utilities.System.exit" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Utilities.System.exit"></a><a href="Modelica_Utilities_System.html#Modelica.Utilities.System"
 >Modelica.Utilities.System</a>.exit</h2>
 <p>
@@ -229,7 +344,7 @@ This package contains functions to interact with the environment.
 <tr><td>status</td><td>Result to be returned by environment (0 means success)</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:06 2016.
 </address>
 </body>
 </html>

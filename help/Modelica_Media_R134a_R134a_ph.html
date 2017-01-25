@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -70,7 +72,7 @@ The functions provided by this package shall be used inside of the restricted li
 Equations of State and Tables for Ammonia, R22, R134a, R152a, and R123</b>. Springer-Verlag, Berlin (Germany), 1994.</dd>
 </dl>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states methode for estimation of visocsity of pure refrigerants and mixtures</b>.
+<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
@@ -147,7 +149,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 <td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.setState_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setState_pTX"
 >setState_pTX</a>
 </td>
-<td>Dummy function</td>
+<td>Set state for pressure and temperature (X not used since single substance)</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.setBubbleState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.setBubbleState"
@@ -345,7 +347,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 <td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp"
 >specificHeatCapacityCp</a>
 </td>
-<td>Specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input</td>
+<td>Specific heat capacity at constant pressure | turns infinite in two-phase region! | use setState_phX function for input</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCv" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.specificHeatCapacityCv"
@@ -526,6 +528,24 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 >setSmoothState</a>
 </td>
 <td>Smooth transition function between state_a and state_b</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.dofpT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dofpT"
+>dofpT</a>
+</td>
+<td>Compute d for given p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.hofpT" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.hofpT"
+>hofpT</a>
+</td>
+<td>Compute h for given p and T</td>
+</tr>
+<tr>
+<td><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXS.png" alt="Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert"
+>phaseBoundaryAssert</a>
+</td>
+<td>Assert function for checking threshold to phase boundary</td>
 </tr>
 <tr>
 <th colspan="2">Inherited</th>
@@ -1232,12 +1252,30 @@ Example:
 <a name="Modelica.Media.R134a.R134a_ph.setState_pTX"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
 >Modelica.Media.R134a.R134a_ph</a>.setState_pTX</h2>
 <p>
-<span class="ModelicaDescription">Dummy function</span>
+<span class="ModelicaDescription">Set state for pressure and temperature (X not used since single substance)</span>
 </p>
 <h3>Information</h3>
 
-<p>This function is intentionally provided although it will result in an error. Please note, that pressure and temperature cannot be used to determine states in two-phase region. Therefore, in order to avoid wrong usage, the function will give an error message.</p>
+<p>This function should be used by default in order to calculate the thermodynamic state record used as input by many functions.</p>
+<p>
+Example:
+</p>
+<pre>
+     parameter Medium.AbsolutePressure p = 3e5;
+     parameter Medium.Temperature T = 290;
 
+     Medium.Density rho;
+
+     <b>equation</b>
+
+     rho = Medium.density(setState_pTX(p, T, fill(0, Medium.nX)));
+</pre>
+<p>
+Please note, that in contrast to setState_phX, setState_dTX and setState_psX this function can not calculate properties in the two-phase region since pressure and temperature are dependent variables. A guard function will be called if the temperature difference to the phase boundary is lower than 1K or the pressure difference to the critical pressure is lower than 1000 Pa.
+</p>
+<pre>
+
+</pre>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pTX"
 ></a> (Return thermodynamic state as function of p, T and composition X or Xi).</span></p>
 <h3>Inputs</h3>
@@ -1278,7 +1316,7 @@ Example:
     eta_liq = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
 </pre>
 
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1320,7 +1358,7 @@ Example:
     eta_vap = Medium.DynamicViscosity(Medium.setBubbleState(Medium.setSat_p(p)));
 </pre>
 
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1574,7 +1612,7 @@ by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 <p>This function calculates the saturation temperature of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 <p><img src="../Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png"/> </p>
@@ -1605,7 +1643,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of saturation temperature of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature"
 > saturatuionTemperature</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1635,7 +1673,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of saturation temperature of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.saturationTemperature"
 > saturatuionTemperature</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1666,7 +1704,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the liquid phase density of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1696,7 +1734,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of liquid density of R134a in the two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleDensity"
 > bubbleDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1726,7 +1764,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of liquid density of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleDensity"
 > bubbleDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1757,7 +1795,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the vapor phase density of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1787,7 +1825,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of vapor density of R134a in two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewDensity"
 > dewDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1817,7 +1855,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of vapor density of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewDensity"
 > dewDensity</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1848,7 +1886,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the liquid phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1878,7 +1916,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of liquid enthalpy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEnthalpy"
 > bubbleEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1908,7 +1946,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of liquid specific enthalpy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEnthalpy"
 > bubbleEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1939,7 +1977,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the vapor phase enthalpy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1969,7 +2007,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of vapor enthalpy of R134a in the two-phase region with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEnthalpy"
 > dewEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -1999,7 +2037,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of vapor enthalpy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEnthalpy"
 > dewEnthalpy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2030,7 +2068,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the vapor phase entropy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2060,7 +2098,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of vapor entropy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEntropy"
 > dewEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2090,7 +2128,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of vapor specific entropy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.dewEntropy"
 > dewEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2121,7 +2159,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the liquid phase entropy of R134a from the state variable p (absolute pressure). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from
 the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2151,7 +2189,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the derivative of liquid entropy of R134a with regard to the state variable p (absolute pressure). The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEntropy"
 > bubbleEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2181,7 +2219,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <p>This function calculates the time derivative of liquid specific entropy of R134a with regard to the time derivative of p. The non-derivative function is <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.bubbleEntropy"
 > bubbleEntropy</a>.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 
@@ -2211,7 +2249,7 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 
 <p>This function calculates the saturation pressure of R134a from the state variable T (temperature). It is modelled by cubic splines which are fitted with non-equidistant grid points derived from the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwell criteria.
 </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>It is only valid in the two-phase region (i.e., p<sub>triple</sub> &le; p &le; p<sub>crit</sub> ).
 </p>
 <p><img src="../Resources/Images/Media/R134a/log(p)Tsat-Diagram-R134a.png"/> </p>
@@ -2235,12 +2273,12 @@ the fundamental equation of state of Tillner-Roth and Baehr (1994) and the Maxwe
 <a name="Modelica.Media.R134a.R134a_ph.specificHeatCapacityCp"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
 >Modelica.Media.R134a.R134a_ph</a>.specificHeatCapacityCp</h2>
 <p>
-<span class="ModelicaDescription">Specific heat capacity at constant pressure | turns inifity in two-phase region! | use setState_phX function for input</span>
+<span class="ModelicaDescription">Specific heat capacity at constant pressure | turns infinite in two-phase region! | use setState_phX function for input</span>
 </p>
 <h3>Information</h3>
 
 <p> This function calculates the specific heat capacity of R134a at <b>constant pressure</b> from the state record (e.g., use setState_phX function for input). The specific heat capacity is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 <p><img src="../Resources/Images/Media/R134a/log(p)cp-Diagram-R134a.png"/> </p>
@@ -2298,12 +2336,12 @@ Please note, that the function can also be called in the two-phase region, but t
 <h3>Information</h3>
 
 <p> This function calculates the dynamic viscosity of R134a from the state record (e.g., use setState_phX function for input). The dynamic viscosity is modelled by the corresponding states method of Klein, McLinden and Laesecke (1997). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
-<h3>References</h3>
+<h4>References</h4>
 <dl><dt>Klein, McLinden and Laesecke: </dt>
-<dd><b>An improved extended corresponding states method for estimation of visocsity of pure refrigerants and mixtures</b>.
+<dd><b>An improved extended corresponding states method for estimation of viscosity of pure refrigerants and mixtures</b>.
 Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 </dl>
 <p><img src="../Resources/Images/Media/R134a/log(p)eta-Diagram-R134a.png"/> </p>
@@ -2332,10 +2370,10 @@ Int. J. Refrig., Vol. 20, No.3, pp. 208-217, 1997.</dd>
 <h3>Information</h3>
 
 <p> This function calculates the thermal conductivity of R134a from the state record (e.g., use setState_phX function for input). The thermal conductivity is modelled by the corresponding states model of McLinden, Klein. and Perkins (2000). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
-<h3>References</h3>
+<h4>References</h4>
 <dl><dt>McLinden, Klein. and Perkins: </dt>
 <dd><b>An extended corresponding states model for the thermal conductivity
 of refrigerants and refrigerant mixtures</b>.
@@ -2367,10 +2405,10 @@ Int. J. Refrig., 23 (2000) 43-63.</dd>
 <h3>Information</h3>
 
 <p> This function calculates the surface tension of R134a from the saturation record (e.g., use setSat_T function for input). The property is modelled by an approach of Okada and Higashi (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in two-phase region.
 </p>
-<h3>References</h3>
+<h4>References</h4>
 <dl><dt>Okada and Higashi: </dt>
 <dd><b>Surface tension correlation of HFC-134a and HCFC-123</b>.
 Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, Italy, pp. 541-548, 1994.</dd>
@@ -2401,7 +2439,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 <h3>Information</h3>
 
 <p> This function calculates the velocity of sound of R134a from the state record (e.g., use setState_phX function for input). The velocity of sound is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 <p><img src="../Resources/Images/Media/R134a/log(p)a-Diagram-R134a.png"/> </p>
@@ -2430,7 +2468,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 <h3>Information</h3>
 
 <p> This function calculates the isothermal compressibility of R134a from the state record (e.g., use setState_phX function for input). The isothermal compressibility is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 
@@ -2458,7 +2496,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 <h3>Information</h3>
 
 <p> This function calculates the isobaric expansion coefficient of R134a from the state record (e.g., use setState_phX function for input). The isobaric expansion coefficient is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 
@@ -2486,7 +2524,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 <h3>Information</h3>
 
 <p> This function calculates the isentropic exponent of R134a from the state record (e.g., use setState_phX function for input). The isentropic exponent is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994). </p>
-<h3> Restrictions</h3>
+<h4> Restrictions</h4>
 <p>This property is only defined in one-phase region.
 </p>
 
@@ -2539,7 +2577,7 @@ Proceedings of the Joint Meeting of IIR Commissions B1, B2, E1, and E2, Padua, I
 </p>
 <h3>Information</h3>
 
-<p> This function calculates the specific Helmholtz energy of R134a from the state record (e.g., use setState_phX function for input). The helmholtz energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).
+<p> This function calculates the specific Helmholtz energy of R134a from the state record (e.g., use setState_phX function for input). The Helmholtz energy is modelled by the fundamental equation of state of Tillner-Roth and Baehr (1994).
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHelmholtzEnergy"
@@ -2704,7 +2742,7 @@ The isentropic efficiency function should not be applied in liquid region.
 </p>
 <h3>Information</h3>
 
-<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy. In one-phase region the function calls the fundamental helmholtz equation of Tillner-Roth (1994). In two-phase the density and temperature is computed from cubic splines for saturated pressure, liquid and vapor density.
+<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy. In one-phase region the function calls the fundamental Helmholtz equation of Tillner-Roth (1994). In two-phase the density and temperature is computed from cubic splines for saturated pressure, liquid and vapor density.
 </p>
 <h4>Restrictions</h4>
 The function cannot be inverted in a numerical way. Please use functions <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_props_ph"
@@ -2736,7 +2774,7 @@ The function cannot be inverted in a numerical way. Please use functions <a href
 </p>
 <h3>Information</h3>
 
-<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy in one-phase region. The function calls the fundamental helmholtz equation of Tillner-Roth (1994) which is requiring density and temperature for input. Thus, a newton iteration is performed to determine density and temperature. The newton iteration stops if the inputs for pressure difference delp and specific enthalpy difference delh are larger than the actual differences derived from the newton iteration.
+<p> This function calculates the density and temperature of R134a from absolute pressure and specific enthalpy in one-phase region. The function calls the fundamental Helmholtz equation of Tillner-Roth (1994) which is requiring density and temperature for input. Thus, a newton iteration is performed to determine density and temperature. The newton iteration stops if the inputs for pressure difference delp and specific enthalpy difference delh are larger than the actual differences derived from the newton iteration.
 </p>
 <h4>Restrictions</h4>
 The function shall only be used for one-phase inputs since the fundamental equation is not valid for two-phase states.
@@ -3130,8 +3168,89 @@ This function integrates the derivative of temperature w.r.t. time in order to a
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>state</td><td>Smooth thermodynamic state for all x (continuous and differentiable)</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE dofpT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXI.png" alt="Modelica.Media.R134a.R134a_ph.dofpT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.dofpT"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.dofpT</h2>
+<p>
+<span class="ModelicaDescription">Compute d for given p and T</span>
+</p>
+<h3>Information</h3>
+
+<p> This function calculates the density of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
+</p>
+<h4>Restrictions</h4>
+The function cannot be inverted in a numerical way. Please use functions <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.rho_props_ph"
+>rho_props_ph</a> and <a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph.T_props_ph"
+>T_props_ph</a> for this purpose.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>delp</td><td>Iteration converged if (p-pre(p) &lt; delp) [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>d</td><td>Density [kg/m3]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE hofpT<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXI.png" alt="Modelica.Media.R134a.R134a_ph.hofpT" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.hofpT"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.hofpT</h2>
+<p>
+<span class="ModelicaDescription">Compute h for given p and T</span>
+</p>
+<h3>Information</h3>
+
+<p> This function calculates the specific enthalpy of R134a from absolute pressure and temperature. The function can only be executed in one-phase region. The safety margin to the phase boundary is 1[K] and 1000[Pa].
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Pressure [Pa]</td></tr>
+<tr><td>T</td><td>Temperature [K]</td></tr>
+<tr><td>delp</td><td>Iteration converged if (p-pre(p) &lt; delp) [Pa]</td></tr>
+</table>
+<h3>Outputs</h3>
+<table summary="Outputs" class="ModelicaTableOutputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>h</td><td>Specific Enthalpy [J/kg]</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE phaseBoundaryAssert<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Media.R134a.R134e359cbbd81eaabf3e_phXI.png" alt="Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Media.R134a.R134a_ph.phaseBoundaryAssert"></a><a href="Modelica_Media_R134a_R134a_ph.html#Modelica.Media.R134a.R134a_ph"
+>Modelica.Media.R134a.R134a_ph</a>.phaseBoundaryAssert</h2>
+<p>
+<span class="ModelicaDescription">Assert function for checking threshold to phase boundary</span>
+</p>
+<h3>Information</h3>
+
+This function is used as a guard for property functions using pTX as an input. Property functions for two-phase media using pressure and temperature as inputs shall not be used close to the phase boundary in order to avoid errors and high deviations for just small deviations in the input arguments. The refrigerant state can not be determined in the two-phase region using pressure and temperature.
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</a> (Icon for functions).</span></p>
+<h3>Inputs</h3>
+<table summary="Inputs" class="ModelicaTableInputs">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Refrigerant pressure [Pa]</td></tr>
+<tr><td>T</td><td>Refrigerant temperature [K]</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:23 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:00 2016.
 </address>
 </body>
 </html>

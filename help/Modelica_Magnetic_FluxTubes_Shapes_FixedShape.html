@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -68,28 +70,113 @@ For initial design of magnetic circuits, the relative permeability of possibly n
 <th>Description</th>
 </tr>
 <tr>
-<td><img src="Modelica.Magnetic.FluxTub26ef48e6ab32c854lFluxS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux"
+<td><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube"
+>GenericFluxTube</a>
+</td>
+<td>Flux tube with fixed cross-section and length; linear or non-linear material characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid"
+>Cuboid</a>
+</td>
+<td>Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux"
 >HollowCylinderAxialFlux</a>
 </td>
 <td>(Hollow) cylinder with axial flux; fixed shape; linear or non-linear material characteristics</td>
 </tr>
 <tr>
-<td><img src="Modelica.Magnetic.FluxTub26ef48e6ab32c854lFluxS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux"
+<td><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux"
 >HollowCylinderRadialFlux</a>
 </td>
 <td>Hollow cylinder with radial flux; fixed shape; linear or non-linear material characteristics</td>
 </tr>
-<tr>
-<td><img src="Modelica.Magnetic.FluxTub26ef48e6ab32c854lFluxS.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid"
->Cuboid</a>
-</td>
-<td>Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</td>
-</tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE GenericFluxTube<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.GenericFluxTube"></a><a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</a>.GenericFluxTube</h2>
+<p>
+<span class="ModelicaDescription">Flux tube with fixed cross-section and length; linear or non-linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Please refer to the enclosing sub-package <a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
+>FixedShape</a> for a description of all elements of this package and to <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"
+>FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Material</td></tr>
+<tr><td>nonLinearPermeability</td><td>= true, if non-linear rel. permeability is used, otherwise constant rel. permeability</td></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability; used if nonLinearPermeability = false [1]</td></tr>
+<tr><td>material</td><td>Ferromagnetic material characteristics; used if nonLinearPermeability = true</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Resources/Images/Magnetic/FluxTubes/Shapes/GenericFluxTube.png"></td></tr>
+<tr><td>area</td><td>Area of cross section [m2]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Cuboid<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid"></a><a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
+>Modelica.Magnetic.FluxTubes.Shapes.FixedShape</a>.Cuboid</h2>
+<p>
+<span class="ModelicaDescription">Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Please refer to the enclosing sub-package <a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
+>FixedShape</a> for a description of all elements of this package and to <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
+>[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"
+>FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Material</td></tr>
+<tr><td>nonLinearPermeability</td><td>= true, if non-linear rel. permeability is used, otherwise constant rel. permeability</td></tr>
+<tr><td>mu_rConst</td><td>Constant relative permeability; used if nonLinearPermeability = false [1]</td></tr>
+<tr><td>material</td><td>Ferromagnetic material characteristics; used if nonLinearPermeability = true</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Fixed geometry</td></tr>
+<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
+<tr><td colspan=2><img src="../Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"></td></tr>
+<tr><td>a</td><td>Width of rectangular cross-section [m]</td></tr>
+<tr><td>b</td><td>Height of rectangular cross-section [m]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative magnetic port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE HollowCylinderAxialFlux<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Magnetic.FluxTub26ef48e6ab32c854lFluxI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderAxialFlux"></a><a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
 >Modelica.Magnetic.FluxTubes.Shapes.FixedShape</a>.HollowCylinderAxialFlux</h2>
 <p>
@@ -108,7 +195,7 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
+>FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -133,7 +220,7 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE HollowCylinderRadialFlux<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Magnetic.FluxTub26ef48e6ab32c854lFluxI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Magnetic.FluxTub6bc03a894b50707dxTubeI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.HollowCylinderRadialFlux"></a><a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
 >Modelica.Magnetic.FluxTubes.Shapes.FixedShape</a>.HollowCylinderRadialFlux</h2>
 <p>
@@ -156,7 +243,7 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
+>FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -178,48 +265,8 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 <tr><td>port_p</td><td>Positive magnetic port</td></tr>
 <tr><td>port_n</td><td>Negative magnetic port</td></tr>
 </table>
-<!--[if supportFields]><span style="mso-element:field-begin"></span>
-<span style="mso-spacerun:yes"></span>XE Cuboid<![endif]-->
-<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Magnetic.FluxTub26ef48e6ab32c854lFluxI.png" alt="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid" align="right" style="border: 1px solid" width="80" height="80">
-<a name="Modelica.Magnetic.FluxTubes.Shapes.FixedShape.Cuboid"></a><a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
->Modelica.Magnetic.FluxTubes.Shapes.FixedShape</a>.Cuboid</h2>
-<p>
-<span class="ModelicaDescription">Flux tube with rectangular cross-section; fixed shape; linear or non-linear material characteristics</span>
-</p>
-<h3>Information</h3>
-
-<p>
-Please refer to the enclosing sub-package <a href="Modelica_Magnetic_FluxTubes_Shapes_FixedShape.html#Modelica.Magnetic.FluxTubes.Shapes.FixedShape"
->FixedShape</a> for a description of all elements of this package and to <a href="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.Literature"
->[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
-</p>
-
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FluxTubes_Interfaces.html#Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape"
->Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape</a> (Base class for flux tubes with fixed shape during simulation; linear or non-linear material characteristics).</span></p>
-<h3>Parameters</h3>
-<table summary="Parameters" class="ModelicaTableParameters">
-<tr><th>Name</th><th>Description</th></tr>
-<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
-<tr><td>Phi</td><td>Magnetic flux from port_p to port_n [Wb]</td></tr>
-<tr class="ModelicaParameterGroup"><td colspan="2">Material</td></tr>
-<tr><td>nonLinearPermeability</td><td>= true, if non-linear rel. permeability is used, otherwise constant rel. permeability</td></tr>
-<tr><td>mu_rConst</td><td>Constant relative permeability; used if nonLinearPermeability = false [1]</td></tr>
-<tr><td>material</td><td>Ferromagnetic material characteristics; used if nonLinearPermeability = true</td></tr>
-<tr class="ModelicaParameterGroup"><td colspan="2">Fixed geometry</td></tr>
-<tr><td>l</td><td>Length in direction of flux [m]</td></tr>
-<tr><td colspan=2><img src="../Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"></td></tr>
-<tr><td>a</td><td>Width of rectangular cross-section [m]</td></tr>
-<tr><td>b</td><td>Height of rectangular cross-section [m]</td></tr>
-</table>
-<h3>Connectors</h3>
-<table summary="Connectors" class="ModelicaTableConnectors">
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td>port_p</td><td>Positive magnetic port</td></tr>
-<tr><td>port_n</td><td>Negative magnetic port</td></tr>
-</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:33 2016.
 </address>
 </body>
 </html>

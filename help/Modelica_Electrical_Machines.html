@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -45,48 +47,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 </p>
 <h3>Information</h3>
 
-<p>This package contains electric machine models and components for modeling these machines.</p>
-<b>Limitations and assumptions:</b>
-<ul>
-<li>number of phases (of induction machines) is limited to 3, therefore definition as a constant m=3</li>
-<li>phase symmetric windings as well as symmetry of the whole machine structure</li>
-<li>all values are used in physical units, no scaling to p.u. is done</li>
-<li>only basic harmonics (in space) are taken into account</li>
-<li>waveform (with respect to time) of voltages and currents is not restricted</li>
-<li>constant parameters, i.e., no saturation, no skin effect</li>
-</ul>
+<p><b>For a discrimination of various machine models, see <a href="Modelica_Electrical_Machines_UsersGuide.html#Modelica.Electrical.Machines.UsersGuide.Discrimination"
+>discrimination</a></b>.</p>
 <p>
-You may have a look at a short summary of space phasor theory at <a href="http://www.haumer.at/refimg/SpacePhasors.pdf">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
-</p>
-<b>Further development:</b>
-<ul>
-<li>generalizing space phasor theory to m phases with arbitrary spatial angle of the coils</li>
-<li>generalizing space phasor theory to arbitrary number of windings and winding factor of the coils</li>
-<li>MachineModels: other machine types</li>
-<li>effects: saturation, skin-effect, ...</li>
-</ul>
-<p>
-<b>In memoriam Prof. Hans Kleinrath (1928-03-07 - 2010-04-05)</b>
-</p>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href="http://www.haumer.at/">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern<br>Austria<br>
-  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
-</p>
-  <p>
-  Dr. Christian Kral<br>
-  Electric Machines, Drives and Systems<br>
-  A-1060 Vienna, Austria<br>
-  email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and AIT.
+Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral and AIT.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
@@ -100,6 +64,12 @@ Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral a
 <tr>
 <th>Name</th>
 <th>Description</th>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machines.UsersGuideS.png" alt="Modelica.Electrical.Machines.UsersGuide" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_UsersGuide.html#Modelica.Electrical.Machines.UsersGuide"
+>UsersGuide</a>
+</td>
+<td>User&#39;s Guide</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Machines.ExamplesS.png" alt="Modelica.Electrical.Machines.Examples" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Examples.html#Modelica.Electrical.Machines.Examples"
@@ -157,7 +127,7 @@ Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral a
 </tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:18 2016.
 </address>
 </body>
 </html>

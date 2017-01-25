@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -58,7 +60,7 @@ These models use package SpacePhasors.
 <ul>
 <li>We keep the same reference system as for motors, i.e.:<br>
     Positive RotorDisplacementAngle means acting as motor,<br>
-    with positive electric power consumption and positive mechanical power output.
+    with positive electric power consumption and positive mechanical power output.</li>
 <li>ElectricalAngle = p * MechanicalAngle</li>
 <li>real axis = d-axis<br>
     imaginary= q-axis</li>
@@ -117,7 +119,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign="top">number of pole pairs p</td>
@@ -282,7 +284,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
 <tr><td>Lmd</td><td>Stator main field inductance per phase in d-axis [H]</td></tr>
-<tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/SMPM.png"></td></tr>
 <tr><td>Lmq</td><td>Stator main field inductance per phase in q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable / disable damper cage</td></tr>
@@ -335,7 +336,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign="top">number of pole pairs p</td>
@@ -533,7 +534,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
 <tr><td>Lmd</td><td>Stator main field inductance per phase in d-axis [H]</td></tr>
-<tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/SMEE.png"></td></tr>
 <tr><td>Lmq</td><td>Stator main field inductance per phase in q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable / disable damper cage</td></tr>
@@ -593,7 +593,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<br><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign="top">number of pole pairs p</td>
@@ -749,7 +749,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
 <tr><td>Lmd</td><td>Stator main field inductance per phase in d-axis [H]</td></tr>
-<tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/SMR.png"></td></tr>
 <tr><td>Lmq</td><td>Stator main field inductance per phase in q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable / disable damper cage</td></tr>
@@ -776,7 +775,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td>ir[2]</td><td>Damper cage currents [A]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:19 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -1091,7 +1093,7 @@ It has been developed by Hubertus Tummescheit.
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
-<tr><td>X[:]</td><td>Independent Mass fractions of gas mixture [kg/kg]</td></tr>
+<tr><td>X[nX]</td><td>Independent Mass fractions of gas mixture [kg/kg]</td></tr>
 <tr><td>exclEnthForm</td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
 <tr><td>refChoice</td><td>Choice of reference enthalpy</td></tr>
 <tr><td>h_off</td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined [J/kg]</td></tr>
@@ -1372,8 +1374,8 @@ and etai&gt;&gt;etaj.<br>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>yi[:]</td><td>Mole fractions [mol/mol]</td></tr>
-<tr><td>M[:]</td><td>Mole masses [kg/mol]</td></tr>
-<tr><td>eta[:]</td><td>Pure component viscosities [Pa.s]</td></tr>
+<tr><td>M[size(yi, 1)]</td><td>Mole masses [kg/mol]</td></tr>
+<tr><td>eta[size(yi, 1)]</td><td>Pure component viscosities [Pa.s]</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1533,13 +1535,13 @@ Fundam., 23: 3 ()1984).<br>
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
-<tr><td>Tc[:]</td><td>Critical temperatures [K]</td></tr>
-<tr><td>Vcrit[:]</td><td>Critical volumes (m3/mol) [m3/mol]</td></tr>
-<tr><td>w[:]</td><td>Acentric factors</td></tr>
-<tr><td>mu[:]</td><td>Dipole moments (debyes)</td></tr>
-<tr><td>MolecularWeights[:]</td><td>Molecular weights (kg/mol) [kg/mol]</td></tr>
-<tr><td>y[:]</td><td>Molar Fractions [mol/mol]</td></tr>
-<tr><td>kappa[:]</td><td>Association Factors</td></tr>
+<tr><td>Tc[nX]</td><td>Critical temperatures [K]</td></tr>
+<tr><td>Vcrit[nX]</td><td>Critical volumes (m3/mol) [m3/mol]</td></tr>
+<tr><td>w[nX]</td><td>Acentric factors</td></tr>
+<tr><td>mu[nX]</td><td>Dipole moments (debyes)</td></tr>
+<tr><td>MolecularWeights[nX]</td><td>Molecular weights (kg/mol) [kg/mol]</td></tr>
+<tr><td>y[nX]</td><td>Molar Fractions [mol/mol]</td></tr>
+<tr><td>kappa[nX]</td><td>Association Factors</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1581,10 +1583,10 @@ average of the pure component conductivities.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>y[:]</td><td>Mole fraction of the components in the gas mixture [mol/mol]</td></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
-<tr><td>Tc[:]</td><td>Critical temperatures [K]</td></tr>
-<tr><td>Pc[:]</td><td>Critical pressures [Pa]</td></tr>
-<tr><td>M[:]</td><td>Molecular weights [kg/mol]</td></tr>
-<tr><td>lambda[:]</td><td>Thermal conductivities of the pure gases [W/(m.K)]</td></tr>
+<tr><td>Tc[size(y, 1)]</td><td>Critical temperatures [K]</td></tr>
+<tr><td>Pc[size(y, 1)]</td><td>Critical pressures [Pa]</td></tr>
+<tr><td>M[size(y, 1)]</td><td>Molecular weights [kg/mol]</td></tr>
+<tr><td>lambda[size(y, 1)]</td><td>Thermal conductivities of the pure gases [W/(m.K)]</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1762,7 +1764,7 @@ average of the pure component conductivities.
 <table summary="Inputs" class="ModelicaTableInputs">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
-<tr><td>X[:]</td><td>Mass fractions of composition [kg/kg]</td></tr>
+<tr><td>X[nX]</td><td>Mass fractions of composition [kg/kg]</td></tr>
 <tr><td>exclEnthForm</td><td>If true, enthalpy of formation Hf is not included in specific enthalpy h</td></tr>
 <tr><td>refChoice</td><td>Choice of reference enthalpy</td></tr>
 <tr><td>h_off</td><td>User defined offset for reference enthalpy, if referenceChoice = UserDefined [J/kg]</td></tr>
@@ -1789,7 +1791,7 @@ average of the pure component conductivities.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
-<tr><td>X[:]</td><td>Mass fractions of composition [kg/kg]</td></tr>
+<tr><td>X[nX]</td><td>Mass fractions of composition [kg/kg]</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1797,7 +1799,7 @@ average of the pure component conductivities.
 <tr><td>T</td><td>Temperature [K]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:21 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:59 2016.
 </address>
 </body>
 </html>

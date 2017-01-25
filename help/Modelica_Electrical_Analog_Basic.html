@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -187,6 +189,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 </td>
 <td>Ideal linear electrical inductor with variable inductance</td>
 </tr>
+<tr>
+<td><img src="Modelica.Electrical.Analob0066bb5b682462cmeterS.png" alt="Modelica.Electrical.Analog.Basic.Potentiometer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Potentiometer"
+>Potentiometer</a>
+</td>
+<td>Adjustable resistor</td>
+</tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Ground<![endif]-->
@@ -228,7 +236,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>R</td><td>Resistance at temperature T_ref [Ohm]</td></tr>
 <tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
 <tr><td>alpha</td><td>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -236,7 +244,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE HeatingResistor<![endif]-->
@@ -263,7 +271,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>R_ref</td><td>Resistance at temperature T_ref [Ohm]</td></tr>
 <tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
 <tr><td>alpha</td><td>Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref)) [1/K]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -271,7 +279,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Conductor<![endif]-->
@@ -295,7 +303,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>G</td><td>Conductance at temperature T_ref [S]</td></tr>
 <tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
 <tr><td>alpha</td><td>Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)) [1/K]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -303,7 +311,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Capacitor<![endif]-->
@@ -777,7 +785,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
 <tr><td>alpha</td><td>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -785,7 +793,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>R</td><td>[Ohm]</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -813,7 +821,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
 <tr><td>alpha</td><td>Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref)) [1/K]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -821,7 +829,7 @@ the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1)
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>G</td><td>[S]</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -895,8 +903,45 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
 <tr><td>n</td><td>Negative pin</td></tr>
 <tr><td>L</td><td>[H]</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Potentiometer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analob0066bb5b682462cmeterI.png" alt="Modelica.Electrical.Analog.Basic.Potentiometer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Basic.Potentiometer"></a><a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic"
+>Modelica.Electrical.Analog.Basic</a>.Potentiometer</h2>
+<p>
+<span class="ModelicaDescription">Adjustable resistor</span>
+</p>
+<h3>Information</h3>
+
+                       <p>This models a potentiometer where the sliding contact is placed  between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r. </p>
+                       <p>The total resistance R is temperature dependent.</p>
+                       
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>R</td><td>Resistance at temperature T_ref [Ohm]</td></tr>
+<tr><td>T_ref</td><td>Reference temperature [K]</td></tr>
+<tr><td>alpha</td><td>Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">potentiometer</td></tr>
+<tr><td>useRinput</td><td>use input for 0&lt;r&lt;1 (else constant)</td></tr>
+<tr><td>rConstant</td><td>Contact between n (r=0) and p (r=1)</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+<tr><td>pin_p</td><td>&nbsp;</td></tr>
+<tr><td>contact</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+<tr><td>r</td><td>&nbsp;</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:15 2016.
 </address>
 </body>
 </html>

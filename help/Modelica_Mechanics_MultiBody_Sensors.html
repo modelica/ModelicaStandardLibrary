@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -1115,7 +1117,7 @@ The cut-force acting between the two frames to which this
 model is connected, is determined and provided at the output signal connector
 <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force is provided (= frame_b.f).
-
+</p>
 <p>
 Via parameter <b>resolveInFrame</b> it is defined, in which frame
 the force vector is resolved:
@@ -1272,7 +1274,7 @@ model is connected, are determined and provided at the output signal connectors
 If parameter <b>positiveSign</b> =
 <b>false</b>, the negative cut-force and cut-torque is provided
 (= frame_b.f, frame_b.t).
-
+</p>
 <p>
 Via parameter <b>resolveInFrame</b> it is defined, in which frame
 the two vectors are resolved:
@@ -1490,7 +1492,7 @@ transformed output vector as "Real r_out[3]";
 <tr><td>r_out[3]</td><td>Input vector r_in resolved in frame defined by frame_r_out</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:42 2016.
 </address>
 </body>
 </html>

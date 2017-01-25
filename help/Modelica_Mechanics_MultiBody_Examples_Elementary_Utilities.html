@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -44,6 +46,11 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <span class="ModelicaDescription">Utility models and functions used by MultiBody.Examples.Elementary</span><br>
 </p>
 <h3>Information</h3>
+
+<p>
+This package contains utility functions used by some of the example models.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_UtilitiesPackage.html#Modelica.Icons.UtilitiesPackage"
 >Modelica.Icons.UtilitiesPackage</a> (Icon for utility packages).</span></p>
 <h3>Package Content</h3>
@@ -107,6 +114,14 @@ ellipsoid surface.
 <span class="ModelicaDescription">Function defining the characteristic of a moving sine in three dimensions</span>
 </p>
 <h3>Information</h3>
+
+<p>
+Function defining the characteristics of a moving sine in three dimensions.
+This function is used in example
+<a href="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces"
+>Elementary.Surfaces</a>.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
 >Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</a>.</span></p>
 <h3>Inputs</h3>
@@ -132,7 +147,7 @@ ellipsoid surface.
 <tr><td>C[if multiColoredSurface then nu else 0, if multiColoredSurface then nv else 0, 3]</td><td>[nu,nv,3] Color array, defining the color for each surface point</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:38 2016.
 </address>
 </body>
 </html>

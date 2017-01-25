@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -94,7 +96,8 @@ Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
 >
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
-<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
+<p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
+</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium"
 >Interfaces.PartialTwoPhaseMedium</a> (Base class for two phase medium of one substance).</span></p>
@@ -109,6 +112,10 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 >ThermodynamicState</a>
 </td>
 <td>Thermodynamic state</td>
+</tr>
+<tr>
+<td>Region=0</td>
+<td>Region of IF97, if known, zero otherwise</td>
 </tr>
 <tr>
 <td>ph_explicit</td>
@@ -300,7 +307,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.isentropicEnthalpy" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.isentropicEnthalpy"
 >isentropicEnthalpy</a>
 </td>
-<td>Compute h(p,s)</td>
+<td>Compute h(s,p)</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.density_derh_p" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.density_derh_p"
@@ -396,25 +403,25 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.setState_dTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.setState_dTX"
 >setState_dTX</a>
 </td>
-<td>Return thermodynamic state of water as function of d and T</td>
+<td>Return thermodynamic state of water as function of d, T, and optional region</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.setState_phX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.setState_phX"
 >setState_phX</a>
 </td>
-<td>Return thermodynamic state of water as function of p and h</td>
+<td>Return thermodynamic state of water as function of p, h, and optional region</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.setState_psX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.setState_psX"
 >setState_psX</a>
 </td>
-<td>Return thermodynamic state of water as function of p and s</td>
+<td>Return thermodynamic state of water as function of p, s, and optional region</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.setState_pTX" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.setState_pTX"
 >setState_pTX</a>
 </td>
-<td>Return thermodynamic state of water as function of p and T</td>
+<td>Return thermodynamic state of water as function of p, T, and optional region</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.Water.Watebd9f2640d83e8b1ctropyS.png" alt="Modelica.Media.Water.WaterIF97_base.setSmoothState" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base.setSmoothState"
@@ -958,6 +965,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -982,6 +990,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1006,6 +1015,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1030,6 +1040,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1054,6 +1065,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>d</td><td>Density [kg/m3]</td></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1078,6 +1090,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>d</td><td>Density [kg/m3]</td></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1102,6 +1115,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1126,6 +1140,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1150,6 +1165,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>p</td><td>Pressure [Pa]</td></tr>
 <tr><td>T</td><td>Temperature [K]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1458,10 +1474,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <span class="ModelicaDescription">Specific heat capacity at constant pressure of water</span>
 </p>
 <h3>Information</h3>
-
-                                <p>In the two phase region this function returns the interpolated heat capacity between the
-                                liquid and vapour state heat capacities.</p>
-                                
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.specificHeatCapacityCp"
 ></a> (Return specific heat capacity at constant pressure).</span></p>
 <h3>Inputs</h3>
@@ -1591,7 +1603,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <a name="Modelica.Media.Water.WaterIF97_base.isentropicEnthalpy"></a><a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base"
 >Modelica.Media.Water.WaterIF97_base</a>.isentropicEnthalpy</h2>
 <p>
-<span class="ModelicaDescription">Compute h(p,s)</span>
+<span class="ModelicaDescription">Compute h(s,p)</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.isentropicEnthalpy"
@@ -1944,7 +1956,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <a name="Modelica.Media.Water.WaterIF97_base.setState_dTX"></a><a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base"
 >Modelica.Media.Water.WaterIF97_base</a>.setState_dTX</h2>
 <p>
-<span class="ModelicaDescription">Return thermodynamic state of water as function of d and T</span>
+<span class="ModelicaDescription">Return thermodynamic state of water as function of d, T, and optional region</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_dTX"
@@ -1956,6 +1968,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>T</td><td>Temperature [K]</td></tr>
 <tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1969,7 +1982,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <a name="Modelica.Media.Water.WaterIF97_base.setState_phX"></a><a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base"
 >Modelica.Media.Water.WaterIF97_base</a>.setState_phX</h2>
 <p>
-<span class="ModelicaDescription">Return thermodynamic state of water as function of p and h</span>
+<span class="ModelicaDescription">Return thermodynamic state of water as function of p, h, and optional region</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_phX"
@@ -1981,6 +1994,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>h</td><td>Specific enthalpy [J/kg]</td></tr>
 <tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -1994,7 +2008,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <a name="Modelica.Media.Water.WaterIF97_base.setState_psX"></a><a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base"
 >Modelica.Media.Water.WaterIF97_base</a>.setState_psX</h2>
 <p>
-<span class="ModelicaDescription">Return thermodynamic state of water as function of p and s</span>
+<span class="ModelicaDescription">Return thermodynamic state of water as function of p, s, and optional region</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_psX"
@@ -2006,6 +2020,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>s</td><td>Specific entropy [J/(kg.K)]</td></tr>
 <tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -2019,7 +2034,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <a name="Modelica.Media.Water.WaterIF97_base.setState_pTX"></a><a href="Modelica_Media_Water_WaterIF97_base.html#Modelica.Media.Water.WaterIF97_base"
 >Modelica.Media.Water.WaterIF97_base</a>.setState_pTX</h2>
 <p>
-<span class="ModelicaDescription">Return thermodynamic state of water as function of p and T</span>
+<span class="ModelicaDescription">Return thermodynamic state of water as function of p, T, and optional region</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Media_Interfaces_PartialTwoPhaseMedium.html#Modelica.Media.Interfaces.PartialTwoPhaseMedium.setState_pTX"
@@ -2031,6 +2046,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>T</td><td>Temperature [K]</td></tr>
 <tr><td>X[:]</td><td>Mass fractions [kg/kg]</td></tr>
 <tr><td>phase</td><td>2 for two-phase, 1 for one-phase, 0 if not known</td></tr>
+<tr><td>region</td><td>If 0, region is unknown, otherwise known and this input</td></tr>
 </table>
 <h3>Outputs</h3>
 <table summary="Outputs" class="ModelicaTableOutputs">
@@ -2063,7 +2079,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 <tr><td>state</td><td>Smooth thermodynamic state for all x (continuous and differentiable)</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:23 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:01 2016.
 </address>
 </body>
 </html>

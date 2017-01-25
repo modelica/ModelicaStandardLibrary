@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -86,7 +88,19 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td><img src="Modelica.Magnetic.Fundame80b3fe02f0b8f72cagnetS.png" alt="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet"
 >PermanentMagnet</a>
 </td>
-<td>&nbsp;</td>
+<td>Permanent magnet represented by magnetic potential difference</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame3ea3b99552ed6a26oleteS.png" alt="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete"
+>SymmetricMultiPhaseCageWinding_obsolete</a>
+</td>
+<td>Symmetrical rotor cage</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame3ea3b99552ed6a26oleteS.png" alt="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete"
+>SaliencyCageWinding_obsolete</a>
+</td>
+<td>Rotor cage with saliency in d- and q-axis</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -101,13 +115,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <h3>Information</h3>
 
 <p>
-The single phase winding consists of a
+The single phase winding consists of a winding
 <a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
->resistor</a>, a symmetrical
-<a href="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Inductor"
->stray inductor</a> and a
+>resistor</a>, a
 <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter"
->single phase electromagnetic coupling</a>.
+>single phase electromagnetic coupling</a> and a <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Reluctance"
+>stray reluctance</a>.
 </p>
 
 <h4>See also</h4>
@@ -158,12 +171,12 @@ The single phase winding consists of a
 The symmetrical multi phase winding consists of a symmetrical winding
 <a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
 >resistor</a>, a
-<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.MutualInductor"
->zero</a> and
-<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Inductor"
->stray inductor</a> as well as a symmetrical
+<a href="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.ZeroInductor"
+>zero inductor</a> as well as a symmetrical
 <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
 >multi phase electromagnetic coupling</a> and a
+<a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Reluctance"
+>stray reluctance</a> and a
 <a href="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
 >core loss</a> model including
 heat <a href="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
@@ -309,8 +322,8 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 >RotorSaliencyAirGap</a>
 </p>
 
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
->Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort</a> (Two magnetic ports for graphical modeling).</span></p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended</a> (Two magnetic ports for graphical modeling with additional variables).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -358,8 +371,8 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 >RotorSaliencyAirGap</a>
 </p>
 
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
->Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort</a> (Two magnetic ports for graphical modeling).</span></p>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended</a> (Two magnetic ports for graphical modeling with additional variables).</span></p>
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
@@ -386,6 +399,9 @@ The salient cage model is a two axis model with two phases. The electromagnetic 
 <h2><img src="Modelica.Magnetic.Fundame80b3fe02f0b8f72cagnetI.png" alt="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.PermanentMagnet"></a><a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components"
 >Modelica.Magnetic.FundamentalWave.BasicMachines.Components</a>.PermanentMagnet</h2>
+<p>
+<span class="ModelicaDescription">Permanent magnet represented by magnetic potential difference</span>
+</p>
 <h3>Information</h3>
 
 <p>
@@ -397,6 +413,9 @@ Simple model of a permanent magnet, containing:
 <li><a href="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses"
 >loss model</a></li>
 </ul>
+<p>
+The permanent magnet is modeled by a magnetic potential difference. The internal reluctance of the permanent magnet is not taken into account. The internal reluctance needs to be modeled outside the permanent magnet model, e.g., by the total machine reluctance considered in the air gap model.
+</p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Sources.html#Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference"
 >Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference</a> (Source with constant magnetic potential difference), <a href="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses"
@@ -418,8 +437,112 @@ Simple model of a permanent magnet, containing:
 <tr><td>support</td><td>Housing and support</td></tr>
 <tr><td>heatPort</td><td>Optional port to which dissipated losses are transported in form of heat</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SymmetricMultiPhaseCageWinding_obsolete<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame3ea3b99552ed6a26oleteI.png" alt="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete"></a><a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</a>.SymmetricMultiPhaseCageWinding_obsolete</h2>
+<p>
+<span class="ModelicaDescription">Symmetrical rotor cage</span>
+</p>
+<h3>Information</h3>
+
+<p>
+<img src="../Resources/Images/Magnetic/FundamentalWave/Machines/Components/rotorcage.png">
+</p>
+<p>
+The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of
+<img src="../Resources/Images/Magnetic/FundamentalWave/m.png"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns, <img src="../Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png">, has to be chosen equivalent to the effective number of stator turns.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
+>SinglePhaseWinding</a>,
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+>SymmetricMultiPhaseWinding</a>,
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding"
+>SaliencyCageWinding</a>,
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
+>RotorSaliencyAirGap</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions), <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended</a> (Two magnetic ports for graphical modeling with additional variables).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>useHeatPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td>RRef</td><td>Winding resistance per phase at TRef [Ohm]</td></tr>
+<tr><td>TRef</td><td>Reference temperature of winding [K]</td></tr>
+<tr><td>alpha20</td><td>Temperature coefficient of winding at 20 degC [1/K]</td></tr>
+<tr><td>TOperational</td><td>Operational temperature of winding [K]</td></tr>
+<tr><td>Lsigma</td><td>Cage stray inductance [H]</td></tr>
+<tr><td>effectiveTurns</td><td>Effective number of turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive complex magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative complex magnetic port</td></tr>
+<tr><td>heatPortWinding</td><td>Heat ports of winding resistor</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SaliencyCageWinding_obsolete<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame3ea3b99552ed6a26oleteI.png" alt="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete"></a><a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.Components</a>.SaliencyCageWinding_obsolete</h2>
+<p>
+<span class="ModelicaDescription">Rotor cage with saliency in d- and q-axis</span>
+</p>
+<h3>Information</h3>
+
+
+<p>
+The salient cage model is a two axis model with two phases. The electromagnetic coupling therefore is also two phase coupling model. The angles of the two orientations are 0 and <img src="../Resources/Images/Magnetic/FundamentalWave/pi_over_2.png">. This way an asymmetrical rotor cage with different resistances and stray inductances in d- and q-axis can be modeled.
+</p>
+
+<h4>See also</h4>
+<p>
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding"
+>SinglePhaseWinding</a>,
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+>SymmetricMultiPhaseWinding</a>,
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding"
+>SymmetricMultiPhaseCageWinding</a>
+<a href="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
+>RotorSaliencyAirGap</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</a> (Icon for classes that are obsolete and will be removed in later versions), <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended</a> (Two magnetic ports for graphical modeling with additional variables).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useHeatPort</td><td>Enable / disable (=fixed temperatures) thermal port</td></tr>
+<tr><td>RRef</td><td>Salient cage resistance</td></tr>
+<tr><td>TRef</td><td>Reference temperature of winding [K]</td></tr>
+<tr><td>alpha20</td><td>Temperature coefficient of winding at 20 degC [1/K]</td></tr>
+<tr><td>TOperational</td><td>Operational temperature of winding [K]</td></tr>
+<tr><td>Lsigma</td><td>Salient cage stray inductance</td></tr>
+<tr><td>effectiveTurns</td><td>Effective number of turns</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive complex magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative complex magnetic port</td></tr>
+<tr><td>i[2]</td><td>Currents out from damper [A]</td></tr>
+<tr><td>lossPower</td><td>Damper losses [W]</td></tr>
+<tr><td>heatPortWinding</td><td>Heat ports of winding resistor</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:36 2016.
 </address>
 </body>
 </html>

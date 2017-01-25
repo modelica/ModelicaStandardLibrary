@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -76,7 +78,7 @@ All functions perform the following actions:
 </p>
 <ol>
 <li> Scanning starts at character position "startIndex" of
-     "string" (startIndex has a default of 1).
+     "string" (startIndex has a default of 1).</li>
 <li> First, white space is skipped, such as blanks (" "), tabs ("\t"), or newline ("\n")</li>
 <li> Afterwards, the required token is scanned.</li>
 <li> If successful, on return nextIndex = index of character
@@ -130,13 +132,13 @@ The following additional rules apply for the scanning:
 <td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.Strings.Advanced.scanReal" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced.scanReal"
 >scanReal</a>
 </td>
-<td>Scans a signed real number</td>
+<td>Scan a signed real number</td>
 </tr>
 <tr>
 <td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.Strings.Advanced.scanInteger" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced.scanInteger"
 >scanInteger</a>
 </td>
-<td>Scans signed integer number</td>
+<td>Scan signed integer number</td>
 </tr>
 <tr>
 <td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.Strings.Advanced.scanString" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced.scanString"
@@ -148,19 +150,19 @@ The following additional rules apply for the scanning:
 <td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.Strings.Advanced.scanIdentifier" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced.scanIdentifier"
 >scanIdentifier</a>
 </td>
-<td>Scans simple identifiers</td>
+<td>Scan simple identifiers</td>
 </tr>
 <tr>
 <td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.Strings.Advanced.skipWhiteSpace" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced.skipWhiteSpace"
 >skipWhiteSpace</a>
 </td>
-<td>Scans white space</td>
+<td>Scan white space</td>
 </tr>
 <tr>
 <td><img src="Modelica.Utilities.String363eacff10764381nRealS.png" alt="Modelica.Utilities.Strings.Advanced.skipLineComments" width="20" height="20" align="top">&nbsp;<a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced.skipLineComments"
 >skipLineComments</a>
 </td>
-<td>Scans comments and white space</td>
+<td>Scan comments and white space</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -170,7 +172,7 @@ The following additional rules apply for the scanning:
 <a name="Modelica.Utilities.Strings.Advanced.scanReal"></a><a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced"
 >Modelica.Utilities.Strings.Advanced</a>.scanReal</h2>
 <p>
-<span class="ModelicaDescription">Scans a signed real number</span>
+<span class="ModelicaDescription">Scan a signed real number</span>
 </p>
 <h3>Information</h3>
 
@@ -231,7 +233,7 @@ shall not start with '+' or '-'. The default of "unsigned" is <b>false</b>.
 <a name="Modelica.Utilities.Strings.Advanced.scanInteger"></a><a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced"
 >Modelica.Utilities.Strings.Advanced</a>.scanInteger</h2>
 <p>
-<span class="ModelicaDescription">Scans signed integer number</span>
+<span class="ModelicaDescription">Scan signed integer number</span>
 </p>
 <h3>Information</h3>
 
@@ -340,7 +342,7 @@ the second output argument is an empty string.
 <a name="Modelica.Utilities.Strings.Advanced.scanIdentifier"></a><a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced"
 >Modelica.Utilities.Strings.Advanced</a>.scanIdentifier</h2>
 <p>
-<span class="ModelicaDescription">Scans simple identifiers</span>
+<span class="ModelicaDescription">Scan simple identifiers</span>
 </p>
 <h3>Information</h3>
 
@@ -390,7 +392,7 @@ the second output argument is an empty string.
 <a name="Modelica.Utilities.Strings.Advanced.skipWhiteSpace"></a><a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced"
 >Modelica.Utilities.Strings.Advanced</a>.skipWhiteSpace</h2>
 <p>
-<span class="ModelicaDescription">Scans white space</span>
+<span class="ModelicaDescription">Scan white space</span>
 </p>
 <h3>Information</h3>
 
@@ -428,7 +430,7 @@ of the first non white space character.
 <a name="Modelica.Utilities.Strings.Advanced.skipLineComments"></a><a href="Modelica_Utilities_Strings_Advanced.html#Modelica.Utilities.Strings.Advanced"
 >Modelica.Utilities.Strings.Advanced</a>.skipLineComments</h2>
 <p>
-<span class="ModelicaDescription">Scans comments and white space</span>
+<span class="ModelicaDescription">Scan comments and white space</span>
 </p>
 <h3>Information</h3>
 
@@ -472,7 +474,7 @@ If not successful, on return nextIndex = startIndex.
 <tr><td>nextIndex</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:25 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:06 2016.
 </address>
 </body>
 </html>

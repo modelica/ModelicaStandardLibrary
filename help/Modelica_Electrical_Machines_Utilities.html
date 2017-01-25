@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -68,6 +70,18 @@ This package contains utility components for testing examples.
 <td>Voltage-Frequency-Controller</td>
 </tr>
 <tr>
+<td><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQS.png" alt="Modelica.Electrical.Machines.Utilities.ToDQ" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.ToDQ"
+>ToDQ</a>
+</td>
+<td>Transform instantaneous stator inputs to rotor fixed space phasor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQS.png" alt="Modelica.Electrical.Machines.Utilities.FromDQ" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.FromDQ"
+>FromDQ</a>
+</td>
+<td>Transform rotor fixed space phasor to instantaneous stator quantities</td>
+</tr>
+<tr>
 <td><img src="Modelica.Electrical.Machi954bbfe51c42c1d6ollerS.png" alt="Modelica.Electrical.Machines.Utilities.CurrentController" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.CurrentController"
 >CurrentController</a>
 </td>
@@ -80,18 +94,6 @@ This package contains utility components for testing examples.
 <td>Voltage controller</td>
 </tr>
 <tr>
-<td><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQS.png" alt="Modelica.Electrical.Machines.Utilities.ToDQ" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.ToDQ"
->ToDQ</a>
-</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQS.png" alt="Modelica.Electrical.Machines.Utilities.FromDQ" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.FromDQ"
->FromDQ</a>
-</td>
-<td>&nbsp;</td>
-</tr>
-<tr>
 <td><img src="Modelica.Electrical.Machi6941b3733d2c510ftchYDS.png" alt="Modelica.Electrical.Machines.Utilities.SwitchYD" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.SwitchYD"
 >SwitchYD</a>
 </td>
@@ -100,6 +102,12 @@ This package contains utility components for testing examples.
 <tr>
 <td><img src="Modelica.Electrical.Machi25bc6ccfd30cc0c4alBoxS.png" alt="Modelica.Electrical.Machines.Utilities.TerminalBox" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.TerminalBox"
 >TerminalBox</a>
+</td>
+<td>Terminal box Y/D-connection</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Machi72600fdeb3414f5dalBoxS.png" alt="Modelica.Electrical.Machines.Utilities.MultiTerminalBox" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.MultiTerminalBox"
+>MultiTerminalBox</a>
 </td>
 <td>Terminal box Y/D-connection</td>
 </tr>
@@ -162,6 +170,83 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>u</td><td>Connector of Real input signal</td></tr>
 <tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ToDQ<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQI.png" alt="Modelica.Electrical.Machines.Utilities.ToDQ" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Utilities.ToDQ"></a><a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities"
+>Modelica.Electrical.Machines.Utilities</a>.ToDQ</h2>
+<p>
+<span class="ModelicaDescription">Transform instantaneous stator inputs to rotor fixed space phasor</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The multi phase input values <code>u[m]</code> are transformed to the corresponding space phasor which is rotated to the rotor fixed reference system,
+using the provided mechanical rotor angle phi. The output are the resulting d and q components of the space phasor arranged in one vector <code>y[2]</code>.
+</p>
+
+<h4>See also></h4>
+<p>
+<a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.FromDQ"
+>FromDQ</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Modelica.Blocks.Interfaces.MIMO</a> (Multiple Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>p</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+<tr><td>phi</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE FromDQ<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQI.png" alt="Modelica.Electrical.Machines.Utilities.FromDQ" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Utilities.FromDQ"></a><a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities"
+>Modelica.Electrical.Machines.Utilities</a>.FromDQ</h2>
+<p>
+<span class="ModelicaDescription">Transform rotor fixed space phasor to instantaneous stator quantities</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The d and q components of a space phasor <code>u[2]</code> are rotated back to the stator fixed reference system,
+using the provided mechanical rotor angle phi. The output are the instantaneous multi phase values <code>y[m]</code>.
+</p>
+
+<h4>See also></h4>
+<p>
+<a href="modelica://Modelica.Electrical.Machines.Utilities.FToDQ">ToDQ</a>
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.MIMO"
+>Modelica.Blocks.Interfaces.MIMO</a> (Multiple Input Multiple Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>nin</td><td>Number of inputs</td></tr>
+<tr><td>nout</td><td>Number of outputs</td></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>p</td><td>Number of pole pairs</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u[nin]</td><td>Connector of Real input signals</td></tr>
+<tr><td>y[nout]</td><td>Connector of Real output signals</td></tr>
+<tr><td>phi</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE CurrentController<![endif]-->
@@ -247,60 +332,6 @@ Note: No care is taken for current or voltage limiting, as well as for field wea
 <tr><td>iActual[3]</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
-<span style="mso-spacerun:yes"></span>XE ToDQ<![endif]-->
-<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQI.png" alt="Modelica.Electrical.Machines.Utilities.ToDQ" align="right" style="border: 1px solid" width="80" height="80">
-<a name="Modelica.Electrical.Machines.Utilities.ToDQ"></a><a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities"
->Modelica.Electrical.Machines.Utilities</a>.ToDQ</h2>
-<h3>Information</h3>
-
-<p>
-Threepase values <code>u[3]</code> are transformed to the corresponding spacePhasor which is rotated to the rotor-fixed coordinate system,
-using the provided mechanical rotor angle phi. The ouput is the rsulting d- / q- components <code>y[2]</code>.
-</p>
-
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
-<h3>Parameters</h3>
-<table summary="Parameters" class="ModelicaTableParameters">
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td>p</td><td>Number of pole pairs</td></tr>
-</table>
-<h3>Connectors</h3>
-<table summary="Connectors" class="ModelicaTableConnectors">
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td>y[2]</td><td>Connector of Real output signals</td></tr>
-<tr><td>phi</td><td>&nbsp;</td></tr>
-<tr><td>u[3]</td><td>Connector of Real input signals</td></tr>
-</table>
-<!--[if supportFields]><span style="mso-element:field-begin"></span>
-<span style="mso-spacerun:yes"></span>XE FromDQ<![endif]-->
-<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Electrical.Machie699c6dcc5a55654.ToDQI.png" alt="Modelica.Electrical.Machines.Utilities.FromDQ" align="right" style="border: 1px solid" width="80" height="80">
-<a name="Modelica.Electrical.Machines.Utilities.FromDQ"></a><a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities"
->Modelica.Electrical.Machines.Utilities</a>.FromDQ</h2>
-<h3>Information</h3>
-
-<p>
-The d- / q- components <code>u[2]</code> are rotated back to the stator-fixed coordinate system,
-using the provided mechanical rotor angle phi. The output is the result of the back-transformation to threephase values <code>y[3]</code>.
-</p>
-
-<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
->Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
-<h3>Parameters</h3>
-<table summary="Parameters" class="ModelicaTableParameters">
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td>p</td><td>Number of pole pairs</td></tr>
-</table>
-<h3>Connectors</h3>
-<table summary="Connectors" class="ModelicaTableConnectors">
-<tr><th>Name</th><th>Description</th></tr>
-<tr><td>y[3]</td><td>Connector of Real output signals</td></tr>
-<tr><td>phi</td><td>&nbsp;</td></tr>
-<tr><td>u[2]</td><td>Connector of Real input signals</td></tr>
-</table>
-<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE SwitchYD<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
 <h2><img src="Modelica.Electrical.Machi6941b3733d2c510ftchYDI.png" alt="Modelica.Electrical.Machines.Utilities.SwitchYD" align="right" style="border: 1px solid" width="80" height="80">
@@ -346,6 +377,34 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>m</td><td>Number of phases</td></tr>
+<tr><td>terminalConnection</td><td>Choose Y=star/D=delta</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_sp</td><td>To positive stator plug</td></tr>
+<tr><td>plug_sn</td><td>To negative stator plug</td></tr>
+<tr><td>plugSupply</td><td>To grid</td></tr>
+<tr><td>starpoint</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE MultiTerminalBox<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Machi72600fdeb3414f5dalBoxI.png" alt="Modelica.Electrical.Machines.Utilities.MultiTerminalBox" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Machines.Utilities.MultiTerminalBox"></a><a href="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities"
+>Modelica.Electrical.Machines.Utilities</a>.MultiTerminalBox</h2>
+<p>
+<span class="ModelicaDescription">Terminal box Y/D-connection</span>
+</p>
+<h3>Information</h3>
+
+TerminalBox: at the bottom connected to both machine plugs, connect at the top to the grid as usual,<br>
+choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
 <tr><td>terminalConnection</td><td>Choose Y=star/D=delta</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -504,7 +563,7 @@ normally given in a technical description, according to the standard EN&nbsp;600
 <tr><td>L2sigma</td><td>Secondary stray inductance per phase [H]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:12 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:23 2016.
 </address>
 </body>
 </html>

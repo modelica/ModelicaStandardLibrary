@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -96,7 +98,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <li>stray load losses</li>
 </ul>
 
-<p><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<p><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign="top">number of pole pairs p</td>
@@ -232,7 +234,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
 <tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
 <tr><td>Lm</td><td>Stator main field inductance per phase [H]</td></tr>
-<tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/IMC.png"></td></tr>
 <tr><td>Lrsigma</td><td>Rotor stray inductance per phase (equivalent three phase winding) [H]</td></tr>
 <tr><td>Rr</td><td>Rotor resistance per phase (equivalent three phase winding) at TRef [Ohm]</td></tr>
 <tr><td>TrRef</td><td>Reference temperature of rotor resistance [K]</td></tr>
@@ -273,7 +274,7 @@ Resistance and stray inductance of stator and rotor are modeled directly in stat
 <li>stray load losses</li>
 </ul>
 
-<p><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<p><b>Default values for machine's parameters (a realistic example) are:</b><br></p>
 <table>
 <tr>
 <td valign="top">number of pole pairs p</td>
@@ -423,7 +424,6 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
 <tr><td>Lszero</td><td>Stator zero sequence inductance [H]</td></tr>
 <tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
 <tr><td>Lm</td><td>Stator main field inductance per phase [H]</td></tr>
-<tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/IMS.png"></td></tr>
 <tr><td>Lrsigma</td><td>Rotor stray inductance per phase w.r.t. rotor side [H]</td></tr>
 <tr><td>Lrzero</td><td>Rotor zero sequence inductance w.r.t. rotor side [H]</td></tr>
 <tr><td>Rr</td><td>Rotor resistance per phase at TRef w.r.t. rotor side [Ohm]</td></tr>
@@ -446,7 +446,7 @@ turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<
 <tr><td>plug_rn</td><td>Negative rotor plug</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:11 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:19 2016.
 </address>
 </body>
 </html>

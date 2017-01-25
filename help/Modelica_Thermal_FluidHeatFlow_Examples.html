@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -45,42 +47,19 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 </p>
 <h3>Information</h3>
 
-This package contains test examples:
-<ul>
-<li>1.SimpleCooling: heat is dissipated through a media flow</li>
-<li>2.ParallelCooling: two heat sources dissipate through merged media flows</li>
-<li>3.IndirectCooling: heat is dissipated through two cooling cycles</li>
-<li>4.PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
-<li>5.PumpDropOut: demonstrates shutdown and restart of a pump</li>
-<li>6.ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
-<li>7.OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
-<li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
-</ul>
-<dl>
-  <dt><b>Main Authors:</b></dt>
-  <dd>
-  <p>
-  <a href="http://www.haumer.at/">Anton Haumer</a><br>
-  Technical Consulting &amp; Electrical Engineering<br>
-  A-3423 St.Andrae-Woerdern, Austria<br>
-  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
-</p>
-<p>
-  Dr. Christian Kral<br>
-  <a href="http://christiankral.net/">Electric Machines, Drives and Systems</a><br>
-  A-1060 Vienna, Austria<br>
-  email: <a href="mailto:dr.christian.kral@gmail.com">dr.christian.kral@gmail.com</a>
-</p>
-  </dd>
-</dl>
-<p>
-Copyright &copy; 1998-2015, Modelica Association, Anton Haumer, Christian Kral and Austrian Institute of Technology, AIT.
-</p>
+<p>This package contains test examples:</p>
 
-<p>
-<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
->Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="https://www.modelica.org/licenses/ModelicaLicense2"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
-</p>
+<ol>
+<li>SimpleCooling: heat is dissipated through a media flow</li>
+<li>ParallelCooling: two heat sources dissipate through merged media flows</li>
+<li>IndirectCooling: heat is dissipated through two cooling cycles</li>
+<li>PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
+<li>PumpDropOut: demonstrates shutdown and restart of a pump</li>
+<li>ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
+<li>OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
+<li>TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
+</ol>
+
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
 >Modelica.Icons.ExamplesPackage</a> (Icon for packages containing runnable examples).</span></p>
@@ -436,7 +415,7 @@ then started again (using a ramp of 0.2 s).
 7th test example: OneMass
 </p>
 A thermal capacity is coupled with a coolant flow.
-Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
+Different initial temperatures of thermal capacity and pipe's coolant get ambient's temperature,
 the time behaviour depending on coolant flow.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
@@ -446,7 +425,7 @@ the time behaviour depending on coolant flow.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>medium</td><td>Cooling medium</td></tr>
 <tr><td>TAmb</td><td>Ambient temperature [K]</td></tr>
-<tr><td>TMass</td><td>Inital temperature of mass [K]</td></tr>
+<tr><td>TMass</td><td>Initial temperature of mass [K]</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE TwoMass<![endif]-->
@@ -463,7 +442,7 @@ the time behaviour depending on coolant flow.
 8th test example: TwoMass
 </p>
 Two thermal capacities are coupled with two parallel coolant flow.
-Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
+Different initial temperatures of thermal capacities and pipe's coolants get ambient's temperature,
 the time behaviour depending on coolant flow.
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
@@ -473,11 +452,11 @@ the time behaviour depending on coolant flow.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>medium</td><td>Cooling medium</td></tr>
 <tr><td>TAmb</td><td>Ambient temperature [K]</td></tr>
-<tr><td>TMass1</td><td>Inital temperature of mass1 [K]</td></tr>
-<tr><td>TMass2</td><td>Inital temperature of mass2 [K]</td></tr>
+<tr><td>TMass1</td><td>Initial temperature of mass1 [K]</td></tr>
+<tr><td>TMass2</td><td>Initial temperature of mass2 [K]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:24 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:03 2016.
 </address>
 </body>
 </html>

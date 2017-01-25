@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -158,7 +160,7 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 <tr><td>Goff[m]</td><td>Opened diode conductance [S]</td></tr>
 <tr><td>Vknee[m]</td><td>Threshold voltage [V]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -166,7 +168,7 @@ Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE IdealThyristor<![endif]-->
@@ -193,9 +195,8 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 <tr><td>Ron[m]</td><td>Closed thyristor resistance [Ohm]</td></tr>
 <tr><td>Goff[m]</td><td>Opened thyristor conductance [S]</td></tr>
 <tr><td>Vknee[m]</td><td>Threshold voltage [V]</td></tr>
-<tr><td>off[m]</td><td>Alias of boolean thyristor off; type, e.g.: off(start=fill(true,m))</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -203,7 +204,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>fire[m]</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -232,7 +233,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
 <tr><td>Goff[m]</td><td>Opened thyristor conductance [S]</td></tr>
 <tr><td>Vknee[m]</td><td>Threshold voltage [V]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -240,7 +241,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>fire[m]</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -267,13 +268,13 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
 <tr><td>Ron[m]</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff[m]</td><td>Opened switch conductance [S]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>control[m]</td><td>true =&gt; p--n2 connected, false =&gt; p--n1 connected</td></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n2</td><td>&nbsp;</td></tr>
@@ -303,13 +304,13 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 <tr><td>Ron[m]</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff[m]</td><td>Opened switch conductance [S]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>control[m]</td><td>true =&gt; p1--n2, p2--n1 connected, otherwise p1--n1, p2--n2 connected</td></tr>
 <tr><td>plug_p1</td><td>&nbsp;</td></tr>
 <tr><td>plug_p2</td><td>&nbsp;</td></tr>
@@ -433,7 +434,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
 <tr><td>Ron[m]</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff[m]</td><td>Opened switch conductance [S]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -441,7 +442,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>control[m]</td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -469,7 +470,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <tr><td>Ron[m]</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff[m]</td><td>Opened switch conductance [S]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -477,7 +478,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>control[m]</td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -506,7 +507,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <tr><td>dVdt[m]</td><td>Arc voltage slope [V/s]</td></tr>
 <tr><td>Vmax[m]</td><td>Max. arc voltage [V]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -514,7 +515,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>control[m]</td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -543,7 +544,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <tr><td>dVdt[m]</td><td>Arc voltage slope [V/s]</td></tr>
 <tr><td>Vmax[m]</td><td>Max. arc voltage [V]</td></tr>
 <tr><td>mh</td><td>Number of heatPorts=number of phases</td></tr>
-<tr><td>useHeatPort</td><td>=true, if all HeatPorts are enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if all heat ports are enabled</td></tr>
 <tr><td>T[mh]</td><td>Fixed device temperatures if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -551,11 +552,11 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>plug_p</td><td>&nbsp;</td></tr>
 <tr><td>plug_n</td><td>&nbsp;</td></tr>
-<tr><td>heatPort[mh]</td><td>&nbsp;</td></tr>
+<tr><td>heatPort[mh]</td><td>Conditional heat ports</td></tr>
 <tr><td>control[m]</td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:12 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:24 2016.
 </address>
 </body>
 </html>

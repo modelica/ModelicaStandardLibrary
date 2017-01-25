@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -65,6 +67,12 @@ Quasi stationary theory can be found in the
 <th>Description</th>
 </tr>
 <tr>
+<td><img src="Modelica.Electrical.Quasi1792faad0f32e06aensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor"
+>ReferenceSensor</a>
+</td>
+<td>Sensor of reference angle gamma</td>
+</tr>
+<tr>
 <td><img src="Modelica.Electrical.Quasic01b34fa352ee543ensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.FrequencySensor"
 >FrequencySensor</a>
 </td>
@@ -83,10 +91,22 @@ Quasi stationary theory can be found in the
 <td>Voltage sensor</td>
 </tr>
 <tr>
+<td><img src="Modelica.Electrical.Quasi8e57d645f0c1ab70ensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor"
+>VoltageQuasiRMSSensor</a>
+</td>
+<td>Continuous quasi voltage RMS sensor for multi phase system</td>
+</tr>
+<tr>
 <td><img src="Modelica.Electrical.Quasi45489977866fe3c5ensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor"
 >CurrentSensor</a>
 </td>
 <td>Current Sensor</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasib3a7db5c8805e66densorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor"
+>CurrentQuasiRMSSensor</a>
+</td>
+<td>Continuous quasi current RMS sensor for multi phase system</td>
 </tr>
 <tr>
 <td><img src="Modelica.Electrical.Quasi7fbbe1cf2ea01e67ensorS.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor"
@@ -94,6 +114,29 @@ Quasi stationary theory can be found in the
 </td>
 <td>Power sensor</td>
 </tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ReferenceSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi1792faad0f32e06aensorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.ReferenceSensor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</a>.ReferenceSensor</h2>
+<p>
+<span class="ModelicaDescription">Sensor of reference angle gamma</span>
+</p>
+<h3>Information</h3>
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.AbsoluteSensor</a> (Partial potential sensor).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>y</td><td>Reference angle</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE FrequencySensor<![endif]-->
@@ -228,6 +271,40 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
 <tr><td>y[m]</td><td>&nbsp;</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE VoltageQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasi8e57d645f0c1ab70ensorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.VoltageQuasiRMSSensor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</a>.VoltageQuasiRMSSensor</h2>
+<p>
+<span class="ModelicaDescription">Continuous quasi voltage RMS sensor for multi phase system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This sensor determines the continuous quasi <a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>RMS</a> value of a multi phase voltage system, representing an equivalent RMS voltage vector <code>I</code> or phasor.
+</p>
+<pre>
+ V = sqrt(sum(v[k]^2 for k in 1:m)/m)
+</pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device), <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>V</td><td>Continuous quasi average RMS of current</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE CurrentSensor<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
 <h2><img src="Modelica.Electrical.Quasi45489977866fe3c5ensorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor" align="right" style="border: 1px solid" width="80" height="80">
@@ -272,6 +349,40 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
 <tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
 <tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
 <tr><td>y[m]</td><td>&nbsp;</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE CurrentQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasib3a7db5c8805e66densorI.png" alt="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentQuasiRMSSensor"></a><a href="Modelica_Electrical_QuasiStationary_MultiPhase_Sensors.html#Modelica.Electrical.QuasiStationary.MultiPhase.Sensors"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Sensors</a>.CurrentQuasiRMSSensor</h2>
+<p>
+<span class="ModelicaDescription">Continuous quasi current RMS sensor for multi phase system</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This sensor determines the continuous quasi <a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>RMS</a> value of a multi phase current system, representing an equivalent RMS current vector <code>I</code> or phasor.
+</p>
+<pre>
+ I = sqrt(sum(i[k]^2 for k in 1:m)/m)
+</pre>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.RotationalSensor"
+>Modelica.Icons.RotationalSensor</a> (Icon representing a round measurement device), <a href="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug"
+>Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.TwoPlug</a> (Two plugs with pin-adapter).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>m</td><td>Number of phases</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>plug_p</td><td>Positive quasi stationary multi phase plug</td></tr>
+<tr><td>plug_n</td><td>Negative quasi stationary multi phase plug</td></tr>
+<tr><td>I</td><td>Continuous quasi average RMS of current</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE PowerSensor<![endif]-->
@@ -322,7 +433,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 <tr><td>y</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:30 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -82,6 +84,12 @@ This package contains interface definitions of the magnetic ports as well as par
 <td>Two magnetic ports for graphical modeling</td>
 </tr>
 <tr>
+<td><img src="Modelica.Magnetic.Fundamea77e49aa5c18f314oPortS.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>PartialTwoPortExtended</a>
+</td>
+<td>Two magnetic ports for graphical modeling with additional variables</td>
+</tr>
+<tr>
 <td><img src="Modelica.Magnetic.Fundamea77e49aa5c18f314oPortS.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
 >PartialTwoPortElementary</a>
 </td>
@@ -98,6 +106,18 @@ This package contains interface definitions of the magnetic ports as well as par
 >StateSelector</a>
 </td>
 <td>Transform instantaneous values to space phasors and select states</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame41e278ad5ae2e98drfaceS.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.PositivePortInterface" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositivePortInterface"
+>PositivePortInterface</a>
+</td>
+<td>Positive port interface to FluxTubes</td>
+</tr>
+<tr>
+<td><img src="Modelica.Magnetic.Fundame3d8102790be2e868rfaceS.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.NegativePortInterface" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativePortInterface"
+>NegativePortInterface</a>
+</td>
+<td>Negative port interface to FluxTubes</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -220,9 +240,40 @@ considers the flux balance of the two ports. Additionally the magnetic potential
 >PositiveMagneticPort</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
 >NegativeMagneticPort</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>PartialTwoPortExtended</a>
 <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
 >PartialTwoPortElementary</a>
 </p>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port_p</td><td>Positive complex magnetic port</td></tr>
+<tr><td>port_n</td><td>Negative complex magnetic port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialTwoPortExtended<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundamea77e49aa5c18f314oPortI.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"></a><a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</a>.PartialTwoPortExtended</h2>
+<p>
+<span class="ModelicaDescription">Two magnetic ports for graphical modeling with additional variables</span>
+</p>
+<h3>Information</h3>
+
+<p>This magnetic two port element consists of a <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>positive</a> and a <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>negative magnetic port</a> and some additionally variables, but no physical balance equations. </p>
+<h4>See also</h4>
+<p><a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</a>, <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</a>, <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+>PartialTwoPort</a>, <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
+>PartialTwoPortElementary</a> </p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+>Interfaces.PartialTwoPort</a> (Two magnetic ports for graphical modeling).</span></p>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
@@ -256,7 +307,9 @@ This model is mainly used to extend from in order build more complex - equation 
 <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
 >NegativeMagneticPort</a>,
 <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
->PartialTwoPort</a>
+>PartialTwoPort</a>,
+<a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortExtended"
+>PartialTwoPortExtended</a>
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
@@ -302,7 +355,7 @@ This model is mainly used to extend from in order build more complex - equation 
 <tr><td>Rs</td><td>Stator resistance per phase at TRef [Ohm]</td></tr>
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
-<tr><td>Lssigma</td><td>Stator stray inductance per phase [H]</td></tr>
+<tr><td>Lssigma</td><td>Stator stray inductance [H]</td></tr>
 <tr><td>Lszero</td><td>Stator zero inductance [H]</td></tr>
 <tr><td>L0</td><td>Salient inductance of an unchorded coil</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Losses</td></tr>
@@ -345,8 +398,48 @@ i.e., with small derivatives.
 <tr><td>x0StateSelect</td><td>Priority to use zero systems as states</td></tr>
 <tr><td>xrStateSelect</td><td>Priority to use space phasors w.r.t. rotating frame as states</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PositivePortInterface<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame41e278ad5ae2e98drfaceI.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.PositivePortInterface" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.Interfaces.PositivePortInterface"></a><a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</a>.PositivePortInterface</h2>
+<p>
+<span class="ModelicaDescription">Positive port interface to FluxTubes</span>
+</p>
+<h3>Information</h3>
+
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>FundamentalWave port</td></tr>
+<tr><td>port_re</td><td>Flux tubes port, real part</td></tr>
+<tr><td>port_im</td><td>Flux tubes port, imag part</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE NegativePortInterface<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Magnetic.Fundame3d8102790be2e868rfaceI.png" alt="Modelica.Magnetic.FundamentalWave.Interfaces.NegativePortInterface" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Magnetic.FundamentalWave.Interfaces.NegativePortInterface"></a><a href="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</a>.NegativePortInterface</h2>
+<p>
+<span class="ModelicaDescription">Negative port interface to FluxTubes</span>
+</p>
+<h3>Information</h3>
+
+<p>Connects a FundamentalWave port with a real and imaginary part FluxTube port.</p>
+
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>port</td><td>FundamentalWave port</td></tr>
+<tr><td>port_re</td><td>Flux tubes port, real part</td></tr>
+<tr><td>port_im</td><td>Flux tubes port, imag part</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:36 2016.
 </address>
 </body>
 </html>

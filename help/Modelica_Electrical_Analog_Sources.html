@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -198,6 +200,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 >TableCurrent</a>
 </td>
 <td>Current source by linear interpolation in a table</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Analo158b1d9dbf94a6b6ltageS.png" alt="Modelica.Electrical.Analog.Sources.SupplyVoltage" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SupplyVoltage"
+>SupplyVoltage</a>
+</td>
+<td>Supply voltage (positive and negative)</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -934,8 +942,34 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE SupplyVoltage<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo158b1d9dbf94a6b6ltageI.png" alt="Modelica.Electrical.Analog.Sources.SupplyVoltage" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Sources.SupplyVoltage"></a><a href="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources"
+>Modelica.Electrical.Analog.Sources</a>.SupplyVoltage</h2>
+<p>
+<span class="ModelicaDescription">Supply voltage (positive and negative)</span>
+</p>
+<h3>Information</h3>
+
+                       <p>This is a simple model of a constant supply voltage with positive and negative supply, the potential between positive and negative supply is accessible.</p>
+                       
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Vps</td><td>Positive supply [V]</td></tr>
+<tr><td>Vns</td><td>Negative supply [V]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p</td><td>&nbsp;</td></tr>
+<tr><td>pin_n</td><td>&nbsp;</td></tr>
+<tr><td>ground</td><td>&nbsp;</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:17 2016.
 </address>
 </body>
 </html>

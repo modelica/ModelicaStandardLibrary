@@ -14,6 +14,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -66,13 +68,13 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" alt="Modelica.Media.R134a.Common.EOSIdealCoeff" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.EOSIdealCoeff"
 >EOSIdealCoeff</a>
 </td>
-<td>Record for coefficients of ideal term of helmholtz equation of state</td>
+<td>Record for coefficients of ideal term of Helmholtz equation of state</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.R134a.Comm02531eec4cc24c49rtiesS.png" alt="Modelica.Media.R134a.Common.EOSResidualCoeff" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.EOSResidualCoeff"
 >EOSResidualCoeff</a>
 </td>
-<td>Record for coefficients of residual term of helmholtz equation of state</td>
+<td>Record for coefficients of residual term of Helmholtz equation of state</td>
 </tr>
 <tr>
 <td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.CubicSplineDerEval" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.CubicSplineDerEval"
@@ -102,7 +104,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td><img src="Modelica.Media.R134a.Comm173556ee4b5058ecrEvalS.png" alt="Modelica.Media.R134a.Common.helmholtzToBoundaryProps" width="20" height="20" align="top">&nbsp;<a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common.helmholtzToBoundaryProps"
 >helmholtzToBoundaryProps</a>
 </td>
-<td>Calulate phase boundary property record from dimensionless Helmholtz function</td>
+<td>Calculate phase boundary property record from dimensionless Helmholtz function</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -136,7 +138,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <a name="Modelica.Media.R134a.Common.EOSIdealCoeff"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
 >Modelica.Media.R134a.Common</a>.EOSIdealCoeff</h2>
 <p>
-<span class="ModelicaDescription">Record for coefficients of ideal term of helmholtz equation of state</span>
+<span class="ModelicaDescription">Record for coefficients of ideal term of Helmholtz equation of state</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
@@ -145,7 +147,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>nc</td><td>No. of coefficients in a</td></tr>
-<tr><td>a[nc]</td><td>Coefficients of ideal term of helmholtz equation of state</td></tr>
+<tr><td>a[nc]</td><td>Coefficients of ideal term of Helmholtz equation of state</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE EOSResidualCoeff<![endif]-->
@@ -154,7 +156,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <a name="Modelica.Media.R134a.Common.EOSResidualCoeff"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
 >Modelica.Media.R134a.Common</a>.EOSResidualCoeff</h2>
 <p>
-<span class="ModelicaDescription">Record for coefficients of residual term of helmholtz equation of state</span>
+<span class="ModelicaDescription">Record for coefficients of residual term of Helmholtz equation of state</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Record"
@@ -164,10 +166,10 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>nc</td><td>No. of coefficients in c, d, t, n</td></tr>
 <tr><td>ns1</td><td>No. of zero coefficients in c</td></tr>
-<tr><td>c[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
-<tr><td>d[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
-<tr><td>t[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
-<tr><td>n[nc]</td><td>Coefficients of residual term of helmholtz equation of state</td></tr>
+<tr><td>c[nc]</td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td>d[nc]</td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td>t[nc]</td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
+<tr><td>n[nc]</td><td>Coefficients of residual term of Helmholtz equation of state</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE CubicSplineDerEval<![endif]-->
@@ -273,7 +275,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <a name="Modelica.Media.R134a.Common.helmholtzToBoundaryProps"></a><a href="Modelica_Media_R134a_Common.html#Modelica.Media.R134a.Common"
 >Modelica.Media.R134a.Common</a>.helmholtzToBoundaryProps</h2>
 <p>
-<span class="ModelicaDescription">Calulate phase boundary property record from dimensionless Helmholtz function</span>
+<span class="ModelicaDescription">Calculate phase boundary property record from dimensionless Helmholtz function</span>
 </p>
 <h3>Information</h3>
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Function"
@@ -289,7 +291,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>sat</td><td>Phase boundary property record</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:23 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:37:00 2016.
 </address>
 </body>
 </html>

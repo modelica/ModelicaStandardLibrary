@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -138,9 +140,9 @@ Resistances and stray inductances of the machine refer to an <code>m</code> phas
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero inductance [H]</td></tr>
-<tr><td>Lmd</td><td>Stator main field inductance per phase, d-axis [H]</td></tr>
+<tr><td>Lmd</td><td>Stator main field inductance, d-axis [H]</td></tr>
 <tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/SMPM.png"></td></tr>
-<tr><td>Lmq</td><td>Stator main field inductance per phase, q-axis [H]</td></tr>
+<tr><td>Lmq</td><td>Stator main field inductance, q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">Damper cage</td></tr>
 <tr><td>useDamperCage</td><td>Enable/disable damper cage</td></tr>
 <tr><td>Lrsigmad</td><td>Rotor leakage inductance, d-axis, w.r.t. stator side [H]</td></tr>
@@ -223,9 +225,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero inductance [H]</td></tr>
-<tr><td>Lmd</td><td>Stator main field inductance per phase, d-axis [H]</td></tr>
+<tr><td>Lmd</td><td>Stator main field inductance, d-axis [H]</td></tr>
 <tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/SMEE.png"></td></tr>
-<tr><td>Lmq</td><td>Stator main field inductance per phase, q-axis [H]</td></tr>
+<tr><td>Lmq</td><td>Stator main field inductance, q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable/disable damper cage</td></tr>
 <tr><td>Lrsigmad</td><td>Rotor leakage inductance, d-axis, w.r.t. stator side [H]</td></tr>
@@ -243,7 +245,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <tr><td>VsNominal</td><td>Nominal stator voltage [V]</td></tr>
 <tr><td>IeOpenCircuit</td><td>Open circuit excitation current @ nominal voltage and frequency [A]</td></tr>
 <tr><td>Re</td><td>Warm excitation resistance [Ohm]</td></tr>
-<tr><td>TeRef</td><td>Reference temperture of excitation resistance [K]</td></tr>
+<tr><td>TeRef</td><td>Reference temperature of excitation resistance [K]</td></tr>
 <tr><td>alpha20e</td><td>Temperature coefficient of excitation resistance [1/K]</td></tr>
 <tr><td>sigmae</td><td>Stray fraction of total excitation inductance</td></tr>
 </table>
@@ -314,9 +316,9 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <tr><td>TsRef</td><td>Reference temperature of stator resistance [K]</td></tr>
 <tr><td>alpha20s</td><td>Temperature coefficient of stator resistance at 20 degC [1/K]</td></tr>
 <tr><td>Lszero</td><td>Stator zero inductance [H]</td></tr>
-<tr><td>Lmd</td><td>Stator main field inductance per phase, d-axis [H]</td></tr>
+<tr><td>Lmd</td><td>Stator main field inductance, d-axis [H]</td></tr>
 <tr><td colspan=2><img src="../Resources/Images/Electrical/Machines/SMR.png"></td></tr>
-<tr><td>Lmq</td><td>Stator main field inductance per phase, q-axis [H]</td></tr>
+<tr><td>Lmq</td><td>Stator main field inductance, q-axis [H]</td></tr>
 <tr class="ModelicaParameterGroup"><td colspan="2">DamperCage</td></tr>
 <tr><td>useDamperCage</td><td>Enable/disable damper cage</td></tr>
 <tr><td>Lrsigmad</td><td>Rotor leakage inductance, d-axis, w.r.t. stator side [H]</td></tr>
@@ -341,7 +343,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <tr><td>ir[2]</td><td>Damper cage currents [A]</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:36 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -402,6 +404,12 @@ partial models for continuous and discrete blocks.
 >partialBooleanBlockIcon</a>
 </td>
 <td>This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.PartialBooleanBlock instead.</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Interfaces.PartialNoiseS.png" alt="Modelica.Blocks.Interfaces.PartialNoise" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialNoise"
+>PartialNoise</a>
+</td>
+<td>Partial noise generator</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -1725,8 +1733,45 @@ Instead the icon <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Parti
 >Modelica.Blocks.Icons.PartialBooleanBlock</a> shall be used.
 </p>
 
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE PartialNoise<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Interfaces.PartialNoiseI.png" alt="Modelica.Blocks.Interfaces.PartialNoise" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Interfaces.PartialNoise"></a><a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces"
+>Modelica.Blocks.Interfaces</a>.PartialNoise</h2>
+<p>
+<span class="ModelicaDescription">Partial noise generator</span>
+</p>
+<h3>Information</h3>
+
+<p>
+Partial base class of noise generators defining the common features
+of noise blocks.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SO"
+>Modelica.Blocks.Interfaces.SO</a> (Single Output continuous control block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>samplePeriod</td><td>Period for sampling the raw random numbers [s]</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Noise generation</td></tr>
+<tr><td>enableNoise</td><td>=true: y = noise, otherwise y = y_off</td></tr>
+<tr><td>y_off</td><td>y = y_off if enableNoise=false (or time&lt;startTime, see below)</td></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Initialization</td></tr>
+<tr><td>useGlobalSeed</td><td>= true: use global seed, otherwise ignore it</td></tr>
+<tr><td>useAutomaticLocalSeed</td><td>= true: use automatic local seed, otherwise use fixedLocalSeed</td></tr>
+<tr><td>fixedLocalSeed</td><td>Local seed (any Integer number)</td></tr>
+<tr><td>startTime</td><td>Start time for sampling the raw random numbers [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:12 2016.
 </address>
 </body>
 </html>

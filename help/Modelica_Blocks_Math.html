@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -71,7 +73,7 @@ connected with continuous blocks or with sampled-data blocks.
 <td><img src="Modelica.Blocks.Math.Inve7c3ae33b2cd30f63aintsS.png" alt="Modelica.Blocks.Math.InverseBlockConstraints" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.InverseBlockConstraints"
 >InverseBlockConstraints</a>
 </td>
-<td>Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)</td>
+<td>Construct inverse model by requiring that two inputs and two outputs are identical</td>
 </tr>
 <tr>
 <td><img src="Modelica.Blocks.Math.GainS.png" alt="Modelica.Blocks.Math.Gain" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
@@ -296,10 +298,28 @@ connected with continuous blocks or with sampled-data blocks.
 <td>Calculate rectified mean over period 1/f</td>
 </tr>
 <tr>
-<td><img src="Modelica.Blocks.Math.MeanS.png" alt="Modelica.Blocks.Math.RootMeanSquare" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+<td><img src="Modelica.Blocks.Math.ContinuousMeanS.png" alt="Modelica.Blocks.Math.ContinuousMean" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.ContinuousMean"
+>ContinuousMean</a>
+</td>
+<td>Calculates the empirical expectation (mean) value of its input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.RootMeanSquareS.png" alt="Modelica.Blocks.Math.RootMeanSquare" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
 >RootMeanSquare</a>
 </td>
 <td>Calculate root mean square over period 1/f</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.VarianceS.png" alt="Modelica.Blocks.Math.Variance" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Variance"
+>Variance</a>
+</td>
+<td>Calculates the empirical variance of its input signal</td>
+</tr>
+<tr>
+<td><img src="Modelica.Blocks.Math.StandardDeviationS.png" alt="Modelica.Blocks.Math.StandardDeviation" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.StandardDeviation"
+>StandardDeviation</a>
+</td>
+<td>Calculates the empirical standard deviation of its input signal</td>
 </tr>
 <tr>
 <td><img src="Modelica.Blocks.Math.HarmonicS.png" alt="Modelica.Blocks.Math.Harmonic" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Harmonic"
@@ -357,7 +377,7 @@ connected with continuous blocks or with sampled-data blocks.
 <a name="Modelica.Blocks.Math.InverseBlockConstraints"></a><a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
 >Modelica.Blocks.Math</a>.InverseBlockConstraints</h2>
 <p>
-<span class="ModelicaDescription">Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)</span>
+<span class="ModelicaDescription">Construct inverse model by requiring that two inputs and two outputs are identical</span>
 </p>
 <h3>Information</h3>
 
@@ -386,7 +406,7 @@ instances:
 <tr><td>u1</td><td>Input signal 1 (u1 = u2)</td></tr>
 <tr><td>u2</td><td>Input signal 2 (u1 = u2)</td></tr>
 <tr><td>y1</td><td>Output signal 1 (y1 = y2)</td></tr>
-<tr><td>y2</td><td>Output signal 2 (y2 = y2)</td></tr>
+<tr><td>y2</td><td>Output signal 2 (y1 = y2)</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Gain<![endif]-->
@@ -1558,7 +1578,7 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
 
 <p>
 This block computes the Boolean output <b>y</b>
-from the Real input <b> u</b> by the equation:
+from the Real input <b>u</b> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
@@ -1594,7 +1614,7 @@ where <b>threshold</b> is a parameter.
 
 <p>
 This block computes the Boolean output <b>y</b>
-from the Integer input <b> u</b> by the equation:
+from the Integer input <b>u</b> by the equation:
 </p>
 
 <pre>    y = u &ge; threshold;
@@ -1762,9 +1782,56 @@ Note: The output is updated after each period defined by 1/f.
 <tr><td>y</td><td>Connector of Real output signal</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE ContinuousMean<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.ContinuousMeanI.png" alt="Modelica.Blocks.Math.ContinuousMean" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.ContinuousMean"></a><a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</a>.ContinuousMean</h2>
+<p>
+<span class="ModelicaDescription">Calculates the empirical expectation (mean) value of its input signal</span>
+</p>
+<h3>Information</h3>
+
+<p>This block continuously calculates the mean value of its input signal. It uses the function:</p>
+<blockquote>
+<pre>    integral( u over time)
+y = ----------------------
+      time - startTime</pre>
+</blockquote>
+<p>This can be used to determine the empirical expectation value of a random signal, such as generated by the <a href="Modelica_Blocks_Noise.html#Modelica.Blocks.Noise"
+>Noise</a> blocks.</p>
+<p>The parameter t_eps is used to guard against division by zero (the mean value computation
+starts at startTime + t_eps and before that time instant y = u).</p>
+<p>See also the <a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Mean"
+>Mean</a> block for a sampled implementation.</p>
+
+<p>
+This block is demonstrated in the examples
+<a href="Modelica_Blocks_Examples_NoiseExamples.html#Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties"
+>UniformNoiseProperties</a>,
+<a href="Modelica_Blocks_Examples_NoiseExamples.html#Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties"
+>NormalNoiseProperties</a> and
+<a href="modelica://Modelica.Blocks.Examples.NoiseExamples.WeibullNoiseProperties">WeibullNoiseProperties</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Advanced</td></tr>
+<tr><td>t_eps</td><td>Mean value calculation starts at startTime + t_eps [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Noisy input signal</td></tr>
+<tr><td>y</td><td>Expectation (mean) value of the input signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE RootMeanSquare<![endif]-->
 <!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
-<h2><img src="Modelica.Blocks.Math.MeanI.png" alt="Modelica.Blocks.Math.RootMeanSquare" align="right" style="border: 1px solid" width="80" height="80">
+<h2><img src="Modelica.Blocks.Math.RootMeanSquareI.png" alt="Modelica.Blocks.Math.RootMeanSquare" align="right" style="border: 1px solid" width="80" height="80">
 <a name="Modelica.Blocks.Math.RootMeanSquare"></a><a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
 >Modelica.Blocks.Math</a>.RootMeanSquare</h2>
 <p>
@@ -1794,6 +1861,98 @@ Note: The output is updated after each period defined by 1/f.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>u</td><td>Connector of Real input signal</td></tr>
 <tr><td>y</td><td>Connector of Real output signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Variance<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.VarianceI.png" alt="Modelica.Blocks.Math.Variance" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.Variance"></a><a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</a>.Variance</h2>
+<p>
+<span class="ModelicaDescription">Calculates the empirical variance of its input signal</span>
+</p>
+<h3>Information</h3>
+
+<p>
+This block calculates the empirical variance of its input signal. It is based on the formula
+(but implemented in a more reliable numerical way):
+</p>
+<blockquote>
+<pre>y = mean(  (u - mean(u))^2  )</pre>
+</blockquote>
+
+<p>The parameter t_eps is used to guard against division by zero (the variance computation
+starts at startTime + t_eps and before that time instant y = 0).</p>
+<p>The variance of a signal is also equal to its mean power.</p>
+
+<p>
+This block is demonstrated in the examples
+<a href="Modelica_Blocks_Examples_NoiseExamples.html#Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties"
+>UniformNoiseProperties</a>,
+<a href="Modelica_Blocks_Examples_NoiseExamples.html#Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties"
+>NormalNoiseProperties</a> and
+<a href="modelica://Modelica.Blocks.Examples.NoiseExamples.WeibullNoiseProperties">WeibullNoiseProperties</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Advanced</td></tr>
+<tr><td>t_eps</td><td>Variance calculation starts at startTime + t_eps [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Noisy input signal</td></tr>
+<tr><td>y</td><td>Variance of the input signal</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE StandardDeviation<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Blocks.Math.StandardDeviationI.png" alt="Modelica.Blocks.Math.StandardDeviation" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Blocks.Math.StandardDeviation"></a><a href="Modelica_Blocks_Math.html#Modelica.Blocks.Math"
+>Modelica.Blocks.Math</a>.StandardDeviation</h2>
+<p>
+<span class="ModelicaDescription">Calculates the empirical standard deviation of its input signal</span>
+</p>
+<h3>Information</h3>
+
+<p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&apos;s variance:</p>
+<blockquote>
+<pre>y = sqrt( variance(u) )</pre>
+</blockquote>
+<p>
+The <a href="modelica://Modelica.Blocks.Statistics.Variance">Variance</a> block is used to
+calculate variance(u).
+</p>
+<p>The parameter t_eps is used to guard against division by zero (the computation of the standard deviation
+starts at startTime + t_eps and before that time instant y = 0).
+</p>
+
+<p>
+This block is demonstrated in the examples
+<a href="Modelica_Blocks_Examples_NoiseExamples.html#Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties"
+>UniformNoiseProperties</a>,
+<a href="Modelica_Blocks_Examples_NoiseExamples.html#Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties"
+>NormalNoiseProperties</a> and
+<a href="modelica://Modelica.Blocks.Examples.NoiseExamples.WeibullNoiseProperties">WeibullNoiseProperties</a>.
+</p>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
+>Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr class="ModelicaParameterGroup"><td colspan="2">Advanced</td></tr>
+<tr><td>t_eps</td><td>Standard deviation calculation starts at startTime + t_eps [s]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>u</td><td>Noisy input signal</td></tr>
+<tr><td>y</td><td>Standard deviation of the input signal</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE Harmonic<![endif]-->
@@ -1925,10 +2084,9 @@ provide both values as output.
 </p>
 <h3>Information</h3>
 
-<p>
-Determine the linear combination of the two inputs:
-<code>y = y0*(1 + k1*u1 + k2*u2)</code>
-</p>
+<p>Determine the linear combination of the two inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code> </p>
+<p><b>Note</b>, for y0=0 the output is always zero. </p>
+<p>To improve the implementation, the formula will be changed (non-backwards compatible) in the future: <code>y = y0 + k1*u1 + k2*u2</code> </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.SI2SO"
 >Modelica.Blocks.Interfaces.SI2SO</a> (2 Single Input / 1 Single Output continuous control block).</span></p>
@@ -2026,7 +2184,7 @@ Integer input <b>u</b> changes:
 <tr><td>y</td><td>Connector of Boolean output signal</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:12 2016.
 </address>
 </body>
 </html>

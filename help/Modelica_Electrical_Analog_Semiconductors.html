@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -70,6 +72,12 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td>Simple diode</td>
 </tr>
 <tr>
+<td><img src="Modelica.Electrical.Analo58b0499f770d2cd8DiodeS.png" alt="Modelica.Electrical.Analog.Semiconductors.Diode2" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.Diode2"
+>Diode2</a>
+</td>
+<td>Improved diode model</td>
+</tr>
+<tr>
 <td><img src="Modelica.Electrical.Analo58b0499f770d2cd8DiodeS.png" alt="Modelica.Electrical.Analog.Semiconductors.ZDiode" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.ZDiode"
 >ZDiode</a>
 </td>
@@ -82,7 +90,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <td>Simple MOS Transistor</td>
 </tr>
 <tr>
-<td><img src="Modelica.Electrical.Analobf8b9b5febbdfd12.NMOSS.png" alt="Modelica.Electrical.Analog.Semiconductors.NMOS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
+<td><img src="Modelica.Electrical.Analobfd03695ebb2fd12.PMOSS.png" alt="Modelica.Electrical.Analog.Semiconductors.NMOS" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors.NMOS"
 >NMOS</a>
 </td>
 <td>Simple MOS Transistor</td>
@@ -168,7 +176,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>Vt</td><td>Voltage equivalent of temperature (kT/qn) [V]</td></tr>
 <tr><td>Maxexp</td><td>Max. exponent for linear continuation</td></tr>
 <tr><td>R</td><td>Parallel ohmic resistance [Ohm]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -176,7 +184,54 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
+</table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE Diode2<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Analo58b0499f770d2cd8DiodeI.png" alt="Modelica.Electrical.Analog.Semiconductors.Diode2" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.Analog.Semiconductors.Diode2"></a><a href="Modelica_Electrical_Analog_Semiconductors.html#Modelica.Electrical.Analog.Semiconductors"
+>Modelica.Electrical.Analog.Semiconductors</a>.Diode2</h2>
+<p>
+<span class="ModelicaDescription">Improved diode model</span>
+</p>
+<h3>Information</h3>
+
+<p>This diode model Modelica.Electrical.Analog.Semiconductors.Diode2 is an improved version of the existing diode model Modelica.Electrical.Analog.Semiconductors.Diode. In includes a series resistance, parallel conductance, and also models reverse breakdown. The model is divided into three parts:</p>
+<ul>
+<li>lower half of reversed bias region including breakdown: -Ids&middot;(exp(-(vd+Bv)/(N&middot;Vt)) + 1 - 2&middot;exp(-Bv/(2&middot;N&middot;Vt)))</li>
+<li>upper half of reverse biased region and forward biased region before conduction: Ids&middot;(exp(vd/(N&middot;Vt)) - 1)</li>
+<li>forward biased region after conduction: iVdMax + (vd - VdMax)&middot;diVdMax</li>
+</ul>
+<p>Temperature dependent behaviour is modelled when useHeatPort=true. In that case, the Vt parameter is ignored, and Vt is computed as k&middot;T/q, where</p>
+<ul>
+<li>k is Boltzmann&apos;s constant</li>
+<li>T is the heat port temperature.</li>
+<li>q is the electron charge.</li>
+</ul>
+
+<p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.OnePort"
+>Modelica.Electrical.Analog.Interfaces.OnePort</a> (Component with two electrical pins p and n and current i from p to n), <a href="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort"
+>Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort</a> (Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network).</span></p>
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
+<tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
+<tr><td>Vf</td><td>Forward voltage [V]</td></tr>
+<tr><td>Ids</td><td>Reverse saturation current [A]</td></tr>
+<tr><td>Rs</td><td>Ohmic resistance [Ohm]</td></tr>
+<tr><td>Vt</td><td>Thermal voltage (kT/q), 0.026 at normal conditions (around 20 degC) [V]</td></tr>
+<tr><td>N</td><td>Emission coefficient</td></tr>
+<tr><td>Bv</td><td>Reverse breakdown voltage [V]</td></tr>
+<tr><td>Gp</td><td>Parallel conductance for numerical stability [S]</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
+<tr><td>n</td><td>Negative pin</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE ZDiode<![endif]-->
@@ -209,7 +264,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><td>Bv</td><td>Breakthrough voltage = Zener- or Z-voltage [V]</td></tr>
 <tr><td>Ibv</td><td>Breakthrough knee current [A]</td></tr>
 <tr><td>Nbv</td><td>Breakthrough emission coefficient</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -217,7 +272,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE PMOS<![endif]-->
@@ -241,7 +296,7 @@ is included to avoid numerical difficulties.
 <br><br>
 <b>Please note: </b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 </P>
 <DL>
 <DT><b>References:</b>
@@ -278,7 +333,7 @@ Some typical parameter sets are:
 <tr><td>dW</td><td>Narrowing of channel [m]</td></tr>
 <tr><td>dL</td><td>Shortening of channel [m]</td></tr>
 <tr><td>RDS</td><td>Drain-Source-Resistance [Ohm]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -288,7 +343,7 @@ Some typical parameter sets are:
 <tr><td>G</td><td>Gate</td></tr>
 <tr><td>S</td><td>Source</td></tr>
 <tr><td>B</td><td>Bulk</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE NMOS<![endif]-->
@@ -312,7 +367,7 @@ is included to avoid numerical difficulties.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 </P>
 <PRE>
   W       L      Beta         Vt      K2     K5       DW       DL
@@ -357,7 +412,7 @@ Muenchen Wien 1990.</DD>
 <tr><td>dW</td><td>narrowing of channel [m]</td></tr>
 <tr><td>dL</td><td>shortening of channel [m]</td></tr>
 <tr><td>RDS</td><td>Drain-Source-Resistance [Ohm]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -367,7 +422,7 @@ Muenchen Wien 1990.</DD>
 <tr><td>G</td><td>Gate</td></tr>
 <tr><td>S</td><td>Source</td></tr>
 <tr><td>B</td><td>Bulk</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE NPN<![endif]-->
@@ -386,7 +441,7 @@ to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 </P>
 <P>
 A typical parameter set is:
@@ -428,13 +483,13 @@ on page 317 ff.</DD>
 <tr><td>EMax</td><td>if x &gt; EMax, the exp(x) function is linearized</td></tr>
 <tr><td>IC</td><td>Initial Value [V]</td></tr>
 <tr><td>UIC</td><td>&nbsp;</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>C</td><td>Collector</td></tr>
 <tr><td>B</td><td>Base</td></tr>
 <tr><td>E</td><td>Emitter</td></tr>
@@ -456,7 +511,7 @@ to Ebers-Moll.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled yet. The parameters are not temperature dependent.
 <P>
 A typical parameter set is:
 </P>
@@ -495,13 +550,13 @@ on page 317 ff.</DD>
 <tr><td>Vt</td><td>Voltage equivalent of temperature [V]</td></tr>
 <tr><td>EMin</td><td>if x &lt; EMin, the exp(x) function is linearized</td></tr>
 <tr><td>EMax</td><td>if x &gt; EMax, the exp(x) function is linearized</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>C</td><td>Collector</td></tr>
 <tr><td>B</td><td>Base</td></tr>
 <tr><td>E</td><td>Emitter</td></tr>
@@ -550,7 +605,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>N</td><td>Emission coefficient</td></tr>
 <tr><td>TNOM</td><td>Parameter measurement temperature [K]</td></tr>
 <tr><td>XTI</td><td>Temperature exponent of saturation current</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -558,7 +613,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>p</td><td>Positive pin (potential p.v &gt; n.v for positive voltage drop v)</td></tr>
 <tr><td>n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE HeatingNMOS<![endif]-->
@@ -617,7 +672,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>Tnom</td><td>Parameter measurement temperature [K]</td></tr>
 <tr><td>kvt</td><td>Fitting parameter for Vt</td></tr>
 <tr><td>kk2</td><td>Fitting parameter for K2</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -627,7 +682,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>G</td><td>Gate</td></tr>
 <tr><td>S</td><td>Source</td></tr>
 <tr><td>B</td><td>Bulk</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE HeatingPMOS<![endif]-->
@@ -675,7 +730,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>Tnom</td><td>Parameter measurement temperature [K]</td></tr>
 <tr><td>kvt</td><td>Fitting parameter for Vt</td></tr>
 <tr><td>kk2</td><td>Fitting parameter for K2</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -685,7 +740,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>G</td><td>Gate</td></tr>
 <tr><td>S</td><td>Source</td></tr>
 <tr><td>B</td><td>Bulk</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
 <span style="mso-spacerun:yes"></span>XE HeatingNPN<![endif]-->
@@ -735,15 +790,13 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>EG</td><td>Energy gap for temperature effect on Is</td></tr>
 <tr><td>NF</td><td>Forward current emission coefficient</td></tr>
 <tr><td>NR</td><td>Reverse current emission coefficient</td></tr>
-<tr><td>K</td><td>Boltzmann&#39;s constant</td></tr>
-<tr><td>q</td><td>Elementary electronic charge</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>C</td><td>Collector</td></tr>
 <tr><td>B</td><td>Base</td></tr>
 <tr><td>E</td><td>Emitter</td></tr>
@@ -796,15 +849,13 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>EG</td><td>Energy gap for temperature effect on Is</td></tr>
 <tr><td>NF</td><td>Forward current emission coefficient</td></tr>
 <tr><td>NR</td><td>Reverse current emission coefficient</td></tr>
-<tr><td>K</td><td>Boltzmann&#39;s constant</td></tr>
-<tr><td>q</td><td>Elementary electronic charge</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>C</td><td>Collector</td></tr>
 <tr><td>B</td><td>Base</td></tr>
 <tr><td>E</td><td>Emitter</td></tr>
@@ -841,13 +892,13 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>TOFF</td><td>Switch off time [s]</td></tr>
 <tr><td>Vt</td><td>Voltage equivalent of temperature (kT/qn) [V]</td></tr>
 <tr><td>Nbv</td><td>Reverse Breakthrough emission coefficient</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>Anode</td><td>&nbsp;</td></tr>
 <tr><td>Cathode</td><td>&nbsp;</td></tr>
 <tr><td>Gate</td><td>&nbsp;</td></tr>
@@ -896,7 +947,7 @@ The thermal power is calculated by <i>i*v</i>.
 <tr><td>heatPort</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:10 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:16 2016.
 </address>
 </body>
 </html>

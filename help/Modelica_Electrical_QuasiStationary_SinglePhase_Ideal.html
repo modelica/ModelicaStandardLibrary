@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -99,6 +101,12 @@ Quasi stationary theory for single phase circuits can be found in the
 >IdealClosingSwitch</a>
 </td>
 <td>Ideal electrical closer</td>
+</tr>
+<tr>
+<td><img src="Modelica.Electrical.Quasif6945165ea961496ormerS.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealTransformer" width="20" height="20" align="top">&nbsp;<a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealTransformer"
+>IdealTransformer</a>
+</td>
+<td>Ideal transformer</td>
 </tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -187,7 +195,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -201,13 +209,13 @@ This switch is only intended to be used for structural changes, not for fast swi
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>p</td><td>&nbsp;</td></tr>
 <tr><td>n2</td><td>&nbsp;</td></tr>
 <tr><td>n1</td><td>&nbsp;</td></tr>
@@ -254,7 +262,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -268,13 +276,13 @@ This switch is only intended to be used for structural changes, not for fast swi
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>p1</td><td>&nbsp;</td></tr>
 <tr><td>p2</td><td>&nbsp;</td></tr>
 <tr><td>n1</td><td>&nbsp;</td></tr>
@@ -310,7 +318,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -325,7 +333,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -333,7 +341,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>pin_p</td><td>Positive pin</td></tr>
 <tr><td>pin_n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>control</td><td>true =&gt; switch open, false =&gt; p--n connected</td></tr>
 </table>
 <!--[if supportFields]><span style="mso-element:field-begin"></span>
@@ -365,7 +373,7 @@ where a description with zero Ron or zero Goff is not possible.
 <br> <br>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
@@ -380,7 +388,7 @@ This switch is only intended to be used for structural changes, not for fast swi
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>Ron</td><td>Closed switch resistance [Ohm]</td></tr>
 <tr><td>Goff</td><td>Opened switch conductance [S]</td></tr>
-<tr><td>useHeatPort</td><td>=true, if HeatPort is enabled</td></tr>
+<tr><td>useHeatPort</td><td>=true, if heatPort is enabled</td></tr>
 <tr><td>T</td><td>Fixed device temperature if useHeatPort = false [K]</td></tr>
 </table>
 <h3>Connectors</h3>
@@ -388,11 +396,45 @@ This switch is only intended to be used for structural changes, not for fast swi
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>pin_p</td><td>Positive pin</td></tr>
 <tr><td>pin_n</td><td>Negative pin</td></tr>
-<tr><td>heatPort</td><td>&nbsp;</td></tr>
+<tr><td>heatPort</td><td>Conditional heat port</td></tr>
 <tr><td>control</td><td>true =&gt; p--n connected, false =&gt; switch open</td></tr>
 </table>
+<!--[if supportFields]><span style="mso-element:field-begin"></span>
+<span style="mso-spacerun:yes"></span>XE IdealTransformer<![endif]-->
+<!--[if supportFields]><span style="mso-element:field-end"></span><![endif]-->
+<h2><img src="Modelica.Electrical.Quasif6945165ea961496ormerI.png" alt="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealTransformer" align="right" style="border: 1px solid" width="80" height="80">
+<a name="Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealTransformer"></a><a href="Modelica_Electrical_QuasiStationary_SinglePhase_Ideal.html#Modelica.Electrical.QuasiStationary.SinglePhase.Ideal"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Ideal</a>.IdealTransformer</h2>
+<p>
+<span class="ModelicaDescription">Ideal transformer</span>
+</p>
+<h3>Information</h3>
+
+<p>
+The ideal transformer is a two-port circuit element without magnetization. Voltages and currents are ideally transformed:
+</p>
+<pre>
+ v1 =  v2*n;
+ i2 = -i1*n;
+</pre>
+<p>
+where <code>n</code> is a real number called the turns ratio.</p>
+
+<h3>Parameters</h3>
+<table summary="Parameters" class="ModelicaTableParameters">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>n</td><td>Ratio of primary to secondary voltage</td></tr>
+</table>
+<h3>Connectors</h3>
+<table summary="Connectors" class="ModelicaTableConnectors">
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>pin_p1</td><td>Primary positive pin</td></tr>
+<tr><td>pin_p2</td><td>Secondary positive pin</td></tr>
+<tr><td>pin_n1</td><td>Primary negative pin</td></tr>
+<tr><td>pin_n2</td><td>Secondary negative pin</td></tr>
+</table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:28 2016.
 </address>
 </body>
 </html>

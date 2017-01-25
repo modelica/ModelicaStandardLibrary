@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -302,7 +304,7 @@ motion on the controlBus of the r3 robot.
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>naxis</td><td>number of driven axis</td></tr>
+<tr><td>naxis</td><td>Number of driven axis</td></tr>
 <tr><td>angleBegDeg[naxis]</td><td>Start angles [deg]</td></tr>
 <tr><td>angleEndDeg[naxis]</td><td>End angles [deg]</td></tr>
 <tr><td>speedMax[naxis]</td><td>Maximum axis speed [rad/s]</td></tr>
@@ -325,6 +327,11 @@ motion on the controlBus of the r3 robot.
 <span class="ModelicaDescription">Map path planning to one axis control bus</span>
 </p>
 <h3>Information</h3>
+
+<p>
+This model stores the 4 reference variables q, qd, qdd, moving from the path planning on the axis control bus.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Blocks_Icons.html#Modelica.Blocks.Icons.Block"
 >Modelica.Blocks.Icons.Block</a> (Basic graphical layout of input/output block).</span></p>
 <h3>Parameters</h3>
@@ -380,7 +387,7 @@ the definition of initial values considerably.
 <h3>Parameters</h3>
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
-<tr><td>i</td><td>gear ratio</td></tr>
+<tr><td>i</td><td>Gear ratio</td></tr>
 <tr><td>c</td><td>Spring constant [N.m/rad]</td></tr>
 <tr><td>d</td><td>Damper constant [N.m.s/rad]</td></tr>
 <tr><td>Rv0</td><td>Viscous friction torque at zero velocity [N.m]</td></tr>
@@ -505,6 +512,12 @@ reference signals. All signals are communicated via the
 <span class="ModelicaDescription">Axis model of the r3 joints 1,2,3</span>
 </p>
 <h3>Information</h3>
+
+<p>
+Model of axis 1, 2, 3 of the robot r3. An axis consists of a gearbox with modelled gear elasticity and bearing friction,
+a model of the electrical motor and a continuous-time cascade controller.
+</p>
+
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Mechanics_MultiBody_Examples_Systems_RobotR3_Components.html#Modelica.Mechanics.MultiBody.Examples.Systems.RobotR3.Components.AxisType2"
 >AxisType2</a> (Axis model of the r3 joints 4,5,6).</span></p>
 <h3>Parameters</h3>
@@ -620,7 +633,7 @@ This model contains the mechanical components of the r3 robot
 <tr><td>axis6</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:15 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:39 2016.
 </address>
 </body>
 </html>

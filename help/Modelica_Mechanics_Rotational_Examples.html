@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -136,7 +138,7 @@ simulate them according to the provided description in the models.
 <td><img src="Modelica.Mechanics.Rotatid03d4861b604f9a9FirstS.png" alt="Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs"
 >GenerationOfFMUs</a>
 </td>
-<td>Example to demonstrate variants to generate FMUs (Functional Mockup Units)</td>
+<td>Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</td>
 </tr>
 <tr>
 <td><img src="Modelica.Mechanics.Rotati7052ae67656cdb72itiesS.png" alt="Modelica.Mechanics.Rotational.Examples.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Mechanics_Rotational_Examples_Utilities.html#Modelica.Mechanics.Rotational.Examples.Utilities"
@@ -340,7 +342,7 @@ gear.mode  :  1 = forward rolling
 <p>
 This model contains bearing friction and gear friction (= efficiency).
 If both friction models are stuck, there is no unique solution.
-Still a reliable Modelica simulator, such as Dymola, should
+Still a reliable Modelica simulator should
 be able to handle this situation.
 </p>
 <p>
@@ -424,6 +426,12 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
 This model demonstrates the effect of a backlash on eigenfrequency, and
 also that the damping torque does not lead to unphysical pulling torques
 (since the ElastoBacklash model takes care of it).
+Furthermore, it shows the differences of the
+<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.ElastoBacklash"
+>ElastoBacklash</a> and
+<a href="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.ElastoBacklash2"
+>ElastoBacklash2</a> components
+(the ElastoBacklash2 component generates events when contact occurs and the torque changes discontinuously).
 </p>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
@@ -494,13 +502,13 @@ is present in variable convection.fluid.
 <a name="Modelica.Mechanics.Rotational.Examples.GenerationOfFMUs"></a><a href="Modelica_Mechanics_Rotational_Examples.html#Modelica.Mechanics.Rotational.Examples"
 >Modelica.Mechanics.Rotational.Examples</a>.GenerationOfFMUs</h2>
 <p>
-<span class="ModelicaDescription">Example to demonstrate variants to generate FMUs (Functional Mockup Units)</span>
+<span class="ModelicaDescription">Example to demonstrate variants to generate FMUs (Functional Mock-up Units)</span>
 </p>
 <h3>Information</h3>
 
 <p>
 This example demonstrates how to generate an input/output block (e.g. in form of an
-FMU - <a href="https://www.fmi-standard.org">Functional Mockup Unit</a>) from various Rotational components.
+FMU - <a href="https://www.fmi-standard.org">Functional Mock-up Unit</a>) from various Rotational components.
 The goal is to export such an input/output block from Modelica and import
 it in another modeling environment. The essential issue is that before
 exporting it must be known in which way the component is utilized in the
@@ -541,7 +549,7 @@ force law in a target system between two inertias.
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
 >Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:16 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:43 2016.
 </address>
 </body>
 </html>

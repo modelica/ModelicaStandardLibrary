@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -91,6 +93,24 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <a name="Modelica.Electrical.QuasiStationary.UsersGuide.ReleaseNotes"></a><a href="Modelica_Electrical_QuasiStationary_UsersGuide.html#Modelica.Electrical.QuasiStationary.UsersGuide"
 >Modelica.Electrical.QuasiStationary.UsersGuide</a>.ReleaseNotes</h2>
 
+<h5>Version 3.2.2, 2015-12-20</h5>
+<ul>
+<li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
+    <a href="https://trac.modelica.org/Modelica/ticket/1870">#1870</a></li>
+<li>Added magnitude and argument of complex voltages and currents in interface and sensor models, see ticket
+    <a href="https://trac.modelica.org/Modelica/ticket/1405">#1405</a></li>
+<li>Added active, reactive and apparent power and power factor in interface models, see ticket
+    <a href="https://trac.modelica.org/Modelica/ticket/1405">#1405</a></li>
+<li>Added complex single and multi phase impedance and admittance models (ticket
+    <a href="https://trac.modelica.org/Modelica/ticket/1367">#1367</a>)</li>
+<li>Updated documentation on temperature dependency of resistance and conductance models</li>
+<li>Rewrote source models to simplify initialization (
+    <a href="https://trac.modelica.org/Modelica/changeset/7031">r7031</a>)</li>
+<li>Implementation of ideal transformer model</li>
+</ul>
+
+<h5>Version 1.0.0</h5>
+<ul><li>First official release</li></ul>
 
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
 >Modelica.Icons.ReleaseNotes</a> (Icon for release notes in documentation).</span></p>
@@ -176,7 +196,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
     <tr>
       <td valign="top">Library officer</td>
       <td valign="top">
-      <a href="mailto:a.haumer@haumer.at">A. Haumer</a>
+      <a href="mailto:a.haumer@haumer.at">Anton Haumer</a>
       </td>
       <td valign="top">
         <a href="http://www.haumer.at">Technical Consulting &amp; Electrical Engineering</a><br>
@@ -187,7 +207,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
     <tr>
       <td valign="top">Library officer</td>
       <td valign="top">
-        <a href="mailto:dr.christian.kral@gmail.com">C. Kral</a>
+        <a href="mailto:dr.christian.kral@gmail.com">Christian Kral</a>
       </td>
       <td valign="top">
         <a href="http://christiankral.net">Electric Machines, Drives and Systems</a><br>
@@ -225,7 +245,7 @@ table   { border: 1px solid #808080; border-collapse: collapse; }
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Information"
 >Modelica.Icons.Information</a> (Icon for general information packages).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:13 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:27 2016.
 </address>
 </body>
 </html>

@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -92,7 +94,7 @@ This package contains <b>discontinuous</b> and
 <td><img src="Modelica.Blocks.Nonlinear.PadeDelayS.png" alt="Modelica.Blocks.Nonlinear.PadeDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.PadeDelay"
 >PadeDelay</a>
 </td>
-<td>Pade approximation of delay block with fixed DelayTime</td>
+<td>Pade approximation of delay block with fixed delayTime (use balance=true; this is not the default to be backwards compatible)</td>
 </tr>
 <tr>
 <td><img src="Modelica.Blocks.Nonlinear.VariableDelayS.png" alt="Modelica.Blocks.Nonlinear.VariableDelay" width="20" height="20" align="top">&nbsp;<a href="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.VariableDelay"
@@ -128,7 +130,8 @@ as output.
 <tr><td>uMin</td><td>Lower limits of input signals</td></tr>
 <tr class="ModelicaParameterTab"><td colspan="2">Advanced</td></tr>
 <tr><td>strict</td><td>= true, if strict limits with noEvent(..)</td></tr>
-<tr><td>limitsAtInit</td><td>= false, if limits are ignored during initialization (i.e., y=u)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Dummy</td></tr>
+<tr><td>limitsAtInit</td><td>Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -161,7 +164,8 @@ is passed as output.
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>strict</td><td>= true, if strict limits with noEvent(..)</td></tr>
-<tr><td>limitsAtInit</td><td>= false, if limits are ignored during initialization (i.e., y=u)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Dummy</td></tr>
+<tr><td>limitsAtInit</td><td>Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -231,7 +235,8 @@ function of the input with a slope of 1.
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>uMax</td><td>Upper limits of dead zones</td></tr>
 <tr><td>uMin</td><td>Lower limits of dead zones</td></tr>
-<tr><td>deadZoneAtInit</td><td>= false, if dead zone is ignored during initialization (i.e., y=u)</td></tr>
+<tr class="ModelicaParameterTab"><td colspan="2">Dummy</td></tr>
+<tr><td>deadZoneAtInit</td><td>Has no longer an effect and is only kept for backwards compatibility (the implementation uses now the homotopy operator)</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -278,7 +283,7 @@ The Input signal is delayed by a given time instant, or more precisely:
 <a name="Modelica.Blocks.Nonlinear.PadeDelay"></a><a href="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear"
 >Modelica.Blocks.Nonlinear</a>.PadeDelay</h2>
 <p>
-<span class="ModelicaDescription">Pade approximation of delay block with fixed DelayTime</span>
+<span class="ModelicaDescription">Pade approximation of delay block with fixed delayTime (use balance=true; this is not the default to be backwards compatible)</span>
 </p>
 <h3>Information</h3>
 
@@ -301,7 +306,7 @@ a transfer function
 <p>
 where the coefficients b[:] and a[:] are calculated such that the
 coefficients of the Taylor expansion of the delay exp(-T*s) around s=0
-are identical upto order n+m.
+are identical up to order n+m.
 </p>
 <p>
 The main advantage of this approach is that the delay is
@@ -315,6 +320,31 @@ The standard text book version uses order "m=n", which is
 also the default setting of this block. The setting
 "m=n-1" may yield a better approximation in certain cases.
 </p>
+
+<p>
+It is strongly recommended to always set parameter <b>balance</b> = true,
+in order to arrive at a much better reliable numerical computation.
+This is not the default, in order to be backwards compatible, so you have
+to explicitly set it. Besides better numerics, also all states are initialized
+with <b>balance</b> = true (in steady-state, so der(x)=0). Longer explanation:
+</p>
+
+<p>
+By default the transfer function of the Pade approximation is implemented
+in controller canonical form. This results in coefficients of the A-matrix in
+the order of 1 up to the order of O(1/delayTime)^n. For already modest values
+of delayTime and n, this gives largely varying coefficients (for example delayTime=0.001 and n=4
+results in coefficients between 1 and 1e12). In turn, this results
+in a large norm of the system matrix [A,B;C,D] and therefore in unreliable
+numerical computations. When setting parameter <b>balance</b> = true, a state
+transformation is performed that considerably reduces the norm of the system matrix.
+This is performed without introducing round-off errors. For details see
+function <a href="Modelica_Math_Matrices.html#Modelica.Math.Matrices.balanceABC"
+>balanceABC</a>.
+As a result, both the simulation of the PadeDelay block, and especially
+its linearization becomes more reliable.
+</p>
+
 <h5>Literature:</h5>
 <p>Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
@@ -326,8 +356,9 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 <table summary="Parameters" class="ModelicaTableParameters">
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>delayTime</td><td>Delay time of output with respect to input signal [s]</td></tr>
-<tr><td>n</td><td>Order of Pade approximation</td></tr>
-<tr><td>m</td><td>Order of numerator</td></tr>
+<tr><td>n</td><td>Order of Pade delay</td></tr>
+<tr><td>m</td><td>Order of numerator (usually m=n, or m=n-1)</td></tr>
+<tr><td>balance</td><td>= true, if state space system is balanced (highly recommeded), otherwise textbook version</td></tr>
 </table>
 <h3>Connectors</h3>
 <table summary="Connectors" class="ModelicaTableConnectors">
@@ -375,7 +406,7 @@ the following relationship:
 <tr><td>delayTime</td><td>&nbsp;</td></tr>
 </table>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:09 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:13 2016.
 </address>
 </body>
 </html>

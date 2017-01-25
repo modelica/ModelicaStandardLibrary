@@ -15,6 +15,8 @@ address { font-weight: normal; }
 td      { padding: 2px; border: 1px solid #808080; vertical-align: top; }
 th      { padding: 2px; border: 1px solid #808080; vertical-align: top; font-weight: bold; }
 table   { border: 1px solid #808080; border-collapse: collapse; }
+pre, code {font-family: "Courier New", monospace;}
+pre {white-space: pre; overflow-x : hidden;}
 .ModelicaDescription {font-weight: bold;} /* For the description string of the class. */
 .ModelicaBaseClass {} /* For the list of base-classes at the of the description. */
 .ModelicaKeyword { color: blue; font-weight: normal; font-style: normal; } /* Keywords in Modelica. */
@@ -76,6 +78,12 @@ This package contains examples to demonstrate the usage of the flux tubes compon
 <td>Two models of a reluctance actuator of different modelling depth and their comparison and usage</td>
 </tr>
 <tr>
+<td><img src="Modelica.Magnetic.FluxTub25eae4311a2dd602uatorS.png" alt="Modelica.Magnetic.FluxTubes.Examples.Hysteresis" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_Hysteresis.html#Modelica.Magnetic.FluxTubes.Examples.Hysteresis"
+>Hysteresis</a>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
 <td><img src="Modelica.Magnetic.FluxTub27d0f93fe6789da2itiesS.png" alt="Modelica.Magnetic.FluxTubes.Examples.Utilities" width="20" height="20" align="top">&nbsp;<a href="Modelica_Magnetic_FluxTubes_Examples_Utilities.html#Modelica.Magnetic.FluxTubes.Examples.Utilities"
 >Utilities</a>
 </td>
@@ -105,7 +113,7 @@ This model demonstrates the effects of non-linear magnetisation characteristics 
 
 <p>
 The magnetisation characteristics of the flux tube element representing the ferromagnetic core can easily be changed from simplified linear behaviour (nonLinearPermeability set to false and R_mFe.mu_rConst set to a positive value, preferably mu_rConst >> 1) to non-linear behaviour (e.g., selection of one of the electric sheets in <a href="Modelica_Magnetic_FluxTubes_Material_SoftMagnetic.html#Modelica.Magnetic.FluxTubes.Material.SoftMagnetic"
->Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient inital design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
+>Material.SoftMagnetic</a> with nonLinearPermeability set to true). This enables for convenient initial design of magnetic circuits with linear material characteristics prior to simulation with non-linear behaviour.
 </p>
 
 <h4>Note</h4>
@@ -117,7 +125,7 @@ If the supply voltage has a zero-crossing when applied to the inductor at time t
 <p><span class="ModelicaBaseClass">Extends from <a href="Modelica_Icons.html#Modelica.Icons.Example"
 >Modelica.Icons.Example</a> (Icon for runnable examples).</span></p>
 <address>
-<a href="http://www.3ds.com/">Automatically generated</a> Fri Oct 02 11:08:14 2015.
+<a href="http://www.3ds.com/">Automatically generated</a> Tue Apr 05 09:36:32 2016.
 </address>
 </body>
 </html>
