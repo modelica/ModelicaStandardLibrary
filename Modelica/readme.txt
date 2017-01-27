@@ -5,8 +5,8 @@ Modelica Association under the "Modelica License 2"
 (with exception of the contents of the directory
 "Modelica/Resources/C-Sources").
 Copyright © 1998-2016, ABB, Austrian Institute of Technology, T. Bödrich, DLR, Dassault Systèmes AB,
-                       Fraunhofer, A. Haumer, ITI, C. Kral, Modelon, TU Hamburg-Harburg, Politecnico di Milano,
-                       XRG Simulation
+                       ESI ITI, Fraunhofer, A. Haumer, C. Kral, Modelon, TU Hamburg-Harburg,
+                       Politecnico di Milano, XRG Simulation
 
 These files are free software and the use is completely at your own risk;
 they can be redistributed and/or modified under the terms of the
