@@ -1793,9 +1793,9 @@ class ModelicaLicense2 "Modelica License 2"
     <p style=\"margin-left: 40px;\"><strong>Copyright notices of the
     files:</strong><br>
     Copyright &copy; 1998-2016, ABB, Austrian Institute of Technology,
-    T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer,
-    A.&nbsp;Haumer, ITI, Modelon, TU Hamburg-Harburg, Politecnico di Milano,
-    XRG Simulation</p>
+    T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, ESI ITI,
+    Fraunhofer, A.&nbsp;Haumer, C.&nbsp;Kral, Modelon, TU Hamburg-Harburg,
+    Politecnico di Milano, XRG Simulation</p>
     <p><a href=\"#The_Modelica_License_2-outline\">The Modelica
     License&nbsp;2</a><br>
     <a href=\"#Frequently_Asked_Questions-outline\">Frequently Asked
@@ -8192,8 +8192,8 @@ and it has been tested with Modelica tools from different vendors.
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2016, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, ITI, C.&nbsp;Kral, Modelon,
-TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
+Copyright &copy; 1998-2016, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, ESI ITI, Fraunhofer,
+A.&nbsp;Haumer, C.&nbsp;Kral, Modelon, TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 
 <p>
