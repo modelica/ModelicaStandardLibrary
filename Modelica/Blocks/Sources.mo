@@ -1,6 +1,6 @@
 within Modelica.Blocks;
 package Sources
-  "Library of signal source blocks generating Real and Boolean signals"
+  "Library of signal source blocks generating Real, Integer and Boolean signals"
   import Modelica.Blocks.Interfaces;
   import Modelica.SIunits;
   extends Modelica.Icons.SourcesPackage;
