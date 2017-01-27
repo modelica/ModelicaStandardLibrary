@@ -2446,7 +2446,9 @@ The table interpolation has the following properties:
 </p>
 <ul>
 <li>The time points need to be <b>strictly increasing</b> if smoothness
-    is ContinuousDerivative, otherwise <b>monotonically increasing</b>.</li>
+    is ContinuousDerivative, MonotoneContinuousDerivative1 or
+    MonotoneContinuousDerivative2, otherwise
+    <b>monotonically increasing</b>.</li>
 <li><b>Discontinuities</b> are allowed, by providing the same
     time point twice in the table.</li>
 <li>Values <b>outside</b> of the table range, are computed by
