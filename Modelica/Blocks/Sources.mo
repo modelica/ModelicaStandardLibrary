@@ -2182,12 +2182,12 @@ The table interpolation has the following properties:
 Example:
 </p>
 <pre>
-   table = [0  0
-            1  0
-            1  1
-            2  4
-            3  9
-            4 16]
+   table = [0, 0;
+            1, 0;
+            1, 1;
+            2, 4;
+            3, 9;
+            4, 16];
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
