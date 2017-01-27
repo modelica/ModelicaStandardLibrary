@@ -2492,43 +2492,19 @@ The table interpolation has the following properties:
     An interval boundary is defined by two identical time values
     following each other. For example
 <pre>
-   table = [0, 0;
-            1, 0;
-            1, 1;
-            2, 3;
-            3, 5;
-            3, 2;
-            4, 4;
-            5, 5];
+   table = [0  0
+            1  0
+            1  1
+            2  4
+            3  9
+            3  2
+            4  3];
 </pre>
-    defines three intervalls: 0..1, 1..3, 3..5. Within an interval the defined
+    defines three intervalls: 0..1, 1..3, 3..4. Within an interval the defined
     interpolation method is applied (so the table outputs within an interval are
     continuous,and if the interpolation method is smooth, also continuously differentiable).
     No time events are generated within an interval
-    in order that also intervals with many points do not reduce the simulation efficiency
-    (note in package Modelica version 3.2 and earlier, time events had been generated).<br>
-    If the table points are largely changing, it is adviseable to force
-    time events by duplicating every time point (especially, if the model in which
-    the table is present allows the variable step integrator to make large
-    integrator steps). For example, if a sawtooth signal is defined with the table,
-    it is more reliable to define the table as:
-<pre>
-   table = [0, 0;
-            1, 2;
-            1, 2;
-            2, 0;
-            2, 0;
-            3, 2;
-            3, 2];
-</pre> 
-    instead of
-<pre>
-   table = [0, 0;
-            1, 2;
-            2, 0;
-            3, 2];
-</pre> 
-    because time events are then generated at every time point.
+    in order that also intervals with many points do not reduce the simulation efficiency.
 </li>
 <li>Via parameter <b>timeScale</b> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
