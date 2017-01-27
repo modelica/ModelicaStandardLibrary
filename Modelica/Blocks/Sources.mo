@@ -2449,7 +2449,8 @@ The table interpolation has the following properties:
     is ContinuousDerivative, MonotoneContinuousDerivative1 or
     MonotoneContinuousDerivative2, otherwise
     <b>monotonically increasing</b>.</li>
-<li><b>Discontinuities</b> are allowed, by providing the same
+<li>If smoothness is ConstantSegments or LinearSegments,
+    <b>Discontinuities</b> are allowed, by providing the same
     time point twice in the table.</li>
 <li>Values <b>outside</b> of the table range, are computed by
     extrapolation according to the setting of parameter
@@ -2487,9 +2488,18 @@ The table interpolation has the following properties:
     to <b>startTime</b>.
     If time &lt; startTime, no interpolation is performed and the offset
     is used as ordinate value for all outputs.</li>
-<li>The table is implemented in a numerically sound way by
-    generating <b>time events</b> at interval boundaries.
-    This generates continuously differentiable values for the integrator.</li>
+<li>The table is implemented in a numerically sound way by <b>always</b>
+    generating <b>time events</b> at interval boundaries, in case of
+    interpolation by constant or linear segments.
+    This generates continuously differentiable values for the integrator.
+    (In package Modelica&nbsp;v3.2 and earlier, time events had always been generated
+    at interval boundaries if smoothness was LinearSegments, which means the blocks
+    <a href=\"modelica://Modelica.Blocks.Sources.TimeTable\">TimeTable</a> and
+    CombiTimetable behaved identically. In contrast, in packages Modelica&nbsp;v3.2.1
+    and&nbsp;v3.2.2 time events were only generated for replicated time points,
+    which could lead to unexpected simulation results. This behaviour was later
+    reverted again to match the previous behaviour of Modelica&nbsp;v3.2 and earlier.)
+    </li>
 <li>Via parameter <b>timeScale</b> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
     <b>timeScale</b> shall be set to 3600.</li>
