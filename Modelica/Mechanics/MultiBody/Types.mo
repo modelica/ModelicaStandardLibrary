@@ -25,9 +25,9 @@ For an example see parameter \"n\" in model
   type AxisLabel = Modelica.Icons.TypeString
     "Label of axis with choices for menus"                                          annotation (
       preferredView="text", choices(
-      choice="x" "x",
-      choice="y" "y",
-      choice="z" "z"));
+      choice="x" "\"x\"",
+      choice="y" "\"y\"",
+      choice="z" "\"z\""));
 
   type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
     "Sequence of planar frame rotations with choices for menus" annotation (
@@ -97,9 +97,10 @@ Note, r g, b are given in the range 0 .. 255.
 </html>"));
   type SpecularCoefficient = Modelica.Icons.TypeReal(min=0)
     "Reflection of ambient light (= 0: light is completely absorbed)"
-       annotation (
-         choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
-        "\"1.0 (glossy)\""),
+       annotation (choices(
+         choice=0 "0.0 \"dull\"",
+         choice=0.7 "0.7 \"medium\"",
+         choice=1 "1.0 \"glossy\""),
     Documentation(info="<html>
 <p>
 Type <b>SpecularCoefficient</b> defines the reflection of
