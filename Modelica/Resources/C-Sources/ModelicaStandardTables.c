@@ -49,7 +49,7 @@
    Release Notes:
       Jan. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Always generate time events for CombiTimeTable with linear
-                     interpolation (analogously to constant segements)
+                     interpolation (analogously to constant segments)
                      (tickets #1627 and #2080)
 
       Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
