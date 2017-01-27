@@ -2424,7 +2424,8 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     annotation (
       Documentation(info="<html>
 <p>
-This block generates an output signal y[:] by <b>linear interpolation</b> in
+This block generates an output signal y[:] by <b>linear</b>, <b>Akima</b>,
+<b>Fritsch-Butland</b> or <b>Steffen interpolation</b> in
 a table. The time points and function values are stored in a matrix
 <b>table[i,j]</b>, where the first column table[:,1] contains the
 time points and the other columns contain the data to be interpolated.
