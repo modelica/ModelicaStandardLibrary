@@ -47,6 +47,11 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Jan. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Always generate time events for CombiTimeTable with linear
+                     interpolation (analogously to constant segements)
+                     (tickets #1627 and #2080)
+
       Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced strtok by re-entrant string tokenize function
                      (ticket #1153)
@@ -1385,19 +1390,16 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
             /* There is at least one time event at the interval boundaries */
             tableID->maxEvents = 1;
-            for (i = 0; i < nRow - 1; i++) {
-                double t0 = TABLE_COL0(i);
-                double t1 = TABLE_COL0(i + 1);
-                if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
-                    if (tableID->smoothness == CONSTANT_SEGMENTS) {
+            if (tableID->smoothness == LINEAR_SEGMENTS ||
+                tableID->smoothness == CONSTANT_SEGMENTS) {
+                for (i = 0; i < nRow - 1; i++) {
+                    double t0 = TABLE_COL0(i);
+                    double t1 = TABLE_COL0(i + 1);
+                    if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
                         if (!isNearlyEqual(t0, t1)) {
                             tEvent = t1;
                             tableID->maxEvents++;
                         }
-                    }
-                    else if (isNearlyEqual(t0, t1)) {
-                        tEvent = t1;
-                        tableID->maxEvents++;
                     }
                 }
             }
@@ -1411,7 +1413,8 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
             tEvent = TABLE_ROW0(0);
             eventInterval = 0;
-            if (tableID->smoothness == CONSTANT_SEGMENTS) {
+            if (tableID->smoothness == LINEAR_SEGMENTS ||
+                tableID->smoothness == CONSTANT_SEGMENTS) {
                 for (i = 0; i < nRow - 1 &&
                     eventInterval < tableID->maxEvents; i++) {
                     double t0 = TABLE_COL0(i);
@@ -1429,29 +1432,6 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     }
                     else {
                         tableID->intervals[eventInterval][1] = i + 1;
-                    }
-                }
-            }
-            else {
-                for (i = 0; i < nRow - 1 &&
-                    eventInterval < tableID->maxEvents; i++) {
-                    double t0 = TABLE_COL0(i);
-                    double t1 = TABLE_COL0(i + 1);
-                    if (t1 > tEvent) {
-                        if (isNearlyEqual(t0, t1)) {
-                            tEvent = t1;
-                            tableID->intervals[eventInterval][1] = i;
-                            eventInterval++;
-                            if (eventInterval < tableID->maxEvents) {
-                                tableID->intervals[eventInterval][0] = i + 1;
-                            }
-                        }
-                        else {
-                            tableID->intervals[eventInterval][1] = i + 1;
-                        }
-                    }
-                    else {
-                        tableID->intervals[eventInterval][0] = i + 1;
                     }
                 }
             }
@@ -1516,34 +1496,25 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                     iEnd = iStart < (nRow - 1) ? iStart : (nRow - 1);
                 }
 
-                for (i = iStart + 1; i < nRow - 1; i++) {
-                    double t0 = TABLE_COL0(i);
-                    double t1 = TABLE_COL0(i + 1);
-                    if (t0 > t) {
-                        if (tableID->smoothness == CONSTANT_SEGMENTS) {
-                            nextTimeEvent = t0;
-                            break;
-                        }
-                        else if (isNearlyEqual(t0, t1)) {
+                if (tableID->smoothness == LINEAR_SEGMENTS ||
+                    tableID->smoothness == CONSTANT_SEGMENTS) {
+                    for (i = iStart + 1; i < nRow - 1; i++) {
+                        double t0 = TABLE_COL0(i);
+                        double t1 = TABLE_COL0(i + 1);
+                        if (t0 > t) {
                             nextTimeEvent = t0;
                             break;
                         }
                     }
-                }
 
-                for (i = 0; i < iEnd; i++) {
-                    double t0 = TABLE_COL0(i);
-                    double t1 = TABLE_COL0(i + 1);
-                    if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
-                        if (tableID->smoothness == CONSTANT_SEGMENTS) {
+                    for (i = 0; i < iEnd; i++) {
+                        double t0 = TABLE_COL0(i);
+                        double t1 = TABLE_COL0(i + 1);
+                        if (t1 > tEvent && !isNearlyEqual(t1, tMax)) {
                             if (!isNearlyEqual(t0, t1)) {
                                 tEvent = t1;
                                 tableID->eventInterval++;
                             }
-                        }
-                        else if (isNearlyEqual(t0, t1)) {
-                            tEvent = t1;
-                            tableID->eventInterval++;
                         }
                     }
                 }
@@ -1600,8 +1571,10 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
 
 #if defined(DEBUG_TIME_EVENTS)
         if (nextTimeEvent < DBL_MAX) {
-            ModelicaFormatMessage("At time %.17lg: %lu. time event at %.17lg\n", t,
-                (unsigned long)tableID->nEvent, nextTimeEvent);
+            ModelicaFormatMessage("At time %.17lg (interval %lu of %lu): %lu. "
+                "time event at %.17lg\n", t, (unsigned long)tableID->eventInterval,
+                (unsigned long)tableID->maxEvents, (unsigned long)tableID->nEvent,
+                nextTimeEvent);
         }
         else {
             ModelicaFormatMessage("No more time events for time > %.17lg\n", t);
