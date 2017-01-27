@@ -37,7 +37,7 @@ in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in or
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-Variable <b>y</b> is both a variable and a connector.
+variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -76,7 +76,7 @@ in the y-menu the definition \"if time &lt; 1 then 0 else 1\" can be given in or
 to define that the output signal is one, if time &ge; 1 and otherwise
 it is zero. Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-Variable <b>y</b> is both a variable and a connector.
+variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -123,7 +123,7 @@ to define that the output signal is <b>true</b> in the time interval
 1 &le; time &le; 2 and otherwise it is <b>false</b>.
 Note, that \"time\" is a built-in variable that is always
 accessible and represents the \"model time\" and that
-Variable <b>y</b> is both a variable and a connector.
+variable <b>y</b> is both a variable and a connector.
 </p>
 </html>"));
 
@@ -2157,9 +2157,9 @@ time points and the second column contains the data to be interpolated.
 The table interpolation has the following properties:
 </p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
+<li>The time points need to be <b>monotonically increasing</b>.</li>
 <li><b>Discontinuities</b> are allowed, by providing the same
-    time point twice in the table. </li>
+    time point twice in the table.</li>
 <li>Values <b>outside</b> of the table range, are computed by
     <b>extrapolation</b> through the last or first two points of the
     table.</li>
@@ -2448,7 +2448,7 @@ The table interpolation has the following properties:
 <li>The time points need to be <b>strictly increasing</b> if smoothness
     is ContinuousDerivative, otherwise <b>monotonically increasing</b>.</li>
 <li><b>Discontinuities</b> are allowed, by providing the same
-    time point twice in the table. </li>
+    time point twice in the table.</li>
 <li>Values <b>outside</b> of the table range, are computed by
     extrapolation according to the setting of parameter
     <b>extrapolation</b>:
