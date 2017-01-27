@@ -2175,7 +2175,7 @@ The table interpolation has the following properties:
     generating <b>time events</b> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
 <li>Via parameter <b>timeScale</b> the first column of the table array can
-    be scaled, e.g. if the table array is given in hours (instead of seconds)
+    be scaled, e.g., if the table array is given in hours (instead of seconds)
     <b>timeScale</b> shall be set to 3600.</li>
 </ul>
 <p>
@@ -2528,7 +2528,7 @@ The table interpolation has the following properties:
     because time events are then generated at every time point.
 </li>
 <li>Via parameter <b>timeScale</b> the first column of the table array can
-    be scaled, e.g. if the table array is given in hours (instead of seconds)
+    be scaled, e.g., if the table array is given in hours (instead of seconds)
     <b>timeScale</b> shall be set to 3600.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
