@@ -2150,33 +2150,33 @@ a flange according to a given acceleration.
             textString="y")}),
           Documentation(info="<html>
 <p>
-This block generates an output signal by <b>linear interpolation</b> in
+This block generates an output signal by <strong>linear interpolation</strong> in
 a table. The time points and function values are stored in a matrix
-<strong><code>table[i,j]</code></strong>, where the first column table[:,1] contains the
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
 time points and the second column contains the data to be interpolated.
 The table interpolation has the following properties:
 </p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>.</li>
-<li><b>Discontinuities</b> are allowed, by providing the same
+<li>The time points need to be <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed, by providing the same
     time point twice in the table.</li>
-<li>Values <b>outside</b> of the table range, are computed by
-    <b>extrapolation</b> through the last or first two points of the
+<li>Values <strong>outside</strong> of the table range, are computed by
+    <strong>extrapolation</strong> through the last or first two points of the
     table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the function value is just returned independently of the
     actual time instant.</li>
-<li>Via parameters <strong><code>startTime</code></strong> and <strong><code>offset</code></strong> the curve defined
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.</li>
-<li>The first point in time <strong>always</strong> has to be set to <strong><code>0</code></strong>, e.g.,
-    <strong><code>table=[1,1;2,2]</code></strong> is <strong>illegal</strong>. If you want to
-    shift the time table in time use the  <strong><code>startTime</code></strong> parameter instead.</li>
+<li>The first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
+    <strong>table=[1,1;2,2]</strong> is <strong>illegal</strong>. If you want to
+    shift the time table in time use the <strong>startTime</strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
-    generating <b>time events</b> at interval boundaries.
+    generating <strong>time events</strong> at interval boundaries.
     This generates continuously differentiable values for the integrator.</li>
-<li>Via parameter <b>timeScale</b> the first column of the table array can
+<li>Via parameter <strong>timeScale</strong> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
-    <b>timeScale</b> shall be set to 3600.</li>
+    <strong>timeScale</strong> shall be set to 3600.</li>
 </ul>
 <p>
 Example:
@@ -2202,7 +2202,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 </html>", revisions="<html>
 <h4>Release Notes</h4>
 <ul>
-<li><i>Oct. 21, 2002</i>
+<li><em>Oct. 21, 2002</em>
        by Christian Schweiger:<br>
        Corrected interface from
 <pre>
@@ -2210,10 +2210,10 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 </pre>
        to
 <pre>
-    parameter Real table[:, <b>2</b>]=[0, 0; 1, 1; 2, 4];
+    parameter Real table[:, <strong>2</strong>]=[0, 0; 1, 1; 2, 4];
 </pre>
        </li>
-<li><i>Nov. 7, 1999</i>
+<li><em>Nov. 7, 1999</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Realized.</li>
 </ul>
@@ -2424,10 +2424,10 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     annotation (
       Documentation(info="<html>
 <p>
-This block generates an output signal y[:] by <b>linear</b>, <b>Akima</b>,
-<b>Fritsch-Butland</b> or <b>Steffen interpolation</b> in
+This block generates an output signal y[:] by <strong>linear</strong>, <strong>Akima</strong>,
+<strong>Fritsch-Butland</strong> or <strong>Steffen interpolation</strong> in
 a table. The time points and function values are stored in a matrix
-<b>table[i,j]</b>, where the first column table[:,1] contains the
+<strong>table[i,j]</strong>, where the first column table[:,1] contains the
 time points and the other columns contain the data to be interpolated.
 </p>
 
@@ -2437,7 +2437,7 @@ time points and the other columns contain the data to be interpolated.
 </p>
 
 <p>
-Via parameter <b>columns</b> it can be defined which columns of the
+Via parameter <strong>columns</strong> it can be defined which columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that
 2 output signals are present and that the first output is computed
 by interpolation of column 2 and the second output is computed
@@ -2445,16 +2445,16 @@ by interpolation of column 4 of the table matrix.
 The table interpolation has the following properties:
 </p>
 <ul>
-<li>The time points need to be <b>strictly increasing</b> if smoothness
+<li>The time points need to be <strong>strictly increasing</strong> if smoothness
     is ContinuousDerivative, MonotoneContinuousDerivative1 or
     MonotoneContinuousDerivative2, otherwise
-    <b>monotonically increasing</b>.</li>
+    <strong>monotonically increasing</strong>.</li>
 <li>If smoothness is ConstantSegments or LinearSegments,
-    <b>Discontinuities</b> are allowed, by providing the same
+    <strong>Discontinuities</strong> are allowed, by providing the same
     time point twice in the table.</li>
-<li>Values <b>outside</b> of the table range, are computed by
+<li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter
-    <b>extrapolation</b>:
+    <strong>extrapolation</strong>:
 <pre>
   extrapolation = 1: hold the first or last value of the table,
                      if outside of the table scope.
@@ -2467,7 +2467,7 @@ The table interpolation has the following properties:
                      (periodical function).
                 = 4: no extrapolation, i.e. extrapolation triggers an error
 </pre></li>
-<li>Via parameter <b>smoothness</b> it is defined how the data is interpolated:
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: linear interpolation
              = 2: Akima interpolation: Smooth interpolation by cubic Hermite
@@ -2480,16 +2480,16 @@ The table interpolation has the following properties:
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
 </pre></li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and
+<li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined
+<li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.
-    The time instants stored in the table are therefore <b>relative</b>
-    to <b>startTime</b>.
+    The time instants stored in the table are therefore <strong>relative</strong>
+    to <strong>startTime</strong>.
     If time &lt; startTime, no interpolation is performed and the offset
     is used as ordinate value for all outputs.</li>
-<li>The table is implemented in a numerically sound way by <b>always</b>
-    generating <b>time events</b> at interval boundaries, in case of
+<li>The table is implemented in a numerically sound way by <strong>always</strong>
+    generating <strong>time events</strong> at interval boundaries, in case of
     interpolation by constant or linear segments.
     This generates continuously differentiable values for the integrator.
     (In package Modelica&nbsp;v3.2 and earlier, time events had always been generated
@@ -2500,17 +2500,17 @@ The table interpolation has the following properties:
     which could lead to unexpected simulation results. This behaviour was later
     reverted again to match the previous behaviour of Modelica&nbsp;v3.2 and earlier.)
     </li>
-<li>Via parameter <b>timeScale</b> the first column of the table array can
+<li>Via parameter <strong>timeScale</strong> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
-    <b>timeScale</b> shall be set to 3600.</li>
+    <strong>timeScale</strong> shall be set to 3600.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
-    reason parameters <b>t_min</b>/<b>t_minScaled</b> and
-    <b>t_max</b>/<b>t_maxScaled</b> are provided and can be
-    accessed from the outside of the table object. Whereas <b>t_min</b> and
-    <b>t_max</b> define the scaled abscissa values (using parameter
-    <b>timeScale</b>) in SIunits.Time, <b>t_minScaled</b> and
-    <b>t_maxScaled</b> define the unitless original abscissa values of
+    reason parameters <strong>t_min</strong>/<strong>t_minScaled</strong> and
+    <strong>t_max</strong>/<strong>t_maxScaled</strong> are provided and can be
+    accessed from the outside of the table object. Whereas <strong>t_min</strong> and
+    <strong>t_max</strong> define the scaled abscissa values (using parameter
+    <strong>timeScale</strong>) in SIunits.Time, <strong>t_minScaled</strong> and
+    <strong>t_maxScaled</strong> define the unitless original abscissa values of
     the table.</li>
 </ul>
 <p>
@@ -2533,13 +2533,13 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li> Explicitly supplied as <b>parameter matrix</b> \"table\",
+<li> Explicitly supplied as <strong>parameter matrix</strong> \"table\",
      and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
+<li> <strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
       \"tableName\". Both ASCII and MAT-file format is possible.
       (The ASCII format is described below).
       The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
@@ -2607,15 +2607,15 @@ Other characters, like trailing non comments, are not allowed in the file.
 MATLAB is a registered trademark of The MathWorks, Inc.
 </p>
 </html>", revisions="<html>
-<p><b>Release Notes:</b></p>
+<p><strong>Release Notes:</strong></p>
 <ul>
-<li><i>April 09, 2013</i>
+<li><em>April 09, 2013</em>
        by Thomas Beutlich:<br>
        Implemented as external object.</li>
-<li><i>March 31, 2001</i>
+<li><em>March 31, 2001</em>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
        Used CombiTableTime as a basis and added the
-       arguments <b>extrapolation, columns, startTime</b>.
+       arguments <strong>extrapolation, columns, startTime</strong>.
        This allows periodic function definitions.</li>
 </ul>
 </html>"),
