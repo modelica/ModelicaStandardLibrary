@@ -2489,23 +2489,7 @@ The table interpolation has the following properties:
     is used as ordinate value for all outputs.</li>
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries.
-    An interval boundary is defined by two identical time values
-    following each other. For example
-<pre>
-   table = [0  0
-            1  0
-            1  1
-            2  4
-            3  9
-            3  2
-            4  3];
-</pre>
-    defines three intervalls: 0..1, 1..3, 3..4. Within an interval the defined
-    interpolation method is applied (so the table outputs within an interval are
-    continuous,and if the interpolation method is smooth, also continuously differentiable).
-    No time events are generated within an interval
-    in order that also intervals with many points do not reduce the simulation efficiency.
-</li>
+    This generates continuously differentiable values for the integrator.</li>
 <li>Via parameter <b>timeScale</b> the first column of the table array can
     be scaled, e.g., if the table array is given in hours (instead of seconds)
     <b>timeScale</b> shall be set to 3600.</li>
