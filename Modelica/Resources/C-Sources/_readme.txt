@@ -33,12 +33,19 @@ instance, this can be achieved by building shared object libraries (.dll, .so)
 and dynamically linking library "ModelicaStandardTables" to "ModelicaMatIO" and
 "ModelicaMatIO" to "zlib".
 
+If dynamic link libraries (*.dll) are to be built by Visual C++ on Windows the
+following linker optimization options in the Release configuration shall be set
+- /OPT:NOREF (non-working default is /OPT:REF)
+- /LTCG (non-working default for Visual Studio 2015 is /LTCG:incremental)
+This is required for the projects including gconstructor.h, i.e.,
+ModelicaExternalC.dll and ModelicaStandardTables.dll.
+
 Build projects for the object libraries are provided under
-   ../BuildProjects
+  ../BuildProjects
 
 Additionally, a tool vendor has to provide library "lapack"
 (>= v3.1; download from http://www.netlib.org/lapack)
 and this library should be used in the linker when a model is compiled
 that uses this library in its library annotation.
 
-February 29, 2016.
+January 29, 2017.
