@@ -3354,7 +3354,7 @@ velocity of model mass1 or of model mass2 as state variables.
                   fillPattern=FillPattern.Solid),Line(points={{-100,-60},{80,-60}},
               color={160,160,164}),Text(
                   extent={{-30,-70},{30,-90}},
-                  textString="w_rel",
+                  textString="v_rel",
                   lineColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
               128,128,128}),Polygon(
                   points={{14,80},{-6,85},{-6,75},{14,80}},
@@ -4729,7 +4729,7 @@ flange is the same. It is used to built up springs, dampers etc.
       "Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states"
 
       parameter StateSelect stateSelect=StateSelect.prefer
-        "Priority to use phi_rel and w_rel as states"
+        "Priority to use s_rel and v_rel as states"
         annotation (HideResult=true, Dialog(tab="Advanced"));
       parameter SI.Distance s_nominal=1e-4
         "Nominal value of s_rel (used for scaling)"
