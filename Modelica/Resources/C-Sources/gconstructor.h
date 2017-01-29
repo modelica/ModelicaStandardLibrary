@@ -1,4 +1,5 @@
-/*
+/* gconstructor.h - Module constructor and destructor helper header
+
   If G_HAS_CONSTRUCTORS is true then the compiler support *both* constructors and
   destructors, in a sane way, including e.g. on library unload. If not you're on
   your own.
@@ -29,14 +30,15 @@
   struct _func ## _wrapper_struct2 { ~_func ## _wrapper_struct2() { _func(); } }; \
   static _func ## _wrapper_struct2 _func ## _wrapper2;
 
-#elif defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7))
+#elif (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && __GNUC_MINOR__ >= 7))) || \
+       defined(__clang__)
 
 #define G_HAS_CONSTRUCTORS 1
 
 #define G_DEFINE_CONSTRUCTOR(_func) static void __attribute__((constructor)) _func (void);
 #define G_DEFINE_DESTRUCTOR(_func) static void __attribute__((destructor)) _func (void);
 
-#elif defined (_MSC_VER) && (_MSC_VER >= 1500)
+#elif defined(_MSC_VER) && (_MSC_VER >= 1500)
 /* Visual Studio 2008 and later has _pragma */
 
 #define G_HAS_CONSTRUCTORS 1
@@ -53,7 +55,7 @@
   __pragma(section(".CRT$XCU",read)) \
   __declspec(allocate(".CRT$XCU")) static int (* _array ## _func)(void) = _func ## _constructor;
 
-#elif defined (_MSC_VER) && (_MSC_VER >= 1400)
+#elif defined(_MSC_VER) && (_MSC_VER >= 1400)
 
 #define G_HAS_CONSTRUCTORS 1
 
