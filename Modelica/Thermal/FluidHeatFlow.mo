@@ -2283,7 +2283,7 @@ See also sketch at diagram layer.
         output Modelica.SIunits.TemperatureDifference dT
           "Temperature increase of coolant in flow direction";
       protected
-        Modelica.SIunits.SpecificEnthalpy h "Medium's specific enthalpy";
+        Modelica.SIunits.SpecificEnthalpy h(start=medium.cp*T0) "Medium's specific enthalpy";
         Modelica.SIunits.Temperature T_q
           "Temperature relevant for heat exchange with ambient";
       public
