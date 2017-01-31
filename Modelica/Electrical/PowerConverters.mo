@@ -4430,8 +4430,7 @@ General information about controllers is summarized in
           "Count of 1st order all-pass";
         final parameter Modelica.SIunits.Frequency fa=f/tan(pi/na - atan(f/fCut)
             /(2*na));
-        parameter Real yStart=0 "Start value of output"
-          annotation (Dialog(enable=useFilter));
+        parameter Real yStart=0 "Start value of output";
         Modelica.Blocks.Continuous.FirstOrder firstOrder(
           final k=1,
           final T=1/(2*pi*fCut),
