@@ -171,7 +171,7 @@ package Lines
 
     parameter Real g[dim_vector_lgc](
       each final min=Modelica.Constants.small,
-      each unit="S/m") = {8.05e-6,3.42e-5,2 - 91e-5,1.76e-6,9.16e-6,7.12e-6,
+      each unit="S/m") = {8.05e-6,3.42e-5,2.91e-5,1.76e-6,9.16e-6,7.12e-6,
       2.43e-5,5.93e-6,4.19e-5,6.64e-6} "Conductance per meter";
 
     parameter Real c[dim_vector_lgc](
