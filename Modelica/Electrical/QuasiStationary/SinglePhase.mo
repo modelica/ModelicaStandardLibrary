@@ -2046,7 +2046,7 @@ This sensor can be used to measure the complex current.
             Text(extent={{-29,-70},{30,-11}}, textString="P"),
             Line(points={{-80,-100},{-80,0}}, color={85,170,255}),
             Text(
-              textColor={0,0,255},
+              lineColor={0,0,255},
               extent={{-100,110},{100,150}},
               textString="%name"),
             Line(points={{-100,0},{100,0}}, color={0,0,255})}), Documentation(
