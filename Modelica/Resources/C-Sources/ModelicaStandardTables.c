@@ -4662,7 +4662,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                         break;
                     }
                     /* Extra check for partial table read */
-                    if (NULL == token && 0 == tableReadError && i == nRow) {
+                    else if (NULL == token && 0 == tableReadError && i == nRow) {
                         unsigned long lineNoPartial = lineNo;
                         int tableReadPartial = 0;
                         while (readLine(&buf, &bufLen, fp) == 0) {
@@ -4695,6 +4695,7 @@ static double* readTxtTable(const char* tableName, const char* fileName,
                                 "\"%s\" do not match the actual table size (line %lu).\n",
                                 tableName, nRow, nCol, fileName, lineNoPartial);
                         }
+                        break;
                     }
                 }
                 break;
