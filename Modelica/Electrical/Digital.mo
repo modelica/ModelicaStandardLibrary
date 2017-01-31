@@ -7371,7 +7371,7 @@ Wires n input signals in one output signal, without delay.
       parameter String fileName = Modelica.Utilities.Files.loadResource(
             "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
         annotation(Dialog(group="table data definition",
-                             loadSelector(filter="Text files (*.txt);;MATLAB files (*.mat)",
+                             loadSelector(filter="Text files (*.txt)",
                              caption="Open file in which table is present")));
 
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
@@ -7624,7 +7624,7 @@ Firstly Write is carried out, then Read.</b></p>
             "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition",
-                             loadSelector(filter="Text files (*.txt);;MATLAB files (*.mat)",
+                             loadSelector(filter="Text files (*.txt)",
                              caption="Open file in which table is present")));
 
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
