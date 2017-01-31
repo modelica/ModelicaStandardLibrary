@@ -1,6 +1,6 @@
 /* ModelicaInternal.c - External functions for Modelica.Utilities
 
-   Copyright (C) 2002-2016, Modelica Association and DLR
+   Copyright (C) 2002-2017, Modelica Association and DLR
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -48,6 +48,11 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed WIN32 support of a directory name with a trailing
+                     forward/backward slash character in ModelicaInternal_stat
+                     (ticket #1976)
+
       Mar. 02, 2016: by Thomas Beutlich, ITI GmbH
                      Fixed repeated opening of cached file in case of line miss in
                      ModelicaStreams_openFileForReading (ticket #1939)
@@ -352,33 +357,36 @@ MODELICA_EXPORT void ModelicaInternal_rmdir(const char* directoryName) {
 MODELICA_EXPORT int ModelicaInternal_stat(const char* name) {
     /* Inquire type of file */
     ModelicaFileType type = FileType_NoFile;
-
-#if defined(__WATCOMC__) || defined(__BORLANDC__)
+#if defined(_WIN32)
     struct _stat fileInfo;
-    if ( _stat(name, &fileInfo) != 0 ) {
-        type = FileType_NoFile;
-    }
-    else if ( fileInfo.st_mode & S_IFREG ) {
-        type = FileType_RegularFile;
-    }
-    else if ( fileInfo.st_mode & S_IFDIR ) {
-        type = FileType_Directory;
-    }
-    else {
-        type = FileType_SpecialFile;
-    }
-#elif defined(_WIN32)
-    struct _stat fileInfo;
-    int statReturn;
-    statReturn=_stat(name, &fileInfo);
-    if (statReturn!=0) {
-        /* For some reason _stat requires a:\ and a:\test1 and fails on a: and a:\test1\ */
-        /* It could be handled in the Modelica code, but seems better to have here */
-        if (strpbrk(name,"/\\")==0 && strchr(name,':')!=0 && strchr(name,':')[1]==0 && (strchr(name,':')-name)<40) {
-            char name2[100];
-            strcpy(name2,name);
-            strcat(name2,"\\");
-            statReturn=_stat(name2, &fileInfo);
+    int statReturn = _stat(name, &fileInfo);
+    if (0 != statReturn) {
+        /* For some reason _stat requires "a:\" and "a:\test1" but fails
+         * on "a:" and "a:\test1\", repectively. It could be handled in the
+         * Modelica code, but seems better to have it here.
+         */
+        const char* firstSlash = strpbrk(name, "/\\");
+        const char* firstColon = strchr(name, ':');
+        const char c = (NULL != firstColon) ? firstColon[1] : '\0';
+        size_t len = strlen(name);
+        if (NULL == firstSlash && NULL != firstColon && '\0' == c) {
+            char* nameTmp = (char*)malloc((len + 2)*(sizeof(char)));
+            if (NULL != nameTmp) {
+                strcpy(nameTmp, name);
+                strcat(nameTmp, "\\");
+                statReturn = _stat(nameTmp, &fileInfo);
+                free(nameTmp);
+            }
+        }
+        else if (NULL != firstSlash && len > 1 &&
+            ('/' == name[len - 1] || '\\' == name[len - 1])) {
+            char* nameTmp = (char*)malloc(len*(sizeof(char)));
+            if (NULL != nameTmp) {
+                strncpy(nameTmp, name, len - 1);
+                nameTmp[len - 1] = '\0';
+                statReturn = _stat(nameTmp, &fileInfo);
+                free(nameTmp);
+            }
         }
     }
     if ( statReturn != 0 ) {
@@ -396,7 +404,7 @@ MODELICA_EXPORT int ModelicaInternal_stat(const char* name) {
 #elif defined(_POSIX_) || defined(__GNUC__)
     struct stat fileInfo;
     int statReturn;
-    statReturn=stat(name, &fileInfo);
+    statReturn = stat(name, &fileInfo);
     if ( statReturn != 0 ) {
         type = FileType_NoFile;
     }
