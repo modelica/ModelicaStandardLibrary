@@ -410,7 +410,7 @@ this block is usually identically to <b>false</b>, because the output
 may only be <b>true</b> at an event instant, but not during
 continuous integration. In order to check that this component is
 actually working as expected, one should connect its output to, e.g.,
-component <i>ModelicaAdditions.Blocks.Discrete.TriggeredSampler</i>.
+component <i><a href=\"modelica://Modelica.Blocks.Discrete.TriggeredSampler\">Modelica.Blocks.Discrete.TriggeredSampler</a></i>.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={
