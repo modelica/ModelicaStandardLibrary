@@ -7370,6 +7370,7 @@ Wires n input signals in one output signal, without delay.
       parameter Integer n_data(min=1) = 2 "data width";
       parameter String fileName = Modelica.Utilities.Files.loadResource(
             "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
+        "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition",
                              loadSelector(filter="Text files (*.txt)",
                              caption="Open file in which table is present")));
@@ -7620,7 +7621,7 @@ Firstly Write is carried out, then Read.</b></p>
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName=Modelica.Utilities.Files.loadResource(
+      parameter String fileName = Modelica.Utilities.Files.loadResource(
             "modelica://Modelica/Resources/Data/Electrical/Digital/Memory_Matrix.txt")
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition",
