@@ -2267,44 +2267,34 @@ The result can be seen in the output signals of the FullAdders according to:</p>
         equation
           connect(enable, FF1.j)       annotation (Line(
                 points={{-100,70},{-80,70},{-80,14},{-74,14}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(enable, FF1.k)      annotation (Line(
                 points={{-100,70},{-80,70},{-80,-14},{-74,-14}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(count, FF1.clk)      annotation (Line(
                 points={{-100,-70},{-86,-70},{-86,0},{-74,0}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF1.q, FF2.clk)        annotation (Line(
                 points={{-34,14},{-30,14},{-30,0},{-20,0}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF2.q, FF3.clk)        annotation (Line(
                 points={{20,14},{24,14},{24,0},{34,0}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF2.j, enable)       annotation (Line(
                 points={{-20,14},{-26,14},{-26,70},{-100,70}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF2.k, FF2.j)         annotation (Line(
                 points={{-20,-14},{-26,-14},{-26,14},{-20,14}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF3.k, FF3.j)         annotation (Line(
                 points={{34,-14},{28,-14},{28,14},{34,14}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF3.j, enable)       annotation (Line(
                 points={{34,14},{28,14},{28,70},{-100,70}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF3.q, q2)     annotation (Line(
                 points={{74,14},{80,14},{80,70},{100,70}},
-                color={127,0,127},
-                fillPattern=FillPattern.Solid));
+                color={127,0,127}));
           connect(FF1.q, q0) annotation (Line(points={{-34,14},{-30,14},{-30,-70},{
                     100,-70}}, color={127,0,127}));
           connect(FF2.q, q1) annotation (Line(points={{20,14},{24,14},{24,-50},{86,
