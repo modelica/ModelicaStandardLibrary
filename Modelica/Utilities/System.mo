@@ -28,7 +28,7 @@ function getEnvironmentVariable "Get content of environment variable"
   extends Modelica.Icons.Function;
   input String name "Name of environment variable";
   input Boolean convertToSlash =  false
-      "True, if native directory separators in 'result' shall be changed to '/'";
+      "True, if native directory separators in environment variable shall be changed to '/'";
   output String content
       "Content of environment variable (empty, if not existent)";
   output Boolean exist
@@ -45,7 +45,7 @@ function setEnvironmentVariable "Set content of local environment variable"
   input String name "Name of environment variable";
   input String content "Value of the environment variable";
   input Boolean convertFromSlash =  false
-      "True, if '/' in content shall be changed to the native directory separator";
+      "True, if '/' in environment variable shall be changed to native directory separators";
 external "C" ModelicaInternal_setenv(name, content, convertFromSlash) annotation(Library="ModelicaExternalC");
     annotation (__ModelicaAssociation_Impure=true,
 Documentation(info="<html>
