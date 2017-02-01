@@ -2818,15 +2818,15 @@ The Boolean output y is a step signal:
   protected
     parameter Modelica.SIunits.Time Twidth=period*width/100
       "width of one pulse" annotation (HideResult=true);
-    discrete Modelica.SIunits.Time pulsStart "Start time of pulse"
+    discrete Modelica.SIunits.Time pulseStart "Start time of pulse"
       annotation (HideResult=true);
   initial equation
-    pulsStart = startTime;
+    pulseStart = startTime;
   equation
     when sample(startTime, period) then
-      pulsStart = time;
+      pulseStart = time;
     end when;
-    y = time >= pulsStart and time < pulsStart + Twidth;
+    y = time >= pulseStart and time < pulseStart + Twidth;
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
