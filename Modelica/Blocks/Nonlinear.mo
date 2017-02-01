@@ -348,7 +348,7 @@ function of the input with a slope of 1.
 
   block FixedDelay "Delay block with fixed DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter SI.Time delayTime(start=1)
+    parameter Modelica.SIunits.Time delayTime(start=1)
       "Delay time of output with respect to input signal";
 
   equation
@@ -694,7 +694,7 @@ chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 
   block VariableDelay "Delay block with variable DelayTime"
     extends Modelica.Blocks.Interfaces.SISO;
-    parameter Real delayMax(min=0, start=1) "maximum delay time";
+    parameter Modelica.SIunits.Duration delayMax(min=0, start=1) "Maximum delay time";
 
     Modelica.Blocks.Interfaces.RealInput delayTime         annotation (Placement(
           transformation(extent={{-140,-80},{-100,-40}})));
