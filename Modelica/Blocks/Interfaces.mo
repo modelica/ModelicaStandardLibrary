@@ -1171,7 +1171,7 @@ and a 3D icon (e.g., used in Blocks.Logical library).
 
     parameter Real threshold=0 "Comparison with respect to threshold";
 
-    Blocks.Interfaces.RealInput u "Connector of Boolean input signal"
+    Blocks.Interfaces.RealInput u "Connector of Real input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
     Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
@@ -1207,9 +1207,9 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
   partial block partialBooleanComparison
     "Partial block with 2 Real input and 1 Boolean output signal (the result of a comparison of the two Real inputs)"
 
-    Blocks.Interfaces.RealInput u1 "Connector of first Boolean input signal"
+    Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Blocks.Interfaces.RealInput u2 "Connector of second Boolean input signal"
+    Blocks.Interfaces.RealInput u2 "Connector of second Real input signal"
       annotation (Placement(transformation(extent={{-140,-100},{-100,-60}})));
     Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
