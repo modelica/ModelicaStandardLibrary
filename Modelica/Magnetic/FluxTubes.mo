@@ -6832,6 +6832,7 @@ Additional user-specific materials can be defined as needed.
       "Parameter sets for an analytical description of the Everett function"
       extends Modelica.Icons.MaterialPropertiesPackage;
       record BaseData "Base Data Record"
+        extends Modelica.Icons.Record;
         parameter SI.MagneticFieldStrength Hsat=100
           "Hysteresis region between -Hsat .. Hsat";
         parameter Real M(final unit="1")=0.95
