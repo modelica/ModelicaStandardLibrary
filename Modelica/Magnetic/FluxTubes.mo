@@ -6845,7 +6845,7 @@ Additional user-specific materials can be defined as needed.
         parameter Real p2(final unit="m/A")=8e-1 "Sharpness of major loop";
         parameter SI.MagneticFieldStrength Hc=7.4 "Major loop coercivity";
         parameter Real K(final unit="1")=1
-          "Slope in saturation regeion mue_0*K";
+          "Slope in saturation region mue_0*K";
         parameter SI.Conductivity sigma = 1
           "Electrical conductivity of material";
 
