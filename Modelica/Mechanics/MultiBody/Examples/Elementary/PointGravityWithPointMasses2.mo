@@ -238,7 +238,7 @@ equation
       points={{-20,70},{-10,70},{-10,20},{10,20},{10,0},{0,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (    experiment(StopTime=3.0, Tolerance=1e-006),
+  annotation (experiment(StopTime=3.0, Tolerance=1e-006),
     Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a
@@ -247,7 +247,7 @@ Translating such a model results in an error, because point masses do
 not define an orientation object. The example demonstrates that in such
 a case (when the orientation object is not defined by an object that
 is connected to a point mass), a \"MultiBody.Joints.FreeMotion\" joint
-has to be used, to define the the degrees of freedom of this structure.
+has to be used, to define the degrees of freedom of this structure.
 </p>
 
 <p>
