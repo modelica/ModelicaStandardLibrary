@@ -990,7 +990,7 @@ values (defined already in the model):</p>
       Modelica.Blocks.Sources.Sine sin2(
         amplitude=1,
         freqHz=freqHz,
-        phase=1.57) annotation (Placement(transformation(
+        phase=1.570796326794897) annotation (Placement(transformation(
             origin={-35,35},
             extent={{-5,-5},{15,15}},
             rotation=270)));
