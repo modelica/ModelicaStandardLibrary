@@ -451,7 +451,7 @@ and upper case letters are not distinguished.
 </html>"));
   end sort;
 
-  function hashString "Creates a hash value of a String"
+  function hashString "Create a hash value of a string"
     extends Modelica.Icons.Function;
     input String string "The string to create a hash from";
     output Integer hash "The hash value of string";
@@ -1378,6 +1378,8 @@ call to every function is given using the <b>default</b> options.
       <td valign=\"top\">Replace one or all occurrences of a string</td></tr>
   <tr><td valign=\"top\">stringVector2 = <a href=\"modelica://Modelica.Utilities.Strings.sort\">sort</a>(stringVector1)</td>
       <td valign=\"top\">Sort vector of strings in alphabetic order</td></tr>
+  <tr><td valign=\"top\">hash = <a href=\"modelica://Modelica.Utilities.Strings.hashString\">hashString</a>(string)</td>
+      <td valign=\"top\">Create a hash value of a string</td></tr>
   <tr><td valign=\"top\">(token, index) = <a href=\"modelica://Modelica.Utilities.Strings.scanToken\">scanToken</a>(string,startIndex)</td>
       <td valign=\"top\">Scan for a token (Real/Integer/Boolean/String/Identifier/Delimiter/NoToken)</td></tr>
   <tr><td valign=\"top\">(number, index) = <a href=\"modelica://Modelica.Utilities.Strings.scanReal\">scanReal</a>(string,startIndex)</td>
