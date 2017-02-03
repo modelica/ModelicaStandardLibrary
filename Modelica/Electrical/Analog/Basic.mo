@@ -445,9 +445,9 @@ package Basic "Basic electrical components"
     annotation (
       Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>, right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following relation:</p>
-<pre>         | v1 |         | L1   M  |  | i1&#39;; |
+<pre>         | v1 |         | L1   M  |  | i1&#39; |
          |    |    =    |         |  |     |
-         | v2 |         | M    L2 |  | i2&#39;; |</pre>
+         | v2 |         | M    L2 |  | i2&#39; |</pre>
 <p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
 </html>", revisions="<html>
 <ul>
@@ -1919,7 +1919,7 @@ It is required that L &ge; 0, otherwise an assertion is raised. To avoid a varia
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
-                       <p>This models a potentiometer where the sliding contact is placed  between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r. </p>
+                       <p>This models a potentiometer where the sliding contact is placed between pin_n (r = 0) and pin_p (r = 1), dependent on either the parameter rConstant or the signal input r.</p>
                        <p>The total resistance R is temperature dependent.</p>
                        </html>"));
   end Potentiometer;
