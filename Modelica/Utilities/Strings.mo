@@ -388,7 +388,7 @@ performed replacements.
     input Boolean caseSensitive=true
       "= false, if lower and upper case are ignored when comparing elements of stringVector1";
     output String stringVector2[size(stringVector1,1)]
-      "string1 sorted in alphabetical order";
+      "stringVector1 sorted in alphabetical order";
     /* shellsort algorithm; should be improved later */
   protected
     Integer gap;
