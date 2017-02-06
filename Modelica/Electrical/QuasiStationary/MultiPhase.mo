@@ -3083,7 +3083,7 @@ Additionally, the frequency of the current source is defined by a real signal in
                   fillPattern=FillPattern.Solid),Line(points={{0,-50},{0,50}})}), Documentation(info="<html>
 
 <p>
-This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the the phase shifts
+This model describes <i>m</i> constant current sources, specifying the complex currents by the RMS currents and the phase shifts
 (defaults are
 <a href=\"modelica://Modelica.Electrical.MultiPhase.Functions.symmetricOrientation\">-symmetricOrientation</a>).
 <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Sources.CurrentSource\">single phase CurrentSources</a> are used.

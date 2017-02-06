@@ -3659,7 +3659,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       end v3b_ps;
 
       annotation (Documentation(info="<html><h4>Package description</h4>
-          <p>Package BaseIF97/Basic computes the the fundamental functions for the 5 regions of the steam tables
+          <p>Package BaseIF97/Basic computes the fundamental functions for the 5 regions of the steam tables
           as described in the standards document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
           functions has been generated using <b><i>Mathematica</i></b> and the add-on packages \"Format\" and \"Optimize\"
           to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic

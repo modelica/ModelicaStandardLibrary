@@ -2006,7 +2006,7 @@ Matrices.<b>eigenValueMatrix</b>(eigenvalues);
 <h4>Description</h4>
 <p>
 The function call returns a block diagonal matrix <b>J</b>
-from the the two-column matrix <code>eigenvalues</code>
+from the two-column matrix <code>eigenvalues</code>
 (computed by function
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>).
 Matrix <code>eigenvalues</code> must have the real part of the
@@ -4367,7 +4367,7 @@ In a nutshell, the problem is reduced to the corresponding problem
 </pre></blockquote>
 
 <p>
-with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
+with <b>R</b>=<b>U</b>'*<b>A'</b>*<b>U</b> is the real Schur form of <b>A</b>' and <b>D</b>=<b>U</b>'*<b>C</b>*<b>U</b> and <b>Y</b>=<b>U</b>'*<b>X</b>*<b>U</b>
 are the corresponding transformations of <b>C</b> and <b>X</b>. This problem is solved sequentially by exploiting the block triangular form of <b>R</b>.
 Finally the solution of the original problem is recovered as <b>X</b>=<b>U</b>*<b>Y</b>*<b>U</b>'.<br>
 The Boolean input \"ATisSchur\" indicates to omit the transformation to Schur in the case that <b>A</b>' has already Schur form.
@@ -10399,7 +10399,7 @@ For details of the arguments, see documentation of dgbsv.
     ===============
 
     The algorithm used in this program is basically backward (forward)
-    substitution, with scaling to make the the code robust against
+    substitution, with scaling to make the code robust against
     possible overflow.
 
     Each eigenvector is normalized so that the element of largest

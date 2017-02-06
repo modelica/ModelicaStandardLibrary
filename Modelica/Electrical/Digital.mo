@@ -698,7 +698,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREG component.</p>
+<p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREG component.</p>
 </html>"));
         end DFFREG;
 
@@ -736,7 +736,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGL component.</p>
+<p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGL component.</p>
 </html>"));
         end DFFREGL;
 
@@ -779,7 +779,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=15),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRH component.</p>
+<p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRH component.</p>
 </html>"));
         end DFFREGSRH;
 
@@ -820,7 +820,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=15),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRL component.</p>
+<p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DFFREGSRL component.</p>
 </html>"));
         end DFFREGSRL;
 
@@ -857,7 +857,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREG component.</p>
+<p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREG component.</p>
 </html>"));
         end DLATREG;
 
@@ -893,7 +893,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGL component.</p>
+<p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGL component.</p>
 </html>"));
         end DLATREGL;
 
@@ -936,7 +936,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
 
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRH component.</p>
+<p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRH component.</p>
 </html>"));
         end DLATREGSRH;
 
@@ -978,7 +978,7 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               color={127,0,127}));
           annotation (            experiment(StopTime=25),
         Documentation(info="<html>
-<p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRL component.</p>
+<p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the truth table which is documented in the DLATREGSRL component.</p>
 </html>"));
         end DLATREGSRL;
 
