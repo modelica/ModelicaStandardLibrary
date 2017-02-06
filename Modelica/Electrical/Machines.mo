@@ -13011,7 +13011,7 @@ Base partial model DC machines:
 Besides the mechanical connector <i>flange</i> (i.e., the shaft) the machines have a second mechanical connector <i>support</i>.<br>
 If <i>useSupport</i> = false, it is assumed that the stator is fixed.<br>
 Otherwise reaction torque (i.e., airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
-One may also fix the the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
+One may also fix the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
 </html>"));
     end PartialBasicMachine;
 
