@@ -407,16 +407,16 @@ using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\"
     parameter String file = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of matrix"
       annotation(Dialog(loadSelector(filter="MATLAB MAT files (*.mat)", caption="Open MATLAB MAT file")));
     parameter String matrixName = "Matrix_A" "Matrix name in file";
-    final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName) "Dimension of matrix";
-    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Matrix data";
+    final parameter Integer dim[2] = Modelica.Utilities.Streams.readMatrixSize(file,matrixName) "Dimension of matrix";
+    final parameter Real A[:,:] = Modelica.Utilities.Streams.readRealMatrix(file,matrixName,dim1[1],dim1[2]) "Matrix data";
 
     final parameter String file1 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v4.mat") "File name of check matrix 1";
     final parameter String file2 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v6.mat") "File name of check matrix 2";
     final parameter String file3 = Modelica.Utilities.Files.loadResource("modelica://Modelica/Resources/Data/Utilities/Test_RealMatrix_v7.mat") "File name of check matrix 3";
     final parameter String matrixName1 = "Matrix_A" "Names of check matrices";
-    final parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName1) "Dimensions of check matrix 1";
-    final parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName1) "Dimensions of check matrix 2";
-    final parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(file3,matrixName1) "Dimensions of check matrix 3";
+    final parameter Integer dim1[2] = Modelica.Utilities.Streams.readMatrixSize(file1,matrixName1) "Dimension of check matrix 1";
+    final parameter Integer dim2[2] = Modelica.Utilities.Streams.readMatrixSize(file2,matrixName1) "Dimension of check matrix 2";
+    final parameter Integer dim3[2] = Modelica.Utilities.Streams.readMatrixSize(file3,matrixName1) "Dimension of check matrix 3";
     final parameter Real A1[:,:] = Modelica.Utilities.Streams.readRealMatrix(file1,matrixName1,dim1[1],dim1[2]) "Data of check matrix 1";
     final parameter Real A2[:,:] = Modelica.Utilities.Streams.readRealMatrix(file2,matrixName1,dim2[1],dim2[2]) "Data of check matrix 2";
     final parameter Real A3[:,:] = Modelica.Utilities.Streams.readRealMatrix(file3,matrixName1,dim3[1],dim3[2]) "Data of check matrix 3";
