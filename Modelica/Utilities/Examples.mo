@@ -396,7 +396,7 @@ from a file.
 <p>
 Example model that shows how to write a Real matrix in MATLAB MAT format on file
 using function <a href=\"modelica://Modelica.Utilities.Streams.writeRealMatrix\">writeRealMatrix</a>.
-<p>
+</p>
 </html>"));
   end WriteRealMatrixToFile;
 
@@ -440,7 +440,7 @@ Example model that shows how to read a Real matrix in MATLAB MAT format from fil
 using functions
 <a href=\"modelica://Modelica.Utilities.Streams.readMatrixSize\">readMatrixSize</a> and
 <a href=\"modelica://Modelica.Utilities.Streams.readRealMatrix\">readRealMatrix</a>.
-<p>
+</p>
 
 <p>
 Additionally, specific matrices from the supported file formats are loaded and it is checked
