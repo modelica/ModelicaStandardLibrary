@@ -1622,10 +1622,12 @@ has a unique solution.
       "pivot indices (used with LU_solve(..))";
     output Integer info "Information";
   protected
+    Integer m=size(A, 1);
+    Integer n=size(A, 2);
     Integer lda=max(1, size(A, 1));
   external"FORTRAN 77" dgetrf(
-          size(A, 1),
-          size(A, 2),
+          m,
+          n,
           LU,
           lda,
           pivots,
@@ -5095,6 +5097,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real dummy[1,1];
       Integer n=size(A, 1);
       Integer lwork=12*n;
+      Integer ldvl=1;
       Real Awork[size(A, 1), size(A, 1)]=A;
       Real work[12*size(A, 1)];
 
@@ -5107,11 +5110,11 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
               eigenReal,
               eigenImag,
               dummy,
-              1,
+              ldvl,
               eigenVectors,
               n,
               work,
-              size(work, 1),
+              lwork,
               info) annotation (Library="lapack");
       annotation (Documentation(info="This function is not a full interface to the LAPACK function DGEEV,
 but calls it in such a way that only eigenvalues and right eigenvectors
@@ -5229,30 +5232,31 @@ Lapack documentation
           A, 1)); */
       output Integer info;
     protected
-      Integer lwork=8*size(A, 1);
+      Integer n=size(A, 1);
+      Integer lwork=8*n;
       Real Awork[size(A, 1), size(A, 1)]=A;
       Real work[8*size(A, 1)];
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       /*
-    external "FORTRAN 77" dgeev("N", "V", size(A, 1), Awork, size(A, 1),
-        EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        Eigenvectors, size(Eigenvectors, 1), work, size(work, 1), info)
+    external "FORTRAN 77" dgeev("N", "V", n, Awork, n,
+        EigenReal, EigenImag, EigenvectorsL, n,
+        Eigenvectors, n, work, lwork, info)
 */
     external"FORTRAN 77" dgeev(
               "N",
               "N",
-              size(A, 1),
+              n,
               Awork,
-              size(A, 1),
+              n,
               EigenReal,
               EigenImag,
               EigenvectorsL,
-              size(EigenvectorsL, 1),
+              n,
               EigenvectorsL,
-              size(EigenvectorsL, 1),
+              n,
               work,
-              size(work, 1),
+              lwork,
               info) annotation (Library="lapack");
 
       annotation (Documentation(info="Lapack documentation
@@ -5366,6 +5370,8 @@ Lapack documentation
     protected
       Integer n=size(A, 1);
       Integer lwork=12*n;
+      Integer ldvl=1;
+      Integer ldvr=1;
       Real Awork[size(A, 1), size(A, 1)]=A;
       Real Bwork[size(A, 1), size(A, 1)]=B;
       Real work[12*size(A, 1)];
@@ -5384,11 +5390,11 @@ Lapack documentation
               alphaImag,
               beta,
               dummy1,
-              1,
+              ldvl,
               dummy2,
-              1,
+              ldvr,
               work,
-              size(work, 1),
+              lwork,
               info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation
     Purpose
@@ -5618,6 +5624,7 @@ Lapack documentation
         size(A, 2)) + size(B, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
+
     external"FORTRAN 77" dgelsx(
               nrow,
               ncol,
@@ -5743,15 +5750,17 @@ Lapack documentation
     protected
       Integer nrow=size(A, 1);
       Integer ncol=size(A, 2);
+      Integer nrhs=1;
       Integer nx=max(nrow, ncol);
       Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2), 2*min(size(A, 1),
         size(A, 2)) + 1)];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
+
     external"FORTRAN 77" dgelsx(
               nrow,
               ncol,
-              1,
+              nrhs,
               Awork,
               nrow,
               x,
@@ -5880,6 +5889,7 @@ Lapack documentation
         size(A, 2)) + size(B, 2))];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
+
     external"FORTRAN 77" dgelsy(
               nrow,
               ncol,
@@ -6022,16 +6032,18 @@ Lapack documentation
     protected
       Integer nrow=size(A, 1);
       Integer ncol=size(A, 2);
+      Integer nrhs=1;
       Integer nx=max(nrow, ncol);
       Integer lwork=max(min(nrow, ncol) + 3*ncol + 1, 2*min(nrow, ncol) + 1);
       Real work[max(min(size(A, 1), size(A, 2)) + 3*size(A, 2) + 1, 2*min(size(A, 1),
         size(A, 2)) + 1)];
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer jpvt[size(A, 2)]=zeros(ncol);
+
     external"FORTRAN 77" dgelsy(
               nrow,
               ncol,
-              1,
+              nrhs,
               Awork,
               nrow,
               x,
@@ -6167,15 +6179,17 @@ Lapack documentation
     protected
       Integer nrow=size(A, 1);
       Integer ncol=size(A, 2);
+      Integer nrhs=1;
       Integer nx=max(nrow, ncol);
       Integer lwork=min(nrow, ncol) + nx;
       Real work[size(A, 1) + size(A, 2)];
       Real Awork[size(A, 1), size(A, 2)]=A;
+
     external"FORTRAN 77" dgels(
               "N",
               nrow,
               ncol,
-              1,
+              nrhs,
               Awork,
               nrow,
               x,
@@ -6295,14 +6309,16 @@ Lapack documentation
       output Real X[size(A, 1), size(B, 2)]=B;
       output Integer info;
     protected
+      Integer n=size(A, 1);
+      Integer nrhs=size(B, 2);
       Real Awork[size(A, 1), size(A, 1)]=A;
       Integer lda=max(1, size(A, 1));
       Integer ldb=max(1, size(B, 1));
       Integer ipiv[size(A, 1)];
 
     external"FORTRAN 77" dgesv(
-              size(A, 1),
-              size(B, 2),
+              n,
+              nrhs,
               Awork,
               lda,
               ipiv,
@@ -6371,14 +6387,16 @@ Lapack documentation
       output Real x[size(A, 1)]=b;
       output Integer info;
     protected
+      Integer n=size(A, 1);
+      Integer nrhs=1;
       Real Awork[size(A, 1), size(A, 1)]=A;
       Integer lda=max(1, size(A, 1));
       Integer ldb=max(1, size(b, 1));
       Integer ipiv[size(A, 1)];
 
     external"FORTRAN 77" dgesv(
-              size(A, 1),
-              1,
+              n,
+              nrhs,
               Awork,
               lda,
               ipiv,
@@ -6411,6 +6429,7 @@ For details of the arguments, see documentation of dgesv.
       Integer lwork=ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5;
       Real work[size(A, 2) + size(B, 1) + max(size(A, 1), max(size(A, 2), size(
         B, 1)))*5];
+
     external"FORTRAN 77" dgglse(
               nrow_A,
               ncol_A,
@@ -6532,18 +6551,21 @@ For details of the arguments, see documentation of dgesv.
       output Real X[size(B, 1), size(B, 2)]=B;
       output Integer info;
     protected
+      Integer n=size(diag, 1);
+      Integer nrhs=size(B, 2);
+      Integer ldb=size(B, 1);
       Real superdiagwork[size(superdiag, 1)]=superdiag;
       Real diagwork[size(diag, 1)]=diag;
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external"FORTRAN 77" dgtsv(
-              size(diag, 1),
-              size(B, 2),
+              n,
+              nrhs,
               subdiagwork,
               diagwork,
               superdiagwork,
               X,
-              size(B, 1),
+              ldb,
               info) annotation (Library="lapack");
       annotation (Documentation(info="Lapack documentation
     Purpose
@@ -6616,18 +6638,21 @@ For details of the arguments, see documentation of dgesv.
       output Real x[size(b, 1)]=b;
       output Integer info;
     protected
+      Integer n=size(diag, 1);
+      Integer nrhs=1;
+      Integer ldb=size(b, 1);
       Real superdiagwork[size(superdiag, 1)]=superdiag;
       Real diagwork[size(diag, 1)]=diag;
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external"FORTRAN 77" dgtsv(
-              size(diag, 1),
-              1,
+              n,
+              nrhs,
               subdiagwork,
               diagwork,
               superdiagwork,
               x,
-              size(b, 1),
+              ldb,
               info) annotation (Library="lapack");
       annotation (Documentation(info="
 Same as function LAPACK.dgtsv, but right hand side is a vector and not a matrix.
@@ -6646,6 +6671,8 @@ For details of the arguments, see documentation of dgtsv.
       output Real X[n, size(B, 2)]=B;
       output Integer info;
     protected
+      Integer nrhs=size(B, 2);
+      Integer ldab=size(Awork, 1);
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer ipiv[n];
 
@@ -6653,9 +6680,9 @@ For details of the arguments, see documentation of dgtsv.
               n,
               kLower,
               kUpper,
-              size(B, 2),
+              nrhs,
               Awork,
-              size(Awork, 1),
+              ldab,
               ipiv,
               X,
               n,
@@ -6756,6 +6783,8 @@ For details of the arguments, see documentation of dgtsv.
       output Real x[n]=b;
       output Integer info;
     protected
+      Integer nrhs=1;
+      Integer ldab=size(Awork, 1);
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer ipiv[n];
 
@@ -6763,9 +6792,9 @@ For details of the arguments, see documentation of dgtsv.
               n,
               kLower,
               kUpper,
-              1,
+              nrhs,
               Awork,
-              size(Awork, 1),
+              ldab,
               ipiv,
               x,
               n,
@@ -6784,6 +6813,8 @@ For details of the arguments, see documentation of dgbsv.
       output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
       output Integer info;
     protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
       Real work[5*size(A, 1) + 5*size(A, 2)];
@@ -6791,15 +6822,15 @@ For details of the arguments, see documentation of dgbsv.
     external"FORTRAN 77" dgesvd(
               "A",
               "A",
-              size(A, 1),
-              size(A, 2),
+              m,
+              n,
               Awork,
-              size(A, 1),
+              m,
               sigma,
               U,
-              size(A, 1),
+              m,
               VT,
-              size(A, 2),
+              n,
               work,
               lwork,
               info) annotation (Library="lapack");
@@ -6928,6 +6959,8 @@ For details of the arguments, see documentation of dgbsv.
       output Real sigma[min(size(A, 1), size(A, 2))];
       output Integer info;
     protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real U[size(A, 1), size(A, 1)];
       Real VT[size(A, 2), size(A, 2)];
@@ -6937,15 +6970,15 @@ For details of the arguments, see documentation of dgbsv.
     external"FORTRAN 77" dgesvd(
               "N",
               "N",
-              size(A, 1),
-              size(A, 2),
+              m,
+              n,
               Awork,
-              size(A, 1),
+              m,
               sigma,
               U,
-              size(A, 1),
+              m,
               VT,
-              size(A, 2),
+              n,
               work,
               lwork,
               info) annotation (Library="lapack");
@@ -7077,10 +7110,13 @@ For details of the arguments, see documentation of dgbsv.
       output Integer pivots[min(size(A, 1), size(A, 2))] "Pivot vector";
       output Integer info "Information";
     protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
       Integer lda=max(1, size(A, 1));
+
     external"FORTRAN 77" dgetrf(
-              size(A, 1),
-              size(A, 2),
+              m,
+              n,
               LU,
               lda,
               pivots,
@@ -7142,14 +7178,16 @@ For details of the arguments, see documentation of dgbsv.
       output Real X[size(B, 1), size(B, 2)]=B "Solution matrix X";
       output Integer info;
     protected
+      Integer n=size(LU, 1);
+      Integer nrhs=size(B, 2);
       Real work[size(LU, 1), size(LU, 1)]=LU;
       Integer lda=max(1, size(LU, 1));
       Integer ldb=max(1, size(B, 1));
 
     external"FORTRAN 77" dgetrs(
               "N",
-              size(LU, 1),
-              size(B, 2),
+              n,
+              nrhs,
               work,
               lda,
               pivots,
@@ -7217,14 +7255,16 @@ For details of the arguments, see documentation of dgbsv.
       output Integer info;
 
     protected
+      Integer n=size(LU, 1);
+      Integer nrhs=1;
       Real work[size(LU, 1), size(LU, 1)]=LU;
       Integer lda=max(1, size(LU, 1));
       Integer ldb=max(1, size(b, 1));
 
     external"FORTRAN 77" dgetrs(
               "N",
-              size(LU, 1),
-              1,
+              n,
+              nrhs,
               work,
               lda,
               pivots,
@@ -7291,13 +7331,14 @@ For details of the arguments, see documentation of dgbsv.
       output Integer info;
 
     protected
+      Integer n=size(LU, 1);
       Integer lda=max(1, size(LU, 1));
       Integer lwork=max(1, min(10, size(LU, 1))*size(LU, 1))
         "Length of work array";
       Real work[max(1, min(10, size(LU, 1))*size(LU, 1))];
 
     external"FORTRAN 77" dgetri(
-              size(LU, 1),
+              n,
               inv,
               lda,
               pivots,
@@ -7365,11 +7406,13 @@ For details of the arguments, see documentation of dgbsv.
       output Integer p[size(A, 2)]=zeros(size(A, 2)) "Pivot vector";
       output Integer info;
     protected
+      Integer m=size(A, 1);
       Integer lda=max(1, size(A, 1));
       Integer ncol=size(A, 2) "Column dimension of A";
       Real work[3*size(A, 2)] "work array";
+
     external"FORTRAN 77" dgeqpf(
-              size(A, 1),
+              m,
               ncol,
               QR,
               lda,
@@ -7453,14 +7496,18 @@ For details of the arguments, see documentation of dgbsv.
       output Integer info;
 
     protected
+      Integer m=size(QR, 1);
+      Integer n=size(QR, 2);
+      Integer k=size(tau, 1);
       Integer lda=max(1, size(Q, 1));
       Integer lwork=max(1, min(10, size(QR, 2))*size(QR, 2))
         "Length of work array";
       Real work[max(1, min(10, size(QR, 2))*size(QR, 2))];
+
     external"FORTRAN 77" dorgqr(
-              size(QR, 1),
-              size(QR, 2),
-              size(tau, 1),
+              m,
+              n,
+              k,
               Q,
               lda,
               tau,
@@ -7548,21 +7595,21 @@ For details of the arguments, see documentation of dgbsv.
       Boolean bwork[size(A, 1)];
 
     external"FORTRAN 77" dgees(
-    "V",
-    "N",
-    dummyFunctionPointerNotUsed,
-    n,
-    T,
-    lda,
-    sdim,
-    eval_real,
-    eval_imag,
-    Z,
-    lda,
-    work,
-    lwork,
-    bwork,
-    info) annotation (Library={"lapack"});
+              "V",
+              "N",
+              dummyFunctionPointerNotUsed,
+              n,
+              T,
+              lda,
+              sdim,
+              eval_real,
+              eval_imag,
+              Z,
+              lda,
+              work,
+              lwork,
+              bwork,
+              info) annotation (Library={"lapack"});
       annotation (Documentation(info="Lapack documentation
     Purpose
     =======
@@ -7951,6 +7998,8 @@ For details of the arguments, see documentation of dgbsv.
       output Real rcond "reciprocal condition number of the matrix A";
 
     protected
+      Integer n=size(A, 1);
+      Integer nrhs=size(B, 2);
       String transA=if transposed then "T" else "N";
       Real Awork[size(A, 1), size(A, 2)]=A;
       Real Bwork[size(B, 1), size(B, 2)]=B;
@@ -7968,8 +8017,8 @@ For details of the arguments, see documentation of dgbsv.
     external"FORTRAN 77" dgesvx(
               "N",
               transA,
-              size(A, 1),
-              size(B, 2),
+              n,
+              nrhs,
               Awork,
               lda,
               AF,
@@ -9123,6 +9172,8 @@ For details of the arguments, see documentation of dgbsv.
       output Real VT[size(A, 2), size(A, 2)]=zeros(size(A, 2), size(A, 2));
       output Integer info;
     protected
+      Integer m=size(A, 1);
+      Integer n=size(A, 2);
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer lda=max(1, size(A, 1));
       Integer ldu=max(1, size(A, 1));
@@ -9137,8 +9188,8 @@ For details of the arguments, see documentation of dgbsv.
 
     external"FORTRAN 77" dgesdd(
               "A",
-              size(A, 1),
-              size(A, 2),
+              m,
+              n,
               Awork,
               lda,
               sigma,
