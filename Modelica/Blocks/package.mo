@@ -2249,6 +2249,7 @@ random number generator. This block is used in the example
       end ImpureRandom;
 
       package Parts "Parts for use in the ActuatorWithNoise examples"
+        extends Modelica.Icons.Package;
 
         model MotorWithCurrentControl
           "Synchronous induction machine with current controller and measurement noise"
