@@ -8418,9 +8418,10 @@ For analysis of magnetic networks, only magnetic potential differences and magne
 </html>"));
   end Sensors;
 
-  package Utilities
-    extends Modelica.Icons.Package;
+  package Utilities "Package with utility functions"
+    extends Modelica.Icons.FunctionsPackage;
     function everett "Everett function, see [YUY89]"
+      extends Modelica.Icons.Function;
       import Modelica.Constants.pi;
       input SI.MagneticFieldStrength a_;
       input SI.MagneticFieldStrength b_;
@@ -8463,6 +8464,7 @@ For analysis of magnetic networks, only magnetic potential differences and magne
 
     function initPreisach
       "Function used for the initialization of the Preisach hysteresis model GenericHystPreisachEverett"
+      extends Modelica.Icons.Function;
 
       input SI.MagneticFieldStrength x;
       input SI.MagneticFieldStrength H;

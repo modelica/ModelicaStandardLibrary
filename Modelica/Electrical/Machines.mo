@@ -10812,7 +10812,7 @@ the first element representing the real part and the second element representing
     end Blocks;
 
     package Functions "Functions for space phasor transformation"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
       function ToSpacePhasor
         "Conversion from multi phase input to space phasor and zero sequence component"
         import Modelica.Constants.pi;

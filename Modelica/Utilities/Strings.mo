@@ -1,6 +1,6 @@
 within Modelica.Utilities;
 package Strings "Operations on strings"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.FunctionsPackage;
 
   function length "Return length of string"
     extends Modelica.Icons.Function;

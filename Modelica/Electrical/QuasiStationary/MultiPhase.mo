@@ -2176,7 +2176,7 @@ Quasi stationary theory can be found in the
   end Ideal;
 
   package Functions
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.FunctionsPackage;
     function quasiRMS
       "Overall quasi-RMS value of complex input (current or voltage)"
       extends Modelica.Icons.Function;

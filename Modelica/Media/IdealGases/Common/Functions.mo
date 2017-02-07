@@ -1,7 +1,7 @@
 within Modelica.Media.IdealGases.Common;
 package Functions
   "Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.FunctionsPackage;
 
   constant Boolean excludeEnthalpyOfFormation=true
     "If true, enthalpy of formation Hf is not included in specific enthalpy h";

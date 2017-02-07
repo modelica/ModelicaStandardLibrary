@@ -1,6 +1,6 @@
 within Modelica.Utilities;
 package Files "Functions to work with files and directories"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.FunctionsPackage;
 
 function list "List content of file or directory"
   extends Modelica.Icons.Function;

@@ -1172,9 +1172,9 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
   end PipeWithScalarField;
 
   package Colors "Library of functions operating on color"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.FunctionsPackage;
     package ColorMaps "Library of functions returning color maps"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       function jet "Returns the \"jet\" color map"
         extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
@@ -2300,7 +2300,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
     end PipeWithScalarField;
 
     package SurfaceCharacteristics "Functions returning surface descriptions"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.FunctionsPackage;
       function torus "Function defining the surface characteristic of a torus"
         extends
           Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(

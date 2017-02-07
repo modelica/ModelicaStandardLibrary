@@ -5,7 +5,7 @@ package ComplexMath
   final constant Complex j = Complex(0,1) "Imaginary unit";
 
 package Vectors "Library of functions operating on complex vectors"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.FunctionsPackage;
 
 function norm "Returns the p-norm of a complex vector"
   extends Modelica.Icons.Function;
