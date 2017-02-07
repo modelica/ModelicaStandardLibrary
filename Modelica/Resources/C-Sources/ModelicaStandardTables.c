@@ -47,6 +47,10 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Feb. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added support for integer and single-precision variable
+                     classes of MATLAB MAT-files (ticket #2106)
+
       Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added diagnostic message for (supported) partial read of table
                      from ASCII text file (ticket #2151)
@@ -4374,14 +4378,19 @@ static double* readMatTable(const char* tableName, const char* fileName,
             return NULL;
         }
 
-        /* Check if matvar is of double precision class (and thus non-sparse) */
-        if (matvar->class_type != MAT_C_DOUBLE) {
+        /* Check if variable class of matvar is numeric (and thus non-sparse) */
+        if (matvar->class_type != MAT_C_DOUBLE && matvar->class_type != MAT_C_SINGLE &&
+            matvar->class_type != MAT_C_INT8 && matvar->class_type != MAT_C_UINT8 &&
+            matvar->class_type != MAT_C_INT16 && matvar->class_type != MAT_C_UINT16 &&
+            matvar->class_type != MAT_C_INT32 && matvar->class_type != MAT_C_UINT32 &&
+            matvar->class_type != MAT_C_INT64 && matvar->class_type != MAT_C_UINT64) {
             Mat_VarFree(matvarRoot);
             (void)Mat_Close(mat);
             ModelicaFormatError("Table matrix \"%s\" has not the required "
-                "double precision class.\n", tableName);
+                "numeric variable class.\n", tableName);
             return NULL;
         }
+        matvar->class_type = MAT_C_DOUBLE;
 
         /* Check if matvar is purely real-valued */
         if (matvar->isComplex) {
