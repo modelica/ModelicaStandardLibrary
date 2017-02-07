@@ -9814,14 +9814,14 @@ documentation available in this package.
     end SharedDocumentation;
 
     package Functions "Package for utility functions"
-    extends Modelica.Icons.Package;
+      extends Modelica.Icons.FunctionsPackage;
 
       package PressureLoss "Package for utility pressure loss functions"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.FunctionsPackage;
 
         package TwoPhase
           "Package with utility functions to compute two phase pressure loss characteristics"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.FunctionsPackage;
 
           function dp_twoPhaseChisholm_DP
             "Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime"
@@ -10507,11 +10507,11 @@ The heterogeneous approaches are analytically derived by minimising the momentum
       end PressureLoss;
 
       package HeatTransfer "Package for utility heat transfer functions"
-        extends Modelica.Icons.Package;
+        extends Modelica.Icons.FunctionsPackage;
 
         package TwoPhase
           "Package with utility functions to compute two phase heat transfer characteristics"
-          extends Modelica.Icons.Package;
+          extends Modelica.Icons.FunctionsPackage;
 
           function kc_twoPhase_condensationHorizontal_KC
             "Local two phase heat transfer coefficient of straight pipe | horizontal condensation"
@@ -10737,8 +10737,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         end TwoPhase;
       end HeatTransfer;
 
-      package General
-        extends Modelica.Icons.Package;
+      package General "Package with utility functions"
+        extends Modelica.Icons.FunctionsPackage;
 
         function CubicInterpolation_DP
           extends Modelica.Icons.Function;
@@ -11133,7 +11133,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       extends Modelica.Icons.IconsPackage;
 
       package HeatTransfer "Icons for heat transfer calculation"
-      extends Modelica.Icons.Package;
+      extends Modelica.Icons.IconsPackage;
 
         partial model Gap1_d "Geometry figure for gap"
 
@@ -11686,7 +11686,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       end HeatTransfer;
 
       package PressureLoss "Icons for pressure loss calculation"
-      extends Modelica.Icons.Package;
+        extends Modelica.Icons.IconsPackage;
 
         partial model BendEdged_d "Geometry figure of edged bend"
 

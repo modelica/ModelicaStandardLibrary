@@ -2516,7 +2516,7 @@ This block determines the continuous quasi <a href=\"Modelica://Modelica.Blocks.
   end Blocks;
 
   package Functions "Functions for multi phase systems"
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.FunctionsPackage;
 
     function quasiRMS "Calculate continuous quasi RMS value of input"
       extends Modelica.Icons.Function;
