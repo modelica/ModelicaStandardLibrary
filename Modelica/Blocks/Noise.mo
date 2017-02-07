@@ -261,7 +261,7 @@ A summary of the common properties of the noise blocks is provided in the docume
 <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
 This NormalNoise block generates reproducible, random noise at its output according to a normal distribution.
 This means that random values are normally distributed with expectation value mu and standard deviation sigma.
-(see example <a href=\"modelica://.Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NoiseExamples.NormalNoiseProperties</a>).
+(see example <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NoiseExamples.NormalNoiseProperties</a>).
 By default, two or more instances produce different, uncorrelated noise at the same time instant.
 The block can only be used if on the same or a higher hierarchical level,
 model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>

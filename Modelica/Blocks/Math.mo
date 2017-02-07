@@ -2975,9 +2975,8 @@ starts at startTime + t_eps and before that time instant y = u).</p>
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a>,
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.WeibullNoiseProperties\">WeibullNoiseProperties</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),                                   Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -3109,9 +3108,8 @@ starts at startTime + t_eps and before that time instant y = 0).</p>
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a>,
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.WeibullNoiseProperties\">WeibullNoiseProperties</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
@@ -3199,7 +3197,7 @@ This block is demonstrated in the examples
 <pre>y = sqrt( variance(u) )</pre>
 </blockquote>
 <p>
-The <a href=\"modelica://Modelica.Blocks.Statistics.Variance\">Variance</a> block is used to
+The <a href=\"modelica://Modelica.Blocks.Math.Variance\">Variance</a> block is used to
 calculate variance(u).
 </p>
 <p>The parameter t_eps is used to guard against division by zero (the computation of the standard deviation
@@ -3208,9 +3206,8 @@ starts at startTime + t_eps and before that time instant y = 0).
 
 <p>
 This block is demonstrated in the examples
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a>,
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a> and
-<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.WeibullNoiseProperties\">WeibullNoiseProperties</a>.
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.UniformNoiseProperties\">UniformNoiseProperties</a> and
+<a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.NormalNoiseProperties\">NormalNoiseProperties</a>.
 </p>
 </html>"),
       Icon(graphics={
