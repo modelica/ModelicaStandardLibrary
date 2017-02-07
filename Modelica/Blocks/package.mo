@@ -1468,10 +1468,10 @@ truncated normal distriution has more values centered around the mean value 1.
         Documentation(info="<html>
 <p>
 This example demonstrates statistical properties of the
-<a href=\"modelica://Modelica.Blocks.Noise.GenericNoise\">Blocks.Noise.GenericNoise</a> block
+<a href=\"modelica://Modelica.Blocks.Noise.UniformNoise\">Blocks.Noise.UniformNoise</a> block
 using a <b>uniform</b> random number distribution.
 Block &quot;noise&quot; defines a band of 0 .. 6 and from the generated noise the mean and the variance
-is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Statistics\">Blocks.Statistics</a>.
+is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
 </p>
 
@@ -1588,7 +1588,7 @@ This example demonstrates statistical properties of the
 <a href=\"modelica://Modelica.Blocks.Noise.NormalNoise\">Blocks.Noise.NormalNoise</a> block
 using a <b>normal</b> random number distribution with mu=3, sigma=1.
 From the generated noise the mean and the variance
-is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Statistics\">Blocks.Statistics</a>.
+is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">Blocks.Math</a>.
 Simulation results are shown in the next diagram:
 </p>
 
