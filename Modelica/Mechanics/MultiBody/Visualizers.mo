@@ -979,11 +979,11 @@ the last point of the parametrization coincide in this case.
     parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
 
     parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
-      "Color of tire"  annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
+      "Color of tire" annotation(Dialog(enable=animation, colorSelector=true, group="Material properties"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.5
-      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
-    parameter Integer n_rTire=40 "Number of points along rTire" annotation(Dialog(enable=animation,tab="Discretization"));
-    parameter Integer n_rCurvature=20 "Number of points along rCurvature" annotation(Dialog(enable=animation,tab="Discretization"));
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation, group="Material properties"));
+    parameter Integer n_rTire=40 "Number of points along rTire" annotation(Dialog(enable=animation, tab="Discretization"));
+    parameter Integer n_rCurvature=20 "Number of points along rCurvature" annotation(Dialog(enable=animation, tab="Discretization"));
 
   protected
     parameter SI.Radius rw = (width/2);
@@ -2216,12 +2216,11 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
         annotation(Dialog(group="Color coding"));
       input Real T[size(xsi,1)]
-        "[:] Scalar values at position xsi*length (will be visualized by color)"
-                                                                                                       annotation(Dialog(group="Color coding"));
+        "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(group="Color coding"));
       parameter Real T_min
-        "Minimum value of T that corresponds to colorMap[1,:]"                    annotation(Dialog(group="Color coding"));
+        "Minimum value of T that corresponds to colorMap[1,:]" annotation(Dialog(group="Color coding"));
       parameter Real T_max
-        "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(group="Color coding"));
+        "Maximum value of T that corresponds to colorMap[end,:]" annotation(Dialog(group="Color coding"));
       parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
       replaceable function colorMap =
           Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
