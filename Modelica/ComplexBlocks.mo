@@ -102,7 +102,7 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
       Real lg_w=log10(logFrequencySweep.y);
       Real dB=20*log10(complexToPolar.len);
       Modelica.SIunits.Angle phi(displayUnit="deg")=complexToPolar.phi;
-      Modelica.ComplexBlocks.Sources.LogFrequencySweep logFrequencySweep(
+      Modelica.Blocks.Sources.LogFrequencySweep logFrequencySweep(
         duration=1,
         wMin=wMin,
         wMax=wMax)
@@ -2250,23 +2250,6 @@ The output y is a complex phasor with constant magnitude, spinning with constant
 
 </html>"));
     end ComplexRotatingPhasor;
-
-    block LogFrequencySweep "Logarithmic frequency sweep"
-      extends Modelica.Blocks.Interfaces.SO;
-      import Modelica.Constants.eps;
-      parameter Real wMin(min=eps) "Lower frequency border";
-      parameter Real wMax(min=(1+eps)*wMin) "Upper frequency border";
-      parameter Modelica.SIunits.Time duration(min=0.0, start=1)
-        "Duration of ramp (= 0.0 gives a Step)";
-    equation
-      y = 10^(log10(wMin) + (log10(wMax) - log10(wMin))*min(1, time/max(duration,eps)));
-       annotation ( Documentation(info="<html>
-<p>The output performs a logarithmic frequency sweep:<br>
-The logarithm of w performs a linear ramp from log10(wMin) to log10(wMax), after the duration it is kept constant.<br>
-The output is the decimal power of this logarithmic ramp.
-</p>
-</html>"));
-    end LogFrequencySweep;
   end Sources;
   annotation (Documentation(info="<html>
 <p>This library hosts blocks using Complex inputs and outputs.</p>
