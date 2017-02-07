@@ -323,6 +323,16 @@ package Icons "Library of icons"
             smooth=Smooth.Bezier)}));
   end TypesPackage;
 
+  partial package FunctionsPackage "Icon for packages containing functions"
+    extends Modelica.Icons.Package;
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+            Text(
+              lineColor={128,128,128},
+              extent={{-90,-90},{90,90}},
+              textString="f")}));
+  end FunctionsPackage;
+
   partial package IconsPackage "Icon for packages containing icons"
     extends Modelica.Icons.Package;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
