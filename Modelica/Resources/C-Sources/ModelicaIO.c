@@ -39,6 +39,10 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Feb. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added support for integer and single-precision variable
+                     classes of MATLAB MAT-files (ticket #2106)
+
       Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Replaced strtok by re-entrant string tokenize function
                      (ticket #1153)
@@ -223,7 +227,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Matrix \"%s\" not found on file \"%s\".\n", varName, fileName);
+            "Variable \"%s\" not found on file \"%s\".\n", varName, fileName);
         return;
     }
 
@@ -234,7 +238,7 @@ MODELICA_EXPORT void ModelicaIO_readMatrixSizes(const char* fileName,
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Array \"%s\" has not the required rank 2.\n", varName);
+            "Variable \"%s\" has not the required rank 2.\n", varName);
         return;
     }
 
@@ -330,7 +334,7 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Matrix \"%s\" not found on file \"%s\".\n", varName, fileName);
+            "Variable \"%s\" not found on file \"%s\".\n", varName, fileName);
         return;
     }
 
@@ -339,24 +343,29 @@ MODELICA_EXPORT void ModelicaIO_readRealMatrix(const char* fileName,
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
         ModelicaFormatError(
-            "Array \"%s\" has not the required rank 2.\n", varName);
+            "Variable \"%s\" has not the required rank 2.\n", varName);
         return;
     }
 
-    /* Check if matvar is of double precision class (and thus non-sparse) */
-    if (matvar->class_type != MAT_C_DOUBLE) {
+    /* Check if variable class of matvar is numeric (and thus non-sparse) */
+    if (matvar->class_type != MAT_C_DOUBLE && matvar->class_type != MAT_C_SINGLE &&
+        matvar->class_type != MAT_C_INT8 && matvar->class_type != MAT_C_UINT8 &&
+        matvar->class_type != MAT_C_INT16 && matvar->class_type != MAT_C_UINT16 &&
+        matvar->class_type != MAT_C_INT32 && matvar->class_type != MAT_C_UINT32 &&
+        matvar->class_type != MAT_C_INT64 && matvar->class_type != MAT_C_UINT64) {
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
-        ModelicaFormatError("2D array \"%s\" has not the required "
-            "double precision class.\n", varName);
+        ModelicaFormatError("Matrix \"%s\" has not the required "
+            "numeric variable class.\n", varName);
         return;
     }
+    matvar->class_type = MAT_C_DOUBLE;
 
     /* Check if matvar is purely real-valued */
     if (matvar->isComplex) {
         Mat_VarFree(matvarRoot);
         (void)Mat_Close(mat);
-        ModelicaFormatError("2D array \"%s\" must not be complex.\n",
+        ModelicaFormatError("Matrix \"%s\" must not be complex.\n",
             varName);
         return;
     }
