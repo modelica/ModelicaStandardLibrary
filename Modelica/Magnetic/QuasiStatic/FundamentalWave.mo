@@ -3074,13 +3074,13 @@ and the magnetic flux and magnetic potential difference phasor is
 </p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/vPhi\">,<br>
+&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/vPhi.png\">,<br>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/iV_m.png\">,
 </p>
 
 <p>
-where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k\">
-and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k\">
+where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\">
+and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">
 are the phase voltages and currents, respectively.
 </p>
 
@@ -4614,8 +4614,8 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStionaryAnalogWinding\">
-QuasiStionaryAnalogWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.BasicMachines.Components.QuasiStaticAnalogWinding\">
+QuasiStaticAnalogWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
 Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">

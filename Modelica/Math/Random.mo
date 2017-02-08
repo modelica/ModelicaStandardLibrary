@@ -850,7 +850,7 @@ The xorshift random number generators are used in the following way in the
 <li> Xorshift1024star (xorshift1024*) is the basis of the impure function
      <a href=\"Modelica.Math.Random.Utilities.impureRandom\">Math.Random.Utilities.impureRandom</a>
      which in turn is used with
-     <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed.random\">Blocks.Noise.GlobalSeed.random</a>.
+     <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.GlobalSeed</a>.
      The internal state vector is not exposed. It is updated internally, whenever a new random number
      is drawn.</li>
 </ol>
