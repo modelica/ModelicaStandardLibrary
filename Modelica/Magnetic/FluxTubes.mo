@@ -345,7 +345,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
 
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Diagram of a simple transformer with ferromagnetic core (model available at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.TransformerWithHysteresis\">Examples.Hysteresis.TransformerWithHysteresis</a>)</caption>
+  <caption align=\"bottom\"><b>Fig. 1:</b> Diagram of a simple transformer with ferromagnetic core (model available at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1\">Examples.Hysteresis.SinglePhaseTransformerWithHysteresis1</a>)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/HysteresisLosses/PowerLoss_Hysteresis01.png\">
@@ -7015,7 +7015,7 @@ Additional user-specific materials can be defined as needed.
 </html>"));
       end M800_65A;
       annotation (Documentation(info="<html>
-<p>These parameter records contain the parameters which adapt the analytical Everett function to a specific hysteresis shape (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> for a detailed description of that function). The Everett function is used to define the shape of the ferromagnetic hysteresis of the <code><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.GenericHystTellinenEverett\">GenericHystTellinenEverett</a></code> and the <code><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.GenericHystPreisachEverett\">GenericHystPreisachEverett</a></code> flux tube elements.</p>
+<p>These parameter records contain the parameters which adapt the analytical Everett function to a specific hysteresis shape (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> for a detailed description of that function). The Everett function is used to define the shape of the ferromagnetic hysteresis of the <code><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\">GenericHystTellinenEverett</a></code> and the <code><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\">GenericHystPreisachEverett</a></code> flux tube elements.</p>
 </html>"));
     end HysteresisEverettParameter;
 
@@ -8119,7 +8119,7 @@ on the model behaviour.
 <dl><dt>der(b) = dhR/diffHyst * der(hystR);</dt>
 <dl><dt>if the magnetic field intensity decreases (der(h)&lt;0)</dt>
 <dl><dt>der(b) = dhF/diffHyst * der(hystF);</dt>
-<dl><dt><img src=\"modelica://HysteresisTest/pics/tellinen01.png\"/></dt>
+<dl><dt><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/></dt>
 <dd>Fig.1 - Description of the Tellinen hysteresis model. </dd>
 </dl></html>"));
     end PartialGenericHysteresisTellinen;
