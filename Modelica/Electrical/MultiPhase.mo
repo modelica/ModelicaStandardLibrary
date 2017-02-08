@@ -2660,7 +2660,7 @@ The transformation matrix can be used to determine the symmetrical components fr
 </html>"));
     end symmetricTransformationMatrix;
 
-    function symmetriBackTransformationMatrix
+    function symmetricBackTransformationMatrix
       "Back transformation matrix for symmetrical components"
       extends Modelica.Icons.Function;
       import Modelica.ComplexMath.fromPolar;
@@ -2692,10 +2692,10 @@ The back transformation matrix can be used to determine the time phasors from th
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Rectifier.MSL322.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
+<a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.
 </p>
 </html>"));
-    end symmetriBackTransformationMatrix;
+    end symmetricBackTransformationMatrix;
 
     function numberOfSymmetricBaseSystems
       "Determines the number of symmeric base systems of m phase symmetric system"
