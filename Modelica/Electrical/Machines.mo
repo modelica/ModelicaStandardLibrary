@@ -178,9 +178,9 @@ DC_Comparison</li>
 <h5>Version 2.1.1, 2010-02-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
   <li>Included
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.SwitchedRheostat>
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.SwitchedRheostat\">
 SwitchedRheostat</a>,
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.RampedRheostat>
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.RampedRheostat\">
 </a>RampedRheostat</li>
 </ul>
 
@@ -15125,7 +15125,7 @@ using the provided mechanical rotor angle phi. The output are the instantaneous 
 
 <h4>See also></h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Utilities.FToDQ\">ToDQ</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Utilities.ToDQ\">ToDQ</a>
 </p>
 </html>"));
     end FromDQ;
