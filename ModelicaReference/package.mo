@@ -3825,7 +3825,7 @@ when the return value changes discontinuously.]</i></p>
     extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function. </p>
-<p><b><font style=\"color: #008000; \">Syntax</font></b> </p>
+<h4>Syntax</h4>
 <blockquote>
 <pre><b>function</b> f1
   <b>input</b> A1 u1;
@@ -3843,7 +3843,7 @@ when the return value changes discontinuously.]</i></p>
 <h4>Description</h4>
 <p>The meaning is that function &quot;<code>f2</code>&quot; is one inverse to function &quot;<code>f1</code>&quot; where the previous output &quot;<code>y</code>&quot; is now an input and the previous input &quot;<code>uk</code>&quot; is now an output. More than one inverse can be defined within the same inverse annotation. Several inverses are separated by commas. <em>(The inverse requires that for all valid values of the input arguments of <code>f2(...,y, ...)</code> and <code>uk</code> being calculated as <code>uk := f2(..., y, ...)</code> implies the equality <code>y = f1(..., uk, ...,) </code>up to a certain precision.)</em></p>
 <p>Function &quot;<code>f1</code>&quot; can have any number and types of arguments with and without default value. The restriction is that the number of unknown variables in the output argument of both &quot;<code>f1</code>&quot; and &quot;<code>f2</code>&quot; must be the same and that &quot;<code>f2</code>&quot; must have exactly the same arguments as &quot;<code>f1</code>&quot; (with the same defaults, if an argument um has a default), but the order of the arguments may be permuted.</p>
-<h4><font style=\"color: #008000; \">Examples</font></h4>
+<h4>Examples</h4>
 <pre><b>function</b> h_pTX
   <b>input</b> Real p    &quot;pressure&quot;;
   <b>input</b> Real T    &quot;temperature&quot;;

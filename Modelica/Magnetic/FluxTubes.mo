@@ -120,9 +120,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-<p>
-<b><span style=\"color: #008000;\">The Tellinen hysteresis model</span></b>
-</p>
+<h4>The Tellinen hysteresis model</h4>
 
 <p>
 The Tellinen hysteresis model is described in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the linmiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positiv saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
@@ -150,7 +148,7 @@ Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting b
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-<h4><font color=\"#008000\">The Preisach hysteresis model</font></h4>
+<h4>The Preisach hysteresis model</h4>
 
 <p>
 This section gives an very brief overview of the Preisach hysteresis model, which is explained in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Pr35, Ma03, Zi12]</a>. The classical Preisach hysteresis model describes the course of magnetic flux density B(t) of a ferromagnetic core material as a function of the course of the mangetic field strength H(t) and its history. The model assumes an infinite set of elementary hysteresis operators &gamma;&alpha;&beta;. The simple rectangular pattern of the output &gamma;&alpha;&beta;H(t) of such an operator with its upper and lower switching limits &alpha; and &beta; is shown Fig. 1.
@@ -190,7 +188,7 @@ Additionally, the Preisach distribution function P(&alpha;,&beta;) is defined ov
   </tr>
 </table>
 
-<h4><font color=\"#008000\">Hysteresis shape and computing of the double integral</font></h4>
+<h4>Hysteresis shape and computing of the double integral</h4>
 
 <p>
 The equation above shows, that the double integral of P(&alpha;,&beta;) have to be computed in every time step to compute B(t) according to the Preisach hysteresis model. Typically, the Preisach distribution function is not analytically integrable twice. A numerical double integration in every time step would be very computationally intensive. Therefore, an analytical description of the Everett function <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> is used to define the hysteresis shape.
@@ -238,7 +236,7 @@ Two different types of hyteresis models are supported:
         extends Modelica.Icons.Information;
         annotation (Documentation(info="<html>
 
-<h4><font color=\"#008000\">Dynamic Hysteresis (Eddy Currents)</font></h4>
+<h4>Dynamic Hysteresis (Eddy Currents)</h4>
 
 <p>
 Some of the hysteresis flux tubes elements of the package <a href=\"FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> are capable of simulating eddy currents (dynamic hysteresis) additional to the static hysteresis behavior of the core material. The computation of eddy currents can be activated via the switch <code>includeEddyCurrents</code> in the \"LossesAndHeat\" tab of the corresponding elements parameter dialog. The total magnetic field strength <code>H</code> of the element is the sum of the ferromagnetic portion <code>Hstat</code> and the eddy current portion <code>Heddy:</code>
@@ -307,7 +305,7 @@ The following two figures show a comparison between measured and simulated dynam
       class HysteresisLosses "Hysteresis losses"
         extends Modelica.Icons.Information;
         annotation (Documentation(info="<html>
-<p><b><font style=\"color: #008000; \">Hysteresis power losses</font></b> </p>
+<h4>Hysteresis power losses</h4>
 <p>The total power loss (<code>LossPower</code>) of an hysteresis flux tube element is the sum of the power loss due to the static ferromagnetic hsysteresis (<code>LossPowerStat</code>) and the power loss due to eddy currents (<code>LossPowerEddy</code>). </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -377,7 +375,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
       end HysteresisLosses;
       annotation (Documentation(info="<html>
 
-<h4><font color=\"#008000\">Introduction</font></h4>
+<h4>Introduction</h4>
 
 <p>
 The elements provided in the package Shapes.HysteresisAndMagnets allow for consideration of ferromagnetic and dynamic hysteresis during the simulation of electromagnetic networks. The ferromagnetic hysteresis is a material property of the core material and frequency independent. Due to eddy currents the static ferromagnetic hysteresis is superposed by a frequency dependent hysteresis when the ferromagnetic material is exposed to an alternating magnetic field. Fig 1 exemplarily shows the simulated hysteresis characteristics of a simple inductor with an iron core for three different excitation frequencies. Thereby, the 0 Hz hysteresis loop represents the static ferromagnetic hysteresis of the core material. The widening of the loops for higher frequencies is due to eddy currents induced in the core material.
@@ -397,7 +395,7 @@ The elements provided in the package Shapes.HysteresisAndMagnets allow for consi
 Several models to describe the static hysteresis behavior of ferromagnetic materials are known. In this library two of them are implemented. The simple but fast <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a> and the more accurate but complex <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Preisach\">Preisach hysteresis model</a>. Click the links for a short descripten of both models.
 </p>
 
-<h4><font color=\"#008000\">Flux tube elements of the Package HysteresisAndMagnets</font></h4>
+<h4>Flux tube elements of the Package HysteresisAndMagnets</h4>
 
 
 <table border=1 cellspacing=0 cellpadding=2>
