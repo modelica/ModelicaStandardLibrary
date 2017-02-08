@@ -2325,7 +2325,7 @@ Calculates the symmetric components according to Charles L. Fortescue from the t
         "Argument of output";
     protected
       final parameter Complex sbTM[m,m]=
-        Electrical.MultiPhase.Functions.symmetriBackTransformationMatrix(m);
+        Electrical.MultiPhase.Functions.symmetricBackTransformationMatrix(m);
     equation
       // Symmetrical components (preferred): y = sbTM*u;
       for j in 1:m loop
