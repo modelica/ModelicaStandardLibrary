@@ -1683,7 +1683,7 @@ Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\
       annotation(Dialog(enable=enableNoise));
 
     // Advanced dialog menu: Noise generation
-    parameter Boolean enableNoise = true
+    parameter Boolean enableNoise = globalSeed.enableNoise
       "=true: y = noise, otherwise y = y_off"
       annotation(choices(checkBox=true),Dialog(tab="Advanced",group="Noise generation"));
     parameter Real y_off = 0.0
