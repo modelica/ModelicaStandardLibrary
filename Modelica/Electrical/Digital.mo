@@ -7987,7 +7987,7 @@ Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"https://www.modelica.org/licenses/ModelicaLicense2\"> https://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}}, graphics={
+                extent={{-100,-100},{100,100}}), graphics={
           Line(
             origin={7,47},
             points={{-84,-6},{-52,-6}}),
@@ -8008,7 +8008,5 @@ Copyright &copy; 1998-2016, Modelica Association and Fraunhofer-Gesellschaft.
             origin={79,30},
             points={{-84,-6},{-37,-6}}),
         Line(
-          points={{42,-12},{17,-12},{17,-54},{-71,-54}})}), graphics={Line(
-            points={{-86,-42},{-60,-42},{-60,42},{0,42},{0,0},{64,0},{64,-44},{
-              94,-44}}, color={95,95,95})}));
+          points={{42,-12},{17,-12},{17,-54},{-71,-54}})}));
 end Digital;
