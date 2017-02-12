@@ -3596,7 +3596,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       householderReflection<br>
                       roots </td>
     <td valign=\"top\"> Utility functions for vectors that are used by the newly introduced functions,
-                      but are only of interested for a specialist.</td></tr>
+                      but are only of interest for a specialist.</td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices</b></td></tr>
 <tr><td valign=\"top\"> continuousRiccati<br>
@@ -3666,7 +3666,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       householderSimilarityTransformation<br>
                       findLokal_tk</td>
     <td valign=\"top\"> Utility functions for matrices that are used by the newly introduced functions,
-                      but are only of interested for a specialist.</td></tr>
+                      but are only of interest for a specialist.</td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math.Nonlinear</b></td></tr>
 <tr><td valign=\"top\"> quadratureLobatto </td>
