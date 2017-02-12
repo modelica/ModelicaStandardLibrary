@@ -886,7 +886,6 @@ extends Modelica.Icons.ExamplesPackage;
 <p>
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -904,7 +903,6 @@ extends Modelica.Icons.ExamplesPackage;
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end randomNumbers;
 
@@ -973,7 +971,6 @@ extends Modelica.Icons.ExamplesPackage;
 
        ok :=true;
       annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -991,7 +988,6 @@ extends Modelica.Icons.ExamplesPackage;
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end special;
 
@@ -1059,7 +1055,6 @@ extends Modelica.Icons.ExamplesPackage;
 
        ok :=true;
       annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1077,7 +1072,6 @@ extends Modelica.Icons.ExamplesPackage;
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end distributions;
 
@@ -1160,7 +1154,6 @@ extends Modelica.Icons.ExamplesPackage;
 
        ok :=true;
       annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1178,7 +1171,6 @@ extends Modelica.Icons.ExamplesPackage;
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end truncatedDistributions;
 
@@ -1292,7 +1284,6 @@ Implementation is according to Abramowitz and Stegun
 (see <a href=\"http://people.math.sfu.ca/~cbm/aands/page_299.jpg\">Handbook of Mathematical Functions, page 299, equation 7.1.26</a>).
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1310,7 +1301,6 @@ Implementation is according to Abramowitz and Stegun
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end erfSimple;
 
@@ -1367,7 +1357,6 @@ Implementation according to:
 The relative error is less than 1e-9.
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1385,7 +1374,6 @@ The relative error is less than 1e-9.
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end cdfInvNormal;
 
@@ -1398,7 +1386,6 @@ The relative error is less than 1e-9.
         y := cdfInvNormal((1 + u)/2)/sqrt(2);
         annotation (Inline=true, Documentation(info="<html>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1416,7 +1403,6 @@ The relative error is less than 1e-9.
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end erfInvSimple;
 
@@ -1451,7 +1437,6 @@ For more details of this distribution see
 <a href=\"http://en.wikipedia.org/wiki/Normal_distribution\">Wikipedia</a>.
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1469,7 +1454,6 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end quantileNormalSimple;
 
@@ -1492,7 +1476,6 @@ For more details of this distribution see
            end for;
         end if;
         annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1510,7 +1493,6 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end derOneSided;
 
@@ -1532,7 +1514,6 @@ For more details of this distribution see
            der_y[nu] :=der_y[nu - 1];
         end if;
         annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1550,11 +1531,9 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end derTwoSided;
       annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1572,7 +1551,6 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end Internal;
   end Random;

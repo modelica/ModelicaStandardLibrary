@@ -2598,7 +2598,7 @@ This function determines the orientation angles of the symmetrical winding with 
       annotation (Documentation(info="<html>
 <p>
 This function determines the orientation matrix of the symmetrical winding with m phases.
-<p>
+</p>
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Electrical.MultiPhase.UsersGuide.PhaseOrientation\">User's guide</a> on symmetrical components and orientation.

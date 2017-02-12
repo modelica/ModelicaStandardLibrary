@@ -101,7 +101,6 @@ A plot of the resulting FFT is shown in the next image:
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/FFT1.png\">
 </blockquote>
-</p>
 
 <p>
 Note, phases of small amplitudes (= smaller as 0.0001*maximalAmplitude) are explicitly set to zero, since the corresponding
@@ -789,7 +788,7 @@ If this is not possible, success = false, and e2, e3, e5 are dummy values.
   end Internal;
 annotation (Documentation(info="<html>
 <p>
-This package provides functions to compute the Fast Fourier Transform (FFT).
+This package provides functions to compute the Fast Fourier Transform (FFT).</p>
 
 <p>
 For an example see <a href=\"modelica://Modelica.Math.FastFourierTransform.Examples.RealFFT1\">Examples.RealFFT1</a>

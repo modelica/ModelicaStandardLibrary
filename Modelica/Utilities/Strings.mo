@@ -474,7 +474,6 @@ Returns an Integer hash value of the provided string
   hashString(\"Controller.noise1\")  // = -1025762750
 </pre></blockquote>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -492,7 +491,6 @@ Returns an Integer hash value of the provided string
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end hashString;
 

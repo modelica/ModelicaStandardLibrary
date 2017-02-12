@@ -70,12 +70,10 @@ can be used.
 
 <p>The following DC/DC converter topologies are currently included in the PowerConverters library.</p>
 
-<p>
 <ul>
 <li>Chopper step down converter</li>
 <li>H bridge converter; four quadrant operation</li>
 </ul>
-</p>
 
 <h4>Control</h4>
 
@@ -148,7 +146,6 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (Documentation(info="<html>
 <h4>References</h4>
 
-<p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <td valign=\"top\">[Skvarenina01]</td>
@@ -161,17 +158,16 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     <tr>
       <td valign=\"top\">[Luo05]</td>
       <td valign=\"top\">Fang Lin Luo, Hong Ye and Muhammad H. Rashid,
-        <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&_requestid=1725\"><i>Digital Power Electronics and Applications</i></a>,
+        <a href=\"http://store.elsevier.com/product.jsp?isbn=9780120887576&amp;_requestid=1725\"><i>Digital Power Electronics and Applications</i></a>,
         Elsevier Academic Press, 2005, ISBN 978-0120887576</td>
     </tr>
 
     <tr>
       <td valign=\"top\">[Williams2006]</td>
-      <td valign=\"top\"><a href=\"http://www.freescience.info/go.php?pagename=books&id=1732\">
-<i>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</i></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
+      <td valign=\"top\"><a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">
+<i>Principles and Elements of Power Electronics: Devices, Drivers, Applications, and Passive Components</i></a>, available at <a href=\"http://www.freescience.info/go.php?pagename=books&amp;id=1732\">FreeScience</a>, ISBN 978-0-9553384-0-3</td>
     </tr>
 </table>
-</p>
 </html>"));
     end References;
     annotation (DocumentationClass=true, Documentation(info="<html>
@@ -198,12 +194,12 @@ General types of AC/AC converters are currently not provided in this library.
       package of the Modelica Standard Library.</li>
   <li>Switching losses and recovery effects are not considered</li>
   <li>Only conduction losses are taken into account</li>
-  <li>The parameters of the semiconductors include</li>
+  <li>The parameters of the semiconductors include
   <ul>
     <li>The on state resistance <code>Ron</code></li>
     <li>The off state conductance <code>Goff</code></li>
     <li>The knee voltage <code>Vknee</code></li>
-  </ul>
+  </ul></li>
   <li>Each converter is equipped with an optional heat port which can be enabled by the parameter
       <code>useHeatPort</code>; the heat ports of all semiconductors are connected,
       so all temperatures of all semiconductors are equal and the heat flow of the converter heat port
@@ -3721,10 +3717,9 @@ Plot current <code>currentSensor.i</code>, averaged current <code>meanCurrent.y<
               Interval=0.0002,
               Tolerance=1e-06),
             Documentation(info="<html>
-<p>This example of am H bridge with DC drive demonstrates the operation of the DC machine in four quadrants.
+<p>This example of an H bridge with DC drive demonstrates the operation of the DC machine in four quadrants.
 The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the input voltage.</p>
 
-<p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
     <th><b>start time (s)</b></th>
@@ -3756,7 +3751,7 @@ The DC output voltage is equal to <code>2 * (dutyCycle - 0.5)</code> times the i
   <tr>
     <td>22</td> <td>zero</td> <td>zero</td> <td></td>
   </tr>
-</table></p>
+</table>
 
 <p>
 Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y</code>, machine speed <code>dcpm.wMechanical</code>, averaged machine speed <code>dcpm.va</code> and torque <code>dcpm.tauElectrical</code>.</p>
@@ -7102,14 +7097,12 @@ For <code>useConstantEnable = false</code> the internal signal
         annotation ( Documentation(info="<html>
 <p>
 This partial model provides parameters and the conditional input signal for the enabling models:</p>
-<p>
 <ul>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable1\">Enable1</a></li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable2\">Enable2</a></li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable1m\">Enable1m</a></li>
 <li><a href=\"modelica://Modelica.Electrical.PowerConverters.Interfaces.Enable2m\">Enable2m</a></li>
 </ul>
-</p>
 </html>"));
       end Enable;
 

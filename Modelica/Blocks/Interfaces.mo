@@ -1775,7 +1775,6 @@ Partial base class of noise generators defining the common features
 of noise blocks.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1793,7 +1792,6 @@ of noise blocks.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end PartialNoise;
   annotation (Documentation(info="<html>

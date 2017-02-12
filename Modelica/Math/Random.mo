@@ -70,7 +70,6 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 <img src=\"modelica://Modelica/Resources/Images/Math/Random/GenerateRandomNumbers.png\">
 </blockquote>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -88,7 +87,6 @@ with a sample period of 0.05 s. Simulations results are shown in the figure belo
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end GenerateRandomNumbers;
   annotation (Documentation(info="<html>
@@ -97,7 +95,6 @@ This package contains examples demonstrating the usage of the functions in packa
 <b>Random</b>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -115,7 +112,6 @@ This package contains examples demonstrating the usage of the functions in packa
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Examples;
 
@@ -196,7 +192,6 @@ and the returned state is the one from the last iteration.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star.random\">Random.Generators.Xorshift64star.random</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -214,7 +209,6 @@ and the returned state is the one from the last iteration.
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end initialState;
 
@@ -263,7 +257,6 @@ same random number r is returned.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift64star.initialState\">Random.Generators.Xorshift64star.initialState</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -281,7 +274,6 @@ same random number r is returned.
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end random;
       annotation (Documentation(info="<html>
@@ -292,7 +284,6 @@ For an overview, comparison with other random number generators, and links to ar
 <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -310,7 +301,6 @@ For an overview, comparison with other random number generators, and links to ar
 </td></tr>
 
 </table>
-</p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics={
         Ellipse(
@@ -377,7 +367,6 @@ random number generator is used to fill the internal state vector with 64 bit ra
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift128plus.random\">Random.Generators.Xorshift128plus.random</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -395,7 +384,6 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end initialState;
 
@@ -444,7 +432,6 @@ same random number r is returned.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift128plus.initialState\">Random.Generators.Xorshift128plus.initialState</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -462,7 +449,6 @@ same random number r is returned.
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end random;
       annotation (Documentation(info="<html>
@@ -474,7 +460,6 @@ other random number generators, and links to articles, see
 <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -492,7 +477,6 @@ other random number generators, and links to articles, see
 </td></tr>
 
 </table>
-</p>
 </html>"),
      Icon(graphics={
         Ellipse(
@@ -563,7 +547,6 @@ random number generator is used to fill the internal state vector with 64 bit ra
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star.random\">Random.Generators.Xorshift1024star.random</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -581,7 +564,6 @@ random number generator is used to fill the internal state vector with 64 bit ra
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end initialState;
 
@@ -630,7 +612,6 @@ same random number r is returned.
 <a href=\"modelica://Modelica.Math.Random.Generators.Xorshift1024star.initialState\">Random.Generators.Xorshift1024star.initialState</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -648,7 +629,6 @@ same random number r is returned.
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end random;
       annotation (Documentation(info="<html>
@@ -659,7 +639,6 @@ For an overview, comparison with other random number generators, and links to ar
 <a href=\"modelica://Modelica.Math.Random.Generators\">Math.Random.Generators</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -677,7 +656,6 @@ For an overview, comparison with other random number generators, and links to ar
 </td></tr>
 
 </table>
-</p>
 </html>"),
      Icon(graphics={
         Ellipse(
@@ -860,7 +838,6 @@ Note, the generators produce 64 bit random numbers.
 These numbers are mapped to the 52 bit mantissa of double numbers in the range 0.0 .. 1.0.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -878,7 +855,6 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Generators;
 
@@ -925,7 +901,6 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
       end if;
 
       annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -943,7 +918,6 @@ These numbers are mapped to the 52 bit mantissa of double numbers in the range 0
 </td></tr>
 
 </table>
-</p>
 </html>",     info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -1012,7 +986,6 @@ This function should be only called once during initialization.
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1030,7 +1003,6 @@ This function should be only called once during initialization.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end automaticGlobalSeed;
 
@@ -1106,7 +1078,6 @@ random number generator to fill the internal state vector with 64 bit random num
 <a href=\"modelica://Modelica.Math.Random.Generators\">Random.Generators</a>
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1124,7 +1095,6 @@ random number generator to fill the internal state vector with 64 bit random num
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end initializeImpureRandom;
 
@@ -1182,7 +1152,6 @@ is returned, so the function is impure.
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1200,7 +1169,6 @@ is returned, so the function is impure.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end impureRandom;
 
@@ -1248,7 +1216,6 @@ is returned, so the function is impure.
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1266,7 +1233,6 @@ is returned, so the function is impure.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end impureRandomInteger;
   annotation (Documentation(info="<html>
@@ -1276,7 +1242,6 @@ that are usually of no interest for the user
 (they are, for example, used in package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1294,7 +1259,6 @@ that are usually of no interest for the user
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Utilities;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -1337,7 +1301,6 @@ that are usually of no interest for the user
 package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1355,6 +1318,5 @@ package <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>).
 </td></tr>
 
 </table>
-</p>
 </html>"));
 end Random;

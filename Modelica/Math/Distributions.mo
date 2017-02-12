@@ -45,7 +45,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Uniform.quantile\">Uniform.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -63,7 +62,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end density;
 
@@ -118,7 +116,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Uniform.quantile\">Uniform.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -136,7 +133,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end cumulative;
 
@@ -199,7 +195,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Uniform.cumulative\">Uniform.cumulative</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -217,7 +212,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end quantile;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -252,7 +246,6 @@ For more details of this distribution see
 <a href=\"http://en.wikipedia.org/wiki/Uniform_distribution_(continuous)\">Wikipedia</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -270,7 +263,6 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Uniform;
 
@@ -318,7 +310,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Normal.quantile\">Normal.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -336,7 +327,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end density;
 
@@ -391,7 +381,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Normal.quantile\">Normal.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -409,7 +398,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end cumulative;
 
@@ -477,7 +465,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Normal.cumulative\">Normal.cumulative</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -495,7 +482,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end quantile;
   annotation (Icon(graphics={Line(
@@ -540,7 +526,6 @@ For more details of this distribution see
 <a href=\"http://en.wikipedia.org/wiki/Normal_distribution\">Wikipedia</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -558,7 +543,6 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Normal;
 
@@ -625,7 +609,6 @@ of truncated distributions, see
 <a href=\"modelica://Modelica.Math.Distributions.TruncatedNormal.quantile\">TruncatedNormal.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -643,7 +626,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end density;
 
@@ -719,7 +701,6 @@ of truncated distributions, see
 <a href=\"modelica://Modelica.Math.Distributions.Normal.quantile\">TruncatedNormal.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -737,7 +718,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end cumulative;
 
@@ -822,7 +802,6 @@ of truncated distributions, see
 <a href=\"modelica://Modelica.Math.Distributions.TruncatedNormal.cumulative\">TruncatedNormal.cumulative</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -840,7 +819,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end quantile;
     annotation (Icon(coordinateSystem(
@@ -896,7 +874,6 @@ of truncated distributions, see
 <a href=\"http://en.wikipedia.org/wiki/Truncated_distribution\">Wikipedia</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -914,7 +891,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end TruncatedNormal;
 
@@ -971,7 +947,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Weibull.quantile\">Weibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -989,7 +964,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end density;
 
@@ -1053,7 +1027,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Weibull.quantile\">Weibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1071,7 +1044,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end cumulative;
 
@@ -1135,7 +1107,6 @@ For more details, see
 <a href=\"modelica://Modelica.Math.Distributions.Weibull.cumulative\">Weibull.cumulative</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1153,7 +1124,6 @@ For more details, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end quantile;
     annotation (Icon(graphics={Line(
@@ -1193,7 +1163,6 @@ For more details of this distribution see
 <a href=\"http://en.wikipedia.org/wiki/Weibull_distribution\">Wikipedia</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1211,7 +1180,6 @@ For more details of this distribution see
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Weibull;
 
@@ -1278,7 +1246,6 @@ of truncated distributions, see
 <a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.quantile\">TruncatedWeibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1296,7 +1263,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end density;
 
@@ -1371,7 +1337,6 @@ of truncated distributions, see
 <a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.quantile\">TruncatedWeibull.quantile</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1389,7 +1354,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end cumulative;
 
@@ -1474,7 +1438,6 @@ of truncated distributions, see
 <a href=\"modelica://Modelica.Math.Distributions.TruncatedWeibull.cumulative\">TruncatedWeibull.cumulative</a>.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1492,7 +1455,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end quantile;
     annotation (Icon(coordinateSystem(
@@ -1545,7 +1507,6 @@ of truncated distributions, see
 <a href=\"http://en.wikipedia.org/wiki/Truncated_distribution\">Wikipedia</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1563,7 +1524,6 @@ of truncated distributions, see
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end TruncatedWeibull;
 
@@ -1581,7 +1541,6 @@ A partial function containing the common
 arguments of the probability density functions.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1599,7 +1558,6 @@ arguments of the probability density functions.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end partialDensity;
 
@@ -1614,7 +1572,6 @@ A partial function containing the common
 arguments of the cumulative distribution functions.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1632,7 +1589,6 @@ arguments of the cumulative distribution functions.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end partialCumulative;
 
@@ -1648,7 +1604,6 @@ A partial function containing the common
 arguments of the quantile functions.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1666,7 +1621,6 @@ arguments of the quantile functions.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end partialQuantile;
 
@@ -1681,7 +1635,6 @@ A partial function containing the common
 arguments of the probability density functions of truncated distributions.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1699,7 +1652,6 @@ arguments of the probability density functions of truncated distributions.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end partialTruncatedDensity;
 
@@ -1714,7 +1666,6 @@ A partial function containing the common
 arguments of the cumulative distribution functions for a truncated distribution.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1732,7 +1683,6 @@ arguments of the cumulative distribution functions for a truncated distribution.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end partialTruncatedCumulative;
 
@@ -1747,7 +1697,6 @@ A partial function containing the common
 arguments of the quantile functions for truncated distributions.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1765,7 +1714,6 @@ arguments of the quantile functions for truncated distributions.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end partialTruncatedQuantile;
   annotation (Documentation(info="<html>
@@ -1775,7 +1723,6 @@ common interface arguments of the distribution and
 truncated distribution functions.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1793,7 +1740,6 @@ truncated distribution functions.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Interfaces;
 annotation (Icon(graphics={Line(
@@ -1893,7 +1839,6 @@ cdf_max = Distributions.XXX.cumulative(u_max,...);
 // Truncated distributions
 </pre>
 
-</pre>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><th><b><i>Function</i></b></th><th><b><i>Transformation</i></b></th></tr>
   <tr><td>density(u,u_min,u_max,...)</td>
@@ -1921,7 +1866,6 @@ compared with its truncated distribution:
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
 </blockquote>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1939,6 +1883,5 @@ compared with its truncated distribution:
 </td></tr>
 
 </table>
-</p>
 </html>"));
 end Distributions;

@@ -121,10 +121,10 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 <li>Restructuring of components in Interfaces and BasesClasses</li>
 <li>Migration of library to MSL trunk</li>
 <li>Update and improvement of documentation</li>
-<li>Added new component:</li>
+<li>Added new component:
 <ul>
     <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Permeance\">Permeance</a></li>
-</ul>
+</ul></li>
 <li>Removed parameter text from icon layer for reluctance and permeance model</li>
 <li>Fixed issues of ticket #1524</li>
 <li>Restructured cage models with reluctance instead of inductance model according to ticket #1537</li>
@@ -149,12 +149,12 @@ to simplify consistent inclusion of variables, see #1405</li>
 
 <h5>Version 0.4.0, 2013-11-13</h5>
 <ul>
-<li>Renamed all machine class names according to #1348<li>
+<li>Renamed all machine class names according to #1348</li>
 </ul>
 
 <h5>Version 0.3.0, 2013-11-07</h5>
 <ul>
-<li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to #1344<li>
+<li>Renamed the library from QuasiStationaryFundamantalWave to QuasiStaticFundamantalWave according to #1344</li>
 </ul>
 
 <h5>Version 0.2.5, 2013-11-06</h5>
@@ -163,7 +163,7 @@ to simplify consistent inclusion of variables, see #1405</li>
     multiplied by numberOfSymmetricBaseSystems(m) in order to overcome differences in calculation
     of current and voltage symmetrical components. The symmetrical components of a system of
     even phase numbers are now equal to the symmetrical components of one corresponding base system.
-<li>Improved examples package and removed SMPM_Inverter example<li>
+<li>Improved examples package and removed SMPM_Inverter example</li>
 </ul>
 
 <h5>Version 0.2.4, 2013-10-02</h5>
@@ -1068,7 +1068,7 @@ Simulate for 1 second and plot (versus time):
 <h4>Induction machine with squirrel cage fed by an ideal inverter</h4>
 
 <p>This example compares a time transient and a quasi static model of a multi phase induction machine.
-An ideal frequency inverter is modeled by using a <code>VfController</code> and a multi phase <code>SignalVoltage.
+An ideal frequency inverter is modeled by using a <code>VfController</code> and a multi phase <code>SignalVoltage</code>.
 Frequency is raised by a ramp, causing the induction machine with squirrel cage to start,
 and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
 
@@ -3073,8 +3073,6 @@ The salient permeance models the relationship between the complex magnetic poten
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/permeance.png\"
       alt=\"reluctance.png\">
 </blockquote>
-<p></p>
-
 
 </html>"));
     end Permeance;
@@ -3482,9 +3480,9 @@ The total complex magnetic potential difference of the single phase winding is d
 where
 <img src=\"modelica://Modelica/Resources/Images/Magnetic/QuasiStatic/FundamentalWave/gamma.png\">
 is the reference angle of the electrical and magnetic system, respectively. The induced voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v.png\"> is identical to zero.
+</p>
 
 <h4>See also</h4>
-<p>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">
 Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter</a>,
@@ -3493,7 +3491,6 @@ Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter<
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">
 MultiPhaseElectroMagneticConverter</a>
 </p>
-
 
 </html>"));
     end QuasiStaticAnalogElectroMagneticConverter;
@@ -6315,7 +6312,6 @@ This package provides sensors for the magnetic potential difference and the magn
         "Complex magnetic flux flowing into the pin";
       annotation (Documentation(info="<html>
 <p>Base definition of complex quasi static magnetic port. The potential variable is the complex magnetic potential difference <code>V_m</code> and the flow variable is the complex magnetic flux <code>Phi</code>.</p>
-</p>
 
 <h4>See also</h4>
 
