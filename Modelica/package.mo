@@ -2484,7 +2484,6 @@ see <a href=\"https://trac.modelica.org/Modelica/ticket/1867\">#1867</a>):
      <a href=\"https://test.openmodelica.org/hudson/job/MSL_trunk_cpp_Simulation/\">Simulation</a> of models of 3.2.2.<br>
      <a href=\"https://test.openmodelica.org/libraries/MSL_trunk/BuildModelRecursive.html\">Regression testing</a> of 3.2.2 using OpenModelica 1.9.4 with respect
      to 3.2.1+build.4 reference files.</li>
-     </li>
 </ul>
 
 <p>

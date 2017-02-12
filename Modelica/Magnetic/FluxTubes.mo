@@ -126,7 +126,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
 The Tellinen hysteresis model is described in more detail in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Te98, ZB12]</a>. It is a simple model to describe the static magnetic hysteresis behavior of ferromagnetic materials. It only requires the Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the linmiting hysteresis loop for the adaption to a material specific hysteresis shape. Coming from negative magnetic saturation with increasing magnetic field strength H(t) the flux density B(T) travels along the B<sub>L</sub>(H). Coming from positiv saturation with a decreasing H(t), B(t) travels along B<sub>U</sub>(H). The Tellinen model is defined by the following equation, which gives a calculation rule for time derivative of the magnetic flux density B(t) with respect to the current value of B(t), H(t) and its slope dH(t)/dt.
 </p>
 
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"<tr>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/Eqn_Tellinen01.png\"/> </p></td>
 </tr>
 </table>
@@ -137,7 +137,7 @@ Therein, S<sub>U</sub>(H) and S<sub>L</sub>(H) are the derivatives of limiting b
 <p>
 <b>Fig. 1:</b> Upper B<sub>U</sub>(H) and lower B<sub>L</sub>(H) branches of the hysteresis envelope curve, their corresponding slope functions S<sub>UH</sub>(H) and S<sub>LH</sub>(H) and the actual operating point H(t), B(t). </p>
 
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"<tr>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
 </tr>
 </table>
@@ -219,7 +219,6 @@ The Everett function returns the change in magnetization which results whenn all
 According to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[YUY89]</a> the used analytical form of the Everett function is parameterized by 8 parameters. Several parameter sets were identified to fit measured or published static hysteresis behavior of different materials. These predefined parameter sets are stored in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.HysteresisEverettParameter\"><code>FluxTubes.Material.HysteresisEverettParameter</code></a> library and can be used with the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystPreisachEverett\"><code>GenericHystPreisachEverett</code></a> flux tube element. Additionally, also the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenEverett\"><code>GenericHystTellinenEverett</code></a> element can use this library.
 </p>
 
-<p></p>
 </html>"));
         end Preisach;
         annotation (Documentation(info="<html>
@@ -382,7 +381,7 @@ The elements provided in the package Shapes.HysteresisAndMagnets allow for consi
 </p>
 
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\">
-  <caption align=\"bottom\"><b>Fig. 1:</b> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hystersis.InductorWithHysteresis</a>)</td>
+  <caption align=\"bottom\"><b>Fig. 1:</b> Inductor with ferromagnetic core and hysteresis effects; (a) diagram of the network model; (b) simulated hysteresis characteristics of the core for different excitation frequencies of 0, 10 and 100 Hz (the example model can be found at: <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.InductorWithHysteresis\">Examples.Hystersis.InductorWithHysteresis</a>)</caption>
   <tr>
     <td>
       <img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/InductorWithHysteresis_DiagramAndSim.png\">
@@ -448,7 +447,7 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
   <td valign=\"top\"><a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenPermanentMagnet\">GenericHystTellinenPermanentMagnet</a><br><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/GenericHystTellinenPM.png\">
   </td>
   <td valign=\"top\">
-  Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100&percnt; and and adapted icon for better readability of the diagram.
+  Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100% and an adapted icon for better readability of the diagram.
   </td>
  </tr>
 
@@ -590,7 +589,6 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-
 <h5>Version 3.2.2, 2014-12-05 (Johannes&nbsp;Ziske, Thomas&nbsp;B&ouml;drich)</h5>
 
 <ul>
@@ -665,7 +663,6 @@ Several models to describe the static hysteresis behavior of ferromagnetic mater
 <li>First release of a Modelica magnetic library</li>
 </ul>
 
-<p></p>
 </html>"));
     end ReleaseNotes;
 
@@ -2894,7 +2891,7 @@ This example compares the behavior of three different hysteresis mdoels due to t
   <li>Model=GenericHystPreisachEverett,Preisach hysteresis model, the hysteresis shape is defined by the Everett function (Fig1. e)</li>
 </ol>
 <p>
-Compared to the complex Preisach hysteresis model the Tellinen model is very simple and thus computationally more effective and stable. It is sufficient for many applications. But the Tellinen model has inherently a problem with small periodic input field variations at locations where the outer hysteresis loop has large slopes. In such a case, the simulated minor loops settle to the center of the hysteresis envelope curve, whereas the minor loops of the Preisach model stay constant ('property of equal vertical chords', <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ma03]</a>). The input signal of the example (Fig.1 a) corresponds to that case and Fig. 1 b-e shows the behavior of the different models.
+Compared to the complex Preisach hysteresis model the Tellinen model is very simple and thus computationally more effective and stable. It is sufficient for many applications. But the Tellinen model has inherently a problem with small periodic input field variations at locations where the outer hysteresis loop has large slopes. In such a case, the simulated minor loops settle to the center of the hysteresis envelope curve, whereas the minor loops of the Preisach model stay constant ('property of equal vertical chords', <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ma03]</a>). The input signal of the example (Fig. 1 a) corresponds to that case and Fig. 1 b-e shows the behavior of the different models.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -5731,8 +5728,8 @@ All dimensions are defined as parameters. As a result, the shape of these elemen
         hystF = Js*tanh((M*Hstat + H0)/unitH) + mu0*Hstat + eps/2;
 
         annotation (defaultComponentName="Core", Documentation(info="<html>
-Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations. </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"<tr>
+<p>Flux tube element for modeling soft magnetic materials with ferromagnetic and dynamic hysteresis (eddy currents). The ferromagnetic hysteresis behavior is defined by the <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis.StaticHysteresis.Tellinen\">Tellinen hysteresis model</a>. The shape of the limiting hysteresis loop (see Fig. 1) is described by simple hyperbolic tangent functions with 4 parameters. Therefore, the hysteresis shape variety is limited but the parameterization of the model is very simple and the model is relatively fast and robust. The rising (hyst<sub>R</sub>) and falling (hyst<sub>F</sub>) branches of the limiting hysteresis loop are defined by the following equations.</p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
 <td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/Eqn_ShapeFunctionsTellinen.png\"/> </p><p><br><b>Fig. 1:</b> Hyperbolic tangent functions define the shape of the ferromagnetic (static) hysteresis </p><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HysteresisAndMagnets/GenericHystTellinenSoft/SoftMagneticHysteresis1.png\"/> </p>
 <p><br>An overview over of available hysteresis and permanent magnet elements of the package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets\">HysteresisAndMagnets</a> can be found in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Hysteresis\">UsersGuide.Hysteresis</a>. </p>
 </td>
@@ -6197,7 +6194,7 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 textString="TH")}),    Documentation(info="<html>
 
 <p>
-Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100&percnt; and and adapted icon for better readability of the diagram.
+Flux tube element for modeling the hard magnetic hysteresis of permanent magnets. The model is similar to <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.HysteresisAndMagnets.GenericHystTellinenHard\">GenericHystTellinenHard</a> but has an initial magnetization preset of -100% and an adapted icon for better readability of the diagram.
 </p>
 
 <p>
@@ -7966,8 +7963,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
               fillPattern=FillPattern.Solid),
             Line(points={{70,0},{100,0}},color={255,128,0})}),
                                      Documentation(info="<html>
-
-</dl></html>"));
+</html>"));
     end PartialGeneric;
 
     partial model ConditionalHeatPort
@@ -8107,19 +8103,28 @@ on the model behaviour.
       end if;
 
       annotation (                                     Documentation(info="<html>
-<dl><dt>A reluctance with the Tellinen hysteresis model. The major hysteresis loop ist defined by the hyperbolic tangent function.</dt>
-</dl><p><h4>The Tellinen Hysteresis Model</h4></p>
-<dl><dt>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</dt>
-<dl><dt>diffHyst = hystF - hystR;</dt>
-<dl><dt>dhR = hystF - b;</dt>
-<dl><dt>dhF = b - hystR;</dt>
-<dl><dt>if the magnetic field intensity increases (der(h)&gt;0)</dt>
-<dl><dt>der(b) = dhR/diffHyst * der(hystR);</dt>
-<dl><dt>if the magnetic field intensity decreases (der(h)&lt;0)</dt>
-<dl><dt>der(b) = dhF/diffHyst * der(hystF);</dt>
-<dl><dt><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/></dt>
-<dd>Fig.1 - Description of the Tellinen hysteresis model. </dd>
-</dl></html>"));
+<p>A reluctance with the Tellinen hysteresis model. The major hysteresis loop is defined by the hyperbolic tangent function.</p>
+<h4>The Tellinen Hysteresis Model</h4>
+<p>The Tellinen hysteresis model is a simple model to describe the magnetic hysteresis behavior of ferromagnetic materials. It only uses the rising (hystR) and falling (hystF) branch of the major hysteresis loop and their derivatives der(hystR) and der(hystF). See Fig. 1 and the following equations for a short description of the Tellinen hysteresis model.</p>
+<blockquote><pre>
+diffHyst = hystF - hystR;
+dhR = hystF - b;
+dhF = b - hystR;
+</pre></blockquote>
+<p>if the magnetic field intensity increases (der(h)&gt;0)</p>
+<blockquote><pre>
+der(b) = dhR/diffHyst * der(hystR);
+</pre></blockquote>
+<p>if the magnetic field intensity decreases (der(h)&lt;0)</p>
+<blockquote><pre>
+der(b) = dhF/diffHyst * der(hystF);
+</pre></blockquote>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
+<td><p><img src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/Hysteresis/StaticHysteresis/Tellinen/TellinenDesc1.png\"/> </p></td>
+</tr>
+</table>
+<b>Fig. 1:</b> Description of the Tellinen hysteresis model.
+</html>"));
     end PartialGenericHysteresisTellinen;
     annotation (Documentation(info="<html>
 <p>

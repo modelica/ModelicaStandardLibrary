@@ -77,8 +77,6 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   </tr>
    </tbody>
   </table>
-  </p>
-  <p>
 
   <h4>Note:</h4>
   <ul>
@@ -86,8 +84,6 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   <li>Induction machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
   <li>Synchronous machine models limited to 3 phases and with arbitrary number of phases are parameter compatible.</li>
   </ul>
-<p>
-</p>
   </html>"));
     end Discrimination;
 
@@ -109,7 +105,6 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
   A-1060 Vienna, Austria<br>
   email: <a href=\"mailto:dr.christian.kral@gmail.com\">dr.christian.kral@gmail.com</a>
 </p>
-
 
 </html>"));
     end Contact;
@@ -181,7 +176,7 @@ DC_Comparison</li>
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.SwitchedRheostat\">
 SwitchedRheostat</a>,
 <a href=\"modelica://Modelica.Electrical.Machines.Utilities.RampedRheostat\">
-</a>RampedRheostat</li>
+RampedRheostat</a></li>
 </ul>
 
 <h5>Version 2.1.0, 2009-08-26 (Anton Haumer)</h5>
@@ -369,9 +364,6 @@ SM_ElectricalExcited</a>
 <ul>
   <li>First stable release</li>
 </ul>
-
-<p></p>
-
 </html>"));
     end ReleaseNotes;
 

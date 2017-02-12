@@ -288,13 +288,11 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
     annotation (DocumentationClass=true, Documentation(info="<html>
 <p>The User's Guide contains the following sub-sections:
 </p>
-<p>
 <ul>
 <li> <a href=\"modelica://Modelica.Fluid.Dissipation.UsersGuide.GettingStarted\">Getting Started</a></li>
 <li> <a href=\"modelica://Modelica.Fluid.Dissipation.UsersGuide.ReleaseNotes\">Release notes</a></li>
 <li> <a href=\"modelica://Modelica.Fluid.Dissipation.UsersGuide.Contact\">Contact information</a></li>
 </ul>
-</p>
 </html>"));
   end UsersGuide;
 

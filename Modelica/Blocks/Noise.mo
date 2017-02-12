@@ -61,7 +61,6 @@ into your model and specify the seed.
             fillPattern=FillPattern.Solid,
             textString="fixedSeed =")}),
       Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -79,7 +78,6 @@ into your model and specify the seed.
 </td></tr>
 
 </table>
-</p>
 </html>",   info="<html>
 <p>
 When using one of the blocks of sublibrary <a href=\"modelica://Modelica.Blocks.Noise\">Noise</a>,
@@ -203,7 +201,6 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -221,7 +218,6 @@ is dragged to provide global settings for all instances.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end UniformNoise;
 
@@ -268,7 +264,6 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -286,7 +281,6 @@ is dragged to provide global settings for all instances.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end NormalNoise;
 
@@ -360,7 +354,6 @@ model <a href=\"modelica://Modelica.Blocks.Noise.GlobalSeed\">Blocks.Noise.Globa
 is dragged to provide global settings for all instances.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -378,7 +371,6 @@ is dragged to provide global settings for all instances.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end TruncatedNormalNoise;
 
@@ -548,10 +540,9 @@ As a simple demonstration, see example <a href=\"modelica://Modelica.Blocks.Exam
 In the next diagram, a simulation result is shown for samplePeriod=0.02 s and uniform distribution with
 y_min=-1, y_max=3:
 </p>
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
 </blockquote>
-</p>
 
 <h4>Advanced tab: General settings</h4>
 <p>
@@ -677,18 +668,17 @@ diagram of the probability density function of a normal distribution
 compared with its truncated version:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.density.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 The corresponding inverse cumulative distribution functions are shown in the next diagram:
 </p>
 
-
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Distributions/TruncatedNormal.quantile.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 When providing an x-value between 0.0 .. 1.0 from a random number generator, then the truncated
@@ -703,7 +693,6 @@ distributions are given in the documentation of package
 <a href=\"Modelica.Math.Distributions\">Math.Distributions</a>.
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -721,6 +710,5 @@ distributions are given in the documentation of package
 </td></tr>
 
 </table>
-</p>
 </html>"));
 end Noise;

@@ -113,7 +113,6 @@ All returned values are of type Integer and have the following meaning:
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -131,7 +130,6 @@ All returned values are of type Integer and have the following meaning:
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end getTime;
 
@@ -159,7 +157,6 @@ getPid()   // = 3044
 <h4>Note</h4>
 <p>This function is impure!</p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -177,7 +174,6 @@ getPid()   // = 3044
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end getPid;
 

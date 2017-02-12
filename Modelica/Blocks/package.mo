@@ -1184,12 +1184,10 @@ At every 0.02 seconds a time event occurs and a uniform random number in the ban
 The result of a simulation is shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoise.png\">
 </blockquote>
-</p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1207,7 +1205,6 @@ The result of a simulation is shown in the next diagram:
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end UniformNoise;
 
@@ -1279,9 +1276,9 @@ of the respective block. As a result, different noise is generated, see next
 diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed1.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the local seed
@@ -1289,16 +1286,15 @@ The blocks manualSeed1, manualSeed2, manualSeed3 use manual selection of the loc
 Again, different noise is generated, see next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/AutomaticSeed2.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 Try to set fixedLocalSeed = 1 in block manualSeed2. As a result, the blocks manualSeed1 and
 manualSeed2 will produce exactly the same noise.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1316,7 +1312,6 @@ manualSeed2 will produce exactly the same noise.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end AutomaticSeed;
 
@@ -1359,16 +1354,15 @@ However, the random numbers are differently transformed according to the selecte
 Simulation results are shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Distributions.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 As can be seen, uniform noise is distributed evenly between -1 and 3, and
 truncated normal distriution has more values centered around the mean value 1.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1386,7 +1380,6 @@ truncated normal distriution has more values centered around the mean value 1.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end Distributions;
 
@@ -1475,9 +1468,9 @@ is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">B
 Simulation results are shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/UniformNoiseProperties1.png\"/>
-</blockquote></p>
+</blockquote>
 
 <p>
 The mean value of a uniform noise in the range 0 .. 6 is 3 and its variance is
@@ -1486,7 +1479,6 @@ This demonstrates that the random number generator and the mapping to a uniform
 distribution have good statistical properties.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1504,7 +1496,6 @@ distribution have good statistical properties.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end UniformNoiseProperties;
 
@@ -1592,9 +1583,9 @@ is computed with blocks of package <a href=\"modelica://Modelica.Blocks.Math\">B
 Simulation results are shown in the next diagram:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/NormalNoiseProperties1.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 The mean value of a normal noise with mu=3 is 3 and the variance of normal noise
@@ -1603,7 +1594,6 @@ This demonstrates that the random number generator and the mapping to a normal
 distribution have good statistical properties.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1621,7 +1611,6 @@ distribution have good statistical properties.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end NormalNoiseProperties;
 
@@ -1673,11 +1662,10 @@ are shown. The outputs of the blocks are the pdfs that are plotted over one of t
 inputs:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/Densities.png\">
-</blockquote></p>
+</blockquote>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1695,7 +1683,6 @@ inputs:
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end Densities;
 
@@ -1718,12 +1705,10 @@ used when implementing an own, specialized block that needs a random number
 generator. Simulation results are shown in the next figure:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/NoiseExamples/ImpureGenerator.png\">
 </blockquote>
-</p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1741,7 +1726,6 @@ generator. Simulation results are shown in the next figure:
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end ImpureGenerator;
 
@@ -1850,7 +1834,6 @@ Note, the noise in all components can be easily switched off by setting paramete
 enableNoise = false in the globalSeed component.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -1868,7 +1851,6 @@ enableNoise = false in the globalSeed component.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end ActuatorWithNoise;
 
@@ -2036,7 +2018,6 @@ This block is demonstrated in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
 </p>
 </html>",       revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2054,7 +2035,6 @@ This block is demonstrated in the example
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end UniformDensity;
 
@@ -2109,7 +2089,6 @@ This block is demonstrated in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
 </p>
 </html>",       revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2127,7 +2106,6 @@ This block is demonstrated in the example
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end NormalDensity;
 
@@ -2183,7 +2161,6 @@ This block is demonstrated in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.Densities\">Examples.NoiseExamples.Densities</a> .
 </p>
 </html>",       revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2201,7 +2178,6 @@ This block is demonstrated in the example
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end WeibullDensity;
 
@@ -2226,7 +2202,6 @@ random number generator. This block is used in the example
 <a href=\"modelica://Modelica.Blocks.Examples.NoiseExamples.ImpureGenerator\">Examples.NoiseExamples.ImpureGenerator</a>.
 </p>
 </html>",       revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2244,7 +2219,6 @@ random number generator. This block is used in the example
 </td></tr>
 
 </table>
-</p>
 </html>"));
       end ImpureRandom;
 
@@ -2477,7 +2451,6 @@ This motor is used in the
 actuator example
 </p>
 </html>",         revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2495,7 +2468,6 @@ actuator example
 </td></tr>
 
 </table>
-</p>
 </html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                     100}}), graphics={Rectangle(
                   extent={{40,50},{-100,100}},
@@ -2575,7 +2547,6 @@ actuator example
                 textString="%name",
                 lineColor={0,0,255})}),
             Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2593,7 +2564,6 @@ actuator example
 </td></tr>
 
 </table>
-</p>
 </html>",         info="<html>
 <p>
 A simple position controller for a drive system.
@@ -2604,7 +2574,6 @@ actuator example
 </html>"));
         end Controller;
       annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2622,7 +2591,6 @@ actuator example
 </td></tr>
 
 </table>
-</p>
 </html>",       info="<html>
 <p>
 Parts used in the
@@ -2636,7 +2604,6 @@ actuator example
 This package contains utility models that are used for the examples.
 </p>
 </html>",     revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2654,7 +2621,6 @@ This package contains utility models that are used for the examples.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end Utilities;
   annotation (Documentation(info="<html>
@@ -2664,7 +2630,6 @@ to utilize the blocks from sublibrary
 <a href=\"modelica://Modelica.Blocks.Noise\">Blocks.Noise</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2682,7 +2647,6 @@ to utilize the blocks from sublibrary
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end NoiseExamples;
 

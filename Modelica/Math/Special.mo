@@ -69,9 +69,9 @@ developed by John Maddock). Plot
 of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erf.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
@@ -91,7 +91,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -109,7 +108,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end erf;
 
@@ -153,9 +151,9 @@ developed by John Maddock). Plot
 of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erfc.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 If u is large and erf(u) is subtracted from 1.0, the result is not accurate.
@@ -177,7 +175,6 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
 <a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -195,7 +192,6 @@ see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end erfc;
 
@@ -230,9 +226,9 @@ This function computes the inverse of the error function erf(u) = 2/sqrt(pi)*Int
 (otherwise an assertion is raised):
 </p>
 
-<p><blockquote>
+<blockquote>
 -1 &le; u &le; 1
-</blockquote></p>
+</blockquote>
 
 <p>
 If u = 1, the function returns Modelica.Constants.inf.<br>
@@ -242,9 +238,9 @@ developed by John Maddock).<br>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erfInv.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
@@ -265,7 +261,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <a href=\"modelica://Modelica.Math.Special.erfcInv\">erfcInv</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -283,7 +278,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end erfInv;
 
@@ -324,9 +318,9 @@ Therefore, u = erfc(erfcInv(u)) and erfcInv(u) = erfInv(1 - u). Input argument u
 (otherwise an assertion is raised):
 </p>
 
-<p><blockquote>
+<blockquote>
 0 &le; u &le; 2
-</blockquote></p>
+</blockquote>
 
 <p>
 If u = 2, the function returns -Modelica.Constants.inf.<br>
@@ -336,9 +330,9 @@ developed by John Maddock).<br>
 Plot of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/erfcInv.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wikipedia</a>.
@@ -358,7 +352,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 <a href=\"modelica://Modelica.Math.Special.erfInv\">erfInv</a>.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -376,7 +369,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end erfcInv;
 
@@ -389,7 +381,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
     y := if abs(u) > 0.5e-4 then sin(u)/u else 1 - (u^2)/6 + (u^4)/120;
 
     annotation (Inline=true, Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -407,7 +398,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Error_function\">Wi
 </td></tr>
 
 </table>
-</p>
 </html>",   info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
@@ -421,9 +411,9 @@ a Taylor series approximation for small values of u. Plot
 of the function:
 </p>
 
-<p><blockquote>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Math/Special/sinc.png\">
-</blockquote></p>
+</blockquote>
 
 <p>
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wikipedia</a>.
@@ -456,7 +446,6 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Sinc_function\">Wik
 Evaluate a polynomial using Horner's scheme.
 </p>
 </html>",  revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -474,7 +463,6 @@ Evaluate a polynomial using Horner's scheme.
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end polyEval;
 
@@ -578,7 +566,6 @@ Evaluate a polynomial using Horner's scheme.
 Utility function in order to compute part of erf(..) and erfc(..).
 </p>
 </html>",  revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -596,7 +583,6 @@ Utility function in order to compute part of erf(..) and erfc(..).
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end erfcUtil;
 
@@ -835,7 +821,6 @@ Utility function in order to compute part of erf(..) and erfc(..).
 Utility function in order to compute erfInv(..) and erfcInv(..).
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -853,7 +838,6 @@ Utility function in order to compute erfInv(..) and erfcInv(..).
 </td></tr>
 
 </table>
-</p>
 </html>"));
     end erfInvUtil;
     annotation (Documentation(info="<html>
@@ -863,7 +847,6 @@ erf, erfc, erfInc and erfcInv. These functions should not be directly used
 by the user.
 </p>
 </html>",   revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -881,7 +864,6 @@ by the user.
 </td></tr>
 
 </table>
-</p>
 </html>"));
   end Internal;
 annotation (Icon(graphics={Line(
@@ -892,7 +874,6 @@ This sublibrary contains functions to compute often used mathematical operators 
 cannot be expressed analytically.
 </p>
 </html>", revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -910,6 +891,5 @@ cannot be expressed analytically.
 </td></tr>
 
 </table>
-</p>
 </html>"));
 end Special;

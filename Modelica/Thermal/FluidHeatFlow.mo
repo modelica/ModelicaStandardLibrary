@@ -95,13 +95,13 @@ Copyright &copy; 1998-2016, Modelica Association, Anton Haumer, Christian Kral a
   <h5>1.43 Beta 2005-06-20 (Anton Haumer)</h5>
   <ul>
   <li> Test of mixing / semiLinear</li>
-  <li>New test example: OneMass</li
-       <li>New test example: TwoMass</li>
+  <li>New test example: OneMass</li>
+  <li>New test example: TwoMass</li>
   </ul>
 
   <h5>1.42 Beta, 2005-06-18 (Anton Haumer)</h5>
   <ul>
-  <li> New test example: ParallelPumpDropOut</i></li>
+  <li> New test example: ParallelPumpDropOut</li>
   </ul>
 
   <h5>1.40, 2005-06-13 (Anton Haumer)</h5>

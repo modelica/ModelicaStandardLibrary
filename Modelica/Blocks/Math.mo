@@ -2942,7 +2942,6 @@ Note: The output is updated after each period defined by 1/f.
     y       = noEvent(if time >= t_0 + t_eps then mu                else u);
 
     annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -2960,7 +2959,6 @@ Note: The output is updated after each period defined by 1/f.
 </td></tr>
 
 </table>
-</p>
 </html>",                                   info="<html>
 <p>This block continuously calculates the mean value of its input signal. It uses the function:</p>
 <blockquote>
@@ -3074,7 +3072,6 @@ Note: The output is updated after each period defined by 1/f.
     y        = noEvent(if time >= t_0 + t_eps then max(var,0)                    else 0);
 
     annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -3092,7 +3089,6 @@ Note: The output is updated after each period defined by 1/f.
 </td></tr>
 
 </table>
-</p>
 </html>",                                   info="<html>
 <p>
 This block calculates the empirical variance of its input signal. It is based on the formula
@@ -3172,7 +3168,6 @@ This block is demonstrated in the examples
         points={{1,0},{110,0}},
         color={0,0,127}));
     annotation (Documentation(revisions="<html>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th>Date</th> <th align=\"left\">Description</th></tr>
 
@@ -3190,7 +3185,6 @@ This block is demonstrated in the examples
 </td></tr>
 
 </table>
-</p>
 </html>",                                   info="<html>
 <p>This block calculates the standard deviation of its input signal. The standard deviation is the square root of the signal&apos;s variance:</p>
 <blockquote>
