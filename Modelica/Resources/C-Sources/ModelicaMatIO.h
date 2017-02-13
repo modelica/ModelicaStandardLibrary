@@ -1,6 +1,6 @@
 /* ModelicaMatIO.h - MAT file I/O functions header
 
-   Copyright (C) 2013-2016, Christopher C. Hulbert, Modelica Association, and ESI ITI GmbH
+   Copyright (C) 2013-2017, Christopher C. Hulbert, Modelica Association, and ITI GmbH
    Copyright (C) 2005-2013, Christopher C. Hulbert
    All rights reserved.
 
@@ -50,13 +50,13 @@
 #define MATIO_MINOR_VERSION 5
 
 /* Matio release level number */
-#define MATIO_RELEASE_LEVEL 8
+#define MATIO_RELEASE_LEVEL 10
 
 /* Matio version number */
-#define MATIO_VERSION 158
+#define MATIO_VERSION 1510
 
 /* Matio version string */
-#define MATIO_VERSION_STR "1.5.8"
+#define MATIO_VERSION_STR "1.5.10"
 
 /* Default file format */
 #define MAT_FT_DEFAULT MAT_FT_MAT5
@@ -212,7 +212,8 @@ enum matio_classes {
     MAT_C_UINT32   = 13, /**< @brief Matlab unsigned 32-bit integer class  */
     MAT_C_INT64    = 14, /**< @brief Matlab signed 64-bit integer class    */
     MAT_C_UINT64   = 15, /**< @brief Matlab unsigned 64-bit integer class  */
-    MAT_C_FUNCTION = 16  /**< @brief Matlab function class                 */
+    MAT_C_FUNCTION = 16, /**< @brief Matlab function class                 */
+    MAT_C_OPAQUE   = 17  /**< @brief Matlab opaque class                   */
 };
 
 /** @brief Matlab array flags
@@ -326,8 +327,9 @@ EXTERN mat_t      *Mat_CreateVer(const char *matname,const char *hdr_str,
                        enum mat_ft mat_file_ver);
 EXTERN int         Mat_Close(mat_t *mat);
 EXTERN mat_t      *Mat_Open(const char *matname,int mode);
-EXTERN const char *Mat_GetFilename(mat_t *matfp);
-EXTERN enum mat_ft Mat_GetVersion(mat_t *matfp);
+EXTERN const char *Mat_GetFilename(mat_t *mat);
+EXTERN enum mat_ft Mat_GetVersion(mat_t *mat);
+EXTERN char      **Mat_GetDir(mat_t *mat, size_t *n);
 EXTERN int         Mat_Rewind(mat_t *mat);
 
 /* MAT variable functions */
