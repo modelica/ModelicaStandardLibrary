@@ -1729,7 +1729,7 @@ This blocks computes the output <code>y</code> as the
     end Exp;
 
     block Log
-      "Output the natural (base e) logarithm of the input (input > 0 required)"
+      "Output the natural (base e) logarithm of the input (input <> '0' required)"
       extends Interfaces.ComplexSISO;
     equation
       y = Modelica.ComplexMath.log(uInternal);
