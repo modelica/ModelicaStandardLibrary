@@ -119,7 +119,9 @@ package Tables
     annotation (
       Documentation(info="<html>
 <p>
-<b>Linear interpolation</b> in <b>one</b> dimension of a <b>table</b>.
+<strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+spline interpolation</strong> in <strong>one</strong> dimension of a
+<strong>table</strong>.
 Via parameter <b>columns</b> it can be defined how many columns of the
 table are interpolated. If, e.g., columns={2,4}, it is assumed that 2 input
 and 2 output signals are present and that the first output interpolates
@@ -142,15 +144,28 @@ other columns contain the data to be interpolated. Example:
        e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre>
 <ul>
-<li> The interpolation is <b>efficient</b>, because a search for a new interpolation
-     starts at the interval used in the last call.</li>
-<li> If the table has only <b>one row</b>, the table value is returned,
-     independent of the value of the input signal.</li>
-<li> If the input signal <b>u[i]</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
-     u[i] &gt; table[size(table,1),i+1] or u[i] &lt; table[1,1], the corresponding
-     value is also determined by linear
-     interpolation through the last or first two points of the table.</li>
-<li> The grid values (first column) have to be strictly increasing.</li>
+<li>The interpolation is <b>efficient</b>, because a search for a new interpolation
+    starts at the interval used in the last call.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: Linear interpolation
+             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
+             = 3: Constant segments
+             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                  Hermite splines such that y preserves the monotonicity and
+                  der(y) is continuous, also if extrapolated.
+             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                  splines such that y preserves the monotonicity and der(y)
+                  is continuous, also if extrapolated.
+</pre></li>
+<li>If the table has only <b>one row</b>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>If the input signal <b>u[i]</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
+    u[i] &gt; table[size(table,1),i+1] or u[i] &lt; table[1,1], the corresponding
+    value is also determined by linear
+    interpolation through the last or first two points of the table.</li>
+<li>The grid values (first column) have to be strictly increasing.</li>
 </ul>
 <p>
 The table matrix can be defined in the following ways:
@@ -162,29 +177,29 @@ The table matrix can be defined in the following ways:
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and MAT-file format is possible.
-      (The ASCII format is described below).
-      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
-      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
-      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
-      by command
+<li><b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
+    \"tableName\". Both ASCII and MAT-file format is possible.
+    (The ASCII format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
 <pre>
    save tables.mat tab1 tab2 tab3
 </pre>
-      or Scilab by command
+    or Scilab by command
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.<br>
-      Note, a fileName can be defined as URI by using the helper function
-      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
-<li>  Statically stored in function \"usertab\" in file \"usertab.c\".
-      The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.
-      See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
-      documentation for more details.</li>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+<li>Statically stored in function \"usertab\" in file \"usertab.c\".
+    The matrix is identified by \"tableName\". Parameter
+    fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    documentation for more details.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
@@ -421,7 +436,9 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     annotation (
       Documentation(info="<html>
 <p>
-<b>Linear interpolation</b> in <b>one</b> dimension of a <b>table</b>.
+<strong>Constant</strong>, <strong>linear</strong> or <strong>cubic Hermite
+spline interpolation</strong> in <strong>one</strong> dimension of a
+<strong>table</strong>.
 Via parameter <b>columns</b> it can be defined how many columns of the
 table are interpolated. If, e.g., icol={2,4}, it is assumed that one input
 and 2 output signals are present and that the first output interpolates
@@ -444,49 +461,62 @@ other columns contain the data to be interpolated. Example:
        e.g., the input u =-1.0, the output y = -1.0 (i.e., extrapolation).
 </pre>
 <ul>
-<li> The interpolation is <b>efficient</b>, because a search for a new interpolation
-     starts at the interval used in the last call.</li>
-<li> If the table has only <b>one row</b>, the table value is returned,
-     independent of the value of the input signal.</li>
-<li> If the input signal <b>u</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
-     u &gt; table[size(table,1),1] or u &lt; table[1,1], the corresponding
-     value is also determined by linear
-     interpolation through the last or first two points of the table.</li>
-<li> The grid values (first column) have to be strictly increasing.</li>
+<li>The interpolation is <b>efficient</b>, because a search for a new interpolation
+    starts at the interval used in the last call.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: Linear interpolation
+             = 2: Akima interpolation: Smooth interpolation by cubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
+             = 3: Constant segments
+             = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
+                  Hermite splines such that y preserves the monotonicity and
+                  der(y) is continuous, also if extrapolated.
+             = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
+                  splines such that y preserves the monotonicity and der(y)
+                  is continuous, also if extrapolated.
+</pre></li>
+<li>If the table has only <b>one row</b>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>If the input signal <b>u</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
+    u &gt; table[size(table,1),1] or u &lt; table[1,1], the corresponding
+    value is also determined by linear
+    interpolation through the last or first two points of the table.</li>
+<li>The grid values (first column) have to be strictly increasing.</li>
 </ul>
 <p>
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li> Explicitly supplied as <b>parameter matrix</b> \"table\",
-     and the other parameters have the following values:
+<li>Explicitly supplied as <b>parameter matrix</b> \"table\",
+    and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and MAT-file format is possible.
-      (The ASCII format is described below).
-      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
-      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
-      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
-      by command
+<li><b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
+    \"tableName\". Both ASCII and MAT-file format is possible.
+    (The ASCII format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
 <pre>
    save tables.mat tab1 tab2 tab3
 </pre>
-      or Scilab by command
+    or Scilab by command
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.<br>
-      Note, a fileName can be defined as URI by using the helper function
-      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
-<li>  Statically stored in function \"usertab\" in file \"usertab.c\".
-      The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.
-      See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
-      documentation for more details.</li>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+<li>Statically stored in function \"usertab\" in file \"usertab.c\".
+    The matrix is identified by \"tableName\". Parameter
+    fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    documentation for more details.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
@@ -715,7 +745,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     annotation (
       Documentation(info="<html>
 <p>
-<b>Linear interpolation</b> in <b>two</b> dimensions of a <b>table</b>.
+<strong>Bivariate constant</strong>, <strong>bilinear</strong> or <strong>bivariate
+Akima interpolation</strong> of a <strong>two-dimensional table</strong>.
 The grid points and function values are stored in a matrix \"table[i,j]\",
 where:
 </p>
@@ -744,49 +775,58 @@ Example:
        e.g., the input u is [2.0;1.5], the output y is 3.0.
 </pre>
 <ul>
-<li> The interpolation is <b>efficient</b>, because a search for a new
-     interpolation starts at the interval used in the last call.</li>
-<li> If the table has only <b>one element</b>, the table value is returned,
-     independent of the value of the input signal.</li>
-<li> If the input signal <b>u1</b> or <b>u2</b> is <b>outside</b> of the defined
-     <b>interval</b>, the corresponding value is also determined by linear
-     interpolation through the last or first two points of the table.</li>
-<li> The grid values (first column and first row) have to be strictly
-     increasing.</li>
+<li>The interpolation is <b>efficient</b>, because a search for a new
+    interpolation starts at the interval used in the last call.</li>
+<li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
+<pre>
+  smoothness = 1: Bilinear interpolation
+             = 2: Bivariate Akima interpolation: Smooth interpolation by bicubic Hermite
+                  splines such that der(y) is continuous, also if extrapolated.
+             = 3: Constant segments
+             = 4: Fritsch-Butland interpolation: Not supported
+             = 5: Steffen interpolation: Not supported
+</pre></li>
+<li>If the table has only <b>one element</b>, the table value is returned,
+    independent of the value of the input signal.</li>
+<li>If the input signal <b>u1</b> or <b>u2</b> is <b>outside</b> of the defined
+    <b>interval</b>, the corresponding value is also determined by linear
+    interpolation through the last or first two points of the table.</li>
+<li>The grid values (first column and first row) have to be strictly
+    increasing.</li>
 </ul>
 <p>
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li> Explicitly supplied as <b>parameter matrix</b> \"table\",
-     and the other parameters have the following values:
+<li>Explicitly supplied as <b>parameter matrix</b> \"table\",
+    and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li> <b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and MAT-file format is possible.
-      (The ASCII format is described below).
-      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
-      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
-      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
-      by command
+<li><b>Read</b> from a <b>file</b> \"fileName\" where the matrix is stored as
+    \"tableName\". Both ASCII and MAT-file format is possible.
+    (The ASCII format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
 <pre>
    save tables.mat tab1 tab2 tab3
 </pre>
-      or Scilab by command
+    or Scilab by command
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.<br>
-      Note, a fileName can be defined as URI by using the helper function
-      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
-<li>  Statically stored in function \"usertab\" in file \"usertab.c\".
-      The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.
-      See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
-      documentation for more details.</li>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+<li>Statically stored in function \"usertab\" in file \"usertab.c\".
+    The matrix is identified by \"tableName\". Parameter
+    fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.
+    See the <a href=\"modelica://Modelica.Blocks.Tables\">Tables</a> package
+    documentation for more details.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
@@ -928,7 +968,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
             lineColor={0,0,255})}));
   end CombiTable2D;
   annotation (Documentation(info="<html>
-<p>This package contains blocks for one- and two-dimensional interpolation in tables. </p>
+<p>This package contains blocks for one- and two-dimensional interpolation in tables.</p>
 <h4>Special interest topic: Statically stored tables for real-time simulation targets</h4>
 <p>Especially for use on real-time platform targets (e.g., HIL-simulators) with <b>no file system</b>, it is possible to statically
 store tables using a function &quot;usertab&quot; in a file conventionally named &quot;usertab.c&quot;. This can be more efficient than providing the tables as Modelica parameter arrays.</p>

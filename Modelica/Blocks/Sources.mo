@@ -2424,9 +2424,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     annotation (
       Documentation(info="<html>
 <p>
-This block generates an output signal y[:] by <strong>linear</strong>, <strong>Akima</strong>,
-<strong>Fritsch-Butland</strong> or <strong>Steffen interpolation</strong> in
-a table. The time points and function values are stored in a matrix
+This block generates an output signal y[:] by <strong>constant</strong>,
+<strong>linear</strong> or <strong>cubic Hermite spline interpolation</strong>
+in a table. The time points and function values are stored in a matrix
 <strong>table[i,j]</strong>, where the first column table[:,1] contains the
 time points and the other columns contain the data to be interpolated.
 </p>
@@ -2445,34 +2445,30 @@ by interpolation of column 4 of the table matrix.
 The table interpolation has the following properties:
 </p>
 <ul>
-<li>The time points need to be <strong>strictly increasing</strong> if smoothness
-    is ContinuousDerivative, MonotoneContinuousDerivative1 or
-    MonotoneContinuousDerivative2, otherwise
-    <strong>monotonically increasing</strong>.</li>
-<li>If smoothness is ConstantSegments or LinearSegments,
-    <strong>Discontinuities</strong> are allowed, by providing the same
-    time point twice in the table.</li>
+<li>The time points need to be <strong>strictly increasing</strong> for cubic Hermite
+    spline interpolation, otherwise <strong>monotonically increasing</strong>.</li>
+<li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
+    by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter
     <strong>extrapolation</strong>:
 <pre>
-  extrapolation = 1: hold the first or last value of the table,
+  extrapolation = 1: Hold the first or last value of the table,
                      if outside of the table scope.
-                = 2: extrapolate by using the derivative at the first/last table
+                = 2: Extrapolate by using the derivative at the first/last table
                      points if outside of the table scope.
                      (If smoothness is LinearSegments or ConstantSegments
                      this means to extrapolate linearly through the first/last
                      two table points.).
-                = 3: periodically repeat the table data
-                     (periodical function).
-                = 4: no extrapolation, i.e. extrapolation triggers an error
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
-  smoothness = 1: linear interpolation
+  smoothness = 1: Linear interpolation
              = 2: Akima interpolation: Smooth interpolation by cubic Hermite
                   splines such that der(y) is continuous, also if extrapolated.
-             = 3: constant segments
+             = 3: Constant segments
              = 4: Fritsch-Butland interpolation: Smooth interpolation by cubic
                   Hermite splines such that y preserves the monotonicity and
                   der(y) is continuous, also if extrapolated.
@@ -2533,33 +2529,33 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 The table matrix can be defined in the following ways:
 </p>
 <ol>
-<li> Explicitly supplied as <strong>parameter matrix</strong> \"table\",
-     and the other parameters have the following values:
+<li>Explicitly supplied as <strong>parameter matrix</strong> \"table\",
+    and the other parameters have the following values:
 <pre>
    tableName is \"NoName\" or has only blanks,
    fileName  is \"NoName\" or has only blanks.
 </pre></li>
-<li> <strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
-      \"tableName\". Both ASCII and MAT-file format is possible.
-      (The ASCII format is described below).
-      The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
-      The library supports at least v4, v6 and v7 whereas v7.3 is optional.
-      It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
-      by command
+<li><strong>Read</strong> from a <strong>file</strong> \"fileName\" where the matrix is stored as
+    \"tableName\". Both ASCII and MAT-file format is possible.
+    (The ASCII format is described below).
+    The MAT-file format comes in four different versions: v4, v6, v7 and v7.3.
+    The library supports at least v4, v6 and v7 whereas v7.3 is optional.
+    It is most convenient to generate the MAT-file from FreeMat or MATLAB&reg;
+    by command
 <pre>
    save tables.mat tab1 tab2 tab3
 </pre>
-      or Scilab by command
+    or Scilab by command
 <pre>
    savematfile tables.mat tab1 tab2 tab3
 </pre>
-      when the three tables tab1, tab2, tab3 should be used from the model.<br>
-      Note, a fileName can be defined as URI by using the helper function
-      <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
-<li>  Statically stored in function \"usertab\" in file \"usertab.c\".
-      The matrix is identified by \"tableName\". Parameter
-      fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
-      preferred as otherwise the table is reallocated and transposed.</li>
+    when the three tables tab1, tab2, tab3 should be used from the model.<br>
+    Note, a fileName can be defined as URI by using the helper function
+    <a href=\"modelica://Modelica.Utilities.Files.loadResource\">loadResource</a>.</li>
+<li>Statically stored in function \"usertab\" in file \"usertab.c\".
+    The matrix is identified by \"tableName\". Parameter
+    fileName = \"NoName\" or has only blanks. Row-wise storage is always to be
+    preferred as otherwise the table is reallocated and transposed.</li>
 </ol>
 <p>
 When the constant \"NO_FILE_SYSTEM\" is defined, all file I/O related parts of the
