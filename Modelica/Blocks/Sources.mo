@@ -2447,9 +2447,8 @@ The table interpolation has the following properties:
 <ul>
 <li>The time points need to be <strong>strictly increasing</strong> for cubic Hermite
     spline interpolation, otherwise <strong>monotonically increasing</strong>.</li>
-<li>If smoothness is ConstantSegments or LinearSegments,
-    <strong>Discontinuities</strong> are allowed, by providing the same
-    time point twice in the table.</li>
+<li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
+    by providing the same time point twice in the table.</li>
 <li>Values <strong>outside</strong> of the table range, are computed by
     extrapolation according to the setting of parameter
     <strong>extrapolation</strong>:
