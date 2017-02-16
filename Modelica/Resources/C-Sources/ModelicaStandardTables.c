@@ -51,10 +51,6 @@
                      interpolation (analogously to constant segments)
                      (tickets #1627 and #2080)
 
-      Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Replaced strtok by re-entrant string tokenize function
-                     (ticket #1153)
-
       Nov. 21, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed error handling if a table variable cannot be found in a
                      MATLAB MAT-file (ticket #2119)
