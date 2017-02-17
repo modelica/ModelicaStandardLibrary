@@ -4082,8 +4082,6 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
                       lineColor={255,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid,
                       textString="2*%m%")}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -4181,8 +4179,6 @@ General information about controllers is summarized in
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
                       lineColor={255,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid,
                       textString="2")}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -4294,8 +4290,6 @@ signal <code>fire_n</code> is assigned to the thyristors connected with the nega
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
                       lineColor={255,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid,
                       textString="2*%m%")}),
           Documentation(info="<html>
 
@@ -4403,8 +4397,6 @@ Half of the semiconductors of the <code>2*m</code> pulse bridge rectifier are co
                       color={255,0,255}),Text(
                       extent={{-40,60},{40,0}},
                       lineColor={255,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid,
                       textString="2*%m%")}),
           Documentation(revisions="<html>
 </html>", info="<html>
@@ -4609,14 +4601,10 @@ enabling signal is taken from the optional signal input <code>enable</code>.
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -4774,14 +4762,10 @@ This is a two pulse Graetz diode rectifier bridge. The circuit topology is the s
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -4934,14 +4918,10 @@ with thyristor <code>thyristor_p2</code> and <code>thyristor_n1</code>. See exam
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-44,50},{36,2}},
@@ -5053,14 +5033,10 @@ The circuit topology is the same as in
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5167,14 +5143,10 @@ This is a two pulse diode rectifier with center tap. In order to operate this re
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5262,14 +5234,10 @@ General information about AC/DC converters can be found at the
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5365,14 +5333,10 @@ The circuit topology is the same as in
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5486,14 +5450,10 @@ See example
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5627,14 +5587,10 @@ This is a 2*m pulse diode rectifier bridge. In order to operate this rectifier a
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -5768,14 +5724,10 @@ See example
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-46,52},{34,4}},
@@ -5903,14 +5855,10 @@ This is a 2*m pulse half controlled rectifier bridge. In order to operate this r
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -6035,14 +5983,10 @@ This is a 2*m pulse diode rectifier with center tap. In order to operate this re
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Rectangle(
               extent={{-40,24},{40,-24}},
@@ -6222,14 +6166,10 @@ General information about AC/DC converters can be found at the
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC")}),
         Documentation(info="<html>
 <p>
@@ -6408,14 +6348,10 @@ An example of a single phase inverter with PWM voltage control is included in
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="AC")}),
         Documentation(info="<html>
 <p>
@@ -6696,14 +6632,10 @@ Currently there is only one PWM method provided in this library.
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC in"),
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC out"),
             Text(
               extent={{-150,150},{150,110}},
@@ -6846,14 +6778,10 @@ This is a conventional step down chopper model. It consists of a transistor and 
             Text(
               extent={{0,-50},{100,-70}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC out"),
             Text(
               extent={{-100,70},{0,50}},
               lineColor={0,0,127},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="DC in"),
             Line(
               points={{-20,30},{-20,-30}},
@@ -6946,8 +6874,6 @@ For <code>useConstantEnable = false</code> the internal signal
               fillPattern=FillPattern.Solid), Text(
               extent={{-58,60},{58,-60}},
               lineColor={255,0,255},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid,
               textString="enable")}));
     end EnableLogic;
   end Enable;

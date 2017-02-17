@@ -195,7 +195,6 @@ This component has a non-filled rectangular icon.
           Text(
             extent={{-158,-66},{158,-124}},
             lineColor={0,0,0},
-            lineThickness=0.5,
             textString="%name"),
           Rectangle(
             extent={{-60,60},{60,-60}},
@@ -366,8 +365,7 @@ joint aggregation models.
     "Base model for components providing one frame_a connector + outer world + assert to guarantee that the component is connected"
 
     Interfaces.Frame_a frame_a
-      "Coordinate system fixed to the component with one cut-force and cut-torque"
-                                                                                                          annotation (Placement(
+      "Coordinate system fixed to the component with one cut-force and cut-torque"                        annotation (Placement(
           transformation(extent={{-116,-16},{-84,16}})));
   protected
     outer Modelica.Mechanics.MultiBody.World world;

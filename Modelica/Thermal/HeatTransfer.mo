@@ -1,6 +1,4 @@
 within Modelica.Thermal;
-
-
 package HeatTransfer
   "Library of 1-dimensional heat transfer with lumped elements"
   extends Modelica.Icons.Package;
@@ -159,8 +157,7 @@ An appropriate simulating time would be 10 seconds.
       Modelica.Blocks.Sources.CombiTimeTable lossTable(extrapolation=Modelica.
             Blocks.Types.Extrapolation.Periodic, smoothness=Modelica.Blocks.
             Types.Smoothness.ConstantSegments, table=[0,100,500; 360,1000,500;
-            600,100,500])
-                                annotation (Placement(transformation(
+            600,100,500])       annotation (Placement(transformation(
             origin={-40,70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -1008,7 +1005,7 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
 </p>
 </html>"));
     end ThermalCollector;
-    annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+    annotation (Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Rectangle(
         origin = {12,40},
         fillColor = {192,192,192},
@@ -1695,7 +1692,6 @@ in order to simulate temperature dependent losses (which are given with respect 
             Text(
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degC"),
             Text(
               extent={{100,-47},{44,-100}},
@@ -1718,7 +1714,6 @@ in order to simulate temperature dependent losses (which are given with respect 
             Text(
               extent={{-62,-38},{-141,-97}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degC"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -1758,7 +1753,6 @@ and provide is as output signal.
             Text(
               extent={{-72,-46},{-152,-108}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="K"),
             Text(
               extent={{122,-48},{38,-109}},
@@ -1777,7 +1771,6 @@ and provide is as output signal.
             Text(
               extent={{-42,-41},{-101,-98}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
@@ -2065,7 +2058,6 @@ Example:
             Text(
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degF"),
             Text(
               extent={{100,-47},{44,-100}},
@@ -2094,7 +2086,6 @@ Example:
             Text(
               extent={{-42,-44},{-153,-91}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degF")}),
         Documentation(info="<html>
 <p>
@@ -2128,14 +2119,12 @@ and provides is as output signal.
             Text(
               extent={{-60,-52},{-144,-96}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="K"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255}),
             Text(
               extent={{138,-52},{27,-99}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degF")}),
         Diagram(graphics={
             Ellipse(
@@ -2147,7 +2136,6 @@ and provides is as output signal.
             Text(
               extent={{-42,-41},{-101,-98}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
@@ -2431,7 +2419,6 @@ Example:
             Text(
               extent={{-40,-50},{-99,-99}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degRk"),
             Text(
               extent={{100,-47},{44,-100}},
@@ -2454,7 +2441,6 @@ Example:
             Text(
               extent={{-44,-42},{-155,-89}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="degRk"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
@@ -2494,7 +2480,6 @@ and provides them as output signals.
             Text(
               extent={{-54,-38},{-162,-90}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="K"),
             Text(
               extent={{142,-48},{26,-91}},
@@ -2512,7 +2497,6 @@ and provides them as output signals.
             Text(
               extent={{-42,-41},{-101,-98}},
               lineColor={0,0,0},
-              lineThickness=1,
               textString="K"),
             Text(
               extent={{100,-40},{30,-100}},
@@ -2998,7 +2982,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </html>"));
   end Interfaces;
   annotation (
-     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics = {
+     Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100,-100},{100,100}}), graphics={
       Polygon(
         origin = {13.758,27.517},
         lineColor = {128,128,128},

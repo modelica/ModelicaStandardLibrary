@@ -473,13 +473,11 @@ package Basic "Basic electrical components"
           Text(
             extent={{-103,16},{-60,-10}},
             textString="L1",
-            lineColor={0,0,0},
-            pattern=LinePattern.Dot),
+            lineColor={0,0,0}),
           Text(
             extent={{64,15},{105,-9}},
             textString="L2",
-            lineColor={0,0,0},
-            pattern=LinePattern.Dot),
+            lineColor={0,0,0}),
           Text(
             extent={{-27,-71},{33,-97}},
             textString="M",

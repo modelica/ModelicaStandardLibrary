@@ -1487,14 +1487,10 @@ Simulate for 1.5 seconds and plot (versus time):
                       pattern=LinePattern.Dash),Text(
                       extent={{20,88},{100,80}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{20,-22},{100,-30}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textString="3 phase machine",
                       textStyle={TextStyle.Bold})}));
       end AIMC_DOL_MultiPhase;
@@ -2016,14 +2012,10 @@ Simulate for 1.5 seconds and plot (versus time):
                       pattern=LinePattern.Dash),Text(
                       extent={{40,68},{100,60}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textString="%m phase machine",
                       textStyle={TextStyle.Bold}),Text(
                       extent={{40,-32},{100,-40}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textString="3 phase machine",
                       textStyle={TextStyle.Bold})}));
       end AIMS_Start_MultiPhase;
@@ -2531,15 +2523,11 @@ and accelerate the inertias. Two equivalent machines with different numbers of p
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-54},{100,-62}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Text(
                 extent={{40,-44},{100,-52}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 ")}));
@@ -3197,15 +3185,11 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM3.rotorDisplacementAng
                       pattern=LinePattern.Dash),Text(
                       extent={{10,16},{70,8}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{10,-52},{70,-60}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
@@ -3703,15 +3687,11 @@ Simulate for 1.5 seconds and plot (versus time):
                       pattern=LinePattern.Dash),Text(
                       extent={{40,-44},{100,-52}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="%m phase machine
 "),           Text(
                 extent={{40,-54},{100,-62}},
                       lineColor={0,0,0},
-                      fillColor={255,255,170},
-                      fillPattern=FillPattern.Solid,
                       textStyle={TextStyle.Bold},
                       textString="3 phase machine
 "),           Rectangle(
@@ -4028,8 +4008,6 @@ relationship of the voltage and current space phasor.
               color={0,0,255}),Text(
                   extent={{0,160},{0,120}},
                   lineColor={0,0,255},
-                  fillColor={255,128,0},
-                  fillPattern=FillPattern.Solid,
                   textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -4157,8 +4135,6 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
               color={0,0,255}),Text(
                   extent={{0,160},{0,120}},
                   lineColor={0,0,255},
-                  fillColor={255,128,0},
-                  fillPattern=FillPattern.Solid,
                   textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -5330,8 +5306,6 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
                 {0,0,255}),Text(
                       extent={{0,160},{0,120}},
                       lineColor={0,0,255},
-                      fillColor={255,128,0},
-                      fillPattern=FillPattern.Solid,
                       textString="%name")}), Documentation(info="<html>
 <p>
 The single phase winding consists of a winding
@@ -5523,8 +5497,6 @@ The single phase winding consists of a winding
               Text(
                 extent={{0,160},{0,120}},
                 lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
                 textString="%name")}), Documentation(info="<html>
 <p>
 The symmetrical multi phase winding consists of a symmetrical winding
@@ -6637,8 +6609,6 @@ Source of magnetic flux with complex signal input.
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-90},
               {0,-70}}),Text(
@@ -6672,8 +6642,6 @@ Source of magnetic flux with complex signal input.
                 -100},{100,100}}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{0,-90},{0,-70}}),Text(
                   extent={{-140,120},{140,80}},
@@ -7176,9 +7144,7 @@ i.e., with small derivatives.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-60,60},{60,-60}},
                   textString="S",
-                  lineColor={0,0,255},
-                  fillColor={255,170,85},
-                  fillPattern=FillPattern.Solid),Text(
+                  lineColor={0,0,255}),          Text(
                   extent={{0,-60},{0,-100}},
                   lineColor={0,0,255},
                   textString="%name")}));

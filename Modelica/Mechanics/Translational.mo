@@ -2304,8 +2304,7 @@ where the different effects are visualized:
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-150,100},{150,60}},
                   textString="%name",
-                  lineColor={0,0,255},
-                  pattern=LinePattern.Dot),Text(
+                  lineColor={0,0,255}),    Text(
                   extent={{-150,-125},{150,-95}},
                   lineColor={0,0,0},
                   textString="c=%c"),Text(
@@ -3676,8 +3675,8 @@ Modelica.Blocks library.
     model Position
       "Forced movement of a flange according to a reference position"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(stateSelect=if exact then StateSelect.default else StateSelect.prefer));
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
@@ -3770,8 +3769,8 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Speed "Forced movement of a flange according to a reference speed"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));
@@ -3874,8 +3873,8 @@ blocks of the block library Modelica.Blocks.Sources.
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
       extends
-        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2
-        (s(
+        Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2(
+         s(
           start=0,
           fixed=true,
           stateSelect=StateSelect.prefer));

@@ -112,7 +112,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.x.x, 2016-08-24</h5>
 <ul>
-<li>Added 
+<li>Added
 <a href=\"modelica://Modelica.Magnetic.QuasiStatic.FundamentalWave.Sensors.RotorDisplacementAngle\">RotorDisplacementAngle</a></li>
 </ul>
 
@@ -807,15 +807,11 @@ In this example the eddy current losses are implemented in two different ways. C
                           pattern=LinePattern.Dash),Text(
                           extent={{20,-6},{100,-14}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 "),             Text(
                   extent={{20,14},{100,6}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}),           experiment(StopTime=1.5, Interval=0.001),
@@ -1094,15 +1090,11 @@ and accelerating inertias. At time <code>tStep</code> a load step is applied.<p>
                           pattern=LinePattern.Dash),Text(
                           extent={{20,-6},{100,-14}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 "),             Text(
                   extent={{-66,10},{14,2}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 ")}));
@@ -1429,15 +1421,11 @@ Simulate for 1.5 seconds and plot (versus time):
                           pattern=LinePattern.Dash),Text(
                           extent={{20,12},{100,4}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 "),             Text(
                   extent={{20,-4},{100,-12}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -2601,15 +2589,11 @@ Simulate for 30 seconds:
                           pattern=LinePattern.Dash),Text(
                           extent={{20,10},{100,2}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase QS
 "),             Text(
                   extent={{20,-10},{100,-18}},
                           lineColor={0,0,0},
-                          fillColor={255,255,170},
-                          fillPattern=FillPattern.Solid,
                           textStyle={TextStyle.Bold},
                           textString="%m phase transient
 ")}));
@@ -2939,8 +2923,7 @@ Simulate for 30 seconds:
               Line(points={{36,34},{36,40},{-6,40},{-6,34}}, color={85,170,255}));
           annotation (
             experiment(StopTime=2.0, Interval=0.001),
-            Documentation(info="<html>
-<html>
+            Documentation(info="<html><html>
 <h4>Simple field oriented control of synchronous reluctance machine</h4>
 
 <p>
@@ -3330,8 +3313,6 @@ relationship of the voltage and current space phasor.
               color={85,170,255}),Text(
                   extent={{0,160},{0,120}},
                   lineColor={0,0,255},
-                  fillColor={255,128,0},
-                  fillPattern=FillPattern.Solid,
                   textString="%name")}), Documentation(info="<html>
 
 <p>
@@ -3460,8 +3441,6 @@ QuasiStaticAnalogElectroMagneticConverter</a>
               color={0,0,255}),Text(
                   extent={{0,160},{0,120}},
                   lineColor={0,0,255},
-                  fillColor={255,128,0},
-                  fillPattern=FillPattern.Solid,
                   textString="%name")}),
         Documentation(info="<html>
 <p>
@@ -4678,8 +4657,6 @@ Magnetic.FundamentalWave.BasicMachines.SM_ReluctanceRotor</a>,
               Text(
                 extent={{0,160},{0,120}},
                 lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
                 textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -4807,8 +4784,6 @@ Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding</a>
               Text(
                 extent={{0,160},{0,120}},
                 lineColor={0,0,255},
-                fillColor={255,128,0},
-                fillPattern=FillPattern.Solid,
                 textString="%name")}),
           Documentation(info="<html>
 <p>
@@ -6098,8 +6073,6 @@ ConstantFlux</a>
             grid={2,2}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{70,0},{90,0}}),Line(points={{0,-90},
               {0,-70}}),Text(
@@ -6142,8 +6115,6 @@ ConstantFlux</a>
             grid={2,2}), graphics={Text(
                   extent={{-52,1},{48,-57}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="V_m"),Line(points={{-70,0},{-90,0}}),
               Line(points={{0,-90},{0,-70}}),Text(
                   extent={{-140,120},{140,80}},
@@ -6286,7 +6257,7 @@ ConstantFlux</a>
                   points={{120,120},{110,100}})}),
         Documentation(info="<html>
 <p>
-Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system, 
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the corresponding space phasor in stator-fixed coordinate system,
 rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.</p>
 <p>
 The sensor's housing can be implicitly fixed (<code>useSupport=false</code>).
@@ -6331,8 +6302,6 @@ This package provides sensors for the magnetic potential difference and the magn
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={255,170,85},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"), Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={255,170,85},
@@ -6369,8 +6338,6 @@ Additionally the reference angle is specified in the connector. The time derivat
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={255,170,85},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"), Ellipse(
               extent={{-40,40},{40,-40}},
               lineColor={255,170,85},

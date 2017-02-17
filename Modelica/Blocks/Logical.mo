@@ -665,7 +665,6 @@ The default value of this parameter is <b>false</b>.
               -100},{100,100}}), graphics={
           Text(
             extent={{-92,74},{44,44}},
-            lineThickness=0.5,
             textString="reference"),
           Text(
             extent={{-94,-52},{-34,-74}},

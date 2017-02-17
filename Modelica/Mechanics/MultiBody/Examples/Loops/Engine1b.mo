@@ -77,11 +77,9 @@ equation
           lineThickness=0.5),Text(
           extent={{65,-30},{145,-39}},
           lineColor={255,0,0},
-          lineThickness=0.5,
           textString="jointRRP in model"),Text(
           extent={{66,-34},{141,-52}},
           lineColor={255,0,0},
-          lineThickness=0.5,
           textString="Loops.Engine1b_analytic")}),
     Documentation(info="<html>
 <p>

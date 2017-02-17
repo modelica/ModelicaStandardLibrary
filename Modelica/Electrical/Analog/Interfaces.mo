@@ -126,8 +126,7 @@ The reason could be that
   partial model TwoPin "Component with two electrical pins"
     SI.Voltage v "Voltage drop between the two pins (= p.v - n.v)";
     PositivePin p
-      "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)"
-                                                                                    annotation (Placement(
+      "Positive pin Positive pin (potential p.v > n.v for positive voltage drop v)" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}})));
     NegativePin n "Negative pin" annotation (Placement(transformation(extent={{
               90,-10},{110,10}})));
@@ -228,14 +227,12 @@ The reason could be that
     SI.Current i1 "Current flowing from pos. to neg. pin of the left port";
     SI.Current i2 "Current flowing from pos. to neg. pin of the right port";
     PositivePin p1
-      "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)"
-                                                                                           annotation (Placement(
+      "Positive pin of the left port (potential p1.v > n1.v for positive voltage drop v1)" annotation (Placement(
           transformation(extent={{-110,40},{-90,60}})));
     NegativePin n1 "Negative pin of the left port" annotation (Placement(
           transformation(extent={{-90,-60},{-110,-40}})));
     PositivePin p2
-      "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-                                                                                            annotation (Placement(
+      "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)" annotation (Placement(
           transformation(extent={{110,40},{90,60}})));
     NegativePin n2 "Negative pin of the right port" annotation (Placement(
           transformation(extent={{90,-60},{110,-40}})));
@@ -607,15 +604,12 @@ behavior is <b>not</b> modelled.
               pattern=LinePattern.Dot),Text(
               extent={{20,0},{40,-10}},
               lineColor={128,128,128},
-              pattern=LinePattern.Dot,
               textString="Vknee"),Text(
               extent={{20,70},{40,60}},
               lineColor={128,128,128},
-              pattern=LinePattern.Dot,
               textString="Ron"),Text(
               extent={{-20,10},{0,0}},
               lineColor={128,128,128},
-              pattern=LinePattern.Dot,
               textString="Goff"),Ellipse(
               extent={{18,12},{22,8}},
               pattern=LinePattern.Dot,

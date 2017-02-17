@@ -11201,9 +11201,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-10,66},{10,54}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="h"),
                 Line(
                   points={{60,-66},{-100,-66}},
@@ -11218,9 +11215,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-28,-62},{-8,-74}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L"),
                 Polygon(
                   points={{-100,-40},{-60,0},{100,0},{60,-40},{-100,-40}},
@@ -11240,9 +11234,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-90,-2},{-70,-14}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="s"),
                 Line(
                   points={{26,-10},{-24,-10}},
@@ -11257,9 +11248,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-10,-2},{10,-14}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="v"),
                 Ellipse(
                   extent={{78,52},{82,48}},
@@ -11288,23 +11276,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{70,16},{90,4}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="T_wall"),
                 Text(
                   extent={{-30,36},{-10,24}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="wall 1"),
                 Text(
                   extent={{-30,-44},{-10,-56}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="wall 2")}));
 
         end Gap1_d;
@@ -11478,10 +11457,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),
                 Text(
                   extent={{-14,-76},{12,-86}},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
-                  pattern=LinePattern.None,
                   textString="d_mean"),
                 Line(
                   points={{46,-56},{88,-56}},
@@ -11515,9 +11490,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{72,-26},{98,-36}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="h"),
                 Rectangle(
                   extent={{-68,84},{-50,76}},
@@ -11528,9 +11500,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-72,86},{-50,78}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="d_hyd"),
                 Rectangle(
                   extent={{-36,56},{-30,48}},
@@ -11544,9 +11513,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-44,56},{-22,48}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L")}));
         end HelicalPipe1_d;
 
@@ -11566,9 +11532,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-14,-20},{12,-30}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L"),
                 Line(
                   points={{-20,16},{20,16}},
@@ -11576,9 +11539,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-14,26},{12,16}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="velocity")}));
         end Plate1_d;
 
@@ -11607,9 +11567,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   arrow={Arrow.None,Arrow.Filled}),Text(
                   extent={{-14,10},{12,0}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="v"),Line(
                   points={{-100,-48},{60,-48}},
                   arrow={Arrow.Filled,Arrow.Filled}),Rectangle(
@@ -11620,9 +11577,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   pattern=LinePattern.None),Text(
                   extent={{-34,-44},{-8,-54}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L")}));
         end Plate2_d;
 
@@ -11758,16 +11712,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-90,30},{-64,20}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="d_hyd"),
                 Text(
                   extent={{-10,20},{16,10}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="delta"),
                 Rectangle(
                   extent={{-54,18},{-44,2}},
@@ -11778,9 +11726,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-58,14},{-40,4}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L"),
                 Ellipse(
                   extent={{-2,6},{0,4}},
@@ -11832,9 +11777,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-9,66},{9,56}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="d_cir"),
                 Ellipse(
                   extent={{-40,80},{-80,40}},
@@ -11870,9 +11812,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-99,65},{-81,55}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="D_ann"),
                 Line(
                   points={{-16,0},{16,0}},
@@ -11894,9 +11833,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-69,39},{-51,29}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="d_ann"),
                 Ellipse(
                   extent={{78,72},{42,48}},
@@ -11924,9 +11860,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{46,46},{55,39}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="a_ell"),
                 Line(
                   points={{0,0},{22,0}},
@@ -11956,9 +11889,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{83,69},{95,63}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="b_ell"),
                 Rectangle(
                   extent={{-60,24},{-20,-6}},
@@ -11998,9 +11928,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-48,-9},{-31,-18}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="a_rec"),
                 Line(
                   points={{-16,0},{16,0}},
@@ -12028,9 +11955,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-18,13},{-1,4}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="b_rec"),
                 Polygon(
                   points={{20,-10},{40,30},{60,-10},{20,-10}},
@@ -12088,9 +12012,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{56,13},{73,4}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="h_tri"),
                 Rectangle(
                   extent={{31,-11},{50,-23}},
@@ -12100,9 +12021,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{32,-11},{49,-20}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="a_tri"),
                 Line(
                   points={{36,14},{38,12},{42,12},{44,14}},
@@ -12116,9 +12034,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{12,27},{29,18}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="beta")}));
 
         end Channel_d;
@@ -12147,14 +12062,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-80,88},{86,76}},
                   lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="sudden expansion"),
                 Text(
                   extent={{-82,-76},{86,-88}},
                   lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="sudden contraction"),
                 Line(
                   points={{-20,0},{20,0}},
@@ -12183,9 +12094,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{38,4},{64,-6}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="A_2"),
                 Rectangle(
                   extent={{-58,6},{-38,-8}},
@@ -12196,9 +12104,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-62,4},{-36,-6}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="A_1"),
                 Rectangle(
                   extent={{0,20},{0,-20}},
@@ -12209,8 +12114,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-44,10},{40,2}},
                   lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="design flow direction"),
                 Line(
                   points={{-24,-4},{16,-4}},
@@ -12265,9 +12168,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{56,4},{82,-6}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="A_1"),
                 Rectangle(
                   extent={{0,20},{0,-20}},
@@ -12299,9 +12199,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-84,4},{-58,-6}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="A_1"),
                 Line(
                   points={{-42,0},{-2,0}},
@@ -12318,9 +12215,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-14,4},{12,-6}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="A_0"),
                 Rectangle(
                   extent={{-44,20},{-40,-20}},
@@ -12343,9 +12237,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-12,-28},{14,-38}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L")}));
         end OrificeThickEdged_d;
 
@@ -12379,9 +12270,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-8,58},{10,48}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid,
                   textString="L"),
                 Ellipse(
                   extent={{90,26},{70,-34}},
@@ -12436,9 +12324,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 Text(
                   extent={{-14,2},{12,-8}},
                   lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={255,255,170},
-                  fillPattern=FillPattern.Solid,
                   textString="d_hyd")}));
 
         end StraightPipe_d;

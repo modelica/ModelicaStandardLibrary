@@ -436,7 +436,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
               {-50,-21},{-50,-29.5},{-50,-38}}, color={85,170,255}));
       annotation (Documentation(info="<html>
 <p>
-This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensormeasures the neutral displacement). 
+This example shows an unsymmetrical load, in the upper with neutral connection (the singlephase current sensor measures the neutral current) and in the lower without neutral connection (the singlephase voltage sensormeasures the neutral displacement).
 </p>
 </html>"),
       experiment(StopTime=1.0, Interval=0.001));
@@ -949,8 +949,6 @@ Connects all <code>m</code> single phase (negative) pins of the multi phase (neg
                   fillPattern=FillPattern.Solid),Text(
                   extent={{100,-80},{-100,-40}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="m=%m")}), Documentation(info="<html>
 <p>
 The linear resistor connects the complex voltages <code><u>v</u></code> with the complex
@@ -2544,8 +2542,6 @@ Transformation of space phasor to m phase values (voltages or currents).
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="ref")}));
     end ReferenceSensor;
 
@@ -3240,8 +3236,6 @@ derived from this base connector.
               fillPattern=FillPattern.Solid), Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(info="<html>
 
@@ -3278,8 +3272,6 @@ Additionally the reference angle is specified in the connector. The time derivat
               fillPattern=FillPattern.Solid), Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(info="<html>
 
@@ -3431,8 +3423,6 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
             Text(
               extent={{100,-100},{-100,-70}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="m=%m")}), Documentation(info="<html>
 
 <p>
@@ -3466,8 +3456,6 @@ The absolute sensor partial model relies on the a
             Text(
               extent={{100,-100},{-100,-70}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="m=%m")}), Documentation(info="<html>
 <p>
 The relative sensor partial model relies on the
@@ -3504,8 +3492,6 @@ The relative sensor partial model relies on the
               0,0}),Line(points={{50,0},{90,0}}),Text(
                   extent={{100,60},{-100,100}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="m=%m")}),
         Documentation(info="<html>
 <p>
@@ -3542,8 +3528,6 @@ The source partial model relies on the
               0,0}),Line(points={{50,0},{90,0}}),Text(
                   extent={{100,60},{-100,100}},
                   lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid,
                   textString="m=%m")}), Documentation(info="<html>
 <p>
 The source partial model relies on the

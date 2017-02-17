@@ -1022,8 +1022,7 @@ phi_b.start = 45<sup>o</sup>).
       "Color of prismatic joint boxes"
       annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.prefer
-      "Priority to use joint coordinates (s_x, s_y, phi, v_x, v_y, w) as states"
-                                                                                 annotation(Dialog(tab="Advanced"));
+      "Priority to use joint coordinates (s_x, s_y, phi, v_x, v_y, w) as states" annotation(Dialog(tab="Advanced"));
 
     Prismatic prismatic_x(
       stateSelect=StateSelect.never,
@@ -7346,9 +7345,7 @@ pair of joints\" from Woernle and Hiller is described in:
             Text(
               extent={{-63,-63},{53,-93}},
               lineColor={0,0,0},
-              textString="n=%n",
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid),
+              textString="n=%n"),
             Rectangle(
               extent={{-100,-60},{-30,60}},
               lineColor={64,64,64},

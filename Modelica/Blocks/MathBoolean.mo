@@ -63,8 +63,6 @@ equation
             Text(
               extent={{-84,16},{273,-15}},
               lineColor={0,0,0},
-              fillColor={255,246,238},
-              fillPattern=FillPattern.Solid,
               textString="%expr"),
             Ellipse(
               extent={{275,8},{289,-6}},
@@ -378,8 +376,7 @@ The usage is demonstrated, e.g., in example
                 color={255,0,255}),
             Line(
               points={{24,32},{24,76}},
-              color={255,0,255})}),
-                                   Documentation(info="<html>
+              color={255,0,255})}),Documentation(info="<html>
 <p>
 A changing edge, i.e., either rising or falling,
 of the Boolean input u results in y = <b>true</b> at this

@@ -447,9 +447,7 @@ Example:
 <p>
 Please note, that in contrast to setState_phX, setState_dTX and setState_psX this function can not calculate properties in the two-phase region since pressure and temperature are dependent variables. A guard function will be called if the temperature difference to the phase boundary is lower than 1K or the pressure difference to the critical pressure is lower than 1000 Pa.
 </p>
-</html>
-
-"));
+</html>"));
     end setState_pTX;
 
     redeclare function extends setBubbleState
