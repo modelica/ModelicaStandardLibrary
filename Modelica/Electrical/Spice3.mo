@@ -10171,8 +10171,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         dev.m_sourceArea := AS;       // AS, area of source diffusion
         dev.m_drainSquares := NRD;    // NRD, length of drain in squares
         dev.m_sourceSquares := NRS;   // NRS, length of source in squares
-        dev.m_drainPerimiter := PD;   // PD, Drain perimeter;
-        dev.m_sourcePerimiter := PS;  // PS, Source perimeter
+        dev.m_drainPerimeter := PD;   // PD, Drain perimeter;
+        dev.m_sourcePerimeter := PS;  // PS, Source perimeter
 
           dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVDS := if         (IC > -1e40) then IC else 0;
