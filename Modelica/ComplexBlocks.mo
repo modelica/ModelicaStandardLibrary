@@ -255,7 +255,7 @@ Block has one continuous Complex input and one continuous Complex output signal.
         "If true, input 2 is processed conjugate complex";
     protected
       Complex u1Internal=(if useConjugateInput1 then Modelica.ComplexMath.conj(
-          u1) else u2)
+          u1) else u1)
         "Equals either u1 or conjugate complex input u1 if useComplexInput1 = true";
       Complex u2Internal=(if useConjugateInput2 then Modelica.ComplexMath.conj(
           u2) else u2)
