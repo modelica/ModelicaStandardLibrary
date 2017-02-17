@@ -13,8 +13,7 @@ package Continuous "Library of continuous control blocks with internal states"
      and therefore this setting is backward compatible
   */
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.InitialState
-      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)"
-                                                                                      annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3,4: initial output)"     annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -312,8 +311,7 @@ If k=0, the block reduces to y=0.
     parameter Real k(unit="1")=1 "Gain";
     parameter SIunits.Time T(start=1) "Time Constant";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
-                                                                                      annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"     annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -403,8 +401,7 @@ Example:
     parameter Real w(start=1) "Angular frequency";
     parameter Real D(start=1) "Damping";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
-      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
-                                                                                      annotation(Evaluate=true,
+      "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"     annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Real y_start=0 "Initial or guess value of output (= state)"
       annotation (Dialog(group="Initialization"));
@@ -1912,7 +1909,7 @@ The critical damping filter is defined as
         Text(lineColor={192,192,192},
           extent={{-66.0,52.0},{88.0,90.0}},
           textString="%order"),
-        Text(fillPattern=FillPattern.Solid,
+        Text(
           extent={{-138.0,-140.0},{162.0,-110.0}},
           textString="f_cut=%f_cut"),
         Rectangle(lineColor={160,160,164},

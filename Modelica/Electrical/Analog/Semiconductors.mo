@@ -956,14 +956,12 @@ end HeatingDiode;
           parameter SI.Length L=6.e-6 "Length";
           parameter SI.Transconductance Beta=0.041e-3
       "Transconductance parameter";
-          parameter SI.Voltage Vt=0.8
-      "Zero bias threshold voltage";
+          parameter SI.Voltage Vt=0.8 "Zero bias threshold voltage";
           parameter Real K2=1.144 "Bulk threshold parameter";
           parameter Real K5=0.7311 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-1.5e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1.e+7
-      "Drain-Source-Resistance";
+          parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
           parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real kvt=-6.96e-3 "Fitting parameter for Vt";
@@ -1104,14 +1102,12 @@ end HeatingDiode;
           parameter SI.Length L=6.0e-6 "Length";
           parameter SI.Transconductance Beta=0.0105e-3
       "Transconductance parameter";
-          parameter SI.Voltage Vt=-1.0
-      "Zero bias threshold voltage";
+          parameter SI.Voltage Vt=-1.0 "Zero bias threshold voltage";
           parameter Real K2=0.41 "Bulk threshold parameter";
           parameter Real K5=0.839 "Reduction of pinch-off region";
           parameter SI.Length dW=-2.5e-6 "Narrowing of channel";
           parameter SI.Length dL=-2.1e-6 "Shortening of channel";
-          parameter SI.Resistance RDS=1.e+7
-      "Drain-Source-Resistance";
+          parameter SI.Resistance RDS=1.e+7 "Drain-Source-Resistance";
           parameter SI.Temperature Tnom=300.15
       "Parameter measurement temperature";
           parameter Real kvt=-2.9e-3 "Fitting parameter for Vt";
@@ -1231,30 +1227,22 @@ end HeatingDiode;
     "Simple NPN BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1.e-16
-      "Transport saturation current";
+          parameter SI.Current Is=1.e-16 "Transport saturation current";
           parameter SI.InversePotential Vak=0.02
       "Early voltage (inverse), 1/Volt";
-          parameter SI.Time Tauf=0.12e-9
-      "Ideal forward transit time";
-          parameter SI.Time Taur=5e-9
-      "Ideal reverse transit time";
-          parameter SI.Capacitance Ccs=1e-12
-      "Collector-substrate(ground) cap.";
+          parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
+          parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
+          parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
           parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
           parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-          parameter SI.Voltage Phie=0.8
-      "Base-emitter diffusion voltage";
+          parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SI.Voltage Phic=0.8
-      "Base-collector diffusion voltage";
+          parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SI.Conductance Gbc=1e-15
-      "Base-collector conductance";
-          parameter SI.Conductance Gbe=1e-15
-      "Base-emitter conductance";
+          parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
+          parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
           parameter Real EMin=-100
       "if x < EMin, the exp(x) function is linearized";
           parameter Real EMax=40
@@ -1400,30 +1388,22 @@ end HeatingDiode;
     "Simple PNP BJT according to Ebers-Moll with heating port"
           parameter Real Bf=50 "Forward beta";
           parameter Real Br=0.1 "Reverse beta";
-          parameter SI.Current Is=1.e-16
-      "Transport saturation current";
+          parameter SI.Current Is=1.e-16 "Transport saturation current";
           parameter SI.InversePotential Vak=0.02
       "Early voltage (inverse), 1/Volt";
-          parameter SI.Time Tauf=0.12e-9
-      "Ideal forward transit time";
-          parameter SI.Time Taur=5e-9
-      "Ideal reverse transit time";
-          parameter SI.Capacitance Ccs=1e-12
-      "Collector-substrate(ground) cap.";
+          parameter SI.Time Tauf=0.12e-9 "Ideal forward transit time";
+          parameter SI.Time Taur=5e-9 "Ideal reverse transit time";
+          parameter SI.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
           parameter SI.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
           parameter SI.Capacitance Cjc=0.5e-12
       "Base-coll. zero bias depletion cap.";
-          parameter SI.Voltage Phie=0.8
-      "Base-emitter diffusion voltage";
+          parameter SI.Voltage Phie=0.8 "Base-emitter diffusion voltage";
           parameter Real Me=0.4 "Base-emitter gradation exponent";
-          parameter SI.Voltage Phic=0.8
-      "Base-collector diffusion voltage";
+          parameter SI.Voltage Phic=0.8 "Base-collector diffusion voltage";
           parameter Real Mc=0.333 "Base-collector gradation exponent";
-          parameter SI.Conductance Gbc=1e-15
-      "Base-collector conductance";
-          parameter SI.Conductance Gbe=1e-15
-      "Base-emitter conductance";
+          parameter SI.Conductance Gbc=1e-15 "Base-collector conductance";
+          parameter SI.Conductance Gbe=1e-15 "Base-emitter conductance";
           parameter Real EMin=-100
       "if x < EMin, the exp(x) function is linearized";
           parameter Real EMax=40
@@ -1716,7 +1696,6 @@ public
           Text(
             extent={{25,64},{45,54}},
             lineColor={128,128,128},
-            pattern=LinePattern.Dot,
             textString="Ron"),
           Line(
             points={{14,20},{25,73}},
@@ -1730,12 +1709,10 @@ public
           Text(
             extent={{-67,11},{-47,1}},
             lineColor={128,128,128},
-            pattern=LinePattern.Dot,
             textString="VRRM"),
           Text(
             extent={{44,-2},{64,-12}},
             lineColor={128,128,128},
-            pattern=LinePattern.Dot,
             textString="VDRM"),
           Line(
             points={{-57,1},{-57,-1}}),
@@ -1747,14 +1724,12 @@ public
           Text(
             extent={{-28,-9},{-8,-19}},
             lineColor={128,128,128},
-            pattern=LinePattern.Dot,
             textString="Roff"),
           Line(
             points={{2,20},{-2,20}}),
           Text(
             extent={{-14,23},{-2,16}},
             lineColor={128,128,128},
-            pattern=LinePattern.Dot,
             textString="IH")}));
   end Thyristor;
 

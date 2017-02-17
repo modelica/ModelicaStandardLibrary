@@ -48,8 +48,6 @@ into your model and specify the seed.
           Text(visible=enableNoise and not useAutomaticSeed,
             extent={{-90,-4},{88,-30}},
             lineColor={255,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="%fixedSeed"),
           Line(visible = not enableNoise,
             points={{-80,-4},{84,-4}},
@@ -57,8 +55,6 @@ into your model and specify the seed.
           Text(visible=enableNoise and not useAutomaticSeed,
             extent={{-84,34},{94,8}},
             lineColor={255,0,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid,
             textString="fixedSeed =")}),
       Documentation(revisions="<html>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -244,12 +240,10 @@ is dragged to provide global settings for all instances.
               Text(visible=enableNoise,
                extent={{-66,92},{94,66}},
                lineColor={175,175,175},
-               pattern=LinePattern.Dot,
                textString="mu=%mu"),
               Text(visible=enableNoise,
                extent={{-70,-68},{94,-96}},
                lineColor={175,175,175},
-               pattern=LinePattern.Dot,
                textString="sigma=%sigma")}),
       Documentation(info="<html>
 <p>
@@ -326,8 +320,6 @@ is dragged to provide global settings for all instances.
           Text(
             extent={{-71,12},{71,-12}},
             lineColor={175,175,175},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
             origin={-88,-11},
             rotation=90,
             textString="normal")}),
@@ -402,8 +394,6 @@ is dragged to provide global settings for all instances.
           Text(
             extent={{-96,11},{96,-11}},
             lineColor={175,175,175},
-            fillColor={192,192,192},
-            fillPattern=FillPattern.Solid,
             origin={-87,0},
             rotation=90,
             textString="white noise")}),

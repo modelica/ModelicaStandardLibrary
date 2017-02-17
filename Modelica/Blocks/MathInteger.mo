@@ -6,8 +6,7 @@ block MultiSwitch
     "Set Integer expression that is associated with the first active input signal"
 
   input Integer expr[nu]=fill(0, nu)
-      "y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default"
-                                                                                                 annotation(Dialog);
+      "y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default"            annotation(Dialog);
   parameter Integer y_default=0
       "Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time";
 
@@ -65,8 +64,6 @@ equation
             Text(
               extent={{-80,15},{290,-15}},
               lineColor={0,0,0},
-              fillColor={255,246,238},
-              fillPattern=FillPattern.Solid,
               textString="%expr")}),
     Documentation(info="<html>
 <p>
@@ -112,13 +109,9 @@ end MultiSwitch;
     annotation (Icon(graphics={Text(
               extent={{-200,-110},{200,-140}},
               lineColor={0,0,0},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
               textString="%k"), Text(
               extent={{-72,68},{92,-68}},
               lineColor={0,0,0},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
               textString="+")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Integer output \"y\" as sum of the elements of the
@@ -160,8 +153,6 @@ the output is set to zero: y=0.
     annotation (Icon(graphics={Text(
               extent={{-74,50},{94,-94}},
               lineColor={0,0,0},
-              fillColor={255,213,170},
-              fillPattern=FillPattern.Solid,
               textString="*")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Integer output \"y\" as product of the elements of the

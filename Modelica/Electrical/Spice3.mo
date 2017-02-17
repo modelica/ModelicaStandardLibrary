@@ -2531,12 +2531,10 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
             Text(
               extent={{-74,76},{74,30}},
               lineColor={170,85,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Text(
               extent={{-72,-24},{76,-70}},
               lineColor={170,85,255},
-              fillPattern=FillPattern.Solid,
               textString="k=%k")}),
         Documentation(info="<html>
 <p>
@@ -4034,8 +4032,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
       parameter Integer N(final min=1) = 1 "Number of controlling voltages";
       parameter Real coeff[:] = {1} "Coefficients of polynomial";
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-                                                                                                           annotation (Placement(
+        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"              annotation (Placement(
             transformation(extent={{110,40},{90,60}}),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
@@ -4130,8 +4127,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
       parameter Integer N(final min=1) = 1 "Number of controlling voltages";
       parameter Real coeff[:] = {1} "Coefficients of polynomial";
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-                                                                                                           annotation (Placement(
+        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"              annotation (Placement(
             transformation(extent={{110,40},{90,60}}),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
@@ -4233,8 +4229,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       parameter Integer N(final min=1) = 1 "Number of controlling voltages";
       parameter Real coeff[:] = {1} "Coefficients of polynomial";
       Modelica.Electrical.Analog.Interfaces.PositivePin p
-        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"
-                                                                                                           annotation (Placement(
+        "Positive pin of the right port (potential p2.v > n2.v for positive voltage drop v2)"              annotation (Placement(
             transformation(extent={{110,40},{90,60}}),
             iconTransformation(extent={{110,40},{90,60}})));
       Modelica.Electrical.Analog.Interfaces.NegativePin n
@@ -5694,8 +5689,7 @@ on the model behaviour.
       parameter Modelica.Electrical.Spice3.Internal.ModelcardC modelcard
         "Capacitor modelcard";
       final parameter
-        Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams
-                                                                                    lp=
+        Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams lp=
           Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParameters(
            modelcard) "Model Line Parameters";
       final parameter
@@ -10171,8 +10165,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         dev.m_sourceArea := AS;       // AS, area of source diffusion
         dev.m_drainSquares := NRD;    // NRD, length of drain in squares
         dev.m_sourceSquares := NRS;   // NRS, length of source in squares
-        dev.m_drainPerimeter := PD;   // PD, Drain perimeter;
-        dev.m_sourcePerimeter := PS;  // PS, Source perimeter
+        dev.m_drainPerimiter := PD;   // PD, Drain perimeter;
+        dev.m_sourcePerimiter := PS;  // PS, Source perimeter
 
           dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0;
           dev.m_dICVDS := if         (IC > -1e40) then IC else 0;

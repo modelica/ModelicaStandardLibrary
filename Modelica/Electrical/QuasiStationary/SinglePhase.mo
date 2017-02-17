@@ -1891,8 +1891,6 @@ Quasi stationary theory for single phase circuits can be found in the
       annotation (Icon(graphics={Text(
               extent={{60,-60},{-60,-30}},
               lineColor={0,0,0},
-              fillColor={0,0,0},
-              fillPattern=FillPattern.Solid,
               textString="ref")}));
     end ReferenceSensor;
 
@@ -2271,8 +2269,6 @@ derived from this base connector.
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={85,170,255},
@@ -2309,8 +2305,6 @@ Additionally the reference angle is specified in the connector. The time derivat
         Diagram(graphics={Text(
               extent={{-100,100},{100,60}},
               lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"), Rectangle(
               extent={{-40,40},{40,-40}},
               lineColor={85,170,255},
@@ -2419,8 +2413,6 @@ This model is intended to be used with textual representation of user models.
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Line(points={{100,0},{70,0}})}), Documentation(info="<html>
 <p>
@@ -2454,8 +2446,6 @@ The absolute sensor partial model provides a single
             Text(
               extent={{-100,100},{100,70}},
               lineColor={0,0,255},
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Line(points={{0,-70},{0,-80},{0,-90},{0,-100}}, color={85,170,255})}),
           Documentation(info="<html>

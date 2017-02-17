@@ -1390,16 +1390,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D0"),
               Text(
                 extent={{64,12},{86,-8}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D"),
               Text(
                 extent={{-150,-100},{150,-160}},
@@ -1412,37 +1406,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="A1"),
               Text(
                 extent={{-86,54},{-64,34}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D1"),
               Text(
                 extent={{-86,28},{-64,8}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D2"),
               Text(
                 extent={{-86,2},{-64,-18}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D3"),
               Text(
                 extent={{-86,-36},{-64,-56}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="A0")}));
         end MUX4;
 
@@ -1507,30 +1486,18 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="R"),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Text(
                 extent={{-150,-100},{150,-160}},
@@ -1612,30 +1579,18 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="R"),
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
@@ -1704,23 +1659,14 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="D"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
@@ -1821,23 +1767,14 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="J"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="QN"),
               Line(points={{-90,20},{-60,0},{-90,-20}}),
               Text(
@@ -1851,9 +1788,6 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="K")}));
         end JKFF;
 
@@ -2108,37 +2042,22 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-86,80},{-64,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="a"),
               Text(
                 extent={{-86,40},{-64,20}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="b"),
               Text(
                 extent={{-86,-60},{-64,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="c_in"),
               Text(
                 extent={{60,-60},{90,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="c_out"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="s"),
               Text(
                 extent={{-100,100},{100,0}},
@@ -2200,9 +2119,6 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{68,80},{88,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="S"),
               Text(
                 extent={{-150,-100},{150,-160}},
@@ -2215,30 +2131,18 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{48,-60},{88,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Cout"),
               Text(
                 extent={{-90,-60},{-50,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Cin"),
               Text(
                 extent={{-88,80},{-68,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="A"),
               Text(
                 extent={{-88,40},{-68,20}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="B")}));
         end Adder;
 
@@ -2313,23 +2217,14 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-80,80},{-40,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="ENABLE"),
               Text(
                 extent={{64,80},{86,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q2"),
               Text(
                 extent={{64,-60},{86,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q0"),
               Text(
                 extent={{-150,-100},{150,-160}},
@@ -2342,16 +2237,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-80,-60},{-40,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="COUNT"),
               Text(
                 extent={{62,8},{84,-12}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q1")}));
         end Counter3;
 
@@ -2407,16 +2296,10 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-80,80},{-40,60}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="ENABLE"),
               Text(
                 extent={{66,8},{88,-12}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="Q"),
               Text(
                 extent={{-150,-100},{150,-160}},
@@ -2429,9 +2312,6 @@ The result can be seen in the output signals of the FullAdders according to:</p>
               Text(
                 extent={{-80,-60},{-40,-80}},
                 lineColor={0,0,0},
-                lineThickness=0.5,
-                fillColor={255,255,255},
-                fillPattern=FillPattern.Solid,
                 textString="COUNT")}));
         end Counter;
           annotation (Documentation(info="<html>
@@ -2923,12 +2803,10 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Transport"),
             Text(
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Delay")}));
         end TransportDelay;
 
@@ -2984,12 +2862,10 @@ If time is less than <i>delayTime</i> the initial value <i>y0</i> holds.
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Inertial"),
             Text(
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Delay")}));
         end InertialDelay;
 
@@ -3072,17 +2948,14 @@ is used, if it is zero, the input is not delayed.
             Text(
               extent={{-50,-40},{50,-20}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Inertial"),
             Text(
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Delay"),
             Text(
               extent={{-50,-80},{50,-60}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="sensitive"),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}),
@@ -3184,7 +3057,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="1"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3232,7 +3104,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="&"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -3274,7 +3145,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="&"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3322,7 +3192,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString=">=1"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -3365,7 +3234,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString=">=1"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3413,7 +3281,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="=1"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -3454,7 +3321,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                 {100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="="), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -3508,9 +3374,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,191,127},
-              fillPattern=FillPattern.Solid,
               textString="1"),
             Text(
               extent={{-18,-60},{20,-100}},
@@ -3569,12 +3432,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="&"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Gate")}));
         end AndGate;
 
@@ -3610,12 +3471,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-40,40},{40,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="&"),
             Text(
               extent={{-50,-64},{50,-86}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Gate"),
             Ellipse(
               extent={{50,6},{62,-6}},
@@ -3682,12 +3541,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString=">=1"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Gate")}));
         end OrGate;
 
@@ -3736,12 +3593,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString=">=1"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Gate"),
             Ellipse(
               extent={{50,6},{62,-6}},
@@ -3796,12 +3651,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="=1"),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Gate")}));
         end XorGate;
 
@@ -3850,12 +3703,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-40,80},{40,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="="),
             Text(
               extent={{-20,-60},{20,-100}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Gate")}));
         end XnorGate;
 
@@ -3899,9 +3750,6 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             Text(
               extent={{-50,80},{50,40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
-              fillColor={255,191,127},
-              fillPattern=FillPattern.Solid,
               textString="1")}));
         end BufGate;
         annotation (                                Documentation(info="<html>
@@ -3969,7 +3817,6 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
             Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="SET"),
             Text(
               extent={{152,-160},{-148,-100}},
@@ -4354,7 +4201,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="X01"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4427,7 +4273,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="X01Z"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4500,7 +4345,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="UX01"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4833,7 +4677,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="X01"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -4911,7 +4754,6 @@ If the signal width is greater than 1 this conversion is done for each signal.
             Text(
               extent={{0,-20},{40,-40}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="X01Z"),
             Rectangle(
               extent={{-40,40},{40,-40}},
@@ -6686,7 +6528,6 @@ Clock transition definitions:
             Text(
               extent={{-7,46},{39,18}},
               lineColor={127,0,127},
-              lineThickness=1,
               textString="N"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6695,8 +6536,6 @@ Clock transition definitions:
             Text(
               extent={{-44,-24},{30,-46}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6771,7 +6610,6 @@ Clock transition definitions:
             Text(
               extent={{-2,46},{44,18}},
               lineColor={127,0,127},
-              lineThickness=1,
               textString="NR"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6780,8 +6618,6 @@ Clock transition definitions:
             Text(
               extent={{-36,-24},{38,-46}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6856,7 +6692,6 @@ Clock transition definitions:
             Text(
               extent={{-7,46},{39,18}},
               lineColor={127,0,127},
-              lineThickness=1,
               textString="P"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6865,8 +6700,6 @@ Clock transition definitions:
             Text(
               extent={{-36,-24},{38,-46}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -6941,7 +6774,6 @@ Clock transition definitions:
             Text(
               extent={{-2,46},{44,18}},
               lineColor={127,0,127},
-              lineThickness=1,
               textString="PR"),
             Line(
               points={{-82,70},{0,70},{0,16}},
@@ -6950,8 +6782,6 @@ Clock transition definitions:
             Text(
               extent={{-40,-24},{34,-46}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -7029,8 +6859,6 @@ Clock transition definitions:
             Text(
               extent={{-54,-62},{20,-84}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -7110,8 +6938,6 @@ Clock transition definitions:
             Text(
               extent={{-54,-62},{20,-84}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -7196,8 +7022,6 @@ Clock transition definitions:
             Text(
               extent={{-54,-62},{20,-84}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -7282,8 +7106,6 @@ Clock transition definitions:
             Text(
               extent={{-54,-62},{20,-84}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(revisions="<html>
 <ul>
@@ -7345,7 +7167,6 @@ Wires n input signals in one output signal, without delay.
                 100,100}}), graphics={Text(
               extent={{-50,40},{50,80}},
               lineColor={0,0,0},
-              lineThickness=0.5,
               textString="Wire"), Text(
               extent={{152,-160},{-148,-100}},
               lineColor={0,0,255},
@@ -7854,15 +7675,10 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
             Text(
               extent={{-36,-70},{38,-92}},
               lineColor={0,0,255},
-              fillColor={213,170,255},
-              fillPattern=FillPattern.Solid,
               textString="%name"),
             Text(
               extent={{-38,10},{38,-10}},
               lineColor={127,0,127},
-              lineThickness=1,
-              fillColor={127,0,127},
-              fillPattern=FillPattern.Solid,
               textString="MUX2x1")}),
         Documentation(info="<html>
 <p>Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>

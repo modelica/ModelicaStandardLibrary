@@ -9756,13 +9756,9 @@ Induced armature voltage is calculated from flux times angular velocity.
                       fillPattern=FillPattern.Solid),Text(
                       extent={{-80,-40},{-40,-80}},
                       lineColor={0,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid,
                       textString="S"),Text(
                       extent={{40,-40},{80,-80}},
                       lineColor={0,0,255},
-                      fillColor={0,0,255},
-                      fillPattern=FillPattern.Solid,
                       textString="E")}), Documentation(info="<html>
 Model to compound the shunt excitation current and the series excitation current to the total excitation current w.r.t. shunt excitation.
 This model is intended to be placed between shunt and series excitation pins and the airgap;
@@ -12009,8 +12005,6 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
                 lineColor={0,0,0},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid,
                 textString="AIMC")}), Documentation(info="<html>
 Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12082,8 +12076,6 @@ Additionally, all losses = heat flows are recorded.
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
                 lineColor={0,0,0},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid,
                 textString="AIMS")}), Documentation(info="<html>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12181,8 +12173,6 @@ Thermal parts for asynchronous induction machines
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
                 lineColor={0,0,0},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid,
                 textString="SMPM")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12279,8 +12269,6 @@ Additionally, all losses = heat flows are recorded.
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
                 lineColor={0,0,0},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid,
                 textString="SMEE")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12337,8 +12325,6 @@ Additionally, all losses = heat flows are recorded.
         annotation (Icon(graphics={Text(
                 extent={{-100,-20},{100,-80}},
                 lineColor={0,0,0},
-                fillColor={95,95,95},
-                fillPattern=FillPattern.Solid,
                 textString="SMR")}), Documentation(info="<html>
 Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12397,8 +12383,6 @@ Thermal parts for synchronous induction machines
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
                       lineColor={0,0,0},
-                      fillColor={95,95,95},
-                      fillPattern=FillPattern.Solid,
                       textString="DCPM")}), Documentation(info="<html>
 Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12449,8 +12433,6 @@ Additionally, all losses = heat flows are recorded.
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
                       lineColor={0,0,0},
-                      fillColor={95,95,95},
-                      fillPattern=FillPattern.Solid,
                       textString="DCEE")}), Documentation(info="<html>
 Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12501,8 +12483,6 @@ Additionally, all losses = heat flows are recorded.
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
                       lineColor={0,0,0},
-                      fillColor={95,95,95},
-                      fillPattern=FillPattern.Solid,
                       textString="DCSE")}), Documentation(info="<html>
 Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12585,8 +12565,6 @@ Additionally, all losses = heat flows are recorded.
         annotation (Icon(graphics={Text(
                       extent={{-100,-20},{100,-80}},
                       lineColor={0,0,0},
-                      fillColor={95,95,95},
-                      fillPattern=FillPattern.Solid,
                       textString="DCCE")}), Documentation(info="<html>
 Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
@@ -12709,8 +12687,6 @@ Thermal parts for DC machines
                   rotation=90),Text(
                   extent={{-100,-20},{100,-80}},
                   lineColor={0,0,0},
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid,
                   textString="Trafo")}), Documentation(info="<html>
 Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.

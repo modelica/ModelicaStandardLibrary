@@ -1821,13 +1821,9 @@ zero or negative.
       annotation (Icon(graphics={Text(
                   extent={{-100,80},{-20,40}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="re"),Text(
                   extent={{-100,-40},{-20,-80}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="im"),Polygon(
                   points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},
                 {20,0}},
@@ -1836,8 +1832,6 @@ zero or negative.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{20,60},{100,-60}},
                   lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="C")}), Documentation(info="<html>
 <p>Converts the Real inputs <i>re</i> (real part) and <i>im</i> (imaginary part) to the Complex output <i>y</i>.</p>
 </html>"));
@@ -1856,13 +1850,9 @@ zero or negative.
       annotation (Icon(graphics={Text(
                   extent={{-100,80},{-20,40}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="len"),Text(
                   extent={{-100,-40},{-20,-80}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="phi"),Polygon(
                   points={{20,0},{0,20},{0,10},{-30,10},{-30,-10},{0,-10},{0,-20},
                 {20,0}},
@@ -1871,8 +1861,6 @@ zero or negative.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{20,60},{100,-60}},
                   lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="C")}), Documentation(info="<html>
 <p>Converts the Real inputs <i>len</i> (length, absolute) and <i>phi</i> (angle, argument) to the Complex output <i>y</i>.</p>
 </html>"));
@@ -1896,13 +1884,9 @@ zero or negative.
       annotation (Icon(graphics={Text(
                   extent={{20,80},{100,40}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="re"),Text(
                   extent={{20,-40},{100,-80}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="im"),Polygon(
                   points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{
                 20,-20},{40,0}},
@@ -1911,8 +1895,6 @@ zero or negative.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{-20,-60}},
                   lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="C")}), Documentation(info="<html>
 <p>Converts the Complex input <i>u</i> to the Real outputs <i>re</i> (real part) and <i>im</i> (imaginary part).</p>
 </html>"));
@@ -1938,13 +1920,9 @@ zero or negative.
       annotation (Icon(graphics={Text(
                   extent={{20,80},{100,40}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="len"),Text(
                   extent={{20,-40},{100,-80}},
                   lineColor={0,0,127},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="phi"),Polygon(
                   points={{40,0},{20,20},{20,10},{-10,10},{-10,-10},{20,-10},{
                 20,-20},{40,0}},
@@ -1953,8 +1931,6 @@ zero or negative.
                   fillPattern=FillPattern.Solid),Text(
                   extent={{-100,60},{-20,-60}},
                   lineColor={0,128,255},
-                  fillColor={85,170,255},
-                  fillPattern=FillPattern.Solid,
                   textString="C")}), Documentation(info="<html>
 <p>Converts the Complex input <i>u</i> to the Real outputs <i>len</i> (length, absolute) and <i>phi</i> (angle, argument).</p>
 </html>"));

@@ -2781,7 +2781,7 @@ This package contains utility models and bus definitions needed for the
       experiment(StopTime=2.5, Interval=0.0001),
       Documentation(info="<html>
 <p>
-This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>, 
+This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse\">6-pulse rectifier example</a>,
 calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
 </p>
 <p>
@@ -2810,7 +2810,7 @@ As expected, one can see the 5<sup>th</sup>, 7<sup>th</sup>, 11<sup>th</sup>, 13
       experiment(StopTime=2.5, Interval=0.0001),
       Documentation(info="<html>
 <p>
-This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>, 
+This example is based on a <a href=\"modelica://Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse\">12-pulse rectifier example</a>,
 calculating the harmonics with the <a href=\"modelica://Modelica.Blocks.Math.RealFFT\">FFT block</a>.
 </p>
 <p>

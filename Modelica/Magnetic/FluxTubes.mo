@@ -368,9 +368,7 @@ Where <code>&sigma;<sub>cl</sub></code> is the classical eddy current factor (se
   </tr>
 </table>
 
-</html>
-
-"));
+</html>"));
       end HysteresisLosses;
       annotation (Documentation(info="<html>
 
@@ -2872,8 +2870,7 @@ The differences between these two models in static behaviour can be analysed and
                 {22,80},{30,80}}, color={255,127,0}));
         connect(magGnd1.port, TellinenSoft.port_n) annotation (Line(points={{22,
                 58},{54,58},{54,80},{50,80}}, color={255,127,0}));
-        annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005),            Documentation(info="
-<html>
+        annotation (experiment(StartTime=0, StopTime=14, Interval=3e-3, Tolerance=1e-005),            Documentation(info="<html>
 <p>
 Use the following simulation settings:
 </p>
@@ -2902,8 +2899,7 @@ Compared to the complex Preisach hysteresis model the Tellinen model is very sim
     </td>
   </tr>
 </table>
-</html>
-"));
+</html>"));
       end HysteresisModelComparison;
 
       model InductorWithHysteresis
@@ -2962,8 +2958,7 @@ This is a simple model of an inductor with a ferromagnetic core. The used Generi
     </td>
   </tr>
 </table>
-</html>
-"));
+</html>"));
       end InductorWithHysteresis;
 
       model SinglePhaseTransformerWithHysteresis1
@@ -3070,9 +3065,7 @@ Then plot the flux density of the Core Core.B over the magnetic field strength C
   </tr>
 </table>
 
-</html>
-
-"));
+</html>"));
       end SinglePhaseTransformerWithHysteresis1;
 
       model SinglePhaseTransformerWithHysteresis2
@@ -3384,8 +3377,7 @@ The figure shows the magnetic hysteresis in the transformer core. In (a) the con
         annotation (experiment(StartTime=0, StopTime=0.2, Interval=1e-4, Tolerance=1e-006), Diagram(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-150,-100},{150,100}},
-              grid={1,1})),          Documentation(info="
-<html>
+              grid={1,1})),          Documentation(info="<html>
 <p>
 This is a model of a three-phase transformer and rectifier unit using the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.Hysteresis.Components.Transformer3PhaseYyWithHysteresis\">Transformer3PhaseYyWithHysteresis</a> model. Use the following simulation settings:
 </p>
@@ -3408,8 +3400,7 @@ An example simulation shows the transformer inrush currents due to an initially 
     </td>
   </tr>
 </table>
-</html>
-"));
+</html>"));
       end ThreePhaseTransformerWithRectifier;
 
       package Components "Components to be used in examples"
@@ -3520,8 +3511,7 @@ An example simulation shows the transformer inrush currents due to an initially 
             "Conductivity of core material"                                           annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
             "Tickness of lamination"                                                annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
-          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"
-                                                                                                  annotation (Dialog(tab="Leakage"));
+          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"                   annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_lp=10e-6
             "Cross section of leakage of primary Winding"                                               annotation (Dialog(tab="Leakage"));
           parameter Real mu_relp=1
@@ -3531,8 +3521,7 @@ An example simulation shows the transformer inrush currents due to an initially 
           parameter SI.Area A_ls=10e-6
             "Cross section of leakage of secondary Winding"                            annotation (Dialog(tab="Leakage"));
           parameter Real mu_rels=1
-            "Constant relative permeability of secondary leakage (>0 required)"
-                                                                                                           annotation (Dialog(tab="Leakage"));
+            "Constant relative permeability of secondary leakage (>0 required)"                            annotation (Dialog(tab="Leakage"));
 
         protected
           Basic.Ground ground
@@ -3784,19 +3773,16 @@ Simple model of a single phase transformer with a primary and a secondary windin
           parameter SI.Length t(displayUnit="mm") = 0.5e-3
             "Tickness of lamination"                                                annotation (Dialog(tab="Losses and Heat", group="Eddy Currents", enable=EddyCurrents));
 
-          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"
-                                                                                 annotation (Dialog(tab="Leakage"));
+          parameter SI.Length L_lp=10e-3 "Length of leakage of primary Winding"  annotation (Dialog(tab="Leakage"));
           parameter SI.Area A_lp=10e-6
             "Cross section of leakage of primary Winding"                            annotation (Dialog(tab="Leakage"));
           parameter Real mu_relp=1
             "Constant relative permeability of primary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
           parameter SI.Length L_ls=10e-3
             "Cross section of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
-          parameter SI.Area A_ls=10e-6 "Length of leakage of secondary Winding"
-                                                                                annotation (Dialog(tab="Leakage"));
+          parameter SI.Area A_ls=10e-6 "Length of leakage of secondary Winding" annotation (Dialog(tab="Leakage"));
           parameter Real mu_rels=1
-            "Constant relative permeability of secondary leakage (>0 required)"
-                                                                                annotation (Dialog(tab="Leakage"));
+            "Constant relative permeability of secondary leakage (>0 required)" annotation (Dialog(tab="Leakage"));
 
         protected
           Shapes.HysteresisAndMagnets.GenericHystTellinenEverett CoreA(
@@ -4219,8 +4205,7 @@ Simple model of a three phase transformer with primary and a secondary windings 
    </td>
   </tr>
 </table>
-</html>
-"));
+</html>"));
         end Transformer3PhaseYyWithHysteresis;
       end Components;
 
@@ -4307,13 +4292,9 @@ Simple model of a three phase transformer with primary and a secondary windings 
                       arrow={Arrow.None,Arrow.Filled}),Text(
                       extent={{-84,-82},{-76,-92}},
                       lineColor={160,160,164},
-                      pattern=LinePattern.Dash,
-                      lineThickness=0.5,
                       textString="0"),Text(
                       extent={{-46,-82},{-38,-92}},
                       lineColor={160,160,164},
-                      pattern=LinePattern.Dash,
-                      lineThickness=0.5,
                       textString="x"),Ellipse(
                       extent={{-82,-78},{-78,-74}},
                       lineColor={175,175,175},
@@ -6156,8 +6137,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 extent={{-20,13},{20,-13}},
                 lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
-                fillPattern=FillPattern.Solid,
-                fillColor={0,127,0},
                 origin={47,0},
                 rotation=90,
                 textString="S"),   Line(
@@ -6183,8 +6162,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 extent={{-20,13},{20,-13}},
                 lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
-                fillPattern=FillPattern.Solid,
-                fillColor={0,127,0},
                 textString="N",
                 origin={-47,0},
                 rotation=90),
@@ -6239,8 +6216,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 extent={{-20,13},{20,-13}},
                 lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
-                fillPattern=FillPattern.Solid,
-                fillColor={0,127,0},
                 textString="N",
                 origin={-47,0},
                 rotation=90),
@@ -6253,8 +6228,6 @@ An overview over all available hysteresis and permanent magnet elements of the p
                 extent={{-20,13},{20,-13}},
                 lineColor={0,0,0},
                 textStyle={TextStyle.Bold},
-                fillPattern=FillPattern.Solid,
-                fillColor={0,127,0},
                 origin={47,0},
                 rotation=90,
                 textString="S")}),
@@ -6852,8 +6825,7 @@ Additional user-specific materials can be defined as needed.
    </td>
   </tr>
 </table>
-</html>
-"));
+</html>"));
       end BaseData;
 
       record Vacoflux17 "Vacoflux17"
@@ -7668,9 +7640,7 @@ Fig. 3 shows the static hysteresis loop library entries for soft magnetic cobalt
   </tr>
 </table>
 
-</html>
-
-"));
+</html>"));
     end HysteresisTableData;
     annotation (Documentation(info="<html>
 </html>"));

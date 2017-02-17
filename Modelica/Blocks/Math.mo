@@ -703,13 +703,9 @@ Example:
     annotation (Icon(graphics={Text(
             extent={{-200,-110},{200,-140}},
             lineColor={0,0,0},
-            fillColor={255,213,170},
-            fillPattern=FillPattern.Solid,
             textString="%k"), Text(
             extent={{-72,68},{92,-68}},
             lineColor={0,0,0},
-            fillColor={255,213,170},
-            fillPattern=FillPattern.Solid,
             textString="+")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Real output \"y\" as sum of the elements of the
@@ -752,8 +748,6 @@ the output is set to zero: y=0.
     annotation (Icon(graphics={Text(
             extent={{-74,50},{94,-94}},
             lineColor={0,0,0},
-            fillColor={255,213,170},
-            fillPattern=FillPattern.Solid,
             textString="*")}), Documentation(info="<html>
 <p>
 This blocks computes the scalar Real output \"y\" as product of the elements of the
@@ -825,8 +819,6 @@ the output is set to zero: y=0.
           Text(
             extent={{-86,16},{295,-17}},
             lineColor={0,0,0},
-            fillColor={255,246,238},
-            fillPattern=FillPattern.Solid,
             textString="%expr"),
           Text(
             extent={{310,-25},{410,-45}},
@@ -2631,7 +2623,6 @@ as <i>nearest integer value</i> of the input <b>u</b>:
             textString="I"),
           Text(
             lineColor={0,0,127},
-            fillPattern=FillPattern.Solid,
             extent={{0.0,-40.0},{100.0,40.0}},
             textString="R"),
           Polygon(
@@ -3445,7 +3436,7 @@ The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t + arg)</code> if 
     end when;
     annotation (                                 Documentation(info="<html>
 <p>
-This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>, 
+This block samples the input signal, calculates the Fast Fourier Transform by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFT\">Math.realFFT</a>,
 and (when simulation terminates) writes the output to result file resultFileName by function <a href=\"modelica://Modelica.Math.FastFourierTransform.realFFTwriteToFile\">Math.realFFTwriteToFile</a>.
 </p>
 <p>
@@ -3456,7 +3447,7 @@ The number of sampling points as well as the samplePeriod is calculated from des
 The user has to take care that enough points can be sampled before the simulation ends: startTime + (ns - 1)*samplePeriod <= stopTime.
 </p>
 <p>
-The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. The frequency points are separated by rows with amplitude and phase = 0, 
+The result file is written as mat, first column = frequency, second column = amplitudes, third column = phases. The frequency points are separated by rows with amplitude and phase = 0,
 so one can plot the result directly as frequency lines.
 </p>
 </html>"));
