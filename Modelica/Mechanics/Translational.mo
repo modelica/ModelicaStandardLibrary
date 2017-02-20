@@ -1711,7 +1711,7 @@ A moving mass gets decelerated by an eddy current brake. The loss power is fed t
       algorithm
         for i in 1:nTable loop
           table[i, 1] := v_max*(i - 1)/(nTable - 1);
-          table[i, 2] := F_Coulomb + F_prop*table[i, 1] + F_Stribeck*exp(-fexp*
+          table[i, 2] := F_Coulomb + F_prop*table[i, 1] + F_Stribeck*Modelica.Math.exp(-fexp*
             table[i, 1]);
         end for;
         annotation (Documentation(info="<html>
@@ -3017,8 +3017,8 @@ Additionally, a left and right stop are handled.
       f = if locked then sa*unitForce else if free then 0 else (if startForward
          then F_prop*v + F_Coulomb + F_Stribeck else if startBackward then
         F_prop*v - F_Coulomb - F_Stribeck else if pre(mode) == Forward then
-        F_prop*v + F_Coulomb + F_Stribeck*exp(-fexp*abs(v)) else F_prop*v -
-        F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
+        F_prop*v + F_Coulomb + F_Stribeck*Modelica.Math.exp(-fexp*abs(v)) else F_prop*v -
+        F_Coulomb - F_Stribeck*Modelica.Math.exp(-fexp*abs(v)));
       lossPower = f*v_relfric;
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
@@ -4210,13 +4210,13 @@ Negative force brakes in positive direction of movement, but accelerates in reve
     equation
       v = der(s);
       if reg==Modelica.Blocks.Types.Regularization.Exp then
-        f = -f_nominal*(2/(1+exp(-v/(0.01*v0)))-1);
+        f = -f_nominal*(2/(1 + Modelica.Math.exp(-v/(0.01*v0)))-1);
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
-        f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else sin(pi/2*v/v0)));
+        f = -f_nominal*smooth(1, (if abs(v)>=v0 then sign(v) else Modelica.Math.sin(pi/2*v/v0)));
       elseif reg==Modelica.Blocks.Types.Regularization.Linear then
         f = -f_nominal*(if abs(v)>=v0 then sign(v) else (v/v0));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
-        f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - cos(pi/2*v/v0)));
+        f = -f_nominal*(if abs(v)>=v0 then sign(v) else sign(v)*(1 - Modelica.Math.cos(pi/2*v/v0)));
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
