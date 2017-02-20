@@ -49,8 +49,8 @@ model Surfaces
     length=1,
     T_min=0,
     T_max=2,
-    T=sin(Modelica.Constants.pi*pipeWithScalarField.xsi)*cos(Modelica.Constants.pi
-        *time) .+ 1,
+    T=Modelica.Math.sin(Modelica.Constants.pi*pipeWithScalarField.xsi)*
+      Modelica.Math.cos(Modelica.Constants.pi*time) .+ 1,
     n_colors=32)
     annotation (Placement(transformation(extent={{14,-30},{34,-10}})));
   Parts.FixedTranslation fixedTranslation3(

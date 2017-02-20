@@ -71,7 +71,7 @@ ellipsoid surface.
         for j in 1:nv loop
            X[i,j] := x_min + (x_max - x_min)*(j - 1)/(nv - 1);
            Y[i,j] := aux_y;
-           Z[i,j] := A*sin(wz + 0.1*j + 0.1*i)+A;
+           Z[i,j] := A*Modelica.Math.sin(wz + 0.1*j + 0.1*i)+A;
         end for;
      end for;
 

@@ -507,10 +507,10 @@ and/or a division by zero will occur.
     input Modelica.SIunits.AngularVelocity der_angle "= der(angle)";
     output Orientation R "Orientation object to rotate frame 1 into frame 2";
   algorithm
-    R := Orientation(T=(if axis == 1 then [1, 0, 0; 0, cos(angle), sin(angle);
-      0, -sin(angle), cos(angle)] else if axis == 2 then [cos(angle), 0, -sin(
-      angle); 0, 1, 0; sin(angle), 0, cos(angle)] else [cos(angle), sin(angle),
-       0; -sin(angle), cos(angle), 0; 0, 0, 1]),w= if axis == 1 then {der_angle,
+    R := Orientation(T=(if axis == 1 then [1, 0, 0; 0, Modelica.Math.cos(angle), Modelica.Math.sin(angle);
+      0, -Modelica.Math.sin(angle), Modelica.Math.cos(angle)] else if axis == 2 then [Modelica.Math.cos(angle), 0, -Modelica.Math.sin(
+      angle); 0, 1, 0; Modelica.Math.sin(angle), 0, Modelica.Math.cos(angle)] else [Modelica.Math.cos(angle), Modelica.Math.sin(angle),
+       0; -Modelica.Math.sin(angle), Modelica.Math.cos(angle), 0; 0, 0, 1]),w= if axis == 1 then {der_angle,
       0,0} else if axis == 2 then {0,der_angle,0} else {0,0,der_angle});
     annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
@@ -983,9 +983,9 @@ is not possible or too difficult to compute, use function from_T2(..).
         output Real residue[3]
           "Zero vector if Q1 and Q2 are identical (the first three elements of the relative transformation (is {0,0,0} for the null rotation, guarded by atan2 to make the mirrored solution invalid";
       algorithm
-        residue := { atan2({ Q1[4],  Q1[3], -Q1[2], -Q1[1]}*Q2, Q1*Q2),
-                     atan2({-Q1[3],  Q1[4],  Q1[1], -Q1[2]}*Q2, Q1*Q2),
-                     atan2({ Q1[2], -Q1[1],  Q1[4], -Q1[3]}*Q2, Q1*Q2)};
+        residue := { Modelica.Math.atan2({ Q1[4],  Q1[3], -Q1[2], -Q1[1]}*Q2, Q1*Q2),
+                     Modelica.Math.atan2({-Q1[3],  Q1[4],  Q1[1], -Q1[2]}*Q2, Q1*Q2),
+                     Modelica.Math.atan2({ Q1[2], -Q1[1],  Q1[4], -Q1[3]}*Q2, Q1*Q2)};
         annotation(Inline=true);
       end equalityConstraint;
 
@@ -1795,10 +1795,10 @@ and/or a division by zero will occur.
       output TransformationMatrices.Orientation T
         "Orientation object to rotate frame 1 into frame 2";
     algorithm
-      T := if axis == 1 then [1, 0, 0; 0, cos(angle), sin(angle); 0, -sin(angle),
-         cos(angle)] else if axis == 2 then [cos(angle), 0, -sin(angle); 0, 1,
-        0; sin(angle), 0, cos(angle)] else [cos(angle), sin(angle), 0; -sin(
-        angle), cos(angle), 0; 0, 0, 1];
+      T := if axis == 1 then [1, 0, 0; 0, Modelica.Math.cos(angle), Modelica.Math.sin(angle); 0, -Modelica.Math.sin(angle),
+         Modelica.Math.cos(angle)] else if axis == 2 then [Modelica.Math.cos(angle), 0, -Modelica.Math.sin(angle); 0, 1, 0;
+         Modelica.Math.sin(angle), 0, Modelica.Math.cos(angle)] else [Modelica.Math.cos(angle), Modelica.Math.sin(angle), 0;
+        -Modelica.Math.sin(angle), Modelica.Math.cos(angle), 0; 0, 0, 1];
       annotation(Inline=true);
     end axisRotation;
 

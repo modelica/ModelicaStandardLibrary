@@ -97,17 +97,17 @@ package Utilities "Utility models for Examples.Loops"
           false) annotation (Placement(transformation(extent={{0,120},{20,140}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CylinderInclination(
       r={crankLength - crankPinLength/2,0,0},
-      n_y={0,cos(cylinderInclination),sin(cylinderInclination)},
+      n_y={0,Modelica.Math.cos(cylinderInclination),Modelica.Math.sin(cylinderInclination)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors)
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle1(
-      n_y={0,cos(crankAngleOffset),sin(crankAngleOffset)},
+      n_y={0,Modelica.Math.cos(crankAngleOffset),Modelica.Math.sin(crankAngleOffset)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors)
       annotation (Placement(transformation(extent={{-90,-100},{-70,-80}})));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle2(
-      n_y={0,cos(-crankAngleOffset),sin(-crankAngleOffset)},
+      n_y={0,Modelica.Math.cos(-crankAngleOffset),Modelica.Math.sin(-crankAngleOffset)},
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.TwoAxesVectors)
       annotation (Placement(transformation(extent={{60,-100},{80,-80}})));

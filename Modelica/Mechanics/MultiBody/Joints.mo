@@ -7956,11 +7956,11 @@ position a degree of freedom is lost.
 
         kcos1 := -A*C + B*k2;
         ksin1 := -B*C - A*k2;
-        angle1 := atan2(ksin1, kcos1);
+        angle1 := Modelica.Math.atan2(ksin1, kcos1);
 
         kcos2 := -A*C - B*k2;
         ksin2 := -B*C + A*k2;
-        angle2 := atan2(ksin2, kcos2);
+        angle2 := Modelica.Math.atan2(ksin2, kcos2);
 
         if abs(angle1 - angle_guess) <= abs(angle2 - angle_guess) then
           positiveBranch := true;

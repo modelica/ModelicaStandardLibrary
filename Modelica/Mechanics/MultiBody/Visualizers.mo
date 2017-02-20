@@ -2305,8 +2305,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
           Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
                   final multiColoredSurface=false);
         input Modelica.SIunits.Radius ri=1 "Inner radius of torus" annotation(Dialog);
-        input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)"
-                                                                                annotation(Dialog);
+        input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)" annotation(Dialog);
         input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
         input Modelica.SIunits.Angle startAngle= -Modelica.Constants.pi
           "Start angle of torus slice" annotation(Dialog);
@@ -2324,9 +2323,9 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
             alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
             for j in 1:nv loop
                 beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
-                X[i,j] := (ri + ro*cos(beta))*sin(alpha);
-                Y[i,j] := ro*sin(beta);
-                Z[i,j] := (ri + ro*cos(beta))*cos(alpha);
+                X[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.sin(alpha);
+                Y[i,j] := ro*Modelica.Math.sin(beta);
+                Z[i,j] := (ri + ro*Modelica.Math.cos(beta))*Modelica.Math.cos(alpha);
             end for;
         end for;
         annotation (Documentation(info="<html>
@@ -2386,8 +2385,8 @@ settings:
            for j in 1:nv loop
               beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
               X[i,j] := length*xsi_i;
-              Y[i,j] := rOuter*sin(beta);
-              Z[i,j] := rOuter*cos(beta);
+              Y[i,j] := rOuter*Modelica.Math.sin(beta);
+              Z[i,j] := rOuter*Modelica.Math.cos(beta);
               C[i,j,:] := Ci;
            end for;
         end for;
