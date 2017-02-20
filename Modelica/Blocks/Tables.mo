@@ -440,8 +440,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
 spline interpolation</strong> in <strong>one</strong> dimension of a
 <strong>table</strong>.
 Via parameter <b>columns</b> it can be defined how many columns of the
-table are interpolated. If, e.g., icol={2,4}, it is assumed that one input
-and 2 output signals are present and that the first output interpolates
+table are interpolated. If, e.g., columns={2,4}, it is assumed that
+2 output signals are present and that the first output interpolates
 via column 2 and the second output interpolates via column 4 of the
 table matrix.
 </p>
