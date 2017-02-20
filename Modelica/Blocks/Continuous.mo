@@ -1478,8 +1478,8 @@ the model.
     // calculate filter parameters
     for i in 1:m loop
       // poles of prototype lowpass
-      polereal[i] = cos(pi/2 + pi/n*(i - 0.5));
-      poleimag[i] = sin(pi/2 + pi/n*(i - 0.5));
+      polereal[i] = Modelica.Math.cos(pi/2 + pi/n*(i - 0.5));
+      poleimag[i] = Modelica.Math.sin(pi/2 + pi/n*(i - 0.5));
       // scaling and calculation of second order filter coefficients
       w0[i] = (polereal[i]^2 + poleimag[i]^2)*w;
       D[i] = -polereal[i]/w0[i]*w;
