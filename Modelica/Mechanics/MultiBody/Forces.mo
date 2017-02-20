@@ -2200,8 +2200,7 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       lengthDirection=e_a,
       widthDirection={0,1,0},
       r=frame_a.r_0,
-      R=frame_a.R) if
-                     world.enableAnimation and animation;
+      R=frame_a.R) if world.enableAnimation and animation;
     Visualizers.Advanced.Shape shape_b(
       shapeType="cylinder",
       color=color_b,
@@ -2322,6 +2321,7 @@ where a mass is hanging on a damper.
     Visualizers.Advanced.Shape shape(
       shapeType="spring",
       color=color,
+      specularCoefficient=specularCoefficient,
       length=s,
       width=width,
       height=coilWidth*2,
