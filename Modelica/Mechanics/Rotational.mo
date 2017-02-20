@@ -6582,13 +6582,13 @@ Negative torque brakes in positive direction of rotation, but accelerates in rev
       w = der(phi);
       tau = -flange.tau;
       if reg==Modelica.Blocks.Types.Regularization.Exp then
-        tau = tau_constant*(2/(1+exp(-w/(0.01*w0)))-1);
+        tau = tau_constant*(2/(1 + Modelica.Math.exp(-w/(0.01*w0)))-1);
       elseif reg==Modelica.Blocks.Types.Regularization.Sine then
-        tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else sin(pi/2*w/w0)));
+        tau = tau_constant*smooth(1, (if abs(w)>=w0 then sign(w) else Modelica.Math.sin(pi/2*w/w0)));
       elseif reg==Modelica.Blocks.Types.Regularization.Linear then
         tau = tau_constant*(if abs(w)>=w0 then sign(w) else (w/w0));
       else//if reg==Modelica.Blocks.Types.Regularization.CoSine
-        tau = tau_constant*(if abs(w)>=w0 then sign(w) else sign(w)*(1 - cos(pi/2*w/w0)));
+        tau = tau_constant*(if abs(w)>=w0 then sign(w) else sign(w)*(1 - Modelica.Math.cos(pi/2*w/w0)));
       end if;
       annotation (Icon(
           coordinateSystem(
