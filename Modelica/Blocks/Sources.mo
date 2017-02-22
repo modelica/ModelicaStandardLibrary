@@ -130,10 +130,7 @@ variable <b>y</b> is both a variable and a connector.
   end BooleanExpression;
 
   block Clock "Generate actual time signal"
-    parameter Modelica.SIunits.Time offset=0 "Offset of output signal";
-    parameter Modelica.SIunits.Time startTime=0
-      "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
 
   equation
     y = offset + (if time < startTime then 0 else time - startTime);
@@ -415,10 +412,7 @@ The Real output y is a step signal:
     parameter Real height=1 "Height of ramps";
     parameter Modelica.SIunits.Time duration(min=0.0, start=2)
       "Duration of ramp (= 0.0 gives a Step)";
-    parameter Real offset=0 "Offset of output signal";
-    parameter Modelica.SIunits.Time startTime=0
-      "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
 
   equation
     y = offset + (if time < startTime then 0 else if time < (startTime +
@@ -553,9 +547,7 @@ If parameter duration is set to 0.0, the limiting case of a Step signal is achie
     parameter Real amplitude=1 "Amplitude of sine wave";
     parameter SIunits.Frequency freqHz(start=1) "Frequency of sine wave";
     parameter SIunits.Angle phase=0 "Phase of sine wave";
-    parameter Real offset=0 "Offset of output signal";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.sin(2
       *pi*freqHz*(time - startTime) + phase));
@@ -663,9 +655,7 @@ The Real output y is a sine signal:
     parameter Real amplitude=1 "Amplitude of cosine wave";
     parameter SIunits.Frequency freqHz(start=1) "Frequency of cosine wave";
     parameter SIunits.Angle phase=0 "Phase of cosine wave";
-    parameter Real offset=0 "Offset of output signal";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.cos(2
       *pi*freqHz*(time - startTime) + phase));
@@ -767,9 +757,7 @@ The Real output y is a cosine signal:
     parameter SIunits.Angle phase=0 "Phase of sine wave";
     parameter SIunits.Damping damping(start=1)
       "Damping coefficient of sine wave";
-    parameter Real offset=0 "Offset of output signal";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   equation
     y = offset + (if time < startTime then 0 else amplitude*Modelica.Math.exp(-
       (time - startTime)*damping)*Modelica.Math.sin(2*pi*freqHz*(time -
@@ -894,7 +882,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
 </html>"));
   end ExpSine;
 
-  model Exponentials "Generate a rising and falling exponential signal"
+  block Exponentials "Generate a rising and falling exponential signal"
 
     parameter Real outMax=1 "Height of output for infinite riseTime";
     parameter SIunits.Time riseTime(min=0,start=0.5) "Rise time";
@@ -902,9 +890,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
       "Rise time constant; rising is defined as outMax*(1-exp(-riseTime/riseTimeConst))";
     parameter SIunits.Time fallTimeConst(min=Modelica.Constants.small)=
       riseTimeConst "Fall time constant";
-    parameter Real offset=0 "Offset of output signal";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   protected
     Real y_riseTime;
 
@@ -1035,10 +1021,7 @@ by a falling exponential signal:
         start=1) "Time for one period";
     parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
-    parameter Real offset=0 "Offset of output signals";
-    parameter Modelica.SIunits.Time startTime=0
-      "Output = offset for time < startTime";
-    extends Modelica.Blocks.Interfaces.SO;
+    extends Interfaces.SignalSource;
   protected
     Modelica.SIunits.Time T_width=period*width/100;
     Modelica.SIunits.Time T_start "Start time of current period";
@@ -1195,9 +1178,7 @@ The Real output y is a pulse signal:
       "Time for one period";
     parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
-    parameter Real offset=0 "Offset of output signals";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   protected
     SIunits.Time T_start(final start=startTime) "Start time of current period";
     Integer count "Period count";
@@ -1336,9 +1317,7 @@ The Real output y is a saw tooth signal:
       "Time for one period";
     parameter Integer nperiod=-1
       "Number of periods (< 0 means infinite number of periods)";
-    parameter Real offset=0 "Offset of output signal";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   protected
     parameter SIunits.Time T_rising=rising
       "End time of rising phase within one period";
@@ -1969,12 +1948,10 @@ a flange according to a given acceleration.
 
     parameter Real table[:, 2] = fill(0.0, 0, 2)
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
-    parameter Real offset=0 "Offset of output signal";
-    parameter SIunits.Time startTime=0 "Output = offset for time < startTime";
     parameter Modelica.SIunits.Time timeScale(
       min=Modelica.Constants.eps)=1 "Time scale of first table column"
       annotation (Evaluate=true);
-    extends Interfaces.SO;
+    extends Interfaces.SignalSource;
   protected
     Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
     Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
@@ -2251,14 +2228,14 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
       "Extrapolation of data outside the definition range"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.SIunits.Time timeScale(
+      min=Modelica.Constants.eps)=1 "Time scale of first table column"
+      annotation (Dialog(group="Table data interpretation"), Evaluate=true);
     parameter Real offset[:]={0} "Offsets of output signals"
       annotation (Dialog(group="Table data interpretation"));
     parameter Modelica.SIunits.Time startTime=0
       "Output = offset for time < startTime"
       annotation (Dialog(group="Table data interpretation"));
-    parameter Modelica.SIunits.Time timeScale(
-      min=Modelica.Constants.eps)=1 "Time scale of first table column"
-      annotation (Dialog(group="Table data interpretation"), Evaluate=true);
     final parameter Modelica.SIunits.Time t_min(fixed=false)
       "Minimum abscissa value defined in table";
     final parameter Modelica.SIunits.Time t_max(fixed=false)
