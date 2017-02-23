@@ -3080,14 +3080,14 @@ Christoph Clau&szlig;
       v = V;
       annotation (
         Icon(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}}), graphics={
-            Line(points={{-90,0},{-10,0}}),
-            Line(points={{-10,60},{-10,-60}}),
-            Line(points={{0,30},{0,-30}}),
-            Line(points={{0,0},{90,0}}),
-            Text(extent={{-100,-120},{100,-80}}, textString="%name=%V")}),
-        Documentation(info="<html>
+        preserveAspectRatio=false,
+        extent={{-100,-100},{100,100}}), graphics={
+        Line(points={{-90,0},{-10,0}}, color={0,0,255}),
+        Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
+        Line(points={{0,30},{0,-30}}, color={0,0,255}),
+        Line(points={{0,0},{90,0}}, color={0,0,255}),
+        Text(extent={{-100,-120},{100,-80}}, textString="%name=%V")}),
+    Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
 </html>"));
     end V_constant;
