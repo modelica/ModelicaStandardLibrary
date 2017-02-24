@@ -106,14 +106,18 @@ void* ModelicaStandardTables_CombiTimeTable_init(_In_z_ const char* tableName,
      -> columns: Columns of table to be interpolated
      -> nCols: Number of columns of table to be interpolated
      -> smoothness: Interpolation type
-                    = 1: constant
-                    = 2: linear
-                    = 3: continuous first derivative
+                    = 1: linear
+                    = 2: continuous first derivative (by Akima splines)
+                    = 3: constant
+                    = 4: monotonicity-preserving, continuous first derivative
+                         (by Fritsch-Butland splines)
+                    = 5: monotonicity-preserving, continuous first derivative
+                         (by Steffen splines)
      -> extrapolation: Extrapolation type
-                       = 1: no
-                       = 2: hold first/last value
-                       = 3: linear
-                       = 4: periodic
+                       = 1: hold first/last value
+                       = 2: linear
+                       = 3: periodic
+                       = 4: no
      <- RETURN: Pointer to internal memory of table structure
   */
 
@@ -196,9 +200,13 @@ void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
      -> columns: Columns of table to be interpolated
      -> nCols: Number of columns of table to be interpolated
      -> smoothness: Interpolation type
-                    = 1: constant
-                    = 2: linear
-                    = 3: continuous first derivative
+                    = 1: linear
+                    = 2: continuous first derivative (by Akima splines)
+                    = 3: constant
+                    = 4: monotonicity-preserving, continuous first derivative
+                         (by Fritsch-Butland splines)
+                    = 5: monotonicity-preserving, continuous first derivative
+                         (by Steffen splines)
      <- RETURN: Pointer to internal memory of table structure
   */
 
@@ -256,9 +264,9 @@ void* ModelicaStandardTables_CombiTable2D_init(_In_z_ const char* tableName,
      -> nRow: Number of rows of table
      -> nColumn: Number of columns of table
      -> smoothness: Interpolation type
-                    = 1: constant
-                    = 2: linear
-                    = 3: continuous first derivative
+                    = 1: bilinear
+                    = 2: continuous first derivative (by bivariate Akima splines)
+                    = 3: bivariate constant
      <- RETURN: Pointer to internal memory of table structure
   */
 
