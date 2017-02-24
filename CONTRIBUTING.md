@@ -19,6 +19,7 @@ The [workflow for outside collaborators](https://guides.github.com/activities/fo
    Multiple commits can be squashed into one, but splitting is difficult.
 5. Once you are done, push your branch to your fork.
 6. Go to the upstream Modelica repository and submit a [Pull Request](https://help.github.com/articles/about-pull-requests/) (PR).
+   If the PR is related to a certain issue, reference it by its number like this: #2161.
    Once a pull request is opened, you can discuss and review the potential 
    changes with collaborators and add follow-up commits before the changes are 
    merged into the repository.
