@@ -47,6 +47,12 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added support of extrapolation for CombiTable1D
+                     Added functions to retrieve minimum and maximum
+                     abscissa values of CombiTable1D
+                     (ticket #2120)
+
       Feb. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support for integer and single-precision variable
                      classes of MATLAB MAT-files (ticket #2106)
@@ -257,6 +263,7 @@ typedef struct CombiTable1D {
     size_t nCol; /* Number of columns of table */
     size_t last; /* Last accessed row index of table */
     enum Smoothness smoothness; /* Smoothness kind */
+    enum Extrapolation extrapolation; /* Extrapolation kind */
     enum TableSource source; /* Source kind */
     int* cols; /* Columns of table to be interpolated */
     size_t nCols; /* Number of columns of table to be interpolated */
@@ -864,11 +871,11 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
             }
             else {
                 enum PointInterval extrapolate = IN_TABLE;
+                const double tMin = TABLE_ROW0(0);
+                const double tMax = TABLE_COL0(nRow - 1);
 
                 /* Periodic extrapolation */
                 if (tableID->extrapolation == PERIODIC) {
-                    const double tMin = TABLE_ROW0(0);
-                    const double tMax = TABLE_COL0(nRow - 1);
                     const double T = tMax - tMin;
                     /* Event handling for periodic extrapolation */
                     if (nextTimeEvent == preNextTimeEvent &&
@@ -931,18 +938,16 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                         }
                     }
                 }
-                else if (t < TABLE_ROW0(0)) {
+                else if (t < tMin) {
                     extrapolate = LEFT;
                 }
-                else if (t >= TABLE_COL0(nRow - 1)) {
+                else if (t >= tMax) {
                     extrapolate = RIGHT;
-                    if (tableID->extrapolation != PERIODIC) {
-                        /* Event handling for non-periodic extrapolation */
-                        if (nextTimeEvent == preNextTimeEvent &&
-                            nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
-                            /* Before event iteration */
-                            extrapolate = IN_TABLE;
-                        }
+                    /* Event handling for non-periodic extrapolation */
+                    if (nextTimeEvent == preNextTimeEvent &&
+                        nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
+                        /* Before event iteration */
+                        extrapolate = IN_TABLE;
                     }
                 }
 
@@ -1026,7 +1031,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                         case AKIMA_C1:
                         case FRITSCH_BUTLAND_MONOTONE_C1:
                         case STEFFEN_MONOTONE_C1:
-                            if (tableID->spline != NULL) {
+                            if (NULL != tableID->spline) {
                                 const double* c = tableID->spline[
                                     IDX(last, iCol - 1, tableID->nCols)];
                                 t -= TABLE_COL0(last);
@@ -1061,7 +1066,7 @@ double ModelicaStandardTables_CombiTimeTable_getValue(void* _tableID, int iCol,
                             if (tableID->smoothness == AKIMA_C1 ||
                                 tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
                                 tableID->smoothness == STEFFEN_MONOTONE_C1) {
-                                if (tableID->spline != NULL) {
+                                if (NULL != tableID->spline) {
                                     const double* c = tableID->spline[
                                         IDX(last, iCol - 1, tableID->nCols)];
                                     if (extrapolate == LEFT) {
@@ -1130,13 +1135,13 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
 
             if (nRow > 1) {
                 enum PointInterval extrapolate = IN_TABLE;
+                const double tMin = TABLE_ROW0(0);
+                const double tMax = TABLE_COL0(nRow - 1);
                 size_t last = 0;
                 int haveLast = 0;
 
                 /* Periodic extrapolation */
                 if (tableID->extrapolation == PERIODIC) {
-                    const double tMin = TABLE_ROW0(0);
-                    const double tMax = TABLE_COL0(nRow - 1);
                     const double T = tMax - tMin;
                     /* Event handling for periodic extrapolation */
                     if (nextTimeEvent == preNextTimeEvent &&
@@ -1190,18 +1195,16 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                         }
                     }
                 }
-                else if (t < TABLE_ROW0(0)) {
+                else if (t < tMin) {
                     extrapolate = LEFT;
                 }
-                else if (t >= TABLE_COL0(nRow - 1)) {
+                else if (t >= tMax) {
                     extrapolate = RIGHT;
-                    if (tableID->extrapolation != PERIODIC) {
-                        /* Event handling for non-periodic extrapolation */
-                        if (nextTimeEvent == preNextTimeEvent &&
-                            nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
-                            /* Before event iteration */
-                            extrapolate = IN_TABLE;
-                        }
+                    /* Event handling for non-periodic extrapolation */
+                    if (nextTimeEvent == preNextTimeEvent &&
+                        nextTimeEvent < DBL_MAX && tOld >= nextTimeEvent) {
+                        /* Before event iteration */
+                        extrapolate = IN_TABLE;
                     }
                 }
 
@@ -1279,7 +1282,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                         case AKIMA_C1:
                         case FRITSCH_BUTLAND_MONOTONE_C1:
                         case STEFFEN_MONOTONE_C1:
-                            if (tableID->spline != NULL) {
+                            if (NULL != tableID->spline) {
                                 const double* c = tableID->spline[
                                     IDX(last, iCol - 1, tableID->nCols)];
                                 t -= TABLE_COL0(last);
@@ -1309,7 +1312,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
                             if (tableID->smoothness == AKIMA_C1 ||
                                 tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
                                 tableID->smoothness == STEFFEN_MONOTONE_C1) {
-                                if(tableID->spline) {
+                                if (NULL != tableID->spline) {
                                     const double* c = tableID->spline[
                                         IDX(last, iCol - 1, tableID->nCols)];
                                     if (extrapolate == LEFT) {
@@ -1352,7 +1355,7 @@ double ModelicaStandardTables_CombiTimeTable_getDerValue(void* _tableID, int iCo
 double ModelicaStandardTables_CombiTimeTable_minimumTime(void* _tableID) {
     double tMin = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID != NULL && tableID->table != NULL) {
+    if (NULL != tableID && NULL != tableID->table) {
         const double* table = tableID->table;
         tMin = TABLE_ROW0(0);
     }
@@ -1362,7 +1365,7 @@ double ModelicaStandardTables_CombiTimeTable_minimumTime(void* _tableID) {
 double ModelicaStandardTables_CombiTimeTable_maximumTime(void* _tableID) {
     double tMax = 0.;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID != NULL && tableID->table != NULL) {
+    if (NULL != tableID && NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nCol = tableID->nCol;
         tMax = TABLE_COL0(tableID->nRow - 1);
@@ -1374,7 +1377,7 @@ double ModelicaStandardTables_CombiTimeTable_nextTimeEvent(void* _tableID,
                                                            double t) {
     double nextTimeEvent = DBL_MAX;
     CombiTimeTable* tableID = (CombiTimeTable*)_tableID;
-    if (tableID != NULL && tableID->table != NULL) {
+    if (NULL != tableID && NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -1675,9 +1678,21 @@ void* ModelicaStandardTables_CombiTable1D_init(const char* tableName,
                                                double* table, size_t nRow,
                                                size_t nColumn, int* cols,
                                                size_t nCols, int smoothness) {
+    return ModelicaStandardTables_CombiTable1D_init2(tableName,
+        fileName, table, nRow, nColumn, cols, nCols, smoothness,
+        LAST_TWO_POINTS);
+}
+
+void* ModelicaStandardTables_CombiTable1D_init2(const char* tableName,
+                                                const char* fileName,
+                                                double* table, size_t nRow,
+                                                size_t nColumn, int* cols,
+                                                size_t nCols, int smoothness,
+                                                int extrapolation) {
     CombiTable1D* tableID = (CombiTable1D*)calloc(1, sizeof(CombiTable1D));
     if (tableID != NULL) {
         tableID->smoothness = (enum Smoothness)smoothness;
+        tableID->extrapolation = (enum Extrapolation)extrapolation;
         tableID->nCols = nCols;
         if (nCols > 0) {
             tableID->cols = (int*)malloc(tableID->nCols*sizeof(int));
@@ -1990,13 +2005,32 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
         }
         else {
             enum PointInterval extrapolate = IN_TABLE;
+            const double uMin = TABLE_ROW0(0);
+            const double uMax = TABLE_COL0(nRow - 1);
             size_t last;
 
-            if (u < TABLE_ROW0(0)) {
+            /* Periodic extrapolation */
+            if (tableID->extrapolation == PERIODIC) {
+                const double T = uMax - uMin;
+
+                if (u < uMin) {
+                    do {
+                        u += T;
+                    } while (u < uMin);
+                }
+                else if (u > uMax) {
+                    do {
+                        u -= T;
+                    } while (u > uMax);
+                }
+                last = findRowIndex(table, nRow, nCol, tableID->last, u);
+                tableID->last = last;
+            }
+            else if (u < uMin) {
                 extrapolate = LEFT;
                 last = 0;
             }
-            else if (u > TABLE_COL0(nRow - 1)) {
+            else if (u > uMax) {
                 extrapolate = RIGHT;
                 last = nRow - 2;
             }
@@ -2005,52 +2039,94 @@ double ModelicaStandardTables_CombiTable1D_getValue(void* _tableID, int iCol,
                 tableID->last = last;
             }
 
-            switch (tableID->smoothness) {
-                case CONSTANT_SEGMENTS:
-                    if (extrapolate == IN_TABLE) {
+            if (extrapolate == IN_TABLE) {
+                switch (tableID->smoothness) {
+                    case CONSTANT_SEGMENTS:
                         if (u >= TABLE_COL0(last + 1)) {
                             last += 1;
                         }
                         y = TABLE(last, col);
                         break;
-                    }
-                    /* Fall through: linear extrapolation */
-                case LINEAR_SEGMENTS: {
-                    const double u0 = TABLE_COL0(last);
-                    const double u1 = TABLE_COL0(last + 1);
-                    const double y0 = TABLE(last, col);
-                    const double y1 = TABLE(last + 1, col);
-                    LINEAR(u, u0, u1, y0, y1)
-                    break;
-                }
 
-                case AKIMA_C1:
-                case FRITSCH_BUTLAND_MONOTONE_C1:
-                case STEFFEN_MONOTONE_C1:
-                    if (tableID->spline != NULL) {
-                        const double* c = tableID->spline[
-                            IDX(last, iCol - 1, tableID->nCols)];
+                    case LINEAR_SEGMENTS: {
                         const double u0 = TABLE_COL0(last);
-                        if (extrapolate == IN_TABLE) {
+                        const double u1 = TABLE_COL0(last + 1);
+                        const double y0 = TABLE(last, col);
+                        const double y1 = TABLE(last + 1, col);
+                        LINEAR(u, u0, u1, y0, y1)
+                        break;
+                    }
+
+                    case AKIMA_C1:
+                    case FRITSCH_BUTLAND_MONOTONE_C1:
+                    case STEFFEN_MONOTONE_C1:
+                        if (NULL != tableID->spline) {
+                            const double* c = tableID->spline[
+                                IDX(last, iCol - 1, tableID->nCols)];
+                            const double u0 = TABLE_COL0(last);
                             const double v = u - u0;
                             y = TABLE(last, col); /* c[3] = y0 */
                             y += ((c[0]*v + c[1])*v + c[2])*v;
                         }
-                        else if (extrapolate == LEFT) {
-                            y = LINEAR_SLOPE(TABLE(last, col), c[2], u - u0);
-                        }
-                        else /* if (extrapolate == RIGHT) */ {
-                            const double u1 = TABLE_COL0(last + 1);
-                            const double v = u1 - u0;
-                            y = LINEAR_SLOPE(TABLE(last + 1, col),
-                               (3*c[0]*v + 2*c[1])*v + c[2], u - u1);
-                        }
-                    }
-                    break;
+                        break;
 
-                default:
-                    ModelicaError("Unknown smoothness kind\n");
-                    return y;
+                    default:
+                        ModelicaError("Unknown smoothness kind\n");
+                        return y;
+                }
+            }
+            else {
+                /* Extrapolation */
+                switch (tableID->extrapolation) {
+                    case NO_EXTRAPOLATION:
+                        ModelicaError("Extrapolation error\n");
+                        return y;
+
+                    case HOLD_LAST_POINT:
+                        y = (extrapolate == RIGHT) ? TABLE(nRow - 1, col) :
+                            TABLE_ROW0(col);
+                        break;
+
+                    case LAST_TWO_POINTS: {
+                        const size_t last =
+                            (extrapolate == RIGHT) ? nRow - 2 : 0;
+                        const double u0 = TABLE_COL0(last);
+                        const double y0 = TABLE(last, col);
+
+                        if (tableID->smoothness == AKIMA_C1 ||
+                            tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
+                            tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                            if (NULL != tableID->spline) {
+                                const double* c = tableID->spline[
+                                    IDX(last, iCol - 1, tableID->nCols)];
+                                if (extrapolate == LEFT) {
+                                    y = LINEAR_SLOPE(y0, c[2], u - u0);
+                                }
+                                else /* if (extrapolate == RIGHT) */ {
+                                    const double u1 = TABLE_COL0(last + 1);
+                                    const double v = u1 - u0;
+                                    y = LINEAR_SLOPE(TABLE(last + 1, col),
+                                        (3*c[0]*v + 2*c[1])*v + c[2],
+                                        u - u1);
+                                }
+                            }
+                        }
+                        else {
+                            const double u1 = TABLE_COL0(last + 1);
+                            const double y1 = TABLE(last + 1, col);
+                            LINEAR(u, u0, u1, y0, y1)
+                        }
+                        break;
+                    }
+
+                    case PERIODIC:
+                        /* Should not be possible to get here */
+                        break;
+
+                    default:
+                        ModelicaError("Unknown extrapolation kind\n");
+                        return y;
+                }
             }
         }
     }
@@ -2069,13 +2145,32 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
 
         if (nRow > 1) {
             enum PointInterval extrapolate = IN_TABLE;
+            const double uMin = TABLE_ROW0(0);
+            const double uMax = TABLE_COL0(nRow - 1);
             size_t last;
 
-            if (u < TABLE_ROW0(0)) {
+            /* Periodic extrapolation */
+            if (tableID->extrapolation == PERIODIC) {
+                const double T = uMax - uMin;
+
+                if (u < uMin) {
+                    do {
+                        u += T;
+                    } while (u < uMin);
+                }
+                else if (u > uMax) {
+                    do {
+                        u -= T;
+                    } while (u > uMax);
+                }
+                last = findRowIndex(table, nRow, nCol, tableID->last, u);
+                tableID->last = last;
+            }
+            else if (u < uMin) {
                 extrapolate = LEFT;
                 last = 0;
             }
-            else if (u > TABLE_COL0(nRow - 1)) {
+            else if (u > uMax) {
                 extrapolate = RIGHT;
                 last = nRow - 2;
             }
@@ -2084,47 +2179,106 @@ double ModelicaStandardTables_CombiTable1D_getDerValue(void* _tableID, int iCol,
                 tableID->last = last;
             }
 
-            switch (tableID->smoothness) {
-                case CONSTANT_SEGMENTS:
-                    if (extrapolate == IN_TABLE) {
+            if (extrapolate == IN_TABLE) {
+                switch (tableID->smoothness) {
+                    case CONSTANT_SEGMENTS:
                         break;
-                    }
-                    /* Fall through: linear extrapolation */
-                case LINEAR_SEGMENTS:
-                    der_y = (TABLE(last + 1, col) - TABLE(last, col))/
-                        (TABLE_COL0(last + 1) - TABLE_COL0(last));
-                    der_y *= der_u;
-                    break;
 
-                case AKIMA_C1:
-                case FRITSCH_BUTLAND_MONOTONE_C1:
-                case STEFFEN_MONOTONE_C1:
-                    if (tableID->spline != NULL) {
-                        const double* c = tableID->spline[
-                            IDX(last, iCol - 1, tableID->nCols)];
-                        if (extrapolate == IN_TABLE) {
+                    case LINEAR_SEGMENTS:
+                        der_y = (TABLE(last + 1, col) - TABLE(last, col))/
+                            (TABLE_COL0(last + 1) - TABLE_COL0(last));
+                        der_y *= der_u;
+                        break;
+
+                    case AKIMA_C1:
+                    case FRITSCH_BUTLAND_MONOTONE_C1:
+                    case STEFFEN_MONOTONE_C1:
+                        if (NULL != tableID->spline) {
+                            const double* c = tableID->spline[
+                                IDX(last, iCol - 1, tableID->nCols)];
                             const double v = u - TABLE_COL0(last);
                             der_y = (3*c[0]*v + 2*c[1])*v + c[2];
+                            der_y *= der_u;
                         }
-                        else if (extrapolate == LEFT) {
-                            der_y = c[2];
+                        break;
+
+                    default:
+                        ModelicaError("Unknown smoothness kind\n");
+                        return der_y;
+                }
+            }
+            else {
+                /* Extrapolation */
+                switch (tableID->extrapolation) {
+                    case NO_EXTRAPOLATION:
+                        ModelicaError("Extrapolation error\n");
+                        return der_y;
+
+                    case HOLD_LAST_POINT:
+                        break;
+
+                    case LAST_TWO_POINTS:
+                        last = (extrapolate == RIGHT) ? nRow - 2 : 0;
+
+                        if (tableID->smoothness == AKIMA_C1 ||
+                            tableID->smoothness == FRITSCH_BUTLAND_MONOTONE_C1 ||
+                            tableID->smoothness == STEFFEN_MONOTONE_C1) {
+                            if (NULL != tableID->spline) {
+                                const double* c = tableID->spline[
+                                    IDX(last, iCol - 1, tableID->nCols)];
+                                if (extrapolate == LEFT) {
+                                    der_y = c[2];
+                                }
+                                else /* if (extrapolate == RIGHT) */ {
+                                    der_y = TABLE_COL0(last + 1) -
+                                        TABLE_COL0(last); /* = (t1 - t0) */
+                                    der_y = (3*c[0]*der_y + 2*c[1])*
+                                        der_y + c[2];
+                                }
+                            }
                         }
-                        else /* if (extrapolate == RIGHT) */ {
-                            const double v = TABLE_COL0(last + 1) -
-                                TABLE_COL0(last);
-                            der_y = (3*c[0]*v + 2*c[1])*v + c[2];
+                        else {
+                            const double u0 = TABLE_COL0(last);
+                            const double u1 = TABLE_COL0(last + 1);
+                            der_y = (TABLE(last + 1, col) - TABLE(last, col))/
+                                (u1 - u0);
                         }
                         der_y *= der_u;
-                    }
-                    break;
+                        break;
 
-                default:
-                    ModelicaError("Unknown smoothness kind\n");
-                    return der_y;
+                    case PERIODIC:
+                        /* Should not be possible to get here */
+                        break;
+
+                    default:
+                        ModelicaError("Unknown extrapolation kind\n");
+                        return der_y;
+                }
             }
         }
     }
     return der_y;
+}
+
+double ModelicaStandardTables_CombiTable1D_minimumAbscissa(void* _tableID) {
+    double uMin = 0.;
+    CombiTable1D* tableID = (CombiTable1D*)_tableID;
+    if (NULL != tableID && NULL != tableID->table) {
+        const double* table = tableID->table;
+        uMin = TABLE_ROW0(0);
+    }
+    return uMin;
+}
+
+double ModelicaStandardTables_CombiTable1D_maximumAbscissa(void* _tableID) {
+    double uMax = 0.;
+    CombiTable1D* tableID = (CombiTable1D*)_tableID;
+    if (NULL != tableID && NULL != tableID->table) {
+        const double* table = tableID->table;
+        const size_t nCol = tableID->nCol;
+        uMax = TABLE_COL0(tableID->nRow - 1);
+    }
+    return uMax;
 }
 
 double ModelicaStandardTables_CombiTable1D_read(void* _tableID, int force,
@@ -2432,7 +2586,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                                                     double u2) {
     double y = 0;
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (tableID != NULL && tableID->table != NULL) {
+    if (NULL != tableID && NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2479,7 +2633,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                 }
 
                 case AKIMA_C1:
-                    if (tableID->spline != NULL) {
+                    if (NULL != tableID->spline) {
                         const double* c = tableID->spline[last2];
                         const double u20 = TABLE_ROW0(last2 + 1);
                         if (extrapolate2 == IN_TABLE) {
@@ -2549,7 +2703,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                 }
 
                 case AKIMA_C1:
-                    if (tableID->spline != NULL) {
+                    if (NULL != tableID->spline) {
                         const double* c = tableID->spline[last1];
                         const double u10 = TABLE_COL0(last1 + 1);
                         if (extrapolate1 == IN_TABLE) {
@@ -2642,7 +2796,7 @@ double ModelicaStandardTables_CombiTable2D_getValue(void* _tableID, double u1,
                 }
 
                 case AKIMA_C1:
-                    if (tableID->spline != NULL) {
+                    if (NULL != tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last1, last2, nCol - 2)];
                         if (extrapolate1 == IN_TABLE) {
@@ -2785,7 +2939,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                                                        double der_u2) {
     double der_y = 0;
     CombiTable2D* tableID = (CombiTable2D*)_tableID;
-    if (tableID != NULL && tableID->table != NULL) {
+    if (NULL != tableID && NULL != tableID->table) {
         const double* table = tableID->table;
         const size_t nRow = tableID->nRow;
         const size_t nCol = tableID->nCol;
@@ -2824,7 +2978,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                 }
 
                 case AKIMA_C1:
-                    if (tableID->spline != NULL) {
+                    if (NULL != tableID->spline) {
                         const double* c = tableID->spline[last2];
                         const double u20 = TABLE_ROW0(last2 + 1);
                         if (extrapolate2 == IN_TABLE) {
@@ -2886,7 +3040,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                 }
 
                 case AKIMA_C1:
-                    if (tableID->spline != NULL) {
+                    if (NULL != tableID->spline) {
                         const double* c = tableID->spline[last1];
                         const double u10 = TABLE_COL0(last1 + 1);
                         if (extrapolate1 == IN_TABLE) {
@@ -2974,7 +3128,7 @@ double ModelicaStandardTables_CombiTable2D_getDerValue(void* _tableID, double u1
                 }
 
                 case AKIMA_C1:
-                    if (tableID->spline != NULL) {
+                    if (NULL != tableID->spline) {
                         const double* c = tableID->spline[
                             IDX(last1, last2, nCol - 2)];
                         if (extrapolate1 == IN_TABLE) {

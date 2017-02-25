@@ -35,6 +35,12 @@
       Modelica.Blocks.Tables.CombiTable2D
 
    Release Notes:
+      Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added support of extrapolation for CombiTable1D
+                     Added functions to retrieve minimum and maximum
+                     abscissa values of CombiTable1D
+                     (ticket #2120)
+
       Oct. 27, 2015: by Thomas Beutlich, ITI GmbH
                      Added nonnull attribute/annotations (ticket #1436)
 
@@ -135,10 +141,10 @@ double ModelicaStandardTables_CombiTimeTable_read(void* tableID, int force,
   */
 
 double ModelicaStandardTables_CombiTimeTable_minimumTime(void* tableID);
-  /* Return minimum time defined in table (= table[1,1]) */
+  /* Return minimum abscissa defined in table (= table[1,1]) */
 
 double ModelicaStandardTables_CombiTimeTable_maximumTime(void* tableID);
-  /* Return maximum time defined in table (= table[end,1]) */
+  /* Return maximum abscissa defined in table (= table[end,1]) */
 
 double ModelicaStandardTables_CombiTimeTable_getValue(void* tableID,
                                                       int icol, double t,
@@ -185,6 +191,15 @@ void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
                                                size_t nColumn,
                                                _In_ int* columns,
                                                size_t nCols, int smoothness) MODELICA_NONNULLATTR;
+  /* Same as ModelicaStandardTables_CombiTable1D_init2, but without extrapolation argument */
+
+void* ModelicaStandardTables_CombiTable1D_init2(_In_z_ const char* tableName,
+                                                _In_z_ const char* fileName,
+                                                _In_ double* table, size_t nRow,
+                                                size_t nColumn,
+                                                _In_ int* columns,
+                                                size_t nCols, int smoothness,
+                                                int extrapolation) MODELICA_NONNULLATTR;
   /* Initialize 1-dim. table defined by matrix, where first column
      is x-axis and further columns of matrix are interpolated
 
@@ -207,6 +222,11 @@ void* ModelicaStandardTables_CombiTable1D_init(_In_z_ const char* tableName,
                          (by Fritsch-Butland splines)
                     = 5: monotonicity-preserving, continuous first derivative
                          (by Steffen splines)
+     -> extrapolation: Extrapolation type
+                       = 1: hold first/last value
+                       = 2: linear
+                       = 3: periodic
+                       = 4: no
      <- RETURN: Pointer to internal memory of table structure
   */
 
@@ -222,6 +242,12 @@ double ModelicaStandardTables_CombiTable1D_read(void* tableID, int force,
      -> verbose: Print message that file is loading
      <- RETURN: = 1, if table was successfully read from file
   */
+
+double ModelicaStandardTables_CombiTable1D_minimumAbscissa(void* tableID);
+  /* Return minimum abscissa defined in table (= table[1,1]) */
+
+double ModelicaStandardTables_CombiTable1D_maximumAbscissa(void* tableID);
+  /* Return maximum abscissa defined in table (= table[end,1]) */
 
 double ModelicaStandardTables_CombiTable1D_getValue(void* tableID, int icol,
                                                     double u);

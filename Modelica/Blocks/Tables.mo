@@ -29,6 +29,13 @@ package Tables
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+      "Extrapolation of data outside the definition range"
+      annotation (Dialog(group="Table data interpretation"));
+    final parameter Real u_min(fixed=false)
+      "Minimum abscissa value defined in table";
+    final parameter Real u_max(fixed=false)
+      "Maximum abscissa value defined in table";
   protected
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
@@ -36,7 +43,8 @@ package Tables
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
-          smoothness) "External table object";
+          smoothness,
+          extrapolation) "External table object";
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
@@ -93,12 +101,36 @@ package Tables
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getDerTableValue;
 
+    function getTableAbscissaUmin
+      "Return minimum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real uMin "Minimum abscissa value in table";
+      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableTimeTmin;
+
+    function getTableAbscissaUmax
+      "Return maximum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real uMax "Maximum abscissa value in table";
+      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableTimeTmax;
+
   initial algorithm
     if tableOnFile then
       tableOnFileRead := readTableData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
+    u_min := getTableAbscissaUmin(tableID, tableOnFileRead);
+    u_max := getTableAbscissaUmax(tableID, tableOnFileRead);
   equation
     if tableOnFile then
       assert(tableName <> "NoName",
@@ -346,6 +378,13 @@ MATLAB is a registered trademark of The MathWorks, Inc.
     parameter Modelica.Blocks.Types.Smoothness smoothness=Modelica.Blocks.Types.Smoothness.LinearSegments
       "Smoothness of table interpolation"
       annotation (Dialog(group="Table data interpretation"));
+    parameter Modelica.Blocks.Types.Extrapolation extrapolation=Modelica.Blocks.Types.Extrapolation.LastTwoPoints
+      "Extrapolation of data outside the definition range"
+      annotation (Dialog(group="Table data interpretation"));
+    final parameter Real u_min(fixed=false)
+      "Minimum abscissa value defined in table";
+    final parameter Real u_max(fixed=false)
+      "Maximum abscissa value defined in table";
   protected
     Modelica.Blocks.Types.ExternalCombiTable1D tableID=
         Modelica.Blocks.Types.ExternalCombiTable1D(
@@ -353,7 +392,8 @@ MATLAB is a registered trademark of The MathWorks, Inc.
           if tableOnFile and fileName <> "NoName" and not Modelica.Utilities.Strings.isEmpty(fileName) then fileName else "NoName",
           table,
           columns,
-          smoothness) "External table object";
+          smoothness,
+          extrapolation) "External table object";
     parameter Real tableOnFileRead(fixed=false)
       "= 1, if table was successfully read from file";
 
@@ -410,12 +450,36 @@ MATLAB is a registered trademark of The MathWorks, Inc.
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getDerTableValue;
 
+    function getTableAbscissaUmin
+      "Return minimum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real uMin "Minimum abscissa value in table";
+      external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableTimeTmin;
+
+    function getTableAbscissaUmax
+      "Return maximum abscissa value of 1-dim. table defined by matrix"
+      extends Modelica.Icons.Function;
+      input Modelica.Blocks.Types.ExternalCombiTable1D tableID;
+      input Real tableAvailable
+        "Dummy input to ensure correct sorting of function calls";
+      output Real uMax "Maximum abscissa value in table";
+      external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
+        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+    end getTableTimeTmax;
+
   initial algorithm
     if tableOnFile then
       tableOnFileRead := readTableData(tableID, false, verboseRead);
     else
       tableOnFileRead := 1.;
     end if;
+    u_min := getTableAbscissaUmin(tableID, tableOnFileRead);
+    u_max := getTableAbscissaUmax(tableID, tableOnFileRead);
   equation
     if tableOnFile then
       assert(tableName <> "NoName",

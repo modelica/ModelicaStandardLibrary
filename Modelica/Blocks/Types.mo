@@ -169,8 +169,9 @@ initialization definition.
       input Real table[:, :];
       input Integer columns[:];
       input Modelica.Blocks.Types.Smoothness smoothness;
+      input Modelica.Blocks.Types.Extrapolation extrapolation;
       output ExternalCombiTable1D externalCombiTable1D;
-    external"C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init(
+    external"C" externalCombiTable1D = ModelicaStandardTables_CombiTable1D_init2(
             tableName,
             fileName,
             table,
@@ -178,7 +179,8 @@ initialization definition.
             size(table, 2),
             columns,
             size(columns, 1),
-            smoothness) annotation (Library={"ModelicaStandardTables"});
+            smoothness,
+            extrapolation) annotation (Library={"ModelicaStandardTables"});
     end constructor;
 
     function destructor "Terminate 1-dim. table defined by matrix"
