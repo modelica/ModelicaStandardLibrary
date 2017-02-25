@@ -2306,9 +2306,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Integer icol;
-      input Modelica.SIunits.Time timeIn;
-      discrete input Modelica.SIunits.Time nextTimeEvent;
-      discrete input Modelica.SIunits.Time pre_nextTimeEvent;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
       input Real tableAvailable
         "Dummy input to ensure correct sorting of function calls";
       output Real y;
@@ -2325,9 +2325,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Integer icol;
-      input Modelica.SIunits.Time timeIn;
-      discrete input Modelica.SIunits.Time nextTimeEvent;
-      discrete input Modelica.SIunits.Time pre_nextTimeEvent;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
       input Real tableAvailable
         "Dummy input to ensure correct sorting of function calls";
       output Real y;
@@ -2340,9 +2340,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Integer icol;
-      input Modelica.SIunits.Time timeIn;
-      discrete input Modelica.SIunits.Time nextTimeEvent;
-      discrete input Modelica.SIunits.Time pre_nextTimeEvent;
+      input Real timeIn;
+      discrete input Real nextTimeEvent;
+      discrete input Real pre_nextTimeEvent;
       input Real tableAvailable
         "Dummy input to ensure correct sorting of function calls";
       input Real der_timeIn;
@@ -2352,23 +2352,23 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end getDerTableValue;
 
     function getTableTimeTmin
-      "Return minimum time value of 1-dim. table where first column is time"
+      "Return minimum abscissa value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Real tableAvailable
         "Dummy input to ensure correct sorting of function calls";
-      output Modelica.SIunits.Time timeMin "Minimum time value in table";
+      output Real timeMin "Minimum abscissa value in table";
       external"C" timeMin = ModelicaStandardTables_CombiTimeTable_minimumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTableTimeTmin;
 
     function getTableTimeTmax
-      "Return maximum time value of 1-dim. table where first column is time"
+      "Return maximum abscissa value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
       input Real tableAvailable
         "Dummy input to ensure correct sorting of function calls";
-      output Modelica.SIunits.Time timeMax "Maximum time value in table";
+      output Real timeMax "Maximum abscissa value in table";
       external"C" timeMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getTableTimeTmax;
@@ -2377,10 +2377,10 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Return next time event value of 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input Modelica.Blocks.Types.ExternalCombiTimeTable tableID;
-      input Modelica.SIunits.Time timeIn;
+      input Real timeIn;
       input Real tableAvailable
         "Dummy input to ensure correct sorting of function calls";
-      output Modelica.SIunits.Time nextTimeEvent "Next time event in table";
+      output Real nextTimeEvent "Next time event in table";
       external"C" nextTimeEvent = ModelicaStandardTables_CombiTimeTable_nextTimeEvent(tableID, timeIn)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
     end getNextTimeEvent;
