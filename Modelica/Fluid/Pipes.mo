@@ -3206,6 +3206,7 @@ identical to laminar wall friction.
           protected
           function interpolateInRegion2_withDerivative
               "Interpolation in log-log space using a cubic Hermite polynomial, where x=log10(lambda2), y=log10(Re)"
+            extends Modelica.Icons.Function;
 
             input Real lambda2 "Known independent variable";
             input SI.ReynoldsNumber Re1
@@ -3322,6 +3323,7 @@ identical to laminar wall friction.
           protected
           function interpolateInRegion2
               "Interpolation in log-log space using a cubic Hermite polynomial, where x=log10(Re), y=log10(lambda2)"
+            extends Modelica.Icons.Function;
 
             input SI.ReynoldsNumber Re "Known independent variable";
             input SI.ReynoldsNumber Re1
