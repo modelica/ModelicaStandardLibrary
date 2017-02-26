@@ -48,6 +48,10 @@
                       functions shall be visible outside of the DLL
 
    Release Notes:
+      Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR in
+                     function CacheFileForReading (ticket #2097)
+
       Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed WIN32 support of a directory name with a trailing
                      forward/backward slash character in ModelicaInternal_stat
@@ -184,8 +188,8 @@ MODELICA_EXPORT void ModelicaInternal_setenv(const char* name, const char* value
     ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
-#define uthash_fatal(msg) ModelicaFormatMessage("Error: %s\n", msg); break
 #include "uthash.h"
+#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
 
 #include <stdio.h>
@@ -734,6 +738,12 @@ static void deleteCS(void) {
 #endif
 
 static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
+#define uthash_fatal(msg) do { \
+    MUTEX_UNLOCK(); \
+    ModelicaFormatMessage("Error in uthash: %s\n" \
+        "Hash table for file cache may be left in corrupt state.\n", msg); \
+    return; \
+} while (0)
     FileCache* fv;
     if (fileName == NULL) {
         /* Do not add, close file */
@@ -762,6 +772,7 @@ static void CacheFileForReading(FILE* fp, const char* fileName, int line) {
         }
     }
     MUTEX_UNLOCK();
+#undef uthash_fatal
 }
 
 static void CloseCachedFile(const char* fileName) {

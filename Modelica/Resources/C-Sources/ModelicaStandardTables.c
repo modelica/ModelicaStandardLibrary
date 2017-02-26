@@ -47,6 +47,10 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR in
+                     function readTable (ticket #2097)
+
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Added support of extrapolation for CombiTable1D
                      Added functions to retrieve minimum and maximum
@@ -161,8 +165,8 @@
 #endif
 #include "ModelicaMatIO.h"
 #if defined(TABLE_SHARE)
-#define uthash_fatal(msg) ModelicaFormatMessage("Error: %s\n", msg); break
 #include "uthash.h"
+#undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
 #endif
 #endif
@@ -4326,6 +4330,14 @@ static void transpose(double* table, size_t nRow, size_t nCol) {
 #if !defined(NO_FILE_SYSTEM)
 static double* readTable(const char* tableName, const char* fileName,
                          size_t* nRow, size_t* nCol, int verbose, int force) {
+#if defined(TABLE_SHARE)
+#define uthash_fatal(msg) do { \
+    MUTEX_UNLOCK(); \
+    ModelicaFormatMessage("Error in uthash: %s\n" \
+        "Hash table for table cache may be left in corrupt state.\n", msg); \
+    return table; \
+} while (0)
+#endif
     double* table = NULL;
     if (tableName != NULL && fileName != NULL && nRow != NULL && nCol != NULL) {
 #if defined(TABLE_SHARE)
@@ -4435,6 +4447,9 @@ static double* readTable(const char* tableName, const char* fileName,
 #endif
     }
     return table;
+#if defined(TABLE_SHARE)
+#undef uthash_fatal
+#endif
 }
 
 static double* readMatTable(const char* tableName, const char* fileName,
