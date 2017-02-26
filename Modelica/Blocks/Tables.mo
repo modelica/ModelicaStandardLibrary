@@ -191,12 +191,21 @@ other columns contain the data to be interpolated. Example:
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
 </pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
 <li>If the table has only <b>one row</b>, the table value is returned,
     independent of the value of the input signal.</li>
-<li>If the input signal <b>u[i]</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
-    u[i] &gt; table[size(table,1),i+1] or u[i] &lt; table[1,1], the corresponding
-    value is also determined by linear
-    interpolation through the last or first two points of the table.</li>
 <li>The grid values (first column) have to be strictly increasing.</li>
 </ul>
 <p>
@@ -540,12 +549,21 @@ other columns contain the data to be interpolated. Example:
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
 </pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
+</pre></li>
 <li>If the table has only <b>one row</b>, the table value is returned,
     independent of the value of the input signal.</li>
-<li>If the input signal <b>u</b> is <b>outside</b> of the defined <b>interval</b>, i.e.,
-    u &gt; table[size(table,1),1] or u &lt; table[1,1], the corresponding
-    value is also determined by linear
-    interpolation through the last or first two points of the table.</li>
 <li>The grid values (first column) have to be strictly increasing.</li>
 </ul>
 <p>

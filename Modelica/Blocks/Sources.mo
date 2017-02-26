@@ -2141,8 +2141,7 @@ The table interpolation has the following properties:
     <strong>extrapolation</strong> through the last or first two points of the
     table.</li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
-    the function value is just returned independently of the
-    actual time instant.</li>
+    the function value is just returned independently of the actual time instant.</li>
 <li>Via parameters <strong>startTime</strong> and <strong>offset</strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.</li>
 <li>The first point in time <strong>always</strong> has to be set to <strong>0</strong>, e.g.,
@@ -2426,20 +2425,6 @@ The table interpolation has the following properties:
     spline interpolation, otherwise <strong>monotonically increasing</strong>.</li>
 <li><strong>Discontinuities</strong> are allowed for (constant or) linear interpolation,
     by providing the same time point twice in the table.</li>
-<li>Values <strong>outside</strong> of the table range, are computed by
-    extrapolation according to the setting of parameter
-    <strong>extrapolation</strong>:
-<pre>
-  extrapolation = 1: Hold the first or last value of the table,
-                     if outside of the table scope.
-                = 2: Extrapolate by using the derivative at the first/last table
-                     points if outside of the table scope.
-                     (If smoothness is LinearSegments or ConstantSegments
-                     this means to extrapolate linearly through the first/last
-                     two table points.).
-                = 3: Periodically repeat the table data (periodical function).
-                = 4: No extrapolation, i.e. extrapolation triggers an error
-</pre></li>
 <li>Via parameter <strong>smoothness</strong> it is defined how the data is interpolated:
 <pre>
   smoothness = 1: Linear interpolation
@@ -2452,6 +2437,19 @@ The table interpolation has the following properties:
              = 5: Steffen interpolation: Smooth interpolation by cubic Hermite
                   splines such that y preserves the monotonicity and der(y)
                   is continuous, also if extrapolated.
+</pre></li>
+<li>Values <strong>outside</strong> of the table range, are computed by
+    extrapolation according to the setting of parameter <strong>extrapolation</strong>:
+<pre>
+  extrapolation = 1: Hold the first or last value of the table,
+                     if outside of the table scope.
+                = 2: Extrapolate by using the derivative at the first/last table
+                     points if outside of the table scope.
+                     (If smoothness is LinearSegments or ConstantSegments
+                     this means to extrapolate linearly through the first/last
+                     two table points.).
+                = 3: Periodically repeat the table data (periodical function).
+                = 4: No extrapolation, i.e. extrapolation triggers an error
 </pre></li>
 <li>If the table has only <strong>one row</strong>, no interpolation is performed and
     the table values of this row are just returned.</li>
