@@ -1155,31 +1155,28 @@ model World
   import Modelica.Mechanics.MultiBody.Types.GravityTypes;
   import Modelica.Mechanics.MultiBody.Types;
 
-    Interfaces.Frame_b frame_b
+  Interfaces.Frame_b frame_b
     "Coordinate system fixed in the origin of the world frame"
-                               annotation (Placement(transformation(extent={{84,
-            -16},{116,16}})));
+    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";
   parameter Boolean animateWorld=true
     "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
   parameter Boolean animateGravity=true
-    "= true, if gravity field shall be visualized (acceleration vector or field center)"
-                                                                                          annotation(Dialog(enable=enableAnimation));
+    "= true, if gravity field shall be visualized (acceleration vector or field center)" annotation(Dialog(enable=enableAnimation));
   parameter Types.AxisLabel label1="x" "Label of horizontal axis in icon";
   parameter Types.AxisLabel label2="y" "Label of vertical axis in icon";
   parameter Types.GravityTypes gravityType=GravityTypes.UniformGravity
-    "Type of gravity field"                                                                                                     annotation (Evaluate=true);
-  parameter SI.Acceleration g=9.81 "Constant gravity acceleration"
+    "Type of gravity field" annotation(Evaluate=true);
+  parameter SI.Acceleration g=Modelica.Constants.g_n "Constant gravity acceleration"
     annotation (Dialog(enable=gravityType == Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
   parameter Types.Axis n={0,-1,0}
     "Direction of gravity resolved in world frame (gravity = g*n/length(n))"
-    annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.
-          MultiBody.Types.GravityTypes.UniformGravity));
+    annotation (Evaluate=true, Dialog(enable=gravityType == Modelica.Mechanics.MultiBody.Types.GravityTypes.UniformGravity));
   parameter Real mue(
     unit="m3/s2",
-    min=0) = 3.986e14
+    min=0) = 3.986004418e14
     "Gravity field constant (default = field constant of earth)"
     annotation (Dialog(enable=gravityType == Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity));
   parameter Boolean driveTrainMechanics3D=true
