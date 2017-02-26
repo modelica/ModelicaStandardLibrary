@@ -110,7 +110,7 @@ package Tables
       output Real uMin "Minimum abscissa value in table";
       external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableTimeTmin;
+    end getTableAbscissaUmin;
 
     function getTableAbscissaUmax
       "Return maximum abscissa value of 1-dim. table defined by matrix"
@@ -121,7 +121,7 @@ package Tables
       output Real uMax "Maximum abscissa value in table";
       external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableTimeTmax;
+    end getTableAbscissaUmax;
 
   initial algorithm
     if tableOnFile then
@@ -468,7 +468,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real uMin "Minimum abscissa value in table";
       external"C" uMin = ModelicaStandardTables_CombiTable1D_minimumAbscissa(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableTimeTmin;
+    end getTableAbscissaUmin;
 
     function getTableAbscissaUmax
       "Return maximum abscissa value of 1-dim. table defined by matrix"
@@ -479,7 +479,7 @@ MATLAB is a registered trademark of The MathWorks, Inc.
       output Real uMax "Maximum abscissa value in table";
       external"C" uMax = ModelicaStandardTables_CombiTimeTable_maximumTime(tableID)
         annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
-    end getTableTimeTmax;
+    end getTableAbscissaUmax;
 
   initial algorithm
     if tableOnFile then
