@@ -5735,8 +5735,8 @@ on the model behaviour.
               points={{14,28},{14,-28}},
               color={0,0,255},
               thickness=0.5),
-            Line(points={{-90,0},{-14,0}}),
-            Line(points={{14,0},{90,0}}),
+            Line(points={{-90,0},{-14,0}},color={0,0,255}),
+            Line(points={{14,0},{90,0}},color={0,0,255}),
             Text(
               extent={{-130,-40},{134,-60}},
               lineColor={0,0,0},
