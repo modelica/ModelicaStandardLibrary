@@ -61,13 +61,13 @@ package DrumBoiler
       annotation (Placement(transformation(extent={{-22,20},{-42,40}})));
     Modelica.Blocks.Sources.Constant levelSetPoint(k=67)
       annotation (Placement(transformation(extent={{-38,48},{-24,62}})));
-    Modelica.Blocks.Interfaces.RealOutput T_S "steam temperature"
+    Modelica.Blocks.Interfaces.RealOutput T_S(final unit="degC") "steam temperature"
       annotation (Placement(transformation(extent={{100,48},{112,60}})));
-    Modelica.Blocks.Interfaces.RealOutput p_S "steam pressure"
+    Modelica.Blocks.Interfaces.RealOutput p_S(final unit="bar") "steam pressure"
       annotation (Placement(transformation(extent={{100,22},{112,34}})));
-    Modelica.Blocks.Interfaces.RealOutput qm_S "steam flow rate"
+    Modelica.Blocks.Interfaces.RealOutput qm_S(unit="kg/s") "steam flow rate"
       annotation (Placement(transformation(extent={{100,-2},{112,10}})));
-    Modelica.Blocks.Interfaces.RealOutput V_l "liquid volume inside drum"
+    Modelica.Blocks.Interfaces.RealOutput V_l(unit="m3") "liquid volume inside drum"
       annotation (Placement(transformation(extent={{100,74},{112,86}})));
   public
     Modelica.Blocks.Math.Gain MW2W(k=1e6)
@@ -217,7 +217,7 @@ package DrumBoiler
 
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.Blocks.Interfaces.RealOutput V "liquid volume"
+      Modelica.Blocks.Interfaces.RealOutput V(unit="m3") "liquid volume"
       annotation (Placement(transformation(
             origin={40,110},
             extent={{-10,-10},{10,10}},
