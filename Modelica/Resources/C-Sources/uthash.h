@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2003-2016, Troy D. Hanson     http://troydhanson.github.com/uthash/
+Copyright (c) 2003-2017, Troy D. Hanson     http://troydhanson.github.com/uthash/
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -24,7 +24,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef UTHASH_H
 #define UTHASH_H
 
-#define UTHASH_VERSION 2.0.1
+#define UTHASH_VERSION 2.0.2
 
 #include <string.h>   /* memcmp,strlen */
 #include <stddef.h>   /* ptrdiff_t */
@@ -86,6 +86,12 @@ typedef unsigned char uint8_t;
 #endif
 #ifndef uthash_free
 #define uthash_free(ptr,sz) free(ptr)     /* free fcn                        */
+#endif
+#ifndef uthash_strlen
+#define uthash_strlen(s) strlen(s)
+#endif
+#ifndef uthash_memcmp
+#define uthash_memcmp(a,b,n) memcmp(a,b,n)
 #endif
 
 #ifndef uthash_noexpand_fyi
@@ -236,20 +242,20 @@ do {                                                                            
     (head) = (add);                                                              \
     HASH_MAKE_TABLE(hh, head);                                                   \
   } else {                                                                       \
-    struct UT_hash_handle *_hs_iter = &(head)->hh;                               \
+    void *_hs_iter = (head);                                                     \
     (add)->hh.tbl = (head)->hh.tbl;                                              \
     do {                                                                         \
-      if (cmpfcn(DECLTYPE(head) ELMT_FROM_HH((head)->hh.tbl, _hs_iter), add) > 0) \
+      if (cmpfcn(DECLTYPE(head)(_hs_iter), add) > 0)                             \
         break;                                                                   \
-    } while ((_hs_iter = _hs_iter->next));                                       \
+    } while ((_hs_iter = HH_FROM_ELMT((head)->hh.tbl, _hs_iter)->next));         \
     if (_hs_iter) {                                                              \
       (add)->hh.next = _hs_iter;                                                 \
-      if (((add)->hh.prev = _hs_iter->prev)) {                                   \
-        HH_FROM_ELMT((head)->hh.tbl, _hs_iter->prev)->next = (add);              \
+      if (((add)->hh.prev = HH_FROM_ELMT((head)->hh.tbl, _hs_iter)->prev)) {     \
+        HH_FROM_ELMT((head)->hh.tbl, (add)->hh.prev)->next = (add);              \
       } else {                                                                   \
         (head) = (add);                                                          \
       }                                                                          \
-      _hs_iter->prev = (add);                                                    \
+      HH_FROM_ELMT((head)->hh.tbl, _hs_iter)->prev = (add);                      \
     } else {                                                                     \
       HASH_APPEND_LIST(hh, head, add);                                           \
     }                                                                            \
@@ -366,11 +372,11 @@ do {                                                                            
 
 /* convenience forms of HASH_FIND/HASH_ADD/HASH_DEL */
 #define HASH_FIND_STR(head,findstr,out)                                          \
-    HASH_FIND(hh,head,findstr,(unsigned)strlen(findstr),out)
+    HASH_FIND(hh,head,findstr,(unsigned)uthash_strlen(findstr),out)
 #define HASH_ADD_STR(head,strfield,add)                                          \
-    HASH_ADD(hh,head,strfield[0],(unsigned int)strlen(add->strfield),add)
+    HASH_ADD(hh,head,strfield[0],(unsigned)uthash_strlen(add->strfield),add)
 #define HASH_REPLACE_STR(head,strfield,add,replaced)                             \
-    HASH_REPLACE(hh,head,strfield[0],(unsigned)strlen(add->strfield),add,replaced)
+    HASH_REPLACE(hh,head,strfield[0],(unsigned)uthash_strlen(add->strfield),add,replaced)
 #define HASH_FIND_INT(head,findint,out)                                          \
     HASH_FIND(hh,head,findint,sizeof(int),out)
 #define HASH_ADD_INT(head,intfield,add)                                          \
@@ -704,21 +710,26 @@ do {                                                                   \
 } while (0)
 #endif  /* HASH_USING_NO_STRICT_ALIASING */
 
-/* key comparison function; return 0 if keys equal */
-#define HASH_KEYCMP(a,b,len) memcmp(a,b,(unsigned long)(len))
-
 /* iterate over items in a known bucket to find desired item */
 #define HASH_FIND_IN_BKT(tbl,hh,head,keyptr,keylen_in,hashval,out)               \
 do {                                                                             \
- if (head.hh_head != NULL) { DECLTYPE_ASSIGN(out,ELMT_FROM_HH(tbl,head.hh_head)); } \
- else { out=NULL; }                                                              \
- while (out != NULL) {                                                           \
+  if ((head).hh_head != NULL) {                                                  \
+    DECLTYPE_ASSIGN(out, ELMT_FROM_HH(tbl, (head).hh_head));                     \
+  } else {                                                                       \
+    (out) = NULL;                                                                \
+  }                                                                              \
+  while ((out) != NULL) {                                                        \
     if ((out)->hh.hashv == (hashval) && (out)->hh.keylen == (keylen_in)) {       \
-        if ((HASH_KEYCMP((out)->hh.key,keyptr,keylen_in)) == 0) { break; }         \
+      if (uthash_memcmp((out)->hh.key, keyptr, keylen_in) == 0) {                \
+        break;                                                                   \
+      }                                                                          \
     }                                                                            \
-    if ((out)->hh.hh_next != NULL) { DECLTYPE_ASSIGN(out,ELMT_FROM_HH(tbl,(out)->hh.hh_next)); } \
-    else { out = NULL; }                                                         \
- }                                                                               \
+    if ((out)->hh.hh_next != NULL) {                                             \
+      DECLTYPE_ASSIGN(out, ELMT_FROM_HH(tbl, (out)->hh.hh_next));                \
+    } else {                                                                     \
+      (out) = NULL;                                                              \
+    }                                                                            \
+  }                                                                              \
 } while (0)
 
 /* add an item to a bucket  */
