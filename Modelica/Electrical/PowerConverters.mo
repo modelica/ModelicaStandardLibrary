@@ -115,9 +115,9 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-
-<h5>Version 3.2.2, 2016-09-18</h5>
+<h5>Version 3.2.2, 2017-03-04</h5>
 <ul>
+<li>Unified location of PowerConverter connectors in diagram layer, see #2185</li>
 <li>Fixed broken hyper links</li>
 <li>Replaced pin declaration by <code>extends</code> according to #2065</li>
 </ul>
@@ -3215,10 +3215,10 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{-70,40},{-70,20}},
               color={0,0,255}));
           connect(constantVoltage_p.p, inverter.dc_p) annotation (Line(
-              points={{-70,60},{-50,60},{-50,40}},
+              points={{-70,60},{-60,60},{-60,36},{-50,36}},
               color={0,0,255}));
           connect(constantVoltage_n.n, inverter.dc_n) annotation (Line(
-              points={{-70,0},{-50,0},{-50,20}},
+              points={{-70,0},{-60,0},{-60,24},{-54,24},{-50,24}},
               color={0,0,255}));
           connect(ground.p, constantVoltage_p.n) annotation (Line(
               points={{-90,30},{-70,30},{-70,40}},
@@ -3354,10 +3354,10 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{-70,40},{-70,20}},
               color={0,0,255}));
           connect(constantVoltage_p.p, inverter.dc_p) annotation (Line(
-              points={{-70,60},{-50,60},{-50,40}},
+              points={{-70,60},{-60,60},{-60,36},{-50,36},{-50,36}},
               color={0,0,255}));
           connect(constantVoltage_n.n, inverter.dc_n) annotation (Line(
-              points={{-70,0},{-50,0},{-50,20}},
+              points={{-70,0},{-60,0},{-60,24},{-50,24},{-50,24}},
               color={0,0,255}));
           connect(ground.p, constantVoltage_p.n) annotation (Line(
               points={{-90,30},{-70,30},{-70,40}},
@@ -3466,10 +3466,10 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               points={{-70,40},{-70,20}},
               color={0,0,255}));
           connect(constantVoltage_p.p, inverter.dc_p) annotation (Line(
-              points={{-70,60},{-50,60},{-50,40}},
+              points={{-70,60},{-60,60},{-60,36},{-50,36},{-50,36}},
               color={0,0,255}));
           connect(constantVoltage_n.n, inverter.dc_n) annotation (Line(
-              points={{-70,0},{-50,0},{-50,20}},
+              points={{-70,0},{-60,0},{-60,24},{-52,24},{-52,24},{-50,24},{-50,24}},
               color={0,0,255}));
           connect(ground.p, constantVoltage_p.n) annotation (Line(
               points={{-90,30},{-70,30},{-70,40}},
@@ -6084,10 +6084,10 @@ General information about AC/DC converters can be found at the
            + diode_n.LossPower;
       end if;
       connect(transistor_p.p, dc_p) annotation (Line(
-          points={{30,30},{50,30},{50,60},{-100,60},{-100,100}},
+          points={{30,30},{50,30},{50,60},{-100,60},{-100,60}},
           color={0,0,255}));
       connect(transistor_n.n, dc_n) annotation (Line(
-          points={{30,-30},{50,-30},{50,-60},{-100,-60},{-100,-100}},
+          points={{30,-30},{50,-30},{50,-60},{-100,-60},{-100,-60}},
           color={0,0,255}));
       connect(transistor_p.p, diode_p.n) annotation (Line(
           points={{30,30},{70,30}},
@@ -6943,10 +6943,10 @@ For <code>useConstantEnable = false</code> the internal signal
 
         Modelica.Electrical.Analog.Interfaces.PositivePin dc_p
           "Positive DC input"
-          annotation (Placement(transformation(extent={{-110,110},{-90,90}})));
+          annotation (Placement(transformation(extent={{-110,70},{-90,50}})));
         Modelica.Electrical.Analog.Interfaces.NegativePin dc_n
           "Negative DC input"
-          annotation (Placement(transformation(extent={{-110,-110},{-90,-90}})));
+          annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
         Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
       end DCtwoPin;
