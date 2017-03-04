@@ -117,6 +117,7 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       annotation (Documentation(info="<html>
 <h5>Version 3.2.2, 2017-03-04</h5>
 <ul>
+<li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see #2196</li>
 <li>Unified location of PowerConverter connectors in diagram layer, see #2185</li>
 <li>Fixed broken hyper links</li>
 <li>Replaced pin declaration by <code>extends</code> according to #2065</li>
@@ -826,6 +827,7 @@ A freely available book is available in
                 origin={-80,60})));
         initial equation
           lMains.i = 0;
+
 
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
@@ -1607,8 +1609,6 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
 
         model HalfControlledBridge2mPulse
           "2*m pulse half controlled rectifier bridge with resistive load"
-          import Modelica_Electrical_PowerConverters =
-            Modelica.Electrical.PowerConverters;
           extends Modelica.Icons.Example;
           import Modelica.Constants.pi;
           parameter Integer m(final min=3) = 3 "Number of phases";
@@ -1627,7 +1627,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-80,-30})));
-          Modelica_Electrical_PowerConverters.ACDC.HalfControlledBridge2mPulse
+          Modelica.Electrical.PowerConverters.ACDC.HalfControlledBridge2mPulse
             rectifier(final m=m, offStart_p=fill(true, m))
             annotation (Placement(transformation(extent={{-40,24},{-20,44}})));
           Modelica.Electrical.Analog.Sensors.VoltageSensor voltagesensor
@@ -1652,7 +1652,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 transformation(
                 extent={{-10,-10},{10,10}},
                 origin={80,-60})));
-          Modelica_Electrical_PowerConverters.ACDC.Control.VoltageBridge2mPulse
+          Modelica.Electrical.PowerConverters.ACDC.Control.VoltageBridge2mPulse
             pulse2m(
             m=m,
             f=f,
@@ -2049,6 +2049,7 @@ Plot torque <code>tau</code>, current <code>currentSensor.i</code> and average c
                 transformation(extent={{-30,-60},{-10,-40}})));
         initial equation
           lMains.i[1:m - 1] = zeros(m - 1);
+
 
         equation
           connect(meanCurrent.u, currentSensor.i) annotation (Line(
@@ -3136,8 +3137,6 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
       package MultiPhaseTwoLevel "Multi phase two level inverter example"
         extends Modelica.Icons.ExamplesPackage;
         model MultiPhaseTwoLevel_R "Multi phase DC to AC converter with R load"
-          import Modelica_Electrical_PowerConverters =
-            Modelica.Electrical.PowerConverters;
           extends Modelica.Icons.Example;
           parameter Integer m=3 "Number of phases";
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -3149,7 +3148,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-          Modelica_Electrical_PowerConverters.DCAC.MultiPhase2Level inverter(
+          Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level inverter(
               useHeatPort=false, m=m)
             annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=
@@ -3167,7 +3166,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-90,40})));
-          Modelica_Electrical_PowerConverters.DCDC.Control.SignalPWM signalPWM[
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM[
             m](each useConstantDutyCycle=false, each f=f) annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
@@ -3260,14 +3259,12 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
               Tolerance=1e-06,
               Interval=0.00002),
             Documentation(info="<html>
-<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"Modelica_Electrical_PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
+<p>Plot current <code>currentSensor.i[:]</code>, harmonic current magnitude <code>fundamentalWaveCurrent[:].y_RMS</code>, harmonic voltage magnitude <code>fundamentalWaveVoltage[:].y_RMS</code>. The instantaneous voltages <code>voltageSensor.i[:]</code> and currents <code>currentSensor.i[:]</code> directly show the switching pattern of the inverter. There is not smoothing effect due to an inductance in this example; see <a href=\"Modelica.Electrical.PowerConverters.Examples.DCAC.MultiPhaseTwoLevel.MultiPhaseTwoLevel_RL\">MultiPhaseTwoLevel_RL</a>.</p>
 </html>"));
         end MultiPhaseTwoLevel_R;
 
         model MultiPhaseTwoLevel_RL
           "Multi phase DC to AC converter with R-L load"
-          import Modelica_Electrical_PowerConverters =
-            Modelica.Electrical.PowerConverters;
           extends Modelica.Icons.Example;
           parameter Integer m=6 "Number of phases";
           parameter Modelica.SIunits.Frequency f=1000 "Switching frequency";
@@ -3280,7 +3277,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=270,
                 origin={-70,10})));
-          Modelica_Electrical_PowerConverters.DCAC.MultiPhase2Level inverter(
+          Modelica.Electrical.PowerConverters.DCAC.MultiPhase2Level inverter(
               useHeatPort=false, m=m)
             annotation (Placement(transformation(extent={{-50,20},{-30,40}})));
           Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=
@@ -3298,7 +3295,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 extent={{-10,-10},{10,10}},
                 rotation=180,
                 origin={-90,40})));
-          Modelica_Electrical_PowerConverters.DCDC.Control.SignalPWM signalPWM[
+          Modelica.Electrical.PowerConverters.DCDC.Control.SignalPWM signalPWM[
             m](each useConstantDutyCycle=false, each f=f) annotation (Placement(
                 transformation(
                 extent={{-10,-10},{10,10}},
@@ -3348,6 +3345,7 @@ center tap <code>2*m</code> pulse rectifiers</a>, where <code>m</code> is the nu
                 origin={40,-90})));
         initial equation
           inductor.i[1:m - 1] = zeros(m - 1);
+
 
         equation
           connect(constantVoltage_p.n, constantVoltage_n.p) annotation (Line(
