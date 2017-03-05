@@ -92,7 +92,7 @@ Plotting the imaginary part versus the real part, you will see an Archimedean sp
 </html>"), experiment(StopTime=1.01, Interval=0.001));
     end TestConversionBlock;
 
-    model ShowTransferFunction
+    model ShowTransferFunction "Test Complex Transfer Function Block"
       extends Modelica.Icons.Example;
       parameter Real d=1/sqrt(2);
       parameter Real b[:]={1};
@@ -1936,7 +1936,7 @@ zero or negative.
 </html>"));
     end ComplexToPolar;
 
-    block TransferFunction
+    block TransferFunction "Complex Transfer Function"
       extends Modelica.ComplexBlocks.Interfaces.ComplexSISO;
       import Modelica.ComplexMath.j;
       import Modelica.ComplexMath.'sum';
