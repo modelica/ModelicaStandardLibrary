@@ -115,8 +115,9 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
     class ReleaseNotes "Release Notes"
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2017-03-04</h5>
+<h5>Version 3.2.2, 2017-03-05</h5>
 <ul>
+<li>Added instantaneous power calculations of DC and AC interface partial models, see #2198</li>
 <li>Replaced Modelica_Electrical_PowerConverters by Modelica.Electrical.PowerConverter, see #2196</li>
 <li>Unified location of PowerConverter connectors in diagram layer, see #2185</li>
 <li>Fixed broken hyper links</li>
@@ -6889,6 +6890,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
         Modelica.SIunits.Voltage vAC=ac_p.v - ac_n.v "AC voltages";
         Modelica.SIunits.Current iAC=ac_p.i "AC currents";
+        Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
       end ACtwoPin;
       extends Modelica.Icons.InterfacesPackage;
       partial model ACplug "AC multi phase plug"
@@ -6898,6 +6900,8 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
         Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potentials";
         Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC currents";
+        Modelica.SIunits.Power powerAC[m]=vAC.*iAC "AC power";
+        Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
       end ACplug;
 
       partial model ACtwoPlug "Two AC multi phase plugs"
@@ -6908,9 +6912,10 @@ For <code>useConstantEnable = false</code> the internal signal
         Modelica.Electrical.MultiPhase.Interfaces.NegativePlug ac_n(final m=m)
           "Negative potential AC input"
           annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
-        Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v
-          "AC voltages";
+        Modelica.SIunits.Voltage vAC[m]=ac_p.pin[:].v - ac_n.pin[:].v "AC voltages";
         Modelica.SIunits.Current iAC[m]=ac_p.pin[:].i "AC currents";
+        Modelica.SIunits.Power powerAC[m]=vAC.*iAC "AC power";
+        Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
       end ACtwoPlug;
 
       partial model DCtwoPin "Positive and negative DC pins"
@@ -6923,6 +6928,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
         Modelica.SIunits.Voltage vDC=dc_p.v-dc_n.v "DC voltage";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
+        Modelica.SIunits.Power powerDC=vDC*iDC "DC power";
       end DCtwoPin;
 
       partial model DCpin "Single DC pin"
@@ -6932,6 +6938,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.SIunits.Voltage vDC=dc_p.v "DC potential";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
+        Modelica.SIunits.Power powerDC=vDC*iDC "DC power";
       end DCpin;
     end ACDC;
 
@@ -6946,6 +6953,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
         Modelica.SIunits.Voltage vDC=dc_p.v - dc_n.v "DC voltage";
         Modelica.SIunits.Current iDC=dc_p.i "DC current";
+        Modelica.SIunits.Power powerDC=vDC*iDC "DC power";
       end DCtwoPin;
       extends Modelica.Icons.InterfacesPackage;
       partial model ACpin "Single AC pin"
@@ -6954,6 +6962,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.SIunits.Voltage vAC=ac.v "AC potential";
         Modelica.SIunits.Current iAC=ac.i "AC current";
+        Modelica.SIunits.Power powerAC=vAC*iAC "AC power";
       end ACpin;
 
       partial model ACplug "AC multi phase plug"
@@ -6963,6 +6972,8 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-10},{110,10}})));
         Modelica.SIunits.Voltage vAC[m]=ac.pin[:].v "AC potential";
         Modelica.SIunits.Current iAC[m]=ac.pin[:].i "AC current";
+        Modelica.SIunits.Power powerAC[m]=vAC.*iAC "AC power";
+        Modelica.SIunits.Power powerTotalAC=sum(powerAC) "AC total power";
       end ACplug;
     end DCAC;
 
@@ -6977,6 +6988,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{-110,-70},{-90,-50}})));
         Modelica.SIunits.Voltage vDC1=dc_p1.v - dc_n1.v "DC voltage side 1";
         Modelica.SIunits.Current iDC1=dc_p1.i "DC current side 1";
+        Modelica.SIunits.Power powerDC1=vDC1*iDC1 "DC power side 1";
       end DCtwoPin1;
       extends Modelica.Icons.InterfacesPackage;
       partial model DCtwoPin2 "Positive and negative pins of side 2"
@@ -6989,6 +7001,7 @@ For <code>useConstantEnable = false</code> the internal signal
           annotation (Placement(transformation(extent={{90,-70},{110,-50}})));
         Modelica.SIunits.Voltage vDC2=dc_p2.v - dc_n2.v "DC voltages side 2";
         Modelica.SIunits.Current iDC2=dc_p2.i "DC current side 2";
+        Modelica.SIunits.Power powerDC2=vDC2*iDC2 "DC power side 2";
       end DCtwoPin2;
     end DCDC;
 
