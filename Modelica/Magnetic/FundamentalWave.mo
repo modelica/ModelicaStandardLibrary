@@ -347,9 +347,13 @@ no. 829420.
       extends Modelica.Icons.ReleaseNotes;
       annotation (Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-09-13</h5>
+<h5>Version 3.2.2, 2017-03-05</h5>
 
 <ul>
+<li>Added obsolete annotation to 
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding_obsolete\">SymmetricMultiPhaseCageWinding_obsolete</a> and
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding_obsolete\">SaliencyCageWinding_obsolete</a>,
+    see #1536</li>
 <li>Updated documentation of
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Short\">Short</a>,
     <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a> and
@@ -614,7 +618,7 @@ model from R to G</li>
 </table>
 </html>"));
     end References;
-    annotation (Documentation(info="<html>
+    annotation (DocumentationClass=true, Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic fundamental wave
 models for the application in multi phase phase
@@ -6107,7 +6111,7 @@ The permanent magnet is modeled by a magnetic potential difference. The internal
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
             points={{-20,-80},{30,-80}},
             color={0,0,255}));
-        annotation (
+        annotation (obsolete="Wrong structure of multi phase cage, see #1536",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
@@ -6256,7 +6260,8 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
             points={{-30,-70},{-40,-70}},
             color={191,0,0}));
-        annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+        annotation (obsolete="Wrong structure of saliency cage, see #1536",
+          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Ellipse(
                       extent={{-80,80},{80,-80}},
                       lineColor={0,0,0},
