@@ -11162,12 +11162,9 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
       if (frictionParameters.PRef <= 0) then
         tau = 0;
       else
-        tau = -smooth(1, if w >= +frictionParameters.wLinear then +
-          frictionParameters.tauRef*(+w/frictionParameters.wRef)^
-          frictionParameters.power_w else if w <= -frictionParameters.wLinear
-           then -frictionParameters.tauRef*(-w/frictionParameters.wRef)^
-          frictionParameters.power_w else frictionParameters.tauLinear*(w/
-          frictionParameters.wLinear));
+        tau = -(if noEvent(abs(w)>frictionParameters.wLinear) then
+          frictionParameters.tauRef*sign(w)*(abs(w)/frictionParameters.wRef)^frictionParameters.power_w else
+          frictionParameters.tauLinear*w/frictionParameters.wLinear);
       end if;
       lossPower = -tau*w;
       annotation (Icon(graphics={
@@ -11347,9 +11344,7 @@ Model of voltage drop and losses of carbon brushes. This three-phase model uses 
           tau = 0;
         else
           tau = -strayLoadParameters.tauRef*(iRMS/strayLoadParameters.IRef)^2*
-            smooth(1, if w >= 0 then +(+w/strayLoadParameters.wRef)^
-            strayLoadParameters.power_w else -(-w/strayLoadParameters.wRef)^
-            strayLoadParameters.power_w);
+            sign(w)*(abs(w)/strayLoadParameters.wRef)^strayLoadParameters.power_w;
         end if;
         lossPower = -tau*w;
         annotation (Icon(graphics={
@@ -11411,13 +11406,9 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         if (permanentMagnetLossParameters.PRef <= 0) then
           tau = 0;
         else
-          tau = -permanentMagnetLossParameters.tauRef*(
-            permanentMagnetLossParameters.c + (1 -
-            permanentMagnetLossParameters.c)*(iRMS/
-            permanentMagnetLossParameters.IRef)^permanentMagnetLossParameters.power_I)
-            *smooth(1, if w >= 0 then +(+w/permanentMagnetLossParameters.wRef)^
-            permanentMagnetLossParameters.power_w else -(-w/
-            permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w);
+          tau = -permanentMagnetLossParameters.tauRef*(permanentMagnetLossParameters.c + (1 - permanentMagnetLossParameters.c)*
+            (iRMS/permanentMagnetLossParameters.IRef)^permanentMagnetLossParameters.power_I)*
+            sign(w)*(abs(w)/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w;
         end if;
         lossPower = -tau*w;
         annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}},
@@ -11477,8 +11468,7 @@ If it is desired to neglect permanent magnet losses, set <code>strayLoadParamete
           //  * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
           spacePhasor.i_ = Gc*spacePhasor.v_;
         end if;
-        lossPower = 3/2*(+spacePhasor.v_[1]*spacePhasor.i_[1] + spacePhasor.v_[
-          2]*spacePhasor.i_[2]);
+        lossPower = 3/2*(+spacePhasor.v_[1]*spacePhasor.i_[1] + spacePhasor.v_[2]*spacePhasor.i_[2]);
         annotation (Icon(graphics={
               Rectangle(
                 extent={{-70,30},{70,-30}},
@@ -11679,9 +11669,7 @@ e.g., used for initial equations.
           tau = 0;
         else
           tau = -strayLoadParameters.tauRef*(i/strayLoadParameters.IRef)^2*
-            smooth(1, if w >= 0 then +(+w/strayLoadParameters.wRef)^
-            strayLoadParameters.power_w else -(-w/strayLoadParameters.wRef)^
-            strayLoadParameters.power_w);
+            sign(w)*(abs(w)/strayLoadParameters.wRef)^strayLoadParameters.power_w;
         end if;
         lossPower = -tau*w;
         annotation (Icon(graphics={Line(points={{-90,0},{90,0}}, color={0,0,255}),

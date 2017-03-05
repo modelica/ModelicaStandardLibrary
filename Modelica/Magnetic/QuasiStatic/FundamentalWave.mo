@@ -5645,9 +5645,7 @@ Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</a>
         tau = 0;
       else
         tau = -strayLoadParameters.tauRef*(iRMS/strayLoadParameters.IRef)^2*
-          smooth(1, if w >= 0 then +(+w/strayLoadParameters.wRef)^
-          strayLoadParameters.power_w else -(-w/strayLoadParameters.wRef)^
-          strayLoadParameters.power_w);
+          sign(w)*(abs(w)/strayLoadParameters.wRef)^strayLoadParameters.power_w;
       end if;
       lossPower = -tau*w;
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -5707,13 +5705,9 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
       if (permanentMagnetLossParameters.PRef <= 0) then
         tau = 0;
       else
-        tau = -permanentMagnetLossParameters.tauRef*(
-          permanentMagnetLossParameters.c + (1 - permanentMagnetLossParameters.c)
-          *(iRMS/permanentMagnetLossParameters.IRef)^
-          permanentMagnetLossParameters.power_I)*smooth(1, if w >= 0 then +(+w/
-          permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w
-           else -(-w/permanentMagnetLossParameters.wRef)^
-          permanentMagnetLossParameters.power_w);
+        tau = -permanentMagnetLossParameters.tauRef*(permanentMagnetLossParameters.c + (1 - permanentMagnetLossParameters.c)*
+          (iRMS/permanentMagnetLossParameters.IRef)^permanentMagnetLossParameters.power_I)*
+          sign(w)*(abs(w)/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w;
       end if;
       lossPower = -tau*w;
       annotation (Icon(graphics={Ellipse(extent={{-40,-40},{40,40}}, lineColor=
