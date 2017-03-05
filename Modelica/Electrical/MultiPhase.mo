@@ -1,6 +1,4 @@
 within Modelica.Electrical;
-
-
 package MultiPhase "Library for electrical components of one or more phases"
   extends Modelica.Icons.Package;
 
@@ -140,8 +138,11 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
       extends Modelica.Icons.ReleaseNotes;
       annotation (preferredView="info",Documentation(info="<html>
 
-<h5>Version 3.2.2, 2014-04-21 (Anton Haumer, Christian Kral)</h5>
+<h5>Version 3.2.2, 2017-03-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
+<li>Changed epsiolon from constant to parameter in 
+    <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
+    see #2200</li>
 <li>Added User's Guide</li>
 <li>Added blocks and functions for multiple base systems</li>
 </ul>
@@ -1356,18 +1357,15 @@ Each element of the array of saturatingInductors is only dependent on the curren
 
     model MutualInductor "Linear mutual inductor"
       extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
-      constant Real epsilon=1e-9
-        "Relative accuracy tolerance of matrix symmetry";
+      parameter Real epsilon=1e-9 "Relative accuracy tolerance of matrix symmetry";
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Inductance L[m, m] "Mutual inductance matrix";
     initial equation
       if abs(Modelica.Math.Matrices.det(L)) < epsilon then
-        Modelica.Utilities.Streams.print(
-          "Warning: mutual inductance matrix singular!");
+        Modelica.Utilities.Streams.print("Warning: mutual inductance matrix singular!");
       end if;
     equation
-      assert(sum(abs(L - transpose(L))) < epsilon*sum(abs(L)),
-        "Mutual inductance matrix is not symmetric");
+      assert(sum(abs(L - transpose(L))) < epsilon*sum(abs(L)),"Mutual inductance matrix is not symmetric");
       for j in 1:m loop
         v[j] = sum(L[j, k]*der(i[k]) for k in 1:m);
       end for;
