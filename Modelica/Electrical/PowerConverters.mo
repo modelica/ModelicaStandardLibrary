@@ -3919,8 +3919,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
           annotation (Dialog(enable=useConstantFiringAngle));
         parameter Boolean useFilter=true "Enable use of filter"
           annotation (Dialog(tab="Filter"));
-        parameter Modelica.SIunits.Frequency f=50 "Frequency"
-          annotation (Dialog(tab="Filter", enable=useFilter));
+        parameter Modelica.SIunits.Frequency f=50 "Frequency";
         parameter Modelica.SIunits.Frequency fCut=2*f
           "Cut off frequency of filter"
           annotation (Dialog(tab="Filter", enable=useFilter));
@@ -4005,7 +4004,7 @@ Plot machine current <code>dcpm.ia</code>, averaged current <code>meanCurrent.y<
               origin={-120,0})));
         Filter filter[m](
           each final f=f,
-          each final fCut=2*f,
+          each final fCut=fCut,
           yStart=vStart) if useFilter annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               origin={-80,-80})));
