@@ -427,6 +427,9 @@ ideal AC DC converter</a>, which is used in the
     annotation (Documentation(info="<html>
 <h5>Version 3.2.2, 2017-03-05</h5>
 <ul>
+<li>Removed redundant (and not identical) parameter m from
+    <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
+    see #2202</li>
 <li>Added linear multi phase mutual inductor model, see #2200</li>
 <li>Added complex impedance and admittance models of single phase and multi phase package, see ticket
     <a href=\"https://trac.modelica.org/Modelica/ticket/1870\">#1870</a></li>

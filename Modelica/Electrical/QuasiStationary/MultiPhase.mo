@@ -1157,7 +1157,6 @@ using <code>m</code> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Si
       extends Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.OnePort;
       import Modelica.ComplexMath.j;
       parameter Real epsilon=1e-9 "Relative accuracy tolerance of matrix symmetry";
-      parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Inductance L[m, m] "Mutual inductance matrix";
     initial equation
       if abs(Modelica.Math.Matrices.det(L)) < epsilon then

@@ -113,6 +113,9 @@ email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 
 <h5>Version 3.2.2, 2017-03-05 (Anton Haumer, Christian Kral)</h5>
 <ul>
+<li>Removed redundant (and not identical) parameter m from
+    <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
+    see #2202</li>
 <li>Changed epsiolon from constant to parameter in 
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2200</li>
@@ -1341,7 +1344,6 @@ Each element of the array of saturatingInductors is only dependent on the curren
     model MutualInductor "Linear mutual inductor"
       extends Modelica.Electrical.MultiPhase.Interfaces.OnePort;
       parameter Real epsilon=1e-9 "Relative accuracy tolerance of matrix symmetry";
-      parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Inductance L[m, m] "Mutual inductance matrix";
     initial equation
       if abs(Modelica.Math.Matrices.det(L)) < epsilon then
