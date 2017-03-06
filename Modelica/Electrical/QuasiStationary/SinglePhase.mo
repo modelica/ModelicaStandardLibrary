@@ -1725,6 +1725,31 @@ This switch is only intended to be used for structural changes, not for fast swi
       Modelica.SIunits.ComplexCurrent i1=pin_p1.i "Current into side 1";
       Modelica.SIunits.ComplexVoltage v2=pin_p2.v - pin_n2.v "Voltage drop of side 2";
       Modelica.SIunits.ComplexCurrent i2=pin_p2.i "Current into side 2";
+
+      Modelica.SIunits.Voltage abs_v1=Modelica.ComplexMath.'abs'(v1) "Magnitude of complex voltage v1";
+      Modelica.SIunits.Angle arg_v1=Modelica.ComplexMath.arg(v1) "Argument of complex voltage v1";
+      Modelica.SIunits.Current abs_i1=Modelica.ComplexMath.'abs'(i1) "Magnitude of complex current i1";
+      Modelica.SIunits.Angle arg_i1=Modelica.ComplexMath.arg(i1) "Argument of complex current i1";
+      Modelica.SIunits.ActivePower P1=Modelica.ComplexMath.real(v1*
+          Modelica.ComplexMath.conj(i1)) "Active power, side 1";
+      Modelica.SIunits.ReactivePower Q1=Modelica.ComplexMath.imag(v1*
+          Modelica.ComplexMath.conj(i1)) "Reactive power, side 1";
+      Modelica.SIunits.ApparentPower S1=Modelica.ComplexMath.'abs'(v1*
+          Modelica.ComplexMath.conj(i1)) "Magnitude of complex apparent power, side 1";
+      Real pf1=cos(Modelica.ComplexMath.arg(Complex(P1, Q1))) "Power factor, side 1";
+
+      Modelica.SIunits.Voltage abs_v2=Modelica.ComplexMath.'abs'(v2) "Magnitude of complex voltage v2";
+      Modelica.SIunits.Angle arg_v2=Modelica.ComplexMath.arg(v2) "Argument of complex voltage v2";
+      Modelica.SIunits.Current abs_i2=Modelica.ComplexMath.'abs'(i2) "Magnitude of complex current i2";
+      Modelica.SIunits.Angle arg_i2=Modelica.ComplexMath.arg(i2) "Argument of complex current i2";
+      Modelica.SIunits.ActivePower P2=Modelica.ComplexMath.real(v2*
+          Modelica.ComplexMath.conj(i2)) "Active power, side 2";
+      Modelica.SIunits.ReactivePower Q2=Modelica.ComplexMath.imag(v2*
+          Modelica.ComplexMath.conj(i2)) "Reactive power, side 2";
+      Modelica.SIunits.ApparentPower S2=Modelica.ComplexMath.'abs'(v2*
+          Modelica.ComplexMath.conj(i2)) "Magnitude of complex apparent power, side 2";
+      Real pf2=cos(Modelica.ComplexMath.arg(Complex(P2, Q2))) "Power factor, side 2";
+
       Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin
         pin_p1 "Primary positive pin" annotation (Placement(transformation(
               extent={{-110,40},{-90,60}}), iconTransformation(extent={{-110,40},

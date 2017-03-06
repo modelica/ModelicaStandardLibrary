@@ -425,8 +425,9 @@ ideal AC DC converter</a>, which is used in the
     extends Modelica.Icons.ReleaseNotes;
 
     annotation (Documentation(info="<html>
-<h5>Version 3.2.2, 2017-03-05</h5>
+<h5>Version 3.2.2, 2017-03-06</h5>
 <ul>
+<li>Added polar and power quantities in ideal quasi stationary transformer model, see #2173</li>
 <li>Removed redundant (and not identical) parameter m from
     <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.MutualInductor\">MutualInductor</a>,
     see #2202</li>
