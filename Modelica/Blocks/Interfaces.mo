@@ -554,9 +554,9 @@ Blocks.Discrete.
 
     extends DiscreteBlock;
 
-    Modelica.Blocks.Interfaces.RealInput u "Continuous input signal"
+    discrete Modelica.Blocks.Interfaces.RealInput u "Continuous input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y "Continuous output signal"
+    discrete Modelica.Blocks.Interfaces.RealOutput y "Continuous output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
     annotation (Documentation(info="<html>
 <p>
@@ -573,9 +573,9 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
     parameter Integer nin=1 "Number of inputs";
     parameter Integer nout=1 "Number of outputs";
 
-    Modelica.Blocks.Interfaces.RealInput u[nin] "Continuous input signals"
+    discrete Modelica.Blocks.Interfaces.RealInput u[nin] "Continuous input signals"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y[nout] "Continuous output signals"
+    discrete Modelica.Blocks.Interfaces.RealOutput y[nout] "Continuous output signals"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
     annotation (Documentation(info="<html>
@@ -591,9 +591,9 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
     parameter Integer n=1 "Number of inputs (= number of outputs)";
     extends DiscreteBlock;
 
-    Modelica.Blocks.Interfaces.RealInput u[n] "Continuous input signals"
+    discrete Modelica.Blocks.Interfaces.RealInput u[n] "Continuous input signals"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
-    Modelica.Blocks.Interfaces.RealOutput y[n] "Continuous output signals"
+    discrete Modelica.Blocks.Interfaces.RealOutput y[n] "Continuous output signals"
       annotation (Placement(transformation(extent={{100,-10},{120,10}})));
 
     annotation (Documentation(info="<html>
