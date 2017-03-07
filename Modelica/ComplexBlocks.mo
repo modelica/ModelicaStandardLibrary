@@ -560,7 +560,7 @@ Example:
 
     equation
       y = (if useConjugateInput1 then Modelica.ComplexMath.conj(u1) else u1) -
-        (if useConjugateInput1 then Modelica.ComplexMath.conj(u2) else u2);
+        (if useConjugateInput2 then Modelica.ComplexMath.conj(u2) else u2);
       annotation (
         Documentation(info="<html>
 <p>
