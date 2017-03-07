@@ -197,13 +197,13 @@ equation
             -80},{-80,-110}}, color={0,0,127}));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-      Line(points=  {{0,100},{0,70}}, color=  {0,0,255}),
-      Line(points=  {{0,-70},{0,-100}}, color=  {0,0,255}),
-      Line(points=  {{-80,-100},{-80,-80},{-46,-52}}, color=  {0,0,127}),
-      Line(points=  {{-100,0},{100,0}}, color=  {0,0,255}),
-      Text(lineColor=  {0,0,255}, extent=  {{-150,120},{150,160}}, textString=  "%name"),
-      Line(points=  {{0,70},{0,40}}),
-      Text(extent=  {{-29,-70},{30,-11}}, textString=  "P")}),
+      Line(points = {{0,100},{0,70}}, color = {0,0,255}),
+      Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
+      Line(points = {{-80,-100},{-80,-80},{-46,-52}}, color = {0,0,127}),
+      Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
+      Text(lineColor = {0,0,255}, extent = {{-150,120},{150,160}}, textString = "%name"),
+      Line(points = {{0,70},{0,40}}),
+      Text(extent = {{-29,-70},{30,-11}}, textString = "P")}),
     Documentation(info="<html>
 <p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
@@ -212,6 +212,83 @@ equation
 </ul>
 </html>"));
 end PowerSensor;
+
+model MultiSensor "Sensor to measure current, voltage and power"
+  extends Modelica.Icons.RotationalSensor;
+  Modelica.Electrical.Analog.Interfaces.PositivePin pc
+      "Positive pin, current path"
+    annotation (Placement(transformation(extent={{-90,-10},{-110,10}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin nc
+      "Negative pin, current path"
+    annotation (Placement(transformation(extent={{110,-10},{90,10}})));
+  Modelica.Electrical.Analog.Interfaces.PositivePin pv
+      "Positive pin, voltage path"
+    annotation (Placement(transformation(extent={{-10,110},{10,90}})));
+  Modelica.Electrical.Analog.Interfaces.NegativePin nv
+      "Negative pin, voltage path"
+    annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
+  Modelica.Blocks.Interfaces.RealOutput i(unit="A")
+    "Current as output signal" annotation (Placement(transformation(
+        origin={-60,-110},
+        extent={{10,10},{-10,-10}},
+        rotation=90)));
+  Modelica.Blocks.Interfaces.RealOutput v(unit="V")
+    "Voltage as output signal" annotation (Placement(transformation(
+        origin={60,-110},
+        extent={{10,10},{-10,-10}},
+        rotation=90)));
+  Modelica.Blocks.Interfaces.RealOutput power(unit="W")
+    "Instantaneous power as output signal"
+    annotation (Placement(transformation(
+          origin={-110,-60},
+          extent={{-10,10},{10,-10}},
+          rotation=180)));
+equation
+  pc.i + nc.i = 0;
+  pc.v - nc.v = 0;
+  pv.i = 0;
+  nv.i = 0;
+  i = pc.i;
+  v = pv.v - nv.v;
+  power = v*i;
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+      Line(points = {{0,100},{0,70}}, color = {0,0,255}),
+      Line(points = {{0,-70},{0,-100}}, color = {0,0,255}),
+      Line(points = {{-100,0},{100,0}}, color = {0,0,255}),
+      Line(points = {{0,70},{0,40}}),
+        Text(
+          extent={{-100,-60},{100,-20}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Line(points={{-100,-60},{-80,-60},{-56,-42}},
+                                                   color={28,108,200}),
+        Line(points={{-60,-100},{-60,-80},{-42,-56}},
+                                                   color={28,108,200}),
+        Line(points={{60,-100},{60,-80},{42,-56}},
+                                                color={28,108,200}),
+        Text(
+          extent={{-100,-40},{-60,-80}},
+          lineColor={28,108,200},
+          textString="p"),
+        Text(
+          extent={{-80,-60},{-40,-100}},
+          lineColor={28,108,200},
+          textString="i"),
+        Text(
+          extent={{40,-60},{80,-100}},
+          lineColor={28,108,200},
+          textString="v")}),
+    Documentation(info="<html>
+<p>This multi sensor measures current, voltage and instantaneous electrical power of a singlephase system and has a separated voltage and current path. 
+The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. 
+The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>20170306</i> first implementation by Anton Haumer</li>
+</ul>
+</html>"));
+end MultiSensor;
   annotation (
     Documentation(info="<html>
 <p>This package contains potential, voltage, and current sensors. The sensors can be used to convert voltages or currents into real signal values o be connected to components of the Blocks package. The sensors are designed in such a way that they do not influence the electrical behavior.</p>

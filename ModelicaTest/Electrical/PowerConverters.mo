@@ -261,8 +261,8 @@ package PowerConverters
           color={0,0,255}));
       connect(pulse2m.ac, rectifier.ac) annotation (Line(points={{-40,0},{-60,0},
               {-60,20},{-80,20},{-80,34},{-40,34}}, color={0,0,255}));
-      connect(sineVoltage.plug_p, innerResistor.plug_n) annotation (Line(points
-            ={{-80,-20},{-80,-20},{-80,-14}}, color={0,0,255}));
+      connect(sineVoltage.plug_p, innerResistor.plug_n) annotation (Line(points=
+             {{-80,-20},{-80,-20},{-80,-14}}, color={0,0,255}));
       connect(innerResistor.plug_p, rectifier.ac)
         annotation (Line(points={{-80,6},{-80,34},{-40,34}}, color={0,0,255}));
       annotation (
