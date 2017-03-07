@@ -1,6 +1,6 @@
 /* ModelicaIO.h - Array I/O functions header
 
-   Copyright (C) 2016, Modelica Association
+   Copyright (C) 2016-2017, Modelica Association
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -53,8 +53,50 @@
 #define _Out_
 #endif
 
-void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ int* dim) MODELICA_NONNULLATTR;
-void ModelicaIO_readRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _Out_ double* a, size_t m, size_t n, int verbose) MODELICA_NONNULLATTR;
-int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName, _In_z_ const char* arrayName, _In_ double* a, size_t m, size_t n, int append, _In_z_ const char* version) MODELICA_NONNULLATTR;
+void ModelicaIO_readMatrixSizes(_In_z_ const char* fileName,
+                                _In_z_ const char* matrixName,
+                                _Out_ int* dim) MODELICA_NONNULLATTR;
+  /* Read matrix dimensions from file
+
+     -> fileName: Name of file
+     -> matrixName: Name of matrix
+     -> dim: Output array for number of rows and columns
+  */
+
+void ModelicaIO_readRealMatrix(_In_z_ const char* fileName,
+                               _In_z_ const char* matrixName,
+                               _Out_ double* matrix, size_t m, size_t n,
+                               int verbose) MODELICA_NONNULLATTR;
+  /* Read matrix from file
+
+     -> fileName: Name of file
+     -> matrixName: Name of matrix
+     -> matrix: Output array of dimensions m by n
+     -> m: Number of rows
+     -> n: Number of columns
+     -> verbose: Print message that file is loading
+  */
+
+int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
+                                _In_z_ const char* matrixName,
+                                _In_ double* matrix, size_t m, size_t n,
+                                int append,
+                                _In_z_ const char* version) MODELICA_NONNULLATTR;
+  /* Write matrix to file
+
+     -> fileName: Name of file
+     -> matrixName: Name of matrix
+     -> matrix: Input array of dimensions m by n
+     -> m: Number of rows
+     -> n: Number of columns
+     -> append: File append flag
+                = 1: if matrix is to be appended to (existing) file,
+                = 0: if file is to be newly created
+     -> version: Desired file version
+                 = "4": MATLAB MAT-file of version 4
+                 = "6": MATLAB MAT-file of version 6
+                 = "7": MATLAB MAT-file of version 7
+                 = "7.3": MATLAB MAT-file of version 7.3
+  */
 
 #endif
