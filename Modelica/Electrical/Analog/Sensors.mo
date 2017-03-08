@@ -227,17 +227,17 @@ model MultiSensor "Sensor to measure current, voltage and power"
   Modelica.Electrical.Analog.Interfaces.NegativePin nv
       "Negative pin, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
-  Modelica.Blocks.Interfaces.RealOutput i(unit="A")
+  Modelica.Blocks.Interfaces.RealOutput i(final quantity="ElectricCurrent", final unit="A")
     "Current as output signal" annotation (Placement(transformation(
         origin={-60,-110},
         extent={{10,10},{-10,-10}},
         rotation=90)));
-  Modelica.Blocks.Interfaces.RealOutput v(unit="V")
+  Modelica.Blocks.Interfaces.RealOutput v(final quantity="ElectricPotential", final unit="V")
     "Voltage as output signal" annotation (Placement(transformation(
         origin={60,-110},
         extent={{10,10},{-10,-10}},
         rotation=90)));
-  Modelica.Blocks.Interfaces.RealOutput power(unit="W")
+  Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W")
     "Instantaneous power as output signal"
     annotation (Placement(transformation(
           origin={-110,-60},

@@ -3114,22 +3114,22 @@ This power sensor measures instantaneous electrical power of a multiphase system
     Modelica.Electrical.MultiPhase.Interfaces.NegativePlug nv(final m=m)
         "Negative plug, voltage path"
       annotation (Placement(transformation(extent={{10,-110},{-10,-90}})));
-    Modelica.Blocks.Interfaces.RealOutput i[m](unit="A")
+    Modelica.Blocks.Interfaces.RealOutput i[m](each final quantity="ElectricCurrent", each final unit="A")
       "Current as output signal" annotation (Placement(transformation(
           origin={-60,-110},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Modelica.Blocks.Interfaces.RealOutput v[m](unit="V")
+    Modelica.Blocks.Interfaces.RealOutput v[m](each final quantity="ElectricPotential", each final unit="V")
       "Voltage as output signal" annotation (Placement(transformation(
           origin={60,-110},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Modelica.Blocks.Interfaces.RealOutput power[m](unit="W")
+    Modelica.Blocks.Interfaces.RealOutput power[m](each final quantity="Power", each final unit="W")
       "Instantaneous power as output signal" annotation (Placement(transformation(
           origin={-110,-60},
           extent={{-10,10},{10,-10}},
           rotation=180)));
-    Modelica.Blocks.Interfaces.RealOutput powerTotal(unit="W")
+    Modelica.Blocks.Interfaces.RealOutput powerTotal(final quantity="Power", final unit="W")
       "Sum of instantaneous power as output signal" annotation (Placement(transformation(
           origin={110,-60},
           extent={{10,10},{-10,-10}},
