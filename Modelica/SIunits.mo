@@ -285,7 +285,7 @@ end UsersGuide;
                  "rev/min")
         "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min";
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h")
-        "Velocity in kilometers per hour";
+        "Velocity in kilometres per hour";
       type Time_day = Real (final quantity="Time", final unit="d")
         "Time in days";
       type Time_hour = Real (final quantity="Time", final unit="h")
