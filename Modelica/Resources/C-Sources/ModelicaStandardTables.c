@@ -36,7 +36,6 @@
    The following #define's are available.
 
    NO_FILE_SYSTEM        : A file system is not present (e.g. on dSPACE or xPC).
-   NO_LOCALE             : locale.h is not present (e.g. on AVR).
    DEBUG_TIME_EVENTS     : Trace time events of CombiTimeTable
    DUMMY_FUNCTION_USERTAB: Use a dummy function "usertab"
    NO_TABLE_COPY         : Do not copy table data passed to _init functions
@@ -47,42 +46,22 @@
                            utilized memory (tickets #1110 and #1550).
 
    Release Notes:
+      Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Moved file I/O functions to ModelicaIO (ticket #2192)
+
       Feb. 26, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Fixed definition of uthash_fatal, called by HASH_ADD_KEYPTR in
                      function readTable (ticket #2097)
 
       Feb. 25, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added support of extrapolation for CombiTable1D
-                     Added functions to retrieve minimum and maximum
-                     abscissa values of CombiTable1D
-                     (ticket #2120)
-
-      Feb. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added support for integer and single-precision variable
-                     classes of MATLAB MAT-files (ticket #2106)
-
-      Jan. 31, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Added diagnostic message for (supported) partial read of table
-                     from ASCII text file (ticket #2151)
+                     Added support of extrapolation for CombiTable1D (ticket #1839)
+                     Added functions to retrieve minimum and maximum abscissa
+                     values of CombiTable1D (ticket #2120)
 
       Jan. 27, 2017: by Thomas Beutlich, ESI ITI GmbH
                      Always generate time events for CombiTimeTable with linear
-                     interpolation (analogously to constant segments)
+                     interpolation (similarly to constant segments)
                      (tickets #1627 and #2080)
-
-      Jan. 07, 2017: by Thomas Beutlich, ESI ITI GmbH
-                     Replaced strtok by re-entrant string tokenize function
-                     (ticket #1153)
-
-      Nov. 23, 2016: by Martin Sjölund, SICS East Swedish ICT AB
-                     Added NO_LOCALE define flag, in case the OS does
-                     not have this (for example when using GCC compiler,
-                     but not libc). Also added autoconf detection for
-                     this flag, NO_PID, NO_TIME, and NO_FILE_SYSTEM
-
-      Nov. 21, 2016: by Thomas Beutlich, ESI ITI GmbH
-                     Fixed error handling if a table variable cannot be found in a
-                     MATLAB MAT-file (ticket #2119)
 
       Aug. 10, 2016: by Thomas Beutlich, ESI ITI GmbH
                      Fixed event detection of CombiTimeTable for restarted
@@ -153,22 +132,13 @@
                      Implemented a first version
 */
 
-#if defined(__gnu_linux__) && !defined(NO_FILE_SYSTEM)
-#define _GNU_SOURCE 1
-#endif
 #include "ModelicaStandardTables.h"
+#include "ModelicaIO.h"
 #include "ModelicaUtilities.h"
-#if !defined(NO_FILE_SYSTEM)
-#include <stdio.h>
-#if !defined(NO_LOCALE)
-#include <locale.h>
-#endif
-#include "ModelicaMatIO.h"
-#if defined(TABLE_SHARE)
+#if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 #include "uthash.h"
 #undef uthash_fatal /* Ensure that nowhere in this file uses uthash_fatal by accident */
 #include "gconstructor.h"
-#endif
 #endif
 #include <float.h>
 #include <math.h>
@@ -298,12 +268,6 @@ typedef struct CombiTable2D {
 #if !defined(MAX_TABLE_DIMENSIONS)
 #define MAX_TABLE_DIMENSIONS (3)
 #endif
-#if !defined(LINE_BUFFER_LENGTH)
-#define LINE_BUFFER_LENGTH (64)
-#endif
-#if !defined(NO_FILE_SYSTEM) && !defined(MATLAB_NAME_LENGTH_MAX)
-#define MATLAB_NAME_LENGTH_MAX (64)
-#endif
 
 /* ----- Internal shortcuts ----- */
 
@@ -332,16 +296,6 @@ BILINEAR(u10, u21, ...) -> y01
 BILINEAR(u11, u20, ...) -> y10
 BILINEAR(u11, u21, ...) -> y11
 */
-
-#if !defined(NO_FILE_SYSTEM)
-/* Use re-entrant string tokenize function if available */
-#if defined(_POSIX_)
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-#define strtok_r(str, delim, saveptr) strtok_s((str), (delim), (saveptr))
-#else
-#define strtok_r(str, delim, saveptr) strtok((str), (delim))
-#endif
-#endif
 
 #if defined(TABLE_SHARE) && !defined(NO_FILE_SYSTEM)
 typedef struct TableShare {
@@ -468,26 +422,6 @@ static double* readTable(_In_z_ const char* tableName, _In_z_ const char* fileNa
 
      <- RETURN: Pointer to array (row-wise storage) of table values
   */
-
-static double* readMatTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
-                            _Inout_ size_t* nRow, _Inout_ size_t* nCol) MODELICA_NONNULLATTR;
-  /* Read a table from a MATLAB MAT-file using MatIO functions
-
-     <- RETURN: Pointer to array (row-wise storage) of table values
-  */
-
-static double* readTxtTable(_In_z_ const char* tableName, _In_z_ const char* fileName,
-                            _Inout_ size_t* nRow, _Inout_ size_t* nCol) MODELICA_NONNULLATTR;
-  /* Read a table from an ASCII text file
-
-     <- RETURN: Pointer to array (row-wise storage) of table values
-  */
-
-static int readLine(_In_ char** buf, _In_ int* bufLen, _In_ FILE* fp) MODELICA_NONNULLATTR;
-  /* Read line (of unknown and arbitrary length) from an ASCII text file */
-
-static int IsNumber(char* token);
-  /*  Check, whether a token represents a floating-point number */
 #endif /* #if !defined(NO_FILE_SYSTEM) */
 
 static CubicHermite1D* akimaSpline1DInit(_In_ const double* table, size_t nRow,
@@ -3897,8 +3831,6 @@ static void spline1DExtrapolateRight(double x1, double x2, double x3, double x4,
     }
 }
 
-#define TABLE_EX(i, j) tableEx[IDX(i, j, nCol + 3)]
-
 static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCol) {
   /* Reference:
 
@@ -3907,6 +3839,7 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
      Jan. 1974. (http://dx.doi.org/10.1145/360767.360779)
   */
 
+#define TABLE_EX(i, j) tableEx[IDX(i, j, nCol + 3)]
     CubicHermite2D* spline = NULL;
     if (nRow == 2 /* && nCol > 3 */) {
         CubicHermite1D* spline1D;
@@ -4279,9 +4212,8 @@ static CubicHermite2D* spline2DInit(const double* table, size_t nRow, size_t nCo
         free(d2z_dxdy);
     }
     return spline;
-}
-
 #undef TABLE_EX
+}
 
 static void spline2DClose(CubicHermite2D** spline) {
     if (spline != NULL && *spline != NULL) {
@@ -4352,37 +4284,13 @@ static double* readTable(const char* tableName, const char* fileName,
             MUTEX_LOCK();
             HASH_FIND_STR(tableShare, key, iter);
             if (iter == NULL || force) {
-#endif
-                const char* ext;
-                int isMatExt = 0;
-
-                /* Table file can be either ASCII text or binary MATLAB MAT-file */
-                ext = strrchr(fileName, '.');
-                if (ext != NULL) {
-                    if (0 == strncmp(ext, ".mat", 4) ||
-                        0 == strncmp(ext, ".MAT", 4)) {
-                        isMatExt = 1;
-                    }
-                }
-
-                if (verbose == 1) {
-                    /* Print info message, that table / file is loading */
-                    ModelicaFormatMessage("... loading \"%s\" from \"%s\"\n",
-                        tableName, fileName);
-                }
-
-#if defined(TABLE_SHARE)
-                /* Release lock since readMatTable/readTxtTable may fail with
+                /* Release lock since ModelicaIO_readRealTable may fail with
                    ModelicaError
                 */
                 MUTEX_UNLOCK();
 #endif
-                if (isMatExt) {
-                    table = readMatTable(tableName, fileName, nRow, nCol);
-                }
-                else {
-                    table = readTxtTable(tableName, fileName, nRow, nCol);
-                }
+                table = ModelicaIO_readRealTable(fileName, tableName,
+                    nRow, nCol, verbose);
                 if (table == NULL) {
 #if defined(TABLE_SHARE)
                     free(key);
@@ -4450,585 +4358,6 @@ static double* readTable(const char* tableName, const char* fileName,
 #if defined(TABLE_SHARE)
 #undef uthash_fatal
 #endif
-}
-
-static double* readMatTable(const char* tableName, const char* fileName,
-                            size_t* _nRow, size_t* _nCol) {
-    double* table = NULL;
-    if (tableName != NULL && fileName != NULL && _nRow != NULL && _nCol != NULL) {
-        mat_t* mat;
-        matvar_t* matvar;
-        matvar_t* matvarRoot;
-        size_t nRow, nCol;
-        int tableReadError = 0;
-        char* tableNameCopy;
-        char* token;
-        char* nextToken = NULL;
-
-        tableNameCopy = (char*)malloc((strlen(tableName) + 1)*sizeof(char));
-        if (tableNameCopy != NULL) {
-            strcpy(tableNameCopy, tableName);
-        }
-        else {
-            ModelicaError("Memory allocation error\n");
-            return NULL;
-        }
-
-        mat = Mat_Open(fileName, (int)MAT_ACC_RDONLY);
-        if (mat == NULL) {
-            free(tableNameCopy);
-            ModelicaFormatError("Not possible to open file \"%s\": "
-                "No such file or directory\n", fileName);
-            return NULL;
-        }
-
-        token = strtok_r(tableNameCopy, ".", &nextToken);
-        matvarRoot = Mat_VarReadInfo(mat, token == NULL ? tableName : token);
-        if (matvarRoot == NULL) {
-            (void)Mat_Close(mat);
-            if (token == NULL) {
-                free(tableNameCopy);
-                ModelicaFormatError(
-                    "Table variable \"%s\" not found on file \"%s\".\n",
-                    tableName, fileName);
-            }
-            else {
-                char varNameBuf[MATLAB_NAME_LENGTH_MAX];
-                if (strlen(token) > MATLAB_NAME_LENGTH_MAX - 1) {
-                    strncpy(varNameBuf, token, MATLAB_NAME_LENGTH_MAX - 1);
-                    varNameBuf[MATLAB_NAME_LENGTH_MAX - 1] = '\0';
-                    free(tableNameCopy);
-                    ModelicaFormatError(
-                        "Table variable \"%s...\" not found on file \"%s\".\n",
-                        varNameBuf, fileName);
-                }
-                else {
-                    strcpy(varNameBuf, token);
-                    free(tableNameCopy);
-                    ModelicaFormatError(
-                        "Table variable \"%s\" not found on file \"%s\".\n",
-                        varNameBuf, fileName);
-                }
-            }
-            return NULL;
-        }
-
-        matvar = matvarRoot;
-        token = strtok_r(NULL, ".", &nextToken);
-        /* Get field while matvar is of struct class and of 1x1 size */
-        while (token != NULL && matvar != NULL) {
-            if (matvar->class_type == MAT_C_STRUCT && matvar->rank == 2 &&
-                matvar->dims[0] == 1 && matvar->dims[1] == 1) {
-                matvar = Mat_VarGetStructField(matvar, (void*)token, MAT_BY_NAME, 0);
-                token = strtok_r(NULL, ".", &nextToken);
-            }
-            else {
-                matvar = NULL;
-                break;
-            }
-        }
-        free(tableNameCopy);
-
-        if (matvar == NULL) {
-            Mat_VarFree(matvarRoot);
-            (void)Mat_Close(mat);
-            ModelicaFormatError(
-                "Table matrix \"%s\" not found on file \"%s\".\n", tableName,
-                fileName);
-            return NULL;
-        }
-
-        /* Check if matvar is a matrix */
-        if (matvar->rank != 2) {
-            Mat_VarFree(matvarRoot);
-            (void)Mat_Close(mat);
-            ModelicaFormatError(
-                "Table array \"%s\" has not the required rank 2.\n", tableName);
-            return NULL;
-        }
-
-        /* Check if variable class of matvar is numeric (and thus non-sparse) */
-        if (matvar->class_type != MAT_C_DOUBLE && matvar->class_type != MAT_C_SINGLE &&
-            matvar->class_type != MAT_C_INT8 && matvar->class_type != MAT_C_UINT8 &&
-            matvar->class_type != MAT_C_INT16 && matvar->class_type != MAT_C_UINT16 &&
-            matvar->class_type != MAT_C_INT32 && matvar->class_type != MAT_C_UINT32 &&
-            matvar->class_type != MAT_C_INT64 && matvar->class_type != MAT_C_UINT64) {
-            Mat_VarFree(matvarRoot);
-            (void)Mat_Close(mat);
-            ModelicaFormatError("Table matrix \"%s\" has not the required "
-                "numeric variable class.\n", tableName);
-            return NULL;
-        }
-        matvar->class_type = MAT_C_DOUBLE;
-
-        /* Check if matvar is purely real-valued */
-        if (matvar->isComplex) {
-            Mat_VarFree(matvarRoot);
-            (void)Mat_Close(mat);
-            ModelicaFormatError("Table matrix \"%s\" must not be complex.\n",
-                tableName);
-            return NULL;
-        }
-
-        table = (double*)malloc(matvar->dims[0]*matvar->dims[1]*sizeof(double));
-        if (table == NULL) {
-            Mat_VarFree(matvarRoot);
-            (void)Mat_Close(mat);
-            ModelicaError("Memory allocation error\n");
-            return NULL;
-        }
-
-        nRow = matvar->dims[0];
-        nCol = matvar->dims[1];
-        {
-            int start[2] = {0, 0};
-            int stride[2] = {1, 1};
-            int edge[2];
-            edge[0] = (int)nRow;
-            edge[1] = (int)nCol;
-            tableReadError = Mat_VarReadData(mat, matvar, table, start, stride, edge);
-        }
-
-        Mat_VarFree(matvarRoot);
-        (void)Mat_Close(mat);
-
-        if (tableReadError == 0) {
-            /* Array is stored column-wise -> need to transpose */
-            transpose(table, nRow, nCol);
-            *_nRow = nRow;
-            *_nCol = nCol;
-        }
-        else {
-            free(table);
-            *_nRow = 0;
-            *_nCol = 0;
-            ModelicaFormatError(
-                "Error when reading numeric data of matrix \"%s(%lu,%lu)\" "
-                "from file \"%s\"\n", tableName, (unsigned long)nRow,
-                (unsigned long)nCol, fileName);
-            return NULL;
-        }
-    }
-    return table;
-}
-
-#define DELIM_TABLE_HEADER " \t(,)\r"
-#define DELIM_TABLE_NUMBER " \t,;\r"
-
-static int IsNumber(char* token) {
-    int foundExponentSign = 0;
-    int foundExponent = 0;
-    int foundDec = 0;
-    int isNumber = 1;
-    int k = 0;
-
-    if (token[0] == '-' || token[0] == '+') {
-        k = 1;
-    }
-    else {
-        k = 0;
-    }
-    while (token[k] != '\0') {
-        if (token[k] >= '0' && token[k] <= '9') {
-            k++;
-        }
-        else if (token[k] == '.' && foundDec == 0 &&
-            foundExponent == 0 && foundExponentSign == 0) {
-            foundDec = 1;
-            k++;
-        }
-        else if ((token[k] == 'e' || token[k] == 'E') &&
-            foundExponent == 0) {
-            foundExponent = 1;
-            k++;
-        }
-        else if ((token[k] == '-' || token[k] == '+') &&
-            foundExponent == 1 && foundExponentSign == 0) {
-            foundExponentSign = 1;
-            k++;
-        }
-        else {
-            isNumber = 0;
-            break;
-        }
-    }
-    return isNumber;
-}
-
-static double* readTxtTable(const char* tableName, const char* fileName,
-                            size_t* _nRow, size_t* _nCol) {
-    double* table = NULL;
-    if (tableName != NULL && fileName != NULL && _nRow != NULL && _nCol != NULL) {
-        char* buf;
-        int bufLen = LINE_BUFFER_LENGTH;
-        FILE* fp;
-        int foundTable = 0;
-        int tableReadError;
-        unsigned long nRow = 0;
-        unsigned long nCol = 0;
-        unsigned long lineNo = 1;
-#if defined(NO_LOCALE)
-        const char * const dec = ".";
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-        _locale_t loc;
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
-        locale_t loc;
-#else
-        char* dec;
-#endif
-
-        fp = fopen(fileName, "r");
-        if (fp == NULL) {
-            ModelicaFormatError("Not possible to open file \"%s\": "
-                "No such file or directory\n", fileName);
-            return NULL;
-        }
-
-        buf = (char*)malloc(LINE_BUFFER_LENGTH*sizeof(char));
-        if (buf == NULL) {
-            fclose(fp);
-            ModelicaError("Memory allocation error\n");
-            return NULL;
-        }
-
-        /* Read file header */
-        if ((tableReadError = readLine(&buf, &bufLen, fp)) != 0) {
-            free(buf);
-            fclose(fp);
-            if (tableReadError < 0) {
-                ModelicaFormatError(
-                    "Error reading first line from file \"%s\": "
-                    "End-Of-File reached.\n", fileName);
-            }
-            return NULL;
-        }
-
-        /* Expected file header format: "#1" */
-        if (0 != strncmp(buf, "#1", 2)) {
-            size_t len = strlen(buf);
-            fclose(fp);
-            if (len == 0) {
-                free(buf);
-                ModelicaFormatError(
-                    "Error reading format and version information in first "
-                    "line of file \"%s\": \"#1\" expected.\n", fileName);
-            }
-            else if (len == 1) {
-                char c0 = buf[0];
-                free(buf);
-                ModelicaFormatError(
-                    "Error reading format and version information in first "
-                    "line of file \"%s\": \"#1\" expected, but \"%c\" found.\n",
-                    fileName, c0);
-            }
-            else {
-                char c0 = buf[0];
-                char c1 = buf[1];
-                free(buf);
-                ModelicaFormatError(
-                    "Error reading format and version information in first "
-                    "line of file \"%s\": \"#1\" expected, but \"%c%c\" "
-                    "found.\n", fileName, c0, c1);
-            }
-            return NULL;
-        }
-
-#if defined(NO_LOCALE)
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-        loc = _create_locale(LC_NUMERIC, "C");
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
-        loc = newlocale(LC_NUMERIC, "C", NULL);
-#else
-        dec = localeconv()->decimal_point;
-#endif
-
-        /* Loop over lines of file */
-        while (readLine(&buf, &bufLen, fp) == 0) {
-            char* token;
-            char* endptr;
-            char* nextToken = NULL;
-
-            lineNo++;
-            /* Expected table header format: "dataType tableName(nRow,nCol)" */
-            token = strtok_r(buf, DELIM_TABLE_HEADER, &nextToken);
-            if (token == NULL) {
-                continue;
-            }
-            if ((0 != strcmp(token, "double")) && (0 != strcmp(token, "float"))) {
-                continue;
-            }
-            token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
-            if (token == NULL) {
-                continue;
-            }
-            if (0 == strcmp(token, tableName)) {
-                foundTable = 1;
-            }
-            else {
-                continue;
-            }
-            token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
-            if (token == NULL) {
-                continue;
-            }
-#if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
-            nRow = (unsigned long)_strtol_l(token, &endptr, 10, loc);
-#elif !defined(NO_LOCALE) && (defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3))
-            nRow = (unsigned long)strtol_l(token, &endptr, 10, loc);
-#else
-            nRow = (unsigned long)strtol(token, &endptr, 10);
-#endif
-            if (*endptr != 0) {
-                continue;
-            }
-            token = strtok_r(NULL, DELIM_TABLE_HEADER, &nextToken);
-            if (token == NULL) {
-                continue;
-            }
-#if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
-            nCol = (unsigned long)_strtol_l(token, &endptr, 10, loc);
-#elif !defined(NO_LOCALE) && (defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3))
-            nCol = (unsigned long)strtol_l(token, &endptr, 10, loc);
-#else
-            nCol = (unsigned long)strtol(token, &endptr, 10);
-#endif
-            if (*endptr != 0) {
-                continue;
-            }
-
-            { /* foundTable == 1 */
-                size_t i = 0;
-                size_t j = 0;
-
-                table = (double*)malloc(nRow*nCol*sizeof(double));
-                if (table == NULL) {
-                    *_nRow = 0;
-                    *_nCol = 0;
-                    free(buf);
-                    fclose(fp);
-#if defined(NO_LOCALE)
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-                    _free_locale(loc);
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
-                    freelocale(loc);
-#endif
-                    ModelicaError("Memory allocation error\n");
-                    return table;
-                }
-
-                /* Loop over rows and store table row-wise */
-                while (tableReadError == 0 && i < nRow) {
-                    int k = 0;
-
-                    lineNo++;
-                    if ((tableReadError = readLine(&buf, &bufLen, fp)) != 0) {
-                        break;
-                    }
-                    /* Ignore leading white space */
-                    while (k < bufLen - 1) {
-                        if (buf[k] != ' ' && buf[k] != '\t') {
-                            break;
-                        }
-                        k++;
-                    }
-                    if (buf[k] == '\0' || buf[k] == '#') {
-                        /* Skip empty or comment line */
-                        continue;
-                    }
-                    nextToken = NULL;
-                    token = strtok_r(&buf[k], DELIM_TABLE_NUMBER, &nextToken);
-                    while (token != NULL && i < nRow && j < nCol) {
-                        if (token[0] == '#') {
-                            /* Skip trailing comment line */
-                            break;
-                        }
-#if !defined(NO_LOCALE) && (defined(_MSC_VER) && _MSC_VER >= 1400)
-                        TABLE(i, j) = _strtod_l(token, &endptr, loc);
-                        if (*endptr != 0) {
-                            tableReadError = 1;
-                        }
-#elif !defined(NO_LOCALE) && (defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3))
-                        TABLE(i, j) = strtod_l(token, &endptr, loc);
-                        if (*endptr != 0) {
-                            tableReadError = 1;
-                        }
-#else
-                        if (*dec == '.') {
-                            TABLE(i, j) = strtod(token, &endptr);
-                        }
-                        else if (NULL == strchr(token, '.')) {
-                            TABLE(i, j) = strtod(token, &endptr);
-                        }
-                        else {
-                            char* token2 = (char*)malloc(
-                                (strlen(token) + 1)*sizeof(char));
-                            if (token2 != NULL) {
-                                char* p;
-                                strcpy(token2, token);
-                                p = strchr(token2, '.');
-                                *p = *dec;
-                                TABLE(i, j) = strtod(token2, &endptr);
-                                if (*endptr != 0) {
-                                    tableReadError = 1;
-                                }
-                                free(token2);
-                            }
-                            else {
-                                *_nRow = 0;
-                                *_nCol = 0;
-                                free(buf);
-                                fclose(fp);
-                                tableReadError = 1;
-                                ModelicaError("Memory allocation error\n");
-                                break;
-                            }
-                        }
-#endif
-                        if (++j == nCol) {
-                            i++; /* Increment row index */
-                            j = 0; /* Reset column index */
-                        }
-                        if (tableReadError == 0) {
-                            token = strtok_r(NULL, DELIM_TABLE_NUMBER, &nextToken);
-                            continue;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    /* Check for trailing non-comment character */
-                    if (token != NULL && token[0] != '#') {
-                        tableReadError = 1;
-                        /* Check for trailing number (on same line) */
-                        if (i == nRow && 1 == IsNumber(token)) {
-                            tableReadError = 2;
-                        }
-                        break;
-                    }
-                    /* Extra check for partial table read */
-                    else if (NULL == token && 0 == tableReadError && i == nRow) {
-                        unsigned long lineNoPartial = lineNo;
-                        int tableReadPartial = 0;
-                        while (readLine(&buf, &bufLen, fp) == 0) {
-                            lineNoPartial++;
-                            /* Ignore leading white space */
-                            while (k < bufLen - 1) {
-                                if (buf[k] != ' ' && buf[k] != '\t') {
-                                    break;
-                                }
-                                k++;
-                            }
-                            if (buf[k] == '\0' || buf[k] == '#') {
-                                /* Skip empty or comment line */
-                                continue;
-                            }
-                            nextToken = NULL;
-                            token = strtok_r(&buf[k], DELIM_TABLE_NUMBER, &nextToken);
-                            if (NULL != token) {
-                                if (1 == IsNumber(token)) {
-                                    tableReadPartial = 1;
-                                }
-                                /* Else, it is not a number: No further check
-                                   is performed, if legal or not
-                                */
-                            }
-                            break;
-                        }
-                        if (1 == tableReadPartial) {
-                            ModelicaFormatMessage(
-                                "The table dimensions of matrix \"%s(%lu,%lu)\" from file "
-                                "\"%s\" do not match the actual table size (line %lu).\n",
-                                tableName, nRow, nCol, fileName, lineNoPartial);
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-
-        free(buf);
-        fclose(fp);
-#if defined(NO_LOCALE)
-#elif defined(_MSC_VER) && _MSC_VER >= 1400
-        _free_locale(loc);
-#elif defined(__GLIBC__) && defined(__GLIBC_MINOR__) && ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= (2 << 16) + 3)
-        freelocale(loc);
-#endif
-        if (foundTable == 0) {
-            ModelicaFormatError(
-                "Table matrix \"%s\" not found on file \"%s\".\n",
-                tableName, fileName);
-            return table;
-        }
-
-        if (tableReadError == 0) {
-            *_nRow = (size_t)nRow;
-            *_nCol = (size_t)nCol;
-        }
-        else {
-            free(table);
-            table = NULL;
-            *_nRow = 0;
-            *_nCol = 0;
-            if (tableReadError == EOF) {
-                ModelicaFormatError(
-                    "End-of-file reached when reading numeric data of matrix "
-                    "\"%s(%lu,%lu)\" from file \"%s\"\n", tableName, nRow,
-                    nCol, fileName);
-            }
-            else if (tableReadError == 2) {
-                ModelicaFormatError(
-                    "The table dimensions of matrix \"%s(%lu,%lu)\" from file "
-                    "\"%s\" do not match the actual table size (line %lu).\n",
-                    tableName, nRow, nCol, fileName, lineNo);
-            }
-            else {
-                ModelicaFormatError(
-                    "Error in line %lu when reading numeric data of matrix "
-                    "\"%s(%lu,%lu)\" from file \"%s\"\n", lineNo, tableName,
-                    nRow, nCol, fileName);
-            }
-        }
-    }
-    return table;
-}
-
-#undef DELIM_TABLE_HEADER
-#undef DELIM_TABLE_NUMBER
-
-static int readLine(char** buf, int* bufLen, FILE* fp) {
-    char* offset;
-    int oldBufLen;
-
-    if (fgets(*buf, *bufLen, fp) == NULL) {
-        return EOF;
-    }
-
-    do {
-        char* p;
-        char* tmp;
-
-        if ((p = strchr(*buf, '\n')) != NULL) {
-            *p = '\0';
-            return 0;
-        }
-
-        oldBufLen = *bufLen;
-        *bufLen *= 2;
-        tmp = (char*)realloc(*buf, (size_t)*bufLen);
-        if (tmp == NULL) {
-            fclose(fp);
-            free(*buf);
-            ModelicaError("Memory allocation error\n");
-            return 1;
-        }
-        *buf = tmp;
-        offset = &((*buf)[oldBufLen - 1]);
-
-    } while (fgets(offset, oldBufLen + 1, fp));
-
-    return 0;
 }
 #endif /* #if !defined(NO_FILE_SYSTEM) */
 

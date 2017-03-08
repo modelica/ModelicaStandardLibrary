@@ -146,14 +146,14 @@ initialization definition.
             columns,
             size(columns, 1),
             smoothness,
-            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table where first column is time"
       extends Modelica.Icons.Function;
       input ExternalCombiTimeTable externalCombiTimeTable;
     external"C" ModelicaStandardTables_CombiTimeTable_close(
-        externalCombiTimeTable) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+        externalCombiTimeTable) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end destructor;
 
   end ExternalCombiTimeTable;
@@ -180,14 +180,14 @@ initialization definition.
             columns,
             size(columns, 1),
             smoothness,
-            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+            extrapolation) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 1-dim. table defined by matrix"
       extends Modelica.Icons.Function;
       input ExternalCombiTable1D externalCombiTable1D;
     external"C" ModelicaStandardTables_CombiTable1D_close(externalCombiTable1D)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end destructor;
 
   end ExternalCombiTable1D;
@@ -209,14 +209,14 @@ initialization definition.
             table,
             size(table, 1),
             size(table, 2),
-            smoothness) annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+            smoothness) annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end constructor;
 
     function destructor "Terminate 2-dim. table defined by matrix"
       extends Modelica.Icons.Function;
       input ExternalCombiTable2D externalCombiTable2D;
     external"C" ModelicaStandardTables_CombiTable2D_close(externalCombiTable2D)
-        annotation (Library={"ModelicaStandardTables", "ModelicaMatIO", "zlib"});
+        annotation (Library={"ModelicaStandardTables", "ModelicaIO", "ModelicaMatIO", "zlib"});
     end destructor;
 
   end ExternalCombiTable2D;

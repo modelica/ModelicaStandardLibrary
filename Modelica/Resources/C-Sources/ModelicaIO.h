@@ -1,6 +1,6 @@
 /* ModelicaIO.h - Array I/O functions header
 
-   Copyright (C) 2016-2017, Modelica Association
+   Copyright (C) 2016-2017, Modelica Association and ESI ITI GmbH
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,10 @@
       Modelica.Utilities.Streams.writeRealMatrix
 
    Release Notes:
+      Mar. 08, 2017: by Thomas Beutlich, ESI ITI GmbH
+                     Added ModelicaIO_readRealTable from ModelicaStandardTables
+                     (ticket #2192)
+
       Mar. 03, 2016: by Thomas Beutlich, ITI GmbH and Martin Otter, DLR
                      Implemented a first version (ticket #1856)
 */
@@ -50,6 +54,7 @@
 #if !defined(__ATTR_SAL)
 #define _In_
 #define _In_z_
+#define _Inout_
 #define _Out_
 #endif
 
@@ -97,6 +102,22 @@ int  ModelicaIO_writeRealMatrix(_In_z_ const char* fileName,
                  = "6": MATLAB MAT-file of version 6
                  = "7": MATLAB MAT-file of version 7
                  = "7.3": MATLAB MAT-file of version 7.3
+  */
+
+double* ModelicaIO_readRealTable(_In_z_ const char* fileName,
+                                 _In_z_ const char* matrixName,
+                                 _Out_ size_t* m, _Out_ size_t* n,
+                                 int verbose) MODELICA_NONNULLATTR;
+  /* Read matrix and its dimensions from file
+     Note: Only called from ModelicaStandardTables, but impossible to be called
+     from a Modelica environment
+
+     -> fileName: Name of file
+     -> matrixName: Name of matrix
+     -> m: Number of rows
+     -> n: Number of columns
+     -> verbose: Print message that file is loading
+     <- RETURN: Array of dimensions m by n
   */
 
 #endif
